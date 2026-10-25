@@ -30,16 +30,17 @@ abandon, pedepse dure, limbaj urât, stereotipuri, mărci comerciale, personaje 
 ## 3. Lio — personajul site-ului
 
 Lio este mascota site-ului: **„Lio îți citește o poveste”**. Lio poate fi eroul poveștii sau poate apărea
-ca prieten/ghid. Dacă apare, trebuie desenat **mereu la fel**:
+ca prieten/ghid. Este un personaj de desen animat pentru cei mici: cap mare și rotund, ochi mari și strălucitori,
+zâmbet blând, mereu prietenos. Dacă apare, trebuie desenat **mereu la fel**:
 
-> **Lio:** un pui de leu mic, rotunjor și prietenos; blană galben-aurie; coamă scurtă, pufoasă,
+> **Lio:** un pui de leu mic, rotunjor și prietenos, cu proporții de bebeluș (capul cât jumătate din corp); blană galben-aurie; coamă scurtă, pufoasă,
 > portocaliu-caramel; ochi mari, rotunzi, căprui-închis cu sclipiri albe; obraji rozalii; nas mic maro în
 > formă de inimioară; urechi rotunde; poartă mereu o **eșarfă turcoaz cu steluțe galbene**; coada are un smoc
 > caramel la vârf. Merge pe două lăbuțe, cu înălțimea și energia unui copil de 4 ani. Este curios, blând și curajos.
 
 Descriere în engleză (pentru generatoarele de imagini):
 
-> *Lio: a small, chubby, friendly lion cub with golden-yellow fur, a short fluffy caramel-orange mane, big round
+> *Lio: a small, chubby, friendly cartoon lion cub with baby proportions (big round head about half of his height), golden-yellow fur, a short fluffy caramel-orange mane, big round
 > dark-brown eyes with white sparkles, rosy cheeks, a small brown heart-shaped nose, round ears, always wearing a
 > turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child.*
 
@@ -69,8 +70,8 @@ Scene: <ce se întâmplă pe această pagină>.
 
 - **Nu trebuie generată de AI-ul care scrie povestea.** Vocea se generează **automat** de GitHub Actions
   (cu `edge-tts`, gratuit) după ce povestea este urcată în repository.
-- Vocea implicită: **`ro-RO-AlinaNeural`** (feminină, caldă). Alternativă: **`ro-RO-EmilNeural`** (masculină).
-  Se alege prin câmpul `voice` din `story.json`.
+- Fiecare poveste primește **ambele voci**: **feminină** (`ro-RO-AlinaNeural`) și **masculină** (`ro-RO-EmilNeural`).
+  Cel care citește alege vocea din site.
 - Dacă fișierele audio lipsesc, site-ul citește textul cu vocea română a browserului.
 - Pentru o citire bună: scrie numerele în litere („trei iepurași”), evită abrevierile și emoji-urile în text.
 
@@ -86,9 +87,11 @@ public/stories/<id>/
 │   ├── pagina-01.webp
 │   ├── pagina-02.webp
 │   └── …
-└── audio/              ← generat AUTOMAT, nu îl crea manual
+└── audio/              ← generat AUTOMAT (feminin/ și masculin/), nu îl crea manual
 ```
 
+- **Fiecare poveste are obligatoriu un titlu** (`title`): scurt (2–6 cuvinte), cald, ușor de citit de un părinte,
+  de preferat cu numele eroului (ex.: „Lio și steluța căzătoare”). Titlul apare în bibliotecă, pe copertă și în cititor.
 - `<id>` = titlul fără diacritice, cu litere mici și cratime: `lio-si-steluta-cazatoare`.
 - Imaginile se numesc `coperta.*` și `pagina-01.*`, `pagina-02.*` … (două cifre).
 - **Nu edita** `public/stories/index.json` — este generat automat.
@@ -102,7 +105,6 @@ public/stories/<id>/
   "summary": "O propoziție-două despre poveste, pentru biblioteca site-ului.",
   "age": "3-7",
   "moral": "Când ajuți un prieten, drumurile grele devin ușoare.",
-  "voice": "ro-RO-AlinaNeural",
   "created": "2026-10-25",
   "tags": ["prietenie", "curaj", "noapte"],
   "illustrationStyle": "Children's picture book illustration, soft digital watercolor, ...",

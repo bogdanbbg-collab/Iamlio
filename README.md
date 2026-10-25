@@ -14,11 +14,19 @@ AI-ul trebuie să respecte [`REGULI_POVESTI.md`](REGULI_POVESTI.md) (fișierul [
 `public/stories/<id>/`. După push, GitHub Actions face restul:
 
 1. verifică povestea după reguli;
-2. generează vocea în română cu `edge-tts` (gratuit; voce caldă `ro-RO-AlinaNeural` sau `ro-RO-EmilNeural`);
+2. generează vocea în română cu `edge-tts` (gratuit), **în două variante**: feminină (`ro-RO-AlinaNeural`)
+   și masculină (`ro-RO-EmilNeural`) — cititorul alege din site;
 3. actualizează biblioteca;
 4. urcă site-ul pe host prin **FTPS**.
 
 Dacă fișierele audio lipsesc, site-ul citește textul cu vocea română a browserului.
+
+## Contorul „citită de X ori”
+
+`public/api/citiri.php` numără de câte ori a fost deschisă fiecare poveste (o dată pe sesiune de browser).
+Are nevoie de **PHP pe host** (orice hosting obișnuit cu cPanel are). Numerele se salvează în
+`public/api/data/citiri.json` pe server; fișierul nu e în repository și nu e suprascris la publicare.
+Dacă hostul nu are PHP, site-ul funcționează normal, doar fără contor.
 
 ## Conectarea la host (FTPS)
 
@@ -39,7 +47,7 @@ Apoi rulează din nou workflow-ul **Publică site-ul** din tab-ul **Actions** (s
 ```bash
 python3 scripts/stories.py validate
 python3 scripts/stories.py index
-python3 -m http.server -d public 8000
+php -S localhost:8000 -t public      # sau: python3 -m http.server -d public 8000 (fără contor)
 ```
 
 Deschide http://localhost:8000.

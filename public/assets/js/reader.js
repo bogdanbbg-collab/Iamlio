@@ -15,6 +15,7 @@
   var nextBtn = document.getElementById("next-btn");
   var playBtn = document.getElementById("play-btn");
   var autoBtn = document.getElementById("auto-btn");
+  var readsEl = document.getElementById("story-reads");
 
   var items = [];
   var sheets = [];
@@ -22,28 +23,12 @@
   var busy = false;
 
   var reading = false;
-  var autoTurn = readSetting("iamlio-autoturn", "1") === "1";
+  var autoTurn = Iamlio.readSetting("iamlio-autoturn", "1") === "1";
   var manifest = null;
   var audio = new Audio();
   var playToken = 0;
-  var speechVoice = null;
 
   // ---------- utilitare ----------
-
-  function readSetting(key, fallback) {
-    try {
-      var value = localStorage.getItem(key);
-      return value === null ? fallback : value;
-    } catch (e) {
-      return fallback;
-    }
-  }
-
-  function writeSetting(key, value) {
-    try {
-      localStorage.setItem(key, value);
-    } catch (e) { /* stocarea poate lipsi; nu e esențială */ }
-  }
 
   function el(tag, className, text) {
     var node = document.createElement(tag);
@@ -114,6 +99,7 @@
       front.appendChild(coverArt);
       var coverText = el("div", "sheet-text cover-text");
       coverText.appendChild(el("h2", null, item.title));
+      coverText.appendChild(el("p", "cover-reads"));
       coverText.appendChild(el("p", "cover-hint", "Dă pagina sau apasă pe Lio ca să-ți citească."));
       front.appendChild(coverText);
     } else if (item.kind === "page") {
@@ -294,21 +280,13 @@
 
   // ---------- vocea lui Lio ----------
 
-  function pickVoice() {
-    if (!("speechSynthesis" in window)) return;
-    var voices = speechSynthesis.getVoices().filter(function (v) {
-      return /^ro/i.test(v.lang);
-    });
-    var preferred = voices.filter(function (v) {
-      return /alina|ioana|emil|google|natural/i.test(v.name);
-    });
-    speechVoice = preferred[0] || voices[0] || null;
+  function talking(on) {
+    playBtn.classList.toggle("is-talking", on);
   }
 
-  if ("speechSynthesis" in window) {
-    pickVoice();
-    speechSynthesis.addEventListener("voiceschanged", pickVoice);
-  }
+  audio.addEventListener("playing", function () { talking(true); });
+  audio.addEventListener("pause", function () { talking(false); });
+  audio.addEventListener("ended", function () { talking(false); });
 
   function stopAudio() {
     playToken++;
@@ -316,28 +294,28 @@
     audio.onerror = null;
     audio.pause();
     if ("speechSynthesis" in window) speechSynthesis.cancel();
+    talking(false);
   }
 
   function speak(text, token) {
-    if (!("speechSynthesis" in window)) {
-      setReading(false);
-      return;
-    }
-    var utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "ro-RO";
-    if (speechVoice) utterance.voice = speechVoice;
-    utterance.rate = 0.9;
-    utterance.pitch = 1.05;
-    utterance.onend = function () { onReadEnd(token); };
-    speechSynthesis.speak(utterance);
+    var started = Iamlio.speakWithBrowser(text, Iamlio.getVoice(), {
+      onstart: function () { if (token === playToken) talking(true); },
+      onend: function () {
+        if (token !== playToken) return;
+        talking(false);
+        onReadEnd(token);
+      }
+    });
+    if (!started) setReading(false);
   }
 
   function playCurrent() {
     stopAudio();
     var token = playToken;
     var item = items[index];
-    if (manifest && manifest[item.audio]) {
-      audio.src = base + "audio/" + item.audio;
+    var voice = Iamlio.getVoice();
+    if (manifest && manifest[voice] && manifest[voice][item.audio]) {
+      audio.src = base + "audio/" + voice + "/" + item.audio;
       audio.onended = function () { onReadEnd(token); };
       audio.onerror = function () { if (token === playToken) speak(item.speech, token); };
       audio.play().catch(function () {
@@ -384,7 +362,7 @@
 
   autoBtn.addEventListener("click", function () {
     autoTurn = !autoTurn;
-    writeSetting("iamlio-autoturn", autoTurn ? "1" : "0");
+    Iamlio.writeSetting("iamlio-autoturn", autoTurn ? "1" : "0");
     updateAutoBtn();
   });
 
@@ -404,7 +382,22 @@
     });
     updateAutoBtn();
     render();
+    Iamlio.countRead(story.id).then(showReads);
   }
+
+  function showReads(counts) {
+    if (!counts) return;
+    var label = Iamlio.readsLabel(counts[storyId] || 0);
+    readsEl.textContent = label;
+    readsEl.hidden = false;
+    var cover = book.querySelector(".cover-reads");
+    if (cover) cover.textContent = label;
+  }
+
+  Iamlio.bindVoiceSwitch(document.querySelector(".voice-switch"), function () {
+    if (reading && !busy) playCurrent();
+  });
+  Iamlio.inlineSvg(document.getElementById("play-lio"), "assets/img/lio-cap.svg");
 
   if (!/^[a-z0-9-]+$/.test(storyId)) {
     showError("Nu am găsit povestea aceasta.");

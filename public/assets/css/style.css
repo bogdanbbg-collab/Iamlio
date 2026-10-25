@@ -89,10 +89,22 @@ body.home {
 }
 
 .hero-lio {
-  width: clamp(140px, 26vw, 260px);
-  height: auto;
+  flex: 0 0 auto;
+  width: clamp(150px, 28vw, 270px);
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
   animation: bob 3.2s ease-in-out infinite;
   transform-origin: bottom center;
+}
+.hero-lio svg, .hero-lio img { width: 100%; height: auto; display: block; }
+.hero-lio.is-jumping { animation: jump .6s ease; }
+
+@keyframes jump {
+  0%, 100% { transform: translateY(0) scale(1); }
+  30% { transform: translateY(-26px) scale(1.04, .97); }
+  60% { transform: translateY(0) scale(1.05, .95); }
 }
 
 @keyframes bob {
@@ -119,7 +131,40 @@ body.home {
   transform: translateY(-50%);
 }
 .bubble h1 { margin: 0 0 4px; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.1; color: var(--orange); }
-.bubble p { margin: 0; font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.4; }
+.bubble p { margin: 0; font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.4; min-height: 2.8em; }
+
+.voice-picker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-top: 14px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.voice-switch {
+  display: inline-flex;
+  padding: 4px;
+  gap: 4px;
+  border-radius: 999px;
+  background: #FFF1DD;
+}
+.voice-switch button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--orange-dark);
+  font: 600 1rem/1 var(--font);
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease;
+}
+.voice-switch button[aria-pressed="true"] { background: var(--orange); color: #fff; }
 
 .library {
   max-width: 1100px;
@@ -130,7 +175,7 @@ body.home {
 
 .story-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
   gap: 22px;
 }
 
@@ -171,6 +216,8 @@ body.home {
 .story-body { padding: 14px 18px 18px; }
 .story-body h3 { margin: 0 0 4px; font-size: 1.35rem; line-height: 1.2; }
 .story-body p { margin: 0; color: var(--ink-soft); line-height: 1.4; }
+.story-body .story-reads { margin: 0 0 6px; color: var(--teal-dark); font-weight: 700; font-size: .95rem; }
+.story-reads::before { content: "★ "; color: var(--gold); }
 .story-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px !important; }
 .story-meta span {
   padding: 2px 10px;
@@ -185,6 +232,7 @@ body.home {
 
 @media (max-width: 600px) {
   .hero { flex-direction: column; text-align: center; gap: 12px; }
+  .voice-picker { justify-content: center; }
   .bubble::before {
     left: 50%;
     top: -14px;
@@ -194,6 +242,13 @@ body.home {
     transform: translateX(-50%);
   }
 }
+
+/* ---------- Animațiile lui Lio (SVG inserat în pagină) ---------- */
+
+.lio-mouth-open { opacity: 0; }
+.is-talking .lio-mouth-open { animation: lio-talk .32s steps(1) infinite; }
+.is-talking .lio-mouth-smile { animation: lio-talk .32s steps(1) infinite reverse; }
+@keyframes lio-talk { 0% { opacity: 1; } 50% { opacity: 0; } }
 
 /* ---------- Cititorul ---------- */
 
@@ -211,20 +266,22 @@ body.reader {
 .reader-bar {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 10px 16px;
+  gap: 10px;
+  padding: 10px max(16px, env(safe-area-inset-right)) 8px max(16px, env(safe-area-inset-left));
   padding-top: max(10px, env(safe-area-inset-top));
 }
 
+.reader-heading { flex: 1; min-width: 0; text-align: center; }
 .reader-title {
-  flex: 1;
   margin: 0;
-  font-size: clamp(1.05rem, 3vw, 1.5rem);
-  text-align: center;
+  font-size: clamp(1.05rem, 2.5vw + .4rem, 1.6rem);
+  line-height: 1.15;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.reader-reads { margin: 0; font-size: .9rem; color: var(--gold); font-weight: 600; line-height: 1.2; }
+.reader-reads::before { content: "★ "; }
 
 .icon-btn, .nav-btn {
   display: grid;
@@ -253,22 +310,27 @@ body.reader {
 .icon-btn[aria-pressed="true"] { background: var(--teal); }
 .nav-btn:disabled { opacity: .3; cursor: default; }
 
+.voice-switch-compact { background: rgba(255, 255, 255, .14); flex: 0 0 auto; }
+.voice-switch-compact button { color: #fff; padding: 0 12px; font-size: 1.05rem; }
+.voice-switch-compact button[aria-pressed="true"] { background: var(--orange); }
+
 .stage {
   flex: 1;
   min-height: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4px 16px;
+  padding: 4px max(16px, env(safe-area-inset-right)) 4px max(16px, env(safe-area-inset-left));
   perspective: 2400px;
 }
 
 .book {
   position: relative;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1100px;
   height: 100%;
-  max-height: 720px;
+  max-height: 1000px;
+  container: book / size;
   touch-action: pan-y;
   user-select: none;
   -webkit-user-select: none;
@@ -328,9 +390,10 @@ body.reader {
 }
 .is-turning .shade { opacity: 1; }
 
+/* Pagina „pe verticală”: imagine sus, text jos. */
 .sheet-art {
   flex: 1 1 auto;
-  min-height: 0;
+  min-height: 34%;
   margin: 0;
   background: var(--paper-edge);
 }
@@ -338,9 +401,11 @@ body.reader {
 
 .sheet-text {
   position: relative;
-  flex: 0 0 auto;
-  padding: 16px 24px 28px 34px;
-  font-size: clamp(1.15rem, 1.6vw + .7rem, 1.75rem);
+  flex: 0 1 auto;
+  max-height: 66%;
+  overflow-y: auto;
+  padding: 3cqh 5cqw 4cqh 7cqw;
+  font-size: clamp(1.2rem, min(4.6cqw, 3.4cqh), 2.3rem);
   font-weight: 500;
   line-height: 1.45;
 }
@@ -348,16 +413,18 @@ body.reader {
 
 .page-num {
   position: absolute;
-  right: 18px;
-  bottom: 6px;
+  right: 14px;
+  bottom: 4px;
   font-size: .9rem;
   font-weight: 700;
   color: var(--orange);
 }
 
 .cover-text { text-align: center; }
-.cover-text h2 { margin: 0; font-size: clamp(1.6rem, 3vw + .8rem, 2.8rem); line-height: 1.1; color: var(--orange); }
-.cover-hint { margin: 6px 0 0 !important; font-size: .7em; color: var(--ink-soft); }
+.cover-text h2 { margin: 0; font-size: 1.6em; line-height: 1.1; color: var(--orange); }
+.cover-reads { margin: 4px 0 0 !important; font-size: .7em; font-weight: 700; color: var(--teal-dark); }
+.cover-reads:empty { display: none; }
+.cover-hint { margin: 4px 0 0 !important; font-size: .7em; color: var(--ink-soft); }
 
 .sheet-end {
   flex: 1;
@@ -365,20 +432,40 @@ body.reader {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 24px;
+  gap: 1.5cqh;
+  padding: 4cqh 5cqw;
   text-align: center;
   background: radial-gradient(circle at 50% 30%, #FFF1DD, var(--paper) 70%);
 }
-.end-lio { width: clamp(110px, 22vh, 200px); height: auto; animation: bob 3.2s ease-in-out infinite; }
-.sheet-end h2 { margin: 0; font-size: clamp(2rem, 5vw, 3rem); color: var(--orange); line-height: 1; }
-.moral { margin: 0; max-width: 520px; font-size: clamp(1.1rem, 2vw + .5rem, 1.6rem); line-height: 1.35; }
-.end-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 12px; }
+.end-lio { width: auto; height: 34cqh; max-height: 260px; }
+.sheet-end h2 { margin: 0; font-size: clamp(1.8rem, min(8cqw, 9cqh), 3.4rem); color: var(--orange); line-height: 1; }
+.moral { margin: 0; max-width: 34em; font-size: clamp(1.05rem, min(4cqw, 4.4cqh), 1.7rem); line-height: 1.35; }
+.end-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 1cqh; }
 
-@media (min-width: 700px) and (min-aspect-ratio: 5/4) {
+/* Pagina „pe orizontală” (tabletă culcată, calculator, telefon culcat): imagine stânga, text dreapta. */
+@container book (min-aspect-ratio: 5/4) {
   .face-front { flex-direction: row; }
-  .sheet-art { flex: 0 0 60%; }
-  .sheet-text { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 28px 32px; }
+  .sheet-art { flex: 0 0 58%; min-height: 0; }
+  .sheet-text {
+    flex: 1;
+    max-height: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4cqh 3.5cqw;
+    font-size: clamp(1rem, min(2.5cqw, 4.6cqh), 2rem);
+  }
+  .sheet-end {
+    display: grid;
+    grid-template-columns: auto minmax(0, 32em);
+    justify-content: center;
+    align-content: center;
+    justify-items: start;
+    gap: 2cqh 5cqw;
+    text-align: left;
+  }
+  .end-lio { grid-row: 1 / 4; height: 52cqh; align-self: center; }
+  .end-actions { justify-content: flex-start; }
 }
 
 .reader-controls {
@@ -386,14 +473,15 @@ body.reader {
   align-items: center;
   justify-content: center;
   gap: 28px;
-  padding: 10px 16px 4px;
+  padding: 10px 16px 2px;
 }
 
 .play-btn {
   position: relative;
-  width: 82px;
-  height: 82px;
-  padding: 6px;
+  flex: 0 0 auto;
+  width: 84px;
+  height: 84px;
+  padding: 4px;
   border: 4px solid #fff;
   border-radius: 50%;
   background: var(--gold);
@@ -402,7 +490,7 @@ body.reader {
   transition: transform .15s ease;
 }
 .play-btn:active { transform: translateY(3px); }
-.play-btn img { width: 100%; height: 100%; }
+.play-lio, .play-lio svg, .play-lio img { display: block; width: 100%; height: 100%; }
 .play-badge {
   position: absolute;
   right: -6px;
@@ -459,7 +547,44 @@ body.reader {
   text-align: center;
 }
 
+/* Telefoane mici */
+@media (max-width: 420px) {
+  .reader-bar { gap: 6px; padding-left: 10px; padding-right: 10px; }
+  .icon-btn { width: 42px; height: 42px; }
+  .voice-switch-compact .voice-label { display: none; }
+  .voice-switch-compact button { padding: 0 9px; }
+  .stage { padding-left: 10px; padding-right: 10px; }
+}
+
+/* Ecrane late (tabletă culcată, calculator): săgețile stau lângă carte. */
+@media (min-width: 900px) and (min-height: 521px) {
+  .stage { padding-left: 96px; padding-right: 96px; }
+  .nav-btn { position: fixed; top: 50%; width: 60px; height: 60px; transform: translateY(-50%); }
+  .nav-prev { left: max(20px, env(safe-area-inset-left)); }
+  .nav-next { right: max(20px, env(safe-area-inset-right)); }
+}
+
+/* Telefon culcat: totul pe margini, cartea ia aproape tot ecranul. */
+@media (orientation: landscape) and (max-height: 520px) {
+  .reader-bar { padding-top: max(4px, env(safe-area-inset-top)); padding-bottom: 4px; }
+  .icon-btn { width: 38px; height: 38px; }
+  .icon-btn svg { width: 22px; height: 22px; }
+  .voice-switch-compact button { min-height: 34px; }
+  .reader-title { font-size: 1.05rem; }
+  .reader-heading { display: flex; justify-content: center; align-items: baseline; gap: 10px; }
+  .stage { padding: 2px 76px max(8px, env(safe-area-inset-bottom)); }
+  .reader-controls { display: contents; }
+  .nav-btn { position: fixed; top: 42%; width: 48px; height: 48px; transform: translateY(-50%); }
+  .nav-prev { left: max(14px, env(safe-area-inset-left)); }
+  .nav-next { right: max(14px, env(safe-area-inset-right)); }
+  .play-btn { position: fixed; right: max(8px, env(safe-area-inset-right)); bottom: max(10px, env(safe-area-inset-bottom)); width: 62px; height: 62px; border-width: 3px; }
+  .play-badge { width: 26px; height: 26px; }
+  .play-badge::before { left: 7px; top: 5px; }
+  .play-btn.is-playing .play-badge::before { left: 5px; top: 4px; }
+  .dots { display: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .sheet, .shade { transition-duration: .01s; }
-  .hero-lio, .end-lio, .play-btn.is-playing { animation: none; }
+  .hero-lio, .hero-lio.is-jumping, .play-btn.is-playing { animation: none; }
 }

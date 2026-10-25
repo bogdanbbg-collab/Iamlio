@@ -22,10 +22,19 @@
 
   <main>
     <section class="hero">
-      <img class="hero-lio" src="assets/img/lio.svg" alt="Lio, puiul de leu cu eșarfă turcoaz" width="260" height="315">
+      <button id="hero-lio" class="hero-lio" type="button" aria-label="Atinge-l pe Lio ca să-ți vorbească">
+        <img src="assets/img/lio.svg" alt="" width="270" height="300">
+      </button>
       <div class="bubble">
         <h1>Bună! Eu sunt Lio.</h1>
-        <p>Alege o poveste și ți-o citesc eu. Dă paginile cu degetul, ca într-o carte adevărată!</p>
+        <p id="lio-says">Alege o poveste și ți-o citesc eu. Dă paginile cu degetul, ca într-o carte adevărată!</p>
+        <div class="voice-picker">
+          <span>Cine citește?</span>
+          <div class="voice-switch" role="group" aria-label="Vocea care citește">
+            <button type="button" data-voice="feminin" title="Voce feminină"><span aria-hidden="true">👩</span> Feminină</button>
+            <button type="button" data-voice="masculin" title="Voce masculină"><span aria-hidden="true">👨</span> Masculină</button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -41,6 +50,7 @@
     <p>Iamlio · povești pentru copii de 3–7 ani</p>
   </footer>
 
+  <script src="assets/js/iamlio.js" defer></script>
   <script src="assets/js/library.js" defer></script>
 </body>
 </html>

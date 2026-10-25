@@ -16,7 +16,14 @@
     <a class="icon-btn" href="./" aria-label="Înapoi la povești">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
     </a>
-    <h1 id="story-title" class="reader-title">Poveste</h1>
+    <div class="reader-heading">
+      <h1 id="story-title" class="reader-title">Poveste</h1>
+      <p id="story-reads" class="reader-reads" hidden></p>
+    </div>
+    <div class="voice-switch voice-switch-compact" role="group" aria-label="Vocea care citește">
+      <button type="button" data-voice="feminin" title="Voce feminină"><span aria-hidden="true">👩</span><span class="voice-label">Ea</span></button>
+      <button type="button" data-voice="masculin" title="Voce masculină"><span aria-hidden="true">👨</span><span class="voice-label">El</span></button>
+    </div>
     <button id="auto-btn" class="icon-btn" type="button" aria-pressed="true" title="Întoarce singur paginile când citește Lio">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.6M20 12a8 8 0 0 1-13.7 5.6"/><path d="M18 3v4h-4M6 21v-4h4"/></svg>
     </button>
@@ -27,19 +34,20 @@
   </main>
 
   <nav class="reader-controls" aria-label="Controale poveste">
-    <button id="prev-btn" class="nav-btn" type="button" aria-label="Pagina anterioară">
+    <button id="prev-btn" class="nav-btn nav-prev" type="button" aria-label="Pagina anterioară">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
     </button>
     <button id="play-btn" class="play-btn" type="button" aria-label="Lio citește povestea">
-      <img src="favicon.svg" alt="" width="64" height="64">
+      <span id="play-lio" class="play-lio"><img src="assets/img/lio-cap.svg" alt=""></span>
       <span class="play-badge" aria-hidden="true"></span>
     </button>
-    <button id="next-btn" class="nav-btn" type="button" aria-label="Pagina următoare">
+    <button id="next-btn" class="nav-btn nav-next" type="button" aria-label="Pagina următoare">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
     </button>
   </nav>
   <div id="dots" class="dots" aria-hidden="true"></div>
 
+  <script src="assets/js/iamlio.js" defer></script>
   <script src="assets/js/reader.js" defer></script>
 </body>
 </html>

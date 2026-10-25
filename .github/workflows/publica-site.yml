@@ -32,7 +32,7 @@ jobs:
         continue-on-error: true
         run: python scripts/stories.py validate
 
-      - name: Generează vocea (edge-tts)
+      - name: Generează vocea feminină și masculină (edge-tts)
         continue-on-error: true
         run: python scripts/stories.py audio
 
@@ -43,7 +43,7 @@ jobs:
         run: |
           git config user.name "iamlio-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/stories
+          git add public/stories public/assets/audio
           if ! git diff --cached --quiet; then
             git commit -m "Voce și bibliotecă actualizate automat"
             git pull --rebase origin "${GITHUB_REF_NAME}"
@@ -61,6 +61,10 @@ jobs:
           protocol: ftps
           local-dir: ./public/
           server-dir: ${{ secrets.FTP_SERVER_DIR || './' }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            api/data/citiri.json
 
       - name: Datele FTPS lipsesc
         if: env.FTP_SERVER == ''

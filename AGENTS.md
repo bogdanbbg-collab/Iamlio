@@ -14,10 +14,14 @@ Regulile se aplică oricărui AI (ChatGPT, Claude, Gemini etc.). Când utilizato
 - `public/` — tot ce se urcă pe host (site-ul propriu-zis)
   - `index.html` + `assets/js/library.js` — biblioteca de povești
   - `poveste.html` + `assets/js/reader.js` — cititorul cu întoarcere de pagină și voce
-  - `assets/css/style.css` — stilurile
+  - `assets/js/iamlio.js` — funcții comune (vocea aleasă, contorul de citiri, Lio animat)
+  - `assets/css/style.css` — stilurile (responsive: telefon, tabletă, calculator)
+  - `assets/img/lio*.svg`, `favicon.svg` — Lio, generat din `scripts/lio_svg.py` (nu edita SVG-urile de mână)
+  - `assets/lio-replici.json` — ce spune Lio când e atins pe pagina principală
+  - `api/citiri.php` — contorul „citită de X ori” (PHP; datele stau în `api/data/citiri.json`, care nu se urcă din repo)
   - `stories/<id>/story.json` + `images/` — poveștile
-  - `stories/<id>/audio/` și `stories/index.json` — **generate automat, nu le edita**
-- `scripts/stories.py` — `validate` | `audio` | `index` | `all`
+  - `stories/<id>/audio/{feminin,masculin}/`, `assets/audio/` și `stories/index.json` — **generate automat, nu le edita**
+- `scripts/stories.py` — `validate` | `audio` (ambele voci) | `index` | `all`
 - `.github/workflows/publica-site.yml` — la fiecare push pe branch-ul principal: validează,
   generează vocea, actualizează biblioteca și urcă `public/` pe host prin FTPS.
 
@@ -25,5 +29,5 @@ Regulile se aplică oricărui AI (ChatGPT, Claude, Gemini etc.). Când utilizato
 
 ```bash
 python3 scripts/stories.py validate   # trebuie să afișeze [OK] pentru fiecare poveste
-python3 -m http.server -d public 8000 # previzualizare locală la http://localhost:8000
+php -S localhost:8000 -t public       # previzualizare locală (cu contor) la http://localhost:8000
 ```

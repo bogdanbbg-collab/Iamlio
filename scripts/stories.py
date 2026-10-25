@@ -3,7 +3,7 @@
 
 Comenzi:
   validate  verifică toate poveștile după REGULI_POVESTI.md
-  audio     generează vocea (mp3) pentru paginile care nu o au încă (edge-tts)
+  audio     generează vocea feminină și masculină (mp3, edge-tts) pentru povești și replicile lui Lio
   index     regenerează public/stories/index.json
   all       validate + audio + index (folosit de GitHub Actions)
 """
@@ -18,9 +18,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 STORIES_DIR = ROOT / "public" / "stories"
 INDEX_FILE = STORIES_DIR / "index.json"
+LIO_LINES_FILE = ROOT / "public" / "assets" / "lio-replici.json"
+LIO_AUDIO_DIR = ROOT / "public" / "assets" / "audio"
 
-ALLOWED_VOICES = {"ro-RO-AlinaNeural", "ro-RO-EmilNeural"}
-DEFAULT_VOICE = "ro-RO-AlinaNeural"
+# Fiecare poveste primește ambele voci; cititorul alege una.
+VOICES = {"feminin": "ro-RO-AlinaNeural", "masculin": "ro-RO-EmilNeural"}
 SPEECH_RATE = "-8%"
 IMAGE_EXTENSIONS = {".webp", ".jpg", ".jpeg", ".png", ".svg"}
 MIN_PAGES, MAX_PAGES = 8, 12
@@ -75,10 +77,6 @@ def validate_story(folder, data):
     if not ID_PATTERN.match(folder.name):
         errors.append("numele folderului trebuie să conțină doar litere mici fără diacritice, cifre și cratime")
 
-    voice = data.get("voice", DEFAULT_VOICE)
-    if voice not in ALLOWED_VOICES:
-        errors.append(f"vocea '{voice}' nu este permisă ({', '.join(sorted(ALLOWED_VOICES))})")
-
     texts = [data.get("title", ""), data.get("summary", ""), data.get("moral", "")]
     check_image(folder, (data.get("cover") or {}).get("image"), "copertă", errors, warnings)
 
@@ -126,24 +124,30 @@ def narration_items(data):
     return items
 
 
-async def generate_story_audio(folder, data):
+async def generate_audio_set(audio_dir, items):
+    """Generează items = [(nume fișier, text)] pentru fiecare voce, doar ce s-a schimbat."""
     import edge_tts
 
-    voice = data.get("voice", DEFAULT_VOICE)
-    audio_dir = folder / "audio"
-    audio_dir.mkdir(exist_ok=True)
     manifest_file = audio_dir / "manifest.json"
     old = json.loads(manifest_file.read_text(encoding="utf-8")) if manifest_file.exists() else {}
     manifest = {}
-    for name, text in narration_items(data):
-        digest = hashlib.sha1(f"{voice}|{SPEECH_RATE}|{text}".encode()).hexdigest()
-        target = audio_dir / name
-        if old.get(name) != digest or not target.exists():
-            print(f"    🔊 {folder.name}/audio/{name}")
-            await edge_tts.Communicate(text, voice, rate=SPEECH_RATE).save(str(target))
-        manifest[name] = digest
-    for stale in set(old) - set(manifest):
-        (audio_dir / stale).unlink(missing_ok=True)
+    for key, voice in VOICES.items():
+        voice_dir = audio_dir / key
+        voice_dir.mkdir(parents=True, exist_ok=True)
+        previous = old.get(key, {}) if isinstance(old.get(key), dict) else {}
+        manifest[key] = {}
+        for name, text in items:
+            digest = hashlib.sha1(f"{voice}|{SPEECH_RATE}|{text}".encode()).hexdigest()
+            target = voice_dir / name
+            if previous.get(name) != digest or not target.exists():
+                print(f"    🔊 {target.relative_to(ROOT)}")
+                await edge_tts.Communicate(text, voice, rate=SPEECH_RATE).save(str(target))
+            manifest[key][name] = digest
+        for stale in voice_dir.glob("*.mp3"):
+            if stale.name not in manifest[key]:
+                stale.unlink()
+    for leftover in audio_dir.glob("*.mp3"):  # format vechi, fără folder pe voce
+        leftover.unlink()
     manifest_file.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
@@ -154,7 +158,12 @@ def cmd_audio():
             print(f"[sărit] {folder.name} (nu trece validarea)")
             continue
         print(f"[audio] {folder.name}")
-        asyncio.run(generate_story_audio(folder, data))
+        asyncio.run(generate_audio_set(folder / "audio", narration_items(data)))
+    if LIO_LINES_FILE.exists():
+        lines = json.loads(LIO_LINES_FILE.read_text(encoding="utf-8"))["replici"]
+        print("[audio] replicile lui Lio")
+        items = [(f"replica-{n:02d}.mp3", text) for n, text in enumerate(lines, start=1)]
+        asyncio.run(generate_audio_set(LIO_AUDIO_DIR, items))
     return 0
 
 
