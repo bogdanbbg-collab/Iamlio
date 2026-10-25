@@ -246,6 +246,7 @@ public/stories/<id>/
 - **Titlul (`title`) e obligatoriu:** scurt (2–7 cuvinte), cald, ușor de spus, de preferat cu numele eroului
   („Lio și steluța căzătoare”). Apare în bibliotecă, pe copertă și în cititor.
 - `<id>` = titlul fără diacritice, cu litere mici și cratime: `lio-si-steluta-cazatoare`.
+  **După publicare, id-ul (numele folderului) nu se mai schimbă**, altfel adresa poveștii nu mai funcționează.
 - **Pornești de la șablon:** `python3 scripts/stories.py new "Titlul poveștii"` creează folderul și `story.json`
   din [`sablon/story.json`](sablon/story.json); dacă nu poți rula comenzi, copiezi tu șablonul. Completezi tot
   ce e marcat `DE COMPLETAT` (verificarea respinge povestea cât timp mai există acest marcaj).

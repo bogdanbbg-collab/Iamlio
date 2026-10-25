@@ -44,17 +44,38 @@ Dacă AI-ul folosit nu poate genera imagini, proiectul le poate genera singur cu
 **Settings → Secrets and variables → Actions → New repository secret** → `OPENAI_API_KEY` (o cheie de la
 platform.openai.com; se plătește separat de abonamentul ChatGPT). Opțional, la **Variables**: `IMAGE_MODEL`
 (implicit `gpt-image-2`), `IMAGE_QUALITY` (`low` / `medium` / `high`, implicit `medium`), `MAX_IMAGES`
-(maximum de imagini pe publicare, implicit 40). Fără cheie, imaginile lipsă apar în raport ca „de corectat”.
+(maximum de imagini pe publicare, implicit 40), `MAX_IMAGES_MONTH` (maximum pe lună calendaristică, implicit 200;
+contorul lunar stă în `rapoarte/buget-imagini.json`). Fără cheie, imaginile lipsă apar în raport ca „de corectat”.
 
 ## Dacă ceva nu merge după o publicare (revenire)
 
-Fiecare publicare corespunde unui commit. Ca să revii la versiunea anterioară: în GitHub, deschide commit-ul
-cu problema → **Revert** (sau `git revert <commit>` și push). Workflow-ul publică automat versiunea corectă.
+- **O poveste deja publicată nu dispare** dacă o modificare nouă a ei e greșită: pe site rămâne ultima ei
+  versiune bună (din istoricul git), iar raportul ei spune ce e de corectat.
+- **Revenire la tot site-ul:** fiecare publicare reușită primește un tag `publicat-AAAALLZZ-OOMMSS`
+  (lista: tab-ul **Code → Tags**). În **Actions → Publică site-ul → Run workflow**, scrie tag-ul la „versiune”
+  și pornește: se republică exact acea versiune, fără să se modifice nimic în repository. Pentru a anula definitiv
+  o modificare: **Revert** pe commit-ul cu problema (sau `git revert <commit>` și push).
+
+## Monitorizare
+
+Workflow-ul **Monitorizare site** verifică site-ul live la fiecare 6 ore (pagina, biblioteca, o poveste, vocea,
+contorul și protecția datelor). Dacă ceva nu merge, deschide un issue în GitHub (primești email); când site-ul
+își revine, issue-ul se închide singur.
+
+## Protecția branch-ului `master`
+
+Recomandat: **Settings → Rules → Rulesets → New branch ruleset**, țintă `master`, cu **Restrict deletions** și
+**Block force pushes** activate. Nu activa „Require a pull request”: ar bloca robotul care salvează vocile și
+AI-urile care publică direct. Calitatea e păzită de verificările obligatorii: publicarea pornește doar de pe
+`master` și doar dacă testele trec, iar poveștile greșite nu ajung pe site.
 
 ## Contorul „citită de X ori”
 
 `public/api/citiri.php` numără de câte ori a fost deschisă fiecare poveste: o dată pe sesiune de browser
-și, pe server, cel mult o dată la 30 de minute pentru același vizitator (fără să păstreze adresa IP).
+și, pe server, cel mult o dată la 30 de minute pe adresă și poveste (maximum 30 pe oră de la aceeași adresă).
+Adresa IP nu se salvează: se păstrează cel mult o oră doar amprente HMAC cu o cheie secretă generată pe server
+(`api/data/cheie.txt`) și schimbată zilnic. Detalii pentru părinți: `public/confidentialitate.html`.
+Site-ul nu încarcă nimic de la alte companii (nici fonturi), fără cookie-uri, reclame sau programe de analiză.
 Are nevoie de **PHP pe host** (orice hosting obișnuit cu cPanel are). Numerele se salvează în
 `public/api/data/citiri.json` pe server; fișierul nu e în repository și nu e suprascris la publicare.
 Dacă hostul nu are PHP, site-ul funcționează normal, doar fără contor.

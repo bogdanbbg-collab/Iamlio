@@ -5,6 +5,11 @@ on:
     branches: [master]
   pull_request:
   workflow_dispatch:
+    inputs:
+      versiune:
+        description: "Revenire: republică o versiune anterioară (tag „publicat-…” sau commit de pe master). Gol = publicare normală."
+        required: false
+        default: ""
 
 # Implicit doar citire; numai jobul de publicare (doar de pe master) primește drept de scriere.
 permissions:
@@ -16,14 +21,16 @@ concurrency:
 
 env:
   SITE_URL: https://iamlio.ro
-  PLAYWRIGHT_VERSION: 1.63.0
 
 jobs:
-  # 1. Verificare: teste unitare, pregătirea poveștilor (fără imagini plătite), teste în browser.
+  # 1. Verificare: teste unitare, pregătirea poveștilor (fără imagini plătite), teste în Chromium, Firefox și WebKit.
   verifica:
+    if: ${{ !inputs.versiune }}
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v6
         with:
@@ -33,12 +40,12 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Instalează uneltele
+      - name: Instalează uneltele (versiuni exacte din fișierele .lock)
         run: |
-          pip install -r requirements.txt
+          pip install -r requirements.lock
           command -v ffmpeg >/dev/null || (sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends ffmpeg)
-          npm install --no-save --no-audit --no-fund "playwright@${PLAYWRIGHT_VERSION}"
-          npx playwright install --with-deps chromium
+          npm ci --no-audit --no-fund
+          npx playwright install --with-deps chromium firefox webkit
 
       - name: Teste (Python, sintaxă JavaScript și PHP)
         run: |
@@ -49,25 +56,47 @@ jobs:
       - name: Pregătește și verifică poveștile
         run: python scripts/stories.py prepare
 
-      - name: Teste în browser (navigare, swipe, voce, contor, ecrane, mișcare redusă)
+      - name: Teste în browser — Chromium, Firefox, WebKit (Safari)
         run: |
           python scripts/stories.py index
           python scripts/stories.py stage
-          node --test tests/e2e/*.test.mjs
+          for browser in chromium firefox webkit; do
+            echo "::group::$browser"
+            BROWSER=$browser node --test tests/e2e/*.test.mjs
+            echo "::endgroup::"
+          done
 
       - name: La pull request, toate poveștile trebuie să treacă verificarea
         if: github.event_name == 'pull_request'
         run: python scripts/stories.py status
 
   # 2. Publicare: doar de pe master (push sau pornire manuală pe master), după ce verificarea a trecut.
+  #    Cu „versiune” completată, republică acea versiune (revenire), fără să modifice nimic în repository.
   publica:
     needs: verifica
-    if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+    if: >-
+      always() && github.ref == 'refs/heads/master' && github.event_name != 'pull_request' &&
+      (needs.verifica.result == 'success' || (needs.verifica.result == 'skipped' && inputs.versiune != ''))
     runs-on: ubuntu-24.04
     permissions:
       contents: write
+    env:
+      NORMAL: ${{ !inputs.versiune }}
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Revenire — verifică versiunea cerută și trece pe ea
+        if: env.NORMAL != 'true'
+        env:
+          VERSIUNE: ${{ inputs.versiune }}
+        run: |
+          set -e
+          sha=$(git rev-parse --verify "${VERSIUNE}^{commit}")
+          git merge-base --is-ancestor "$sha" origin/master || { echo "::error::$VERSIUNE nu este o versiune de pe master."; exit 1; }
+          git checkout -q "$sha"
+          echo "Se republică versiunea $VERSIUNE ($sha)."
 
       - uses: actions/setup-python@v6
         with:
@@ -75,31 +104,36 @@ jobs:
 
       - name: Instalează uneltele
         run: |
-          pip install -r requirements.txt
+          if [ -f requirements.lock ]; then pip install -r requirements.lock; else pip install -r requirements.txt; fi
           command -v ffmpeg >/dev/null || (sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends ffmpeg)
 
       # Repară automat ce e mecanic, generează imaginile lipsă (dacă există OPENAI_API_KEY), optimizează,
       # verifică și scrie rapoartele din rapoarte/. O poveste greșită nu ajunge pe site, dar nu le oprește pe celelalte.
       - name: Pregătește poveștile (reparare automată, imagini, verificare, rapoarte)
+        if: env.NORMAL == 'true'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           IMAGE_MODEL: ${{ vars.IMAGE_MODEL }}
           IMAGE_QUALITY: ${{ vars.IMAGE_QUALITY }}
           MAX_IMAGES: ${{ vars.MAX_IMAGES }}
+          MAX_IMAGES_MONTH: ${{ vars.MAX_IMAGES_MONTH }}
         run: python scripts/stories.py prepare
 
       - name: Generează vocea feminină și masculină (edge-tts + regie de voce)
+        if: env.NORMAL == 'true'
         run: python scripts/stories.py audio
 
       - name: Verifică fișierele audio (decodare completă, ambele voci, toate paginile)
+        if: env.NORMAL == 'true'
         run: python scripts/stories.py verify-audio
 
-      - name: Actualizează biblioteca și pregătește site-ul (doar poveștile valide)
+      - name: Actualizează biblioteca și pregătește site-ul (poveștile valide sau ultima lor versiune bună)
         run: |
           python scripts/stories.py index
           python scripts/stories.py stage
 
       - name: Salvează reparațiile, imaginile, vocea, biblioteca și rapoartele în repository
+        if: env.NORMAL == 'true'
         run: |
           git config user.name "iamlio-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -139,12 +173,14 @@ jobs:
             **/.git*
             **/.git*/**
             api/data/citiri.json
+            api/data/cheie.txt
 
       - name: Verifică site-ul live
         run: |
           set -e
           fetch() { curl -fsS --retry 4 --retry-delay 5 --retry-all-errors -H "Cache-Control: no-cache" "$SITE_URL/$1"; }
           fetch "" | grep -q "Lio îți citește o poveste"
+          fetch "confidentialitate.html" | grep -q "Confidențialitate"
           fetch "stories/index.json" | diff -q - build/site/stories/index.json
           fetch "sitemap.xml" | diff -q - build/site/sitemap.xml
           fetch "api/citiri.php" | python -c "import json,sys; assert isinstance(json.load(sys.stdin)['citiri'], dict)"
@@ -152,11 +188,23 @@ jobs:
           if [ -n "$first" ]; then
             fetch "stories/$first/audio/manifest.json" | diff -q - "build/site/stories/$first/audio/manifest.json"
           fi
-          code=$(curl -s -o /dev/null -w "%{http_code}" "$SITE_URL/api/data/citiri.json")
-          [ "$code" = "403" ] || [ "$code" = "404" ] || { echo "::error::api/data este accesibil public (HTTP $code)"; exit 1; }
+          for private in citiri.json cheie.txt; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" "$SITE_URL/api/data/$private")
+            [ "$code" = "403" ] || [ "$code" = "404" ] || { echo "::error::api/data/$private este accesibil public (HTTP $code)"; exit 1; }
+          done
           echo "Site-ul live răspunde corect: $SITE_URL"
+
+      # Fiecare publicare reușită primește un tag, ca să se poată reveni oricând la ea.
+      - name: Marchează versiunea publicată
+        if: env.NORMAL == 'true'
+        run: |
+          tag="publicat-$(date -u +%Y%m%d-%H%M%S)"
+          git tag "$tag"
+          git push origin "$tag"
+          echo "Versiune publicată: $tag" >> "$GITHUB_STEP_SUMMARY"
 
       # Site-ul e publicat cu poveștile bune; dacă una nu trece verificarea, rularea apare cu roșu
       # ca să se vadă, iar rapoarte/<poveste>.md spune exact ce trebuie corectat.
       - name: Toate poveștile sunt publicate?
+        if: env.NORMAL == 'true'
         run: python scripts/stories.py status

@@ -104,7 +104,7 @@
     var voice = Iamlio.getVoice();
     var file = "replica-" + String(n + 1).padStart(2, "0") + ".mp3";
     if (manifest && manifest[voice] && manifest[voice][file]) {
-      audio.src = "assets/audio/" + voice + "/" + file;
+      audio.src = "assets/audio/" + voice + "/" + file + "?v=" + String(manifest[voice][file]).slice(0, 10);
       audio.play().catch(function () { talking(false); });
     } else {
       Iamlio.speakWithBrowser(text, voice, {

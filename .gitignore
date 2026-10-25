@@ -4,3 +4,4 @@ __pycache__/
 public/api/data/citiri.json
 build/
 node_modules/
+public/api/data/cheie.txt

@@ -1,5 +1,5 @@
-// Teste în browser (Chromium real + serverul PHP real) pentru site-ul pregătit în build/site.
-// Rulare: python3 scripts/stories.py stage && node --test tests/e2e/*.test.mjs
+// Teste în browser (Chromium, Firefox sau WebKit/Safari + serverul PHP real) pentru site-ul din build/site.
+// Rulare: python3 scripts/stories.py stage && BROWSER=webkit node --test tests/e2e/*.test.mjs
 import { test, before, after } from "node:test";
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
@@ -10,7 +10,8 @@ import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
-const { chromium } = require("playwright");
+const ENGINE = process.env.BROWSER || "chromium";
+const engine = require("playwright")[ENGINE];
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const PORT = 8790 + Math.floor(Math.random() * 100);
@@ -33,7 +34,7 @@ before(async () => {
     try { if ((await fetch(`${BASE}/stories/index.json`)).ok) break; } catch { /* încă pornește */ }
     await new Promise((r) => setTimeout(r, 100));
   }
-  browser = await chromium.launch();
+  browser = await engine.launch();
 });
 
 after(async () => {
@@ -149,22 +150,26 @@ test("poveste inexistentă: mesaj clar, fără erori", async () => {
 
 for (const [name, viewport] of [["telefon", [375, 667]], ["telefon culcat", [844, 390]],
   ["tabletă", [820, 1180]], ["tabletă culcată", [1180, 820]], ["calculator", [1440, 900]]]) {
-  test(`ecran ${name}: fără derulare laterală, textul încape pe fiecare pagină`, async () => {
-    const p = await page({ viewport: { width: viewport[0], height: viewport[1] } });
-    for (const url of [`${BASE}/`, STORY_URL]) {
+  test(`ecran ${name}: fără derulare laterală, textul încape pe fiecare pagină a fiecărei povești`, async () => {
+    // mișcare redusă doar ca testul să fie rapid; așezarea paginii e aceeași
+    const p = await page({ viewport: { width: viewport[0], height: viewport[1] }, reducedMotion: "reduce" });
+    for (const url of [`${BASE}/`, STORY_URL, `${BASE}/confidentialitate.html`]) {
       await p.goto(url);
       await p.waitForTimeout(300);
       assert.equal(await p.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, url);
     }
-    await p.waitForSelector(".sheet.is-current");
-    for (let i = 1; i < SHEETS; i++) {
-      await p.keyboard.press("ArrowRight");
-      await p.waitForFunction(() => !document.querySelector(".sheet.is-turning"));
-      const overflow = await p.evaluate(() => {
-        const text = document.querySelector(".sheet.is-current .sheet-text");
-        return text ? text.scrollHeight > text.clientHeight + 2 : false;
-      });
-      assert.equal(overflow, false, `pagina ${i}`);
+    for (const story of index.stories) {
+      await p.goto(`${BASE}/poveste.html?id=${story.id}`);
+      await p.waitForSelector(".sheet.is-current");
+      for (let i = 1; i < story.pages + 2; i++) {
+        await p.keyboard.press("ArrowRight");
+        await p.waitForFunction(() => !document.querySelector(".sheet.is-turning"));
+        const overflow = await p.evaluate(() => {
+          const text = document.querySelector(".sheet.is-current .sheet-text");
+          return text ? text.scrollHeight > text.clientHeight + 2 : false;
+        });
+        assert.equal(overflow, false, `${story.id}, pagina ${i}`);
+      }
     }
     for (const control of ["#play-btn", "#next-btn", "#prev-btn"]) {
       assert.ok(await p.isVisible(control), control);
@@ -181,4 +186,15 @@ test("mișcare redusă: pagina se schimbă imediat", async () => {
   await p.click("#next-btn");
   await settle(p, "Pagina 1");
   assert.ok(Date.now() - start < 500, `a durat ${Date.now() - start} ms`);
+});
+
+test("nicio pagină nu încarcă nimic de la alte site-uri (fonturi, reclame, urmărire)", async () => {
+  const p = await page();
+  const external = [];
+  p.on("request", (r) => { if (!r.url().startsWith(BASE) && !r.url().startsWith("data:")) external.push(r.url()); });
+  for (const url of [`${BASE}/`, STORY_URL, `${BASE}/confidentialitate.html`]) {
+    await p.goto(url);
+    await p.waitForLoadState("networkidle");
+  }
+  assert.deepEqual(external, []);
 });

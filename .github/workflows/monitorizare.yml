@@ -1,0 +1,76 @@
+name: Monitorizare site
+
+# Verifică site-ul live de 4 ori pe zi. Dacă ceva nu merge, deschide (sau actualizează) un issue în GitHub,
+# iar proprietarul repository-ului primește notificare pe email. Când site-ul își revine, issue-ul se închide.
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+env:
+  SITE_URL: https://iamlio.ro
+  TITLU: "Monitorizare: site-ul iamlio.ro nu funcționează corect"
+
+jobs:
+  verifica:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Verifică pagina, biblioteca, o poveste, vocea și contorul
+        id: check
+        run: |
+          problems=""
+          check() { curl -fsS --max-time 20 --retry 2 --retry-delay 10 -o /tmp/raspuns "$SITE_URL/$1" || problems="$problems\n- $1 nu răspunde"; }
+          check ""
+          grep -q "Lio îți citește o poveste" /tmp/raspuns || problems="$problems\n- pagina principală nu are conținutul așteptat"
+          check "stories/index.json"
+          story=$(python3 -c "import json; s=json.load(open('/tmp/raspuns'))['stories']; print(s[0]['id'] if s else '')" 2>/dev/null)
+          if [ -z "$story" ]; then
+            problems="$problems\n- biblioteca e goală sau invalidă"
+          else
+            check "stories/$story/story.json"
+            check "stories/$story/audio/manifest.json"
+            check "stories/$story/audio/feminin/coperta.mp3"
+          fi
+          check "api/citiri.php"
+          python3 -c "import json; assert isinstance(json.load(open('/tmp/raspuns'))['citiri'], dict)" 2>/dev/null \
+            || problems="$problems\n- contorul de citiri nu răspunde corect"
+          for private in citiri.json cheie.txt; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 20 "$SITE_URL/api/data/$private")
+            [ "$code" = "403" ] || [ "$code" = "404" ] || problems="$problems\n- api/data/$private e accesibil public (HTTP $code)"
+          done
+          if [ -n "$problems" ]; then
+            printf "Probleme găsite la %s:%b\n" "$(date -u '+%Y-%m-%d %H:%M UTC')" "$problems" | tee /tmp/probleme.md
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Site-ul funcționează corect."
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Deschide sau actualizează issue-ul de monitorizare
+        if: steps.check.outputs.ok == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          printf "\n\nVerificarea rulează automat la fiecare 6 ore (workflow-ul „Monitorizare site”). Issue-ul se închide singur când site-ul își revine.\n" >> /tmp/probleme.md
+          existing=$(gh issue list --state open --search "\"$TITLU\" in:title" --json number --jq '.[0].number')
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body-file /tmp/probleme.md
+          else
+            gh issue create --title "$TITLU" --body-file /tmp/probleme.md
+          fi
+          exit 1
+
+      - name: Închide issue-ul de monitorizare dacă site-ul și-a revenit
+        if: steps.check.outputs.ok == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          for number in $(gh issue list --state open --search "\"$TITLU\" in:title" --json number --jq '.[].number'); do
+            gh issue close "$number" --comment "Site-ul funcționează din nou corect ($(date -u '+%Y-%m-%d %H:%M UTC'))."
+          done

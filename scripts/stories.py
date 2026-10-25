@@ -72,8 +72,10 @@ def load_stories():
     for story_file in sorted(STORIES_DIR.glob("*/story.json")):
         try:
             data = json.loads(story_file.read_text(encoding="utf-8"))
-        except json.JSONDecodeError as exc:
+        except (json.JSONDecodeError, UnicodeDecodeError) as exc:
             data = {"_error": f"JSON invalid: {exc}"}
+        if not isinstance(data, dict):
+            data = {"_error": "story.json trebuie să fie un obiect JSON ({…}), nu o listă sau o valoare"}
         stories.append((story_file.parent, data))
     return stories
 
@@ -149,9 +151,42 @@ def validate_narration(page, character_names):
 
 
 def validate_story(folder, data):
-    errors, warnings = [], []
+    """Verifică o poveste. O structură neașteptată devine o eroare a acestei povești, nu oprește restul."""
+    if not isinstance(data, dict):
+        return ["story.json trebuie să fie un obiect JSON"], []
     if "_error" in data:
-        return [data["_error"]], warnings
+        return [data["_error"]], []
+    shape = structure_errors(data)
+    if shape:
+        return shape, []
+    try:
+        return check_story(folder, data)
+    except Exception as exc:  # orice altă formă ciudată a datelor
+        return [f"structură neașteptată în story.json ({type(exc).__name__}: {exc})"], []
+
+
+def structure_errors(data):
+    """Tipurile câmpurilor, verificate înainte de orice altă regulă."""
+    errors = []
+    expect = {"title": str, "summary": str, "moral": str, "created": str, "illustrationStyle": str,
+              "characters": list, "pages": list, "cover": dict, "review": dict, "tags": list}
+    for key, kind in expect.items():
+        if key in data and data[key] is not None and not isinstance(data[key], kind):
+            errors.append(f"câmpul '{key}' trebuie să fie {dict(str='text', list='listă', dict='obiect')[kind.__name__]}")
+    for n, page in enumerate(data.get("pages") if isinstance(data.get("pages"), list) else [], start=1):
+        if not isinstance(page, dict):
+            errors.append(f"pagina {n} trebuie să fie un obiect cu text, narration, image, imagePrompt")
+        elif "text" in page and not isinstance(page["text"], str):
+            errors.append(f"pagina {n}: text trebuie să fie text")
+    for character in data.get("characters") if isinstance(data.get("characters"), list) else []:
+        if not isinstance(character, dict):
+            errors.append("fiecare personaj din characters trebuie să fie un obiect cu name și description")
+            break
+    return errors
+
+
+def check_story(folder, data):
+    errors, warnings = [], []
 
     for field in REQUIRED_FIELDS:
         if not data.get(field):
@@ -335,8 +370,8 @@ def optimize_image(folder, rel_path):
 
 def cmd_optimize():
     for folder, data in load_stories():
-        if "_error" in data:
-            continue
+        if "_error" in data or structure_errors(data):
+            continue  # structura greșită e raportată de validare
         changed = False
         entries = [data.get("cover") or {}] + list(data.get("pages") or [])
         for entry in entries:
@@ -414,18 +449,36 @@ def cmd_new(title):
 def cmd_prepare():
     """Repară, completează imaginile, optimizează și verifică; scrie câte un raport pentru fiecare poveste."""
     import os
-    from datetime import datetime, timezone
 
     repairs = {}
-    image_budget = int(os.environ.get("MAX_IMAGES") or imagini.DEFAULT_MAX_IMAGES)
+    budget_file = REPORTS_DIR / "buget-imagini.json"
+    image_budget, month, used = imagini.budget(budget_file)
     for story_file in sorted(STORIES_DIR.glob("*/story.json")):
         folder = story_file.parent
         try:
             data = json.loads(story_file.read_text(encoding="utf-8"))
-        except json.JSONDecodeError:
+        except (json.JSONDecodeError, UnicodeDecodeError):
             continue  # validarea raportează JSON-ul invalid
+        if not isinstance(data, dict) or structure_errors(data):
+            continue  # structura greșită se raportează; nu încercăm să reparăm ce nu înțelegem
+        try:
+            repairs[folder.name] = prepare_one(folder, data, image_budget)
+            image_budget -= repairs[folder.name][2]
+        except Exception as exc:
+            repairs[folder.name] = ([], [f"repararea automată a eșuat ({type(exc).__name__}: {exc})"], 0)
+    made_total = sum(r[2] for r in repairs.values())
+    if made_total:
+        imagini.record(budget_file, month, used + made_total)
+    cmd_optimize()
+    write_reports(repairs)
+    return 0
+
+
+def prepare_one(folder, data, image_budget):
+    """Repară o poveste; întoarce (modificări, note, imagini generate). Scrie story.json dacă s-a schimbat ceva."""
+    if True:
         original = json.dumps(data, ensure_ascii=False, sort_keys=True)
-        changes, notes = [], []
+        changes, notes, made = [], [], 0
         new_folder = pregatire.rename_folder(folder, data)
         if new_folder != folder:
             changes.append(f"folderul „{folder.name}” a fost redenumit „{new_folder.name}”")
@@ -435,7 +488,6 @@ def cmd_prepare():
         if imagini.missing(folder, data):
             if imagini.enabled():
                 made_changes, errors, made = imagini.generate_missing(folder, data, budget=image_budget)
-                image_budget -= made
                 changes += made_changes
                 notes += errors
             else:
@@ -443,9 +495,13 @@ def cmd_prepare():
                              "(sau proprietarul proiectului poate activa generarea automată cu secretul OPENAI_API_KEY)")
         if json.dumps(data, ensure_ascii=False, sort_keys=True) != original:
             write_json(folder / "story.json", data)
-        repairs[folder.name] = (changes, notes)
+        return changes, notes, made
 
-    cmd_optimize()
+
+def write_reports(repairs):
+    import os
+    import tempfile
+    from datetime import datetime, timezone
 
     REPORTS_DIR.mkdir(exist_ok=True)
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
@@ -453,12 +509,18 @@ def cmd_prepare():
     seen = set()
     for folder, data in load_stories():
         errors, warnings = validate_story(folder, data)
-        changes, notes = repairs.get(folder.name, ([], []))
+        changes, notes, _ = repairs.get(folder.name, ([], [], 0))
         title = data.get("title") or folder.name
         published = not errors
+        if errors and ID_PATTERN.match(folder.name):
+            with tempfile.TemporaryDirectory() as workdir:
+                found = previous_published(folder.name, workdir)
+            if found:
+                notes = notes + [f"pe site rămâne versiunea publicată anterior (commit {found[1][:7]}) până când "
+                                 "corectezi problemele de mai sus"]
         seen.add(f"{folder.name}.md")
-        (REPORTS_DIR / f"{folder.name}.md").write_text(
-            report_text(folder.name, title, published, changes, errors, notes, warnings, now), encoding="utf-8")
+        write_if_changed(REPORTS_DIR / f"{folder.name}.md",
+                         report_text(folder.name, str(title), published, changes, errors, notes, warnings, now), now)
         status = "✅ publicată" if published else "❌ nepublicată"
         rows.append(f"| [{title}]({folder.name}.md) | {status} | {len(errors)} | {len(changes)} |")
         summary.append(f"- {status}: **{title}** — {len(errors)} de corectat, {len(changes)} reparate automat")
@@ -468,17 +530,27 @@ def cmd_prepare():
     for old in REPORTS_DIR.glob("*.md"):
         if old.name not in seen and old.name != "README.md":
             old.unlink()
-    (REPORTS_DIR / "README.md").write_text(
+    write_if_changed(REPORTS_DIR / "README.md",
         "# Rapoartele poveștilor\n\n"
         "Generate automat la fiecare publicare. Un AI care a adăugat sau a modificat o poveste citește raportul ei "
         "și corectează tot ce scrie la „De corectat”, până când raportul spune „publicată”.\n\n"
         f"Ultima verificare: {now}\n\n| Poveste | Stare | De corectat | Reparate automat |\n| --- | --- | --- | --- |\n"
-        + "\n".join(rows) + "\n", encoding="utf-8")
+        + "\n".join(rows) + "\n", now)
     summary_file = os.environ.get("GITHUB_STEP_SUMMARY")
     if summary_file:
         with open(summary_file, "a", encoding="utf-8") as handle:
             handle.write("\n".join(summary) + "\n")
     return 0
+
+
+def write_if_changed(path, text, stamp):
+    """Scrie raportul doar dacă s-a schimbat altceva decât ora verificării (fără commit-uri inutile)."""
+    if path.exists():
+        old = path.read_text(encoding="utf-8")
+        old_stamp = re.search(r"\d{4}-\d{2}-\d{2} \d{2}:\d{2} UTC", old)
+        if old_stamp and old.replace(old_stamp.group(0), "") == text.replace(stamp, ""):
+            return
+    path.write_text(text, encoding="utf-8")
 
 
 def report_text(story_id, title, published, changes, errors, notes, warnings, when):
@@ -507,19 +579,81 @@ def report_text(story_id, title, published, changes, errors, notes, warnings, wh
     return "\n".join(lines) + "\n"
 
 
+MAX_HISTORY = 40  # câte versiuni anterioare ale unei povești se caută în istoricul git
+
+
+def previous_published(story_id, workdir, repo=ROOT):
+    """Cea mai recentă versiune din istoricul git a poveștii care trece verificarea și are vocea completă.
+    Întoarce (folder extras, commit) sau None. Așa o poveste deja publicată nu dispare de pe site
+    doar pentru că ultima ei modificare e greșită."""
+    import io
+    import subprocess
+    import tarfile
+
+    rel = f"public/stories/{story_id}"
+    log = subprocess.run(["git", "log", f"-n{MAX_HISTORY}", "--format=%H", "--", rel],
+                         cwd=repo, capture_output=True, text=True)
+    if log.returncode != 0:
+        return None
+    for sha in log.stdout.split():
+        archive = subprocess.run(["git", "archive", "--format=tar", sha, rel], cwd=repo, capture_output=True)
+        if archive.returncode != 0:
+            continue
+        target = Path(workdir) / sha
+        with tarfile.open(fileobj=io.BytesIO(archive.stdout)) as tar:
+            tar.extractall(target, filter="data")
+        folder = target / rel
+        try:
+            data = json.loads((folder / "story.json").read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        if validate_story(folder, data)[0]:
+            continue
+        if missing_audio(folder / "audio", [name for name, _ in narration_items(data)]):
+            continue
+        return folder, sha
+    return None
+
+
+def version_story_assets(folder, data):
+    """images/x.webp → images/x.webp?v=<amprentă>: după o modificare, browserul nu mai arată imaginea veche."""
+    for entry in [data.get("cover") or {}] + list(data.get("pages") or []):
+        path = pregatire.safe_image(folder, entry.get("image"))
+        if path is not None and path.is_file():
+            entry["image"] = f"{entry['image']}?v={hashlib.sha1(path.read_bytes()).hexdigest()[:10]}"
+    write_json(folder / "story.json", data)
+
+
 def cmd_stage():
-    """build/site = public/ fără poveștile care nu trec verificarea (acestea nu ajung pe site)."""
+    """build/site = ce se publică: poveștile valide; pentru una invalidă, ultima ei versiune bună (dacă a existat)."""
+    import tempfile
+
     invalid = {folder.name for folder, data in load_stories() if validate_story(folder, data)[0]}
     if BUILD_DIR.exists():
         shutil.rmtree(BUILD_DIR)
     ignore = lambda directory, names: [n for n in names if Path(directory) == STORIES_DIR and n in invalid]  # noqa: E731
     shutil.copytree(ROOT / "public", BUILD_DIR, ignore=ignore)
-    published = [data for folder, data in load_stories() if folder.name not in invalid]
+    with tempfile.TemporaryDirectory() as workdir:
+        for name in sorted(invalid):
+            found = previous_published(name, workdir) if ID_PATTERN.match(name) else None
+            if found:
+                shutil.copytree(found[0], BUILD_DIR / "stories" / name)
+                print(f"[versiunea anterioară] {name}: rămâne publicată versiunea din {found[1][:7]}")
+            else:
+                print(f"[nepublicată] {name}")
+    entries, published = [], []
+    for story_file in sorted((BUILD_DIR / "stories").glob("*/story.json")):
+        data = json.loads(story_file.read_text(encoding="utf-8"))
+        entries.append(index_entry(story_file.parent, data))
+        published.append(data)
+        version_story_assets(story_file.parent, data)
+    by_id = {d["id"]: d for d in published}
+    for entry in entries:
+        entry["cover"] = f"stories/{entry['id']}/{by_id[entry['id']]['cover']['image']}"
+    write_index(BUILD_DIR / "stories" / "index.json", entries)
     add_asset_versions(BUILD_DIR)
     write_seo_files(BUILD_DIR, published)
-    for name in sorted(invalid):
-        print(f"[nepublicată] {name}")
-    print(f"Pregătit pentru publicare: {BUILD_DIR.relative_to(ROOT)} ({len(invalid)} povești excluse)")
+    print(f"Pregătit pentru publicare: {BUILD_DIR} ({len(entries)} povești pe site)")
     return 0
 
 
@@ -540,7 +674,7 @@ def write_seo_files(site, stories):
     from html import escape
 
     base = (os.environ.get("SITE_URL") or "https://iamlio.ro").rstrip("/")
-    urls = [(f"{base}/", None)] + [(f"{base}/poveste.html?id={s['id']}", s.get("created")) for s in stories]
+    urls = [(f"{base}/", None), (f"{base}/confidentialitate.html", None)] + [(f"{base}/poveste.html?id={s['id']}", s.get("created")) for s in stories]
     entries = "".join(
         f"  <url><loc>{escape(url)}</loc>{f'<lastmod>{day}</lastmod>' if day else ''}</url>\n" for url, day in urls)
     (site / "sitemap.xml").write_text(
@@ -698,32 +832,39 @@ def cmd_verify_audio():
     return 1 if failed else 0
 
 
+def index_entry(folder, data):
+    """Intrarea din bibliotecă a unei povești (durata vine din fișierele audio, dacă există)."""
+    minutes = estimated_minutes(data["pages"])
+    mp3s = list((folder / "audio" / "feminin").glob("*.mp3"))
+    if len(mp3s) == len(data["pages"]) + 2:
+        seconds = sum(f.stat().st_size for f in mp3s) / MP3_BYTES_PER_SECOND
+        minutes = (seconds + len(data["pages"]) * SECONDS_PER_PAGE_TURN) / 60
+    return {
+        "id": data["id"],
+        "title": data["title"],
+        "summary": data["summary"],
+        "age": data.get("age", "3-7"),
+        "tags": data.get("tags", []),
+        "created": data["created"],
+        "cover": f"stories/{data['id']}/{data['cover']['image']}",
+        "pages": len(data["pages"]),
+        "minutes": max(1, round(minutes)),
+    }
+
+
+def write_index(path, entries):
+    entries.sort(key=lambda e: (e["created"], e["title"]), reverse=True)
+    path.write_text(json.dumps({"stories": entries}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
 def cmd_index():
     entries = []
     for folder, data in load_stories():
-        errors, _ = validate_story(folder, data)
-        if errors:
+        if validate_story(folder, data)[0]:
             print(f"[exclus din bibliotecă] {folder.name}")
             continue
-        minutes = estimated_minutes(data["pages"])
-        audio_dir = folder / "audio" / "feminin"
-        mp3s = list(audio_dir.glob("*.mp3"))
-        if len(mp3s) == len(data["pages"]) + 2:
-            seconds = sum(f.stat().st_size for f in mp3s) / MP3_BYTES_PER_SECOND
-            minutes = (seconds + len(data["pages"]) * SECONDS_PER_PAGE_TURN) / 60
-        entries.append({
-            "id": data["id"],
-            "title": data["title"],
-            "summary": data["summary"],
-            "age": data.get("age", "3-7"),
-            "tags": data.get("tags", []),
-            "created": data["created"],
-            "cover": f"stories/{data['id']}/{data['cover']['image']}",
-            "pages": len(data["pages"]),
-            "minutes": max(1, round(minutes)),
-        })
-    entries.sort(key=lambda e: (e["created"], e["title"]), reverse=True)
-    INDEX_FILE.write_text(json.dumps({"stories": entries}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        entries.append(index_entry(folder, data))
+    write_index(INDEX_FILE, entries)
     print(f"Bibliotecă actualizată: {len(entries)} povești.")
     return 0
 

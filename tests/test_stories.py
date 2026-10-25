@@ -323,10 +323,84 @@ class ImageGenerationTests(StoryCase):
         self.assertEqual(made, 3)
         self.assertTrue(any("limita" in e for e in errors))
 
+    def test_monthly_budget_is_respected_and_recorded(self):
+        import os
+        from datetime import date
+
+        budget_file = self.tmp / "buget.json"
+        month = date.today().strftime("%Y-%m")
+        budget_file.write_text(json.dumps({month: 198}), encoding="utf-8")
+        os.environ["MAX_IMAGES_MONTH"] = "200"
+        try:
+            remaining, current, used = imagini.budget(budget_file)
+        finally:
+            del os.environ["MAX_IMAGES_MONTH"]
+        self.assertEqual((remaining, current, used), (2, month, 198))
+        _, _, made = imagini.generate_missing(self.folder, self.data, client=self.client, budget=remaining)
+        imagini.record(budget_file, current, used + made)
+        self.assertEqual(json.loads(budget_file.read_text(encoding="utf-8"))[month], 200)
+
     def test_failed_image_is_reported(self):
         self.fake.fail_on = self.data["pages"][1]["imagePrompt"][-40:]
         _, errors, _ = imagini.generate_missing(self.folder, self.data, client=self.client, budget=50)
         self.assertTrue(errors and errors[0].startswith("pagina 2"))
+
+
+class RobustnessTests(unittest.TestCase):
+    def test_malformed_story_files_do_not_stop_the_others(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            shutil.copytree(DEMO, tmp / DEMO.name)
+            shapes = [{"pages": "abc", "characters": [1, 2], "cover": []}, [1, 2, 3], {"pages": [1, "x"], "title": 5},
+                      {"characters": "Lio", "review": [1]}, "text"]
+            for n, shape in enumerate(shapes):
+                (tmp / f"ciudata-{n}").mkdir()
+                (tmp / f"ciudata-{n}" / "story.json").write_text(json.dumps(shape), encoding="utf-8")
+            (tmp / "stricata").mkdir()
+            (tmp / "stricata" / "story.json").write_text("{ nu e json", encoding="utf-8")
+            saved = stories.STORIES_DIR, stories.REPORTS_DIR, stories.INDEX_FILE
+            stories.STORIES_DIR, stories.REPORTS_DIR, stories.INDEX_FILE = tmp, tmp / "rapoarte", tmp / "index.json"
+            try:
+                for command in (stories.cmd_validate, stories.cmd_prepare, stories.cmd_optimize, stories.cmd_index):
+                    command()
+            finally:
+                stories.STORIES_DIR, stories.REPORTS_DIR, stories.INDEX_FILE = saved
+            index = json.loads((tmp / "index.json").read_text(encoding="utf-8"))
+            self.assertEqual([s["id"] for s in index["stories"]], [DEMO.name])
+            self.assertIn("NEPUBLICATĂ", (tmp / "rapoarte" / "ciudata-0.md").read_text(encoding="utf-8"))
+
+
+@unittest.skipUnless(shutil.which("git"), "git lipsește")
+class PreviousVersionTests(unittest.TestCase):
+    def git(self, *args):
+        subprocess.run(["git", *args], cwd=self.repo, check=True, capture_output=True)
+
+    def test_last_valid_version_stays_published(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            self.repo = Path(tmp) / "repo"
+            folder = self.repo / "public" / "stories" / DEMO.name
+            shutil.copytree(DEMO, folder)
+            self.git("init", "-q")
+            self.git("-c", "user.name=t", "-c", "user.email=t@t", "commit", "-qam", "bună", "--allow-empty")
+            self.git("add", "-A")
+            self.git("-c", "user.name=t", "-c", "user.email=t@t", "commit", "-qm", "versiune bună")
+            good = subprocess.run(["git", "rev-parse", "HEAD"], cwd=self.repo, capture_output=True, text=True).stdout.strip()
+            data = demo_data()
+            data["pages"] = data["pages"][:2]
+            (folder / "story.json").write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+            self.git("-c", "user.name=t", "-c", "user.email=t@t", "commit", "-qam", "versiune stricată")
+
+            found = stories.previous_published(DEMO.name, Path(tmp) / "lucru", repo=self.repo)
+            self.assertIsNotNone(found)
+            self.assertEqual(found[1], good)
+            kept = json.loads((found[0] / "story.json").read_text(encoding="utf-8"))
+            self.assertEqual(len(kept["pages"]), len(demo_data()["pages"]))
+
+    def test_never_published_story_has_no_previous_version(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            self.repo = Path(tmp)
+            self.git("init", "-q")
+            self.assertIsNone(stories.previous_published("nu-exista", Path(tmp) / "lucru", repo=self.repo))
 
 
 class OptimizeTests(StoryCase):

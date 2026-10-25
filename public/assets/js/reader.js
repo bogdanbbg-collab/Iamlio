@@ -158,6 +158,21 @@
     });
     prevBtn.disabled = index === 0;
     nextBtn.disabled = index === sheets.length - 1;
+    preloadNext();
+  }
+
+  // Pagina următoare e pregătită dinainte: imaginea se încarcă, iar vocea se descarcă dacă Lio citește.
+  var preloaded = {};
+  function preloadNext() {
+    var next = sheets[index + 1];
+    if (!next) return;
+    var img = next.querySelector("img");
+    if (img && img.loading === "lazy") img.loading = "eager";
+    var url = reading && audioUrl(items[index + 1]);
+    if (url && !preloaded[url]) {
+      preloaded[url] = true;
+      fetch(url).catch(function () { delete preloaded[url]; });
+    }
   }
 
   // ---------- întoarcerea paginilor ----------
@@ -322,13 +337,20 @@
     if (!started) setReading(false);
   }
 
+  // Adresa include amprenta din manifest: după ce vocea e regenerată, browserul nu mai redă varianta veche.
+  function audioUrl(item) {
+    var voice = Iamlio.getVoice();
+    var digest = manifest && manifest[voice] && manifest[voice][item.audio];
+    return digest ? base + "audio/" + voice + "/" + item.audio + "?v=" + String(digest).slice(0, 10) : "";
+  }
+
   function playCurrent() {
     stopAudio();
     var token = playToken;
     var item = items[index];
-    var voice = Iamlio.getVoice();
-    if (manifest && manifest[voice] && manifest[voice][item.audio]) {
-      audio.src = base + "audio/" + voice + "/" + item.audio;
+    var url = audioUrl(item);
+    if (url) {
+      audio.src = url;
       audio.onended = function () { onReadEnd(token); };
       audio.onerror = function () { if (token === playToken) speak(item.speech, token); };
       audio.play().catch(function () {
@@ -364,6 +386,7 @@
       render();
     }
     if (!busy) playCurrent();
+    preloadNext();
   }
 
   playBtn.addEventListener("click", function () { setReading(!reading); });

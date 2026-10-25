@@ -38,6 +38,9 @@ verifică, generează vocile, actualizează biblioteca și urcă site-ul pe host
 repetă până când raportul spune **PUBLICATĂ**. Dacă nu poți aștepta, spune-i utilizatorului să-ți ceară
 „verifică raportul poveștii” peste câteva minute.
 
+**Id-ul unei povești e permanent.** După ce o poveste a fost publicată, nu redenumi folderul ei (adresa
+`poveste.html?id=…` ar înceta să funcționeze); poți schimba titlul din `story.json`, dar nu și id-ul.
+
 ## Ce NU modifici
 
 `public/stories/index.json`, folderele `audio/`, `public/assets/audio/`, `rapoarte/` (generate automat) și
@@ -63,7 +66,10 @@ codul site-ului (`public/*.html`, `public/assets/`, `scripts/`, `.github/`) — 
 - `scripts/voce.py` — regia de voce (tonuri, profiluri de personaj, pauze, lipirea cu ffmpeg)
 - `tests/` — teste automate (`python3 -m unittest discover -s tests`) și teste în browser
   (`python3 scripts/stories.py stage && node --test tests/e2e/*.test.mjs`), rulate la fiecare publicare
-- `.github/workflows/publica-site.yml` — publicarea automată
+- `.github/workflows/publica-site.yml` — publicarea automată (și revenirea la o versiune anterioară)
+- `.github/workflows/monitorizare.yml` — verificarea site-ului live la fiecare 6 ore
+- `public/confidentialitate.html` — informarea pentru părinți despre date
+- `requirements.lock`, `package-lock.json` — versiunile exacte ale tuturor dependențelor
 
 ## Verificare și previzualizare
 

@@ -5,6 +5,8 @@ Se activează doar dacă există secretul OPENAI_API_KEY. Opțional (variabile d
   IMAGE_MODEL     modelul de imagine (implicit gpt-image-2)
   IMAGE_QUALITY   low | medium | high (implicit medium)
   MAX_IMAGES      câte imagini se pot genera într-o publicare (implicit 40, ca protecție la costuri)
+  MAX_IMAGES_MONTH  câte imagini se pot genera într-o lună calendaristică (implicit 200; contorul lunar
+                  stă în rapoarte/buget-imagini.json și e salvat în repository de robot)
 
 Coperta se generează prima; paginile se generează pornind de la copertă ca imagine de referință,
 ca personajele să arate la fel pe toate paginile.
@@ -17,9 +19,38 @@ from pathlib import Path
 DEFAULT_MODEL = "gpt-image-2"
 DEFAULT_QUALITY = "medium"
 DEFAULT_MAX_IMAGES = 40
+DEFAULT_MAX_IMAGES_MONTH = 200
 SIZE = "1536x1024"
 CONSISTENCY = ("Use the reference image ONLY to keep the characters identical (same faces, fur, colors, clothes, "
                "proportions) and the same art style. Draw a NEW scene: ")
+
+
+def budget(budget_file):
+    """(câte imagini mai pot fi generate acum, luna curentă, câte s-au generat deja luna aceasta)."""
+    import json
+    from datetime import date
+
+    month = date.today().strftime("%Y-%m")
+    try:
+        used = int(json.loads(Path(budget_file).read_text(encoding="utf-8")).get(month, 0))
+    except (OSError, ValueError, AttributeError):
+        used = 0
+    per_run = int(os.environ.get("MAX_IMAGES") or DEFAULT_MAX_IMAGES)
+    per_month = int(os.environ.get("MAX_IMAGES_MONTH") or DEFAULT_MAX_IMAGES_MONTH)
+    return max(0, min(per_run, per_month - used)), month, used
+
+
+def record(budget_file, month, used):
+    import json
+
+    path = Path(budget_file)
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        data = {}
+    data[month] = used
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
 def enabled():
@@ -66,7 +97,8 @@ def generate_missing(folder, data, client=None, budget=None):
 
     for label, entry in todo:
         if made >= budget:
-            errors.append(f"{label}: limita de {budget} imagini pe publicare a fost atinsă; restul se generează data viitoare")
+            errors.append(f"{label}: limita de imagini (pe publicare sau pe lună) a fost atinsă; restul se generează "
+                          "la o publicare următoare sau luna viitoare")
             break
         target = safe_image(folder, str(Path(entry["image"]).with_suffix(".png")))
         cover_file = safe_image(folder, cover_entry.get("image"))
