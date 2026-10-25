@@ -245,8 +245,10 @@ test("reluare: povestea continuă de la pagina la care a rămas copilul", async 
   assert.match(await p.textContent(".resume-text"), /pagina 3/);
   await p.click(".resume-continue");
   await settle(p, "Pagina 3");
-  for (let i = 4; i < SHEETS; i++) await p.click("#next-btn");
-  await settle(p, "Sfârșit");
+  for (let i = 4; i < SHEETS; i++) {
+    await p.click("#next-btn"); // un clic în timpul întoarcerii e ignorat (corect), deci așteptăm fiecare pagină
+    await settle(p, i === SHEETS - 1 ? "Sfârșit" : `Pagina ${i}`);
+  }
   await p.reload();
   await p.waitForSelector(".sheet.is-current");
   assert.ok(await p.isHidden(".resume"), "după ce povestea a fost terminată, nu mai propune reluarea");
