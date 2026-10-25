@@ -1,0 +1,26 @@
+{
+  "feminin": {
+    "coperta.mp3": "e545fa8a90ca73e73a699f354248cb8da32860ad",
+    "pagina-01.mp3": "d37e2d431b17e87ff11817d06619141e6f56b6bc",
+    "pagina-02.mp3": "61f224577bde96476d4214dcab8a3cf71bdec060",
+    "pagina-03.mp3": "2ebb2d721280b0c15c587fce8866a4e8aafb8263",
+    "pagina-04.mp3": "59ca40ef64956586f41cdeb53ebf244201d939f5",
+    "pagina-05.mp3": "9a84a02378406d88a3aa6b5c2e679b50286c82b3",
+    "pagina-06.mp3": "5acb70ac1ac016eb19c429085c9b55ec616628b5",
+    "pagina-07.mp3": "e14f68b5af9bf1641e8797d1fa390561c6e6be48",
+    "pagina-08.mp3": "bc9e63f6a944e8831429eeeff9139846d4795b95",
+    "final.mp3": "d2e72e60a5a5e4c2ba8e20233e33260de24eb7fd"
+  },
+  "masculin": {
+    "coperta.mp3": "798c92fa0b982aec6e1929a2d02c5543524181fe",
+    "pagina-01.mp3": "61b93938102b58438bc3b50d606f979ed19e5a42",
+    "pagina-02.mp3": "d9963c1a736d847c83d077aba57c512ff9aeb2b4",
+    "pagina-03.mp3": "9beff0b0cf172b624f74212f584020d419731040",
+    "pagina-04.mp3": "813cb1f022d2685123847ff029d832124598aa1e",
+    "pagina-05.mp3": "0a3cace77cd8179895b037b9597251489b43cbac",
+    "pagina-06.mp3": "8623315898280065be7b5bd79260564bc39dbdc1",
+    "pagina-07.mp3": "4b6facb61d80903aec9e732686178ec200bb7c87",
+    "pagina-08.mp3": "8a83cb3fb146d0a2c5826d4bdae20b0e37a4457b",
+    "final.mp3": "5abf27d268a67692038bf77b94ba433a512132f0"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "feminin": {
+    "replica-01.mp3": "92d14bfd1aaab206956169ff53881c195ef17ffd",
+    "replica-02.mp3": "0fdd839810c89db9ed6bdc6ec6b16b0f67fe1f9b",
+    "replica-03.mp3": "3bedbb27b7b3fe8f48c769a14e49f471b33126e2",
+    "replica-04.mp3": "6365e736832921518ae17281659425a31f77da36",
+    "replica-05.mp3": "76bb7d46f4a5ccdd630adab822760a47212fdaa0",
+    "replica-06.mp3": "abdd48a4a1ba09b079c6b8ffcc599250031b8f55"
+  },
+  "masculin": {
+    "replica-01.mp3": "40da0de2237e4b8231122d24222aab43cbef1d4a",
+    "replica-02.mp3": "1824f75e62c72337876ea28c14c05583af899852",
+    "replica-03.mp3": "5d862202bc0e03e66b0a1702a84d6083a6c320cb",
+    "replica-04.mp3": "4641030be26e9fe7d56ec5ecf958728696fd7a87",
+    "replica-05.mp3": "4a54440f6beb44f8a4415b3350dab8b6e48931d3",
+    "replica-06.mp3": "490d0cc24db6a91ee62929f8fd762d2b02a4da20"
+  }
+}
