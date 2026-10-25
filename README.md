@@ -17,9 +17,11 @@ trimite automat acolo). Regulile cer: 2–10 minute, imaginație, ceva de învă
 imaginile și le salvează în `public/stories/<id>/`. După push, GitHub Actions face restul:
 
 1. rulează testele automate (Python, JavaScript, PHP);
-2. optimizează imaginile (WebP, 1536×1024);
-3. verifică povestea după reguli (durată, structură, câmpuri, prompturi de imagine, regie de voce, diacritice) —
-   **orice eroare oprește publicarea**;
+2. **repară automat** ce e mecanic (diacritice, stil, personaje în prompturi, Lio, regie și voci de personaje,
+   nume de fișiere și foldere) și **generează imaginile lipsă** dacă e activat generatorul (vezi mai jos);
+3. optimizează imaginile (WebP, 1536×1024) și verifică povestea după reguli; scrie raportul
+   `rapoarte/<poveste>.md` (**PUBLICATĂ** / **NEPUBLICATĂ** și ce e de corectat) — o poveste care nu trece
+   **nu ajunge pe site**, dar nu le oprește pe celelalte;
 4. generează vocea în română cu `edge-tts` (gratuit), **în două variante**: feminină (`ro-RO-AlinaNeural`)
    și masculină (`ro-RO-EmilNeural`), cu **regie de voce** (ton pe fiecare replică, voci de personaje, pauze);
    reîncearcă automat la erori de rețea și verifică apoi că există toate fișierele;
@@ -33,6 +35,14 @@ Regulile sunt legate de proiect pentru orice AI: `AGENTS.md` (ChatGPT Codex și 
 [`PROMPT_POVESTE.md`](PROMPT_POVESTE.md).
 
 Dacă un fișier audio lipsește totuși pe server, site-ul citește textul cu vocea română a browserului.
+
+## Generarea automată a imaginilor (opțională)
+
+Dacă AI-ul folosit nu poate genera imagini, proiectul le poate genera singur cu OpenAI:
+**Settings → Secrets and variables → Actions → New repository secret** → `OPENAI_API_KEY` (o cheie de la
+platform.openai.com; se plătește separat de abonamentul ChatGPT). Opțional, la **Variables**: `IMAGE_MODEL`
+(implicit `gpt-image-2`), `IMAGE_QUALITY` (`low` / `medium` / `high`, implicit `medium`), `MAX_IMAGES`
+(maximum de imagini pe publicare, implicit 40). Fără cheie, imaginile lipsă apar în raport ca „de corectat”.
 
 ## Dacă ceva nu merge după o publicare (revenire)
 

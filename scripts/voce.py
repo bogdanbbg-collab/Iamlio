@@ -75,25 +75,118 @@ def default_pause(text):
     return PAUSE_ELLIPSIS if text.rstrip().endswith(("…", "...")) else PAUSE_DEFAULT
 
 
-def auto_segments(text):
-    """Fără regie explicită: propozițiile de dialog (cu „—”) sunt mai vii decât narațiunea."""
+# „— Nu mai știu drumul, a suspinat ea.” → replica „— Nu mai știu drumul,” + tag-ul „a suspinat ea.”
+DIALOGUE_TAG = re.compile(
+    r"^(—.*?[,!?…])\s+((?:a|au|i-a|le-a|îi|i|spuse|zise|întrebă|strigă|răspunse|șopti)\s.*)$")
+PRONOUN_TAG = re.compile(r"\b(el|ea|ei|ele)\b")
+
+
+def plain(text):
+    import unicodedata
+    return "".join(c for c in unicodedata.normalize("NFD", text) if unicodedata.category(c) != "Mn").lower()
+
+
+def mention_positions(text, names):
+    """(poziție, nume) pentru fiecare apariție a unui personaj în text."""
+    found = []
+    for name in names:
+        for match in re.finditer(rf"\b{re.escape(plain(name))}\w*", plain(text)):
+            found.append((match.start(), name))
+    return sorted(found)
+
+
+# Verbul din tag-ul de dialog („a suspinat ea”) și cuvintele din narațiune spun emoția.
+TAG_MOODS = [
+    (r"suspin|plâns|plânge|scânc|smiorc|oftat", "trist"),
+    (r"șopt|soptit|murmur", "șoptit"),
+    (r"strig|chiu|exclam|țip|tipat|bucur|râs|ras|chicot", "entuziasmat"),
+    (r"întreb|intreb|mir", "mirat"),
+    (r"tremur|speri|bâlbâ", "speriat"),
+    (r"căsc|casc|mormă|morma|adorm", "somnoros"),
+    (r"hotăr|hotar|ferm", "hotărât"),
+]
+NARRATION_MOODS = [
+    (r"\b(plâng|plang|trist|lacrim|supărat|suparat|singur)", "trist"),
+    (r"\b(adorm|somn|căsc|casc|noapte bună|noapte buna)", "somnoros"),
+    (r"\b(deodată|deodata|dintr-odată|misterios|ciudat|întuneric)", "misterios"),
+    (r"\b(șopt|sopt)", "șoptit"),
+]
+
+
+def mood_from(patterns, text):
+    lowered = text.lower()
+    for pattern, mood in patterns:
+        if re.search(pattern, lowered):
+            return mood
+    return ""
+
+
+def guess_mood(text, dialogue, tag=""):
+    from_tag = mood_from(TAG_MOODS, tag) if tag else ""
+    if from_tag:
+        return from_tag
+    if not dialogue:
+        from_words = mood_from(NARRATION_MOODS, text)
+        if from_words:
+            return from_words
+    end = text.rstrip()[-1:] if text.strip() else ""
+    if end == "?":
+        return "mirat"
+    if end == "!":
+        return "entuziasmat" if dialogue else "vesel"
+    if end == "…" or text.rstrip().endswith("..."):
+        return "misterios"
+    return DIALOGUE_MOOD if dialogue else NARRATOR_MOOD
+
+
+def auto_segments(text, characters=()):
+    """Regie de voce automată: replicile de dialog primesc vorbitor și ton, tag-urile rămân la povestitor."""
+    names = [c.get("name") for c in characters if c.get("name")]
     segments = []
-    in_dialogue = False
-    for part in re.split(r"(?<=[.!?…])\s+", text.strip()):
-        if not part:
+    position = 0
+    last_speaker = ""
+    stripped = text.strip()
+    # se taie doar înaintea unei majuscule sau a unei linii de dialog, ca „— Cine e? a întrebat Lio.” să rămână întreg
+    # și după „…” (pauză de suspans), dacă nu urmează un tag de dialog
+    for sentence in re.split(r"(?<=[.!?…])\s+(?=[A-ZĂÂÎȘȚ—„])|(?<=…)\s+(?!(?:a|au|i-a|le-a|îi|i|spuse|zise)\s)", stripped):
+        if not sentence:
             continue
-        if part.startswith("—"):
-            in_dialogue = True
-        segments.append(Segment(part, DIALOGUE_MOOD if in_dialogue else NARRATOR_MOOD, pause=default_pause(part)))
-        if not part.startswith("—"):
-            in_dialogue = False
+        start = stripped.find(sentence, position)
+        position = start + len(sentence)
+        if not sentence.startswith("—"):
+            # „— Nu-ți fie teamă, a zis Lio. Te ajut eu!” — replica scurtă de după tag e tot a lui Lio
+            continues = last_speaker and word_count(sentence) <= 6 and sentence.rstrip()[-1:] in "!?"
+            speaker = last_speaker if continues else ""
+            segments.append(Segment(sentence, guess_mood(sentence, bool(continues)), speaker, default_pause(sentence)))
+            last_speaker = ""
+            continue
+        match = DIALOGUE_TAG.match(sentence)
+        speech, tag = (match.group(1), match.group(2)) if match else (sentence, "")
+        speaker = ""
+        in_tag = mention_positions(tag, names)
+        if in_tag:
+            speaker = in_tag[0][1]
+        elif names:
+            before = mention_positions(stripped[:start], names)
+            if before:
+                speaker = before[-1][1]
+            elif "Lio" in names:
+                speaker = "Lio"
+        segments.append(Segment(speech, guess_mood(speech, True, tag), speaker, default_pause(speech)))
+        if tag:
+            segments.append(Segment(tag, NARRATOR_MOOD, pause=default_pause(tag)))
+        last_speaker = speaker if tag else ""
     return segments
 
 
-def page_segments(page):
+def word_count(text):
+    return len(re.findall(r"\w+", text))
+
+
+def page_segments(page, characters=()):
     narration = page.get("narration")
     if not narration:
-        return auto_segments(page.get("text") or "")
+        return auto_segments(page.get("text") or "", characters)
     segments = []
     for item in narration:
         text = item["text"].strip()

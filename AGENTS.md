@@ -29,13 +29,18 @@ Model complet: `public/stories/lio-si-steluta-cazatoare/story.json`.
 - `public/stories/<id>/story.json` — după formatul din `REGULI_POVESTI.md`, secțiunea 8;
 - `public/stories/<id>/images/coperta.*` și `pagina-NN.*` — imaginile generate (png/jpg/webp).
 
-Apoi rulezi `python3 scripts/stories.py validate` (trebuie să afișeze `[OK]`), faci commit și push pe `master`.
-GitHub Actions optimizează imaginile, verifică povestea, generează vocile, actualizează biblioteca
-și urcă site-ul pe host prin FTPS.
+Apoi rulezi `python3 scripts/stories.py prepare` sau `validate` (trebuie să afișeze `[OK]`), faci commit și push
+pe `master`. GitHub Actions repară automat ce e mecanic, generează imaginile lipsă (dacă e activat), optimizează,
+verifică, generează vocile, actualizează biblioteca și urcă site-ul pe host prin FTPS.
+
+**Treaba ta nu s-a terminat la commit.** După 3–5 minute, preia ultima versiune din repository și citește
+`rapoarte/<id>.md`. Dacă scrie **NEPUBLICATĂ**, corectează tot ce e la „De corectat” și fă din nou commit —
+repetă până când raportul spune **PUBLICATĂ**. Dacă nu poți aștepta, spune-i utilizatorului să-ți ceară
+„verifică raportul poveștii” peste câteva minute.
 
 ## Ce NU modifici
 
-`public/stories/index.json`, folderele `audio/`, `public/assets/audio/` (generate automat) și
+`public/stories/index.json`, folderele `audio/`, `public/assets/audio/`, `rapoarte/` (generate automat) și
 codul site-ului (`public/*.html`, `public/assets/`, `scripts/`, `.github/`) — decât dacă ți se cere explicit.
 
 ## Structura proiectului
@@ -52,6 +57,9 @@ codul site-ului (`public/*.html`, `public/assets/`, `scripts/`, `.github/`) — 
 - `scripts/stories.py` — `optimize` | `validate` | `audio` (ambele voci) | `verify-audio` | `index` | `all`
 - `scripts/canon.py` — valorile oficiale: stilul imaginilor, descrierea și vocea lui Lio, câmpurile `review`
 - `sablon/story.json` — șablonul de poveste (generat din `canon.py` cu `python3 scripts/stories.py template`)
+- `scripts/pregatire.py` — repararea automată a poveștilor (`stories.py prepare`)
+- `scripts/imagini.py` — generarea imaginilor lipsă cu OpenAI (doar dacă există secretul `OPENAI_API_KEY`)
+- `rapoarte/` — raportul fiecărei povești după publicare (PUBLICATĂ / NEPUBLICATĂ și ce e de corectat)
 - `scripts/voce.py` — regia de voce (tonuri, profiluri de personaj, pauze, lipirea cu ffmpeg)
 - `tests/` — teste automate (`python3 -m unittest discover -s tests`), rulate la fiecare publicare
 - `.github/workflows/publica-site.yml` — publicarea automată

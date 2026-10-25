@@ -14,6 +14,8 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import canon  # noqa: E402
+import imagini  # noqa: E402
+import pregatire  # noqa: E402
 import stories  # noqa: E402
 import voce  # noqa: E402
 
@@ -205,6 +207,128 @@ class TemplateTests(unittest.TestCase):
                 stories.STORIES_DIR = original
 
 
+def sloppy_story(folder, data):
+    """O poveste scrisă neglijent: tot ce poate repara proiectul e greșit."""
+    from PIL import Image
+
+    data = copy.deepcopy(data)
+    (folder / "imgs").mkdir(parents=True, exist_ok=True)
+    data.update(id="altceva", age="3–7 ani", created="azi", learning="numărăm stelele", illustrationStyle="cartoon")
+    for character in data["characters"]:
+        character.pop("voice", None)
+    data["characters"][0]["description"] = "a lion"
+    for number, page in enumerate(data["pages"], start=1):
+        page.pop("narration")
+        page["text"] = page["text"].replace("ș", "ş").replace("— ", "- ").replace("…", "...")
+        page["imagePrompt"] = "Lio in the forest" if number % 2 else ""
+        page["image"] = f"imgs/{number}.png"
+        Image.new("RGB", (1600, 1100), (20 * number, 90, 140)).save(folder / "imgs" / f"{number}.png")
+    data["cover"] = {"image": "cover.jpg", "imagePrompt": ""}
+    Image.new("RGB", (1600, 1000), (200, 150, 60)).save(folder / "cover.jpg")
+    return data
+
+
+class PreparationTests(StoryCase):
+    def setUp(self):
+        super().setUp()
+        shutil.rmtree(self.folder / "images")
+        self.data = sloppy_story(self.folder, self.data)
+
+    def test_sloppy_story_is_repaired_until_valid(self):
+        self.assertGreater(len(self.errors()), 30)
+        data, changes = pregatire.prepare(self.folder, self.data)
+        self.assertEqual(stories.validate_story(self.folder, data)[0], [])
+        self.assertTrue(any("regia de voce" in c for c in changes))
+        self.assertEqual(data["pages"][0]["image"], "images/pagina-01.png")
+        self.assertTrue((self.folder / "images" / "coperta.jpg").is_file())
+        self.assertFalse((self.folder / "imgs").exists())
+
+    def test_preparation_is_idempotent(self):
+        data, _ = pregatire.prepare(self.folder, self.data)
+        again, changes = pregatire.prepare(self.folder, copy.deepcopy(data))
+        self.assertEqual(changes, [])
+        self.assertEqual(again, data)
+
+    def test_correct_story_is_left_alone(self):
+        data, changes = pregatire.prepare(DEMO, demo_data())
+        self.assertEqual(changes, [])
+        self.assertEqual(data, demo_data())
+
+    def test_text_normalization(self):
+        self.assertEqual(pregatire.normalize_text('- Bună... a spus "Lio" cu  ş.'), "— Bună… a spus „Lio” cu ș.")
+
+    def test_folder_is_renamed_after_title(self):
+        bad = self.tmp / "Ariciul Ţepişor"
+        self.folder.rename(bad)
+        new = pregatire.rename_folder(bad, self.data)
+        self.assertEqual(new.name, pregatire.slugify(self.data["title"]))
+        self.assertEqual(self.data["id"], new.name)
+
+    def test_missing_image_is_reported_not_invented(self):
+        (self.folder / "imgs" / "3.png").unlink()
+        data, _ = pregatire.prepare(self.folder, self.data)
+        errors = stories.validate_story(self.folder, data)[0]
+        self.assertEqual(errors, ["pagina 3: imaginea images/pagina-03.png nu există"])
+
+
+class FakeImages:
+    def __init__(self, fail_on=None):
+        self.calls, self.fail_on = [], fail_on
+
+    def _result(self):
+        import base64
+        import io
+        from types import SimpleNamespace
+
+        from PIL import Image
+
+        buffer = io.BytesIO()
+        Image.new("RGB", (1536, 1024), (240, 200, 90)).save(buffer, "PNG")
+        return SimpleNamespace(data=[SimpleNamespace(b64_json=base64.b64encode(buffer.getvalue()).decode())])
+
+    def generate(self, **kwargs):
+        self.calls.append(("generate", kwargs["prompt"]))
+        return self._result()
+
+    def edit(self, **kwargs):
+        self.calls.append(("edit", kwargs["prompt"]))
+        if self.fail_on and self.fail_on in kwargs["prompt"]:
+            raise RuntimeError("refuzat")
+        return self._result()
+
+
+class ImageGenerationTests(StoryCase):
+    def setUp(self):
+        super().setUp()
+        for image in (self.folder / "images").iterdir():
+            image.unlink()
+        for entry in [self.data["cover"]] + self.data["pages"]:
+            entry["image"] = entry["image"].replace(".webp", ".png")
+        from types import SimpleNamespace
+
+        self.fake = FakeImages()
+        self.client = SimpleNamespace(images=self.fake)
+
+    def test_cover_first_then_pages_from_cover(self):
+        changes, errors, made = imagini.generate_missing(self.folder, self.data, client=self.client, budget=50)
+        self.assertEqual(errors, [])
+        self.assertEqual(made, len(self.data["pages"]) + 1)
+        self.assertEqual(self.fake.calls[0][0], "generate")
+        self.assertTrue(all(kind == "edit" for kind, _ in self.fake.calls[1:]))
+        self.assertTrue(self.fake.calls[1][1].startswith(imagini.CONSISTENCY))
+        self.assertEqual(self.errors(), [])
+
+    def test_budget_limits_cost(self):
+        _, errors, made = imagini.generate_missing(self.folder, self.data, client=self.client, budget=3)
+        self.assertEqual(made, 3)
+        self.assertTrue(any("limita" in e for e in errors))
+
+    def test_failed_image_is_reported(self):
+        self.fake.fail_on = self.data["pages"][1]["imagePrompt"][-40:]
+        _, errors, _ = imagini.generate_missing(self.folder, self.data, client=self.client, budget=50)
+        self.assertTrue(errors and errors[0].startswith("pagina 2"))
+
+
 class OptimizeTests(StoryCase):
     def test_png_becomes_small_webp_and_json_is_updated(self):
         from PIL import Image
@@ -231,8 +355,20 @@ class OptimizeTests(StoryCase):
 
 class VoiceTests(unittest.TestCase):
     def test_auto_segments_make_dialogue_livelier(self):
-        segments = voce.auto_segments("Lio a zâmbit. — Bună! a spus el. Apoi a plecat.")
-        self.assertEqual([s.mood for s in segments], ["calm", "vesel", "vesel", "calm"])
+        segments = voce.auto_segments("Lio a zâmbit. — Bună! a spus el. Apoi a plecat.", [{"name": "Lio"}])
+        self.assertEqual([s.mood for s in segments], ["calm", "entuziasmat", "calm", "calm"])
+        self.assertEqual([s.speaker for s in segments], ["", "Lio", "", ""])
+
+    def test_speaker_and_mood_come_from_dialogue_tag(self):
+        characters = [{"name": "Lio"}, {"name": "Steluța"}]
+        segments = voce.auto_segments("— Nu mai știu drumul, a suspinat Steluța. — Te ajut, a șoptit Lio.", characters)
+        self.assertEqual([(s.speaker, s.mood) for s in segments],
+                         [("Steluța", "trist"), ("", "calm"), ("Lio", "șoptit"), ("", "calm")])
+
+    def test_short_line_after_tag_belongs_to_speaker(self):
+        segments = voce.auto_segments("— Nu-ți fie teamă, a zis Lio. Te ajut eu! Apoi a plecat.", [{"name": "Lio"}])
+        self.assertEqual(segments[2].speaker, "Lio")
+        self.assertEqual(segments[3].speaker, "")
 
     def test_ellipsis_gets_longer_pause(self):
         segments = voce.auto_segments("A zburat, a zburat… și a căzut.")

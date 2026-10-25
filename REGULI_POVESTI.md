@@ -325,7 +325,34 @@ Pentru un personaj cunoscut se adaugă în `characters`: `"knownCharacter": true
 Dacă nu poți scrie cinstit unul dintre câmpuri (de ex. nu găsești două momente amuzante), **povestea nu e gata**:
 îmbunătățește-o, nu completa câmpul de formă.
 
-## 9. Ce verifică automat proiectul
+## 9. Ce repară, generează și verifică automat proiectul
+
+### Ce repară singur proiectul (la fiecare publicare)
+
+Orice AI ar fi scris povestea, înainte de verificare proiectul corectează automat tot ce e mecanic:
+ș/ț cu virgulă, „…”, linia de dialog și ghilimelele; `id`, `created`, `age`, `learning` ca listă, numele
+folderului; stilul oficial în `illustrationStyle` și în fiecare `imagePrompt`; descrierea completă a
+personajelor din fiecare scenă în prompturi; descrierea și vocea oficială a lui Lio; prompturile de imagine
+lipsă (din textul paginii); imaginile numite altfel (`1.png`, `cover.jpg` → `images/pagina-01.png`,
+`images/coperta.jpg`); regia de voce lipsă sau greșită (cu detectarea vorbitorului și a tonului din
+„a suspinat”, „a strigat”, „a șoptit”, din „!”, „?”, „…”); profilurile de voce pentru personajele care vorbesc.
+
+Ce generează singur: **vocea** (feminină și masculină) și, **dacă proprietarul a activat generatorul de imagini**
+(secretul `OPENAI_API_KEY`), **imaginile care lipsesc** — coperta întâi, apoi paginile pornind de la copertă,
+ca personajele să arate la fel.
+
+Ce **nu** se inventează automat (trebuie scris de AI): textul poveștii, `title`, `summary`, `moral`,
+`learning`, `review`, descrierile personajelor noi, imaginile (dacă generatorul nu e activat).
+Reparațiile automate sunt o plasă de siguranță: **scrie povestea corect de la început**; regia de voce
+scrisă de tine sună mai bine decât cea automată.
+
+### Raportul: `rapoarte/<id>.md`
+
+După fiecare publicare, proiectul scrie pentru fiecare poveste un raport cu starea ei
+(**✅ PUBLICATĂ** sau **❌ NEPUBLICATĂ**), ce a reparat automat și **ce mai trebuie corectat**.
+O poveste nepublicată **nu apare pe site**, dar nu le oprește pe celelalte.
+
+### Ce verifică automat proiectul
 
 La fiecare publicare, `python3 scripts/stories.py validate` respinge povestea dacă:
 
@@ -368,8 +395,13 @@ Când primești „fă o poveste despre X”:
 9. **Salvează** `story.json` și imaginile în `public/stories/<id>/`.
 10. **Verifică:** `python3 scripts/stories.py validate` (dacă poți rula comenzi) — trebuie să apară `[OK]`.
 11. **Commit și push** pe branch-ul principal (`master`) sau deschide un pull request. GitHub Actions face restul:
-     teste → optimizează imaginile → verifică povestea → generează vocea feminină și masculină cu regia de voce →
-     verifică fișierele audio → actualizează biblioteca → urcă site-ul prin FTPS → verifică site-ul live.
+     teste → repară automat → generează imaginile lipsă (dacă e activat) → optimizează imaginile → verifică →
+     scrie raportul → generează vocea feminină și masculină → actualizează biblioteca → urcă site-ul prin FTPS →
+     verifică site-ul live.
+12. **Citește raportul** `rapoarte/<id>.md` după 3–5 minute (preia întâi ultima versiune din repository:
+     robotul poate fi reparat automat `story.json` și a mutat imaginile). Dacă scrie **NEPUBLICATĂ**, corectează
+     tot ce e la „De corectat”, fă din nou commit și **repetă până când raportul spune PUBLICATĂ**.
+     Treaba ta se termină abia atunci.
 
 O poveste care nu trece verificarea automată **nu** este publicată.
 
@@ -386,3 +418,4 @@ O poveste care nu trece verificarea automată **nu** este publicată.
 - [ ] Personajele cunoscute (dacă au fost cerute) sunt fidele originalului și marcate cu `knownCharacter`.
 - [ ] `review` completat cinstit, cu pagini concrete; nu a rămas nimic `DE COMPLETAT`.
 - [ ] `python3 scripts/stories.py validate` afișează `[OK]`.
+- [ ] După publicare, `rapoarte/<id>.md` spune **PUBLICATĂ**.

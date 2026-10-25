@@ -37,16 +37,19 @@ jobs:
           for f in public/assets/js/*.js; do node --check "$f"; done
           php -l public/api/citiri.php
 
-      - name: Optimizează imaginile (webp, max 1536×1024)
-        run: python scripts/stories.py optimize
+      # Repară automat ce e mecanic, generează imaginile lipsă (dacă există OPENAI_API_KEY), optimizează,
+      # verifică și scrie rapoartele din rapoarte/. O poveste greșită nu ajunge pe site, dar nu le oprește pe celelalte.
+      - name: Pregătește poveștile (reparare automată, imagini, verificare, rapoarte)
+        env:
+          OPENAI_API_KEY: ${{ github.event_name != 'pull_request' && secrets.OPENAI_API_KEY || '' }}
+          IMAGE_MODEL: ${{ vars.IMAGE_MODEL }}
+          IMAGE_QUALITY: ${{ vars.IMAGE_QUALITY }}
+          MAX_IMAGES: ${{ vars.MAX_IMAGES }}
+        run: python scripts/stories.py prepare
 
-      # Orice poveste care nu respectă REGULI_POVESTI.md oprește publicarea.
-      - name: Verifică poveștile după REGULI_POVESTI.md
-        run: python scripts/stories.py validate
-
-      - name: Oprește-te aici la pull request (fără voce și fără publicare)
+      - name: La pull request, toate poveștile trebuie să treacă verificarea
         if: github.event_name == 'pull_request'
-        run: echo "Verificările au trecut. Publicarea se face după merge în master."
+        run: python scripts/stories.py status
 
       - name: Generează vocea feminină și masculină (edge-tts + regie de voce)
         if: github.event_name != 'pull_request'
@@ -56,18 +59,20 @@ jobs:
         if: github.event_name != 'pull_request'
         run: python scripts/stories.py verify-audio
 
-      - name: Actualizează biblioteca
+      - name: Actualizează biblioteca și pregătește site-ul (doar poveștile valide)
         if: github.event_name != 'pull_request'
-        run: python scripts/stories.py index
+        run: |
+          python scripts/stories.py index
+          python scripts/stories.py stage
 
-      - name: Salvează imaginile, vocea și biblioteca în repository
+      - name: Salvează reparațiile, imaginile, vocea, biblioteca și rapoartele în repository
         if: github.event_name != 'pull_request'
         run: |
           git config user.name "iamlio-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/stories public/assets/audio
+          git add -A public/stories public/assets/audio rapoarte
           if ! git diff --cached --quiet; then
-            git commit -m "Imagini, voce și bibliotecă actualizate automat"
+            git commit -m "Povești pregătite automat: reparații, imagini, voce, bibliotecă, rapoarte"
             git pull --rebase origin "${GITHUB_REF_NAME}"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
@@ -97,7 +102,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT || 21 }}
           protocol: ftps
-          local-dir: ./public/
+          local-dir: ./build/site/
           server-dir: ${{ secrets.FTP_SERVER_DIR || './' }}
           exclude: |
             **/.git*
@@ -119,3 +124,9 @@ jobs:
           code=$(curl -s -o /dev/null -w "%{http_code}" "$SITE_URL/api/data/citiri.json")
           [ "$code" = "403" ] || [ "$code" = "404" ] || { echo "::error::api/data este accesibil public (HTTP $code)"; exit 1; }
           echo "Site-ul live răspunde corect: $SITE_URL"
+
+      # Site-ul e publicat cu poveștile bune; dacă una nu trece verificarea, rularea apare cu roșu
+      # ca să se vadă, iar rapoarte/<poveste>.md spune exact ce trebuie corectat.
+      - name: Toate poveștile sunt publicate?
+        if: github.event_name != 'pull_request'
+        run: python scripts/stories.py status

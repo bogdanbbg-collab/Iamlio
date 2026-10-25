@@ -24,6 +24,8 @@ Pe scurt, povestea trebuie:
 
 Generează textul și imaginile, salvează-le în public/stories/<id>/ (story.json + images/), verifică lista
 din REGULI_POVESTI.md, apoi fă commit pe master. Nu genera fișiere audio și nu modifica index.json.
+După 3–5 minute citește rapoarte/<id>.md: dacă scrie NEPUBLICATĂ, corectează tot ce e la „De corectat”
+și fă din nou commit, până când scrie PUBLICATĂ.
 La final spune-mi titlul, durata estimată și ce ai adaptat din cererea mea (dacă ai adaptat ceva).
 
 Povestea: <AICI scrii ce vrei, de ex.: „o poveste de 5 minute despre un arici care învață să numere stelele”>
@@ -31,5 +33,6 @@ Povestea: <AICI scrii ce vrei, de ex.: „o poveste de 5 minute despre un arici 
 
 ---
 
-După commit, GitHub Actions verifică povestea. Dacă nu respectă regulile, nu se publică, iar în tab-ul
-**Actions** din GitHub vezi exact ce trebuie corectat. Poți da textul erorii înapoi AI-ului: „Corectează: …”.
+După commit, proiectul repară automat ce poate, generează vocea și publică. Starea fiecărei povești e în
+`rapoarte/<id>.md`. Dacă AI-ul s-a oprit înainte să fie publicată, scrie-i doar:
+„Citește rapoarte/<id>.md și corectează până când povestea e publicată.”
