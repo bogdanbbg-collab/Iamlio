@@ -1,18 +1,96 @@
 {
   "feminin": {
-    "replica-01.mp3": "db3e49d1d738df13a10e558f158a08d1953fcb29",
-    "replica-02.mp3": "7f404f43d8591094c6c9ee3ffbe6381c5792394d",
-    "replica-03.mp3": "23c1a7331f1015c8dfc3790106bf8a7dc881f320",
-    "replica-04.mp3": "d7f008c6dcd833f545fcb8c63e9aa9a66564bce6",
-    "replica-05.mp3": "908932ec490f58647c58e06774a7eddcf33b87e3",
-    "replica-06.mp3": "139b3747e3b9be375d4d9c515210e2781e8d554c"
+    "replica-01.mp3": "1a96bef529eef4d281b0795f09e2bb6bc58decb5",
+    "replica-02.mp3": "f3633d1db09d5b51e0b70eb878f942bb92697669",
+    "replica-03.mp3": "c2a3fb07364d603158da1de8cd80409f6d8195fb",
+    "replica-04.mp3": "0060eff400ceb460565d8e58093b4b002303b465",
+    "replica-05.mp3": "fad2a81a29f03c722fac861ab9f6aca0566b5e1d",
+    "replica-06.mp3": "7ecd7c89e6ddbd82d5f296c44f048f8cfd245fe2"
+  },
+  "timing": {
+    "feminin": {
+      "replica-01.mp3": [
+        [
+          0.15,
+          6.01
+        ]
+      ],
+      "replica-02.mp3": [
+        [
+          0.15,
+          5.36
+        ]
+      ],
+      "replica-03.mp3": [
+        [
+          0.15,
+          4.93
+        ]
+      ],
+      "replica-04.mp3": [
+        [
+          0.15,
+          5.41
+        ]
+      ],
+      "replica-05.mp3": [
+        [
+          0.15,
+          6.44
+        ]
+      ],
+      "replica-06.mp3": [
+        [
+          0.15,
+          4.35
+        ]
+      ]
+    },
+    "masculin": {
+      "replica-01.mp3": [
+        [
+          0.15,
+          6.01
+        ]
+      ],
+      "replica-02.mp3": [
+        [
+          0.15,
+          5.26
+        ]
+      ],
+      "replica-03.mp3": [
+        [
+          0.15,
+          4.93
+        ]
+      ],
+      "replica-04.mp3": [
+        [
+          0.15,
+          5.14
+        ]
+      ],
+      "replica-05.mp3": [
+        [
+          0.15,
+          6.68
+        ]
+      ],
+      "replica-06.mp3": [
+        [
+          0.15,
+          4.45
+        ]
+      ]
+    }
   },
   "masculin": {
-    "replica-01.mp3": "5b2294ef04ea6d07eaa0283dbaea15755a58b949",
-    "replica-02.mp3": "46910b9462f81956698d37dc5c0a1cb2f1a3c1ee",
-    "replica-03.mp3": "acd67d37155930b0ec83568b33d7144a2f3be642",
-    "replica-04.mp3": "f50ca8fa53f3cc64f5e9932e9f77d83eeb9d6211",
-    "replica-05.mp3": "ce8697dcc54fa45768219ea5fcce0b3510bb1a69",
-    "replica-06.mp3": "75d99b7a83d72c11ee9e1c52dea77831d7259a97"
+    "replica-01.mp3": "518b4c30998d0073b5755e6f695200be591de213",
+    "replica-02.mp3": "be74a42aefb0edff043d11f196a2467c8c458b26",
+    "replica-03.mp3": "e55458375b0faaa6cc424440ac74de2620adf1fd",
+    "replica-04.mp3": "81b3a59290cbd6f492eda92eaf48dd94b7b2ddb0",
+    "replica-05.mp3": "873d363732e0787f10cea44ece186855da770457",
+    "replica-06.mp3": "fa68a737391406f3cff4f7074f5ebde866a847cf"
   }
 }
