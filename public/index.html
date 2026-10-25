@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Iamlio — Lio îți citește o poveste</title>
+  <meta name="description" content="Povești ilustrate pentru copii de 3–7 ani, citite cu voce de Lio, puiul de leu.">
+  <meta name="theme-color" content="#FFF4E0">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="home">
+  <header class="site-header">
+    <a class="brand" href="./">
+      <img src="favicon.svg" alt="" width="44" height="44">
+      <span>I am <strong>Lio</strong></span>
+    </a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img class="hero-lio" src="assets/img/lio.svg" alt="Lio, puiul de leu cu eșarfă turcoaz" width="260" height="315">
+      <div class="bubble">
+        <h1>Bună! Eu sunt Lio.</h1>
+        <p>Alege o poveste și ți-o citesc eu. Dă paginile cu degetul, ca într-o carte adevărată!</p>
+      </div>
+    </section>
+
+    <section class="library" aria-labelledby="library-title">
+      <h2 id="library-title">Poveștile lui Lio</h2>
+      <div id="stories" class="story-grid" aria-live="polite">
+        <p class="muted">Se încarcă poveștile…</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Iamlio · povești pentru copii de 3–7 ani</p>
+  </footer>
+
+  <script src="assets/js/library.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+name: Publică site-ul
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publica-site
+  cancel-in-progress: false
+
+jobs:
+  publica:
+    runs-on: ubuntu-latest
+    env:
+      FTP_SERVER: ${{ secrets.FTP_SERVER }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalează uneltele
+        run: pip install -r requirements.txt
+
+      - name: Verifică poveștile după REGULI_POVESTI.md
+        id: validate
+        continue-on-error: true
+        run: python scripts/stories.py validate
+
+      - name: Generează vocea (edge-tts)
+        continue-on-error: true
+        run: python scripts/stories.py audio
+
+      - name: Actualizează biblioteca
+        run: python scripts/stories.py index
+
+      - name: Salvează vocea și biblioteca în repository
+        run: |
+          git config user.name "iamlio-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/stories
+          if ! git diff --cached --quiet; then
+            git commit -m "Voce și bibliotecă actualizate automat"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+
+      - name: Urcă site-ul pe host (FTPS)
+        if: env.FTP_SERVER != ''
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT || 21 }}
+          protocol: ftps
+          local-dir: ./public/
+          server-dir: ${{ secrets.FTP_SERVER_DIR || './' }}
+
+      - name: Datele FTPS lipsesc
+        if: env.FTP_SERVER == ''
+        run: echo "::warning::Site-ul nu a fost urcat pe host. Adaugă secretele FTP_SERVER, FTP_USERNAME, FTP_PASSWORD (și opțional FTP_SERVER_DIR, FTP_PORT) în Settings → Secrets and variables → Actions."
+
+      - name: Oprește-te dacă o poveste nu respectă regulile
+        if: steps.validate.outcome == 'failure'
+        run: |
+          echo "::error::Cel puțin o poveste nu respectă REGULI_POVESTI.md și nu a fost publicată. Vezi pasul de verificare."
+          exit 1

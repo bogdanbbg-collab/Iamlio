@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Poveste — Iamlio</title>
+  <meta name="theme-color" content="#2B3A73">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="reader">
+  <header class="reader-bar">
+    <a class="icon-btn" href="./" aria-label="Înapoi la povești">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </a>
+    <h1 id="story-title" class="reader-title">Poveste</h1>
+    <button id="auto-btn" class="icon-btn" type="button" aria-pressed="true" title="Întoarce singur paginile când citește Lio">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.6M20 12a8 8 0 0 1-13.7 5.6"/><path d="M18 3v4h-4M6 21v-4h4"/></svg>
+    </button>
+  </header>
+
+  <main class="stage">
+    <div id="book" class="book" tabindex="0" aria-roledescription="carte" aria-live="polite"></div>
+  </main>
+
+  <nav class="reader-controls" aria-label="Controale poveste">
+    <button id="prev-btn" class="nav-btn" type="button" aria-label="Pagina anterioară">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <button id="play-btn" class="play-btn" type="button" aria-label="Lio citește povestea">
+      <img src="favicon.svg" alt="" width="64" height="64">
+      <span class="play-badge" aria-hidden="true"></span>
+    </button>
+    <button id="next-btn" class="nav-btn" type="button" aria-label="Pagina următoare">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </nav>
+  <div id="dots" class="dots" aria-hidden="true"></div>
+
+  <script src="assets/js/reader.js" defer></script>
+</body>
+</html>
