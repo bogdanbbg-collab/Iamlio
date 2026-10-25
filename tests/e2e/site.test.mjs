@@ -134,9 +134,10 @@ test("contorul: o citire pe vizitator, apoi afișat în bibliotecă și în pove
   const again = await (await fetch(`${BASE}/api/citiri.php?id=${STORY.id}`, { method: "POST" })).json();
   assert.equal(again.numarat, false);
   assert.equal(again.citiri[STORY.id], 1);
-  assert.equal((await fetch(`${BASE}/api/citiri.php?id=nu-exista`, { method: "POST" })).status, 404);
-  assert.equal((await fetch(`${BASE}/api/citiri.php?id=../etc`, { method: "POST" })).status, 404);
-  assert.equal((await fetch(`${BASE}/api/citiri.php`, { method: "DELETE" })).status, 405);
+  const status = async (url, method) => { const r = await fetch(url, { method }); await r.text(); return r.status; };
+  assert.equal(await status(`${BASE}/api/citiri.php?id=nu-exista`, "POST"), 404);
+  assert.equal(await status(`${BASE}/api/citiri.php?id=../etc`, "POST"), 404);
+  assert.equal(await status(`${BASE}/api/citiri.php`, "DELETE"), 405);
   await p.goto(`${BASE}/`);
   await p.waitForSelector(".story-reads");
   assert.equal(await p.textContent(".story-reads"), "Citită o dată");
@@ -279,7 +280,10 @@ test("aplicație: manifest și pictograme pentru „Adaugă pe ecranul principal
   const manifest = await (await fetch(`${BASE}/manifest.webmanifest`)).json();
   assert.equal(manifest.short_name, "Iamlio");
   for (const icon of manifest.icons) {
-    assert.equal((await fetch(`${BASE}/${icon.src}`)).status, 200, icon.src);
+    const response = await fetch(`${BASE}/${icon.src}`);
+    const body = await response.arrayBuffer(); // corpul se citește complet (altfel fetch din Node poate crăpa)
+    assert.equal(response.status, 200, icon.src);
+    assert.ok(body.byteLength > 1000, icon.src);
   }
   const p = await page();
   await p.goto(STORY_URL);
