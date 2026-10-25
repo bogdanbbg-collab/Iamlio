@@ -147,7 +147,7 @@ se văd trei).
 - **Fără niciun text, litere sau cifre în imagine.** Fără logo-uri și mărci.
 - Format **orizontal 3:2**, ideal **1536×1024 px**. Subiectul principal în **centrul** imaginii
   (pe telefon marginile pot fi tăiate).
-- Format **.png, .jpg sau .webp**. Imaginile se optimizează **automat** (devin .webp, sub ~400 KB) la publicare.
+- Format **.png, .jpg sau .webp** (nu SVG). Imaginile se optimizează **automat** (devin .webp, sub ~450 KB) la publicare.
 
 ### Șablon de prompt pentru imagine (în engleză)
 
@@ -167,14 +167,63 @@ Camera: <wide shot / medium shot / close-up / low angle ...>.
 
 Câmpul `illustrationStyle` din `story.json` conține primele 4 rânduri (stilul), identice pentru toate paginile.
 
-## 7. Vocea (text-to-speech)
+## 7. Vocea și regia de voce
 
-- **Nu o genera tu.** Vocea se generează **automat** de GitHub Actions (cu `edge-tts`, gratuit), după push.
-- Fiecare poveste primește **ambele voci**: **feminină** (`ro-RO-AlinaNeural`) și **masculină**
-  (`ro-RO-EmilNeural`). Cel care citește alege vocea din site.
-- Ca să sune bine: propoziții scurte, punctuație corectă (virgula = mică pauză), numere în litere,
-  onomatopee scrise cum se pronunță („Bâz-bâz!”).
-- Nu crea fișiere audio și nu adăuga câmpuri `audio` — se generează în folderul `audio/`.
+Vocea se generează **automat** de GitHub Actions (cu `edge-tts`, gratuit), după push, în **două variante**:
+**feminină** (`ro-RO-AlinaNeural`) și **masculină** (`ro-RO-EmilNeural`). Cel care citește alege din site.
+**Nu genera tu fișiere audio** și nu adăuga câmpuri `audio`.
+
+Ca povestea să nu sune robotic, **scrii explicit regia de voce** — cum se citește fiecare bucată.
+Fiecare bucată se generează separat, cu intonația ei, apoi bucățile se lipesc cu pauze.
+
+### a) Regia pe pagină: câmpul `narration` (obligatoriu pentru poveștile noi)
+
+Pentru fiecare pagină, `narration` împarte **exact textul paginii** în replici, în ordine. Fiecare replică are:
+
+| Câmp | Ce înseamnă |
+| --- | --- |
+| `text` | bucata de text, **cuvânt cu cuvânt din `text`** (verificarea respinge orice diferență) |
+| `mood` | tonul: `calm`, `vesel`, `entuziasmat`, `mirat`, `trist`, `șoptit`, `misterios`, `somnoros`, `speriat`, `hotărât` |
+| `speaker` | (opțional) numele personajului care vorbește, exact ca în `characters`; lipsă = povestitorul |
+| `pause` | (opțional) pauza după replică, în secunde (0–3; implicit 0,3, iar după „…” 0,7) |
+
+Cum alegi:
+- **narațiunea** e de obicei `calm`; schimbă tonul când se schimbă atmosfera (`misterios` înainte de o
+  surpriză, `entuziasmat` la momentul vesel, `somnoros` la final de poveste de seară);
+- **fiecare replică de dialog** e o bucată separată, cu `speaker` și tonul emoției personajului;
+- **tag-ul de dialog** („a spus el”, „a întrebat Lio”) e o bucată separată, a povestitorului;
+- pune **pauze** înaintea momentelor importante (`"pause": 0.6`) și după onomatopee („pleosc!”).
+
+```json
+"narration": [
+  { "text": "Steluța stătea în iarbă și plângea încet.", "mood": "trist" },
+  { "text": "— Nu mai știu drumul spre casă,", "mood": "trist", "speaker": "Steluța" },
+  { "text": "a suspinat ea.", "mood": "trist", "pause": 0.6 },
+  { "text": "— Nu-ți fie teamă!", "mood": "hotărât", "speaker": "Lio" }
+]
+```
+
+Dacă `narration` lipsește, vocea se generează simplu: narațiune calmă și dialog mai vioi (acceptat, dar sună mai plat).
+
+### b) Vocile personajelor: câmpul `voice` din `characters`
+
+Fiecare personaj care vorbește poate avea un profil de voce, ca să se deosebească de povestitor:
+
+```json
+{ "name": "Steluța", "description": "...", "voice": { "type": "feminin", "pitch": 22, "rate": 2 } }
+```
+
+- `type`: `feminin` sau `masculin` — vocea fixă a personajului; lipsă = vocea aleasă de cel care ascultă;
+- `pitch`: înălțimea, între −30 și +40 (pozitiv = mai subțire: copii, animale mici; negativ = mai gros: urși, uriași);
+- `rate`: viteza, între −30 și +30 (negativ = mai rar: bunici, bufnițe înțelepte; pozitiv = mai repede: veverițe).
+
+Lio are deja profilul lui (`"pitch": 12, "rate": 3`) — folosește-l la fel când Lio vorbește.
+
+### c) Textul în sine
+
+- propoziții scurte și punctuație corectă (virgula = mică pauză, „…” = pauză de suspans);
+- numere în litere, fără abrevieri și emoji; onomatopee scrise cum se pronunță („Bâz-bâz!”, „Pleosc!”);
+- semnul exclamării și al întrebării schimbă intonația — folosește-le.
 
 ## 8. Fișierele
 
@@ -213,11 +262,13 @@ public/stories/<id>/
   "characters": [
     {
       "name": "Țepișor",
-      "description": "a tiny round baby hedgehog with soft light-brown spikes, a cream belly, big shiny black eyes, a tiny red knitted hat ..."
+      "description": "a tiny round baby hedgehog with soft light-brown spikes, a cream belly, big shiny black eyes, a tiny red knitted hat ...",
+      "voice": { "pitch": 20, "rate": 4 }
     },
     {
       "name": "Lio",
-      "description": "a small, chubby, adorable lion cub with baby proportions ..."
+      "description": "a small, chubby, adorable lion cub with baby proportions ...",
+      "voice": { "pitch": 12, "rate": 3 }
     }
   ],
   "cover": {
@@ -226,7 +277,12 @@ public/stories/<id>/
   },
   "pages": [
     {
-      "text": "Textul paginii 1.",
+      "text": "Era odată un arici mic. — Câte stele sunt? a întrebat el.",
+      "narration": [
+        { "text": "Era odată un arici mic.", "mood": "calm" },
+        { "text": "— Câte stele sunt?", "mood": "mirat", "speaker": "Țepișor" },
+        { "text": "a întrebat el.", "mood": "calm" }
+      ],
       "image": "images/pagina-01.png",
       "imagePrompt": "Promptul complet folosit pentru imaginea paginii 1"
     }
@@ -245,6 +301,7 @@ Când primești „fă o poveste despre X”:
 2. **Planifică.** Alege: elementul de imaginație, cele 1–3 lucruri de învățat, cele cel puțin două momente
    amuzante, problema și rezolvarea, morala. Alege numărul de pagini după tabelul din secțiunea 2.
 3. **Scrie povestea** pagină cu pagină (20–70 de cuvinte pe pagină, un moment pe pagină).
+   Apoi scrie **regia de voce** (`narration`) pentru fiecare pagină și profilul `voice` al personajelor (secțiunea 7).
 4. **Recitește ca un părinte** și verifică lista de mai jos; corectează până trece totul.
 5. **Descrie personajele** în `characters` (în engleză, foarte vizual; Lio exact ca în secțiunea 4).
 6. **Scrie prompturile** de imagine cu șablonul din secțiunea 6: coperta + câte unul pentru fiecare pagină.
@@ -252,8 +309,9 @@ Când primești „fă o poveste despre X”:
    imagine: se potrivește cu textul? personajele arată la fel? nu are text? Refă-le pe cele care nu se potrivesc.
 8. **Salvează** `story.json` și imaginile în `public/stories/<id>/`.
 9. **Verifică:** `python3 scripts/stories.py validate` (dacă poți rula comenzi) — trebuie să apară `[OK]`.
-10. **Commit și push** pe branch-ul principal. GitHub Actions face restul: optimizează imaginile → verifică
-    povestea → generează vocea feminină și masculină → actualizează biblioteca → urcă site-ul prin FTPS.
+10. **Commit și push** pe branch-ul principal (`master`) sau deschide un pull request. GitHub Actions face restul:
+    teste → optimizează imaginile → verifică povestea → generează vocea feminină și masculină cu regia de voce →
+    verifică fișierele audio → actualizează biblioteca → urcă site-ul prin FTPS → verifică site-ul live.
 
 O poveste care nu trece verificarea automată **nu** este publicată.
 
@@ -264,6 +322,7 @@ O poveste care nu trece verificarea automată **nu** este publicată.
 - [ ] Are imaginație, ceva de învățat (`learning`), cel puțin două momente amuzante și final fericit.
 - [ ] Nimic din lista „Interzis”; nimic care ar speria un copil de 3 ani înainte de culcare.
 - [ ] Română corectă, cu diacritice (ș, ț cu virgulă), numere în litere, dialog cu linie de dialog.
+- [ ] Fiecare pagină are `narration` cu tonuri potrivite; personajele care vorbesc au profil `voice`.
 - [ ] Fiecare personaj descris o dată în `characters` și copiat întocmai în prompturile în care apare.
 - [ ] Fiecare imagine arată exact momentul paginii ei, în stilul Iamlio, fără text în imagine.
 - [ ] Personajele cunoscute (dacă au fost cerute) sunt fidele originalului și marcate cu `knownCharacter`.

@@ -20,71 +20,294 @@
   "characters": [
     {
       "name": "Lio",
-      "description": "a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression"
+      "description": "a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression",
+      "voice": {
+        "pitch": 12,
+        "rate": 3
+      }
     },
     {
       "name": "Steluța",
-      "description": "a tiny glowing golden five-pointed star with a cute round face, small shiny dark eyes, pink cheeks and a soft warm halo of light around her"
+      "description": "a tiny glowing golden five-pointed star with a cute round face, small shiny dark eyes, pink cheeks and a soft warm halo of light around her",
+      "voice": {
+        "type": "feminin",
+        "pitch": 22,
+        "rate": 2
+      }
     },
     {
       "name": "Ula",
-      "description": "a wise, kind, fluffy lavender owl with a pale lilac belly, big round amber eyes behind tiny round glasses and a small orange beak"
+      "description": "a wise, kind, fluffy lavender owl with a pale lilac belly, big round amber eyes behind tiny round glasses and a small orange beak",
+      "voice": {
+        "type": "feminin",
+        "pitch": -6,
+        "rate": -10
+      }
     }
   ],
   "cover": {
-    "image": "images/coperta.svg",
+    "image": "images/coperta.webp",
     "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Steluța: a tiny glowing golden five-pointed star with a cute round face, small shiny dark eyes, pink cheeks and a soft warm halo of light around her. Setting: a magical pine forest at dusk, purple and pink sky with the first stars. Action: Lio raises his paws happily under the glowing little star floating above him. Emotions: joyful, full of wonder. Important details: the glowing star, pine trees, soft hills. Camera: wide shot."
   },
   "pages": [
     {
       "text": "Era o seară liniștită în pădurea cu pini. Lio, puiul de leu cu eșarfa turcoaz, stătea întins în iarbă și număra stelele: — Una, două, trei… o sută! Apoi a căscat atât de tare, că un fluture i-a zburat speriat din coamă.",
-      "image": "images/pagina-01.svg",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: a cozy pine forest clearing at night, big soft full moon, sky full of twinkling stars. Action: Lio lies on his back in the grass counting the stars with one paw raised, then yawns hugely while a small butterfly flutters out of his mane. Emotions: sleepy, happy, funny. Important details: fireflies, a tiny blue butterfly, the starry sky. Camera: wide shot."
+      "image": "images/pagina-01.webp",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: a cozy pine forest clearing at night, big soft full moon, sky full of twinkling stars. Action: Lio lies on his back in the grass counting the stars with one paw raised, then yawns hugely while a small butterfly flutters out of his mane. Emotions: sleepy, happy, funny. Important details: fireflies, a tiny blue butterfly, the starry sky. Camera: wide shot.",
+      "narration": [
+        {
+          "text": "Era o seară liniștită în pădurea cu pini.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lio, puiul de leu cu eșarfa turcoaz, stătea întins în iarbă și număra stelele:",
+          "mood": "calm"
+        },
+        {
+          "text": "— Una, două, trei… o sută!",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Apoi a căscat atât de tare, că un fluture i-a zburat speriat din coamă.",
+          "mood": "vesel"
+        }
+      ]
     },
     {
       "text": "Deodată, o steluță mică s-a desprins de pe cer. A zburat, a zburat, a zburat… și a căzut, pof!, drept într-un tufiș de mure.",
-      "image": "images/pagina-02.svg",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Steluța: a tiny glowing golden five-pointed star with a cute round face, small shiny dark eyes, pink cheeks and a soft warm halo of light around her. Setting: a cozy pine forest clearing at night, big soft full moon, sky full of twinkling stars. Action: a tiny star falls from the sky leaving a sparkling trail and lands in a blackberry bush while Lio watches. Emotions: Lio is amazed with his mouth open. Important details: sparkling trail, blackberry bush with dark berries. Camera: wide shot."
+      "image": "images/pagina-02.webp",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Steluța: a tiny glowing golden five-pointed star with a cute round face, small shiny dark eyes, pink cheeks and a soft warm halo of light around her. Setting: a cozy pine forest clearing at night, big soft full moon, sky full of twinkling stars. Action: a tiny star falls from the sky leaving a sparkling trail and lands in a blackberry bush while Lio watches. Emotions: Lio is amazed with his mouth open. Important details: sparkling trail, blackberry bush with dark berries. Camera: wide shot.",
+      "narration": [
+        {
+          "text": "Deodată, o steluță mică s-a desprins de pe cer.",
+          "mood": "mirat"
+        },
+        {
+          "text": "A zburat, a zburat, a zburat…",
+          "mood": "misterios"
+        },
+        {
+          "text": "și a căzut, pof!, drept într-un tufiș de mure.",
+          "mood": "entuziasmat"
+        }
+      ]
     },
     {
       "text": "Lio a alergat într-acolo. Dar s-a împiedicat de propria coadă și s-a rostogolit ca un ghem: hop, hop, pleosc! A aterizat cu nasul fix lângă tufiș.",
-      "image": "images/pagina-03.svg",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: a cozy pine forest clearing at night, big soft full moon, sky full of twinkling stars. Action: Lio trips over his own tail and tumbles like a ball of yarn across the grass toward the blackberry bush, leaves flying. Emotions: surprised and silly, comic. Important details: motion lines, flying autumn leaves, the blackberry bush. Camera: medium shot, dynamic angle."
+      "image": "images/pagina-03.webp",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: a cozy pine forest clearing at night, big soft full moon, sky full of twinkling stars. Action: Lio trips over his own tail and tumbles like a ball of yarn across the grass toward the blackberry bush, leaves flying. Emotions: surprised and silly, comic. Important details: motion lines, flying autumn leaves, the blackberry bush. Camera: medium shot, dynamic angle.",
+      "narration": [
+        {
+          "text": "Lio a alergat într-acolo.",
+          "mood": "calm"
+        },
+        {
+          "text": "Dar s-a împiedicat de propria coadă și s-a rostogolit ca un ghem:",
+          "mood": "vesel"
+        },
+        {
+          "text": "hop, hop, pleosc!",
+          "mood": "entuziasmat",
+          "pause": 0.5
+        },
+        {
+          "text": "A aterizat cu nasul fix lângă tufiș.",
+          "mood": "vesel"
+        }
+      ]
     },
     {
       "text": "Steluța stătea în iarbă și plângea încet. — Nu mai știu drumul spre casă, a suspinat ea. Lio s-a apropiat blând. Când cineva e trist, îl întrebi ce s-a întâmplat și îl asculți cu răbdare.",
-      "image": "images/pagina-04.svg",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Steluța: a tiny glowing golden five-pointed star with a cute round face, small shiny dark eyes, pink cheeks and a soft warm halo of light around her. Setting: the grass next to the blackberry bush at night, moonlight. Action: Steluța sits in the grass crying softly while Lio kneels next to her and listens kindly. Emotions: Steluța sad with a small tear, Lio caring and gentle. Important details: a tiny tear, soft moonlight. Camera: close-up at grass level."
+      "image": "images/pagina-04.webp",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Steluța: a tiny glowing golden five-pointed star with a cute round face, small shiny dark eyes, pink cheeks and a soft warm halo of light around her. Setting: the grass next to the blackberry bush at night, moonlight. Action: Steluța sits in the grass crying softly while Lio kneels next to her and listens kindly. Emotions: Steluța sad with a small tear, Lio caring and gentle. Important details: a tiny tear, soft moonlight. Camera: close-up at grass level.",
+      "narration": [
+        {
+          "text": "Steluța stătea în iarbă și plângea încet.",
+          "mood": "trist"
+        },
+        {
+          "text": "— Nu mai știu drumul spre casă,",
+          "mood": "trist",
+          "speaker": "Steluța"
+        },
+        {
+          "text": "a suspinat ea.",
+          "mood": "trist"
+        },
+        {
+          "text": "Lio s-a apropiat blând.",
+          "mood": "calm"
+        },
+        {
+          "text": "Când cineva e trist, îl întrebi ce s-a întâmplat și îl asculți cu răbdare.",
+          "mood": "calm"
+        }
+      ]
     },
     {
       "text": "— Nu-ți fie teamă, Steluțo, a zis Lio. Te ajut eu! A luat-o cu grijă în lăbuțe. Steluța era caldă, ca o cană cu lapte dulce.",
-      "image": "images/pagina-05.svg",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Steluța: a tiny glowing golden five-pointed star with a cute round face, small shiny dark eyes, pink cheeks and a soft warm halo of light around her. Setting: a cozy pine forest clearing at night, big soft full moon, sky full of twinkling stars. Action: Lio gently holds the smiling little star in his paws close to his chest. Emotions: warm, comforted, smiling. Important details: the warm glow of the star lighting Lio's face. Camera: medium close-up."
+      "image": "images/pagina-05.webp",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Steluța: a tiny glowing golden five-pointed star with a cute round face, small shiny dark eyes, pink cheeks and a soft warm halo of light around her. Setting: a cozy pine forest clearing at night, big soft full moon, sky full of twinkling stars. Action: Lio gently holds the smiling little star in his paws close to his chest. Emotions: warm, comforted, smiling. Important details: the warm glow of the star lighting Lio's face. Camera: medium close-up.",
+      "narration": [
+        {
+          "text": "— Nu-ți fie teamă, Steluțo, a zis Lio.",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Te ajut eu!",
+          "mood": "hotărât",
+          "speaker": "Lio"
+        },
+        {
+          "text": "A luat-o cu grijă în lăbuțe.",
+          "mood": "calm"
+        },
+        {
+          "text": "Steluța era caldă, ca o cană cu lapte dulce.",
+          "mood": "vesel"
+        }
+      ]
     },
     {
       "text": "Pe o creangă stătea bufnița Ula. Bufnițele dorm ziua și stau treze noaptea, așa că Ula știa toate secretele cerului. — Cum ajungem la cer? a întrebat Lio. — Urcați pe cel mai înalt deal, a răspuns Ula.",
-      "image": "images/pagina-06.svg",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Steluța: a tiny glowing golden five-pointed star with a cute round face, small shiny dark eyes, pink cheeks and a soft warm halo of light around her; Ula: a wise, kind, fluffy lavender owl with a pale lilac belly, big round amber eyes behind tiny round glasses and a small orange beak. Setting: a cozy pine forest clearing at night, big soft full moon, sky full of twinkling stars. Action: Lio, holding Steluța, looks up and talks to Ula the owl sitting on a tree branch. Emotions: curious, hopeful; Ula wise and friendly. Important details: an old tree branch, Ula's tiny glasses. Camera: medium wide shot, slightly low angle."
+      "image": "images/pagina-06.webp",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Steluța: a tiny glowing golden five-pointed star with a cute round face, small shiny dark eyes, pink cheeks and a soft warm halo of light around her; Ula: a wise, kind, fluffy lavender owl with a pale lilac belly, big round amber eyes behind tiny round glasses and a small orange beak. Setting: a cozy pine forest clearing at night, big soft full moon, sky full of twinkling stars. Action: Lio, holding Steluța, looks up and talks to Ula the owl sitting on a tree branch. Emotions: curious, hopeful; Ula wise and friendly. Important details: an old tree branch, Ula's tiny glasses. Camera: medium wide shot, slightly low angle.",
+      "narration": [
+        {
+          "text": "Pe o creangă stătea bufnița Ula.",
+          "mood": "calm"
+        },
+        {
+          "text": "Bufnițele dorm ziua și stau treze noaptea, așa că Ula știa toate secretele cerului.",
+          "mood": "misterios"
+        },
+        {
+          "text": "— Cum ajungem la cer?",
+          "mood": "mirat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a întrebat Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Urcați pe cel mai înalt deal,",
+          "mood": "calm",
+          "speaker": "Ula"
+        },
+        {
+          "text": "a răspuns Ula.",
+          "mood": "calm"
+        }
+      ]
     },
     {
       "text": "Lio a urcat dealul pas cu pas. Drumul era lung și Lio obosea. Dar Steluța îi lumina cărarea și îi cânta încet. Împreună, drumul părea mai scurt.",
-      "image": "images/pagina-07.svg",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Steluța: a tiny glowing golden five-pointed star with a cute round face, small shiny dark eyes, pink cheeks and a soft warm halo of light around her. Setting: a big grassy hill with a winding path at night, stars above. Action: Lio climbs the winding path up the hill while the little star glowing in his paws lights the way. Emotions: a bit tired but determined, Steluța singing happily. Important details: glowing path, small flowers along the way. Camera: wide shot from the side."
+      "image": "images/pagina-07.webp",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Steluța: a tiny glowing golden five-pointed star with a cute round face, small shiny dark eyes, pink cheeks and a soft warm halo of light around her. Setting: a big grassy hill with a winding path at night, stars above. Action: Lio climbs the winding path up the hill while the little star glowing in his paws lights the way. Emotions: a bit tired but determined, Steluța singing happily. Important details: glowing path, small flowers along the way. Camera: wide shot from the side.",
+      "narration": [
+        {
+          "text": "Lio a urcat dealul pas cu pas.",
+          "mood": "calm"
+        },
+        {
+          "text": "Drumul era lung și Lio obosea.",
+          "mood": "somnoros"
+        },
+        {
+          "text": "Dar Steluța îi lumina cărarea și îi cânta încet.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Împreună, drumul părea mai scurt.",
+          "mood": "calm"
+        }
+      ]
     },
     {
       "text": "Sus pe deal, Steluța i-a șoptit: — Stelele par mici, dar sunt foarte, foarte departe. Unele sunt chiar mai mari decât Soarele! — Uau! a făcut Lio, cu gura cât o portocală.",
-      "image": "images/pagina-08.svg",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Steluța: a tiny glowing golden five-pointed star with a cute round face, small shiny dark eyes, pink cheeks and a soft warm halo of light around her. Setting: the top of the hill under a huge sky full of stars. Action: Lio and Steluța look up at the enormous starry sky; Lio's mouth is wide open in amazement. Emotions: amazed, funny surprised face. Important details: a very big bright sky, distant stars of different sizes. Camera: low angle wide shot."
+      "image": "images/pagina-08.webp",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Steluța: a tiny glowing golden five-pointed star with a cute round face, small shiny dark eyes, pink cheeks and a soft warm halo of light around her. Setting: the top of the hill under a huge sky full of stars. Action: Lio and Steluța look up at the enormous starry sky; Lio's mouth is wide open in amazement. Emotions: amazed, funny surprised face. Important details: a very big bright sky, distant stars of different sizes. Camera: low angle wide shot.",
+      "narration": [
+        {
+          "text": "Sus pe deal, Steluța i-a șoptit:",
+          "mood": "calm"
+        },
+        {
+          "text": "— Stelele par mici, dar sunt foarte, foarte departe.",
+          "mood": "șoptit",
+          "speaker": "Steluța"
+        },
+        {
+          "text": "Unele sunt chiar mai mari decât Soarele!",
+          "mood": "entuziasmat",
+          "speaker": "Steluța"
+        },
+        {
+          "text": "— Uau!",
+          "mood": "mirat",
+          "speaker": "Lio",
+          "pause": 0.4
+        },
+        {
+          "text": "a făcut Lio, cu gura cât o portocală.",
+          "mood": "vesel"
+        }
+      ]
     },
     {
       "text": "Lio a ridicat-o pe Steluța cât de sus a putut. — Zboară acum! a strigat el. Steluța a strălucit tare, tare… și s-a înălțat spre cer.",
-      "image": "images/pagina-09.svg",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Steluța: a tiny glowing golden five-pointed star with a cute round face, small shiny dark eyes, pink cheeks and a soft warm halo of light around her. Setting: the top of the hill at night. Action: Lio raises his paws high as Steluța flies up into the sky shining brightly. Emotions: joyful, proud. Important details: a trail of sparkles going up. Camera: low angle."
+      "image": "images/pagina-09.webp",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Steluța: a tiny glowing golden five-pointed star with a cute round face, small shiny dark eyes, pink cheeks and a soft warm halo of light around her. Setting: the top of the hill at night. Action: Lio raises his paws high as Steluța flies up into the sky shining brightly. Emotions: joyful, proud. Important details: a trail of sparkles going up. Camera: low angle.",
+      "narration": [
+        {
+          "text": "Lio a ridicat-o pe Steluța cât de sus a putut.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Zboară acum!",
+          "mood": "entuziasmat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a strigat el.",
+          "mood": "calm"
+        },
+        {
+          "text": "Steluța a strălucit tare, tare…",
+          "mood": "mirat"
+        },
+        {
+          "text": "și s-a înălțat spre cer.",
+          "mood": "vesel"
+        }
+      ]
     },
     {
       "text": "Sus, printre surori, Steluța i-a făcut cu ochiul. Lio a zâmbit fericit. De atunci, cea mai strălucitoare stea de pe cer este prietena lui Lio. Noapte bună!",
-      "image": "images/pagina-10.svg",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Steluța: a tiny glowing golden five-pointed star with a cute round face, small shiny dark eyes, pink cheeks and a soft warm halo of light around her. Setting: the forest edge at night, Steluța back in the sky. Action: Lio waves sleepily at the brightest star, which winks at him. Emotions: happy, sleepy, peaceful. Important details: the brightest star in the sky winking. Camera: wide shot."
+      "image": "images/pagina-10.webp",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Steluța: a tiny glowing golden five-pointed star with a cute round face, small shiny dark eyes, pink cheeks and a soft warm halo of light around her. Setting: the forest edge at night, Steluța back in the sky. Action: Lio waves sleepily at the brightest star, which winks at him. Emotions: happy, sleepy, peaceful. Important details: the brightest star in the sky winking. Camera: wide shot.",
+      "narration": [
+        {
+          "text": "Sus, printre surori, Steluța i-a făcut cu ochiul.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Lio a zâmbit fericit.",
+          "mood": "calm"
+        },
+        {
+          "text": "De atunci, cea mai strălucitoare stea de pe cer este prietena lui Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "Noapte bună!",
+          "mood": "somnoros",
+          "pause": 0.6
+        }
+      ]
     }
   ]
 }

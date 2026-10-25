@@ -4,9 +4,10 @@
 Comenzi:
   optimize  transformă imaginile .png/.jpg în .webp (max 1536×1024) și actualizează story.json
   validate  verifică toate poveștile după REGULI_POVESTI.md
-  audio     generează vocea feminină și masculină (mp3, edge-tts) pentru povești și replicile lui Lio
+  audio     generează vocea feminină și masculină (mp3, edge-tts + regie de voce) pentru povești și replicile lui Lio
+  verify-audio  verifică faptul că toate fișierele audio există pentru ambele voci
   index     regenerează public/stories/index.json
-  all       optimize + validate + audio + index
+  all       optimize + validate + audio + verify-audio + index
 """
 
 import asyncio
@@ -17,6 +18,8 @@ import sys
 import unicodedata
 from pathlib import Path
 
+import voce
+
 ROOT = Path(__file__).resolve().parent.parent
 STORIES_DIR = ROOT / "public" / "stories"
 INDEX_FILE = STORIES_DIR / "index.json"
@@ -24,16 +27,16 @@ LIO_LINES_FILE = ROOT / "public" / "assets" / "lio-replici.json"
 LIO_AUDIO_DIR = ROOT / "public" / "assets" / "audio"
 
 # Fiecare poveste primește ambele voci; cititorul alege una.
-VOICES = {"feminin": "ro-RO-AlinaNeural", "masculin": "ro-RO-EmilNeural"}
-SPEECH_RATE = "-8%"
-IMAGE_EXTENSIONS = {".webp", ".jpg", ".jpeg", ".png", ".svg"}
+VOICES = voce.VOICES
+LIO_PROFILE = {"name": "Lio", "voice": {"pitch": 12, "rate": 3}}  # Lio e un pui: voce puțin mai înaltă
 RASTER_EXTENSIONS = {".webp", ".jpg", ".jpeg", ".png"}
+IMAGE_PATH = re.compile(r"^images/[a-z0-9][a-z0-9-]*\.(?:webp|png|jpe?g)$")
 MAX_IMAGE_SIZE = (1536, 1024)
 WEBP_QUALITIES = (82, 72, 62)  # se încearcă pe rând până imaginea scade sub MAX_IMAGE_KB
 MIN_PAGES, MAX_PAGES = 6, 24
 MIN_WORDS, MAX_WORDS = 20, 70
 MIN_MINUTES, MAX_MINUTES = 2, 10
-WORDS_PER_MINUTE = 130  # ritmul vocii edge-tts la viteza SPEECH_RATE
+WORDS_PER_MINUTE = 130  # ritmul vocii edge-tts cu regia de voce
 SECONDS_PER_PAGE_TURN = 2.5
 MP3_BYTES_PER_SECOND = 48000 / 8  # edge-tts: mp3 mono 48 kbit/s
 MAX_IMAGE_KB = 450
@@ -42,6 +45,11 @@ MIN_DESCRIPTION_CHARS = 40
 AGES = {"3-5", "5-7", "3-7"}
 ID_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 CEDILLA = re.compile("[şţŞŢ]")
+LONG_SENTENCE_WORDS = 25
+SUMMARY_WORDS = (8, 60)
+# Cuvinte care de obicei nu au ce căuta într-o poveste pentru 3–7 ani (avertisment, nu eroare).
+SENSITIVE_WORDS = ["moarte", "mort", "moartă", "murit", "sânge", "ucide", "omoară", "omorât", "armă", "pistol",
+                   "cuțit", "bătaie", "prost", "proastă", "idiot", "urât", "drac", "iad", "înjur"]
 REQUIRED_FIELDS = ["id", "title", "summary", "moral", "learning", "created", "characters", "cover", "pages"]
 
 
@@ -74,13 +82,59 @@ def check_image(folder, rel_path, label, errors, warnings):
     if not rel_path:
         errors.append(f"{label}: lipsește câmpul image")
         return
+    if not IMAGE_PATH.match(rel_path):
+        errors.append(f"{label}: calea imaginii trebuie să fie de forma images/nume.webp|png|jpg (primit: {rel_path})")
+        return
     path = folder / rel_path
-    if path.suffix.lower() not in IMAGE_EXTENSIONS:
-        errors.append(f"{label}: extensie nepermisă {path.suffix}")
+    if not path.resolve().is_relative_to(folder.resolve()):
+        errors.append(f"{label}: imaginea trebuie să fie în folderul poveștii")
+        return
     if not path.is_file():
         errors.append(f"{label}: imaginea {rel_path} nu există")
     elif path.stat().st_size > MAX_IMAGE_KB * 1024:
         warnings.append(f"{label}: {rel_path} are {path.stat().st_size // 1024} KB (recomandat sub {MAX_IMAGE_KB} KB)")
+
+
+def validate_voice_profile(name, profile):
+    if profile is None:
+        return []
+    errors = []
+    if not isinstance(profile, dict):
+        return [f"personajul {name}: voice trebuie să fie un obiect"]
+    if "type" in profile and profile["type"] not in VOICES:
+        errors.append(f"personajul {name}: voice.type trebuie să fie {' sau '.join(VOICES)}")
+    for key, bounds in (("pitch", voce.CHARACTER_PITCH), ("rate", voce.CHARACTER_RATE)):
+        value = profile.get(key, 0)
+        if not isinstance(value, int) or not bounds[0] <= value <= bounds[1]:
+            errors.append(f"personajul {name}: voice.{key} trebuie să fie un număr întreg între {bounds[0]} și {bounds[1]}")
+    return errors
+
+
+def validate_narration(page, character_names):
+    """Regia de voce (opțională) trebuie să conțină exact cuvintele textului afișat."""
+    narration = page.get("narration")
+    if narration is None:
+        return []
+    if not isinstance(narration, list) or not narration:
+        return ["narration trebuie să fie o listă de replici"]
+    errors = []
+    for item in narration:
+        if not isinstance(item, dict) or not str(item.get("text") or "").strip():
+            errors.append("narration: fiecare replică trebuie să aibă text")
+            continue
+        if item.get("mood", voce.NARRATOR_MOOD) not in voce.MOODS:
+            errors.append(f"narration: ton necunoscut „{item.get('mood')}” (permise: {', '.join(voce.MOODS)})")
+        if item.get("speaker") and item["speaker"] not in character_names:
+            errors.append(f"narration: vorbitorul „{item['speaker']}” nu e în characters")
+        pause = item.get("pause", 0)
+        if not isinstance(pause, (int, float)) or not 0 <= pause <= voce.PAUSE_MAX:
+            errors.append(f"narration: pause trebuie să fie între 0 și {voce.PAUSE_MAX} secunde")
+    if not errors:
+        spoken = re.findall(r"[\wăâîșțĂÂÎȘȚ]+", plain(" ".join(i["text"] for i in narration)))
+        shown = re.findall(r"[\wăâîșțĂÂÎȘȚ]+", plain(page.get("text") or ""))
+        if spoken != shown:
+            errors.append("narration nu conține exact aceleași cuvinte ca text (vocea trebuie să citească ce scrie)")
+    return errors
 
 
 def validate_story(folder, data):
@@ -118,6 +172,8 @@ def validate_story(folder, data):
             errors.append(f"personajul {name}: descrierea vizuală lipsește sau e prea scurtă")
         if character.get("knownCharacter") and not character.get("source"):
             errors.append(f"personajul {name}: e marcat knownCharacter, dar lipsește source")
+        errors.extend(validate_voice_profile(name, character.get("voice")))
+    character_names = {c.get("name") for c in characters}
 
     texts = [title, data.get("summary", ""), data.get("moral", "")]
     cover = data.get("cover") or {}
@@ -137,6 +193,15 @@ def validate_story(folder, data):
             errors.append(f"{label}: are {words} cuvinte (trebuie {MIN_WORDS}–{MAX_WORDS})")
         if re.search(r"\d", text):
             warnings.append(f"{label}: conține cifre; scrie numerele în litere pentru citirea cu voce")
+        if not page.get("narration"):
+            errors.append(f"{label}: lipsește regia de voce (narration) — vezi REGULI_POVESTI.md, secțiunea 7")
+        errors.extend(f"{label}: {m}" for m in validate_narration(page, character_names))
+        for sentence in re.split(r"(?<=[.!?…])\s+", text):
+            if word_count(sentence) > LONG_SENTENCE_WORDS:
+                warnings.append(f"{label}: o propoziție are {word_count(sentence)} cuvinte; împarte-o (ideal sub 15)")
+        found = [w for w in SENSITIVE_WORDS if re.search(rf"\b{w}\b", text.lower())]
+        if found:
+            warnings.append(f"{label}: verifică dacă e potrivit pentru 3–7 ani: {', '.join(found)}")
         check_image(folder, page.get("image"), label, errors, warnings)
         prompt = page.get("imagePrompt") or ""
         if len(prompt) < MIN_PROMPT_CHARS:
@@ -146,6 +211,9 @@ def validate_story(folder, data):
             name = plain(character.get("name") or "")
             if name and re.search(rf"\b{re.escape(name)}\b", plain(text)) and name not in plain(prompt):
                 warnings.append(f"{label}: {character['name']} apare în text, dar nu și în imagePrompt")
+
+    if data.get("summary") and not SUMMARY_WORDS[0] <= word_count(data["summary"]) <= SUMMARY_WORDS[1]:
+        warnings.append(f"summary ar trebui să aibă {SUMMARY_WORDS[0]}–{SUMMARY_WORDS[1]} cuvinte")
 
     if pages:
         minutes = estimated_minutes(pages)
@@ -215,33 +283,35 @@ def cmd_validate():
 
 
 def narration_items(data):
-    """Fișierele audio ale unei povești: (nume fișier, text de citit)."""
-    items = [("coperta.mp3", f"Lio îți citește povestea: {data['title']}.")]
+    """Fișierele audio ale unei povești: (nume fișier, listă de bucăți cu intonație)."""
+    Segment = voce.Segment
+    items = [("coperta.mp3", [Segment("Lio îți citește povestea:", "vesel", "Lio", 0.4),
+                              Segment(f"{data['title']}.", "entuziasmat", "Lio")])]
     for number, page in enumerate(data["pages"], start=1):
-        items.append((f"pagina-{number:02d}.mp3", page["text"]))
-    items.append(("final.mp3", f"Sfârșit. {data['moral']}"))
+        items.append((f"pagina-{number:02d}.mp3", voce.page_segments(page)))
+    items.append(("final.mp3", [Segment("Sfârșit.", "calm", pause=0.6), Segment(data["moral"], "calm")]))
     return items
 
 
-async def generate_audio_set(audio_dir, items):
-    """Generează items = [(nume fișier, text)] pentru fiecare voce, doar ce s-a schimbat."""
-    import edge_tts
-
+async def generate_audio_set(audio_dir, items, characters):
+    """Generează items pentru fiecare voce, doar ce s-a schimbat (după amprenta regiei)."""
     manifest_file = audio_dir / "manifest.json"
     old = json.loads(manifest_file.read_text(encoding="utf-8")) if manifest_file.exists() else {}
     manifest = {}
-    for key, voice in VOICES.items():
+    for key in VOICES:
         voice_dir = audio_dir / key
         voice_dir.mkdir(parents=True, exist_ok=True)
         previous = old.get(key, {}) if isinstance(old.get(key), dict) else {}
         manifest[key] = {}
-        for name, text in items:
-            digest = hashlib.sha1(f"{voice}|{SPEECH_RATE}|{text}".encode()).hexdigest()
+        for name, segments in items:
+            digest = hashlib.sha1(voce.fingerprint(segments, key, characters).encode()).hexdigest()
             target = voice_dir / name
             if previous.get(name) != digest or not target.exists():
                 print(f"    🔊 {target.relative_to(ROOT)}")
-                await edge_tts.Communicate(text, voice, rate=SPEECH_RATE).save(str(target))
+                await voce.render(segments, key, characters, target)
             manifest[key][name] = digest
+            # scriem manifestul după fiecare fișier, ca o eroare să nu piardă munca făcută
+            manifest_file.write_text(json.dumps({**old, **manifest}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         for stale in voice_dir.glob("*.mp3"):
             if stale.name not in manifest[key]:
                 stale.unlink()
@@ -250,20 +320,65 @@ async def generate_audio_set(audio_dir, items):
     manifest_file.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
-def cmd_audio():
+def lio_items():
+    if not LIO_LINES_FILE.exists():
+        return []
+    lines = json.loads(LIO_LINES_FILE.read_text(encoding="utf-8"))["replici"]
+    return [(f"replica-{n:02d}.mp3", [voce.Segment(text, "vesel", "Lio")]) for n, text in enumerate(lines, start=1)]
+
+
+def story_characters(data):
+    characters = list(data.get("characters") or [])
+    if not any(c.get("name") == "Lio" for c in characters):
+        characters.append(LIO_PROFILE)
+    return characters
+
+
+def valid_stories():
     for folder, data in load_stories():
         errors, _ = validate_story(folder, data)
         if errors:
             print(f"[sărit] {folder.name} (nu trece validarea)")
             continue
+        yield folder, data
+
+
+def cmd_audio():
+    for folder, data in valid_stories():
         print(f"[audio] {folder.name}")
-        asyncio.run(generate_audio_set(folder / "audio", narration_items(data)))
-    if LIO_LINES_FILE.exists():
-        lines = json.loads(LIO_LINES_FILE.read_text(encoding="utf-8"))["replici"]
+        asyncio.run(generate_audio_set(folder / "audio", narration_items(data), story_characters(data)))
+    items = lio_items()
+    if items:
         print("[audio] replicile lui Lio")
-        items = [(f"replica-{n:02d}.mp3", text) for n, text in enumerate(lines, start=1)]
-        asyncio.run(generate_audio_set(LIO_AUDIO_DIR, items))
+        asyncio.run(generate_audio_set(LIO_AUDIO_DIR, items, [LIO_PROFILE]))
     return 0
+
+
+def missing_audio(audio_dir, names):
+    manifest_file = audio_dir / "manifest.json"
+    manifest = json.loads(manifest_file.read_text(encoding="utf-8")) if manifest_file.exists() else {}
+    missing = []
+    for key in VOICES:
+        for name in names:
+            path = audio_dir / key / name
+            if name not in manifest.get(key, {}) or not path.is_file() or path.stat().st_size < 1024:
+                missing.append(f"{key}/{name}")
+    return missing
+
+
+def cmd_verify_audio():
+    failed = False
+    groups = [(folder.name, folder / "audio", [n for n, _ in narration_items(data)]) for folder, data in valid_stories()]
+    items = lio_items()
+    if items:
+        groups.append(("replicile lui Lio", LIO_AUDIO_DIR, [n for n, _ in items]))
+    for label, audio_dir, names in groups:
+        missing = missing_audio(audio_dir, names)
+        print(f"[{'LIPSĂ' if missing else 'OK'}] audio {label}")
+        for name in missing:
+            print(f"    ✗ {name}")
+        failed = failed or bool(missing)
+    return 1 if failed else 0
 
 
 def cmd_index():
@@ -304,12 +419,16 @@ def main():
         return cmd_validate()
     if command == "audio":
         return cmd_audio()
+    if command == "verify-audio":
+        return cmd_verify_audio()
     if command == "index":
         return cmd_index()
     if command == "all":
         cmd_optimize()
         result = cmd_validate()
-        cmd_audio()
+        if result == 0:
+            cmd_audio()
+            result = cmd_verify_audio()
         cmd_index()
         return result
     print(__doc__)

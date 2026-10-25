@@ -15,7 +15,8 @@ Pe scurt, o poveste Iamlio:
 - are **imagini în stil de film de animație 3D pentru copii**, câte una pe pagină, care arată **exact** ce
   se întâmplă pe pagină, cu personaje identice de la o pagină la alta și fără text în imagine;
 - poate folosi **personaje cunoscute** doar dacă utilizatorul le cere, desenate fidel (secțiunea 5);
-- **nu** are voce generată de tine — vocea feminină și cea masculină se generează automat.
+- are **regie de voce** scrisă de tine (`narration` pe fiecare pagină, `voice` pentru personaje — secțiunea 7);
+  fișierele audio (feminin și masculin) **nu** le generezi tu, se generează automat.
 
 ## Ce produci
 
@@ -42,12 +43,15 @@ codul site-ului (`public/*.html`, `public/assets/`, `scripts/`, `.github/`) — 
   - `assets/lio-replici.json` — ce spune Lio când e atins pe pagina principală
   - `api/citiri.php` — contorul „citită de X ori” (PHP; datele stau în `api/data/citiri.json` pe server)
   - `stories/<id>/` — poveștile
-- `scripts/stories.py` — `optimize` | `validate` | `audio` (ambele voci) | `index` | `all`
+- `scripts/stories.py` — `optimize` | `validate` | `audio` (ambele voci) | `verify-audio` | `index` | `all`
+- `scripts/voce.py` — regia de voce (tonuri, profiluri de personaj, pauze, lipirea cu ffmpeg)
+- `tests/` — teste automate (`python3 -m unittest discover -s tests`), rulate la fiecare publicare
 - `.github/workflows/publica-site.yml` — publicarea automată
 
 ## Verificare și previzualizare
 
 ```bash
 python3 scripts/stories.py validate   # trebuie să afișeze [OK] pentru fiecare poveste
+python3 -m unittest discover -s tests # testele automate
 php -S localhost:8000 -t public       # previzualizare locală (cu contor) la http://localhost:8000
 ```

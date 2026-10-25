@@ -2,21 +2,23 @@ name: Publică site-ul
 
 on:
   push:
-    branches: [main, master]
+    branches: [master]
+  pull_request:
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: publica-site
+  group: publica-site-${{ github.ref }}
   cancel-in-progress: false
+
+env:
+  SITE_URL: https://iamlio.ro
 
 jobs:
   publica:
-    runs-on: ubuntu-latest
-    env:
-      FTP_SERVER: ${{ secrets.FTP_SERVER }}
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v5
 
@@ -25,24 +27,41 @@ jobs:
           python-version: "3.12"
 
       - name: Instalează uneltele
-        run: pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
+          command -v ffmpeg >/dev/null || (sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends ffmpeg)
+
+      - name: Teste (Python, JavaScript, PHP)
+        run: |
+          python -m unittest discover -s tests -v
+          for f in public/assets/js/*.js; do node --check "$f"; done
+          php -l public/api/citiri.php
 
       - name: Optimizează imaginile (webp, max 1536×1024)
         run: python scripts/stories.py optimize
 
+      # Orice poveste care nu respectă REGULI_POVESTI.md oprește publicarea.
       - name: Verifică poveștile după REGULI_POVESTI.md
-        id: validate
-        continue-on-error: true
         run: python scripts/stories.py validate
 
-      - name: Generează vocea feminină și masculină (edge-tts)
-        continue-on-error: true
+      - name: Oprește-te aici la pull request (fără voce și fără publicare)
+        if: github.event_name == 'pull_request'
+        run: echo "Verificările au trecut. Publicarea se face după merge în master."
+
+      - name: Generează vocea feminină și masculină (edge-tts + regie de voce)
+        if: github.event_name != 'pull_request'
         run: python scripts/stories.py audio
 
+      - name: Verifică fișierele audio (ambele voci, toate paginile)
+        if: github.event_name != 'pull_request'
+        run: python scripts/stories.py verify-audio
+
       - name: Actualizează biblioteca
+        if: github.event_name != 'pull_request'
         run: python scripts/stories.py index
 
       - name: Salvează imaginile, vocea și biblioteca în repository
+        if: github.event_name != 'pull_request'
         run: |
           git config user.name "iamlio-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -53,9 +72,25 @@ jobs:
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
 
+      - name: Verifică datele FTPS
+        if: github.event_name != 'pull_request'
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          missing=""
+          [ -n "$FTP_SERVER" ] || missing="$missing FTP_SERVER"
+          [ -n "$FTP_USERNAME" ] || missing="$missing FTP_USERNAME"
+          [ -n "$FTP_PASSWORD" ] || missing="$missing FTP_PASSWORD"
+          if [ -n "$missing" ]; then
+            echo "::error::Lipsesc secretele:$missing (Settings → Secrets and variables → Actions)."
+            exit 1
+          fi
+
       - name: Urcă site-ul pe host (FTPS)
-        if: env.FTP_SERVER != ''
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        if: github.event_name != 'pull_request'
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
@@ -69,12 +104,18 @@ jobs:
             **/.git*/**
             api/data/citiri.json
 
-      - name: Datele FTPS lipsesc
-        if: env.FTP_SERVER == ''
-        run: echo "::warning::Site-ul nu a fost urcat pe host. Adaugă secretele FTP_SERVER, FTP_USERNAME, FTP_PASSWORD (și opțional FTP_SERVER_DIR, FTP_PORT) în Settings → Secrets and variables → Actions."
-
-      - name: Oprește-te dacă o poveste nu respectă regulile
-        if: steps.validate.outcome == 'failure'
+      - name: Verifică site-ul live
+        if: github.event_name != 'pull_request'
         run: |
-          echo "::error::Cel puțin o poveste nu respectă REGULI_POVESTI.md și nu a fost publicată. Vezi pasul de verificare."
-          exit 1
+          set -e
+          fetch() { curl -fsS --retry 4 --retry-delay 5 --retry-all-errors -H "Cache-Control: no-cache" "$SITE_URL/$1"; }
+          fetch "" | grep -q "Lio îți citește o poveste"
+          fetch "stories/index.json" | diff -q - public/stories/index.json
+          fetch "api/citiri.php" | python -c "import json,sys; assert isinstance(json.load(sys.stdin)['citiri'], dict)"
+          first=$(python -c "import json; s=json.load(open('public/stories/index.json'))['stories']; print(s[0]['id'] if s else '')")
+          if [ -n "$first" ]; then
+            fetch "stories/$first/audio/manifest.json" | diff -q - "public/stories/$first/audio/manifest.json"
+          fi
+          code=$(curl -s -o /dev/null -w "%{http_code}" "$SITE_URL/api/data/citiri.json")
+          [ "$code" = "403" ] || [ "$code" = "404" ] || { echo "::error::api/data este accesibil public (HTTP $code)"; exit 1; }
+          echo "Site-ul live răspunde corect: $SITE_URL"

@@ -1,8 +1,9 @@
 (function () {
   "use strict";
 
-  var TURN_MS = 750;
-  var PAUSE_BEFORE_TURN_MS = 900;
+  var TURN_MS = 1300;           // o întoarcere completă de pagină, ca într-o carte adevărată
+  var MIN_TURN_MS = 450;        // după un swipe, restul întoarcerii nu e mai scurt de atât
+  var PAUSE_BEFORE_TURN_MS = 1200;
 
   var params = new URLSearchParams(location.search);
   var storyId = params.get("id") || "";
@@ -157,7 +158,8 @@
 
   // ---------- întoarcerea paginilor ----------
 
-  function animateTo(sheet, angle, done) {
+  function animateTo(sheet, angle, done, duration) {
+    var ms = duration || TURN_MS;
     var finished = false;
     function finish() {
       if (finished) return;
@@ -169,9 +171,9 @@
       if (event.target === sheet && event.propertyName === "transform") finish();
     }
     sheet.addEventListener("transitionend", onEnd);
-    sheet.style.transition = "";
+    sheet.style.transition = "transform " + ms + "ms cubic-bezier(.3, .1, .2, 1)";
     sheet.style.transform = "rotateY(" + angle + "deg)";
-    setTimeout(finish, TURN_MS + 150);
+    setTimeout(finish, ms + 150);
   }
 
   function prepareTurn(direction) {
@@ -187,13 +189,15 @@
     return direction > 0 ? index < sheets.length - 1 : index > 0;
   }
 
-  function completeTurn(direction, sheet) {
+  // remaining = cât mai are pagina de parcurs (1 = toată întoarcerea), ca după swipe să nu „sară”.
+  function completeTurn(direction, sheet, remaining) {
+    var share = remaining === undefined ? 1 : remaining;
     animateTo(sheet, direction > 0 ? -180 : 0, function () {
       index += direction;
       render();
       busy = false;
       afterTurn();
-    });
+    }, Math.max(MIN_TURN_MS, TURN_MS * share));
   }
 
   function turn(direction) {
@@ -253,13 +257,13 @@
     }
     var fast = Date.now() - current.t < 300 && current.progress > 0.08;
     if (current.progress > 0.3 || fast) {
-      completeTurn(current.direction, current.sheet);
+      completeTurn(current.direction, current.sheet, 1 - current.progress);
     } else {
       animateTo(current.sheet, current.direction > 0 ? 0 : -180, function () {
         render();
         busy = false;
         afterTurn();
-      });
+      }, Math.max(MIN_TURN_MS, TURN_MS * current.progress));
     }
   }
 
