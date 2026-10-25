@@ -185,7 +185,7 @@ Pentru fiecare pagină, `narration` împarte **exact textul paginii** în replic
 
 | Câmp | Ce înseamnă |
 | --- | --- |
-| `text` | bucata de text, **cuvânt cu cuvânt din `text`** (verificarea respinge orice diferență) |
+| `text` | bucata de text, **copiată exact din `text`**, cu aceeași punctuație (verificarea respinge cuvinte diferite; pe site, replica citită se evidențiază sincron cu vocea, deci trebuie să se potrivească exact) |
 | `mood` | tonul: `calm`, `vesel`, `entuziasmat`, `mirat`, `trist`, `șoptit`, `misterios`, `somnoros`, `speriat`, `hotărât` |
 | `speaker` | (opțional) numele personajului care vorbește, exact ca în `characters`; lipsă = povestitorul |
 | `pause` | (opțional) pauza după replică, în secunde (0–3; implicit 0,3, iar după „…” 0,7) |

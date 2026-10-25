@@ -19,8 +19,16 @@
   var prevBtn = document.getElementById("prev-btn");
   var nextBtn = document.getElementById("next-btn");
   var playBtn = document.getElementById("play-btn");
-  var autoBtn = document.getElementById("auto-btn");
   var readsEl = document.getElementById("story-reads");
+  var settingsEl = document.getElementById("settings");
+  var settingsBtn = document.getElementById("settings-btn");
+  var autoInput = document.getElementById("auto-turn");
+  var bedtimeInput = document.getElementById("bedtime");
+  var fullscreenBtn = document.getElementById("fullscreen-btn");
+
+  var SPEEDS = [0.8, 0.9, 1, 1.1];
+  var BEDTIME_VOLUME = 0.7;
+  var RESUME_KEY = "iamlio-pagina-" + (new URLSearchParams(location.search).get("id") || "");
 
   var items = [];
   var sheets = [];
@@ -29,9 +37,17 @@
 
   var reading = false;
   var autoTurn = Iamlio.readSetting("iamlio-autoturn", "1") === "1";
+  var speed = Number(Iamlio.readSetting("iamlio-viteza", "1"));
+  if (SPEEDS.indexOf(speed) === -1) speed = 1;
+  var bedtime = Iamlio.readSetting("iamlio-culcare", "0") === "1";
   var manifest = null;
   var audio = new Audio();
+  audio.preload = "auto";
+  audio.hidden = true;
+  document.body.appendChild(audio);
   var playToken = 0;
+  var timing = null;      // [[început, sfârșit], …] pentru replicile paginii citite acum
+  var spoken = -1;        // replica evidențiată acum
 
   // ---------- utilitare ----------
 
@@ -79,6 +95,7 @@
         kind: "page",
         image: page.image,
         text: page.text,
+        narration: Array.isArray(page.narration) ? page.narration.map(function (n) { return n.text; }) : [],
         number: i + 1,
         audio: "pagina-" + number + ".mp3",
         speech: page.text
@@ -106,13 +123,14 @@
       coverText.appendChild(el("h2", null, item.title));
       coverText.appendChild(el("p", "cover-reads"));
       coverText.appendChild(el("p", "cover-hint", "Dă pagina sau apasă pe Lio ca să-ți citească."));
+      coverText.appendChild(resumeBox());
       front.appendChild(coverText);
     } else if (item.kind === "page") {
       var art = el("figure", "sheet-art");
       art.appendChild(image(item.image, i < 3));
       front.appendChild(art);
       var text = el("div", "sheet-text");
-      text.appendChild(el("p", null, item.text));
+      text.appendChild(pageText(item));
       text.appendChild(el("span", "page-num", String(item.number)));
       front.appendChild(text);
     } else {
@@ -146,6 +164,82 @@
     return sheet;
   }
 
+  // Textul paginii, cu fiecare replică din regia de voce într-un <span>, ca să poată fi evidențiată când e citită.
+  function pageText(item) {
+    var p = el("p");
+    var cursor = 0;
+    var ranges = [];
+    for (var i = 0; i < item.narration.length; i++) {
+      var at = item.text.indexOf(item.narration[i], cursor);
+      if (at === -1) { ranges = null; break; }
+      ranges.push([at, at + item.narration[i].length]);
+      cursor = at + item.narration[i].length;
+    }
+    if (!item.narration.length) {
+      p.textContent = item.text;
+      return p;
+    }
+    if (!ranges) { // textul și regia diferă doar prin punctuație: afișăm replicile, una după alta
+      item.narration.forEach(function (part, n) {
+        if (n) p.appendChild(document.createTextNode(" "));
+        p.appendChild(el("span", "seg", part));
+      });
+      return p;
+    }
+    var last = 0;
+    ranges.forEach(function (range) {
+      if (range[0] > last) p.appendChild(document.createTextNode(item.text.slice(last, range[0])));
+      p.appendChild(el("span", "seg", item.text.slice(range[0], range[1])));
+      last = range[1];
+    });
+    if (last < item.text.length) p.appendChild(document.createTextNode(item.text.slice(last)));
+    return p;
+  }
+
+  // Reluarea: dacă cel mic a rămas la mijlocul poveștii, coperta îi oferă să continue de acolo.
+  function savedPage() {
+    var value = Number(Iamlio.readSetting(RESUME_KEY, "0"));
+    return value > 0 && value < items.length - 1 ? value : 0;
+  }
+
+  function resumeBox() {
+    var box = el("div", "resume");
+    box.hidden = true;
+    box.appendChild(el("p", "resume-text"));
+    var go = el("button", "pill resume-continue", "Continuă");
+    go.type = "button";
+    go.addEventListener("click", function () {
+      var page = savedPage();
+      if (page) jumpTo(page);
+    });
+    var restart = el("button", "pill pill-alt resume-restart", "De la început");
+    restart.type = "button";
+    restart.addEventListener("click", function () {
+      Iamlio.writeSetting(RESUME_KEY, "0");
+      box.hidden = true;
+    });
+    var actions = el("div", "resume-actions");
+    actions.appendChild(go);
+    actions.appendChild(restart);
+    box.appendChild(actions);
+    return box;
+  }
+
+  function updateResume() {
+    var box = book.querySelector(".resume");
+    var page = savedPage();
+    if (!box) return;
+    box.hidden = !page;
+    if (page) box.querySelector(".resume-text").textContent = "Ai rămas la pagina " + page + ".";
+  }
+
+  function jumpTo(target) {
+    stopAudio();
+    index = target;
+    render();
+    if (reading) playCurrent();
+  }
+
   function render() {
     sheets.forEach(function (sheet, i) {
       sheet.className = "sheet" + (i === index ? " is-current" : i === index + 1 ? " is-next" : "");
@@ -158,6 +252,8 @@
     });
     prevBtn.disabled = index === 0;
     nextBtn.disabled = index === sheets.length - 1;
+    if (index > 0) Iamlio.writeSetting(RESUME_KEY, index < sheets.length - 1 ? String(index) : "0");
+    clearSpoken();
     preloadNext();
   }
 
@@ -312,9 +408,48 @@
     playBtn.classList.toggle("is-talking", on);
   }
 
-  audio.addEventListener("playing", function () { talking(true); });
+  // Evidențierea: replica citită acum se colorează, iar Lio mișcă gura doar cât vorbește (nu și în pauze).
+  function segments() {
+    var sheet = sheets[index];
+    return sheet ? sheet.querySelectorAll(".seg") : [];
+  }
+
+  function clearSpoken() {
+    spoken = -1;
+    Array.prototype.forEach.call(book.querySelectorAll(".seg.is-spoken"), function (span) {
+      span.classList.remove("is-spoken");
+    });
+  }
+
+  function showMoment(seconds) {
+    var current = -1;
+    for (var i = 0; timing && i < timing.length; i++) {
+      if (seconds >= timing[i][0] && seconds < timing[i][1]) { current = i; break; }
+    }
+    talking(current !== -1);
+    if (current === spoken) return;
+    clearSpoken();
+    spoken = current;
+    var span = segments()[current];
+    if (span) {
+      span.classList.add("is-spoken");
+      if (span.scrollIntoView) span.scrollIntoView({ block: "nearest" });
+    }
+  }
+
+  function followAudio() {
+    if (audio.paused || !timing) return;
+    showMoment(audio.currentTime);
+    requestAnimationFrame(followAudio);
+  }
+
+  audio.addEventListener("playing", function () {
+    if (timing) followAudio();
+    else talking(true);
+  });
+  audio.addEventListener("timeupdate", function () { if (timing) showMoment(audio.currentTime); });
   audio.addEventListener("pause", function () { talking(false); });
-  audio.addEventListener("ended", function () { talking(false); });
+  audio.addEventListener("ended", function () { talking(false); clearSpoken(); });
 
   function stopAudio() {
     playToken++;
@@ -322,11 +457,14 @@
     audio.onerror = null;
     audio.pause();
     if ("speechSynthesis" in window) speechSynthesis.cancel();
+    timing = null; // altfel, actualizarea de timp care vine după pauză ar evidenția din nou replica
     talking(false);
+    clearSpoken();
   }
 
   function speak(text, token) {
     var started = Iamlio.speakWithBrowser(text, Iamlio.getVoice(), {
+      speed: speed,
       onstart: function () { if (token === playToken) talking(true); },
       onend: function () {
         if (token !== playToken) return;
@@ -349,8 +487,11 @@
     var token = playToken;
     var item = items[index];
     var url = audioUrl(item);
+    var voiceTiming = manifest && manifest.timing && manifest.timing[Iamlio.getVoice()];
+    timing = voiceTiming && voiceTiming[item.audio] || null;
     if (url) {
       audio.src = url;
+      applyAudioSettings();
       audio.onended = function () { onReadEnd(token); };
       audio.onerror = function () { if (token === playToken) speak(item.speech, token); };
       audio.play().catch(function () {
@@ -391,16 +532,91 @@
 
   playBtn.addEventListener("click", function () { setReading(!reading); });
 
-  function updateAutoBtn() {
-    autoBtn.setAttribute("aria-pressed", autoTurn ? "true" : "false");
-    autoBtn.title = autoTurn ? "Lio întoarce singur paginile (apasă pentru a opri)" : "Paginile se dau manual (apasă ca Lio să le întoarcă singur)";
+  // ---------- setări de citire ----------
+
+  // Schimbarea sursei readuce viteza la normal, așa că viteza și volumul se aplică la fiecare redare.
+  function applyAudioSettings() {
+    audio.defaultPlaybackRate = speed;
+    audio.playbackRate = speed;
+    if ("preservesPitch" in audio) audio.preservesPitch = true;
+    audio.volume = bedtime ? BEDTIME_VOLUME : 1;
   }
 
-  autoBtn.addEventListener("click", function () {
-    autoTurn = !autoTurn;
-    Iamlio.writeSetting("iamlio-autoturn", autoTurn ? "1" : "0");
-    updateAutoBtn();
+  function openSettings() {
+    settingsEl.hidden = false;
+    settingsBtn.setAttribute("aria-expanded", "true");
+    document.getElementById("settings-close").focus();
+  }
+
+  function closeSettings() {
+    settingsEl.hidden = true;
+    settingsBtn.setAttribute("aria-expanded", "false");
+    settingsBtn.focus();
+  }
+
+  settingsBtn.addEventListener("click", openSettings);
+  document.getElementById("settings-close").addEventListener("click", closeSettings);
+  settingsEl.addEventListener("click", function (event) { if (event.target === settingsEl) closeSettings(); });
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && !settingsEl.hidden) closeSettings();
   });
+
+  var speedButtons = document.querySelectorAll("[data-speed]");
+  function syncSpeed() {
+    Array.prototype.forEach.call(speedButtons, function (button) {
+      button.setAttribute("aria-pressed", Number(button.getAttribute("data-speed")) === speed ? "true" : "false");
+    });
+  }
+  Array.prototype.forEach.call(speedButtons, function (button) {
+    button.addEventListener("click", function () {
+      speed = Number(button.getAttribute("data-speed"));
+      Iamlio.writeSetting("iamlio-viteza", String(speed));
+      syncSpeed();
+      applyAudioSettings();
+    });
+  });
+
+  autoInput.checked = autoTurn;
+  autoInput.addEventListener("change", function () {
+    autoTurn = autoInput.checked;
+    Iamlio.writeSetting("iamlio-autoturn", autoTurn ? "1" : "0");
+  });
+
+  function applyBedtime() {
+    document.body.classList.toggle("bedtime", bedtime);
+    bedtimeInput.checked = bedtime;
+    applyAudioSettings();
+  }
+  bedtimeInput.addEventListener("change", function () {
+    bedtime = bedtimeInput.checked;
+    Iamlio.writeSetting("iamlio-culcare", bedtime ? "1" : "0");
+    applyBedtime();
+  });
+
+  // Ecran complet unde browserul îl permite; pe iPhone se explică varianta „Adaugă pe ecranul principal”.
+  var root = document.documentElement;
+  var canFullscreen = !!(document.fullscreenEnabled || document.webkitFullscreenEnabled);
+  function isFullscreen() { return !!(document.fullscreenElement || document.webkitFullscreenElement); }
+  function syncFullscreen() {
+    fullscreenBtn.textContent = isFullscreen() ? "Ieși din ecranul complet" : "Ecran complet";
+  }
+  fullscreenBtn.hidden = !canFullscreen;
+  document.getElementById("fullscreen-hint").hidden = canFullscreen || window.navigator.standalone === true;
+  fullscreenBtn.addEventListener("click", function () {
+    if (isFullscreen()) {
+      (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+    } else {
+      var request = root.requestFullscreen || root.webkitRequestFullscreen;
+      var result = request.call(root);
+      if (result && result.catch) result.catch(function () {});
+    }
+    closeSettings();
+  });
+  document.addEventListener("fullscreenchange", syncFullscreen);
+  document.addEventListener("webkitfullscreenchange", syncFullscreen);
+
+  syncSpeed();
+  applyBedtime();
 
   // ---------- pornire ----------
 
@@ -416,8 +632,8 @@
       dotsEl.appendChild(el("span", "dot"));
       return sheet;
     });
-    updateAutoBtn();
     render();
+    updateResume();
     Iamlio.countRead(story.id).then(showReads);
   }
 
@@ -430,7 +646,7 @@
     if (cover) cover.textContent = label;
   }
 
-  Iamlio.bindVoiceSwitch(document.querySelector(".voice-switch"), function () {
+  Iamlio.bindVoiceSwitch(document.querySelector("#settings .voice-switch"), function () {
     if (reading && !busy) playCurrent();
   });
   Iamlio.inlineSvg(document.getElementById("play-lio"), "assets/img/lio-cap.svg");

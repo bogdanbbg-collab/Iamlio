@@ -3,6 +3,17 @@
 Site cu povești ilustrate pentru copii de 3–7 ani, în limba română. Paginile se întorc cu degetul
 (swipe) ca într-o carte, iar Lio, puiul de leu, citește povestea cu voce.
 
+## Ce poate face cititorul
+
+- pagini care se întorc ca într-o carte (swipe, atingere, săgeți, tastatură);
+- Lio citește cu voce feminină sau masculină, iar **replica citită se evidențiază sincron** cu vocea;
+- **Setări de citire** (butonul din dreapta sus): vocea, **viteza** (0,8×–1,1×), Lio dă singur paginile,
+  **mod de culcare** (culori calme, imagini mai puțin luminoase, voce mai încetă) și **ecran complet**
+  (pe iPhone/iPad: Partajează → „Adaugă pe ecranul principal”, iar site-ul se deschide ca o aplicație);
+- **reluarea poveștii**: coperta propune „Continuă” de la pagina la care a rămas copilul.
+
+Preferințele rămân doar în browserul de pe dispozitiv (fără conturi).
+
 ## Cum adaugi o poveste
 
 Spune-i AI-ului conectat la acest repository (ChatGPT, Claude, Gemini etc.), de exemplu:

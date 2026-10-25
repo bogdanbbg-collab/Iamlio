@@ -517,12 +517,17 @@ class VoiceTests(unittest.TestCase):
         segments = [voce.Segment("Unu.", pause=0.5), voce.Segment("Doi.", "vesel", pause=0.5)]
         with tempfile.TemporaryDirectory() as tmp:
             target = Path(tmp) / "pagina.mp3"
-            asyncio.run(voce.render(segments, "feminin", [], target, synth=fake_synth))
+            timings = asyncio.run(voce.render(segments, "feminin", [], target, synth=fake_synth))
             duration = float(subprocess.run(
                 ["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(target)],
                 capture_output=True, text=True, check=True).stdout)
         expected = voce.LEAD_IN + 0.5 + 0.5 + 0.5 + voce.TAIL
         self.assertAlmostEqual(duration, expected, delta=0.15)
+        # momentele replicilor (pentru evidențierea textului): după pauza de început, apoi după pauza dintre ele
+        self.assertEqual(len(timings), 2)
+        self.assertAlmostEqual(timings[0][0], voce.LEAD_IN, delta=0.01)
+        self.assertAlmostEqual(timings[1][0], timings[0][1] + 0.5, delta=0.01)
+        self.assertAlmostEqual(timings[1][1], duration - voce.TAIL, delta=0.15)
 
 
 if __name__ == "__main__":

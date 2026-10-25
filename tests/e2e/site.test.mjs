@@ -111,10 +111,12 @@ test("vocea aleasă se păstrează, iar Lio citește cu fișierele vocii alese",
   const p = await page();
   await p.goto(`${BASE}/poveste.html?id=${VOICED.id}`);
   await p.waitForSelector(".sheet.is-current");
-  await p.click('.voice-switch [data-voice="masculin"]');
+  await p.click("#settings-btn");
+  await p.click('#settings .voice-switch [data-voice="masculin"]');
+  await p.click("#settings-close");
   await p.reload();
   await p.waitForSelector(".sheet.is-current");
-  assert.equal(await p.getAttribute('.voice-switch [data-voice="masculin"]', "aria-pressed"), "true");
+  assert.equal(await p.getAttribute('#settings .voice-switch [data-voice="masculin"]', "aria-pressed"), "true");
   const request = p.waitForRequest((r) => r.url().includes(`/stories/${VOICED.id}/audio/masculin/coperta.mp3`));
   await p.click("#play-btn");
   await request;
@@ -197,4 +199,91 @@ test("nicio pagină nu încarcă nimic de la alte site-uri (fonturi, reclame, ur
     await p.waitForLoadState("networkidle");
   }
   assert.deepEqual(external, []);
+});
+
+const audioState = (p) => p.evaluate(() => {
+  const a = document.querySelector("audio");
+  return { rate: a.playbackRate, volume: a.volume, src: a.src };
+});
+
+test("setări: viteza vocii și modul de culcare se aplică și se păstrează", { skip: !VOICED && "nicio poveste nu are încă voce" }, async () => {
+  const p = await page({ reducedMotion: "reduce" });
+  await p.goto(`${BASE}/poveste.html?id=${VOICED.id}`);
+  await p.waitForSelector(".sheet.is-current");
+  await p.click("#settings-btn");
+  assert.ok(await p.isVisible("#settings .settings-panel"));
+  await p.click('[data-speed="0.8"]');
+  await p.click("#bedtime");
+  await p.keyboard.press("Escape");
+  assert.ok(await p.isHidden("#settings"));
+  assert.match(await p.getAttribute("body", "class"), /bedtime/);
+  await p.click("#play-btn");
+  await p.waitForFunction(() => document.querySelector("audio").src.includes(".mp3"));
+  const state = await audioState(p);
+  assert.equal(state.rate, 0.8);
+  assert.equal(state.volume, 0.7);
+  await p.click("#play-btn");
+  await p.reload();
+  await p.waitForSelector(".sheet.is-current");
+  assert.match(await p.getAttribute("body", "class"), /bedtime/);
+  assert.equal(await p.getAttribute('[data-speed="0.8"]', "aria-pressed"), "true");
+  assert.deepEqual(p.errors, []);
+});
+
+test("reluare: povestea continuă de la pagina la care a rămas copilul", async () => {
+  const p = await page({ reducedMotion: "reduce" });
+  await p.goto(STORY_URL);
+  await p.waitForSelector(".sheet.is-current");
+  assert.ok(await p.isHidden(".resume"));
+  for (let i = 1; i <= 3; i++) {
+    await p.click("#next-btn");
+    await settle(p, `Pagina ${i}`);
+  }
+  await p.reload();
+  await p.waitForSelector(".resume:not([hidden])");
+  assert.match(await p.textContent(".resume-text"), /pagina 3/);
+  await p.click(".resume-continue");
+  await settle(p, "Pagina 3");
+  for (let i = 4; i < SHEETS; i++) await p.click("#next-btn");
+  await settle(p, "Sfârșit");
+  await p.reload();
+  await p.waitForSelector(".sheet.is-current");
+  assert.ok(await p.isHidden(".resume"), "după ce povestea a fost terminată, nu mai propune reluarea");
+});
+
+test("evidențiere: replica citită se colorează sincron cu vocea", { skip: !VOICED && "nicio poveste nu are încă voce" }, async () => {
+  const p = await page({ reducedMotion: "reduce" });
+  // momente cunoscute pentru pagina 1, ca testul să nu depindă de durata reală a vocii
+  await p.route("**/audio/manifest.json*", async (route) => {
+    const manifest = await (await route.fetch()).json();
+    manifest.timing = { feminin: { "pagina-01.mp3": [[0, 0.4], [0.5, 30]] }, masculin: { "pagina-01.mp3": [[0, 0.4], [0.5, 30]] } };
+    await route.fulfill({ json: manifest });
+  });
+  await p.goto(`${BASE}/poveste.html?id=${VOICED.id}`);
+  await p.waitForSelector(".sheet.is-current");
+  await p.click("#next-btn");
+  await settle(p, "Pagina 1");
+  const spans = await p.locator(".sheet.is-current .seg").count();
+  assert.ok(spans >= 2, "textul paginii are replicile marcate");
+  await p.click("#play-btn");
+  await p.waitForFunction(() => document.querySelector("audio").readyState >= 1);
+  await p.evaluate(() => { document.querySelector("audio").currentTime = 1; });
+  await p.waitForFunction(() => document.querySelectorAll(".sheet.is-current .seg")[1].classList.contains("is-spoken"));
+  assert.equal(await p.locator(".sheet.is-current .seg.is-spoken").count(), 1);
+  await p.click("#play-btn");
+  await p.waitForTimeout(500); // browserul mai trimite o actualizare de timp după pauză
+  assert.equal(await p.locator(".seg.is-spoken").count(), 0);
+});
+
+test("aplicație: manifest și pictograme pentru „Adaugă pe ecranul principal”", async () => {
+  const manifest = await (await fetch(`${BASE}/manifest.webmanifest`)).json();
+  assert.equal(manifest.short_name, "Iamlio");
+  for (const icon of manifest.icons) {
+    assert.equal((await fetch(`${BASE}/${icon.src}`)).status, 200, icon.src);
+  }
+  const p = await page();
+  await p.goto(STORY_URL);
+  await p.click("#settings-btn");
+  const offered = await p.isVisible("#fullscreen-btn") || await p.isVisible("#fullscreen-hint");
+  assert.ok(offered, "ecranul complet e oferit (buton sau explicație pentru iPhone)");
 });

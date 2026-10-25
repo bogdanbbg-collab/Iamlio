@@ -18,6 +18,12 @@
   <meta property="og:image:alt" content="Lio, puiul de leu cu eșarfă turcoaz, îți face cu mâna">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/img/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Iamlio">
   <link rel="preload" href="assets/fonts/baloo2-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -30,12 +36,8 @@
       <h1 id="story-title" class="reader-title">Poveste</h1>
       <p id="story-reads" class="reader-reads" hidden></p>
     </div>
-    <div class="voice-switch voice-switch-compact" role="group" aria-label="Vocea care citește">
-      <button type="button" data-voice="feminin" title="Voce feminină"><span aria-hidden="true">👩</span><span class="voice-label">Ea</span></button>
-      <button type="button" data-voice="masculin" title="Voce masculină"><span aria-hidden="true">👨</span><span class="voice-label">El</span></button>
-    </div>
-    <button id="auto-btn" class="icon-btn" type="button" aria-pressed="true" title="Întoarce singur paginile când citește Lio">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.6M20 12a8 8 0 0 1-13.7 5.6"/><path d="M18 3v4h-4M6 21v-4h4"/></svg>
+    <button id="settings-btn" class="icon-btn" type="button" aria-haspopup="dialog" aria-controls="settings" aria-label="Setări de citire">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg>
     </button>
   </header>
 
@@ -56,6 +58,51 @@
     </button>
   </nav>
   <div id="dots" class="dots" aria-hidden="true"></div>
+
+  <div id="settings" class="settings" hidden>
+    <div class="settings-panel" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+      <div class="settings-head">
+        <h2 id="settings-title">Setări de citire</h2>
+        <button id="settings-close" class="icon-btn" type="button" aria-label="Închide setările">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+
+      <div class="setting">
+        <span class="setting-label">Cine citește</span>
+        <div class="voice-switch" role="group" aria-label="Vocea care citește">
+          <button type="button" data-voice="feminin"><span aria-hidden="true">👩</span> Feminină</button>
+          <button type="button" data-voice="masculin"><span aria-hidden="true">👨</span> Masculină</button>
+        </div>
+      </div>
+
+      <div class="setting">
+        <span class="setting-label">Viteza vocii</span>
+        <div class="speed-switch" role="group" aria-label="Viteza vocii">
+          <button type="button" data-speed="0.8">0,8×</button>
+          <button type="button" data-speed="0.9">0,9×</button>
+          <button type="button" data-speed="1">1×</button>
+          <button type="button" data-speed="1.1">1,1×</button>
+        </div>
+      </div>
+
+      <label class="setting setting-toggle">
+        <span><span class="setting-label">Lio dă singur paginile</span><small>după ce termină de citit o pagină</small></span>
+        <input id="auto-turn" type="checkbox" role="switch">
+      </label>
+
+      <label class="setting setting-toggle">
+        <span><span class="setting-label">🌙 Mod de culcare</span><small>culori calme, lumină mai slabă, voce mai încetă</small></span>
+        <input id="bedtime" type="checkbox" role="switch">
+      </label>
+
+      <div class="setting">
+        <button id="fullscreen-btn" class="pill" type="button" hidden>Ecran complet</button>
+        <p id="fullscreen-hint" class="setting-hint" hidden>Pe iPhone și iPad: apasă <strong>Partajează</strong>, apoi
+          <strong>„Adaugă pe ecranul principal”</strong>. Poveștile se vor deschide pe tot ecranul, ca o aplicație.</p>
+      </div>
+    </div>
+  </div>
 
   <script src="assets/js/iamlio.js" defer></script>
   <script src="assets/js/reader.js" defer></script>

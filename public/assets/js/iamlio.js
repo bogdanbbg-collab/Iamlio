@@ -129,7 +129,7 @@ window.Iamlio = (function () {
     utterance.lang = "ro-RO";
     var voice = browserVoice(gender);
     if (voice) utterance.voice = voice;
-    utterance.rate = 0.9;
+    utterance.rate = 0.9 * (handlers.speed || 1);
     utterance.pitch = gender === "masculin" ? 0.9 : 1.1;
     utterance.onstart = handlers.onstart || null;
     utterance.onend = handlers.onend || null;

@@ -150,6 +150,18 @@ def validate_narration(page, character_names):
     return errors
 
 
+def narration_in_text(page):
+    """Fiecare replică apare, în ordine, exact așa în textul paginii (pentru evidențierea sincronă)."""
+    text, cursor = page.get("text") or "", 0
+    for item in page.get("narration") or []:
+        part = item.get("text") if isinstance(item, dict) else None
+        at = text.find(part, cursor) if part else -1
+        if at == -1:
+            return False
+        cursor = at + len(part)
+    return True
+
+
 def validate_story(folder, data):
     """Verifică o poveste. O structură neașteptată devine o eroare a acestei povești, nu oprește restul."""
     if not isinstance(data, dict):
@@ -242,6 +254,9 @@ def check_story(folder, data):
         if not page.get("narration"):
             errors.append(f"{label}: lipsește regia de voce (narration) — vezi REGULI_POVESTI.md, secțiunea 7")
         errors.extend(f"{label}: {m}" for m in validate_narration(page, character_names))
+        if isinstance(page.get("narration"), list) and not narration_in_text(page):
+            warnings.append(f"{label}: replicile din narration nu sunt copiate exact (cu aceeași punctuație) din text; "
+                            "evidențierea textului citit va fi mai puțin precisă")
         for sentence in re.split(r"(?<=[.!?…])\s+", text):
             if word_count(sentence) > LONG_SENTENCE_WORDS:
                 warnings.append(f"{label}: o propoziție are {word_count(sentence)} cuvinte; împarte-o (ideal sub 15)")
@@ -724,18 +739,24 @@ async def generate_audio_set(audio_dir, items, characters):
     manifest_file = audio_dir / "manifest.json"
     old = json.loads(manifest_file.read_text(encoding="utf-8")) if manifest_file.exists() else {}
     manifest = {}
+    old_timing = old.get("timing") if isinstance(old.get("timing"), dict) else {}
+    timing = {}
     for key in VOICES:
         voice_dir = audio_dir / key
         voice_dir.mkdir(parents=True, exist_ok=True)
         previous = old.get(key, {}) if isinstance(old.get(key), dict) else {}
-        manifest[key] = {}
+        previous_timing = old_timing.get(key, {}) if isinstance(old_timing.get(key), dict) else {}
+        manifest[key], timing[key] = {}, {}
         for name, segments in items:
             digest = hashlib.sha1(voce.fingerprint(segments, key, characters).encode()).hexdigest()
             target = voice_dir / name
-            if previous.get(name) != digest or not target.exists():
+            if previous.get(name) != digest or not target.exists() or name not in previous_timing:
                 print(f"    🔊 {target.relative_to(ROOT)}")
-                await voce.render(segments, key, characters, target)
+                timing[key][name] = await voce.render(segments, key, characters, target)
+            else:
+                timing[key][name] = previous_timing[name]
             manifest[key][name] = digest
+            manifest["timing"] = timing
             # scriem manifestul după fiecare fișier, ca o eroare să nu piardă munca făcută
             manifest_file.write_text(json.dumps({**old, **manifest}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         for stale in voice_dir.glob("*.mp3"):
@@ -743,6 +764,7 @@ async def generate_audio_set(audio_dir, items, characters):
                 stale.unlink()
     for leftover in audio_dir.glob("*.mp3"):  # format vechi, fără folder pe voce
         leftover.unlink()
+    manifest["timing"] = timing
     manifest_file.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 

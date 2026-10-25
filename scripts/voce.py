@@ -16,7 +16,7 @@ from pathlib import Path
 VOICES = {"feminin": "ro-RO-AlinaNeural", "masculin": "ro-RO-EmilNeural"}
 
 # Versiunea regiei: schimb-o când modifici tonurile, ca să se regenereze toate fișierele audio.
-ENGINE_VERSION = "2"
+ENGINE_VERSION = "3"  # 3: se salvează și momentul fiecărei replici (pentru evidențierea textului)
 
 # ton → (viteză %, înălțime Hz, volum %)
 MOODS = {
@@ -263,8 +263,22 @@ def assemble(parts, pauses, target):
     )
 
 
+def duration(path):
+    """Durata unui mp3 în secunde (ffprobe; dacă lipsește, din mărime: mono 48 kbit/s)."""
+    probe = shutil.which("ffprobe")
+    if probe:
+        result = subprocess.run([probe, "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(path)],
+                                capture_output=True, text=True)
+        try:
+            return float(result.stdout.strip())
+        except ValueError:
+            pass
+    return Path(path).stat().st_size / 6000
+
+
 async def render(segments, voice_key, characters, target, synth=synthesize):
-    """Generează un fișier audio complet din bucăți (synth poate fi înlocuit în teste)."""
+    """Generează un fișier audio complet din bucăți (synth poate fi înlocuit în teste).
+    Întoarce momentele [început, sfârșit] (secunde) ale fiecărei replici, pentru evidențierea textului."""
     with tempfile.TemporaryDirectory() as tmp:
         parts = []
         for number, segment in enumerate(segments):
@@ -272,3 +286,9 @@ async def render(segments, voice_key, characters, target, synth=synthesize):
             await synth(segment.text, segment_params(segment, voice_key, characters), part)
             parts.append(part)
         assemble(parts, [s.pause for s in segments], target)
+        timings, moment = [], LEAD_IN
+        for number, (part, segment) in enumerate(zip(parts, segments)):
+            length = duration(part)
+            timings.append([round(moment, 2), round(moment + length, 2)])
+            moment += length + (TAIL if number == len(segments) - 1 else segment.pause)
+        return timings
