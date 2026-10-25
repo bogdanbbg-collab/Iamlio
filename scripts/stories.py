@@ -2,6 +2,8 @@
 """Instrumente pentru poveștile Iamlio.
 
 Comenzi:
+  new "Titlu"   creează o poveste nouă din șablon (public/stories/<id>/)
+  template  regenerează sablon/story.json din scripts/canon.py
   optimize  transformă imaginile .png/.jpg în .webp (max 1536×1024) și actualizează story.json
   validate  verifică toate poveștile după REGULI_POVESTI.md
   audio     generează vocea feminină și masculină (mp3, edge-tts + regie de voce) pentru povești și replicile lui Lio
@@ -18,6 +20,7 @@ import sys
 import unicodedata
 from pathlib import Path
 
+import canon
 import voce
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -28,7 +31,8 @@ LIO_AUDIO_DIR = ROOT / "public" / "assets" / "audio"
 
 # Fiecare poveste primește ambele voci; cititorul alege una.
 VOICES = voce.VOICES
-LIO_PROFILE = {"name": "Lio", "voice": {"pitch": 12, "rate": 3}}  # Lio e un pui: voce puțin mai înaltă
+TEMPLATE_FILE = ROOT / "sablon" / "story.json"
+LIO_PROFILE = {"name": "Lio", "voice": canon.LIO_VOICE}  # Lio e un pui: voce puțin mai înaltă
 RASTER_EXTENSIONS = {".webp", ".jpg", ".jpeg", ".png"}
 IMAGE_PATH = re.compile(r"^images/[a-z0-9][a-z0-9-]*\.(?:webp|png|jpe?g)$")
 MAX_IMAGE_SIZE = (1536, 1024)
@@ -50,7 +54,8 @@ SUMMARY_WORDS = (8, 60)
 # Cuvinte care de obicei nu au ce căuta într-o poveste pentru 3–7 ani (avertisment, nu eroare).
 SENSITIVE_WORDS = ["moarte", "mort", "moartă", "murit", "sânge", "ucide", "omoară", "omorât", "armă", "pistol",
                    "cuțit", "bătaie", "prost", "proastă", "idiot", "urât", "drac", "iad", "înjur"]
-REQUIRED_FIELDS = ["id", "title", "summary", "moral", "learning", "created", "characters", "cover", "pages"]
+REQUIRED_FIELDS = ["id", "title", "summary", "moral", "learning", "created", "illustrationStyle", "characters",
+                   "cover", "pages", "review"]
 
 
 def load_stories():
@@ -222,7 +227,80 @@ def validate_story(folder, data):
 
     if any(CEDILLA.search(t) for t in texts):
         errors.append("folosește ș/ț cu virgulă, nu ş/ţ cu sedilă")
+    if canon.PLACEHOLDER in json.dumps(data, ensure_ascii=False):
+        errors.append(f"șablonul nu e completat: mai există „{canon.PLACEHOLDER}”")
+    errors.extend(validate_quality(data))
     return errors, warnings
+
+
+def validate_quality(data):
+    """Regulile de calitate care nu țin de structură: stil, personaje identice, Lio, voce, autoevaluare."""
+    errors = []
+    pages = data.get("pages") or []
+    characters = data.get("characters") or []
+    style = data.get("illustrationStyle") or ""
+
+    missing = [m for m in canon.STYLE_MARKERS if m not in style.lower()]
+    if style and missing:
+        errors.append(f"illustrationStyle nu e stilul Iamlio (lipsește: {', '.join(missing)}) — copiază-l din sablon/story.json")
+    prompts = [("copertă", (data.get("cover") or {}).get("imagePrompt") or "")]
+    prompts += [(f"pagina {n}", p.get("imagePrompt") or "") for n, p in enumerate(pages, start=1)]
+    for label, prompt in prompts:
+        if not prompt:
+            continue
+        if style and style not in prompt:
+            errors.append(f"{label}: imagePrompt trebuie să conțină illustrationStyle cuvânt cu cuvânt (același stil pe toate imaginile)")
+        for character in characters:
+            name, description = character.get("name") or "", character.get("description") or ""
+            if name and description and re.search(rf"\b{re.escape(plain(name))}\b", plain(prompt)) and description not in prompt:
+                errors.append(f"{label}: {name} apare în imagePrompt, dar fără descrierea completă din characters (personajele trebuie să arate identic)")
+
+    for character in characters:
+        name = character.get("name") or ""
+        if name == "Lio":
+            description = (character.get("description") or "").lower()
+            if not all(m in description for m in canon.LIO_MARKERS):
+                errors.append("Lio: folosește descrierea oficială a lui Lio (REGULI_POVESTI.md, secțiunea 4)")
+            if character.get("voice") != canon.LIO_VOICE:
+                errors.append(f"Lio: folosește profilul de voce oficial {json.dumps(canon.LIO_VOICE)}")
+        if character.get("knownCharacter") and len(character.get("description") or "") < canon.MIN_KNOWN_CHARACTER_DESCRIPTION:
+            errors.append(f"{name}: un personaj cunoscut are nevoie de o descriere vizuală foarte detaliată (fidelă originalului)")
+
+    with_voice = {c.get("name") for c in characters if c.get("voice")}
+    moods = set()
+    for number, page in enumerate(pages, start=1):
+        narration = page.get("narration") if isinstance(page.get("narration"), list) else []
+        moods.update(item.get("mood", voce.NARRATOR_MOOD) for item in narration if isinstance(item, dict))
+        speakers = {item.get("speaker") for item in narration if isinstance(item, dict) and item.get("speaker")}
+        if "—" in (page.get("text") or "") and narration and not speakers:
+            errors.append(f"pagina {number}: are dialog, dar nicio replică din narration nu are speaker")
+        for speaker in sorted(speakers - with_voice):
+            errors.append(f"pagina {number}: {speaker} vorbește, dar nu are profil de voce (voice) în characters")
+    if pages and len(moods) < canon.MIN_DISTINCT_MOODS:
+        errors.append(f"regia de voce folosește doar {len(moods)} tonuri; folosește cel puțin {canon.MIN_DISTINCT_MOODS} ca povestea să nu sune monoton")
+
+    errors.extend(validate_review(data.get("review"), len(pages)))
+    return errors
+
+
+def validate_review(review, page_count):
+    if review is None:
+        return []
+    if not isinstance(review, dict):
+        return ["review trebuie să fie un obiect cu autoevaluarea poveștii"]
+    errors = []
+    for key, meaning in canon.REVIEW_FIELDS.items():
+        value = review.get(key)
+        if key == "umor":
+            moments = value if isinstance(value, list) else []
+            pages = [int(m.group(1)) for m in (re.match(r"\s*pagina (\d+)\s*:", str(x)) for x in moments) if m]
+            if len(pages) < canon.MIN_HUMOR_MOMENTS or len(pages) != len(moments):
+                errors.append(f"review.umor: cel puțin {canon.MIN_HUMOR_MOMENTS} momente amuzante, fiecare de forma „pagina N: …”")
+            elif any(not 1 <= p <= page_count for p in pages):
+                errors.append("review.umor: o pagină indicată nu există")
+        elif not isinstance(value, str) or len(value.strip()) < canon.MIN_REVIEW_CHARS:
+            errors.append(f"review.{key}: scrie {meaning}")
+    return errors
 
 
 def optimize_image(folder, rel_path):
@@ -263,6 +341,67 @@ def cmd_optimize():
                     changed = True
         if changed:
             (folder / "story.json").write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return 0
+
+
+def slugify(title):
+    return re.sub(r"[^a-z0-9]+", "-", plain(title)).strip("-")
+
+
+def template_story(story_id="id-ul-povestii", title=f"{canon.PLACEHOLDER}: titlul poveștii"):
+    todo = canon.PLACEHOLDER
+    lio = {"name": "Lio", "description": canon.LIO_DESCRIPTION, "voice": canon.LIO_VOICE}
+    page = {
+        "text": f"{todo}: textul paginii (20–70 de cuvinte).",
+        "narration": [{"text": f"{todo}: textul paginii (20–70 de cuvinte).", "mood": "calm"}],
+        "image": "images/pagina-01.png",
+        "imagePrompt": f"{canon.STYLE} Characters in this scene: Lio: {canon.LIO_DESCRIPTION}. "
+                       f"Setting: {todo}. Action: {todo}. Emotions: {todo}. Important details: {todo}. Camera: {todo}.",
+    }
+    return {
+        "id": story_id,
+        "title": title,
+        "summary": f"{todo}: una-două propoziții care îi fac pe copii curioși.",
+        "age": "3-7",
+        "moral": f"{todo}: morala, o singură propoziție pozitivă.",
+        "learning": [f"{todo}: ce învață copilul"],
+        "created": "2026-01-01",
+        "tags": [],
+        "illustrationStyle": canon.STYLE,
+        "characters": [lio],
+        "cover": {
+            "image": "images/coperta.png",
+            "imagePrompt": f"{canon.STYLE} Characters in this scene: Lio: {canon.LIO_DESCRIPTION}. Setting: {todo}. Action: {todo}.",
+        },
+        "pages": [page],
+        "review": {key: f"{todo}: {meaning}" for key, meaning in canon.REVIEW_FIELDS.items()},
+    }
+
+
+def write_json(path, data):
+    path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def cmd_template():
+    TEMPLATE_FILE.parent.mkdir(exist_ok=True)
+    write_json(TEMPLATE_FILE, template_story())
+    print(f"Șablon actualizat: {TEMPLATE_FILE.relative_to(ROOT)}")
+    return 0
+
+
+def cmd_new(title):
+    from datetime import date
+
+    story_id = slugify(title)
+    folder = STORIES_DIR / story_id
+    if not story_id or folder.exists():
+        print(f"Nu pot crea „{story_id}”: id gol sau povestea există deja.")
+        return 1
+    (folder / "images").mkdir(parents=True)
+    data = template_story(story_id, title)
+    data["created"] = date.today().isoformat()
+    write_json(folder / "story.json", data)
+    print(f"Poveste nouă: public/stories/{story_id}/story.json — completează tot ce e marcat „{canon.PLACEHOLDER}”.")
     return 0
 
 
@@ -413,6 +552,10 @@ def cmd_index():
 
 def main():
     command = sys.argv[1] if len(sys.argv) > 1 else "validate"
+    if command == "new" and len(sys.argv) > 2:
+        return cmd_new(" ".join(sys.argv[2:]))
+    if command == "template":
+        return cmd_template()
     if command == "optimize":
         return cmd_optimize()
     if command == "validate":

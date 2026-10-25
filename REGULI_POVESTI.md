@@ -6,7 +6,10 @@ se scrie povestea: rezultatul trebuie să treacă prin aceste reguli și prin ve
 `python3 scripts/stories.py validate`.
 
 Când primești o cerere de tipul „fă o poveste despre …”, **nu scrie direct povestea**: urmează
-[fluxul de lucru](#9-fluxul-de-lucru-obligatoriu) de la capătul fișierului, pas cu pas.
+[fluxul de lucru](#10-fluxul-de-lucru-obligatoriu) de la capătul fișierului, pas cu pas.
+**Pornește întotdeauna de la șablonul [`sablon/story.json`](sablon/story.json)** (stilul imaginilor și Lio
+sunt deja completate corect) și citește [secțiunea 9](#9-ce-verifică-automat-proiectul) ca să știi ce
+respinge verificarea automată.
 Dacă cererea încalcă o regulă (de ex. e prea înfricoșătoare), **adapteaz-o** ca să respecte regulile și
 spune pe scurt ce ai schimbat.
 
@@ -243,6 +246,10 @@ public/stories/<id>/
 - **Titlul (`title`) e obligatoriu:** scurt (2–7 cuvinte), cald, ușor de spus, de preferat cu numele eroului
   („Lio și steluța căzătoare”). Apare în bibliotecă, pe copertă și în cititor.
 - `<id>` = titlul fără diacritice, cu litere mici și cratime: `lio-si-steluta-cazatoare`.
+- **Pornești de la șablon:** `python3 scripts/stories.py new "Titlul poveștii"` creează folderul și `story.json`
+  din [`sablon/story.json`](sablon/story.json); dacă nu poți rula comenzi, copiezi tu șablonul. Completezi tot
+  ce e marcat `DE COMPLETAT` (verificarea respinge povestea cât timp mai există acest marcaj).
+- Exemplu complet, care trece toate verificările: `public/stories/lio-si-steluta-cazatoare/story.json`.
 - Imaginile: `images/coperta.*`, `images/pagina-01.*`, `images/pagina-02.*` … (două cifre).
 - **Nu edita** `public/stories/index.json` și `audio/` — sunt generate automat.
 
@@ -286,32 +293,83 @@ public/stories/<id>/
       "image": "images/pagina-01.png",
       "imagePrompt": "Promptul complet folosit pentru imaginea paginii 1"
     }
-  ]
+  ],
+  "review": {
+    "imaginatie": "…",
+    "invatare": "…",
+    "umor": ["pagina 2: …", "pagina 5: …"],
+    "emotie": "…",
+    "siguranta": "…",
+    "imagini": "…",
+    "voce": "…"
+  }
 }
 ```
 
 Pentru un personaj cunoscut se adaugă în `characters`: `"knownCharacter": true, "source": "…"`.
 
-## 9. Fluxul de lucru (obligatoriu)
+### Autoevaluarea: câmpul `review` (obligatoriu)
+
+Înainte de commit, **recitești povestea ca un părinte exigent** și scrii în `review`, concret, cu trimiteri la pagini:
+
+| Câmp | Ce scrii |
+| --- | --- |
+| `imaginatie` | ce element magic sau neobișnuit are povestea |
+| `invatare` | cum sunt împletite în acțiune lucrurile din `learning` (cu paginile) |
+| `umor` | lista momentelor amuzante, **cel puțin două**, fiecare de forma `"pagina N: ce se întâmplă"` |
+| `emotie` | problema, încercările, cum se rezolvă și de ce finalul e liniștitor |
+| `siguranta` | de ce nimic din poveste nu sperie și nu e nepotrivit pentru 3–7 ani |
+| `imagini` | cum ai verificat că fiecare imagine arată pagina ei și că personajele sunt identice |
+| `voce` | cum ai ales tonurile, pauzele și vocile personajelor |
+
+Dacă nu poți scrie cinstit unul dintre câmpuri (de ex. nu găsești două momente amuzante), **povestea nu e gata**:
+îmbunătățește-o, nu completa câmpul de formă.
+
+## 9. Ce verifică automat proiectul
+
+La fiecare publicare, `python3 scripts/stories.py validate` respinge povestea dacă:
+
+- **structura:** lipsesc câmpuri obligatorii (inclusiv `learning`, `illustrationStyle`, `review`), id-ul nu e
+  identic cu folderul, `age` nu e `3-5`/`5-7`/`3-7`, titlul are peste 10 cuvinte, a rămas `DE COMPLETAT`;
+- **lungimea:** sub 6 sau peste 24 de pagini, sub 20 sau peste 70 de cuvinte pe pagină, sub 2 sau peste 10 minute;
+- **limba:** ș/ț cu sedilă în loc de virgulă;
+- **imaginile:** lipsește un fișier, calea nu e `images/nume.png|jpg|webp`, lipsește `imagePrompt` pe copertă
+  sau pe o pagină, `illustrationStyle` nu e stilul Iamlio, un `imagePrompt` nu conține `illustrationStyle`
+  cuvânt cu cuvânt, un personaj e numit într-un `imagePrompt` fără descrierea lui completă din `characters`;
+- **personajele:** descriere vizuală lipsă sau prea scurtă, Lio fără descrierea și vocea oficială, personaj
+  cunoscut fără `source` sau fără o descriere foarte detaliată;
+- **vocea:** o pagină fără `narration`, `narration` care nu conține exact cuvintele din `text`, ton necunoscut,
+  vorbitor care nu e în `characters`, personaj care vorbește fără profil `voice`, dialog fără `speaker`,
+  mai puțin de 3 tonuri diferite în toată povestea;
+- **autoevaluarea:** un câmp din `review` lipsă sau scris de formă, mai puțin de două momente amuzante cu pagina lor.
+
+Și avertizează (fără să respingă) pentru: propoziții de peste 25 de cuvinte, cifre în text, cuvinte
+nepotrivite pentru copii mici, imagini mari, un personaj din text care lipsește din imaginea paginii.
+
+Ce **nu** poate verifica un program: dacă povestea e cu adevărat frumoasă și amuzantă și dacă imaginile chiar
+arată ce scrie. Acestea depind de tine: urmează fluxul de mai jos fără scurtături.
+
+## 10. Fluxul de lucru (obligatoriu)
 
 Când primești „fă o poveste despre X”:
 
 1. **Înțelege cererea.** Subiect, personaje cerute, lungime (implicit 4–6 minute), vârstă (implicit 3–7).
    Dacă cererea are ceva nepotrivit pentru copii, adapteaz-o (secțiunea 3) și spune ce ai schimbat.
-2. **Planifică.** Alege: elementul de imaginație, cele 1–3 lucruri de învățat, cele cel puțin două momente
+2. **Pornește de la șablon** (`python3 scripts/stories.py new "Titlu"` sau o copie a `sablon/story.json`).
+3. **Planifică.** Alege: elementul de imaginație, cele 1–3 lucruri de învățat, cele cel puțin două momente
    amuzante, problema și rezolvarea, morala. Alege numărul de pagini după tabelul din secțiunea 2.
-3. **Scrie povestea** pagină cu pagină (20–70 de cuvinte pe pagină, un moment pe pagină).
+4. **Scrie povestea** pagină cu pagină (20–70 de cuvinte pe pagină, un moment pe pagină).
    Apoi scrie **regia de voce** (`narration`) pentru fiecare pagină și profilul `voice` al personajelor (secțiunea 7).
-4. **Recitește ca un părinte** și verifică lista de mai jos; corectează până trece totul.
-5. **Descrie personajele** în `characters` (în engleză, foarte vizual; Lio exact ca în secțiunea 4).
-6. **Scrie prompturile** de imagine cu șablonul din secțiunea 6: coperta + câte unul pentru fiecare pagină.
-7. **Generează imaginile** (coperta prima, apoi paginile, păstrând personajele identice) și verifică fiecare
+5. **Recitește ca un părinte**, corectează și scrie autoevaluarea (`review`); dacă un câmp nu se poate scrie cinstit, îmbunătățește povestea.
+6. **Descrie personajele** în `characters` (în engleză, foarte vizual; Lio exact ca în secțiunea 4).
+7. **Scrie prompturile** de imagine cu șablonul din secțiunea 6: coperta + câte unul pentru fiecare pagină.
+8. **Generează imaginile** (coperta prima, apoi paginile, păstrând personajele identice) și verifică fiecare
    imagine: se potrivește cu textul? personajele arată la fel? nu are text? Refă-le pe cele care nu se potrivesc.
-8. **Salvează** `story.json` și imaginile în `public/stories/<id>/`.
-9. **Verifică:** `python3 scripts/stories.py validate` (dacă poți rula comenzi) — trebuie să apară `[OK]`.
-10. **Commit și push** pe branch-ul principal (`master`) sau deschide un pull request. GitHub Actions face restul:
-    teste → optimizează imaginile → verifică povestea → generează vocea feminină și masculină cu regia de voce →
-    verifică fișierele audio → actualizează biblioteca → urcă site-ul prin FTPS → verifică site-ul live.
+9. **Salvează** `story.json` și imaginile în `public/stories/<id>/`.
+10. **Verifică:** `python3 scripts/stories.py validate` (dacă poți rula comenzi) — trebuie să apară `[OK]`.
+11. **Commit și push** pe branch-ul principal (`master`) sau deschide un pull request. GitHub Actions face restul:
+     teste → optimizează imaginile → verifică povestea → generează vocea feminină și masculină cu regia de voce →
+     verifică fișierele audio → actualizează biblioteca → urcă site-ul prin FTPS → verifică site-ul live.
 
 O poveste care nu trece verificarea automată **nu** este publicată.
 
@@ -326,3 +384,5 @@ O poveste care nu trece verificarea automată **nu** este publicată.
 - [ ] Fiecare personaj descris o dată în `characters` și copiat întocmai în prompturile în care apare.
 - [ ] Fiecare imagine arată exact momentul paginii ei, în stilul Iamlio, fără text în imagine.
 - [ ] Personajele cunoscute (dacă au fost cerute) sunt fidele originalului și marcate cu `knownCharacter`.
+- [ ] `review` completat cinstit, cu pagini concrete; nu a rămas nimic `DE COMPLETAT`.
+- [ ] `python3 scripts/stories.py validate` afișează `[OK]`.

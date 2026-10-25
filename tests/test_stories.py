@@ -13,6 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 
+import canon  # noqa: E402
 import stories  # noqa: E402
 import voce  # noqa: E402
 
@@ -118,6 +119,90 @@ class ValidationTests(StoryCase):
         self.data["pages"][0]["text"] = self.data["pages"][0]["text"] + " Nimeni nu a murit."
         warnings = stories.validate_story(self.folder, self.data)[1]
         self.assertTrue(any("murit" in w for w in warnings))
+
+
+class QualityTests(StoryCase):
+    def test_review_is_required(self):
+        del self.data["review"]
+        self.assertError("review")
+
+    def test_review_needs_two_humor_moments_with_pages(self):
+        self.data["review"]["umor"] = ["ceva amuzant"]
+        self.assertError("review.umor")
+        self.data["review"]["umor"] = ["pagina 1: a", "pagina 99: b"]
+        self.assertError("o pagină indicată nu există")
+
+    def test_review_fields_must_be_written(self):
+        self.data["review"]["siguranta"] = "ok"
+        self.assertError("review.siguranta")
+
+    def test_style_must_be_iamlio_style(self):
+        self.data["illustrationStyle"] = "Watercolor painting"
+        self.assertError("illustrationStyle nu e stilul Iamlio")
+
+    def test_every_prompt_contains_the_style(self):
+        self.data["pages"][3]["imagePrompt"] = self.data["pages"][3]["imagePrompt"].replace("3D animated", "2D")
+        self.assertError("pagina 4: imagePrompt trebuie să conțină illustrationStyle")
+
+    def test_character_description_is_copied_in_prompts(self):
+        prompt = self.data["pages"][5]["imagePrompt"]
+        self.data["pages"][5]["imagePrompt"] = prompt.replace(self.data["characters"][2]["description"], "a purple owl")
+        self.assertError("pagina 6: Ula apare în imagePrompt, dar fără descrierea completă")
+
+    def test_lio_must_look_and_sound_like_lio(self):
+        self.data["characters"][0]["description"] = "a big grey lion with a red hat and a long beard, very serious"
+        self.data["characters"][0]["voice"] = {"pitch": -20}
+        self.assertError("descrierea oficială a lui Lio")
+        self.assertError("profilul de voce oficial")
+
+    def test_speakers_need_voice_profiles(self):
+        del self.data["characters"][1]["voice"]
+        self.assertError("Steluța vorbește, dar nu are profil de voce")
+
+    def test_dialogue_needs_a_speaker(self):
+        for item in self.data["pages"][0]["narration"]:
+            item.pop("speaker", None)
+        self.assertError("pagina 1: are dialog")
+
+    def test_voice_must_not_be_monotone(self):
+        for page in self.data["pages"]:
+            for item in page["narration"]:
+                item["mood"] = "calm"
+        self.assertError("tonuri")
+
+    def test_known_character_needs_detailed_description(self):
+        self.data["characters"].append({"name": "Scufița Roșie", "description": "a little girl with a red hood and a basket",
+                                        "knownCharacter": True, "source": "basm popular"})
+        self.assertError("foarte detaliată")
+
+    def test_unfinished_template_is_rejected(self):
+        self.data["summary"] = f"{canon.PLACEHOLDER}: rezumat"
+        self.assertError("șablonul nu e completat")
+
+
+class TemplateTests(unittest.TestCase):
+    def test_committed_template_matches_canon(self):
+        committed = json.loads((ROOT / "sablon" / "story.json").read_text(encoding="utf-8"))
+        self.assertEqual(committed, stories.template_story(), "rulează: python3 scripts/stories.py template")
+
+    def test_demo_story_uses_canon(self):
+        data = demo_data()
+        self.assertEqual(data["illustrationStyle"], canon.STYLE)
+        lio = next(c for c in data["characters"] if c["name"] == "Lio")
+        self.assertEqual(lio["description"], canon.LIO_DESCRIPTION)
+
+    def test_new_story_starts_from_template(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            original = stories.STORIES_DIR
+            stories.STORIES_DIR = Path(tmp)
+            try:
+                self.assertEqual(stories.cmd_new("Aricelul și Luna"), 0)
+                data = json.loads((Path(tmp) / "aricelul-si-luna" / "story.json").read_text(encoding="utf-8"))
+                self.assertEqual(data["title"], "Aricelul și Luna")
+                errors, _ = stories.validate_story(Path(tmp) / "aricelul-si-luna", data)
+                self.assertTrue(any("șablonul nu e completat" in e for e in errors))
+            finally:
+                stories.STORIES_DIR = original
 
 
 class OptimizeTests(StoryCase):

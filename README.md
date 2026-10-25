@@ -27,8 +27,10 @@ imaginile și le salvează în `public/stories/<id>/`. După push, GitHub Action
 6. urcă site-ul pe host prin **FTPS** (eșuează clar dacă lipsesc datele de conectare);
 7. verifică site-ul live (pagina, biblioteca, vocea, contorul, protecția datelor).
 
-Dacă AI-ul nu citește singur fișierele din repository, începe cererea cu:
-„Citește întâi REGULI_POVESTI.md din repository-ul Iamlio și respectă-l întocmai.”
+Regulile sunt legate de proiect pentru orice AI: `AGENTS.md` (ChatGPT Codex și alții), `CLAUDE.md`, `GEMINI.md`,
+`.github/copilot-instructions.md`, `.cursor/rules/`. Toate trimit la aceleași reguli și la șablonul
+`sablon/story.json`. Pentru un chat obișnuit care nu citește singur proiectul, copiază textul din
+[`PROMPT_POVESTE.md`](PROMPT_POVESTE.md).
 
 Dacă un fișier audio lipsește totuși pe server, site-ul citește textul cu vocea română a browserului.
 

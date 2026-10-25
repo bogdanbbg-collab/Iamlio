@@ -309,5 +309,18 @@
         }
       ]
     }
-  ]
+  ],
+  "review": {
+    "imaginatie": "O stea mică și vie cade din cer, vorbește, cântă și luminează drumul; o bufniță înțeleaptă știe secretele cerului.",
+    "invatare": "Empatia apare la pagina 4 (Lio o ascultă pe Steluța), bufnițele treze noaptea la pagina 6, distanța și mărimea stelelor la pagina 8 — toate spuse de personaje, în acțiune.",
+    "umor": [
+      "pagina 1: Lio cască atât de tare încât un fluture zboară speriat din coamă",
+      "pagina 3: Lio se împiedică de propria coadă și se rostogolește ca un ghem — hop, hop, pleosc!",
+      "pagina 8: Lio face „Uau!” cu gura cât o portocală"
+    ],
+    "emotie": "Problema: Steluța s-a pierdut. Încercări: Lio o liniștește, o întreabă pe Ula, urcă dealul deși obosește. Rezolvare: o ridică spre cer. Final liniștit, de noapte bună, cu prietenia păstrată.",
+    "siguranta": "Nimeni nu e în pericol, căderea stelei e blândă (pof!), tristețea e alinată imediat, iar finalul e calm și potrivit pentru culcare.",
+    "imagini": "Fiecare imagine arată exact momentul paginii (căderea, rostogolirea, bufnița pe creangă, urcușul, cerul înstelat); Lio, Steluța și Ula au aceeași descriere în toate prompturile.",
+    "voce": "Narațiune calmă, misterios la căderea stelei, trist la plânsul Steluței, șoptit pentru secretul stelelor, somnoros la final; Steluța are voce subțire, Ula mai rară și mai joasă, Lio de pui."
+  }
 }

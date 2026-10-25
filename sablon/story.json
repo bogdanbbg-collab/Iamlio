@@ -1,0 +1,49 @@
+{
+  "id": "id-ul-povestii",
+  "title": "DE COMPLETAT: titlul poveștii",
+  "summary": "DE COMPLETAT: una-două propoziții care îi fac pe copii curioși.",
+  "age": "3-7",
+  "moral": "DE COMPLETAT: morala, o singură propoziție pozitivă.",
+  "learning": [
+    "DE COMPLETAT: ce învață copilul"
+  ],
+  "created": "2026-01-01",
+  "tags": [],
+  "illustrationStyle": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered.",
+  "characters": [
+    {
+      "name": "Lio",
+      "description": "a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression",
+      "voice": {
+        "pitch": 12,
+        "rate": 3
+      }
+    }
+  ],
+  "cover": {
+    "image": "images/coperta.png",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: DE COMPLETAT. Action: DE COMPLETAT."
+  },
+  "pages": [
+    {
+      "text": "DE COMPLETAT: textul paginii (20–70 de cuvinte).",
+      "narration": [
+        {
+          "text": "DE COMPLETAT: textul paginii (20–70 de cuvinte).",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-01.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: DE COMPLETAT. Action: DE COMPLETAT. Emotions: DE COMPLETAT. Important details: DE COMPLETAT. Camera: DE COMPLETAT."
+    }
+  ],
+  "review": {
+    "imaginatie": "DE COMPLETAT: ce element magic sau neobișnuit are povestea",
+    "invatare": "DE COMPLETAT: cum sunt împletite în acțiune lucrurile din learning (cu paginile)",
+    "umor": "DE COMPLETAT: lista momentelor amuzante, fiecare cu pagina: [\"pagina 2: …\", \"pagina 5: …\"]",
+    "emotie": "DE COMPLETAT: problema, cele trei încercări, cum se rezolvă și de ce finalul e liniștitor",
+    "siguranta": "DE COMPLETAT: de ce nimic din poveste nu sperie sau nu e nepotrivit pentru 3–7 ani",
+    "imagini": "DE COMPLETAT: cum ai verificat că fiecare imagine arată pagina ei și că personajele sunt identice",
+    "voce": "DE COMPLETAT: cum ai ales tonurile, pauzele și vocile personajelor"
+  }
+}
