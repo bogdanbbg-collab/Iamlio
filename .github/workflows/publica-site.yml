@@ -27,6 +27,9 @@ jobs:
       - name: Instalează uneltele
         run: pip install -r requirements.txt
 
+      - name: Optimizează imaginile (webp, max 1536×1024)
+        run: python scripts/stories.py optimize
+
       - name: Verifică poveștile după REGULI_POVESTI.md
         id: validate
         continue-on-error: true
@@ -39,13 +42,13 @@ jobs:
       - name: Actualizează biblioteca
         run: python scripts/stories.py index
 
-      - name: Salvează vocea și biblioteca în repository
+      - name: Salvează imaginile, vocea și biblioteca în repository
         run: |
           git config user.name "iamlio-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/stories public/assets/audio
           if ! git diff --cached --quiet; then
-            git commit -m "Voce și bibliotecă actualizate automat"
+            git commit -m "Imagini, voce și bibliotecă actualizate automat"
             git pull --rebase origin "${GITHUB_REF_NAME}"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi

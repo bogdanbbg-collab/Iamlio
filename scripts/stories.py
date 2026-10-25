@@ -2,10 +2,11 @@
 """Instrumente pentru poveștile Iamlio.
 
 Comenzi:
+  optimize  transformă imaginile .png/.jpg în .webp (max 1536×1024) și actualizează story.json
   validate  verifică toate poveștile după REGULI_POVESTI.md
   audio     generează vocea feminină și masculină (mp3, edge-tts) pentru povești și replicile lui Lio
   index     regenerează public/stories/index.json
-  all       validate + audio + index (folosit de GitHub Actions)
+  all       optimize + validate + audio + index
 """
 
 import asyncio
@@ -13,6 +14,7 @@ import hashlib
 import json
 import re
 import sys
+import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -25,13 +27,22 @@ LIO_AUDIO_DIR = ROOT / "public" / "assets" / "audio"
 VOICES = {"feminin": "ro-RO-AlinaNeural", "masculin": "ro-RO-EmilNeural"}
 SPEECH_RATE = "-8%"
 IMAGE_EXTENSIONS = {".webp", ".jpg", ".jpeg", ".png", ".svg"}
-MIN_PAGES, MAX_PAGES = 8, 12
-MIN_WORDS, MAX_WORDS = 20, 60
-MAX_IMAGE_KB = 400
+RASTER_EXTENSIONS = {".webp", ".jpg", ".jpeg", ".png"}
+MAX_IMAGE_SIZE = (1536, 1024)
+WEBP_QUALITIES = (82, 72, 62)  # se încearcă pe rând până imaginea scade sub MAX_IMAGE_KB
+MIN_PAGES, MAX_PAGES = 6, 24
+MIN_WORDS, MAX_WORDS = 20, 70
+MIN_MINUTES, MAX_MINUTES = 2, 10
+WORDS_PER_MINUTE = 130  # ritmul vocii edge-tts la viteza SPEECH_RATE
+SECONDS_PER_PAGE_TURN = 2.5
+MP3_BYTES_PER_SECOND = 48000 / 8  # edge-tts: mp3 mono 48 kbit/s
+MAX_IMAGE_KB = 450
+MIN_PROMPT_CHARS = 60
+MIN_DESCRIPTION_CHARS = 40
+AGES = {"3-5", "5-7", "3-7"}
 ID_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 CEDILLA = re.compile("[şţŞŢ]")
-REQUIRED_FIELDS = ["id", "title", "summary", "moral", "created", "characters", "cover", "pages"]
-WORDS_PER_MINUTE = 100
+REQUIRED_FIELDS = ["id", "title", "summary", "moral", "learning", "created", "characters", "cover", "pages"]
 
 
 def load_stories():
@@ -47,6 +58,16 @@ def load_stories():
 
 def word_count(text):
     return len(re.findall(r"[\wăâîșțĂÂÎȘȚ]+", text))
+
+
+def plain(text):
+    """Text fără diacritice, cu litere mici (pentru comparații)."""
+    return "".join(c for c in unicodedata.normalize("NFD", text) if unicodedata.category(c) != "Mn").lower()
+
+
+def estimated_minutes(pages):
+    words = sum(word_count(p.get("text") or "") for p in pages)
+    return words / WORDS_PER_MINUTE + len(pages) * SECONDS_PER_PAGE_TURN / 60
 
 
 def check_image(folder, rel_path, label, errors, warnings):
@@ -77,8 +98,32 @@ def validate_story(folder, data):
     if not ID_PATTERN.match(folder.name):
         errors.append("numele folderului trebuie să conțină doar litere mici fără diacritice, cifre și cratime")
 
-    texts = [data.get("title", ""), data.get("summary", ""), data.get("moral", "")]
-    check_image(folder, (data.get("cover") or {}).get("image"), "copertă", errors, warnings)
+    title = (data.get("title") or "").strip()
+    if title and word_count(title) > 10:
+        errors.append(f"titlul are {word_count(title)} cuvinte (maximum 10; recomandat 2–7)")
+    if data.get("age", "3-7") not in AGES:
+        errors.append(f"age trebuie să fie unul dintre {', '.join(sorted(AGES))}")
+
+    learning = data.get("learning")
+    if learning is not None and (not isinstance(learning, list) or not 1 <= len(learning) <= 3
+                                 or not all(isinstance(x, str) and x.strip() for x in learning)):
+        errors.append("learning trebuie să fie o listă cu 1–3 lucruri de învățat")
+
+    characters = data.get("characters") or []
+    for character in characters:
+        name = character.get("name") or "?"
+        if not character.get("name"):
+            errors.append("un personaj nu are nume")
+        if len(character.get("description") or "") < MIN_DESCRIPTION_CHARS:
+            errors.append(f"personajul {name}: descrierea vizuală lipsește sau e prea scurtă")
+        if character.get("knownCharacter") and not character.get("source"):
+            errors.append(f"personajul {name}: e marcat knownCharacter, dar lipsește source")
+
+    texts = [title, data.get("summary", ""), data.get("moral", "")]
+    cover = data.get("cover") or {}
+    check_image(folder, cover.get("image"), "copertă", errors, warnings)
+    if len(cover.get("imagePrompt") or "") < MIN_PROMPT_CHARS:
+        errors.append("copertă: lipsește imagePrompt sau e prea scurt")
 
     pages = data.get("pages") or []
     if not MIN_PAGES <= len(pages) <= MAX_PAGES:
@@ -93,10 +138,64 @@ def validate_story(folder, data):
         if re.search(r"\d", text):
             warnings.append(f"{label}: conține cifre; scrie numerele în litere pentru citirea cu voce")
         check_image(folder, page.get("image"), label, errors, warnings)
+        prompt = page.get("imagePrompt") or ""
+        if len(prompt) < MIN_PROMPT_CHARS:
+            errors.append(f"{label}: lipsește imagePrompt sau e prea scurt (imaginea trebuie să descrie pagina)")
+            continue
+        for character in characters:
+            name = plain(character.get("name") or "")
+            if name and re.search(rf"\b{re.escape(name)}\b", plain(text)) and name not in plain(prompt):
+                warnings.append(f"{label}: {character['name']} apare în text, dar nu și în imagePrompt")
+
+    if pages:
+        minutes = estimated_minutes(pages)
+        if not MIN_MINUTES <= minutes <= MAX_MINUTES:
+            errors.append(f"durata estimată e {minutes:.1f} minute (trebuie {MIN_MINUTES}–{MAX_MINUTES})")
 
     if any(CEDILLA.search(t) for t in texts):
         errors.append("folosește ș/ț cu virgulă, nu ş/ţ cu sedilă")
     return errors, warnings
+
+
+def optimize_image(folder, rel_path):
+    """Micșorează imaginea la MAX_IMAGE_SIZE și o salvează ca .webp. Întoarce noua cale relativă."""
+    from PIL import Image
+
+    path = folder / rel_path
+    if path.suffix.lower() not in RASTER_EXTENSIONS or not path.is_file():
+        return rel_path
+    target = path.with_suffix(".webp")
+    with Image.open(path) as img:
+        too_big = img.width > MAX_IMAGE_SIZE[0] or img.height > MAX_IMAGE_SIZE[1]
+        if path.suffix.lower() == ".webp" and not too_big and path.stat().st_size <= MAX_IMAGE_KB * 1024:
+            return rel_path
+        img = img.convert("RGBA" if img.mode in ("RGBA", "LA", "P") else "RGB")
+        img.thumbnail(MAX_IMAGE_SIZE, Image.LANCZOS)
+        for quality in WEBP_QUALITIES:
+            img.save(target, "WEBP", quality=quality, method=6)
+            if target.stat().st_size <= MAX_IMAGE_KB * 1024:
+                break
+    if target != path:
+        path.unlink()
+    print(f"    🖼  {folder.name}/{rel_path} → {target.name} ({target.stat().st_size // 1024} KB)")
+    return str(Path(rel_path).with_suffix(".webp"))
+
+
+def cmd_optimize():
+    for folder, data in load_stories():
+        if "_error" in data:
+            continue
+        changed = False
+        entries = [data.get("cover") or {}] + list(data.get("pages") or [])
+        for entry in entries:
+            if entry.get("image"):
+                new_path = optimize_image(folder, entry["image"])
+                if new_path != entry["image"]:
+                    entry["image"] = new_path
+                    changed = True
+        if changed:
+            (folder / "story.json").write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return 0
 
 
 def cmd_validate():
@@ -174,7 +273,12 @@ def cmd_index():
         if errors:
             print(f"[exclus din bibliotecă] {folder.name}")
             continue
-        words = sum(word_count(p["text"]) for p in data["pages"])
+        minutes = estimated_minutes(data["pages"])
+        audio_dir = folder / "audio" / "feminin"
+        mp3s = list(audio_dir.glob("*.mp3"))
+        if len(mp3s) == len(data["pages"]) + 2:
+            seconds = sum(f.stat().st_size for f in mp3s) / MP3_BYTES_PER_SECOND
+            minutes = (seconds + len(data["pages"]) * SECONDS_PER_PAGE_TURN) / 60
         entries.append({
             "id": data["id"],
             "title": data["title"],
@@ -184,7 +288,7 @@ def cmd_index():
             "created": data["created"],
             "cover": f"stories/{data['id']}/{data['cover']['image']}",
             "pages": len(data["pages"]),
-            "minutes": max(1, round(words / WORDS_PER_MINUTE)),
+            "minutes": max(1, round(minutes)),
         })
     entries.sort(key=lambda e: (e["created"], e["title"]), reverse=True)
     INDEX_FILE.write_text(json.dumps({"stories": entries}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
@@ -194,6 +298,8 @@ def cmd_index():
 
 def main():
     command = sys.argv[1] if len(sys.argv) > 1 else "validate"
+    if command == "optimize":
+        return cmd_optimize()
     if command == "validate":
         return cmd_validate()
     if command == "audio":
@@ -201,6 +307,7 @@ def main():
     if command == "index":
         return cmd_index()
     if command == "all":
+        cmd_optimize()
         result = cmd_validate()
         cmd_audio()
         cmd_index()

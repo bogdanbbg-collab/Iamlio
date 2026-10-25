@@ -1,13 +1,35 @@
 # Iamlio — instrucțiuni pentru agenți AI
 
 Iamlio („I Am Lio”) este un site static cu povești ilustrate pentru copii de 3–7 ani, în limba română.
-Lio, un pui de leu, „citește” poveștile cu voce, iar paginile se întorc ca într-o carte.
+Lio, un pui de leu, „citește” poveștile cu voce (feminină sau masculină), iar paginile se întorc ca într-o carte.
 
 ## Regula principală
 
-**Înainte să creezi sau să modifici o poveste, citește `REGULI_POVESTI.md` și respectă-l întocmai.**
-Regulile se aplică oricărui AI (ChatGPT, Claude, Gemini etc.). Când utilizatorul spune
-„fă o poveste despre …”, urmează secțiunea „Fluxul de lucru” din acel fișier.
+**Orice poveste — indiferent de AI-ul care o creează — trebuie să respecte `REGULI_POVESTI.md`.**
+Citește fișierul **întreg** înainte de a scrie ceva și urmează pas cu pas „Fluxul de lucru (obligatoriu)”
+de la secțiunea 9. Dacă cererea utilizatorului nu respectă regulile, adapteaz-o la reguli și spune ce ai schimbat.
+
+Pe scurt, o poveste Iamlio:
+- durează **2–10 minute** (6–24 de pagini, 20–70 de cuvinte pe pagină);
+- are **imaginație**, **ceva folositor de învățat** (`learning`), **umor** și un **final fericit**;
+- are **imagini în stil de film de animație 3D pentru copii**, câte una pe pagină, care arată **exact** ce
+  se întâmplă pe pagină, cu personaje identice de la o pagină la alta și fără text în imagine;
+- poate folosi **personaje cunoscute** doar dacă utilizatorul le cere, desenate fidel (secțiunea 5);
+- **nu** are voce generată de tine — vocea feminină și cea masculină se generează automat.
+
+## Ce produci
+
+- `public/stories/<id>/story.json` — după formatul din `REGULI_POVESTI.md`, secțiunea 8;
+- `public/stories/<id>/images/coperta.*` și `pagina-NN.*` — imaginile generate (png/jpg/webp).
+
+Apoi rulezi `python3 scripts/stories.py validate` (trebuie să afișeze `[OK]`), faci commit și push pe `master`.
+GitHub Actions optimizează imaginile, verifică povestea, generează vocile, actualizează biblioteca
+și urcă site-ul pe host prin FTPS.
+
+## Ce NU modifici
+
+`public/stories/index.json`, folderele `audio/`, `public/assets/audio/` (generate automat) și
+codul site-ului (`public/*.html`, `public/assets/`, `scripts/`, `.github/`) — decât dacă ți se cere explicit.
 
 ## Structura proiectului
 
@@ -18,14 +40,12 @@ Regulile se aplică oricărui AI (ChatGPT, Claude, Gemini etc.). Când utilizato
   - `assets/css/style.css` — stilurile (responsive: telefon, tabletă, calculator)
   - `assets/img/lio*.svg`, `favicon.svg` — Lio, generat din `scripts/lio_svg.py` (nu edita SVG-urile de mână)
   - `assets/lio-replici.json` — ce spune Lio când e atins pe pagina principală
-  - `api/citiri.php` — contorul „citită de X ori” (PHP; datele stau în `api/data/citiri.json`, care nu se urcă din repo)
-  - `stories/<id>/story.json` + `images/` — poveștile
-  - `stories/<id>/audio/{feminin,masculin}/`, `assets/audio/` și `stories/index.json` — **generate automat, nu le edita**
-- `scripts/stories.py` — `validate` | `audio` (ambele voci) | `index` | `all`
-- `.github/workflows/publica-site.yml` — la fiecare push pe branch-ul principal: validează,
-  generează vocea, actualizează biblioteca și urcă `public/` pe host prin FTPS.
+  - `api/citiri.php` — contorul „citită de X ori” (PHP; datele stau în `api/data/citiri.json` pe server)
+  - `stories/<id>/` — poveștile
+- `scripts/stories.py` — `optimize` | `validate` | `audio` (ambele voci) | `index` | `all`
+- `.github/workflows/publica-site.yml` — publicarea automată
 
-## Verificare
+## Verificare și previzualizare
 
 ```bash
 python3 scripts/stories.py validate   # trebuie să afișeze [OK] pentru fiecare poveste

@@ -5,19 +5,26 @@ Site cu povești ilustrate pentru copii de 3–7 ani, în limba română. Pagini
 
 ## Cum adaugi o poveste
 
-Spune-i AI-ului conectat la acest repository (ChatGPT, Claude etc.):
+Spune-i AI-ului conectat la acest repository (ChatGPT, Claude, Gemini etc.), de exemplu:
 
-> Fă o poveste despre un arici care învață să împartă.
+> Fă o poveste de 5 minute despre un arici care învață să numere stelele.
+>
+> Fă o poveste cu Scufița Roșie în care Lio o ajută să găsească drumul.
 
-AI-ul trebuie să respecte [`REGULI_POVESTI.md`](REGULI_POVESTI.md) (fișierul [`AGENTS.md`](AGENTS.md)
-îl trimite automat acolo). El scrie textul, generează imaginile și le salvează în
-`public/stories/<id>/`. După push, GitHub Actions face restul:
+Orice AI trebuie să urmeze [`REGULI_POVESTI.md`](REGULI_POVESTI.md) (fișierul [`AGENTS.md`](AGENTS.md) îl
+trimite automat acolo). Regulile cer: 2–10 minute, imaginație, ceva de învățat, umor, final fericit și imagini
+în stil de film de animație 3D pentru copii, fidele textului și personajelor. AI-ul scrie textul, generează
+imaginile și le salvează în `public/stories/<id>/`. După push, GitHub Actions face restul:
 
-1. verifică povestea după reguli;
-2. generează vocea în română cu `edge-tts` (gratuit), **în două variante**: feminină (`ro-RO-AlinaNeural`)
+1. optimizează imaginile (WebP, 1536×1024);
+2. verifică povestea după reguli (durată, structură, câmpuri, prompturi de imagine, diacritice);
+3. generează vocea în română cu `edge-tts` (gratuit), **în două variante**: feminină (`ro-RO-AlinaNeural`)
    și masculină (`ro-RO-EmilNeural`) — cititorul alege din site;
-3. actualizează biblioteca;
-4. urcă site-ul pe host prin **FTPS**.
+4. actualizează biblioteca;
+5. urcă site-ul pe host prin **FTPS**.
+
+Dacă AI-ul nu citește singur fișierele din repository, începe cererea cu:
+„Citește întâi REGULI_POVESTI.md din repository-ul Iamlio și respectă-l întocmai.”
 
 Dacă fișierele audio lipsesc, site-ul citește textul cu vocea română a browserului.
 
