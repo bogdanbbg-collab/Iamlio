@@ -56,7 +56,12 @@ window.Iamlio = (function () {
       .then(function (res) { return res.text(); })
       .then(function (text) {
         container.innerHTML = text;
-        return container.querySelector("svg");
+        var svg = container.querySelector("svg");
+        // „mișcare redusă”: Lio nu mai clipește și nu mai face cu mâna
+        if (svg && svg.pauseAnimations && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          svg.pauseAnimations();
+        }
+        return svg;
       })
       .catch(function () {
         var img = document.createElement("img");

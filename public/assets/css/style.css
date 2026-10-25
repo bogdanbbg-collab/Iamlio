@@ -586,5 +586,7 @@ body.reader {
 
 @media (prefers-reduced-motion: reduce) {
   .sheet, .shade { transition-duration: .01s; }
-  .hero-lio, .hero-lio.is-jumping, .play-btn.is-playing { animation: none; }
+  .hero-lio, .hero-lio.is-jumping, .play-btn.is-playing, .dot,
+  .is-talking .lio-mouth-open, .is-talking .lio-mouth-smile { animation: none; transition: none; }
+  .story-card, .story-card:hover { transition: none; transform: none; }
 }

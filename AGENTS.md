@@ -61,7 +61,8 @@ codul site-ului (`public/*.html`, `public/assets/`, `scripts/`, `.github/`) — 
 - `scripts/imagini.py` — generarea imaginilor lipsă cu OpenAI (doar dacă există secretul `OPENAI_API_KEY`)
 - `rapoarte/` — raportul fiecărei povești după publicare (PUBLICATĂ / NEPUBLICATĂ și ce e de corectat)
 - `scripts/voce.py` — regia de voce (tonuri, profiluri de personaj, pauze, lipirea cu ffmpeg)
-- `tests/` — teste automate (`python3 -m unittest discover -s tests`), rulate la fiecare publicare
+- `tests/` — teste automate (`python3 -m unittest discover -s tests`) și teste în browser
+  (`python3 scripts/stories.py stage && node --test tests/e2e/*.test.mjs`), rulate la fiecare publicare
 - `.github/workflows/publica-site.yml` — publicarea automată
 
 ## Verificare și previzualizare

@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 public/api/data/citiri.json
 build/
+node_modules/

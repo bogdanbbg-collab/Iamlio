@@ -163,6 +163,8 @@ def main():
     img.mkdir(parents=True, exist_ok=True)
     (img / "lio.svg").write_text(
         standalone(lio(arms="wave", animated=True, talking_ready=True), "-135 -290 270 300", "Lio", TALK_STYLE), encoding="utf-8")
+    (img / "lio-static.svg").write_text(
+        standalone(lio(arms="wave"), "-135 -290 270 300", "Lio"), encoding="utf-8")
     (img / "lio-cap.svg").write_text(
         standalone(head_only(animated=True, talking_ready=True), "-92 -272 184 184", "Lio", TALK_STYLE), encoding="utf-8")
     (ROOT / "public" / "favicon.svg").write_text(

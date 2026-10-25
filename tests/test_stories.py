@@ -330,6 +330,24 @@ class ImageGenerationTests(StoryCase):
 
 
 class OptimizeTests(StoryCase):
+    def test_optimize_never_touches_files_outside_the_story(self):
+        from PIL import Image
+
+        victim = self.tmp / "victima.png"
+        Image.new("RGB", (2000, 1500)).save(victim)
+        data = copy.deepcopy(self.data)
+        data["cover"]["image"] = "../victima.png"
+        data["pages"][0]["image"] = "images/../../victima.png"
+        (self.folder / "story.json").write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        original = stories.STORIES_DIR
+        stories.STORIES_DIR = self.tmp
+        try:
+            stories.cmd_optimize()
+        finally:
+            stories.STORIES_DIR = original
+        self.assertTrue(victim.is_file())
+        self.assertFalse((self.tmp / "victima.webp").exists())
+
     def test_png_becomes_small_webp_and_json_is_updated(self):
         from PIL import Image
 
@@ -400,6 +418,20 @@ class VoiceTests(unittest.TestCase):
         self.assertEqual(names[0], "coperta.mp3")
         self.assertEqual(names[-1], "final.mp3")
         self.assertEqual(len(names), len(demo_data()["pages"]) + 2)
+
+    @unittest.skipUnless(shutil.which("ffmpeg") and shutil.which("ffprobe"), "ffmpeg lipsește")
+    def test_corrupt_or_short_audio_is_detected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            good, bad, short = Path(tmp) / "bun.mp3", Path(tmp) / "corupt.mp3", Path(tmp) / "scurt.mp3"
+            for target, seconds in ((good, 2), (short, 0.2)):
+                subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i",
+                                f"sine=frequency=440:sample_rate=24000:duration={seconds}", "-ac", "1", "-b:a", "48k",
+                                str(target)], check=True)
+            data = good.read_bytes()
+            bad.write_bytes(data[:600] + bytes(range(256)) * 20 + data[600:])
+            self.assertEqual(stories.audio_problem(good), "")
+            self.assertIn("corupt", stories.audio_problem(bad))
+            self.assertTrue(stories.audio_problem(short))
 
     @unittest.skipUnless(shutil.which("ffmpeg") and shutil.which("ffprobe"), "ffmpeg lipsește")
     def test_render_joins_segments_with_pauses(self):

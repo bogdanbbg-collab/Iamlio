@@ -6,8 +6,9 @@ on:
   pull_request:
   workflow_dispatch:
 
+# Implicit doar citire; numai jobul de publicare (doar de pe master) primește drept de scriere.
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: publica-site-${{ github.ref }}
@@ -15,10 +16,56 @@ concurrency:
 
 env:
   SITE_URL: https://iamlio.ro
+  PLAYWRIGHT_VERSION: 1.63.0
 
 jobs:
-  publica:
+  # 1. Verificare: teste unitare, pregătirea poveștilor (fără imagini plătite), teste în browser.
+  verifica:
     runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+
+      - name: Instalează uneltele
+        run: |
+          pip install -r requirements.txt
+          command -v ffmpeg >/dev/null || (sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends ffmpeg)
+          npm install --no-save --no-audit --no-fund "playwright@${PLAYWRIGHT_VERSION}"
+          npx playwright install --with-deps chromium
+
+      - name: Teste (Python, sintaxă JavaScript și PHP)
+        run: |
+          python -m unittest discover -s tests -v
+          for f in public/assets/js/*.js; do node --check "$f"; done
+          php -l public/api/citiri.php
+
+      - name: Pregătește și verifică poveștile
+        run: python scripts/stories.py prepare
+
+      - name: Teste în browser (navigare, swipe, voce, contor, ecrane, mișcare redusă)
+        run: |
+          python scripts/stories.py index
+          python scripts/stories.py stage
+          node --test tests/e2e/*.test.mjs
+
+      - name: La pull request, toate poveștile trebuie să treacă verificarea
+        if: github.event_name == 'pull_request'
+        run: python scripts/stories.py status
+
+  # 2. Publicare: doar de pe master (push sau pornire manuală pe master), după ce verificarea a trecut.
+  publica:
+    needs: verifica
+    if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v5
 
@@ -31,54 +78,39 @@ jobs:
           pip install -r requirements.txt
           command -v ffmpeg >/dev/null || (sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends ffmpeg)
 
-      - name: Teste (Python, JavaScript, PHP)
-        run: |
-          python -m unittest discover -s tests -v
-          for f in public/assets/js/*.js; do node --check "$f"; done
-          php -l public/api/citiri.php
-
       # Repară automat ce e mecanic, generează imaginile lipsă (dacă există OPENAI_API_KEY), optimizează,
       # verifică și scrie rapoartele din rapoarte/. O poveste greșită nu ajunge pe site, dar nu le oprește pe celelalte.
       - name: Pregătește poveștile (reparare automată, imagini, verificare, rapoarte)
         env:
-          OPENAI_API_KEY: ${{ github.event_name != 'pull_request' && secrets.OPENAI_API_KEY || '' }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           IMAGE_MODEL: ${{ vars.IMAGE_MODEL }}
           IMAGE_QUALITY: ${{ vars.IMAGE_QUALITY }}
           MAX_IMAGES: ${{ vars.MAX_IMAGES }}
         run: python scripts/stories.py prepare
 
-      - name: La pull request, toate poveștile trebuie să treacă verificarea
-        if: github.event_name == 'pull_request'
-        run: python scripts/stories.py status
-
       - name: Generează vocea feminină și masculină (edge-tts + regie de voce)
-        if: github.event_name != 'pull_request'
         run: python scripts/stories.py audio
 
-      - name: Verifică fișierele audio (ambele voci, toate paginile)
-        if: github.event_name != 'pull_request'
+      - name: Verifică fișierele audio (decodare completă, ambele voci, toate paginile)
         run: python scripts/stories.py verify-audio
 
       - name: Actualizează biblioteca și pregătește site-ul (doar poveștile valide)
-        if: github.event_name != 'pull_request'
         run: |
           python scripts/stories.py index
           python scripts/stories.py stage
 
       - name: Salvează reparațiile, imaginile, vocea, biblioteca și rapoartele în repository
-        if: github.event_name != 'pull_request'
         run: |
           git config user.name "iamlio-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A public/stories public/assets/audio rapoarte
           if ! git diff --cached --quiet; then
             git commit -m "Povești pregătite automat: reparații, imagini, voce, bibliotecă, rapoarte"
-            git pull --rebase origin "${GITHUB_REF_NAME}"
-            git push origin "HEAD:${GITHUB_REF_NAME}"
+            git pull --rebase origin master
+            git push origin HEAD:master
           fi
 
       - name: Verifică datele FTPS
-        if: github.event_name != 'pull_request'
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
@@ -94,7 +126,6 @@ jobs:
           fi
 
       - name: Urcă site-ul pe host (FTPS)
-        if: github.event_name != 'pull_request'
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -110,16 +141,16 @@ jobs:
             api/data/citiri.json
 
       - name: Verifică site-ul live
-        if: github.event_name != 'pull_request'
         run: |
           set -e
           fetch() { curl -fsS --retry 4 --retry-delay 5 --retry-all-errors -H "Cache-Control: no-cache" "$SITE_URL/$1"; }
           fetch "" | grep -q "Lio îți citește o poveste"
-          fetch "stories/index.json" | diff -q - public/stories/index.json
+          fetch "stories/index.json" | diff -q - build/site/stories/index.json
+          fetch "sitemap.xml" | diff -q - build/site/sitemap.xml
           fetch "api/citiri.php" | python -c "import json,sys; assert isinstance(json.load(sys.stdin)['citiri'], dict)"
-          first=$(python -c "import json; s=json.load(open('public/stories/index.json'))['stories']; print(s[0]['id'] if s else '')")
+          first=$(python -c "import json; s=json.load(open('build/site/stories/index.json'))['stories']; print(s[0]['id'] if s else '')")
           if [ -n "$first" ]; then
-            fetch "stories/$first/audio/manifest.json" | diff -q - "public/stories/$first/audio/manifest.json"
+            fetch "stories/$first/audio/manifest.json" | diff -q - "build/site/stories/$first/audio/manifest.json"
           fi
           code=$(curl -s -o /dev/null -w "%{http_code}" "$SITE_URL/api/data/citiri.json")
           [ "$code" = "403" ] || [ "$code" = "404" ] || { echo "::error::api/data este accesibil public (HTTP $code)"; exit 1; }
@@ -128,5 +159,4 @@ jobs:
       # Site-ul e publicat cu poveștile bune; dacă una nu trece verificarea, rularea apare cu roșu
       # ca să se vadă, iar rapoarte/<poveste>.md spune exact ce trebuie corectat.
       - name: Toate poveștile sunt publicate?
-        if: github.event_name != 'pull_request'
         run: python scripts/stories.py status

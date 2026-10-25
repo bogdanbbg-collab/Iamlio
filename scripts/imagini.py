@@ -32,12 +32,18 @@ def make_client():
     return OpenAI()
 
 
+def safe_image(folder, rel):
+    from pregatire import safe_image as check
+
+    return check(folder, rel)
+
+
 def missing(folder, data):
-    """Lista (etichetă, intrare din story.json) pentru imaginile care nu există încă."""
+    """Lista (etichetă, intrare din story.json) pentru imaginile care nu există încă (doar căi sigure)."""
     entries = [("coperta", data.get("cover") or {})]
     entries += [(f"pagina {n}", p) for n, p in enumerate(data.get("pages") or [], start=1)]
     return [(label, entry) for label, entry in entries
-            if entry.get("image") and not (Path(folder) / entry["image"]).is_file()]
+            if safe_image(folder, entry.get("image")) is not None and not safe_image(folder, entry["image"]).is_file()]
 
 
 def save(result, target):
@@ -62,10 +68,12 @@ def generate_missing(folder, data, client=None, budget=None):
         if made >= budget:
             errors.append(f"{label}: limita de {budget} imagini pe publicare a fost atinsă; restul se generează data viitoare")
             break
-        target = folder / Path(entry["image"]).with_suffix(".png")
-        cover_file = folder / cover_entry.get("image", "")
+        target = safe_image(folder, str(Path(entry["image"]).with_suffix(".png")))
+        cover_file = safe_image(folder, cover_entry.get("image"))
+        if target is None:
+            continue
         try:
-            if entry is not cover_entry and cover_file.is_file():
+            if entry is not cover_entry and cover_file is not None and cover_file.is_file():
                 with open(cover_file, "rb") as reference:
                     result = client.images.edit(model=model, image=[reference], prompt=CONSISTENCY + entry["imagePrompt"],
                                                 size=SIZE, quality=quality)

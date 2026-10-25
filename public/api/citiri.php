@@ -1,13 +1,15 @@
 <?php
 // Contorul „citită de X ori” (de câte ori a fost deschisă o poveste).
 // GET            → {"citiri": {"<id>": număr, ...}}
-// POST ?id=<id>  → crește contorul poveștii (cel mult o dată la 30 de minute pentru același vizitator)
-//                  și întoarce toate contoarele, plus "numarat": true/false
+// POST ?id=<id>  → crește contorul poveștii și întoarce toate contoarele, plus "numarat": true/false.
+//                  Protecție: aceeași adresă numără o poveste cel mult o dată la 30 de minute și
+//                  cel mult MAX_PER_HOUR citiri pe oră în total. Numărul e orientativ, nu o statistică exactă.
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
 header('X-Content-Type-Options: nosniff');
 
 const WINDOW_SECONDS = 1800;   // același vizitator + aceeași poveste = o singură citire în 30 de minute
+const MAX_PER_HOUR = 30;       // câte citiri (orice poveste) poate număra aceeași adresă într-o oră
 const MAX_RECENT = 20000;      // câte urme de vizitatori păstrăm (siguranță pentru fișier)
 
 $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
@@ -46,6 +48,7 @@ if (!is_array($stored)) {
 // Format: {"citiri": {...}, "recente": {"<amprentă>": timestamp}}. Formatul vechi era doar {"<id>": număr}.
 $counts = isset($stored['citiri']) && is_array($stored['citiri']) ? $stored['citiri'] : array_filter($stored, 'is_int');
 $recent = isset($stored['recente']) && is_array($stored['recente']) ? $stored['recente'] : [];
+$hourly = isset($stored['ore']) && is_array($stored['ore']) ? $stored['ore'] : [];
 $counted = false;
 
 if ($method === 'POST') {
@@ -58,23 +61,33 @@ if ($method === 'POST') {
 
     $now = time();
     $recent = array_filter($recent, function ($time) use ($now) {
-        return $now - $time < WINDOW_SECONDS;
+        return is_int($time) && $now - $time < WINDOW_SECONDS;
     });
-    // Nu păstrăm adresa IP, doar o amprentă din care nu se poate reconstitui.
-    $visitor = hash('sha256', ($_SERVER['REMOTE_ADDR'] ?? '') . '|' . ($_SERVER['HTTP_USER_AGENT'] ?? '') . '|' . $id);
-    if (!isset($recent[$visitor])) {
+    $hourly = array_filter($hourly, function ($entry) use ($now) {
+        return is_array($entry) && isset($entry[0], $entry[1]) && $now - $entry[0] < 3600;
+    });
+    // Nu păstrăm adresa IP, doar amprente din care nu se poate reconstitui.
+    $address = $_SERVER['REMOTE_ADDR'] ?? '';
+    $visitor = hash('sha256', 'poveste|' . $address . '|' . $id);
+    $client = hash('sha256', 'ora|' . $address);
+    $usedThisHour = isset($hourly[$client]) ? (int) $hourly[$client][1] : 0;
+    if (!isset($recent[$visitor]) && $usedThisHour < MAX_PER_HOUR) {
         $counts[$id] = (isset($counts[$id]) ? (int) $counts[$id] : 0) + 1;
         $recent[$visitor] = $now;
+        $hourly[$client] = [isset($hourly[$client]) ? $hourly[$client][0] : $now, $usedThisHour + 1];
         $counted = true;
     }
     if (count($recent) > MAX_RECENT) {
         asort($recent);
         $recent = array_slice($recent, -MAX_RECENT, null, true);
     }
+    if (count($hourly) > MAX_RECENT) {
+        $hourly = array_slice($hourly, -MAX_RECENT, null, true);
+    }
 
     ftruncate($handle, 0);
     rewind($handle);
-    fwrite($handle, json_encode(['citiri' => $counts, 'recente' => $recent], JSON_UNESCAPED_UNICODE));
+    fwrite($handle, json_encode(['citiri' => $counts, 'recente' => $recent, 'ore' => $hourly], JSON_UNESCAPED_UNICODE));
     fflush($handle);
 }
 

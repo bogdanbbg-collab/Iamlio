@@ -27,6 +27,16 @@ def plain(text):
     return voce.plain(text)
 
 
+def safe_image(folder, rel):
+    """Calea absolută a unei imagini DOAR dacă are forma images/nume.ext și stă în folderul poveștii; altfel None.
+    Orice operație care citește, scrie, convertește sau șterge imagini trece întâi pe aici."""
+    if not isinstance(rel, str) or not IMAGE_PATH.match(rel):
+        return None
+    root = Path(folder).resolve()
+    path = (root / rel).resolve()
+    return path if path.is_relative_to(root / "images") else None
+
+
 def slugify(text):
     return re.sub(r"[^a-z0-9]+", "-", plain(text)).strip("-")
 

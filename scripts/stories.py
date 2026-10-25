@@ -96,12 +96,9 @@ def check_image(folder, rel_path, label, errors, warnings):
     if not rel_path:
         errors.append(f"{label}: lipsește câmpul image")
         return
-    if not IMAGE_PATH.match(rel_path):
+    path = pregatire.safe_image(folder, rel_path)
+    if path is None:
         errors.append(f"{label}: calea imaginii trebuie să fie de forma images/nume.webp|png|jpg (primit: {rel_path})")
-        return
-    path = folder / rel_path
-    if not path.resolve().is_relative_to(folder.resolve()):
-        errors.append(f"{label}: imaginea trebuie să fie în folderul poveștii")
         return
     if not path.is_file():
         errors.append(f"{label}: imaginea {rel_path} nu există")
@@ -316,9 +313,9 @@ def optimize_image(folder, rel_path):
     """Micșorează imaginea la MAX_IMAGE_SIZE și o salvează ca .webp. Întoarce noua cale relativă."""
     from PIL import Image
 
-    path = folder / rel_path
-    if path.suffix.lower() not in RASTER_EXTENSIONS or not path.is_file():
-        return rel_path
+    path = pregatire.safe_image(folder, rel_path)
+    if path is None or path.suffix.lower() not in RASTER_EXTENSIONS or not path.is_file() or path.is_symlink():
+        return rel_path  # căile nesigure nu se ating; validarea le respinge
     target = path.with_suffix(".webp")
     with Image.open(path) as img:
         too_big = img.width > MAX_IMAGE_SIZE[0] or img.height > MAX_IMAGE_SIZE[1]
@@ -517,10 +514,39 @@ def cmd_stage():
         shutil.rmtree(BUILD_DIR)
     ignore = lambda directory, names: [n for n in names if Path(directory) == STORIES_DIR and n in invalid]  # noqa: E731
     shutil.copytree(ROOT / "public", BUILD_DIR, ignore=ignore)
+    published = [data for folder, data in load_stories() if folder.name not in invalid]
+    add_asset_versions(BUILD_DIR)
+    write_seo_files(BUILD_DIR, published)
     for name in sorted(invalid):
         print(f"[nepublicată] {name}")
     print(f"Pregătit pentru publicare: {BUILD_DIR.relative_to(ROOT)} ({len(invalid)} povești excluse)")
     return 0
+
+
+def add_asset_versions(site):
+    """style.css → style.css?v=<amprentă>: după o actualizare, browserele iau sigur fișierele noi, toate odată."""
+    for page in site.glob("*.html"):
+        html = page.read_text(encoding="utf-8")
+        for asset in sorted((site / "assets").rglob("*")):
+            if asset.suffix in (".css", ".js"):
+                rel = asset.relative_to(site).as_posix()
+                version = hashlib.sha1(asset.read_bytes()).hexdigest()[:10]
+                html = html.replace(f'"{rel}"', f'"{rel}?v={version}"')
+        page.write_text(html, encoding="utf-8")
+
+
+def write_seo_files(site, stories):
+    import os
+    from html import escape
+
+    base = (os.environ.get("SITE_URL") or "https://iamlio.ro").rstrip("/")
+    urls = [(f"{base}/", None)] + [(f"{base}/poveste.html?id={s['id']}", s.get("created")) for s in stories]
+    entries = "".join(
+        f"  <url><loc>{escape(url)}</loc>{f'<lastmod>{day}</lastmod>' if day else ''}</url>\n" for url, day in urls)
+    (site / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"{entries}</urlset>\n", encoding="utf-8")
+    (site / "robots.txt").write_text(f"User-agent: *\nDisallow: /api/\nSitemap: {base}/sitemap.xml\n", encoding="utf-8")
 
 
 def cmd_status():
@@ -620,6 +646,30 @@ def cmd_audio():
     return 0
 
 
+MIN_AUDIO_SECONDS = 0.5
+
+
+def audio_problem(path):
+    """Motivul pentru care un mp3 nu e bun, sau "" dacă se decodează complet și are durată rezonabilă."""
+    import subprocess
+
+    if not path.is_file() or path.stat().st_size < 1024:
+        return "lipsește sau e gol"
+    ffmpeg = shutil.which("ffmpeg")
+    if not ffmpeg:
+        return ""  # fără ffmpeg (ex. pe calculatorul cuiva) rămâne doar verificarea de mai sus
+    decoded = subprocess.run([ffmpeg, "-v", "error", "-i", str(path), "-f", "null", "-"], capture_output=True, text=True)
+    if decoded.returncode != 0 or decoded.stderr.strip():
+        return "fișier audio corupt"
+    probe = subprocess.run([shutil.which("ffprobe") or "ffprobe", "-v", "error", "-show_entries", "format=duration",
+                            "-of", "csv=p=0", str(path)], capture_output=True, text=True)
+    try:
+        duration = float(probe.stdout.strip())
+    except ValueError:
+        return "durata nu poate fi citită"
+    return "" if duration >= MIN_AUDIO_SECONDS else f"prea scurt ({duration:.2f} s)"
+
+
 def missing_audio(audio_dir, names):
     manifest_file = audio_dir / "manifest.json"
     manifest = json.loads(manifest_file.read_text(encoding="utf-8")) if manifest_file.exists() else {}
@@ -627,8 +677,9 @@ def missing_audio(audio_dir, names):
     for key in VOICES:
         for name in names:
             path = audio_dir / key / name
-            if name not in manifest.get(key, {}) or not path.is_file() or path.stat().st_size < 1024:
-                missing.append(f"{key}/{name}")
+            problem = "nu e în manifest" if name not in manifest.get(key, {}) else audio_problem(path)
+            if problem:
+                missing.append(f"{key}/{name}: {problem}")
     return missing
 
 

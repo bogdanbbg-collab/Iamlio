@@ -16,7 +16,9 @@ trimite automat acolo). Regulile cer: 2–10 minute, imaginație, ceva de învă
 în stil de film de animație 3D pentru copii, fidele textului și personajelor. AI-ul scrie textul, generează
 imaginile și le salvează în `public/stories/<id>/`. După push, GitHub Actions face restul:
 
-1. rulează testele automate (Python, JavaScript, PHP);
+1. rulează testele automate: Python, PHP și **teste în browser** (Chromium real: navigare, swipe, voce,
+   contor, telefon/tabletă/calculator, mișcare redusă); publicarea pornește doar de pe `master` și doar dacă
+   testele trec;
 2. **repară automat** ce e mecanic (diacritice, stil, personaje în prompturi, Lio, regie și voci de personaje,
    nume de fișiere și foldere) și **generează imaginile lipsă** dacă e activat generatorul (vezi mai jos);
 3. optimizează imaginile (WebP, 1536×1024) și verifică povestea după reguli; scrie raportul

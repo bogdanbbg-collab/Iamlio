@@ -1,0 +1,11 @@
+{
+  "name": "iamlio",
+  "private": true,
+  "description": "Teste în browser pentru site-ul Iamlio",
+  "scripts": {
+    "test:e2e": "node --test tests/e2e/*.test.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.63.0"
+  }
+}

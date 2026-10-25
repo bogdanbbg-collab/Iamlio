@@ -1,8 +1,12 @@
 (function () {
   "use strict";
 
-  var TURN_MS = 1300;           // o întoarcere completă de pagină, ca într-o carte adevărată
-  var MIN_TURN_MS = 450;        // după un swipe, restul întoarcerii nu e mai scurt de atât
+  // Cine a cerut „mișcare redusă” în sistem vede paginile schimbându-se fără animație.
+  var REDUCED_MOTION = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var TURN_MS = REDUCED_MOTION ? 1 : 1300;    // o întoarcere completă de pagină, ca într-o carte adevărată
+  var MIN_TURN_MS = REDUCED_MOTION ? 1 : 450; // după un swipe, restul întoarcerii nu e mai scurt de atât
+  var TAP_MAX_MOVE = 10;
+  var TAP_MAX_MS = 600;
   var PAUSE_BEFORE_TURN_MS = 1200;
 
   var params = new URLSearchParams(location.search);
@@ -114,7 +118,7 @@
     } else {
       var end = el("div", "sheet-end");
       var lio = el("img", "end-lio");
-      lio.src = "assets/img/lio.svg";
+      lio.src = REDUCED_MOTION ? "assets/img/lio-static.svg" : "assets/img/lio.svg";
       lio.alt = "";
       end.appendChild(lio);
       end.appendChild(el("h2", null, "Sfârșit"));
@@ -214,15 +218,18 @@
   // Swipe: pagina urmează degetul, apoi se întoarce sau revine.
   var drag = null;
 
+  // Un singur deget contează: al doilea deget pus pe ecran în timpul unui gest e ignorat.
   book.addEventListener("pointerdown", function (event) {
-    if (busy || event.button > 0 || event.target.closest("a, button")) return;
-    drag = { x: event.clientX, y: event.clientY, t: Date.now(), active: false, direction: 0, sheet: null };
+    if (drag || busy || event.button > 0 || event.target.closest("a, button")) return;
+    drag = { id: event.pointerId, x: event.clientX, y: event.clientY, t: Date.now(), moved: 0,
+             active: false, direction: 0, sheet: null, progress: 0 };
   });
 
   book.addEventListener("pointermove", function (event) {
-    if (!drag) return;
+    if (!drag || event.pointerId !== drag.id) return;
     var dx = event.clientX - drag.x;
     var dy = event.clientY - drag.y;
+    drag.moved = Math.max(drag.moved, Math.abs(dx), Math.abs(dy));
     if (!drag.active) {
       if (Math.abs(dx) < 10 || Math.abs(dx) < Math.abs(dy)) return;
       var direction = dx < 0 ? 1 : -1;
@@ -244,19 +251,21 @@
   });
 
   function endDrag(event) {
-    if (!drag) return;
+    if (!drag || event.pointerId !== drag.id) return;
     var current = drag;
     drag = null;
     if (!current.active) {
-      // Atingere simplă: dreapta = înainte, stânga = înapoi.
-      if (event.type === "pointerup" && Math.abs(event.clientX - current.x) < 10) {
+      // Atingere scurtă, fără mișcare (nu derularea textului): dreapta = înainte, stânga = înapoi.
+      var isTap = event.type === "pointerup" && current.moved < TAP_MAX_MOVE && Date.now() - current.t < TAP_MAX_MS;
+      if (isTap) {
         var rect = book.getBoundingClientRect();
         turn(event.clientX > rect.left + rect.width / 2 ? 1 : -1);
       }
       return;
     }
+    var cancelled = event.type === "pointercancel"; // gest întrerupt de browser: pagina revine
     var fast = Date.now() - current.t < 300 && current.progress > 0.08;
-    if (current.progress > 0.3 || fast) {
+    if (!cancelled && (current.progress > 0.3 || fast)) {
       completeTurn(current.direction, current.sheet, 1 - current.progress);
     } else {
       animateTo(current.sheet, current.direction > 0 ? 0 : -180, function () {
