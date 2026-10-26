@@ -74,8 +74,12 @@
     img.alt = "";
     img.loading = "lazy";
     cover.appendChild(img);
+    var tags = el("div", "story-tags");
+    if (story.id === featuredId) tags.appendChild(el("span", "story-tag story-featured", "⭐ Povestea săptămânii"));
+    if (isNew(story)) tags.appendChild(el("span", "story-tag story-new", "Nou"));
     var first = categories[(story.categories || [])[0]];
-    if (first) cover.appendChild(el("span", "story-tag", first.emoji + " " + first.label));
+    if (first && story.id !== featuredId) tags.appendChild(el("span", "story-tag", first.emoji + " " + first.label));
+    cover.appendChild(tags);
     var page = Iamlio.savedPage(story.id);
     if (page && page < story.pages + 1) cover.appendChild(el("span", "story-resume", "Continuă · pagina " + page));
     cover.appendChild(el("span", "story-play", "▶"));
@@ -120,9 +124,43 @@
     return box;
   }
 
+  // ---------- „Nou” și „Povestea săptămânii” (după data la care povestea a apărut pe site) ----------
+
+  var NEW_DAYS = 14;
+  var MIN_FOR_FEATURED = 3;
+  var DAY = 86400000;
+  var featuredId = "";
+
+  function daysSincePublished(story) {
+    var parts = String(story.published || "").split("-").map(Number);
+    if (parts.length !== 3 || parts.some(isNaN)) return Infinity;
+    var now = new Date();
+    return Math.round((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(parts[0], parts[1] - 1, parts[2])) / DAY);
+  }
+
+  function isNew(story) {
+    var days = daysSincePublished(story);
+    return days >= 0 && days < NEW_DAYS;
+  }
+
+  // Povestea publicată în ultimele 7 zile; dacă nu e niciuna, câte o poveste din bibliotecă pe rând,
+  // aceeași pentru toată lumea în aceeași săptămână (de luni până duminică).
+  function weeklyStory(list) {
+    if (list.length < MIN_FOR_FEATURED) return "";
+    var recent = list.filter(function (s) { var d = daysSincePublished(s); return d >= 0 && d < 7; })
+      .sort(function (a, b) { return daysSincePublished(a) - daysSincePublished(b); });
+    if (recent.length) return recent[0].id;
+    var now = new Date();
+    var week = Math.floor((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(2024, 0, 1)) / (7 * DAY));
+    var byId = list.map(function (s) { return s.id; }).sort();
+    return byId[week % byId.length];
+  }
+
   function showStories() {
     saveFilters();
-    var shown = stories.filter(matches);
+    var shown = stories.filter(matches).sort(function (a, b) {
+      return (b.id === featuredId) - (a.id === featuredId); // povestea săptămânii prima
+    });
     grid.textContent = "";
     if (!stories.length) {
       grid.appendChild(el("p", "muted", "Încă nu avem povești. Revino curând!"));
@@ -212,6 +250,7 @@
   Promise.all([storiesRequest, Iamlio.fetchCounts()])
     .then(function (results) {
       stories = results[0].stories || [];
+      featuredId = weeklyStory(stories);
       counts = results[1];
       (results[0].categories || []).forEach(function (c) { categories[c.id] = c; });
       if (stories.length > 1) buildFilters(results[0].categories || []); // cu o singură poveste n-ai ce filtra

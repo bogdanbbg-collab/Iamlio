@@ -31,7 +31,12 @@ Se folosește doar prenumele copilului. Ca să ștergi o poveste personalizată,
 Biblioteca are **categorii** (de culcare, aventuri, animale, prietenie și emoții, învățăm, amuzante), **filtre**
 după vârstă (3–5 / 5–7 ani) și durată (scurte / medii / lungi), **favorite** (♡ pe fiecare poveste) și eticheta
 „Continuă · pagina N” pentru poveștile începute. Filtrele stau în adresa paginii, deci o listă filtrată
-(de ex. `/?categorie=de-culcare`) poate fi trimisă cuiva.
+(de ex. `/?categorie=de-culcare`) poate fi trimisă cuiva. Filtrele stau strânse sub butonul „Filtre”.
+
+De la trei povești apare butonul **„Lio, alege tu!”** (o poveste la întâmplare, alta decât data trecută). Poveștile
+apărute pe site în ultimele 14 zile au eticheta **„Nou”**, iar **„Povestea săptămânii”** (prima în listă) este cea
+publicată în ultimele 7 zile sau, dacă nu e niciuna, câte o poveste din bibliotecă pe rând. Data publicării o notează
+robotul în `rapoarte/publicari.json` când povestea apare prima oară pe site.
 
 Preferințele rămân doar în browserul de pe dispozitiv (fără conturi).
 

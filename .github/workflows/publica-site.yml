@@ -146,6 +146,8 @@ jobs:
       - name: Actualizează biblioteca și pregătește site-ul (poveștile valide sau ultima lor versiune bună)
         env:
           PREVIEW_PASSWORD: ${{ secrets.PREVIEW_PASSWORD }}
+          # la o publicare reală se notează data la care apare fiecare poveste nouă (pentru „Nou”)
+          PUBLICARE: ${{ env.NORMAL == 'true' && '1' || '' }}
         run: |
           python scripts/stories.py index
           python scripts/stories.py stage

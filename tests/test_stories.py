@@ -316,6 +316,35 @@ class PersonalizedTests(StoryCase):
             self.assertEqual((data["personalized"], data["approved"]), ({"for": "Ana"}, False))
 
 
+class PublicationDateTests(unittest.TestCase):
+    def test_dates_are_recorded_only_when_publishing(self):
+        from datetime import date
+        from unittest import mock
+
+        with tempfile.TemporaryDirectory() as tmp:
+            registry = Path(tmp) / "publicari.json"
+            registry.write_text(json.dumps({"veche": "2026-01-02"}), encoding="utf-8")
+            today = date.today().isoformat()
+            with mock.patch.object(stories, "PUBLICATIONS_FILE", registry), mock.patch.dict("os.environ", {"PUBLICARE": ""}):
+                self.assertEqual(stories.publication_dates(["veche", "noua"]), {"veche": "2026-01-02", "noua": today})
+            self.assertNotIn("noua", json.loads(registry.read_text(encoding="utf-8")), "fără publicare reală nu se notează")
+            with mock.patch.object(stories, "PUBLICATIONS_FILE", registry), mock.patch.dict("os.environ", {"PUBLICARE": "1"}):
+                stories.publication_dates(["veche", "noua"])
+            self.assertEqual(json.loads(registry.read_text(encoding="utf-8")), {"veche": "2026-01-02", "noua": today})
+
+    def test_library_lists_newest_publications_first(self):
+        from unittest import mock
+
+        with tempfile.TemporaryDirectory() as tmp:
+            registry = Path(tmp) / "publicari.json"
+            registry.write_text(json.dumps({"a": "2026-01-01", "b": "2026-03-01"}), encoding="utf-8")
+            entries = [{"id": "a", "created": "2026-05-01", "title": "A"}, {"id": "b", "created": "2026-01-01", "title": "B"}]
+            with mock.patch.object(stories, "PUBLICATIONS_FILE", registry):
+                stories.write_index(Path(tmp) / "index.json", entries)
+            index = json.loads((Path(tmp) / "index.json").read_text(encoding="utf-8"))
+            self.assertEqual([(s["id"], s["published"]) for s in index["stories"]], [("b", "2026-03-01"), ("a", "2026-01-01")])
+
+
 class TemplateTests(unittest.TestCase):
     def test_committed_template_matches_canon(self):
         committed = json.loads((ROOT / "sablon" / "story.json").read_text(encoding="utf-8"))

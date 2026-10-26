@@ -33,15 +33,21 @@ const EXTRA = [
   { id: "test-planete", title: "Lio printre planete", categories: ["invatam", "aventuri"], age: "5-7", minutes: 9 },
 ];
 
+// data publicării: „Ursulețul somnoros” e nou (publicat azi), celelalte sunt vechi
+const day = (offset) => { const d = new Date(Date.now() - offset * 86400000); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`; };
+const PUBLISHED = { "test-ursul": day(0) };
+
 function addExtraStories(root) {
   const library = JSON.parse(readFileSync(join(root, "stories/index.json"), "utf-8"));
+  library.stories.forEach((s) => { s.published = day(60); });
   for (const extra of EXTRA) {
     cpSync(join(root, "stories", STORY.id), join(root, "stories", extra.id), { recursive: true });
     const file = join(root, "stories", extra.id, "story.json");
     const story = JSON.parse(readFileSync(file, "utf-8"));
     Object.assign(story, { id: extra.id, title: extra.title, categories: extra.categories, age: extra.age });
     writeFileSync(file, JSON.stringify(story));
-    library.stories.push({ ...STORY, ...extra, cover: STORY.cover.replace(STORY.id, extra.id), tags: [] });
+    library.stories.push({ ...STORY, ...extra, cover: STORY.cover.replace(STORY.id, extra.id), tags: [],
+      published: PUBLISHED[extra.id] || day(60) });
   }
   writeFileSync(join(root, "stories/index.json"), JSON.stringify(library));
   // povești personalizate: au doar link secret, nu intră în bibliotecă; cea neaprobată stă în zona protejată,
@@ -98,9 +104,10 @@ test("biblioteca afișează poveștile cu titlu și contor", async () => {
   const p = await page();
   await p.goto(`${BASE}/`);
   await p.waitForSelector(".story-card");
-  assert.equal(await p.textContent(".story-card h3"), STORY.title);
-  assert.equal(await p.textContent(".story-card .story-minutes"), `~${STORY.minutes} min`);
-  assert.match(await p.textContent(".story-reads"), /primul|Citită/);
+  const card = p.locator(".story-card", { has: p.locator("h3", { hasText: STORY.title }) });
+  assert.equal(await card.count(), 1);
+  assert.equal(await card.locator(".story-minutes").textContent(), `~${STORY.minutes} min`);
+  assert.match(await card.locator(".story-reads").textContent(), /primul|Citită/);
   // vocea se alege din setările cititorului, nu de pe pagina principală
   assert.equal(await p.locator(".voice-switch").count(), 0);
   assert.deepEqual(p.errors, []);
@@ -183,7 +190,8 @@ test("contorul: o citire pe vizitator, apoi afișat în bibliotecă și în pove
   assert.equal(await status(`${BASE}/api/citiri.php`, "DELETE"), 405);
   await p.goto(`${BASE}/`);
   await p.waitForSelector(".story-reads");
-  assert.equal(await p.textContent(".story-reads"), "Citită o dată");
+  const card = p.locator(".story-card", { has: p.locator("h3", { hasText: STORY.title }) });
+  assert.equal(await card.locator(".story-reads").textContent(), "Citită o dată");
 });
 
 test("poveste inexistentă: mesaj clar, fără erori", async () => {
@@ -436,6 +444,40 @@ test("„Lio, alege tu!”: dacă browserul blochează sunetul, Lio așteaptă o
   assert.equal(await p.evaluate(() => document.getElementById("play-btn").classList.contains("is-playing")), false);
   assert.equal(await p.evaluate(() => window.__spoken), 0);
   assert.equal(await p.getAttribute(".sheet.is-current", "aria-label"), "Copertă");
+});
+
+test("„Nou” și „Povestea săptămânii”: după data publicării, povestea săptămânii prima", async () => {
+  const p = await page({ viewport: { width: 1280, height: 900 } });
+  await p.goto(`${BASE}/`);
+  await p.waitForSelector(".story-card");
+  assert.equal((await cardTitles(p))[0], "Ursulețul somnoros", "povestea publicată săptămâna aceasta e prima");
+  const first = p.locator(".story-card").first();
+  assert.equal(await first.locator(".story-featured").count(), 1);
+  assert.equal(await first.locator(".story-new").count(), 1);
+  assert.equal(await p.locator(".story-new").count(), 1, "doar povestea publicată recent e „Nou”");
+  assert.equal(await p.locator(".story-featured").count(), 1);
+});
+
+test("„Povestea săptămânii” fără povești noi: una din bibliotecă, aceeași toată săptămâna; sub trei povești nu apare", async () => {
+  const p = await page({ viewport: { width: 1280, height: 900 } });
+  let keep = 4;
+  await p.route("**/stories/index.json*", async (route) => {
+    const body = await (await route.fetch()).json();
+    body.stories = body.stories.slice(0, keep).map((s) => ({ ...s, published: "2020-01-01" }));
+    await route.fulfill({ json: body });
+  });
+  await p.goto(`${BASE}/`);
+  await p.waitForSelector(".story-card");
+  assert.equal(await p.locator(".story-new").count(), 0);
+  assert.equal(await p.locator(".story-featured").count(), 1);
+  const featured = await p.locator(".story-card").first().locator("h3").textContent();
+  await p.reload();
+  await p.waitForSelector(".story-card");
+  assert.equal(await p.locator(".story-card").first().locator("h3").textContent(), featured);
+  keep = 2;
+  await p.reload();
+  await p.waitForSelector(".story-card");
+  assert.equal(await p.locator(".story-featured").count(), 0);
 });
 
 test("„Lio, alege tu!” apare doar de la trei povești", async () => {

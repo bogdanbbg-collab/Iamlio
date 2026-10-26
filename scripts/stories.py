@@ -40,6 +40,7 @@ LIO_AUDIO_DIR = ROOT / "public" / "assets" / "audio"
 VOICES = voce.VOICES
 TEMPLATE_FILE = ROOT / "sablon" / "story.json"
 REPORTS_DIR = ROOT / "rapoarte"
+PUBLICATIONS_FILE = REPORTS_DIR / "publicari.json"
 BUILD_DIR = ROOT / "build" / "site"
 LIO_PROFILE = {"name": "Lio", "voice": canon.LIO_VOICE}  # Lio e un pui: voce puțin mai înaltă
 RASTER_EXTENSIONS = {".webp", ".jpg", ".jpeg", ".png"}
@@ -1093,8 +1094,34 @@ def index_entry(folder, data):
     }
 
 
+def publication_dates(ids):
+    """Data la care fiecare poveste a apărut prima oară pe site (rapoarte/publicari.json, scris de robot).
+    Doar la o publicare reală (PUBLICARE=1 în GitHub Actions) se notează poveștile noi; altfel, o poveste
+    nenotată încă primește data de azi doar în memorie (pentru previzualizare și teste)."""
+    import os
+    from datetime import date
+
+    try:
+        known = json.loads(PUBLICATIONS_FILE.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        known = {}
+    if not isinstance(known, dict):
+        known = {}
+    today = date.today().isoformat()
+    missing = [i for i in ids if not isinstance(known.get(i), str)]
+    if missing and os.environ.get("PUBLICARE") == "1":
+        known.update({i: today for i in missing})
+        PUBLICATIONS_FILE.parent.mkdir(exist_ok=True)
+        PUBLICATIONS_FILE.write_text(json.dumps(known, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    return {i: known.get(i) if isinstance(known.get(i), str) else today for i in ids}
+
+
 def write_index(path, entries):
-    entries.sort(key=lambda e: (e["created"], e["title"]), reverse=True)
+    """index.json: poveștile, cele publicate cel mai recent primele (cu data publicării, pentru „Nou”)."""
+    published = publication_dates([e["id"] for e in entries])
+    for entry in entries:
+        entry["published"] = published[entry["id"]]
+    entries.sort(key=lambda e: (e["published"], e["created"], e["title"]), reverse=True)
     categories = [{"id": key, "label": label, "emoji": emoji} for key, (label, emoji) in canon.CATEGORIES.items()]
     path.write_text(json.dumps({"categories": categories, "stories": entries}, indent=2, ensure_ascii=False) + "\n",
                     encoding="utf-8")
