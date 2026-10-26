@@ -1,6 +1,10 @@
 """Generarea imaginilor care lipsesc, ca o poveste să se publice chiar dacă AI-ul care a scris-o nu a putut
-face imagini. Două variante (se folosește prima configurată):
+face imagini. Se încearcă, în ordine, variantele configurate; dacă una refuză (de ex. cota gratuită e 0 sau
+s-a terminat), imaginea se face cu următoarea:
 
+0. Google Gemini („Nano Banana”) — secretul GEMINI_API_KEY (din aistudio.google.com). Gratuit cât timp proiectul
+   Google rămâne pe „Free tier” (fără cont de plată legat), dacă Google oferă imagini pe nivelul gratuit.
+   Pornește de la imaginea copertei, ca personajele să fie identice. Opțional: GEMINI_IMAGE_MODEL.
 1. Cloudflare Workers AI — GRATUIT (cota zilnică a planului gratuit, fără card): secretele CLOUDFLARE_ACCOUNT_ID
    și CLOUDFLARE_API_TOKEN. Opțional, variabila CLOUDFLARE_IMAGE_MODEL (implicit FLUX.1 schnell). Imaginile nu
    pornesc de la copertă ca referință (modelul nu poate), dar fiecare prompt are descrierea completă a
@@ -124,24 +128,133 @@ def cost_lei(result):
     return dollars * _number("USD_LEI", 4.6)
 
 
-def provider():
-    """„cloudflare” (gratuit), „openai” sau "" (generarea automată nu e activată)."""
+def providers():
+    """Variantele configurate, în ordinea în care se încearcă: gemini, cloudflare (gratuite), openai (cu plată)."""
+    found = []
+    if os.environ.get("GEMINI_API_KEY"):
+        found.append("gemini")
     if os.environ.get("CLOUDFLARE_ACCOUNT_ID") and os.environ.get("CLOUDFLARE_API_TOKEN"):
-        return "cloudflare"
-    return "openai" if os.environ.get("OPENAI_API_KEY") else ""
+        found.append("cloudflare")
+    if os.environ.get("OPENAI_API_KEY"):
+        found.append("openai")
+    return found
+
+
+def provider():
+    """Prima variantă configurată sau "" (generarea automată nu e activată)."""
+    found = providers()
+    return found[0] if found else ""
 
 
 def enabled():
-    return bool(provider())
+    return bool(providers())
 
 
-def make_client(story_id=""):
-    if provider() == "cloudflare":
+def single_client(name, story_id=""):
+    if name == "gemini":
+        return GeminiClient(os.environ["GEMINI_API_KEY"], os.environ.get("GEMINI_IMAGE_MODEL") or GEMINI_MODEL)
+    if name == "cloudflare":
         return CloudflareClient(os.environ["CLOUDFLARE_ACCOUNT_ID"], os.environ["CLOUDFLARE_API_TOKEN"],
                                 os.environ.get("CLOUDFLARE_IMAGE_MODEL") or CLOUDFLARE_MODEL, story_id)
     from openai import OpenAI
 
-    return OpenAI()
+    client = OpenAI()
+    client.model = os.environ.get("IMAGE_MODEL") or DEFAULT_MODEL
+    return client
+
+
+def make_client(story_id=""):
+    clients = [single_client(name, story_id) for name in providers()]
+    return clients[0] if len(clients) == 1 else ChainClient(clients)
+
+
+class ChainClient:
+    """Încearcă variantele pe rând; una care a dat eroare nu se mai încearcă în aceeași publicare."""
+
+    def __init__(self, clients):
+        self.clients = list(clients)
+        self.model = getattr(self.clients[0], "model", "")
+        self.images = self
+
+    def _call(self, method, kwargs):
+        problems = []
+        for client in list(self.clients):
+            reference = kwargs.get("image")
+            for handle in reference or []:
+                handle.seek(0)  # fiecare variantă citește imaginea de referință de la început
+            try:
+                result = getattr(client.images, method)(**dict(kwargs, model=getattr(client, "model", kwargs.get("model"))))
+            except Exception as exc:
+                problems.append(f"{getattr(client, 'model', '?')}: {str(exc)[:160]}")
+                self.clients.remove(client)
+                continue
+            self.model = getattr(client, "model", self.model)
+            return result
+        raise RuntimeError("nicio variantă nu a mers — " + " | ".join(problems))
+
+    def generate(self, **kwargs):
+        return self._call("generate", kwargs)
+
+    def edit(self, **kwargs):
+        return self._call("edit", kwargs)
+
+
+# ---------- Google Gemini („Nano Banana”) ----------
+
+GEMINI_MODEL = "gemini-2.5-flash-image"
+
+
+class GeminiImages:
+    def __init__(self, client):
+        self.client = client
+
+    def generate(self, prompt, **_):
+        return self.client.run(prompt)
+
+    def edit(self, prompt, image=None, **_):
+        return self.client.run(prompt, image[0] if image else None)
+
+
+class GeminiClient:
+    def __init__(self, key, model, opener=None):
+        self.key, self.model, self.opener = key, model, opener
+        self.images = GeminiImages(self)
+
+    def run(self, prompt, reference=None):
+        import json
+        import urllib.request
+
+        parts = [{"text": prompt}]
+        if reference is not None:
+            name = str(getattr(reference, "name", ""))
+            mime = "image/webp" if name.endswith(".webp") else "image/jpeg" if name.endswith((".jpg", ".jpeg")) else "image/png"
+            parts.append({"inline_data": {"mime_type": mime, "data": base64.b64encode(reference.read()).decode()}})
+        body = {"contents": [{"parts": parts}],
+                "generationConfig": {"responseModalities": ["IMAGE"], "imageConfig": {"aspectRatio": "3:2"}}}
+        request = urllib.request.Request(
+            f"https://generativelanguage.googleapis.com/v1beta/models/{self.model}:generateContent",
+            data=json.dumps(body).encode("utf-8"), method="POST",
+            headers={"x-goog-api-key": self.key, "Content-Type": "application/json"})
+        opener = self.opener or urllib.request.urlopen
+        try:
+            with opener(request, timeout=180) as response:
+                answer = json.loads(response.read().decode("utf-8"))
+        except Exception as exc:
+            detail = exc.read().decode("utf-8", "replace") if hasattr(exc, "read") else str(exc)
+            try:
+                detail = json.loads(detail)["error"]["message"]
+            except (ValueError, KeyError, TypeError):
+                pass
+            raise RuntimeError(f"Gemini: {str(detail)[:300]}") from exc
+        for candidate in answer.get("candidates") or []:
+            for part in (candidate.get("content") or {}).get("parts") or []:
+                data = (part.get("inlineData") or part.get("inline_data") or {}).get("data")
+                if data:
+                    result = _as_page_image(base64.b64decode(data))
+                    result.free = _number("GEMINI_COST_LEI", 0) == 0
+                    return result
+        reason = (answer.get("promptFeedback") or {}).get("blockReason") or str(answer)[:300]
+        raise RuntimeError(f"Gemini: nu a trimis nicio imagine ({reason})")
 
 
 # ---------- Cloudflare Workers AI (gratuit) ----------
@@ -278,5 +391,55 @@ def generate_missing(folder, data, client=None, budget=None):
         entry["image"] = str(Path(entry["image"]).with_suffix(".png"))
         budget.spend(cost_lei(result))
         made += 1
-        changes.append(f"{label}: imaginea a fost generată automat ({model})")
+        changes.append(f"{label}: imaginea a fost generată automat ({getattr(client, 'model', None) or model})")
     return changes, errors, made
+
+
+# ---------- test: care variantă merge? ----------
+
+def test_providers(out_dir):
+    """Generează câte o imagine de probă cu fiecare variantă configurată, separat. Întoarce [(variantă, mesaj, ok)]."""
+    import canon
+
+    out_dir = Path(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    prompt = f"{canon.STYLE} Lio, a little lion cub, waves hello in a sunny meadow. {canon.LIO_DESCRIPTION}"
+    results = []
+    for name in providers():
+        try:
+            client = single_client(name, "test")
+            kwargs = {"prompt": prompt, "model": getattr(client, "model", None), "size": SIZE, "quality": DEFAULT_QUALITY}
+            result = client.images.generate(**kwargs)
+            save(result, out_dir / f"{name}.png")
+            results.append((name, f"merge ({getattr(client, 'model', '')}); imaginea: {name}.png", True))
+        except Exception as exc:
+            results.append((name, f"nu merge: {str(exc)[:400]}", False))
+    return results
+
+
+def main(argv):
+    import sys
+
+    if argv[1:2] != ["test"]:
+        print("Folosire: python3 scripts/imagini.py test")
+        return 2
+    results = test_providers(Path(__file__).resolve().parent.parent / "build" / "test-imagini")
+    if not results:
+        print("Nicio variantă configurată: adaugă GEMINI_API_KEY, CLOUDFLARE_ACCOUNT_ID + CLOUDFLARE_API_TOKEN "
+              "sau OPENAI_API_KEY ca secrete în GitHub.")
+        return 1
+    lines = ["## Test generare imagini", "", "| Variantă | Rezultat |", "| --- | --- |"]
+    lines += [f"| {'✅' if ok else '❌'} {name} | {message} |" for name, message, ok in results]
+    print("\n".join(lines))
+    summary = os.environ.get("GITHUB_STEP_SUMMARY")
+    if summary:
+        with open(summary, "a", encoding="utf-8") as handle:
+            handle.write("\n".join(lines) + "\n")
+    return 0 if any(ok for _, _, ok in results) else 1
+
+
+if __name__ == "__main__":
+    import sys
+
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    raise SystemExit(main(sys.argv))

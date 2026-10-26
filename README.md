@@ -90,7 +90,16 @@ Dacă un fișier audio lipsește totuși pe server, site-ul citește textul cu v
 
 Dacă AI-ul folosit nu poate genera imagini, proiectul le generează singur la publicare, după descrierile din poveste.
 
-**Gratuit — Cloudflare Workers AI (recomandat):** cont gratuit pe cloudflare.com (fără card). Din panoul Cloudflare
+Se încearcă, în ordine, variantele configurate; dacă una refuză (cota gratuită e 0 sau s-a terminat), imaginea se
+face cu următoarea. Ca să afli ce merge: **Actions → Test generare imagini → Run workflow** generează câte o imagine
+de probă cu fiecare variantă și arată rezultatul în rezumat (imaginile apar la Artifacts).
+
+**Gratuit (dacă Google oferă imagini pe nivelul gratuit) — Gemini „Nano Banana”:** cheie din aistudio.google.com
+(API Keys → Create API key), pusă în GitHub ca secretul `GEMINI_API_KEY`. Nu lega un cont de plată în Google
+AI Studio: cât timp proiectul e pe „Free tier”, nu se plătește nimic. Pornește de la imaginea copertei, deci
+personajele rămân identice.
+
+**Gratuit — Cloudflare Workers AI:** cont gratuit pe cloudflare.com (fără card). Din panoul Cloudflare
 copiezi **Account ID** și creezi un **API token** cu permisiunea „Workers AI” (Read și Edit), apoi le pui în GitHub
 ca secretele `CLOUDFLARE_ACCOUNT_ID` și `CLOUDFLARE_API_TOKEN`. Cota gratuită zilnică ajunge pentru câteva povești
 pe zi; pe planul gratuit nu se plătește nimic, iar dacă cota se termină, restul imaginilor se fac a doua zi.
@@ -98,7 +107,7 @@ Modelul implicit e FLUX.1 schnell (se poate schimba cu variabila `CLOUDFLARE_IMA
 între pagini datorită descrierilor complete din fiecare prompt, dar mai puțin decât la OpenAI, care pornește
 de la imaginea copertei: merită privită povestea după publicare.
 
-**Cu plată — OpenAI:** dacă există secretele Cloudflare, se folosește Cloudflare; altfel OpenAI.
+**Cu plată — OpenAI:** se folosește doar dacă variantele gratuite nu sunt configurate sau dau eroare.
 Dacă AI-ul folosit nu poate genera imagini, proiectul le poate genera singur cu OpenAI:
 **Settings → Secrets and variables → Actions → New repository secret** → `OPENAI_API_KEY` (o cheie de la
 platform.openai.com; se plătește separat de abonamentul ChatGPT). Opțional, la **Variables**: `IMAGE_MODEL`

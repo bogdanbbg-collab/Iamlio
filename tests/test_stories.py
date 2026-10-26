@@ -610,11 +610,86 @@ class CloudflareTests(unittest.TestCase):
         both = {"CLOUDFLARE_ACCOUNT_ID": "a", "CLOUDFLARE_API_TOKEN": "t", "OPENAI_API_KEY": "k"}
         with mock.patch.dict("os.environ", both):
             self.assertEqual(imagini.provider(), "cloudflare")
-            self.assertIsInstance(imagini.make_client("poveste"), imagini.CloudflareClient)
+            chain = imagini.make_client("poveste")
+            self.assertIsInstance(chain.clients[0], imagini.CloudflareClient, "gratuit întâi, OpenAI doar dacă dă eroare")
         with mock.patch.dict("os.environ", {"CLOUDFLARE_ACCOUNT_ID": "", "CLOUDFLARE_API_TOKEN": "", "OPENAI_API_KEY": "k"}):
             self.assertEqual(imagini.provider(), "openai")
         with mock.patch.dict("os.environ", {"CLOUDFLARE_ACCOUNT_ID": "", "CLOUDFLARE_API_TOKEN": "", "OPENAI_API_KEY": ""}):
             self.assertFalse(imagini.enabled())
+
+
+class GeminiAndFallbackTests(unittest.TestCase):
+    """Gemini („Nano Banana”) cu imaginea copertei ca referință și trecerea la următoarea variantă la eroare."""
+
+    def _gemini(self, status, answer):
+        import io
+        import urllib.error
+
+        sent = []
+
+        def opener(request, timeout):
+            sent.append((request, json.loads(request.data.decode("utf-8"))))
+            if status != 200:
+                raise urllib.error.HTTPError(request.full_url, status, "eroare", {}, io.BytesIO(json.dumps(answer).encode()))
+            return io.BytesIO(json.dumps(answer).encode())
+
+        return imagini.GeminiClient("cheie", "gemini-2.5-flash-image", opener=opener), sent
+
+    def test_gemini_uses_the_cover_as_reference_and_returns_a_page(self):
+        import base64
+        import io
+
+        from PIL import Image
+
+        picture = CloudflareTests._image((1536, 1024), "PNG")
+        answer = {"candidates": [{"content": {"parts": [{"text": "gata"}, {"inlineData": {"mimeType": "image/png",
+                  "data": base64.b64encode(picture).decode()}}]}}]}
+        client, sent = self._gemini(200, answer)
+        reference = io.BytesIO(b"coperta")
+        reference.name = "images/coperta.png"
+        result = client.images.edit(prompt=imagini.CONSISTENCY + "Page", image=[reference], model="x")
+        request, body = sent[0]
+        self.assertEqual(request.get_header("X-goog-api-key"), "cheie")
+        self.assertIn("gemini-2.5-flash-image:generateContent", request.full_url)
+        parts = body["contents"][0]["parts"]
+        self.assertEqual(parts[1]["inline_data"]["data"], base64.b64encode(b"coperta").decode())
+        self.assertEqual(body["generationConfig"]["imageConfig"]["aspectRatio"], "3:2")
+        with Image.open(io.BytesIO(base64.b64decode(result.data[0].b64_json))) as image:
+            self.assertEqual(image.size, (1536, 1024))
+        self.assertEqual(imagini.cost_lei(result), 0.0)
+
+    def test_gemini_quota_error_is_readable(self):
+        client, _ = self._gemini(429, {"error": {"message": "Quota exceeded, limit: 0"}})
+        with self.assertRaisesRegex(RuntimeError, "Gemini: Quota exceeded, limit: 0"):
+            client.images.generate(prompt="Cover")
+
+    def test_chain_falls_back_to_the_next_free_variant(self):
+        from types import SimpleNamespace
+
+        calls = []
+
+        class Broken:
+            model = "gemini"
+            images = SimpleNamespace(generate=lambda **k: (_ for _ in ()).throw(RuntimeError("limit: 0")))
+
+        class Works:
+            model = "flux"
+            images = SimpleNamespace(generate=lambda **k: calls.append(k["model"]) or SimpleNamespace(free=True))
+
+        chain = imagini.ChainClient([Broken(), Works()])
+        chain.images.generate(prompt="a", model="gemini")
+        chain.images.generate(prompt="b", model="gemini")
+        self.assertEqual(calls, ["flux", "flux"], "fiecare variantă primește numele ei de model")
+        self.assertEqual(chain.model, "flux")
+        self.assertEqual(len(chain.clients), 1, "varianta care a dat eroare nu se mai încearcă")
+
+    def test_order_gemini_cloudflare_openai(self):
+        from unittest import mock
+
+        every = {"GEMINI_API_KEY": "g", "CLOUDFLARE_ACCOUNT_ID": "a", "CLOUDFLARE_API_TOKEN": "t", "OPENAI_API_KEY": ""}
+        with mock.patch.dict("os.environ", every):
+            self.assertEqual(imagini.providers(), ["gemini", "cloudflare"])
+            self.assertIsInstance(imagini.make_client("p"), imagini.ChainClient)
 
 
 class RobustnessTests(unittest.TestCase):
