@@ -47,7 +47,14 @@
     </section>
 
     <section class="library" aria-labelledby="library-title">
-      <h2 id="library-title">Poveștile lui Lio</h2>
+      <div class="library-head">
+        <h2 id="library-title">Poveștile lui Lio</h2>
+        <button id="filters-toggle" class="filters-toggle" type="button" aria-expanded="false" aria-controls="filters" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+          <span>Filtre</span>
+          <span id="filters-badge" class="filters-badge" hidden></span>
+        </button>
+      </div>
       <div class="filters" id="filters" hidden>
         <div class="chips" id="category-chips" role="group" aria-label="Categorii"></div>
         <div class="filter-row">
@@ -64,8 +71,8 @@
           </div>
           <button type="button" class="chip chip-fav" id="favorites-filter" aria-pressed="false">♥ Favorite</button>
         </div>
-        <p id="results-count" class="results-count" aria-live="polite"></p>
       </div>
+      <p id="results-count" class="results-count" aria-live="polite"></p>
       <div id="stories" class="story-grid" aria-live="polite">
         <p class="muted">Se încarcă poveștile…</p>
       </div>

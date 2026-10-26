@@ -374,11 +374,37 @@ test("aplicație: manifest și pictograme pentru „Adaugă pe ecranul principal
 
 const cardTitles = (p) => p.$$eval(".story-card h3", (nodes) => nodes.map((n) => n.textContent));
 
+for (const [name, viewport] of [["telefon", [390, 844]], ["telefon mic", [360, 640]], ["tabletă", [1024, 768]]]) {
+  test(`pagina principală, ${name}: prima copertă se vede întreagă fără derulare`, async () => {
+    const p = await page({ viewport: { width: viewport[0], height: viewport[1] } });
+    await p.goto(`${BASE}/`);
+    await p.waitForSelector(".story-card");
+    const cover = await p.evaluate(() => document.querySelector(".story-cover").getBoundingClientRect().toJSON());
+    assert.ok(cover.top >= 0 && cover.bottom <= viewport[1], `coperta e între ${cover.top} și ${cover.bottom} px`);
+  });
+}
+
+test("cu o singură poveste nu apare butonul „Filtre”", async () => {
+  const p = await page();
+  await p.route("**/stories/index.json*", async (route) => {
+    const body = await (await route.fetch()).json();
+    body.stories = body.stories.slice(0, 1);
+    await route.fulfill({ json: body });
+  });
+  await p.goto(`${BASE}/`);
+  await p.waitForSelector(".story-card");
+  assert.ok(await p.isHidden("#filters-toggle"));
+  assert.ok(await p.isHidden("#filters"));
+});
+
 test("filtre: categorie, vârstă, durată, păstrate în adresă, cu mesaj când nu se potrivește nimic", async () => {
   const p = await page({ viewport: { width: 1280, height: 900 } });
   await p.goto(`${BASE}/`);
   await p.waitForSelector(".story-card");
   assert.equal((await cardTitles(p)).length, 1 + EXTRA.length);
+  assert.ok(await p.isHidden("#filters"), "filtrele stau strânse sub butonul „Filtre”");
+  await p.click("#filters-toggle");
+  assert.equal(await p.getAttribute("#filters-toggle", "aria-expanded"), "true");
   await p.click('#category-chips [data-value="animale"]');
   assert.deepEqual(await cardTitles(p), ["Ursulețul somnoros"]);
   assert.match(p.url(), /categorie=animale/);
@@ -392,6 +418,8 @@ test("filtre: categorie, vârstă, durată, păstrate în adresă, cu mesaj cân
   await p.reload();
   await p.waitForSelector(".story-card");
   assert.deepEqual(await cardTitles(p), ["Lio printre planete"], "filtrul rămâne după reîncărcare");
+  assert.ok(await p.isVisible("#filters"), "cu filtre alese în adresă, panoul e deschis");
+  assert.equal(await p.textContent("#filters-badge"), "1");
   assert.equal(await p.getAttribute('[data-filter="durata"] [data-value="lungi"]', "aria-pressed"), "true");
   assert.match(await p.textContent("#results-count"), /1 din 4/);
   assert.deepEqual(p.errors, []);
@@ -401,6 +429,7 @@ test("favorite: inimioara de pe card și din poveste, filtrul „Favorite”", a
   const p = await page({ viewport: { width: 1280, height: 900 } });
   await p.goto(`${BASE}/`);
   await p.waitForSelector(".story-card");
+  await p.click("#filters-toggle");
   await p.click("#favorites-filter");
   assert.match(await p.textContent(".empty-state"), /Încă nu ai povești favorite/);
   await p.click("#favorites-filter");
