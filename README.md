@@ -105,7 +105,12 @@ ca secretele `CLOUDFLARE_ACCOUNT_ID` și `CLOUDFLARE_API_TOKEN`. Cota gratuită 
 pe zi; pe planul gratuit nu se plătește nimic, iar dacă cota se termină, restul imaginilor se fac a doua zi.
 Modelul implicit e FLUX.1 schnell (se poate schimba cu variabila `CLOUDFLARE_IMAGE_MODEL`). Personajele seamănă
 între pagini datorită descrierilor complete din fiecare prompt, dar mai puțin decât la OpenAI, care pornește
-de la imaginea copertei: merită privită povestea după publicare.
+de la imaginea copertei: merită privită povestea după publicare. Cota zilei (cam 20 de imagini) se reînnoiește la
+00:00 UTC; în fiecare noapte, workflow-ul „Imagini rămase (zilnic)” pornește singur publicarea dacă lipsesc imagini.
+
+**Gratuit, rezervă — Pollinations:** când se termină cota Cloudflare, imaginile se fac cu Pollinations. Cont gratuit
+pe enter.pollinations.ai (te conectezi cu GitHub), creezi o cheie **secretă** („sk_…”) și o pui în GitHub ca
+secretul `POLLINATIONS_API_KEY`. Modelul implicit e Z-Image Turbo (variabila `POLLINATIONS_IMAGE_MODEL`).
 
 **Cu plată — OpenAI:** se folosește doar dacă variantele gratuite nu sunt configurate sau dau eroare.
 Dacă AI-ul folosit nu poate genera imagini, proiectul le poate genera singur cu OpenAI:

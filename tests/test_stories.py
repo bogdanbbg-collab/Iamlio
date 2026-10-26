@@ -635,6 +635,60 @@ class CloudflareTests(unittest.TestCase):
             self.assertFalse(imagini.enabled())
 
 
+class PollinationsTests(unittest.TestCase):
+    """Rezerva gratuită după Cloudflare, cu un server simulat."""
+
+    def _client(self, status, answer):
+        import io
+        import urllib.error
+
+        sent = []
+
+        def opener(request, timeout):
+            sent.append((request, json.loads(request.data.decode("utf-8"))))
+            if status != 200:
+                raise urllib.error.HTTPError(request.full_url, status, "eroare", {}, io.BytesIO(json.dumps(answer).encode()))
+            return io.BytesIO(json.dumps(answer).encode())
+
+        characters = [{"name": "Aricel", "description": "a tiny round hedgehog with a teal scarf"}]
+        return imagini.PollinationsClient("sk_cheie", imagini.POLLINATIONS_MODEL, "arici", opener=opener,
+                                          characters=characters), sent
+
+    def test_answer_becomes_a_free_page_image_with_the_scene_first(self):
+        import base64
+        import io
+
+        from PIL import Image
+
+        buffer = io.BytesIO()
+        Image.new("RGB", (1024, 1024), (90, 140, 200)).save(buffer, "JPEG")
+        client, sent = self._client(200, {"data": [{"b64_json": base64.b64encode(buffer.getvalue()).decode()}]})
+        prompt = (f"{canon.STYLE} Characters in this scene: Aricel: a tiny round hedgehog with a teal scarf. "
+                  "Setting and action: Aricel jumps.")
+        result = client.images.edit(prompt=imagini.CONSISTENCY + prompt, model="m")
+        with Image.open(io.BytesIO(base64.b64decode(result.data[0].b64_json))) as image:
+            self.assertEqual(image.size, (1536, 1024))
+        self.assertEqual(imagini.cost_lei(result), 0.0)
+        request, body = sent[0]
+        self.assertEqual(request.get_header("Authorization"), "Bearer sk_cheie")
+        self.assertTrue(body["prompt"].startswith("Setting and action: Aricel (a tiny round hedgehog) jumps."))
+        self.assertEqual((body["model"], body["size"], body["response_format"]),
+                         (imagini.POLLINATIONS_MODEL, "1536x1024", "b64_json"))
+
+    def test_exhausted_credit_is_reported(self):
+        client, _ = self._client(402, {"error": "PAYMENT_REQUIRED: balance exhausted"})
+        with self.assertRaisesRegex(RuntimeError, "Pollinations: .*exhausted"):
+            client.images.generate(prompt="Cover")
+
+    def test_comes_after_cloudflare_and_before_openai(self):
+        from unittest import mock
+
+        env = {"GEMINI_API_KEY": "", "CLOUDFLARE_ACCOUNT_ID": "a", "CLOUDFLARE_API_TOKEN": "t",
+               "POLLINATIONS_API_KEY": "sk", "OPENAI_API_KEY": "k"}
+        with mock.patch.dict("os.environ", env):
+            self.assertEqual(imagini.providers(), ["cloudflare", "pollinations", "openai"])
+
+
 class GeminiAndFallbackTests(unittest.TestCase):
     """Gemini („Nano Banana”) cu imaginea copertei ca referință și trecerea la următoarea variantă la eroare."""
 

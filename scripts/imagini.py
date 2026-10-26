@@ -11,7 +11,10 @@ s-a terminat), imaginea se face cu următoarea:
    personajelor (și, la modelele care o acceptă, aceeași „sămânță” pentru toată povestea), ca să semene
    între ele. Pe planul gratuit nu se plătește nimic: când cota zilei se termină, restul imaginilor se
    generează la publicarea de a doua zi.
-2. OpenAI (cu plată) — secretul OPENAI_API_KEY. Opțional (variabile de repository):
+2. Pollinations — GRATUIT, rezerva pentru când s-a terminat cota zilei la Cloudflare: secretul POLLINATIONS_API_KEY
+   (cheia secretă „sk_…” din enter.pollinations.ai, cont gratuit). Opțional, variabila POLLINATIONS_IMAGE_MODEL
+   (implicit Z-Image Turbo). Ca la Cloudflare: fără imaginea copertei ca referință, aceeași „sămânță” pe poveste.
+3. OpenAI (cu plată) — secretul OPENAI_API_KEY. Opțional (variabile de repository):
   IMAGE_MODEL     modelul de imagine (implicit gpt-image-2)
   IMAGE_QUALITY   low | medium | high (implicit medium)
   MAX_IMAGES      câte imagini se pot genera într-o publicare (implicit 40)
@@ -133,12 +136,14 @@ def cost_lei(result):
 
 
 def providers():
-    """Variantele configurate, în ordinea în care se încearcă: gemini, cloudflare (gratuite), openai (cu plată)."""
+    """Variantele configurate, în ordinea în care se încearcă: gemini, cloudflare, pollinations (gratuite), openai."""
     found = []
     if os.environ.get("GEMINI_API_KEY"):
         found.append("gemini")
     if os.environ.get("CLOUDFLARE_ACCOUNT_ID") and os.environ.get("CLOUDFLARE_API_TOKEN"):
         found.append("cloudflare")
+    if os.environ.get("POLLINATIONS_API_KEY"):
+        found.append("pollinations")
     if os.environ.get("OPENAI_API_KEY"):
         found.append("openai")
     return found
@@ -161,6 +166,10 @@ def single_client(name, story_id="", characters=()):
         return CloudflareClient(os.environ["CLOUDFLARE_ACCOUNT_ID"], os.environ["CLOUDFLARE_API_TOKEN"],
                                 os.environ.get("CLOUDFLARE_IMAGE_MODEL") or CLOUDFLARE_MODEL, story_id,
                                 characters=characters)
+    if name == "pollinations":
+        return PollinationsClient(os.environ["POLLINATIONS_API_KEY"],
+                                  os.environ.get("POLLINATIONS_IMAGE_MODEL") or POLLINATIONS_MODEL, story_id,
+                                  characters=characters)
     from openai import OpenAI
 
     client = OpenAI()
@@ -357,6 +366,46 @@ class CloudflareClient:
                 raise RuntimeError(f"Cloudflare: {str(answer.get('errors') or answer)[:300]}")
             raw = base64.b64decode(image)
         return _as_page_image(raw)
+
+
+# ---------- Pollinations (rezerva gratuită, după Cloudflare) ----------
+
+POLLINATIONS_MODEL = "tongyi-mai/z-image-turbo"
+
+
+class PollinationsClient:
+    """Pollinations (gen.pollinations.ai), cu cheia gratuită de la enter.pollinations.ai. Ca la Cloudflare, nu
+    primește imaginea copertei: scena merge prima în prompt, apoi descrierile personajelor."""
+
+    def __init__(self, key, model, story_id="", opener=None, characters=()):
+        import zlib
+
+        self.key, self.model = key, model
+        self.characters = list(characters or ())
+        self.seed = zlib.crc32(story_id.encode("utf-8")) % 2_000_000_000  # aceeași pentru toată povestea
+        self.images = CloudflareImages(self)
+        self.opener = opener
+
+    def run(self, prompt):
+        import json
+        import urllib.request
+
+        body = {"model": self.model, "prompt": scene_first(prompt, self.characters), "size": "1536x1024",
+                "seed": self.seed, "response_format": "b64_json"}
+        request = urllib.request.Request(
+            "https://gen.pollinations.ai/v1/images/generations", data=json.dumps(body).encode("utf-8"), method="POST",
+            headers={"Authorization": f"Bearer {self.key}", "Content-Type": "application/json"})
+        opener = self.opener or urllib.request.urlopen
+        try:
+            with opener(request, timeout=180) as response:
+                answer = json.loads(response.read().decode("utf-8"))
+        except Exception as exc:  # 402: s-a terminat creditul gratuit al zilei
+            detail = exc.read().decode("utf-8", "replace")[:300] if hasattr(exc, "read") else str(exc)
+            raise RuntimeError(f"Pollinations: {detail}") from exc
+        image = ((answer.get("data") or [{}])[0] or {}).get("b64_json")
+        if not image:
+            raise RuntimeError(f"Pollinations: {str(answer)[:300]}")
+        return _as_page_image(base64.b64decode(image))
 
 
 def _as_page_image(raw):

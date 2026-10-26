@@ -1,7 +1,7 @@
 name: Test generare imagini
 
 # Pornit de mână (Actions → Test generare imagini → Run workflow): generează câte o imagine de probă cu fiecare
-# variantă configurată (Gemini, Cloudflare, OpenAI) și arată în rezumat care merge. Imaginile apar la Artifacts.
+# variantă configurată (Gemini, Cloudflare, Pollinations, OpenAI) și arată în rezumat care merge. Imaginile apar la Artifacts.
 on:
   workflow_dispatch:
 
@@ -25,6 +25,8 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_IMAGE_MODEL: ${{ vars.CLOUDFLARE_IMAGE_MODEL }}
+          POLLINATIONS_API_KEY: ${{ secrets.POLLINATIONS_API_KEY }}
+          POLLINATIONS_IMAGE_MODEL: ${{ vars.POLLINATIONS_IMAGE_MODEL }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           IMAGE_MODEL: ${{ vars.IMAGE_MODEL }}
         run: python scripts/imagini.py test
