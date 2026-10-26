@@ -445,6 +445,10 @@ body.reader {
 .icon-btn:hover, .nav-btn:hover { background: rgba(255, 255, 255, .24); }
 .icon-btn[aria-pressed="true"] { background: var(--teal); }
 .nav-btn:disabled { opacity: .3; cursor: default; }
+/* apăsarea se vede: butonul „se adâncește” sub deget */
+.icon-btn:active, .nav-btn:active:not(:disabled) { scale: .9; }
+.reader-controls .nav-btn { width: 64px; height: 64px; }
+.reader-controls .nav-btn svg { width: 32px; height: 32px; }
 
 
 .stage {
@@ -557,7 +561,8 @@ body.reader {
 .cover-text h2 { margin: 0; font-size: 1.6em; line-height: 1.1; color: var(--orange); }
 .cover-reads { margin: 4px 0 0 !important; font-size: .7em; font-weight: 700; color: var(--teal-dark); }
 .cover-reads:empty { display: none; }
-.cover-hint { margin: 4px 0 0 !important; font-size: .7em; color: var(--ink-soft); }
+.cover-hint { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 10px; margin: 6px 0 0 !important; font-size: .7em; }
+.cover-hint .hint { padding: 2px 12px; border-radius: 999px; background: #FFF1DD; color: var(--orange-dark); font-weight: 700; }
 
 .sheet-end {
   flex: 1;
@@ -744,7 +749,7 @@ body.reader {
 .resume[hidden] { display: none; }
 .resume-text { margin: 0 0 8px !important; font-weight: 700; color: var(--orange-dark); }
 .resume-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
-.resume .pill { min-height: 40px; font-size: 1rem; padding: 0 18px; }
+.resume .pill { min-height: 48px; font-size: 1rem; padding: 0 18px; }
 
 /* ---------- Panoul de setări ---------- */
 
@@ -957,14 +962,14 @@ body.reader.bedtime {
 /* Telefoane mici */
 @media (max-width: 420px) {
   .reader-bar { gap: 6px; padding-left: 10px; padding-right: 10px; }
-  .icon-btn { width: 42px; height: 42px; }
+  .icon-btn { width: 44px; height: 44px; }
   .stage { padding-left: 10px; padding-right: 10px; }
 }
 
 /* Ecrane late (tabletă culcată, calculator): săgețile stau lângă carte. */
 @media (min-width: 900px) and (min-height: 521px) {
   .stage { padding-left: 96px; padding-right: 96px; }
-  .nav-btn { position: fixed; top: 50%; width: 60px; height: 60px; transform: translateY(-50%); }
+  .reader-controls .nav-btn { position: fixed; top: 50%; width: 64px; height: 64px; transform: translateY(-50%); }
   .nav-prev { left: max(20px, env(safe-area-inset-left)); }
   .nav-next { right: max(20px, env(safe-area-inset-right)); }
 }
@@ -972,13 +977,14 @@ body.reader.bedtime {
 /* Telefon culcat: totul pe margini, cartea ia aproape tot ecranul. */
 @media (orientation: landscape) and (max-height: 520px) {
   .reader-bar { padding-top: max(4px, env(safe-area-inset-top)); padding-bottom: 4px; }
-  .icon-btn { width: 38px; height: 38px; }
-  .icon-btn svg { width: 22px; height: 22px; }
+  .icon-btn { width: 44px; height: 44px; }
+  .icon-btn svg { width: 24px; height: 24px; }
   .reader-title { font-size: 1.05rem; }
   .reader-heading { display: flex; justify-content: center; align-items: baseline; gap: 10px; }
   .stage { padding: 2px 76px max(8px, env(safe-area-inset-bottom)); }
   .reader-controls { display: contents; }
-  .nav-btn { position: fixed; top: 42%; width: 48px; height: 48px; transform: translateY(-50%); }
+  .reader-controls .nav-btn { position: fixed; top: 42%; width: 56px; height: 56px; transform: translateY(-50%); }
+  .reader-controls .nav-btn svg { width: 28px; height: 28px; }
   .nav-prev { left: max(14px, env(safe-area-inset-left)); }
   .nav-next { right: max(14px, env(safe-area-inset-right)); }
   .play-btn { position: fixed; right: max(8px, env(safe-area-inset-right)); bottom: max(10px, env(safe-area-inset-bottom)); width: 62px; height: 62px; border-width: 3px; }
@@ -990,6 +996,7 @@ body.reader.bedtime {
 
 @media (prefers-reduced-motion: reduce) {
   .sheet, .shade { transition-duration: .01s; }
+  .icon-btn:active, .nav-btn:active:not(:disabled) { scale: none; }
   .hero-lio, .hero-lio.is-jumping, .play-btn.is-playing, .dot, .settings-panel, .seg, .quiz-panel,
   .quiz-option.is-right, .quiz-option.is-wrong, .fav-btn.pop,
   .is-talking .lio-mouth-open, .is-talking .lio-mouth-smile { animation: none; transition: none; }

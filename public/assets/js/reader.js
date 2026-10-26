@@ -139,7 +139,11 @@
       }
       coverText.appendChild(el("h2", null, item.title));
       coverText.appendChild(el("p", "cover-reads"));
-      coverText.appendChild(el("p", "cover-hint", "Dă pagina sau apasă pe Lio ca să-ți citească."));
+      // indicații cu semne, pe înțelesul celor care încă nu citesc
+      var hint = el("p", "cover-hint");
+      hint.appendChild(el("span", "hint", "▶ Apasă pe Lio"));
+      hint.appendChild(el("span", "hint", "👉 Dă pagina"));
+      coverText.appendChild(hint);
       coverText.appendChild(resumeBox());
       front.appendChild(coverText);
     } else if (item.kind === "page") {
@@ -234,13 +238,13 @@
     var box = el("div", "resume");
     box.hidden = true;
     box.appendChild(el("p", "resume-text"));
-    var go = el("button", "pill resume-continue", "Continuă");
+    var go = el("button", "pill resume-continue", "▶ Continuă");
     go.type = "button";
     go.addEventListener("click", function () {
       var page = savedPage();
       if (page) jumpTo(page);
     });
-    var restart = el("button", "pill pill-alt resume-restart", "De la început");
+    var restart = el("button", "pill pill-alt resume-restart", "↺ De la început");
     restart.type = "button";
     restart.addEventListener("click", function () {
       Iamlio.writeSetting(RESUME_KEY, "0");

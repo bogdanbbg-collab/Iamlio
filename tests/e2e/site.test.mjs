@@ -224,6 +224,21 @@ for (const [name, viewport] of [["telefon", [375, 667]], ["telefon culcat", [844
   });
 }
 
+for (const [name, viewport] of [["telefon", [390, 844]], ["telefon mic", [360, 640]], ["telefon culcat", [844, 390]], ["tabletă", [1024, 768]]]) {
+  test(`butoane pentru degete mici, ${name}: săgețile și Lio mari, restul de cel puțin 44 px`, async () => {
+    const p = await page({ viewport: { width: viewport[0], height: viewport[1] } });
+    await p.goto(STORY_URL);
+    await p.waitForSelector(".sheet.is-current");
+    const size = (selector) => p.$eval(selector, (e) => { const r = e.getBoundingClientRect(); return Math.min(r.width, r.height); });
+    for (const nav of ["#prev-btn", "#next-btn"]) assert.ok(await size(nav) >= 56, `${nav}: ${await size(nav)} px`);
+    assert.ok(await size("#play-btn") >= 60, `#play-btn: ${await size("#play-btn")} px`);
+    const small = await p.$$eval(".reader-bar a, .reader-bar button", (nodes) => nodes
+      .map((e) => { const r = e.getBoundingClientRect(); return [e.className, Math.round(Math.min(r.width, r.height))]; })
+      .filter(([, s]) => s && s < 44));
+    assert.deepEqual(small, []);
+  });
+}
+
 test("mișcare redusă: pagina se schimbă imediat", async () => {
   const p = await page({ reducedMotion: "reduce" });
   await p.goto(STORY_URL);
