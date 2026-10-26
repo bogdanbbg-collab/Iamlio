@@ -1,0 +1,40 @@
+name: Imagini rămase (zilnic)
+
+# Varianta gratuită de imagini (Cloudflare) are o cotă pe zi, reînnoită la 00:00 UTC. Dacă o poveste a rămas
+# nepublicată pentru că s-a terminat cota, a doua zi dimineață pornește singură publicarea, care generează
+# imaginile rămase. Dacă nu lipsește nicio imagine, nu face nimic.
+on:
+  schedule:
+    - cron: "23 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  reia:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Lipsesc imagini?
+        id: lipsa
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import sys
+          sys.path.insert(0, "scripts")
+          import imagini, stories
+          lipsa = [folder.name for folder, data in stories.load_stories() if imagini.missing(folder, data)]
+          print("povesti=" + " ".join(lipsa))
+          PY
+      - name: Pornește publicarea
+        if: steps.lipsa.outputs.povesti != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "Lipsesc imagini la: ${{ steps.lipsa.outputs.povesti }}" >> "$GITHUB_STEP_SUMMARY"
+          gh workflow run publica-site.yml --ref master
