@@ -788,7 +788,7 @@ def cmd_stage():
             previews.append(story_file.parent)
             continue
         if personal_name(data):
-            continue  # link secret: nu apare în bibliotecă, recomandări sau sitemap
+            continue  # link secret: nu apare în bibliotecă sau în sitemap
         entries.append(index_entry(story_file.parent, data))
         published.append(data)
     by_id = {d["id"]: d for d in published}

@@ -71,9 +71,18 @@ function write_json_atomic($file, $data)
 }
 
 // Blochează (exclusiv) o resursă pe durata unei operații citește-modifică-scrie.
-function lock_resource($name)
+// Cu $wait = false nu așteaptă: întoarce null dacă altă cerere scrie chiar acum (o citire poate merge mai departe,
+// fișierele se scriu atomic, deci se citesc mereu întregi).
+function lock_resource($name, $wait = true)
 {
     $handle = fopen(data_path($name . '.lock'), 'c');
+    if ($handle !== false && !$wait) {
+        if (flock($handle, LOCK_EX | LOCK_NB)) {
+            return $handle;
+        }
+        fclose($handle);
+        return null;
+    }
     if ($handle === false || !flock($handle, LOCK_EX)) {
         send_json(500, ['error' => 'serverul este ocupat, încearcă din nou']);
     }

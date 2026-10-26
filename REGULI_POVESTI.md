@@ -348,7 +348,7 @@ Salutul și rămas-bunul lui Lio (după categorie sau cu prenumele copilului) se
 
 ### Categoriile (`categories`, obligatoriu)
 
-Fiecare poveste are **1–3 categorii**, după care se filtrează biblioteca și se fac recomandările. Alege-le
+Fiecare poveste are **1–3 categorii**, după care se filtrează biblioteca. Alege-le
 dintre (id → ce apare pe site):
 
 | `categories` | Pe site |
@@ -395,7 +395,7 @@ Un părinte poate cere o poveste **cu prenumele copilului** („fă o poveste pe
   date de sănătate sau alte informații despre copil. Copilul poate fi un personaj al poveștii, alături de Lio;
   în imagini îl desenezi ca un copil de desen animat, **fără să încerci să semene cu un copil real**.
 - Prenumele trebuie să apară în poveste; Lio îl salută pe nume la început și la final.
-- Povestea **nu apare în bibliotecă**, în recomandări sau în motoarele de căutare; se deschide doar cu link-ul secret.
+- Povestea **nu apare în bibliotecă** sau în motoarele de căutare; se deschide doar cu link-ul secret.
 - Cât timp `"approved": false`, povestea **nu e publică**: la publicare ajunge doar într-o zonă protejată de pe
   server, pe care o poate deschide doar proprietarul site-ului, cu parola de previzualizare
   (`poveste.html?previzualizare=<id>`, link-ul e în `rapoarte/<id>.md`). Proprietarul o citește și, dacă e în

@@ -11,7 +11,6 @@ Site cu povești ilustrate pentru copii de 3–7 ani, în limba română. Pagini
   **mod de culcare** (culori calme, imagini mai puțin luminoase, voce mai încetă) și **ecran complet**
   (pe iPhone/iPad: Partajează → „Adaugă pe ecranul principal”, iar site-ul se deschide ca o aplicație);
 - **reluarea poveștii**: coperta propune „Continuă” de la pagina la care a rămas copilul;
-- la final, **două recomandări** asemănătoare (aceleași categorii, necitite încă), nu o listă nesfârșită;
 - **Lio salută** la început și **își ia rămas-bun** la final (altfel la poveștile de culcare decât la aventuri);
   în modul de culcare, la final apare un Lio somnoros;
 - **Întrebările lui Lio** după poveste: 1–3 întrebări cu variante ilustrate, citite cu voce, fără punctaj.

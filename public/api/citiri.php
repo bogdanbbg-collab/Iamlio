@@ -27,7 +27,8 @@ if ($method !== 'GET' && $method !== 'POST') {
     send_json(405, ['error' => 'metodă nepermisă']);
 }
 
-$lock = lock_resource('citiri');
+// o simplă citire (GET) nu stă la coadă după o numărare: răspunde cu ce e salvat acum
+$lock = lock_resource('citiri', $method === 'POST');
 $file = data_path('citiri.json');
 $stored = read_json_file($file);
 // Formatul vechi era doar {"<id>": număr}.
@@ -77,7 +78,7 @@ if ($method === 'POST') {
     $dirty = true;
 }
 
-if ($dirty) {
+if ($dirty && $lock !== null) {
     $saved = write_json_atomic($file, ['citiri' => (object) $counts, 'recente' => (object) $recent, 'ore' => (object) $hourly,
                                        'zile' => (object) $daily]);
     if (!$saved) {

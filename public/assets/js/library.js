@@ -241,24 +241,39 @@
     showFilterPanel(activeFilters() > 0);
   }
 
-  var storiesRequest = fetch("stories/index.json", { cache: "no-cache" }).then(function (res) {
-    if (!res.ok) throw new Error(res.status);
-    return res.json();
-  });
+  // Lista poveștilor; dacă nu vine în câteva secunde (rețea mobilă care se trezește greu), se cere din nou o dată.
+  function loadIndex(retry) {
+    return Iamlio.fetchWithTimeout("stories/index.json", { cache: "no-cache" }, 8000).then(function (res) {
+      if (!res.ok) throw new Error(res.status);
+      return res.json();
+    }).catch(function (error) {
+      if (retry) return loadIndex(false);
+      throw error;
+    });
+  }
 
-  Promise.all([storiesRequest, Iamlio.fetchCounts()])
-    .then(function (results) {
-      stories = results[0].stories || [];
+  // Poveștile apar imediat ce vine lista; contorul „citită de X ori” se adaugă după, când (și dacă) răspunde.
+  loadIndex(true)
+    .then(function (library) {
+      stories = library.stories || [];
       featuredId = weeklyStory(stories);
-      counts = results[1];
-      (results[0].categories || []).forEach(function (c) { categories[c.id] = c; });
-      if (stories.length > 1) buildFilters(results[0].categories || []); // cu o singură poveste n-ai ce filtra
+      (library.categories || []).forEach(function (c) { categories[c.id] = c; });
+      if (stories.length > 1) buildFilters(library.categories || []); // cu o singură poveste n-ai ce filtra
       if (stories.length >= MIN_FOR_PICK) picksBtn.hidden = false;
       showStories();
+      Iamlio.fetchCounts().then(function (result) {
+        if (!result) return;
+        counts = result;
+        showStories();
+      });
     })
     .catch(function () {
       grid.textContent = "";
       grid.appendChild(el("p", "muted", "Nu am putut încărca poveștile. Încearcă din nou."));
+      var again = el("button", "pill", "Încearcă din nou");
+      again.type = "button";
+      again.addEventListener("click", function () { location.reload(); });
+      grid.appendChild(again);
     });
 
   // ---------- „Lio, alege tu!” ----------

@@ -30,7 +30,7 @@ const PHP_OPTIONS = { stdio: "ignore", env: { ...process.env, PHP_CLI_SERVER_WOR
 
 let server, browser, site;
 
-// Povești de probă (copii ale primei povești) cu categorii, vârste și durate diferite, pentru filtre și recomandări.
+// Povești de probă (copii ale primei povești) cu categorii, vârste și durate diferite, pentru filtre.
 const EXTRA = [
   { id: "test-ursul", title: "Ursulețul somnoros", categories: ["de-culcare", "animale"], age: "3-5", minutes: 3 },
   { id: "test-comoara", title: "Comoara din pădure", categories: ["aventuri", "amuzante"], age: "5-7", minutes: 6 },
@@ -212,6 +212,43 @@ test("contorul: o citire pe vizitator, apoi afișat în bibliotecă și în pove
   await p.waitForSelector(".story-reads");
   const card = p.locator(".story-card", { has: p.locator("h3", { hasText: STORY.title }) });
   assert.equal(await card.locator(".story-reads").textContent(), "Citită o dată");
+});
+
+test("biblioteca apare chiar dacă contorul de citiri nu răspunde, iar contorul vine după", async () => {
+  const p = await page();
+  let release;
+  const held = new Promise((resolve) => { release = resolve; });
+  await p.route("**/api/citiri.php*", async (route) => { await held; await route.continue(); });
+  await p.goto(`${BASE}/`);
+  await p.waitForSelector(".story-card", { timeout: 4000 });
+  assert.equal(await p.locator(".story-reads").count(), 0, "fără contor cât timp nu a răspuns");
+  release();
+  await p.waitForSelector(".story-reads");
+  assert.deepEqual(p.errors, []);
+});
+
+test("biblioteca: dacă lista poveștilor nu vine, o cere din nou o dată", async () => {
+  const p = await page();
+  let attempts = 0;
+  await p.route("**/stories/index.json", (route) => {
+    attempts += 1;
+    return attempts === 1 ? route.abort() : route.continue();
+  });
+  await p.goto(`${BASE}/`);
+  await p.waitForSelector(".story-card");
+  assert.equal(attempts, 2);
+});
+
+test("fără zoom la dublă atingere (mărirea cu două degete rămâne)", async () => {
+  const p = await page();
+  for (const url of [`${BASE}/`, STORY_URL]) {
+    await p.goto(url);
+    const values = await p.evaluate(() => [document.documentElement, document.body, document.querySelector("button")]
+      .map((node) => getComputedStyle(node).touchAction));
+    assert.deepEqual(values, ["manipulation", "manipulation", "manipulation"], url);
+    const viewport = await p.getAttribute('meta[name="viewport"]', "content");
+    assert.ok(!/user-scalable\s*=\s*no|maximum-scale\s*=\s*1(\D|$)/.test(viewport), "mărirea nu e interzisă");
+  }
 });
 
 test("poveste inexistentă: mesaj clar, fără erori", async () => {
@@ -667,7 +704,7 @@ test("favorite: inimioara de pe card și din poveste, filtrul „Favorite”", a
   assert.deepEqual(p.errors, []);
 });
 
-test("recomandări: la final, două povești asemănătoare, fără cea curentă", async () => {
+test("final: fără listă de recomandări, iar „Alte povești” duce în bibliotecă", async () => {
   const p = await page({ reducedMotion: "reduce" });
   await p.goto(`${BASE}/poveste.html?id=test-comoara`);
   await p.waitForSelector(".sheet.is-current");
@@ -675,15 +712,12 @@ test("recomandări: la final, două povești asemănătoare, fără cea curentă
     await p.click("#next-btn");
     await settle(p, i === SHEETS - 1 ? "Sfârșit" : `Pagina ${i}`);
   }
-  await p.waitForSelector(".end-recs:not([hidden]) .rec-card");
-  const links = await p.$$eval(".is-current .rec-card", (cards) => cards.map((c) => c.getAttribute("href")));
-  assert.equal(links.length, 2);
-  assert.ok(!links.some((href) => href.includes("test-comoara")), "nu se recomandă povestea curentă");
-  assert.ok(links[0].includes("test-planete"), "prima recomandare are categorii comune (aventuri)");
-  await p.click(".is-current .rec-card >> nth=0");
-  await p.waitForURL(/test-planete/);
-  await p.waitForSelector(".sheet.is-current");
-  assert.equal(await p.textContent("#story-title"), "Lio printre planete");
+  await p.waitForTimeout(500);
+  assert.equal(await p.locator(".is-current a[href*='poveste.html']").count(), 0, "nicio legătură spre alte povești");
+  await p.click(".is-current .pill-alt");
+  await p.waitForSelector(".story-card");
+  assert.equal(new URL(p.url()).pathname, "/");
+  assert.deepEqual(p.errors, []);
 });
 
 test("biblioteca arată „Continuă · pagina N” pentru povestea începută", async () => {

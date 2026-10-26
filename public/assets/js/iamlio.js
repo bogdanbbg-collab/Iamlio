@@ -92,7 +92,22 @@ window.Iamlio = (function () {
 
   // Întoarce {id: număr} sau null dacă hostul nu are contorul (ex. previzualizare locală).
   function fetchCounts() {
-    return fetch("api/citiri.php", { cache: "no-store" }).then(parseCounts).catch(function () { return null; });
+    return fetchWithTimeout("api/citiri.php", { cache: "no-store" }, 6000).then(parseCounts).catch(function () { return null; });
+  }
+
+  // fetch care renunță după `ms` milisecunde, ca o cerere blocată să nu țină pagina în „Se încarcă…”.
+  function fetchWithTimeout(url, options, ms) {
+    var controller = window.AbortController ? new AbortController() : null;
+    var timer = null;
+    var request = fetch(url, controller ? Object.assign({ signal: controller.signal }, options) : options);
+    var timeout = new Promise(function (resolve, reject) {
+      timer = setTimeout(function () {
+        if (controller) controller.abort();
+        reject(new Error("timeout"));
+      }, ms);
+    });
+    return Promise.race([request, timeout]).then(function (res) { clearTimeout(timer); return res; },
+      function (error) { clearTimeout(timer); throw error; });
   }
 
   // Numără o citire o singură dată pe sesiune pentru fiecare poveste.
@@ -159,15 +174,6 @@ window.Iamlio = (function () {
     return at === -1;
   }
 
-  function markFinished(id) {
-    var list = readList("iamlio-citite");
-    if (list.indexOf(id) === -1) {
-      list.push(id);
-      writeSetting("iamlio-citite", JSON.stringify(list));
-    }
-  }
-
-  function isFinished(id) { return readList("iamlio-citite").indexOf(id) !== -1; }
 
   function savedPage(id) {
     var value = Number(readSetting("iamlio-pagina-" + id, "0"));
@@ -197,23 +203,6 @@ window.Iamlio = (function () {
     });
     sync();
     return button;
-  }
-
-  // Cele mai potrivite povești după una terminată: categorii comune, etichete comune, vârstă potrivită,
-  // iar cele necitite încă au întâietate. Întoarce cel mult `count` povești, fără cea curentă.
-  function recommend(stories, current, count) {
-    function ageFits(a, b) { return a === b || a === "3-7" || b === "3-7"; }
-    return stories
-      .filter(function (s) { return s.id !== current.id; })
-      .map(function (s, order) {
-        var shared = (s.categories || []).filter(function (c) { return (current.categories || []).indexOf(c) !== -1; });
-        var tags = (s.tags || []).filter(function (t) { return (current.tags || []).indexOf(t) !== -1; });
-        var score = shared.length * 3 + tags.length + (ageFits(s.age, current.age) ? 1 : 0) + (isFinished(s.id) ? 0 : 2);
-        return { story: s, score: score, order: order };
-      })
-      .sort(function (a, b) { return b.score - a.score || a.order - b.order; })
-      .slice(0, count)
-      .map(function (x) { return x.story; });
   }
 
   // ---------- statistici pentru administrator (doar totaluri, fără cookie-uri; vezi api/vizita.php) ----------
@@ -271,14 +260,12 @@ window.Iamlio = (function () {
     inlineSvg: inlineSvg,
     readsLabel: readsLabel,
     fetchCounts: fetchCounts,
+    fetchWithTimeout: fetchWithTimeout,
     countRead: countRead,
     speakWithBrowser: speakWithBrowser,
     isFavorite: isFavorite,
     toggleFavorite: toggleFavorite,
     favoriteButton: favoriteButton,
-    markFinished: markFinished,
-    isFinished: isFinished,
-    savedPage: savedPage,
-    recommend: recommend
+    savedPage: savedPage
   };
 })();
