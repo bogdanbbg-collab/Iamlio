@@ -1,0 +1,477 @@
+{
+  "id": "victor-si-dovleacul-luminos",
+  "title": "Victor și dovleacul luminos",
+  "summary": "Într-o seară de toamnă, Victor și tata scobesc un dovleac uriaș. Dar dovleacul chicotește când e gâdilat și vrea neapărat o față veselă!",
+  "age": "3-7",
+  "moral": "Lucrurile frumoase ies când lucrăm împreună, fiecare cu treaba lui.",
+  "learning": [
+    "emoțiile se văd pe față: supărat, mirat, vesel",
+    "din semințe cresc plante noi",
+    "cuțitul și focul sunt doar pentru cei mari, iar lumânarea nu se lasă aprinsă singură"
+  ],
+  "created": "2026-10-26",
+  "tags": [
+    "dovleac",
+    "toamnă",
+    "tata",
+    "emoții"
+  ],
+  "illustrationStyle": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered.",
+  "characters": [
+    {
+      "name": "Victor",
+      "description": "a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots",
+      "voice": {
+        "type": "masculin",
+        "pitch": 22,
+        "rate": 4
+      }
+    },
+    {
+      "name": "Tata",
+      "description": "a tall friendly young father with short wavy reddish-brown hair, light stubble, warm brown eyes and a big kind smile, wearing a mustard-yellow checkered flannel shirt with rolled-up sleeves and jeans",
+      "voice": {
+        "type": "masculin",
+        "pitch": -6,
+        "rate": -2
+      }
+    },
+    {
+      "name": "Bostănel",
+      "description": "a big round bright-orange pumpkin with smooth ribbed skin, a curly green stem on top and one small green leaf",
+      "voice": {
+        "pitch": -14,
+        "rate": 2
+      }
+    }
+  ],
+  "cover": {
+    "image": "images/coperta.png",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Tata: a tall friendly young father with short wavy reddish-brown hair, light stubble, warm brown eyes and a big kind smile, wearing a mustard-yellow checkered flannel shirt with rolled-up sleeves and jeans; Bostănel: a big round bright-orange pumpkin with smooth ribbed skin, a curly green stem on top and one small green leaf. Setting: a cozy kitchen on an autumn evening, soft warm light, dark blue sky and stars outside the window, autumn leaves on the window sill. Action: Bostănel now has a carved friendly face: two triangle eyes and a wide happy smile with one square tooth, glowing warm orange from inside; Victor and Tata sit together at the table smiling at the glowing pumpkin. Emotions: joyful, cozy, a little magical. Important details: a small jar of pumpkin seeds, a white crayon, autumn leaves. Camera: wide cinematic cover shot."
+  },
+  "pages": [
+    {
+      "text": "Era o seară de toamnă, cu frunze ruginii și vânt răcoros. Victor și tata au adus acasă un dovleac uriaș, rotund și portocaliu. — Uf! Cântărește cât un elefant care doarme! a gâfâit tata. — Atunci să nu-l trezim! a șoptit Victor, și amândoi au râs.",
+      "narration": [
+        {
+          "text": "Era o seară de toamnă, cu frunze ruginii și vânt răcoros.",
+          "mood": "calm"
+        },
+        {
+          "text": "Victor și tata au adus acasă un dovleac uriaș, rotund și portocaliu.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Uf! Cântărește cât un elefant care doarme!",
+          "mood": "vesel",
+          "speaker": "Tata"
+        },
+        {
+          "text": "a gâfâit tata.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Atunci să nu-l trezim!",
+          "mood": "șoptit",
+          "speaker": "Victor"
+        },
+        {
+          "text": "a șoptit Victor, și amândoi au râs.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-01.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Tata: a tall friendly young father with short wavy reddish-brown hair, light stubble, warm brown eyes and a big kind smile, wearing a mustard-yellow checkered flannel shirt with rolled-up sleeves and jeans; Bostănel: a big round bright-orange pumpkin with smooth ribbed skin, a curly green stem on top and one small green leaf. Setting: the front yard of a small family house on an autumn evening, golden and rust-colored leaves on the ground, a lit window, the first evening stars. Action: Tata carries the huge pumpkin in his arms with puffed cheeks as if it were very heavy, while Victor walks beside him with a finger on his lips, giggling. Emotions: Tata pretending to struggle, Victor amused. Important details: falling autumn leaves, a garden path, warm light from the house. Camera: wide shot."
+    },
+    {
+      "text": "Era seara de Halloween, când oamenii pun la ferestre dovleci cu fețe luminate. Mai întâi, și-au spălat mâinile și au întins ziare pe masă. — Cuțitul îl folosesc eu, pentru că e ascuțit, a spus tata. — Tu ai două treburi importante: scoți semințele și desenezi fața. Victor a salutat ca un bucătar adevărat.",
+      "narration": [
+        {
+          "text": "Era seara de Halloween, când oamenii pun la ferestre dovleci cu fețe luminate.",
+          "mood": "calm"
+        },
+        {
+          "text": "Mai întâi, și-au spălat mâinile și au întins ziare pe masă.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Cuțitul îl folosesc eu, pentru că e ascuțit,",
+          "mood": "hotărât",
+          "speaker": "Tata"
+        },
+        {
+          "text": "a spus tata.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Tu ai două treburi importante: scoți semințele și desenezi fața.",
+          "mood": "vesel",
+          "speaker": "Tata"
+        },
+        {
+          "text": "Victor a salutat ca un bucătar adevărat.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-02.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Tata: a tall friendly young father with short wavy reddish-brown hair, light stubble, warm brown eyes and a big kind smile, wearing a mustard-yellow checkered flannel shirt with rolled-up sleeves and jeans; Bostănel: a big round bright-orange pumpkin with smooth ribbed skin, a curly green stem on top and one small green leaf. Setting: a warm cozy family kitchen on an autumn evening, dark blue sky outside the window, soft warm lamp light, a wooden table covered with old newspapers. Action: Bostănel the pumpkin sits in the middle of the newspaper-covered table; Victor gives a funny proud salute like a little chef; Tata stands next to him explaining, holding a big wooden spoon out to Victor. Emotions: Victor proud and excited, Tata kind and serious. Important details: old newspapers, a big wooden spoon, a bowl, a white crayon. Camera: medium shot."
+    },
+    {
+      "text": "Tata a tăiat cu grijă un capac rotund, ca o pălărie cu codiță. Victor s-a uitat înăuntru. Erau acolo o mulțime de semințe și fire portocalii, ca niște spaghete. A băgat lingura și a scos primele semințe. Și atunci cineva a chicotit: — Hi-hi-hi!",
+      "narration": [
+        {
+          "text": "Tata a tăiat cu grijă un capac rotund, ca o pălărie cu codiță.",
+          "mood": "calm"
+        },
+        {
+          "text": "Victor s-a uitat înăuntru.",
+          "mood": "calm"
+        },
+        {
+          "text": "Erau acolo o mulțime de semințe și fire portocalii, ca niște spaghete.",
+          "mood": "mirat"
+        },
+        {
+          "text": "A băgat lingura și a scos primele semințe.",
+          "mood": "calm"
+        },
+        {
+          "text": "Și atunci cineva a chicotit:",
+          "mood": "misterios",
+          "pause": 0.4
+        },
+        {
+          "text": "— Hi-hi-hi!",
+          "mood": "vesel",
+          "speaker": "Bostănel",
+          "pause": 0.6
+        }
+      ],
+      "image": "images/pagina-03.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Tata: a tall friendly young father with short wavy reddish-brown hair, light stubble, warm brown eyes and a big kind smile, wearing a mustard-yellow checkered flannel shirt with rolled-up sleeves and jeans; Bostănel: a big round bright-orange pumpkin with smooth ribbed skin, a curly green stem on top and one small green leaf. Setting: a warm cozy family kitchen on an autumn evening, dark blue sky outside the window, soft warm lamp light, a wooden table covered with old newspapers. Action: Tata holds the round pumpkin lid with its curly stem like a little hat; Victor scoops orange stringy pulp and seeds out of the open pumpkin with a big wooden spoon; Victor suddenly looks around surprised. Emotions: Victor surprised and curious, Tata smiling. Important details: orange stringy pulp like spaghetti, pale pumpkin seeds, the lid with the green stem. Camera: close-up over the pumpkin."
+    },
+    {
+      "text": "— Cine a râs? a întrebat Victor. — Eu! a răspuns dovleacul, și codița i s-a mișcat. — Mă cheamă Bostănel. Și mă gâdili cu lingura! Victor a rămas cu gura căscată. Tata i-a făcut cu ochiul: — În seara asta, totul e puțin fermecat.",
+      "narration": [
+        {
+          "text": "— Cine a râs?",
+          "mood": "mirat",
+          "speaker": "Victor"
+        },
+        {
+          "text": "a întrebat Victor.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Eu!",
+          "mood": "vesel",
+          "speaker": "Bostănel"
+        },
+        {
+          "text": "a răspuns dovleacul, și codița i s-a mișcat.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Mă cheamă Bostănel. Și mă gâdili cu lingura!",
+          "mood": "vesel",
+          "speaker": "Bostănel"
+        },
+        {
+          "text": "Victor a rămas cu gura căscată.",
+          "mood": "mirat"
+        },
+        {
+          "text": "Tata i-a făcut cu ochiul:",
+          "mood": "calm"
+        },
+        {
+          "text": "— În seara asta, totul e puțin fermecat.",
+          "mood": "șoptit",
+          "speaker": "Tata"
+        }
+      ],
+      "image": "images/pagina-04.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Tata: a tall friendly young father with short wavy reddish-brown hair, light stubble, warm brown eyes and a big kind smile, wearing a mustard-yellow checkered flannel shirt with rolled-up sleeves and jeans; Bostănel: a big round bright-orange pumpkin with smooth ribbed skin, a curly green stem on top and one small green leaf. Setting: a warm cozy family kitchen on an autumn evening, dark blue sky outside the window, soft warm lamp light, a wooden table covered with old newspapers. Action: Bostănel the pumpkin wiggles its curly green stem happily as if laughing, with tiny sparkles around it; Victor stares at it with his mouth wide open, still holding the spoon; Tata winks. Emotions: Victor astonished, Tata playful, a magical moment. Important details: golden sparkles around the pumpkin stem, the spoon with seeds. Camera: medium shot."
+    },
+    {
+      "text": "Victor a scos semințele mai încet, ca să nu-l mai gâdile. — Le păstrăm pe acestea, a spus tata. — Din fiecare sămânță poate crește, la primăvară, un dovleac nou. Victor a pus într-un borcan zece semințe, numărându-le pe degete: una, două, trei… până la zece.",
+      "narration": [
+        {
+          "text": "Victor a scos semințele mai încet, ca să nu-l mai gâdile.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Le păstrăm pe acestea,",
+          "mood": "calm",
+          "speaker": "Tata"
+        },
+        {
+          "text": "a spus tata.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Din fiecare sămânță poate crește, la primăvară, un dovleac nou.",
+          "mood": "vesel",
+          "speaker": "Tata"
+        },
+        {
+          "text": "Victor a pus într-un borcan zece semințe, numărându-le pe degete: una, două, trei… până la zece.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-05.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Tata: a tall friendly young father with short wavy reddish-brown hair, light stubble, warm brown eyes and a big kind smile, wearing a mustard-yellow checkered flannel shirt with rolled-up sleeves and jeans. Setting: a warm cozy family kitchen on an autumn evening, dark blue sky outside the window, soft warm lamp light, a wooden table covered with old newspapers. Action: Victor carefully drops pumpkin seeds one by one into a small glass jar, counting on his fingers with great concentration; Tata watches next to him and smiles. Emotions: Victor focused and proud, Tata proud. Important details: a small glass jar with pale pumpkin seeds, a bowl of orange pulp, newspapers. Camera: close-up of hands and jar."
+    },
+    {
+      "text": "Apoi a venit rândul feței. Victor a desenat cu un creion alb două sprâncene încruntate. — Hmm! Arăt supărat! a mormăit Bostănel. Victor a șters și a desenat ochii mari și rotunzi, cu gura ca un O. — Acum arăt mirat, de parcă am văzut o fantomă de șosetă!",
+      "narration": [
+        {
+          "text": "Apoi a venit rândul feței.",
+          "mood": "calm"
+        },
+        {
+          "text": "Victor a desenat cu un creion alb două sprâncene încruntate.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Hmm! Arăt supărat!",
+          "mood": "mirat",
+          "speaker": "Bostănel"
+        },
+        {
+          "text": "a mormăit Bostănel.",
+          "mood": "calm"
+        },
+        {
+          "text": "Victor a șters și a desenat ochii mari și rotunzi, cu gura ca un O.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Acum arăt mirat, de parcă am văzut o fantomă de șosetă!",
+          "mood": "mirat",
+          "speaker": "Bostănel"
+        }
+      ],
+      "image": "images/pagina-06.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Bostănel: a big round bright-orange pumpkin with smooth ribbed skin, a curly green stem on top and one small green leaf. Setting: a warm cozy family kitchen on an autumn evening, dark blue sky outside the window, soft warm lamp light, a wooden table covered with old newspapers. Action: Victor draws a big surprised face on the pumpkin with a white crayon: two huge round eyes and a round O-shaped mouth; the drawn face looks comically astonished; Victor giggles. Emotions: Victor giggling, the drawn pumpkin face comically surprised. Important details: a white crayon, a small cloth for wiping, white chalky drawn lines on the orange skin. Camera: medium close-up."
+    },
+    {
+      "text": "Victor s-a gândit. Supărat nu. Mirat nu. — Fața veselă are ochii ca niște triunghiuri și un zâmbet mare! A desenat doi ochi triunghiulari și un zâmbet larg, cu un singur dinte, haios. Bostănel a chicotit: — Da! Așa arăt eu fericit!",
+      "narration": [
+        {
+          "text": "Victor s-a gândit.",
+          "mood": "calm"
+        },
+        {
+          "text": "Supărat nu. Mirat nu.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Fața veselă are ochii ca niște triunghiuri și un zâmbet mare!",
+          "mood": "entuziasmat",
+          "speaker": "Victor"
+        },
+        {
+          "text": "A desenat doi ochi triunghiulari și un zâmbet larg, cu un singur dinte, haios.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Bostănel a chicotit:",
+          "mood": "calm"
+        },
+        {
+          "text": "— Da! Așa arăt eu fericit!",
+          "mood": "entuziasmat",
+          "speaker": "Bostănel"
+        }
+      ],
+      "image": "images/pagina-07.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Tata: a tall friendly young father with short wavy reddish-brown hair, light stubble, warm brown eyes and a big kind smile, wearing a mustard-yellow checkered flannel shirt with rolled-up sleeves and jeans; Bostănel: a big round bright-orange pumpkin with smooth ribbed skin, a curly green stem on top and one small green leaf. Setting: a warm cozy family kitchen on an autumn evening, dark blue sky outside the window, soft warm lamp light, a wooden table covered with old newspapers. Action: Victor proudly finishes drawing a happy face on the pumpkin with a white crayon: two triangle eyes and a wide smile with one square tooth; Victor smiles happily; Tata claps. Emotions: Victor proud and delighted, Tata cheering. Important details: white crayon lines forming triangle eyes and a big smile with one tooth. Camera: medium shot."
+    },
+    {
+      "text": "Tata a decupat fața pe liniile lui Victor, încet și cu grijă. Victor a strâns bucățelele portocalii de pe ziare. — Mi-e un pic frig la nas, a spus Bostănel, cu ochii noi abia deschiși. — Stai liniștit, acum vine partea cea mai caldă! a râs Victor.",
+      "narration": [
+        {
+          "text": "Tata a decupat fața pe liniile lui Victor, încet și cu grijă.",
+          "mood": "calm"
+        },
+        {
+          "text": "Victor a strâns bucățelele portocalii de pe ziare.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Mi-e un pic frig la nas,",
+          "mood": "vesel",
+          "speaker": "Bostănel"
+        },
+        {
+          "text": "a spus Bostănel, cu ochii noi abia deschiși.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Stai liniștit, acum vine partea cea mai caldă!",
+          "mood": "vesel",
+          "speaker": "Victor"
+        },
+        {
+          "text": "a râs Victor.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-08.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Tata: a tall friendly young father with short wavy reddish-brown hair, light stubble, warm brown eyes and a big kind smile, wearing a mustard-yellow checkered flannel shirt with rolled-up sleeves and jeans; Bostănel: a big round bright-orange pumpkin with smooth ribbed skin, a curly green stem on top and one small green leaf. Setting: a warm cozy family kitchen on an autumn evening, dark blue sky outside the window, soft warm lamp light, a wooden table covered with old newspapers. Action: Bostănel now has a carved friendly face: two triangle eyes and a wide happy smile with one square tooth; Tata finishes carving carefully on his side of the table while Victor collects the little orange pieces from the newspapers into a bowl, laughing. Emotions: Bostănel cute and a little chilly, Victor laughing, Tata focused. Important details: small orange pumpkin pieces, a bowl, the newspapers. Camera: medium shot."
+    },
+    {
+      "text": "Tata a pus în dovleac o lumânare mică. — Focul e treaba celor mari. Noi stăm la un pas distanță și privim, a spus el. Victor a făcut un pas înapoi și a numărat invers, încet: — Trei… doi… unu… Tata a aprins lumânarea cu un chibrit lung.",
+      "narration": [
+        {
+          "text": "Tata a pus în dovleac o lumânare mică.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Focul e treaba celor mari. Noi stăm la un pas distanță și privim,",
+          "mood": "hotărât",
+          "speaker": "Tata"
+        },
+        {
+          "text": "a spus el.",
+          "mood": "calm"
+        },
+        {
+          "text": "Victor a făcut un pas înapoi și a numărat invers, încet:",
+          "mood": "misterios"
+        },
+        {
+          "text": "— Trei… doi… unu…",
+          "mood": "șoptit",
+          "speaker": "Victor",
+          "pause": 0.7
+        },
+        {
+          "text": "Tata a aprins lumânarea cu un chibrit lung.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-09.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Tata: a tall friendly young father with short wavy reddish-brown hair, light stubble, warm brown eyes and a big kind smile, wearing a mustard-yellow checkered flannel shirt with rolled-up sleeves and jeans; Bostănel: a big round bright-orange pumpkin with smooth ribbed skin, a curly green stem on top and one small green leaf. Setting: the cozy kitchen in the evening with the main lamp turned off, only soft warm light, dark blue sky outside the window. Action: Bostănel now has a carved friendly face: two triangle eyes and a wide happy smile with one square tooth; Tata carefully lights a small candle inside the pumpkin with a long match; Victor stands one step back with his hands on his cheeks, counting down. Emotions: Victor excited and waiting, Tata calm and careful. Important details: a small candle inside the pumpkin, a long match, a tiny warm flame. Camera: medium shot, slightly dim and cozy."
+    },
+    {
+      "text": "Pâlc! Dovleacul s-a aprins pe dinăuntru, cald și portocaliu. Ochii triunghiulari luceau, iar zâmbetul cu un dinte strălucea ca o felie de lună. — Uau! Acum sunt cel mai luminos dovleac de pe stradă! a strigat Bostănel. Victor a bătut din palme, iar tata l-a luat în brațe.",
+      "narration": [
+        {
+          "text": "Pâlc! Dovleacul s-a aprins pe dinăuntru, cald și portocaliu.",
+          "mood": "entuziasmat",
+          "pause": 0.5
+        },
+        {
+          "text": "Ochii triunghiulari luceau, iar zâmbetul cu un dinte strălucea ca o felie de lună.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Uau! Acum sunt cel mai luminos dovleac de pe stradă!",
+          "mood": "entuziasmat",
+          "speaker": "Bostănel"
+        },
+        {
+          "text": "a strigat Bostănel.",
+          "mood": "calm"
+        },
+        {
+          "text": "Victor a bătut din palme, iar tata l-a luat în brațe.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-10.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Tata: a tall friendly young father with short wavy reddish-brown hair, light stubble, warm brown eyes and a big kind smile, wearing a mustard-yellow checkered flannel shirt with rolled-up sleeves and jeans; Bostănel: a big round bright-orange pumpkin with smooth ribbed skin, a curly green stem on top and one small green leaf. Setting: the cozy kitchen in the evening with the lights off, the pumpkin glowing on the table, dark blue sky outside the window. Action: Bostănel now has a carved friendly face: two triangle eyes and a wide happy smile with one square tooth; Bostănel glows warm orange from inside, its triangle eyes and toothy smile shining brightly; Victor claps happily while Tata hugs him from behind. Emotions: joyful, wonder, warm. Important details: warm orange glow on their faces, soft light on the walls. Camera: wide shot."
+    },
+    {
+      "text": "Au pus dovleacul pe pervaz, ca să-l vadă toată strada. Victor a căscat lung. — Noapte bună, Bostănel. Înainte de culcare, tata a stins lumânarea, pentru că focul nu se lasă niciodată singur. — Noapte bună, Victor, a șoptit dovleacul, și i-a zâmbit în întuneric.",
+      "narration": [
+        {
+          "text": "Au pus dovleacul pe pervaz, ca să-l vadă toată strada.",
+          "mood": "calm"
+        },
+        {
+          "text": "Victor a căscat lung.",
+          "mood": "somnoros"
+        },
+        {
+          "text": "— Noapte bună, Bostănel.",
+          "mood": "somnoros",
+          "speaker": "Victor"
+        },
+        {
+          "text": "Înainte de culcare, tata a stins lumânarea, pentru că focul nu se lasă niciodată singur.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Noapte bună, Victor,",
+          "mood": "șoptit",
+          "speaker": "Bostănel"
+        },
+        {
+          "text": "a șoptit dovleacul, și i-a zâmbit în întuneric.",
+          "mood": "somnoros"
+        }
+      ],
+      "image": "images/pagina-11.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Tata: a tall friendly young father with short wavy reddish-brown hair, light stubble, warm brown eyes and a big kind smile, wearing a mustard-yellow checkered flannel shirt with rolled-up sleeves and jeans; Bostănel: a big round bright-orange pumpkin with smooth ribbed skin, a curly green stem on top and one small green leaf. Setting: a cozy window sill at night, a quiet street with autumn trees and other glowing windows outside, a big friendly moon. Action: Bostănel now has a carved friendly face: two triangle eyes and a wide happy smile with one square tooth; Bostănel sits glowing on the window sill; Victor in pajamas yawns hugely and waves goodnight to the pumpkin while Tata gently holds his hand. Emotions: sleepy, happy, cozy. Important details: the glowing pumpkin, the night street, the moon. Camera: wide shot from inside the room."
+    }
+  ],
+  "categories": [
+    "amuzante",
+    "invatam",
+    "de-culcare"
+  ],
+  "review": {
+    "imaginatie": "Dovleacul Bostănel prinde viață: chicotește când Victor îl gâdilă cu lingura (paginile 3–4), comentează fiecare față desenată (paginile 6–7), îi e frig la nas după decupare (pagina 8) și se bucură că e cel mai luminos dovleac de pe stradă (pagina 10).",
+    "invatare": "Emoțiile pe față: pagina 6 (sprâncene încruntate = supărat, ochi rotunzi și gura ca un O = mirat), pagina 7 (ochi triunghiulari și zâmbet = vesel). Semințele: pagina 5 (din fiecare sămânță poate crește un dovleac nou; Victor numără zece semințe). Siguranța: pagina 2 (cuțitul îl folosește tata), pagina 9 (focul e treaba celor mari, Victor stă la un pas distanță), pagina 11 (lumânarea se stinge înainte de culcare).",
+    "umor": [
+      "pagina 1: dovleacul cântărește „cât un elefant care doarme”, iar Victor șoptește să nu-l trezească",
+      "pagina 3: cineva chicotește „Hi-hi-hi!” din dovleac",
+      "pagina 4: Bostănel se plânge că Victor îl gâdilă cu lingura",
+      "pagina 6: fața mirată arată „de parcă am văzut o fantomă de șosetă”",
+      "pagina 8: lui Bostănel îi e frig la nas după decupare"
+    ],
+    "emotie": "Problema e pe înțelesul copiilor: Bostănel are nevoie de o față care să-l facă fericit. Încercările: fața supărată, fața mirată, apoi Victor se gândește singur și desenează fața veselă (pagina 7). Finalul e cald și liniștit: dovleacul se luminează, tata îl ia pe Victor în brațe, iar seara se încheie cu „noapte bună” și lumânarea stinsă (pagina 11).",
+    "siguranta": "Halloween apare doar ca obiceiul dovlecilor luminați la ferestre; nu sunt fantome adevărate, monștri sau lucruri înfricoșătoare („fantoma de șosetă” e o glumă). Cuțitul și chibritul le folosește doar tata, iar povestea spune clar de ce; Victor scoate semințele cu lingura, desenează cu creionul și stă la distanță de flacără. Lumânarea se stinge înainte de culcare.",
+    "imagini": "Fiecare prompt arată momentul paginii: dovleacul cărat ca un elefant (1), salutul de bucătar (2), semințele ca spaghetele (3), codița care se mișcă (4), borcanul cu zece semințe (5), fața mirată desenată (6), fața veselă (7), strânsul bucățelelor (8), aprinderea lumânării cu Victor la distanță (9), dovleacul luminat (10), pervazul noaptea (11). Fața decupată e descrisă la fel pe paginile 8–11 și pe copertă. Personajele au aceeași descriere completă în toate prompturile; voi privi imaginile după publicare și le refac pe cele care nu se potrivesc.",
+    "voce": "Narațiunea e calmă, cu tonuri vesele la glume, misterios înainte de chicotitul dovleacului și de numărătoarea inversă, entuziasmat la aprindere și somnoros la final. Pauze după „Hi-hi-hi!”, „Trei… doi… unu…” și „Pâlc!”. Victor are voce de copil, tata o voce caldă și mai gravă, iar Bostănel o voce groasă și jucăușă."
+  },
+  "questions": [
+    {
+      "text": "Ce față l-a făcut pe Bostănel fericit?",
+      "options": [
+        {
+          "text": "Sprâncene încruntate",
+          "emoji": "😠"
+        },
+        {
+          "text": "Ochi rotunzi și gura ca un O",
+          "emoji": "😮"
+        },
+        {
+          "text": "Ochi triunghiulari și un zâmbet mare",
+          "emoji": "😄"
+        }
+      ],
+      "answer": 2,
+      "explanation": "Bravo! Zâmbetul mare arată că ești vesel. Sprâncenele încruntate arată supărare, iar gura ca un O arată mirare."
+    },
+    {
+      "text": "Cine aprinde lumânarea?",
+      "options": [
+        {
+          "text": "Tata",
+          "emoji": "🧔"
+        },
+        {
+          "text": "Victor",
+          "emoji": "🧒"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Corect! Focul e treaba celor mari. Victor a stat la un pas distanță și a numărat invers."
+    }
+  ]
+}
