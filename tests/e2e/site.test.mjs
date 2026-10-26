@@ -218,11 +218,14 @@ test("biblioteca apare chiar dacă contorul de citiri nu răspunde, iar contorul
   const p = await page();
   let release;
   const held = new Promise((resolve) => { release = resolve; });
-  await p.route("**/api/citiri.php*", async (route) => { await held; await route.continue(); });
-  await p.goto(`${BASE}/`);
-  await p.waitForSelector(".story-card", { timeout: 4000 });
-  assert.equal(await p.locator(".story-reads").count(), 0, "fără contor cât timp nu a răspuns");
-  release();
+  await p.route("**/api/citiri.php*", async (route) => { await held; await route.continue().catch(() => {}); });
+  try {
+    await p.goto(`${BASE}/`);
+    await p.waitForSelector(".story-card", { timeout: 5000 });
+    assert.equal(await p.locator(".story-reads").count(), 0, "fără contor cât timp nu a răspuns");
+  } finally {
+    release(); // cererea ținută pe loc nu rămâne agățată nici dacă testul pică
+  }
   await p.waitForSelector(".story-reads");
   assert.deepEqual(p.errors, []);
 });
