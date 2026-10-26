@@ -18,7 +18,8 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const PORT = 8790 + Math.floor(Math.random() * 100);
 const BASE = `http://127.0.0.1:${PORT}`;
 const index = JSON.parse(readFileSync(join(ROOT, "build/site/stories/index.json"), "utf-8"));
-const STORY = index.stories[0];
+// povestea de referință a testelor e mereu aceeași (prima publicată), oricâte povești noi apar
+const STORY = index.stories.find((s) => s.id === "lio-si-steluta-cazatoare") || index.stories[0];
 const STORY_URL = `${BASE}/poveste.html?id=${STORY.id}`;
 const SHEETS = STORY.pages + 2; // copertă + pagini + final
 // o poveste nouă primește vocea abia la publicare; testul vocii folosește una care o are deja
