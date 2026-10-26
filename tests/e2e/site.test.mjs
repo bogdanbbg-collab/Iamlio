@@ -525,23 +525,26 @@ test("cu o singură poveste nu apare butonul „Filtre”", async () => {
   assert.ok(await p.isHidden("#filters"));
 });
 
-test("filtre: categorie, vârstă, durată, păstrate în adresă, cu mesaj când nu se potrivește nimic", async () => {
+test("filtre: categorie, durată, favorite, păstrate în adresă, cu mesaj când nu se potrivește nimic", async () => {
   const p = await page({ viewport: { width: 1280, height: 900 } });
   await p.goto(`${BASE}/`);
   await p.waitForSelector(".story-card");
   assert.equal((await cardTitles(p)).length, 1 + EXTRA.length);
   assert.ok(await p.isHidden("#filters"), "filtrele stau strânse sub butonul „Filtre”");
+  // vârsta nu se afișează nicăieri pe site: nici filtru, nici pe carduri
+  assert.equal(await p.locator('[data-filter="varsta"]').count(), 0);
+  assert.ok(!/\d[–-]\d ani/.test(await p.textContent("body")), "fără „3–7 ani” pe pagină");
   await p.click("#filters-toggle");
   assert.equal(await p.getAttribute("#filters-toggle", "aria-expanded"), "true");
   await p.click('#category-chips [data-value="animale"]');
   assert.deepEqual(await cardTitles(p), ["Ursulețul somnoros"]);
   assert.match(p.url(), /categorie=animale/);
   await p.click('#category-chips [data-value=""]');
-  await p.click('[data-filter="varsta"] [data-value="3-5"]');
-  assert.ok(!(await cardTitles(p)).includes("Comoara din pădure"), "poveștile de 5–7 ani dispar la 3–5 ani");
   await p.click('[data-filter="durata"] [data-value="lungi"]');
+  assert.deepEqual(await cardTitles(p), ["Lio printre planete"]);
+  await p.click('#category-chips [data-value="amuzante"]');
   assert.equal(await p.locator(".empty-state").count(), 1);
-  await p.click('[data-filter="varsta"] [data-value=""]');
+  await p.click('#category-chips [data-value=""]');
   assert.deepEqual(await cardTitles(p), ["Lio printre planete"]);
   await p.reload();
   await p.waitForSelector(".story-card");

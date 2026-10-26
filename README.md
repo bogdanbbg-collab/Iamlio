@@ -29,8 +29,9 @@ Se folosește doar prenumele copilului. Ca să ștergi o poveste personalizată,
 `public/stories/` (sau cere-i AI-ului) — dispare de pe site la următoarea publicare.
 
 Biblioteca are **categorii** (de culcare, aventuri, animale, prietenie și emoții, învățăm, amuzante), **filtre**
-după vârstă (3–5 / 5–7 ani) și durată (scurte / medii / lungi), **favorite** (♡ pe fiecare poveste) și eticheta
-„Continuă · pagina N” pentru poveștile începute. Filtrele stau în adresa paginii, deci o listă filtrată
+după durată (scurte / medii / lungi), **favorite** (♡ pe fiecare poveste) și eticheta „Continuă · pagina N” pentru
+poveștile începute. Vârsta nu apare nicăieri pe site (site-ul se prezintă simplu, „povești pentru copii”); regulile
+de scriere a poveștilor rămân gândite pentru copiii mici. Filtrele stau în adresa paginii, deci o listă filtrată
 (de ex. `/?categorie=de-culcare`) poate fi trimisă cuiva. Filtrele stau strânse sub butonul „Filtre”.
 
 De la trei povești apare butonul **„Lio, alege tu!”** (o poveste la întâmplare, alta decât data trecută). Poveștile

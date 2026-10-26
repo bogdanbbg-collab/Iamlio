@@ -24,11 +24,10 @@
   var categories = {};
   var counts = null;
 
-  // Filtrele stau în adresa paginii (ex. ?categorie=de-culcare&varsta=3-5), ca o listă filtrată să poată fi trimisă.
+  // Filtrele stau în adresa paginii (ex. ?categorie=de-culcare&durata=scurte), ca o listă filtrată să poată fi trimisă.
   var query = new URLSearchParams(location.search);
   var filters = {
     categorie: query.get("categorie") || "",
-    varsta: query.get("varsta") || "",
     durata: query.get("durata") || "",
     favorite: query.get("favorite") === "1"
   };
@@ -36,17 +35,12 @@
   function saveFilters() {
     var params = new URLSearchParams();
     if (filters.categorie) params.set("categorie", filters.categorie);
-    if (filters.varsta) params.set("varsta", filters.varsta);
     if (filters.durata) params.set("durata", filters.durata);
     if (filters.favorite) params.set("favorite", "1");
     var search = params.toString();
     try {
       history.replaceState(null, "", search ? "?" + search : location.pathname);
     } catch (e) { /* unele browsere refuză în previzualizări; filtrul merge oricum */ }
-  }
-
-  function ageFits(storyAge, wanted) {
-    return !wanted || storyAge === wanted || storyAge === "3-7";
   }
 
   function durationFits(minutes, wanted) {
@@ -58,7 +52,6 @@
 
   function matches(story) {
     return (!filters.categorie || (story.categories || []).indexOf(filters.categorie) !== -1) &&
-      ageFits(story.age, filters.varsta) &&
       durationFits(story.minutes, filters.durata) &&
       (!filters.favorite || Iamlio.isFavorite(story.id));
   }
@@ -92,7 +85,7 @@
     cover.appendChild(el("span", "story-play", "▶"));
     link.appendChild(cover);
 
-    // Pe card: copertă, titlu și durată. Restul (vârsta, contorul, rezumatul) e mic și discret, pentru părinți.
+    // Pe card: copertă, titlu și durată. Restul (contorul, rezumatul) e mic și discret, pentru părinți.
     var body = el("div", "story-body");
     var heading = el("div", "story-heading");
     heading.appendChild(el("h3", null, story.title));
@@ -101,7 +94,6 @@
     heading.appendChild(minutes);
     body.appendChild(heading);
     var details = el("p", "story-details");
-    details.appendChild(el("span", null, story.age + " ani"));
     if (counts) details.appendChild(el("span", "story-reads", Iamlio.readsLabel(counts[story.id] || 0)));
     body.appendChild(details);
     body.appendChild(el("p", "story-summary", story.summary));
@@ -123,7 +115,7 @@
     var reset = el("button", "pill", "Arată toate poveștile");
     reset.type = "button";
     reset.addEventListener("click", function () {
-      filters = { categorie: "", varsta: "", durata: "", favorite: false };
+      filters = { categorie: "", durata: "", favorite: false };
       syncFilters();
       showStories();
     });
@@ -197,7 +189,7 @@
   }
 
   function activeFilters() {
-    return [filters.categorie, filters.varsta, filters.durata, filters.favorite].filter(Boolean).length;
+    return [filters.categorie, filters.durata, filters.favorite].filter(Boolean).length;
   }
 
   // Filtrele stau strânse sub butonul „Filtre”; se deschid singure doar dacă adresa are deja filtre alese.
