@@ -33,6 +33,27 @@
   ],
   "stories": [
     {
+      "id": "matei-si-limonada-fermecata",
+      "title": "Matei și limonada fermecată",
+      "summary": "Matei îl ajută pe tata să facă limonadă, iar ulciorul fermecat al bunicului gustă fiecare încercare. Prea acră? Prea dulce? Matei găsește singur gustul potrivit!",
+      "age": "3-7",
+      "tags": [
+        "limonadă",
+        "tata",
+        "gusturi",
+        "răbdare"
+      ],
+      "categories": [
+        "amuzante",
+        "invatam"
+      ],
+      "created": "2026-10-26",
+      "cover": "stories/matei-si-limonada-fermecata/images/coperta.webp",
+      "pages": 11,
+      "minutes": 5,
+      "published": "2026-10-26"
+    },
+    {
       "id": "aricel-si-visul-de-a-zbura",
       "title": "Aricel și visul de a zbura",
       "summary": "Aricel visează să zboare ca prietenii lui înaripați. După câteva încercări tare caraghioase, descoperă că talentul lui îi poate ajuta pe ceilalți într-un mod neașteptat.",
