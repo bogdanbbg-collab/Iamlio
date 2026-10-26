@@ -24,6 +24,9 @@ const SHEETS = STORY.pages + 2; // copertă + pagini + final
 // o poveste nouă primește vocea abia la publicare; testul vocii folosește una care o are deja
 const VOICED = index.stories.find((s) => existsSync(join(ROOT, "build/site/stories", s.id, "audio/manifest.json")));
 
+// mai multe procese PHP: o descărcare audio lungă (WebKit) nu mai ține pe loc celelalte cereri
+const PHP_OPTIONS = { stdio: "ignore", env: { ...process.env, PHP_CLI_SERVER_WORKERS: "4" } };
+
 let server, browser, site;
 
 // Povești de probă (copii ale primei povești) cu categorii, vârste și durate diferite, pentru filtre și recomandări.
@@ -75,7 +78,7 @@ before(async () => {
   cpSync(join(ROOT, "build/site"), site, { recursive: true });
   rmSync(join(site, "api/data/citiri.json"), { force: true });
   addExtraStories(site);
-  server = spawn("php", ["-S", `127.0.0.1:${PORT}`, "-t", site], { stdio: "ignore" });
+  server = spawn("php", ["-S", `127.0.0.1:${PORT}`, "-t", site], PHP_OPTIONS);
   for (let i = 0; i < 50; i++) {
     try { if ((await fetch(`${BASE}/stories/index.json`)).ok) break; } catch { /* încă pornește */ }
     await new Promise((r) => setTimeout(r, 100));

@@ -22,6 +22,9 @@ const BASE = `http://127.0.0.1:${PORT}`;
 const PASSWORD = "parola-admin-de-test";
 const STORY = JSON.parse(readFileSync(join(ROOT, "build/site/stories/index.json"), "utf-8")).stories[0];
 
+// mai multe procese PHP: o descărcare audio lungă (WebKit) nu mai ține pe loc celelalte cereri
+const PHP_OPTIONS = { stdio: "ignore", env: { ...process.env, PHP_CLI_SERVER_WORKERS: "4" } };
+
 let server, browser, site;
 
 before(async () => {
@@ -31,7 +34,7 @@ before(async () => {
   const salt = "sare";
   writeFileSync(join(site, "api/data/parola.json"),
     JSON.stringify({ salt, hash: createHash("sha256").update(salt + PASSWORD).digest("hex") }));
-  server = spawn("php", ["-S", `127.0.0.1:${PORT}`, "-t", site], { stdio: "ignore" });
+  server = spawn("php", ["-S", `127.0.0.1:${PORT}`, "-t", site], PHP_OPTIONS);
   for (let i = 0; i < 50; i++) {
     try { const r = await fetch(`${BASE}/`); await r.arrayBuffer(); if (r.ok) break; } catch { /* încă pornește */ }
     await new Promise((r) => setTimeout(r, 100));
@@ -102,6 +105,7 @@ test("admin: vizitele și poveștile deschise apar pe zile; vizitele administrat
   await visitor.goto(`${BASE}/poveste.html?id=${STORY.id}`);
   await visitor.waitForSelector(".sheet.is-current");
   await visitor.waitForTimeout(500);
+  await visitor.context().close();
 
   await admin.goto(`${BASE}/`);
   await admin.goto(`${BASE}/poveste.html?id=${STORY.id}`);

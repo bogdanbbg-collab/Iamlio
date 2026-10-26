@@ -24,13 +24,16 @@ const STORY = JSON.parse(readFileSync(join(BUILT, "stories/index.json"), "utf-8"
 
 const SCREENS = { telefon: [390, 844], "telefon-mic": [360, 640], "telefon-culcat": [844, 390], tableta: [1024, 768], calculator: [1440, 900] };
 
+// mai multe procese PHP: o descărcare audio lungă (WebKit) nu mai ține pe loc celelalte cereri
+const PHP_OPTIONS = { stdio: "ignore", env: { ...process.env, PHP_CLI_SERVER_WORKERS: "4" } };
+
 let server, browser;
 
 before(async () => {
   mkdirSync(OUT, { recursive: true });
   SITE = mkdtempSync(join(tmpdir(), "iamlio-"));
   cpSync(BUILT, SITE, { recursive: true });
-  server = spawn("php", ["-S", `127.0.0.1:${PORT}`, "-t", SITE], { stdio: "ignore" });
+  server = spawn("php", ["-S", `127.0.0.1:${PORT}`, "-t", SITE], PHP_OPTIONS);
   for (let i = 0; i < 50; i++) {
     try { const r = await fetch(`${BASE}/`); await r.arrayBuffer(); if (r.ok) break; } catch { /* încă pornește */ }
     await new Promise((r) => setTimeout(r, 100));
