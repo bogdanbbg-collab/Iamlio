@@ -60,7 +60,9 @@ codul site-ului (`public/*.html`, `public/assets/`, `scripts/`, `.github/`) — 
   - `assets/img/lio*.svg`, `favicon.svg` — Lio, generat din `scripts/lio_svg.py` (nu edita SVG-urile de mână)
   - `assets/lio-replici.json` — ce spune Lio când e atins pe pagina principală
   - `api/citiri.php` — contorul „citită de X ori” (PHP; datele stau în `api/data/citiri.json` pe server)
-  - `api/previzualizare.php` — previzualizarea cu parolă a poveștilor personalizate neaprobate (`comun.php`: funcții comune)
+  - `admin.html` + `assets/js/admin.js` + `api/admin.php` — panoul de administrare (vizite, citiri, erori; parola
+    `ADMIN_PASSWORD`); `api/vizita.php` și `api/erori.php` primesc vizitele și erorile (doar totaluri, fără date personale)
+  - `api/previzualizare.php` — previzualizarea poveștilor personalizate neaprobate, cu aceeași parolă (`comun.php`: funcții comune)
   - `p/<id>.html` (generat la publicare) — pagina de distribuire a fiecărei povești, cu titlu și copertă (Open Graph)
   - `stories/<id>/` — poveștile
 - `scripts/stories.py` — `optimize` | `validate` | `audio` (ambele voci) | `verify-audio` | `index` | `all`

@@ -7,7 +7,10 @@
 // pe oră în total. Pe o rețea comună (aceeași adresă pentru o familie sau o grădiniță), două citiri ale aceleiași
 // povești în 30 de minute se numără o dată: numărul e orientativ, nu o statistică exactă.
 // Confidențialitate: adresa IP nu se salvează; se păstrează cel mult o oră amprente HMAC (vezi comun.php).
-// Siguranța datelor: scriere atomică și o copie zilnică în data/copii/ (ultimele 14 zile).
+// Siguranța datelor: scriere atomică și o copie zilnică în data/copii/ (ultimele 14 zile), actualizată cel mult o
+// dată pe oră, ca la o recuperare să se piardă cel mult o oră de citiri.
+// Pentru panoul de administrare se păstrează și totalurile pe zi ale fiecărei povești („zile”).
+// Citirile administratorului (autentificat) nu se numără.
 require __DIR__ . '/comun.php';
 
 const WINDOW_SECONDS = 1800;
@@ -15,6 +18,8 @@ const HOUR = 3600;
 const MAX_PER_HOUR = 120;
 const MAX_RECENT = 20000;
 const BACKUP_DAYS = 14;
+const BACKUP_EVERY = 3600;
+const KEEP_DAYS = 400;
 
 $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 if ($method !== 'GET' && $method !== 'POST') {
@@ -29,6 +34,7 @@ $stored = read_json_file($file);
 $counts = isset($stored['citiri']) && is_array($stored['citiri']) ? $stored['citiri'] : array_filter($stored, 'is_int');
 $recent = isset($stored['recente']) && is_array($stored['recente']) ? $stored['recente'] : [];
 $hourly = isset($stored['ore']) && is_array($stored['ore']) ? $stored['ore'] : [];
+$daily = isset($stored['zile']) && is_array($stored['zile']) ? $stored['zile'] : [];
 
 $now = time();
 $before = count($recent) + count($hourly);
@@ -51,8 +57,12 @@ if ($method === 'POST') {
     $visitor = visitor_mark('poveste|' . $id);
     $client = visitor_mark('ora');
     $usedThisHour = isset($hourly[$client]) ? (int) $hourly[$client][1] : 0;
-    if (!isset($recent[$visitor]) && $usedThisHour < MAX_PER_HOUR) {
+    if (!isset($recent[$visitor]) && $usedThisHour < MAX_PER_HOUR && !admin_session_valid()) {
         $counts[$id] = (isset($counts[$id]) ? (int) $counts[$id] : 0) + 1;
+        $today = date('Y-m-d');
+        $daily[$today][$id] = (isset($daily[$today][$id]) ? (int) $daily[$today][$id] : 0) + 1;
+        ksort($daily);
+        $daily = array_slice($daily, -KEEP_DAYS, null, true);
         $recent[$visitor] = $now;
         $hourly[$client] = [isset($hourly[$client]) ? $hourly[$client][0] : $now, $usedThisHour + 1];
         $counted = true;
@@ -68,18 +78,19 @@ if ($method === 'POST') {
 }
 
 if ($dirty) {
-    $saved = write_json_atomic($file, ['citiri' => (object) $counts, 'recente' => (object) $recent, 'ore' => (object) $hourly]);
+    $saved = write_json_atomic($file, ['citiri' => (object) $counts, 'recente' => (object) $recent, 'ore' => (object) $hourly,
+                                       'zile' => (object) $daily]);
     if (!$saved) {
         send_json(500, ['error' => 'contorul nu a putut fi salvat']);
     }
-    // copie zilnică (doar numerele, fără amprente), păstrată BACKUP_DAYS zile
+    // copie zilnică (doar numerele, fără amprente), reîmprospătată cel mult o dată pe oră, păstrată BACKUP_DAYS zile
     $backups = data_path('copii');
     if (!is_dir($backups)) {
         mkdir($backups, 0750, true);
     }
-    $today = $backups . '/citiri-' . gmdate('Y-m-d') . '.json';
-    if (!is_file($today)) {
-        write_json_atomic($today, ['citiri' => (object) $counts]);
+    $backupFile = $backups . '/citiri-' . gmdate('Y-m-d') . '.json';
+    if (!is_file($backupFile) || filemtime($backupFile) < $now - BACKUP_EVERY) {
+        write_json_atomic($backupFile, ['citiri' => (object) $counts, 'zile' => (object) $daily]);
         foreach (glob($backups . '/citiri-*.json') ?: [] as $old) {
             if (filemtime($old) < $now - BACKUP_DAYS * 86400) {
                 @unlink($old);

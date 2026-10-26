@@ -670,7 +670,7 @@ def report_text(story_id, title, published, changes, errors, notes, warnings, wh
         else:
             lines += ["## Poveste personalizată", "",
                       "- **Așteaptă aprobarea.** Până atunci NU este publică: o poate deschide doar cine știe parola "
-                      f"de previzualizare (secretul `PREVIEW_PASSWORD` din GitHub): {site}/poveste.html?previzualizare={story_id}",
+                      f"de administrator (secretul `ADMIN_PASSWORD` din GitHub): {site}/poveste.html?previzualizare={story_id}",
                       "- Dacă e în regulă, cere AI-ului „aprobă povestea " + story_id + "” (sau pune "
                       "`\"approved\": true` în story.json). După publicare, link-ul pentru părinți va fi "
                       f"{site}/poveste.html?id={story_id}", ""]
@@ -754,12 +754,15 @@ def cmd_stage():
                 print(f"[versiunea anterioară] {name}: rămâne publicată versiunea din {found[1][:7]}")
             else:
                 print(f"[nepublicată] {name}")
-    entries, published, previews = [], [], []
+    entries, published, previews, personal = [], [], [], []
     for story_file in sorted((BUILD_DIR / "stories").glob("*/story.json")):
         data = json.loads(story_file.read_text(encoding="utf-8"))
         intro, outro = lio_texts(data)
         data["lio"] = {"intro": intro, "outro": outro}  # cititorul afișează ce spune Lio
         version_story_assets(story_file.parent, data)
+        if personal_name(data):
+            personal.append({"id": data["id"], "title": data.get("title", ""), "for": personal_name(data),
+                             "approved": data.get("approved") is True})
         if personal_name(data) and data.get("approved") is not True:
             previews.append(story_file.parent)
             continue
@@ -772,6 +775,7 @@ def cmd_stage():
         entry["cover"] = f"stories/{entry['id']}/{by_id[entry['id']]['cover']['image']}"
     write_index(BUILD_DIR / "stories" / "index.json", entries)
     stage_previews(previews)
+    write_admin_info(entries, personal, invalid)
     add_asset_versions(BUILD_DIR)
     write_seo_files(BUILD_DIR, published)
     write_share_pages(BUILD_DIR, published)
@@ -779,14 +783,20 @@ def cmd_stage():
     return 0
 
 
+def admin_password():
+    """Parola administratorului: secretul ADMIN_PASSWORD (PREVIEW_PASSWORD, numele vechi, merge în continuare)."""
+    import os
+
+    return os.environ.get("ADMIN_PASSWORD") or os.environ.get("PREVIEW_PASSWORD") or ""
+
+
 def stage_previews(folders):
     """Poveștile personalizate neaprobate NU rămân în partea publică (stories/): se mută în api/data/previzualizare/,
-    pe care serverul nu îl servește direct, și se citesc doar prin api/previzualizare.php, cu parola
-    PREVIEW_PASSWORD. Pe server ajunge doar o amprentă cu sare a parolei, nu parola."""
-    import os
+    pe care serverul nu îl servește direct, și se citesc doar prin api/previzualizare.php, după autentificarea
+    administratorului. Pe server ajunge doar o amprentă cu sare a parolei (api/data/parola.json), nu parola."""
     import secrets
 
-    password = os.environ.get("PREVIEW_PASSWORD", "")
+    password = admin_password()
     target = BUILD_DIR / "api" / "data" / "previzualizare"
     for folder in folders:
         if password:
@@ -795,12 +805,50 @@ def stage_previews(folders):
             print(f"[previzualizare] {folder.name}: doar cu parola, până la aprobare")
         else:
             shutil.rmtree(folder)
-            print(f"[nepublicată] {folder.name}: personalizată neaprobată; adaugă secretul PREVIEW_PASSWORD "
+            print(f"[nepublicată] {folder.name}: personalizată neaprobată; adaugă secretul ADMIN_PASSWORD "
                   "ca s-o poți previzualiza")
     if password:
         salt = secrets.token_hex(16)
         config = {"salt": salt, "hash": hashlib.sha256((salt + password).encode("utf-8")).hexdigest()}
-        (BUILD_DIR / "api" / "data" / "previzualizare.json").write_text(json.dumps(config) + "\n", encoding="utf-8")
+        (BUILD_DIR / "api" / "data").mkdir(parents=True, exist_ok=True)
+        (BUILD_DIR / "api" / "data" / "parola.json").write_text(json.dumps(config) + "\n", encoding="utf-8")
+
+
+def write_admin_info(entries, personal, invalid):
+    """api/data/admin-info.json: ce știe panoul de administrare despre site (privat, ca toate datele din api/data):
+    poveștile publicate, cele cu probleme, cele personalizate, versiunea publicată și costul imaginilor."""
+    import os
+    import subprocess
+    from datetime import datetime, timezone
+
+    try:
+        commit = os.environ.get("GITHUB_SHA") or subprocess.run(
+            ["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True).stdout.strip()
+    except OSError:
+        commit = ""
+    problems = []
+    for folder, data in load_stories():
+        if folder.name in invalid:
+            errors = validate_story(folder, data)[0]
+            title = data.get("title") if isinstance(data, dict) else ""
+            problems.append({"id": folder.name, "title": title or folder.name, "errors": errors[:5], "count": len(errors)})
+    try:
+        budget = json.loads((REPORTS_DIR / "buget-imagini.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        budget = {}
+    info = {
+        "built": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "commit": commit,
+        "categories": {key: {"label": label, "emoji": emoji} for key, (label, emoji) in canon.CATEGORIES.items()},
+        "stories": [{k: e.get(k) for k in ("id", "title", "published", "minutes", "pages", "age", "categories")}
+                    for e in entries],
+        "problems": problems,
+        "personal": personal,
+        "image_budget": budget,
+    }
+    target = BUILD_DIR / "api" / "data" / "admin-info.json"
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(json.dumps(info, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
 
 def add_asset_versions(site):
@@ -826,7 +874,7 @@ def write_seo_files(site, stories):
     (site / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         f"{entries}</urlset>\n", encoding="utf-8")
-    (site / "robots.txt").write_text(f"User-agent: *\nDisallow: /api/\nSitemap: {base}/sitemap.xml\n", encoding="utf-8")
+    (site / "robots.txt").write_text(f"User-agent: *\nDisallow: /api/\nDisallow: /admin.html\nSitemap: {base}/sitemap.xml\n", encoding="utf-8")
 
 
 def write_share_pages(site, stories):

@@ -2,66 +2,20 @@
 // Previzualizarea protejată a poveștilor personalizate neaprobate.
 //
 // Poveștile neaprobate NU stau în partea publică a site-ului, ci în api/data/previzualizare/<id>/, pe care serverul
-// nu îl servește direct. Le poate citi doar cine a introdus parola de previzualizare (secretul PREVIEW_PASSWORD
-// din GitHub; pe server stă doar o amprentă cu sare a ei, în api/data/previzualizare.json).
+// nu îl servește direct. Le poate citi doar administratorul, după autentificare (aceeași parolă ca la panoul
+// de administrare, secretul ADMIN_PASSWORD din GitHub; vezi comun.php).
 //
-// POST (parola=…)          → verifică parola și pune un cookie de sesiune (12 ore), HttpOnly, Secure, SameSite=Strict
+// POST (parola=…)          → autentificare (sesiune de 12 ore, cookie HttpOnly, Secure, SameSite=Strict)
 // GET ?stare=1             → {"autentificat": true|false}
 // GET ?id=<id>&f=<fișier>  → fișierul poveștii (story.json, imagini, voce), doar cu sesiune validă
 require __DIR__ . '/comun.php';
 
-const SESSION_SECONDS = 43200;
-const COOKIE = 'iamlio_previzualizare';
-const MAX_FAILED_PER_HOUR = 10;
-
 header('X-Robots-Tag: noindex, nofollow');
-
-function session_valid()
-{
-    $value = isset($_COOKIE[COOKIE]) ? (string) $_COOKIE[COOKIE] : '';
-    if (!preg_match('/^(\d+)\.([a-f0-9]{64})$/', $value, $m)) {
-        return false;
-    }
-    $expected = hash_hmac('sha256', 'previzualizare|' . $m[1], secret_key());
-    return (int) $m[1] > time() && hash_equals($expected, $m[2]);
-}
-
-function password_ok($password)
-{
-    $config = read_json_file(data_path('previzualizare.json'));
-    if (empty($config['salt']) || empty($config['hash']) || $password === '') {
-        return false;
-    }
-    return hash_equals((string) $config['hash'], hash('sha256', $config['salt'] . $password));
-}
 
 $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 
 if ($method === 'POST') {
-    // limită de încercări greșite pe adresă, ca parola să nu poată fi ghicită prin încercări repetate
-    $lock = lock_resource('previzualizare');
-    $file = data_path('previzualizare-incercari.json');
-    $now = time();
-    $attempts = array_filter(read_json_file($file), function ($entry) use ($now) {
-        return is_array($entry) && isset($entry[0], $entry[1]) && $now - $entry[0] < 3600;
-    });
-    $who = visitor_mark('previzualizare');
-    $failed = isset($attempts[$who]) ? (int) $attempts[$who][1] : 0;
-    if ($failed >= MAX_FAILED_PER_HOUR) {
-        send_json(429, ['error' => 'prea multe încercări; mai încearcă peste o oră']);
-    }
-    if (!password_ok(isset($_POST['parola']) ? (string) $_POST['parola'] : '')) {
-        $attempts[$who] = [isset($attempts[$who]) ? $attempts[$who][0] : $now, $failed + 1];
-        write_json_atomic($file, (object) $attempts);
-        sleep(1);
-        send_json(401, ['error' => 'parolă greșită']);
-    }
-    $expires = $now + SESSION_SECONDS;
-    $secure = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off';
-    setcookie(COOKIE, $expires . '.' . hash_hmac('sha256', 'previzualizare|' . $expires, secret_key()), [
-        'expires' => $expires, 'path' => '/', 'secure' => $secure, 'httponly' => true, 'samesite' => 'Strict',
-    ]);
-    send_json(200, ['autentificat' => true]);
+    admin_login();
 }
 
 if ($method !== 'GET') {
@@ -70,10 +24,10 @@ if ($method !== 'GET') {
 }
 
 if (isset($_GET['stare'])) {
-    send_json(200, ['autentificat' => session_valid()]);
+    send_json(200, ['autentificat' => admin_session_valid()]);
 }
 
-if (!session_valid()) {
+if (!admin_session_valid()) {
     send_json(401, ['error' => 'previzualizarea cere parola']);
 }
 

@@ -67,7 +67,9 @@ jobs:
           fi
           code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 20 "$SITE_URL/api/previzualizare.php?id=x&f=story.json")
           [ "$code" = "401" ] || problems="$problems\n- previzualizarea fără parolă răspunde cu HTTP $code (trebuia 401)"
-          for private in citiri.json cheie.txt previzualizare.json; do
+          code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 20 "$SITE_URL/api/admin.php")
+          [ "$code" = "401" ] || problems="$problems\n- panoul de administrare răspunde fără parolă (HTTP $code; trebuia 401)"
+          for private in citiri.json cheie.txt parola.json admin-info.json vizite.json erori.json; do
             code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 20 "$SITE_URL/api/data/$private")
             [ "$code" = "403" ] || [ "$code" = "404" ] || problems="$problems\n- api/data/$private e accesibil public (HTTP $code)"
           done

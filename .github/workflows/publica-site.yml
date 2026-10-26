@@ -166,6 +166,8 @@ jobs:
 
       - name: Actualizează biblioteca și pregătește site-ul (poveștile valide sau ultima lor versiune bună)
         env:
+          # parola administratorului (panoul de administrare și previzualizarea poveștilor personalizate)
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
           PREVIEW_PASSWORD: ${{ secrets.PREVIEW_PASSWORD }}
           # la o publicare reală se notează data la care apare fiecare poveste nouă (pentru „Nou”)
           PUBLICARE: ${{ env.NORMAL == 'true' && '1' || '' }}
@@ -217,6 +219,11 @@ jobs:
             api/data/cheie.txt
             api/data/*.lock
             api/data/previzualizare-incercari.json
+            api/data/autentificare-incercari.json
+            api/data/vizite.json
+            api/data/erori.json
+            api/data/erori-vizitatori.json
+            api/data/*.tmp
             api/data/copii/**
 
       - name: Verifică site-ul live
@@ -232,10 +239,12 @@ jobs:
           if [ -n "$first" ]; then
             fetch "stories/$first/audio/manifest.json" | diff -q - "build/site/stories/$first/audio/manifest.json"
           fi
-          for private in citiri.json cheie.txt previzualizare.json; do
+          for private in citiri.json cheie.txt parola.json admin-info.json vizite.json erori.json; do
             code=$(curl -s -o /dev/null -w "%{http_code}" "$SITE_URL/api/data/$private")
             [ "$code" = "403" ] || [ "$code" = "404" ] || { echo "::error::api/data/$private este accesibil public (HTTP $code)"; exit 1; }
           done
+          code=$(curl -s -o /dev/null -w "%{http_code}" "$SITE_URL/api/admin.php")
+          [ "$code" = "401" ] || { echo "::error::api/admin.php răspunde fără autentificare (HTTP $code)"; exit 1; }
           # poveștile personalizate neaprobate: niciun fișier fără parola de previzualizare
           for preview in build/site/api/data/previzualizare/*/; do
             [ -d "$preview" ] || continue

@@ -45,7 +45,7 @@ Folosește doar prenumele, respectă secțiunea „Povești personalizate” din
 La final dă-mi link-ul secret din rapoarte/<id>.md.
 ```
 
-Apoi deschide link-ul de previzualizare (îți cere parola de previzualizare, secretul `PREVIEW_PASSWORD`) și, dacă e
+Apoi deschide link-ul de previzualizare (îți cere parola de administrator, secretul `ADMIN_PASSWORD`) și, dacă e
 în regulă, scrie-i AI-ului: „aprobă povestea <id>”.
 
 ---

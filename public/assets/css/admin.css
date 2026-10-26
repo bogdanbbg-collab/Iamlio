@@ -1,0 +1,128 @@
+/* Panoul de administrare (admin.html). Culorile vin din style.css. */
+
+.admin { background: #FBF6EE; }
+.admin-header { display: flex; align-items: center; gap: 12px; }
+.admin-badge { padding: 4px 12px; border-radius: 999px; background: var(--night); color: #fff; font-weight: 700; font-size: .9rem; }
+.admin-header .admin-btn { margin-left: auto; }
+
+.admin-main { max-width: 1180px; margin: 0 auto; padding: 0 16px 48px; }
+.admin-main h1 { margin: 0; font-size: 1.8rem; }
+.admin-main h2 { margin: 0 0 4px; font-size: 1.25rem; }
+.admin-main h3 { margin: 18px 0 8px; font-size: 1.05rem; }
+.admin-muted { margin: 0 0 12px; color: var(--ink-soft); font-size: .9rem; }
+.admin-ok { margin: 0; color: var(--teal-dark); font-weight: 700; }
+.admin-message { min-height: 1.4em; margin: 0; color: #A3122A; font-weight: 600; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.admin-btn {
+  min-height: 44px;
+  padding: 0 18px;
+  border: 2px solid #E6D6BC;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  font: 700 1rem/1 var(--font);
+  cursor: pointer;
+}
+.admin-btn:hover { border-color: var(--orange); }
+.admin-btn[hidden] { display: none; }
+
+.admin-card {
+  margin-top: 16px;
+  padding: 18px 20px;
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(43, 45, 66, .07);
+  min-width: 0;
+}
+.admin-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.admin-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 0 16px; }
+
+.admin-login { max-width: 380px; margin: 40px auto 0; display: flex; flex-direction: column; gap: 10px; }
+.admin-login[hidden], #panel[hidden] { display: none; }
+.admin-login label { font-weight: 700; }
+.admin-login input { font: inherit; font-size: 1.1rem; padding: 10px 14px; border: 2px solid #CDBFA8; border-radius: 14px; }
+.admin-login input:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+
+.admin-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-top: 8px; }
+.admin-toolbar .admin-muted { margin: 0; }
+.admin-toolbar .admin-btn { margin-left: auto; }
+
+/* Cifrele principale */
+.admin-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 160px), 1fr)); gap: 12px; margin-top: 16px; }
+.admin-tile { padding: 14px 16px; border-radius: 18px; background: #fff; box-shadow: 0 4px 16px rgba(43, 45, 66, .07); border-top: 4px solid var(--teal); }
+.admin-tile.is-warn { border-top-color: #C2410C; }
+.admin-tile p { margin: 0; }
+.admin-tile-label { color: var(--ink-soft); font-size: .85rem; font-weight: 600; }
+.admin-tile-value { font-size: 2rem; font-weight: 800; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.admin-tile-note { color: var(--ink-soft); font-size: .8rem; }
+
+/* Grafic cu bare verticale: o singură serie, bare subțiri cu colțuri rotunjite sus, 2 px între ele */
+.admin-bars {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  align-items: end;
+  gap: 2px;
+  height: 160px;
+  padding-top: 8px;
+  border-bottom: 1px solid #E6DCCB;
+}
+.admin-bar { position: relative; height: 100%; display: flex; align-items: flex-end; cursor: default; outline: none; }
+.admin-bar-fill { display: block; width: 100%; border-radius: 4px 4px 0 0; background: var(--teal); }
+.admin-bar:hover .admin-bar-fill, .admin-bar:focus-visible .admin-bar-fill { background: var(--teal-dark); }
+.admin-bar:focus-visible { box-shadow: 0 0 0 2px var(--orange); border-radius: 4px; }
+.admin-bar:hover::after, .admin-bar:focus-visible::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: var(--ink);
+  color: #fff;
+  font-size: .8rem;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.admin-bar:first-child:hover::after, .admin-bar:first-child:focus-visible::after { left: 0; transform: none; }
+.admin-bar:last-child:hover::after, .admin-bar:last-child:focus-visible::after { left: auto; right: 0; transform: none; }
+.admin-bars-axis { display: flex; justify-content: space-between; margin-top: 6px; color: var(--ink-soft); font-size: .8rem; }
+
+/* Bare orizontale (categorii) */
+.admin-hbars { display: flex; flex-direction: column; gap: 6px; }
+.admin-hbar { display: grid; grid-template-columns: minmax(0, 11em) 1fr 2.5em; align-items: center; gap: 10px; font-size: .9rem; }
+.admin-hbar-track { height: 10px; border-radius: 4px; background: #F3EBDD; overflow: hidden; }
+.admin-hbar-fill { display: block; height: 100%; border-radius: 4px; background: var(--teal); }
+.admin-hbar-value { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; }
+
+/* Tabele */
+.admin-table-wrap { overflow-x: auto; }
+.admin-table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.admin-table th, .admin-table td { padding: 8px 10px; text-align: left; border-bottom: 1px solid #F0E6D6; vertical-align: top; }
+.admin-table th { color: var(--ink-soft); font-weight: 700; font-size: .85rem; }
+.admin-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+.admin-table a { color: var(--orange-dark); font-weight: 700; }
+.admin-errors td:nth-child(2) { min-width: 16em; }
+.admin-error-message { display: block; font-weight: 600; word-break: break-word; }
+.admin-error-source { display: block; margin: 2px 0 0; word-break: break-all; }
+.admin-details { margin-top: 10px; }
+.admin-details summary { cursor: pointer; color: var(--orange-dark); font-weight: 700; }
+
+.admin-facts { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; }
+.admin-facts dt { color: var(--ink-soft); }
+.admin-facts dd { margin: 0; font-weight: 700; }
+
+.admin-todo { padding: 10px 14px; margin-bottom: 10px; border-radius: 14px; background: #FFF4E0; }
+.admin-todo.is-problem { background: #FDECEC; }
+.admin-todo ul { margin: 6px 0; padding-left: 1.2em; }
+.admin-todo p { margin: 4px 0 0; }
+.admin-todo a { color: var(--orange-dark); font-weight: 700; }
+
+@media (max-width: 520px) {
+  .admin-facts { grid-template-columns: 1fr; gap: 0; }
+  .admin-facts dd { margin-bottom: 8px; }
+  .admin-hbar { grid-template-columns: minmax(0, 8em) 1fr 2em; }
+}

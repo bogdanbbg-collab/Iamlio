@@ -1,7 +1,7 @@
 __pycache__/
 .DS_Store
 *.pyc
-public/api/data/citiri.json
+public/api/data/*
+!public/api/data/.htaccess
 build/
 node_modules/
-public/api/data/cheie.txt

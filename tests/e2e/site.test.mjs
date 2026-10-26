@@ -51,7 +51,7 @@ function addExtraStories(root) {
   }
   writeFileSync(join(root, "stories/index.json"), JSON.stringify(library));
   // povești personalizate: au doar link secret, nu intră în bibliotecă; cea neaprobată stă în zona protejată,
-  // exact cum o pune `stories.py stage` când există PREVIEW_PASSWORD
+  // exact cum o pune `stories.py stage` când există ADMIN_PASSWORD
   for (const [id, approved] of [["test-ana-k7p2qx", false], ["test-ana-aprobata-q9w3zz", true]]) {
     const folder = approved ? join(root, "stories", id) : join(root, "api/data/previzualizare", id);
     cpSync(join(root, "stories", STORY.id), folder, { recursive: true });
@@ -61,7 +61,7 @@ function addExtraStories(root) {
     writeFileSync(file, JSON.stringify(story));
   }
   const salt = "sare-de-test";
-  writeFileSync(join(root, "api/data/previzualizare.json"),
+  writeFileSync(join(root, "api/data/parola.json"),
     JSON.stringify({ salt, hash: createHash("sha256").update(salt + PREVIEW_PASSWORD).digest("hex") }));
 }
 

@@ -21,9 +21,9 @@ Site cu povești ilustrate pentru copii de 3–7 ani, în limba română. Pagini
 Cere-i AI-ului, de exemplu: „Fă o poveste personalizată pentru Ana, 4 ani, despre dinozauri” (textul complet e în
 `PROMPT_POVESTE.md`). Povestea primește un **link secret** și nu apare în bibliotecă și nici în Google.
 **Până o aprobi, nu e publică deloc:** stă pe server într-o zonă protejată și se deschide doar cu parola de
-previzualizare (secretul `PREVIEW_PASSWORD`, vezi mai jos), la adresa `poveste.html?previzualizare=<id>` din
+administrator (secretul `ADMIN_PASSWORD`, vezi mai jos), la adresa `poveste.html?previzualizare=<id>` din
 `rapoarte/<poveste>.md`. Citește povestea și, dacă e în regulă, spune-i AI-ului „aprobă povestea <id>”. După
-publicare, raportul arată link-ul pentru părinți (`poveste.html?id=<id>`). Fără secretul `PREVIEW_PASSWORD`,
+publicare, raportul arată link-ul pentru părinți (`poveste.html?id=<id>`). Fără secretul `ADMIN_PASSWORD`,
 poveștile neaprobate nu se urcă deloc pe host.
 Se folosește doar prenumele copilului. Ca să ștergi o poveste personalizată, șterge-i folderul din
 `public/stories/` (sau cere-i AI-ului) — dispare de pe site la următoarea publicare.
@@ -97,6 +97,15 @@ Fără cheie, imaginile lipsă apar în raport ca „de corectat”.
   și pornește: se republică exact acea versiune, fără să se modifice nimic în repository. Pentru a anula definitiv
   o modificare: **Revert** pe commit-ul cu problema (sau `git revert <commit>` și push).
 
+## Panoul de administrare
+
+`https://iamlio.ro/admin.html`, cu parola din secretul `ADMIN_PASSWORD` (aceeași deschide și previzualizarea
+poveștilor personalizate). Arată: vizitatorii și paginile afișate pe zi, poveștile deschise pe zi și clasamentul
+lor, biblioteca pe categorii, ce e de rezolvat (povești nepublicate, personalizate care așteaptă aprobarea),
+erorile din browserele vizitatorilor și de pe server (ultimele 14 zile) și versiunea publicată.
+Statisticile sunt doar totaluri pe zi, fără cookie-uri pentru vizitatori și fără adrese IP; vizitele tale, cât
+ești autentificat, nu se numără. Sesiunea durează 12 ore; după 10 parole greșite într-o oră, încercările se blochează.
+
 ## Monitorizare
 
 Workflow-ul **Monitorizare site** verifică site-ul live în fiecare oră (pagina, biblioteca, o poveste, ambele
@@ -134,7 +143,7 @@ Dacă hostul nu are PHP, site-ul funcționează normal, doar fără contor.
 | `FTP_PASSWORD` | parola contului FTP | da |
 | `FTP_SERVER_DIR` | `public_html/` (cu `/` la final) | nu (implicit `./`) |
 | `FTP_PORT` | `21` | nu |
-| `PREVIEW_PASSWORD` | o parolă lungă, doar a ta | doar pentru povești personalizate |
+| `ADMIN_PASSWORD` | o parolă lungă, doar a ta | pentru panoul de administrare și previzualizarea poveștilor personalizate |
 
 Apoi rulează din nou workflow-ul **Publică site-ul** din tab-ul **Actions** (sau fă orice push).
 

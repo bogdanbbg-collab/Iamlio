@@ -529,7 +529,10 @@
       audio.src = url;
       applyAudioSettings();
       audio.onended = function () { onReadEnd(token); };
-      audio.onerror = function () { if (token === playToken) speak(item.speech, token); };
+      audio.onerror = function () {
+        Iamlio.reportError("audio", "fișierul audio nu s-a putut reda", url.split("?")[0], 0);
+        if (token === playToken) speak(item.speech, token);
+      };
       audio.play().then(function () { autoStarting = false; }, function () {
         if (token !== playToken) return;
         if (autoStarting) {

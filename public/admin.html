@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Administrare — Iamlio</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#FFF4E0">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/baloo2-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="admin">
+  <header class="site-header admin-header">
+    <a class="brand" href="./">
+      <img src="favicon.svg" alt="" width="44" height="44">
+      <span>I am <strong>Lio</strong></span>
+    </a>
+    <span class="admin-badge">Administrare</span>
+    <button id="logout" class="admin-btn" type="button" hidden>Ieși</button>
+  </header>
+
+  <main class="admin-main">
+    <form id="login" class="admin-card admin-login" hidden>
+      <h1>Administrare</h1>
+      <label for="password">Parola</label>
+      <input id="password" name="parola" type="password" autocomplete="current-password" required>
+      <button class="pill" type="submit">Intră</button>
+      <p id="login-message" class="admin-message" role="status"></p>
+    </form>
+
+    <div id="panel" hidden>
+      <div class="admin-toolbar">
+        <h1>Panoul lui Lio</h1>
+        <p id="updated" class="admin-muted"></p>
+        <button id="refresh" class="admin-btn" type="button">Reîmprospătează</button>
+      </div>
+
+      <section aria-labelledby="tiles-title">
+        <h2 id="tiles-title" class="visually-hidden">Pe scurt</h2>
+        <div id="tiles" class="admin-tiles"></div>
+      </section>
+
+      <div class="admin-grid">
+        <section class="admin-card" aria-labelledby="visits-title">
+          <h2 id="visits-title">Vizitatori pe zi</h2>
+          <p class="admin-muted">Ultimele 30 de zile · aproximativ: o rețea comună (o familie, o grădiniță) contează o dată pe zi</p>
+          <div id="chart-visits"></div>
+        </section>
+
+        <section class="admin-card" aria-labelledby="reads-title">
+          <h2 id="reads-title">Povești deschise pe zi</h2>
+          <p class="admin-muted">Ultimele 30 de zile · aceeași poveste se numără cel mult o dată la 30 de minute de pe aceeași rețea</p>
+          <div id="chart-reads"></div>
+        </section>
+      </div>
+
+      <section class="admin-card" aria-labelledby="top-title">
+        <h2 id="top-title">Cele mai citite povești</h2>
+        <div id="top" class="admin-table-wrap"></div>
+      </section>
+
+      <div class="admin-grid">
+        <section class="admin-card" aria-labelledby="library-title">
+          <h2 id="library-title">Biblioteca</h2>
+          <div id="library"></div>
+        </section>
+
+        <section class="admin-card" aria-labelledby="todo-title">
+          <h2 id="todo-title">De rezolvat</h2>
+          <div id="todo"></div>
+        </section>
+      </div>
+
+      <section class="admin-card" aria-labelledby="errors-title">
+        <div class="admin-card-head">
+          <h2 id="errors-title">Erori (ultimele 14 zile)</h2>
+          <button id="clear-errors" class="admin-btn" type="button" hidden>Șterge lista</button>
+        </div>
+        <div id="errors"></div>
+      </section>
+
+      <section class="admin-card" aria-labelledby="system-title">
+        <h2 id="system-title">Sistem</h2>
+        <div id="system"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="assets/js/admin.js" defer></script>
+</body>
+</html>

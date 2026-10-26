@@ -287,17 +287,17 @@ class PersonalizedTests(StoryCase):
             public = build / "stories" / "ana-k7p2qx"
             public.mkdir(parents=True)
             (public / "story.json").write_text("{}", encoding="utf-8")
-            with mock.patch.object(stories, "BUILD_DIR", build), mock.patch.dict("os.environ", {"PREVIEW_PASSWORD": "secret"}):
+            with mock.patch.object(stories, "BUILD_DIR", build), mock.patch.dict("os.environ", {"ADMIN_PASSWORD": "secret"}):
                 stories.stage_previews([public])
             self.assertFalse(public.exists())
             self.assertTrue((build / "api/data/previzualizare/ana-k7p2qx/story.json").exists())
-            config = json.loads((build / "api/data/previzualizare.json").read_text(encoding="utf-8"))
+            config = json.loads((build / "api/data/parola.json").read_text(encoding="utf-8"))
             self.assertNotIn("secret", json.dumps(config))
             self.assertEqual(config["hash"], hashlib.sha256((config["salt"] + "secret").encode()).hexdigest())
 
             other = build / "stories" / "bob-q9w3zz"
             other.mkdir()
-            with mock.patch.object(stories, "BUILD_DIR", build), mock.patch.dict("os.environ", {"PREVIEW_PASSWORD": ""}):
+            with mock.patch.object(stories, "BUILD_DIR", build), mock.patch.dict("os.environ", {"ADMIN_PASSWORD": "", "PREVIEW_PASSWORD": ""}):
                 stories.stage_previews([other])
             self.assertFalse(other.exists(), "fără parolă, povestea neaprobată nu se urcă deloc")
             self.assertFalse((build / "api/data/previzualizare/bob-q9w3zz").exists())

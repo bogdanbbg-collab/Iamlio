@@ -216,7 +216,54 @@ window.Iamlio = (function () {
       .map(function (x) { return x.story; });
   }
 
+  // ---------- statistici pentru administrator (doar totaluri, fără cookie-uri; vezi api/vizita.php) ----------
+
+  function reportVisit() {
+    var body = document.body;
+    if (!body || body.classList.contains("admin") || !window.fetch) return;
+    var page = body.classList.contains("home") ? "acasa" : body.classList.contains("reader") ? "poveste" : "altele";
+    // răspunsul se citește până la capăt, ca cererea să se încheie (altfel browserul o poate ține deschisă)
+    fetch("api/vizita.php?pagina=" + page, { method: "POST" }).then(function (r) { return r.text(); }).catch(function () {});
+  }
+
+  // Erorile din pagină ajung în panoul de administrare (api/erori.php): mesajul, fișierul și pagina,
+  // fără date personale; cel mult 10 rapoarte pe pagină, fiecare eroare o singură dată.
+  var reported = {};
+  var reportsLeft = 10;
+
+  function reportError(type, message, source, line) {
+    var key = type + "|" + message + "|" + source + "|" + line;
+    if (reported[key] || reportsLeft <= 0 || !window.fetch) return;
+    reported[key] = true;
+    reportsLeft--;
+    var report = { tip: type, mesaj: String(message).slice(0, 300), sursa: String(source || "").slice(0, 200),
+      linie: line || 0, pagina: location.pathname + location.search };
+    fetch("api/erori.php", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(report) }).then(function (r) { return r.text(); }).catch(function () {});
+  }
+
+  window.addEventListener("error", function (event) {
+    var target = event.target;
+    if (target && target !== window && (target.tagName === "IMG" || target.tagName === "SOURCE" || target.tagName === "SCRIPT" ||
+        target.tagName === "LINK")) {
+      reportError(target.tagName === "IMG" ? "imagine" : "alta", "nu s-a încărcat", target.src || target.href || "", 0);
+      return;
+    }
+    // „Script error.” vine din scripturi de pe alte site-uri (extensii ale browserului): nu ne spune nimic util
+    if (!event.message || event.message === "Script error.") return;
+    reportError("js", event.message, event.filename, event.lineno);
+  }, true);
+
+  window.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    reportError("promisiune", reason && reason.message ? reason.message : String(reason), "", 0);
+  });
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", reportVisit);
+  else reportVisit();
+
   return {
+    reportError: reportError,
     readSetting: readSetting,
     writeSetting: writeSetting,
     getVoice: getVoice,
