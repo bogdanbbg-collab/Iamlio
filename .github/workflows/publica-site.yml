@@ -42,11 +42,17 @@ jobs:
         with:
           node-version: "22"
 
+      # pachetele ffmpeg păstrate între rulări (vezi scripts/instaleaza_ffmpeg.sh)
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/apt-ffmpeg
+          key: apt-ffmpeg-ubuntu-24.04-v1
+
       - name: Instalează uneltele (versiuni exacte din fișierele .lock)
-        timeout-minutes: 10
+        timeout-minutes: 15
         run: |
           pip install -r requirements.lock
-          command -v ffmpeg >/dev/null || (sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends ffmpeg)
+          scripts/instaleaza_ffmpeg.sh
           npm ci --no-audit --no-fund
           npx playwright install --with-deps chromium firefox webkit
 
@@ -117,11 +123,20 @@ jobs:
         with:
           python-version: "3.12"
 
+      # pachetele ffmpeg păstrate între rulări (vezi scripts/instaleaza_ffmpeg.sh)
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/apt-ffmpeg
+          key: apt-ffmpeg-ubuntu-24.04-v1
+
       - name: Instalează uneltele
-        timeout-minutes: 10
+        timeout-minutes: 15
         run: |
           if [ -f requirements.lock ]; then pip install -r requirements.lock; else pip install -r requirements.txt; fi
-          command -v ffmpeg >/dev/null || (sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends ffmpeg)
+          if [ -x scripts/instaleaza_ffmpeg.sh ]; then scripts/instaleaza_ffmpeg.sh; else
+            # o versiune veche (la revenire) nu are scriptul
+            command -v ffmpeg >/dev/null || (sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends ffmpeg)
+          fi
 
       # Repară automat ce e mecanic, generează imaginile lipsă (dacă există OPENAI_API_KEY), optimizează,
       # verifică și scrie rapoartele din rapoarte/. O poveste greșită nu ajunge pe site, dar nu le oprește pe celelalte.
