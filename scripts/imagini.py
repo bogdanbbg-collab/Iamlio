@@ -30,7 +30,10 @@ ca personajele să arate la fel pe toate paginile.
 
 import base64
 import os
+import re
 from pathlib import Path
+
+import canon
 
 DEFAULT_MODEL = "gpt-image-2"
 DEFAULT_QUALITY = "medium"
@@ -151,12 +154,13 @@ def enabled():
     return bool(providers())
 
 
-def single_client(name, story_id=""):
+def single_client(name, story_id="", characters=()):
     if name == "gemini":
         return GeminiClient(os.environ["GEMINI_API_KEY"], os.environ.get("GEMINI_IMAGE_MODEL") or GEMINI_MODEL)
     if name == "cloudflare":
         return CloudflareClient(os.environ["CLOUDFLARE_ACCOUNT_ID"], os.environ["CLOUDFLARE_API_TOKEN"],
-                                os.environ.get("CLOUDFLARE_IMAGE_MODEL") or CLOUDFLARE_MODEL, story_id)
+                                os.environ.get("CLOUDFLARE_IMAGE_MODEL") or CLOUDFLARE_MODEL, story_id,
+                                characters=characters)
     from openai import OpenAI
 
     client = OpenAI()
@@ -164,8 +168,8 @@ def single_client(name, story_id=""):
     return client
 
 
-def make_client(story_id=""):
-    clients = [single_client(name, story_id) for name in providers()]
+def make_client(story_id="", characters=()):
+    clients = [single_client(name, story_id, characters) for name in providers()]
     return clients[0] if len(clients) == 1 else ChainClient(clients)
 
 
@@ -264,6 +268,30 @@ CLOUDFLARE_MODEL = "@cf/black-forest-labs/flux-1-schnell"
 CLOUDFLARE_MAX_PROMPT = 2048
 WIDE = ("Wide horizontal 3:2 composition: keep every character and the main action in the middle of the frame, "
         "with some empty background at the top and bottom.")
+# FLUX citește doar începutul promptului (aproximativ 250 de cuvinte), așa că scena merge prima, apoi un stil scurt,
+# iar descrierile personajelor la urmă; altfel toate imaginile ieșeau portrete, fără ce se întâmplă pe pagină.
+SHORT_STYLE = ("3D animated feature film still for young children, cute expressive characters with big eyes, "
+               "soft warm cinematic lighting, rich gentle colors, nothing scary, no text, no letters. Show the whole "
+               "scene and the setting, characters with their full bodies, not a close-up portrait.")
+_LABEL = re.compile(r"Characters in this scene[^:]*:", re.I)
+
+
+def scene_first(prompt, characters=()):
+    """Promptul rearanjat pentru FLUX: scena (ce se întâmplă), stilul scurt, apoi descrierile personajelor."""
+    body = prompt.replace(canon.STYLE, " ")
+    people = []
+    for c in characters or ():
+        name, description = (c.get("name") or "").strip(), (c.get("description") or "").strip().rstrip(".")
+        if not description or description not in body:
+            continue
+        people.append(f"{name}: {description}" if name else description)
+        body = body.replace(f"{name}: {description}", " ").replace(description, " ") if name else body.replace(description, " ")
+    body = _LABEL.sub(" ", body)
+    scene = " ".join(re.sub(r"(?:\s*[;.,]\s*){2,}", ". ", " " + body).split()).lstrip(".;, ").strip()
+    parts = [scene, SHORT_STYLE, WIDE]
+    if people:
+        parts.append("Characters: " + "; ".join(people) + ".")
+    return " ".join(p for p in parts if p)[:CLOUDFLARE_MAX_PROMPT]
 
 
 class CloudflareImages:
@@ -281,10 +309,11 @@ class CloudflareImages:
 
 
 class CloudflareClient:
-    def __init__(self, account, token, model, story_id="", opener=None):
+    def __init__(self, account, token, model, story_id="", opener=None, characters=()):
         import zlib
 
         self.account, self.token, self.model = account, token, model
+        self.characters = list(characters or ())
         self.seed = zlib.crc32(story_id.encode("utf-8")) % 2_000_000_000  # aceeași pentru toată povestea
         self.images = CloudflareImages(self)
         self.opener = opener
@@ -293,7 +322,7 @@ class CloudflareClient:
         import json
         import urllib.request
 
-        prompt = (WIDE + " " + prompt)[:CLOUDFLARE_MAX_PROMPT]
+        prompt = scene_first(prompt, self.characters)
         body = {"prompt": prompt}
         if "flux-1-schnell" in self.model:
             body["steps"] = 8  # maximul modelului: cea mai bună calitate (modelul nu primește alți parametri)
@@ -361,7 +390,7 @@ def generate_missing(folder, data, client=None, budget=None):
     todo = missing(folder, data)
     if not todo:
         return [], [], 0
-    client = client or make_client(folder.name)
+    client = client or make_client(folder.name, data.get("characters"))
     model = getattr(client, "model", None) or os.environ.get("IMAGE_MODEL") or DEFAULT_MODEL
     quality = os.environ.get("IMAGE_QUALITY") or DEFAULT_QUALITY
     if not isinstance(budget, Budget):
@@ -400,7 +429,6 @@ def generate_missing(folder, data, client=None, budget=None):
 
 def test_providers(out_dir):
     """Generează câte o imagine de probă cu fiecare variantă configurată, separat. Întoarce [(variantă, mesaj, ok)]."""
-    import canon
 
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)

@@ -588,11 +588,25 @@ class CloudflareTests(unittest.TestCase):
         self.assertEqual(imagini.cost_lei(result), 0.0)
         body = sent[0]
         self.assertNotIn("reference image", body["prompt"], "fără referință: textul despre ea nu se trimite")
-        self.assertTrue(body["prompt"].startswith(imagini.WIDE))
+        self.assertTrue(body["prompt"].startswith("A hedgehog"), "scena e prima: FLUX citește doar începutul")
         self.assertLessEqual(len(body["prompt"]), imagini.CLOUDFLARE_MAX_PROMPT)
         # FLUX.1 schnell primește doar prompt și steps (alți parametri sunt refuzați de Cloudflare)
         self.assertEqual(set(body), {"prompt", "steps"})
         self.assertEqual(body["steps"], 8)
+
+    def test_scene_goes_first_and_character_descriptions_last(self):
+        characters = [{"name": "Aricel", "description": "a tiny round hedgehog with a teal scarf"},
+                      {"name": "Piu", "description": "a small sky-blue songbird"},
+                      {"name": "Lio", "description": "a lion cub who is not on this page"}]
+        prompt = (f"{canon.STYLE} Characters in this scene: Aricel: a tiny round hedgehog with a teal scarf; "
+                  "Piu: a small sky-blue songbird. Setting and action: Aricel jumps off a low stump with leaf wings.")
+        result = imagini.scene_first(prompt, characters)
+        self.assertTrue(result.startswith("Setting and action: Aricel jumps off a low stump"), result)
+        self.assertNotIn(canon.STYLE, result)
+        self.assertIn(imagini.SHORT_STYLE, result)
+        self.assertTrue(result.endswith("Characters: Aricel: a tiny round hedgehog with a teal scarf; "
+                                        "Piu: a small sky-blue songbird."), result)
+        self.assertNotIn("lion cub", result, "doar personajele din scenă")
 
     def test_models_that_answer_with_an_image_get_the_page_size(self):
         client, sent = self._client("image/png", self._image((1536, 1024), "PNG"), model="@cf/leonardo/lucid-origin")
