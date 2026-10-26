@@ -27,6 +27,8 @@ jobs:
   verifica:
     if: ${{ !inputs.versiune }}
     runs-on: ubuntu-24.04
+    # o rulare blocată (de ex. o instalare care nu se termină) se oprește singură, fără să țină publicările pe loc
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v5
         with:
@@ -41,6 +43,7 @@ jobs:
           node-version: "22"
 
       - name: Instalează uneltele (versiuni exacte din fișierele .lock)
+        timeout-minutes: 10
         run: |
           pip install -r requirements.lock
           command -v ffmpeg >/dev/null || (sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends ffmpeg)
@@ -88,6 +91,8 @@ jobs:
       always() && github.ref == 'refs/heads/master' && github.event_name != 'pull_request' &&
       (needs.verifica.result == 'success' || (needs.verifica.result == 'skipped' && inputs.versiune != ''))
     runs-on: ubuntu-24.04
+    # o rulare blocată (de ex. o instalare care nu se termină) se oprește singură, fără să țină publicările pe loc
+    timeout-minutes: 30
     permissions:
       contents: write
     env:
@@ -113,6 +118,7 @@ jobs:
           python-version: "3.12"
 
       - name: Instalează uneltele
+        timeout-minutes: 10
         run: |
           if [ -f requirements.lock ]; then pip install -r requirements.lock; else pip install -r requirements.txt; fi
           command -v ffmpeg >/dev/null || (sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends ffmpeg)

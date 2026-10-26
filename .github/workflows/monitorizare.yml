@@ -18,6 +18,7 @@ env:
 jobs:
   verifica:
     runs-on: ubuntu-24.04
+    timeout-minutes: 10
     steps:
       - name: Verifică pagina, biblioteca, o poveste, vocea și contorul
         id: check
