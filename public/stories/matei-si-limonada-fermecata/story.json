@@ -1,0 +1,475 @@
+{
+  "id": "matei-si-limonada-fermecata",
+  "title": "Matei și limonada fermecată",
+  "summary": "Matei îl ajută pe tata să facă limonadă, iar ulciorul fermecat al bunicului gustă fiecare încercare. Prea acră? Prea dulce? Matei găsește singur gustul potrivit!",
+  "age": "3-7",
+  "moral": "Lucrurile bune ies cu răbdare: puțin câte puțin și gustând pe drum.",
+  "learning": [
+    "gusturile acru și dulce",
+    "numărăm și măsurăm cu lingura",
+    "în bucătărie ne spălăm pe mâini, iar cuțitul e doar pentru cei mari"
+  ],
+  "created": "2026-10-26",
+  "tags": [
+    "limonadă",
+    "tata",
+    "gusturi",
+    "răbdare"
+  ],
+  "illustrationStyle": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered.",
+  "characters": [
+    {
+      "name": "Matei",
+      "description": "a cheerful five-year-old boy with short curly chestnut-brown hair, big round hazel eyes, rosy cheeks, a few freckles on his nose, wearing a bright yellow T-shirt with a small green leaf on the chest, blue denim shorts and red sneakers",
+      "voice": {
+        "type": "masculin",
+        "pitch": 24,
+        "rate": 4
+      }
+    },
+    {
+      "name": "Tata",
+      "description": "a tall friendly young father with short dark-brown hair, a neat short dark beard, kind brown eyes and round glasses, wearing a light-blue short-sleeved shirt and a green kitchen apron",
+      "voice": {
+        "type": "masculin",
+        "pitch": -4,
+        "rate": 0
+      }
+    },
+    {
+      "name": "Gâlgâilă",
+      "description": "a magical round old ceramic water pitcher, sky-blue with white polka dots, a curved handle, a small spout, a cute friendly cartoon face on its belly with big expressive eyes and a wide smile, its polka dots glow softly when it is happy",
+      "voice": {
+        "pitch": -10,
+        "rate": 6
+      }
+    },
+    {
+      "name": "Pufi",
+      "description": "a fluffy small ginger-and-white cat with big green eyes, a pink nose and a bushy striped tail"
+    }
+  ],
+  "cover": {
+    "image": "images/coperta.png",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Matei: a cheerful five-year-old boy with short curly chestnut-brown hair, big round hazel eyes, rosy cheeks, a few freckles on his nose, wearing a bright yellow T-shirt with a small green leaf on the chest, blue denim shorts and red sneakers; Tata: a tall friendly young father with short dark-brown hair, a neat short dark beard, kind brown eyes and round glasses, wearing a light-blue short-sleeved shirt and a green kitchen apron; Gâlgâilă: a magical round old ceramic water pitcher, sky-blue with white polka dots, a curved handle, a small spout, a cute friendly cartoon face on its belly with big expressive eyes and a wide smile, its polka dots glow softly when it is happy; Pufi: a fluffy small ginger-and-white cat with big green eyes, a pink nose and a bushy striped tail. Setting: a bright cozy family kitchen on a hot summer afternoon, sunlight through an open window, a wooden table, potted basil on the windowsill. Action: Matei and Tata stand together at the kitchen table smiling, with Gâlgâilă the magical blue polka-dot pitcher between them full of sparkling lemonade, glowing softly; Pufi sits on a chair watching. Emotions: joyful, warm, a little magical. Important details: a bowl of bright yellow lemons, a jar of honey, mint leaves, sparkles around the pitcher. Camera: wide cinematic cover shot."
+  },
+  "pages": [
+    {
+      "text": "Era o zi de vară atât de caldă, încât până și umbra căuta umbră. Matei s-a uitat la tata și a oftat lung. — Mi-e sete de ceva rece și bun! a spus el. — Atunci facem limonadă, a zis tata. — Și tu ești ajutorul meu cel mai important!",
+      "narration": [
+        {
+          "text": "Era o zi de vară atât de caldă, încât până și umbra căuta umbră.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Matei s-a uitat la tata și a oftat lung.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Mi-e sete de ceva rece și bun!",
+          "mood": "trist",
+          "speaker": "Matei"
+        },
+        {
+          "text": "a spus el.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Atunci facem limonadă,",
+          "mood": "vesel",
+          "speaker": "Tata"
+        },
+        {
+          "text": "a zis tata.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Și tu ești ajutorul meu cel mai important!",
+          "mood": "entuziasmat",
+          "speaker": "Tata"
+        }
+      ],
+      "image": "images/pagina-01.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Matei: a cheerful five-year-old boy with short curly chestnut-brown hair, big round hazel eyes, rosy cheeks, a few freckles on his nose, wearing a bright yellow T-shirt with a small green leaf on the chest, blue denim shorts and red sneakers; Tata: a tall friendly young father with short dark-brown hair, a neat short dark beard, kind brown eyes and round glasses, wearing a light-blue short-sleeved shirt and a green kitchen apron. Setting: a sunny garden in front of a small family house on a very hot summer day, a big tree giving shade, heat shimmering in the air. Action: Matei fans himself with his hand and sighs dramatically, while Tata kneels next to him and smiles, pointing toward the house as if he has a great idea. Emotions: Matei hot and thirsty but cute, Tata warm and cheerful. Important details: bright sun, a little dog-eared straw hat on the grass, flowers. Camera: wide shot."
+    },
+    {
+      "text": "Mai întâi, amândoi și-au spălat mâinile cu apă și săpun, până au făcut spumă ca niște nori mici. Apoi tata a coborât de pe raft un ulcior vechi, albastru, cu buline albe. Și atunci… ulciorul a clipit! — Bună ziua! Eu sunt Gâlgâilă! a gâlgâit el. Matei a rămas cu gura căscată.",
+      "narration": [
+        {
+          "text": "Mai întâi, amândoi și-au spălat mâinile cu apă și săpun, până au făcut spumă ca niște nori mici.",
+          "mood": "calm"
+        },
+        {
+          "text": "Apoi tata a coborât de pe raft un ulcior vechi, albastru, cu buline albe.",
+          "mood": "calm"
+        },
+        {
+          "text": "Și atunci… ulciorul a clipit!",
+          "mood": "misterios",
+          "pause": 0.6
+        },
+        {
+          "text": "— Bună ziua! Eu sunt Gâlgâilă!",
+          "mood": "vesel",
+          "speaker": "Gâlgâilă"
+        },
+        {
+          "text": "a gâlgâit el.",
+          "mood": "calm"
+        },
+        {
+          "text": "Matei a rămas cu gura căscată.",
+          "mood": "mirat"
+        }
+      ],
+      "image": "images/pagina-02.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Matei: a cheerful five-year-old boy with short curly chestnut-brown hair, big round hazel eyes, rosy cheeks, a few freckles on his nose, wearing a bright yellow T-shirt with a small green leaf on the chest, blue denim shorts and red sneakers; Tata: a tall friendly young father with short dark-brown hair, a neat short dark beard, kind brown eyes and round glasses, wearing a light-blue short-sleeved shirt and a green kitchen apron; Gâlgâilă: a magical round old ceramic water pitcher, sky-blue with white polka dots, a curved handle, a small spout, a cute friendly cartoon face on its belly with big expressive eyes and a wide smile, its polka dots glow softly when it is happy. Setting: a bright cozy family kitchen on a hot summer afternoon, sunlight through an open window, a wooden table, potted basil on the windowsill. Action: Tata holds Gâlgâilă, the old blue polka-dot pitcher, just taken down from a shelf; the pitcher opens its big eyes and smiles; Matei, with soapy foam still on his hands, stares with his mouth wide open. Emotions: Matei amazed, Tata amused, Gâlgâilă friendly and cheerful. Important details: soap foam on Matei's hands, a wooden shelf with jars, the kitchen sink. Camera: medium shot."
+    },
+    {
+      "text": "— Ulciorul bunicului e fermecat, a șoptit tata. — Simte gustul a tot ce torni în el. Apoi tata a luat cuțitul și a tăiat trei lămâi în jumătăți. — Cuțitul e treaba celor mari. Tu ai o treabă și mai grozavă: storci lămâile!",
+      "narration": [
+        {
+          "text": "— Ulciorul bunicului e fermecat,",
+          "mood": "șoptit",
+          "speaker": "Tata"
+        },
+        {
+          "text": "a șoptit tata.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Simte gustul a tot ce torni în el.",
+          "mood": "șoptit",
+          "speaker": "Tata"
+        },
+        {
+          "text": "Apoi tata a luat cuțitul și a tăiat trei lămâi în jumătăți.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Cuțitul e treaba celor mari. Tu ai o treabă și mai grozavă: storci lămâile!",
+          "mood": "hotărât",
+          "speaker": "Tata"
+        }
+      ],
+      "image": "images/pagina-03.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Matei: a cheerful five-year-old boy with short curly chestnut-brown hair, big round hazel eyes, rosy cheeks, a few freckles on his nose, wearing a bright yellow T-shirt with a small green leaf on the chest, blue denim shorts and red sneakers; Tata: a tall friendly young father with short dark-brown hair, a neat short dark beard, kind brown eyes and round glasses, wearing a light-blue short-sleeved shirt and a green kitchen apron; Gâlgâilă: a magical round old ceramic water pitcher, sky-blue with white polka dots, a curved handle, a small spout, a cute friendly cartoon face on its belly with big expressive eyes and a wide smile, its polka dots glow softly when it is happy. Setting: a bright cozy family kitchen on a hot summer afternoon, sunlight through an open window, a wooden table, potted basil on the windowsill. Action: Tata carefully cuts lemons in halves on a wooden cutting board, keeping the knife on his side of the table, while Matei stands on a little stool across the table with his hands behind his back, watching; Gâlgâilă sits on the table, smiling. Emotions: Matei eager and attentive, Tata calm and careful, Gâlgâilă curious. Important details: three bright yellow lemons cut in halves, a wooden cutting board, a glass lemon squeezer. Camera: medium shot."
+    },
+    {
+      "text": "Matei a numărat jumătățile: una, două, trei, patru, cinci, șase. Șase jumătăți galbene, ca șase sori mici. A pus una pe storcător, o ciupercuță de sticlă pe care învârți lămâia, și a apăsat cu putere. Pfff! Un strop de suc a sărit drept pe ochelarii lui tata. — Ploaie de lămâie! a râs tata.",
+      "narration": [
+        {
+          "text": "Matei a numărat jumătățile: una, două, trei, patru, cinci, șase.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Șase jumătăți galbene, ca șase sori mici.",
+          "mood": "calm"
+        },
+        {
+          "text": "A pus una pe storcător, o ciupercuță de sticlă pe care învârți lămâia, și a apăsat cu putere.",
+          "mood": "hotărât"
+        },
+        {
+          "text": "Pfff!",
+          "mood": "entuziasmat",
+          "pause": 0.5
+        },
+        {
+          "text": "Un strop de suc a sărit drept pe ochelarii lui tata.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Ploaie de lămâie!",
+          "mood": "vesel",
+          "speaker": "Tata"
+        },
+        {
+          "text": "a râs tata.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-04.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Matei: a cheerful five-year-old boy with short curly chestnut-brown hair, big round hazel eyes, rosy cheeks, a few freckles on his nose, wearing a bright yellow T-shirt with a small green leaf on the chest, blue denim shorts and red sneakers; Tata: a tall friendly young father with short dark-brown hair, a neat short dark beard, kind brown eyes and round glasses, wearing a light-blue short-sleeved shirt and a green kitchen apron. Setting: a bright cozy family kitchen on a hot summer afternoon, sunlight through an open window, a wooden table, potted basil on the windowsill. Action: Matei presses half a lemon hard on a glass lemon squeezer and a funny little squirt of lemon juice flies straight onto Tata's round glasses; Tata laughs with drops on his glasses. Emotions: Matei surprised and giggling, Tata laughing. Important details: six bright yellow lemon halves in a row on the table, a glass lemon squeezer, tiny drops of juice in the air. Camera: close-up of both faces and hands."
+    },
+    {
+      "text": "Pufi, pisica, a venit să vadă ce miroase așa de frumos. A adulmecat o jumătate de lămâie și… Hapciu! Pufi a strănutat atât de tare, încât i s-au zbârlit toate mustățile. Apoi s-a ascuns sub masă, foarte supărată pe lămâie. Matei a râs de s-a ținut cu mâinile de burtică.",
+      "narration": [
+        {
+          "text": "Pufi, pisica, a venit să vadă ce miroase așa de frumos.",
+          "mood": "calm"
+        },
+        {
+          "text": "A adulmecat o jumătate de lămâie și…",
+          "mood": "misterios",
+          "pause": 0.5
+        },
+        {
+          "text": "Hapciu!",
+          "mood": "entuziasmat",
+          "pause": 0.6
+        },
+        {
+          "text": "Pufi a strănutat atât de tare, încât i s-au zbârlit toate mustățile.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Apoi s-a ascuns sub masă, foarte supărată pe lămâie.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Matei a râs de s-a ținut cu mâinile de burtică.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-05.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Matei: a cheerful five-year-old boy with short curly chestnut-brown hair, big round hazel eyes, rosy cheeks, a few freckles on his nose, wearing a bright yellow T-shirt with a small green leaf on the chest, blue denim shorts and red sneakers; Pufi: a fluffy small ginger-and-white cat with big green eyes, a pink nose and a bushy striped tail. Setting: a bright cozy family kitchen on a hot summer afternoon, sunlight through an open window, a wooden table, potted basil on the windowsill. Action: Pufi the cat sniffs half a lemon on the kitchen floor and sneezes comically, whiskers puffed out and eyes squeezed shut; Matei laughs holding his tummy. Emotions: Pufi funny and offended, Matei laughing happily. Important details: half a lemon on the floor, the table legs, a tiny cloud of sneeze. Camera: low angle shot at floor level."
+    },
+    {
+      "text": "Sucul a curs în Gâlgâilă, iar tata a turnat peste el apă rece. Matei a gustat primul. Gura i s-a strâns mică-mică, ca un nasture. — Brrr! Prea acru! a strigat Gâlgâilă, și toate bulinele lui s-au încrețit. Lămâia singură e acră: un gust care te ciupește de limbă.",
+      "narration": [
+        {
+          "text": "Sucul a curs în Gâlgâilă, iar tata a turnat peste el apă rece.",
+          "mood": "calm"
+        },
+        {
+          "text": "Matei a gustat primul.",
+          "mood": "calm"
+        },
+        {
+          "text": "Gura i s-a strâns mică-mică, ca un nasture.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Brrr! Prea acru!",
+          "mood": "mirat",
+          "speaker": "Gâlgâilă"
+        },
+        {
+          "text": "a strigat Gâlgâilă, și toate bulinele lui s-au încrețit.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lămâia singură e acră: un gust care te ciupește de limbă.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-06.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Matei: a cheerful five-year-old boy with short curly chestnut-brown hair, big round hazel eyes, rosy cheeks, a few freckles on his nose, wearing a bright yellow T-shirt with a small green leaf on the chest, blue denim shorts and red sneakers; Tata: a tall friendly young father with short dark-brown hair, a neat short dark beard, kind brown eyes and round glasses, wearing a light-blue short-sleeved shirt and a green kitchen apron; Gâlgâilă: a magical round old ceramic water pitcher, sky-blue with white polka dots, a curved handle, a small spout, a cute friendly cartoon face on its belly with big expressive eyes and a wide smile, its polka dots glow softly when it is happy. Setting: a bright cozy family kitchen on a hot summer afternoon, sunlight through an open window, a wooden table, potted basil on the windowsill. Action: Matei tastes lemonade from a small glass and makes a hilarious super-sour face, lips puckered tiny like a button; Gâlgâilă on the table also makes a sour face with squeezed eyes; Tata pours cold water from a bottle. Emotions: Matei and Gâlgâilă comically sour, Tata amused. Important details: a small glass of pale lemonade, squeezed lemon halves, a bottle of water. Camera: medium close-up."
+    },
+    {
+      "text": "— Punem miere! a hotărât Matei. Și a pus o lingură, și încă una, și încă una… până la opt linguri! Tata a gustat și a râs. — E dulce ca o bomboană lipicioasă! Gâlgâilă a făcut bule de râs: glu-glu-glu. — Vai, acum mi se lipesc buzele!",
+      "narration": [
+        {
+          "text": "— Punem miere!",
+          "mood": "hotărât",
+          "speaker": "Matei"
+        },
+        {
+          "text": "a hotărât Matei.",
+          "mood": "calm"
+        },
+        {
+          "text": "Și a pus o lingură, și încă una, și încă una… până la opt linguri!",
+          "mood": "entuziasmat"
+        },
+        {
+          "text": "Tata a gustat și a râs.",
+          "mood": "calm"
+        },
+        {
+          "text": "— E dulce ca o bomboană lipicioasă!",
+          "mood": "vesel",
+          "speaker": "Tata"
+        },
+        {
+          "text": "Gâlgâilă a făcut bule de râs: glu-glu-glu.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Vai, acum mi se lipesc buzele!",
+          "mood": "mirat",
+          "speaker": "Gâlgâilă"
+        }
+      ],
+      "image": "images/pagina-07.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Matei: a cheerful five-year-old boy with short curly chestnut-brown hair, big round hazel eyes, rosy cheeks, a few freckles on his nose, wearing a bright yellow T-shirt with a small green leaf on the chest, blue denim shorts and red sneakers; Tata: a tall friendly young father with short dark-brown hair, a neat short dark beard, kind brown eyes and round glasses, wearing a light-blue short-sleeved shirt and a green kitchen apron; Gâlgâilă: a magical round old ceramic water pitcher, sky-blue with white polka dots, a curved handle, a small spout, a cute friendly cartoon face on its belly with big expressive eyes and a wide smile, its polka dots glow softly when it is happy. Setting: a bright cozy family kitchen on a hot summer afternoon, sunlight through an open window, a wooden table, potted basil on the windowsill. Action: Matei happily pours a big spoonful of golden honey into Gâlgâilă, honey dripping in a long sticky ribbon; Tata tastes from a spoon and laughs; Gâlgâilă giggles with bubbles popping out of its spout. Emotions: Matei enthusiastic, Tata laughing, Gâlgâilă giggling. Important details: a big jar of golden honey, a wooden spoon, sticky honey drips, little bubbles. Camera: medium shot."
+    },
+    {
+      "text": "Matei s-a încruntat. Prea acru nu e bun. Prea dulce nu e bun. — Cum găsim gustul potrivit? a întrebat el. Gâlgâilă i-a făcut cu ochiul. — Gustul bun nu vine dintr-odată. Pui puțin, guști, apoi mai pui puțin. Matei s-a gândit, s-a gândit… și deodată a pocnit din degete.",
+      "narration": [
+        {
+          "text": "Matei s-a încruntat.",
+          "mood": "calm"
+        },
+        {
+          "text": "Prea acru nu e bun. Prea dulce nu e bun.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Cum găsim gustul potrivit?",
+          "mood": "mirat",
+          "speaker": "Matei"
+        },
+        {
+          "text": "a întrebat el.",
+          "mood": "calm"
+        },
+        {
+          "text": "Gâlgâilă i-a făcut cu ochiul.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Gustul bun nu vine dintr-odată. Pui puțin, guști, apoi mai pui puțin.",
+          "mood": "șoptit",
+          "speaker": "Gâlgâilă"
+        },
+        {
+          "text": "Matei s-a gândit, s-a gândit… și deodată a pocnit din degete.",
+          "mood": "misterios"
+        }
+      ],
+      "image": "images/pagina-08.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Matei: a cheerful five-year-old boy with short curly chestnut-brown hair, big round hazel eyes, rosy cheeks, a few freckles on his nose, wearing a bright yellow T-shirt with a small green leaf on the chest, blue denim shorts and red sneakers; Gâlgâilă: a magical round old ceramic water pitcher, sky-blue with white polka dots, a curved handle, a small spout, a cute friendly cartoon face on its belly with big expressive eyes and a wide smile, its polka dots glow softly when it is happy. Setting: a bright cozy family kitchen on a hot summer afternoon, sunlight through an open window, a wooden table, potted basil on the windowsill. Action: Matei sits at the table with his chin on his hands, thinking hard, looking at Gâlgâilă; the pitcher winks at him kindly. Emotions: Matei thoughtful, Gâlgâilă wise and kind. Important details: an empty glass, a jar of honey, a bowl with lemons. Camera: close-up at table height."
+    },
+    {
+      "text": "— Am o idee! Câte lămâi, atâtea linguri de miere! Au făcut limonada de la capăt: trei lămâi și trei linguri de miere. Matei a pus prima lingură, a amestecat și a gustat. Apoi a doua. Apoi a treia. Tata îl privea mândru.",
+      "narration": [
+        {
+          "text": "— Am o idee! Câte lămâi, atâtea linguri de miere!",
+          "mood": "entuziasmat",
+          "speaker": "Matei"
+        },
+        {
+          "text": "Au făcut limonada de la capăt: trei lămâi și trei linguri de miere.",
+          "mood": "calm"
+        },
+        {
+          "text": "Matei a pus prima lingură, a amestecat și a gustat.",
+          "mood": "calm"
+        },
+        {
+          "text": "Apoi a doua. Apoi a treia.",
+          "mood": "calm"
+        },
+        {
+          "text": "Tata îl privea mândru.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-09.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Matei: a cheerful five-year-old boy with short curly chestnut-brown hair, big round hazel eyes, rosy cheeks, a few freckles on his nose, wearing a bright yellow T-shirt with a small green leaf on the chest, blue denim shorts and red sneakers; Tata: a tall friendly young father with short dark-brown hair, a neat short dark beard, kind brown eyes and round glasses, wearing a light-blue short-sleeved shirt and a green kitchen apron; Gâlgâilă: a magical round old ceramic water pitcher, sky-blue with white polka dots, a curved handle, a small spout, a cute friendly cartoon face on its belly with big expressive eyes and a wide smile, its polka dots glow softly when it is happy. Setting: a bright cozy family kitchen on a hot summer afternoon, sunlight through an open window, a wooden table, potted basil on the windowsill. Action: Matei carefully puts one small spoon of honey into Gâlgâilă and stirs with a long wooden spoon, concentrating with his tongue out a little; Tata watches proudly with arms crossed and a big smile. Emotions: Matei focused and proud, Tata proud, Gâlgâilă hopeful. Important details: three whole lemons in a row and three small spoons in a row on the table, a jar of honey. Camera: medium shot."
+    },
+    {
+      "text": "Gâlgâilă a gustat și a tăcut o clipă… Apoi a început să cânte, iar bulinele lui străluceau ca niște luminițe. — Exact cum trebuie! Nici prea acră, nici prea dulce! Tata a pus în ulcior felii de lămâie și frunze de mentă. Pufi a ieșit de sub masă, curioasă.",
+      "narration": [
+        {
+          "text": "Gâlgâilă a gustat și a tăcut o clipă…",
+          "mood": "misterios",
+          "pause": 0.7
+        },
+        {
+          "text": "Apoi a început să cânte, iar bulinele lui străluceau ca niște luminițe.",
+          "mood": "entuziasmat"
+        },
+        {
+          "text": "— Exact cum trebuie! Nici prea acră, nici prea dulce!",
+          "mood": "entuziasmat",
+          "speaker": "Gâlgâilă"
+        },
+        {
+          "text": "Tata a pus în ulcior felii de lămâie și frunze de mentă.",
+          "mood": "calm"
+        },
+        {
+          "text": "Pufi a ieșit de sub masă, curioasă.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-10.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Matei: a cheerful five-year-old boy with short curly chestnut-brown hair, big round hazel eyes, rosy cheeks, a few freckles on his nose, wearing a bright yellow T-shirt with a small green leaf on the chest, blue denim shorts and red sneakers; Tata: a tall friendly young father with short dark-brown hair, a neat short dark beard, kind brown eyes and round glasses, wearing a light-blue short-sleeved shirt and a green kitchen apron; Gâlgâilă: a magical round old ceramic water pitcher, sky-blue with white polka dots, a curved handle, a small spout, a cute friendly cartoon face on its belly with big expressive eyes and a wide smile, its polka dots glow softly when it is happy; Pufi: a fluffy small ginger-and-white cat with big green eyes, a pink nose and a bushy striped tail. Setting: a bright cozy family kitchen on a hot summer afternoon, sunlight through an open window, a wooden table, potted basil on the windowsill. Action: Gâlgâilă sings happily with its white polka dots glowing like little lights; Tata drops lemon slices and fresh mint leaves into it; Matei claps his hands; Pufi peeks out from under the table. Emotions: everyone joyful, Pufi curious. Important details: glowing polka dots, lemon slices, green mint leaves, little musical sparkles. Camera: wide shot of the kitchen."
+    },
+    {
+      "text": "Seara, pe verandă, Matei a turnat limonadă în două pahare: unul pentru tata și unul pentru el. Pufi a primit un bol cu apă rece, fiindcă pisicile nu beau limonadă. — Ai fost cel mai bun ajutor, a spus tata. Matei a zâmbit până la urechi. Iar Gâlgâilă a fredonat încetișor, mulțumit: glu-glu-glu.",
+      "narration": [
+        {
+          "text": "Seara, pe verandă, Matei a turnat limonadă în două pahare: unul pentru tata și unul pentru el.",
+          "mood": "calm"
+        },
+        {
+          "text": "Pufi a primit un bol cu apă rece, fiindcă pisicile nu beau limonadă.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Ai fost cel mai bun ajutor,",
+          "mood": "calm",
+          "speaker": "Tata"
+        },
+        {
+          "text": "a spus tata.",
+          "mood": "calm"
+        },
+        {
+          "text": "Matei a zâmbit până la urechi.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Iar Gâlgâilă a fredonat încetișor, mulțumit: glu-glu-glu.",
+          "mood": "somnoros"
+        }
+      ],
+      "image": "images/pagina-11.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Matei: a cheerful five-year-old boy with short curly chestnut-brown hair, big round hazel eyes, rosy cheeks, a few freckles on his nose, wearing a bright yellow T-shirt with a small green leaf on the chest, blue denim shorts and red sneakers; Tata: a tall friendly young father with short dark-brown hair, a neat short dark beard, kind brown eyes and round glasses, wearing a light-blue short-sleeved shirt and a green kitchen apron; Gâlgâilă: a magical round old ceramic water pitcher, sky-blue with white polka dots, a curved handle, a small spout, a cute friendly cartoon face on its belly with big expressive eyes and a wide smile, its polka dots glow softly when it is happy; Pufi: a fluffy small ginger-and-white cat with big green eyes, a pink nose and a bushy striped tail. Setting: a cozy wooden porch of the family house at golden sunset, warm orange sky, garden flowers, fairy lights. Action: Matei and Tata sit side by side on the porch steps clinking two glasses of lemonade; Gâlgâilă stands between them, glowing softly; Pufi drinks water from a little bowl. Emotions: happy, calm, cozy. Important details: two glasses of lemonade with lemon slices and mint, a small water bowl for the cat. Camera: wide shot."
+    }
+  ],
+  "categories": [
+    "amuzante",
+    "invatam"
+  ],
+  "review": {
+    "imaginatie": "Gâlgâilă, ulciorul fermecat al bunicului, prinde viață (pagina 2), simte gustul a tot ce se toarnă în el, se încrețește la acru (pagina 6), face bule de râs la dulce (pagina 7) și cântă cu bulinele strălucind când limonada iese bună (pagina 10).",
+    "invatare": "Acru și dulce: pagina 6 explică ce e acru (gustul care te ciupește de limbă), pagina 7 arată ce înseamnă prea dulce. Numărat și măsurat: pagina 4 (șase jumătăți numărate), paginile 9 (trei lămâi, trei linguri, puse pe rând). Siguranța în bucătărie: pagina 2 (spălatul pe mâini), pagina 3 (cuțitul e treaba celor mari, copilul stoarce lămâile).",
+    "umor": [
+      "pagina 4: stropul de lămâie sare drept pe ochelarii lui tata — „Ploaie de lămâie!”",
+      "pagina 5: Pufi adulmecă lămâia, strănută „Hapciu!” și se ascunde supărată sub masă",
+      "pagina 6: gura lui Matei se strânge ca un nasture, iar bulinele lui Gâlgâilă se încrețesc",
+      "pagina 7: opt linguri de miere, „dulce ca o bomboană lipicioasă”, iar ulciorului i se lipesc buzele"
+    ],
+    "emotie": "Problema e pe înțelesul copiilor: limonada nu iese bună. Încercările: prea acră (pagina 6), prea dulce (pagina 7), apoi Matei se gândește (pagina 8) și găsește singur regula „câte lămâi, atâtea linguri”, gustând pe rând (pagina 9). Finalul e cald: limonada iese perfectă, iar seara, pe verandă, tata îi spune că a fost cel mai bun ajutor (pagina 11).",
+    "siguranta": "Nimic nu sperie: ulciorul fermecat e prietenos și comic. Cuțitul îl folosește doar tata, iar povestea spune clar că e treaba celor mari; Matei stoarce lămâile. Stropul ajunge pe ochelari, nu în ochi, și nimeni nu se lovește. Pisica primește apă, nu limonadă. Fără mărci, fără pericole prezentate ca joacă.",
+    "imagini": "Fiecare prompt descrie exact momentul paginii: ulciorul care clipește (2), tata care taie lămâile ținând cuțitul de partea lui (3), stropul pe ochelari (4), strănutul pisicii văzut de jos (5), fața acră (6), mierea curgând (7), Matei gânditor (8), lingurile puse pe rând (9), bulinele care strălucesc (10), apusul pe verandă (11). Încadrările variază. Fiecare personaj are aceeași descriere completă în toate prompturile; voi privi imaginile generate după publicare și le refac pe cele care nu se potrivesc.",
+    "voce": "Narațiunea e calmă, cu tonuri vesele la momentele amuzante, misterios înainte de surprize (ulciorul care clipește, strănutul, gustul final), cu pauze după „Pfff!” și „Hapciu!”. Matei are voce de copil (mai subțire, puțin mai repede), tata o voce caldă, mai gravă, iar Gâlgâilă o voce groasă și jucăușă, mai rapidă, ca un ulcior care gâlgâie. Finalul se încheie somnoros și liniștit."
+  },
+  "questions": [
+    {
+      "text": "Cine are voie să folosească cuțitul în bucătărie?",
+      "options": [
+        {
+          "text": "Cei mari, ca tata",
+          "emoji": "🧔"
+        },
+        {
+          "text": "Copiii mici",
+          "emoji": "🧒"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Corect! Cuțitul e treaba celor mari. Matei a avut o treabă la fel de grozavă: a stors lămâile."
+    },
+    {
+      "text": "Cum a găsit Matei gustul potrivit?",
+      "options": [
+        {
+          "text": "A pus multă miere dintr-odată",
+          "emoji": "🍯"
+        },
+        {
+          "text": "A pus câte puțin și a gustat",
+          "emoji": "🥄"
+        }
+      ],
+      "answer": 1,
+      "explanation": "Bravo! Câte lămâi, atâtea linguri de miere, puse pe rând și gustate pe drum."
+    }
+  ]
+}
