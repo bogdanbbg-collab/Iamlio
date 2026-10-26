@@ -180,9 +180,10 @@ class ChainClient:
         self.clients = list(clients)
         self.model = getattr(self.clients[0], "model", "")
         self.images = self
+        self.problems = []  # motivele rămân și pentru imaginile următoare, după ce variantele au fost scoase
 
     def _call(self, method, kwargs):
-        problems = []
+        problems = self.problems
         for client in list(self.clients):
             reference = kwargs.get("image")
             for handle in reference or []:
@@ -423,7 +424,7 @@ def generate_missing(folder, data, client=None, budget=None):
                 result = client.images.generate(model=model, prompt=entry["imagePrompt"], size=SIZE, quality=quality)
             save(result, target)
         except Exception as exc:  # cheie greșită, limită de cost, prompt refuzat de filtrul de siguranță…
-            errors.append(f"{label}: imaginea nu a putut fi generată ({type(exc).__name__}: {str(exc)[:160]})")
+            errors.append(f"{label}: imaginea nu a putut fi generată ({type(exc).__name__}: {str(exc)[:400]})")
             continue
         entry["image"] = str(Path(entry["image"]).with_suffix(".png"))
         budget.spend(cost_lei(result))
