@@ -23,12 +23,16 @@ env:
   SITE_URL: https://iamlio.ro
 
 jobs:
-  # 1. Verificare: teste unitare, pregătirea poveștilor (fără imagini plătite), teste în Chromium, Firefox și WebKit.
+  # 1. Verificare rapidă (~2 min): teste unitare, sintaxă, poveștile. Spune și dacă s-a schimbat codul site-ului:
+  #    când un commit aduce doar povești, testele din browser nu mai sunt necesare (site-ul final tot se testează
+  #    în Chromium înainte de urcare, în jobul de publicare).
   verifica:
     if: ${{ !inputs.versiune }}
     runs-on: ubuntu-24.04
     # o rulare blocată (de ex. o instalare care nu se termină) se oprește singură, fără să țină publicările pe loc
-    timeout-minutes: 45
+    timeout-minutes: 20
+    outputs:
+      cod: ${{ steps.schimbari.outputs.cod }}
     steps:
       - uses: actions/checkout@v5
         with:
@@ -53,8 +57,6 @@ jobs:
         run: |
           pip install -r requirements.lock
           scripts/instaleaza_ffmpeg.sh
-          npm ci --no-audit --no-fund
-          npx playwright install --with-deps chromium firefox webkit
 
       - name: Teste (Python, sintaxă JavaScript și PHP)
         run: |
@@ -65,29 +67,69 @@ jobs:
       - name: Pregătește și verifică poveștile
         run: python scripts/stories.py prepare
 
-      - name: Teste în browser — Chromium, Firefox, WebKit (Safari)
+      - name: Ce s-a schimbat? (doar povești → fără testele din browser)
+        id: schimbari
+        env:
+          BEFORE: ${{ github.event.before }}
+          EVENT: ${{ github.event_name }}
         run: |
-          python scripts/stories.py index
-          python scripts/stories.py stage
-          for browser in chromium firefox webkit; do
-            echo "::group::$browser"
-            BROWSER=$browser node --test tests/e2e/*.test.mjs
-            echo "::endgroup::"
-          done
-
-      # Capturile de ecran din cele trei browsere, pentru verificarea vizuală (Actions → rularea → Artifacts).
-      - name: Salvează capturile de ecran
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: capturi-ecran
-          path: build/capturi/
-          retention-days: 14
-          if-no-files-found: ignore
+          cod=true
+          if [ "$EVENT" = "push" ] && [ -n "$BEFORE" ] && git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+            git diff --name-only "$BEFORE" HEAD > schimbari.txt
+            if ! grep -qvE '^(public/stories/|rapoarte/|[^/]+\.md$)' schimbari.txt; then cod=false; fi
+          fi
+          echo "cod=$cod" >> "$GITHUB_OUTPUT"
+          echo "Codul site-ului s-a schimbat: $cod" >> "$GITHUB_STEP_SUMMARY"
 
       - name: La pull request, toate poveștile trebuie să treacă verificarea
         if: github.event_name == 'pull_request'
         run: python scripts/stories.py status
+
+  # 1b. Testele din browser, câte un job pentru fiecare browser, în paralel (doar când s-a schimbat codul).
+  #     Rulează în același timp cu pregătirea imaginilor și a vocilor din jobul de publicare.
+  browser:
+    needs: verifica
+    if: needs.verifica.outputs.cod == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: true
+      matrix:
+        browser: [chromium, firefox, webkit]
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+
+      - name: Instalează uneltele și browserul
+        timeout-minutes: 15
+        run: |
+          pip install -r requirements.lock
+          npm ci --no-audit --no-fund
+          npx playwright install --with-deps ${{ matrix.browser }}
+
+      - name: Teste în browser — ${{ matrix.browser }}
+        run: |
+          python scripts/stories.py prepare
+          python scripts/stories.py index
+          python scripts/stories.py stage
+          BROWSER=${{ matrix.browser }} node --test tests/e2e/*.test.mjs
+
+      # Capturile de ecran, pentru verificarea vizuală (Actions → rularea → Artifacts).
+      - name: Salvează capturile de ecran
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: capturi-ecran-${{ matrix.browser }}
+          path: build/capturi/
+          retention-days: 14
+          if-no-files-found: ignore
 
   # 2. Publicare: doar de pe master (push sau pornire manuală pe master), după ce verificarea a trecut.
   #    Cu „versiune” completată, republică acea versiune (revenire), fără să modifice nimic în repository.
@@ -101,6 +143,7 @@ jobs:
     timeout-minutes: 45
     permissions:
       contents: write
+      actions: read # ca să aștepte rezultatul testelor din browser (jobul „browser”)
     env:
       NORMAL: ${{ !inputs.versiune }}
     steps:
@@ -196,7 +239,32 @@ jobs:
         run: |
           npm ci --no-audit --no-fund
           npx playwright install --with-deps chromium
-          BROWSER=chromium node --test tests/e2e/*.test.mjs
+          BROWSER=chromium node --test $(ls tests/e2e/*.test.mjs | grep -v capturi)
+
+      # Imaginile și vocile s-au pregătit în același timp cu testele din browser; nimic nu se urcă și nimic nu se
+      # salvează în repository până nu trec toate trei (Chromium, Firefox, WebKit).
+      - name: Așteaptă testele din Chromium, Firefox și WebKit
+        if: env.NORMAL == 'true' && needs.verifica.outputs.cod == 'true'
+        timeout-minutes: 30
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          url="repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/attempts/$GITHUB_RUN_ATTEMPT/jobs?per_page=50"
+          while true; do
+            # o linie pe browser: „browser (webkit) completed success”
+            gh api "$url" --jq '.jobs[] | select(.name | startswith("browser")) | "\(.name) \(.status) \(.conclusion)"' > browsere.txt || true
+            if grep -Eq 'completed (failure|cancelled|timed_out)$' browsere.txt; then
+              cat browsere.txt
+              echo "::error::Testele din browser nu au trecut; nu se publică nimic."
+              exit 1
+            fi
+            if [ "$(grep -c 'completed success$' browsere.txt)" -ge 3 ]; then
+              cat browsere.txt
+              echo "Toate testele din browser au trecut."
+              break
+            fi
+            sleep 15
+          done
 
       - name: Salvează reparațiile, imaginile, vocea, biblioteca și rapoartele în repository
         if: env.NORMAL == 'true'

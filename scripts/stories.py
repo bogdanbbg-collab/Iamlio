@@ -1014,38 +1014,57 @@ def narration_items(data):
     return items
 
 
+AUDIO_CONCURRENCY = 6  # câte fișiere audio se generează deodată (edge-tts + ffmpeg)
+
+
 async def generate_audio_set(audio_dir, items, characters):
-    """Generează items pentru fiecare voce, doar ce s-a schimbat (după amprenta regiei)."""
+    """Generează items pentru fiecare voce, doar ce s-a schimbat (după amprenta regiei), câte mai multe deodată."""
     manifest_file = audio_dir / "manifest.json"
     old = json.loads(manifest_file.read_text(encoding="utf-8")) if manifest_file.exists() else {}
     manifest = {}
     old_timing = old.get("timing") if isinstance(old.get("timing"), dict) else {}
     timing = {}
+    limit = asyncio.Semaphore(AUDIO_CONCURRENCY)
+
+    def save(data):
+        manifest_file.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    async def make(key, name, segments, digest, target):
+        async with limit:
+            print(f"    🔊 {target.relative_to(ROOT)}")
+            result = await voce.render(segments, key, characters, target)
+        timing[key][name] = result
+        manifest[key][name] = digest
+        # scriem manifestul după fiecare fișier, ca o eroare să nu piardă munca făcută
+        save({**old, **manifest, "timing": timing})
+
+    jobs = []
     for key in VOICES:
-        voice_dir = audio_dir / key
-        voice_dir.mkdir(parents=True, exist_ok=True)
+        (audio_dir / key).mkdir(parents=True, exist_ok=True)
         previous = old.get(key, {}) if isinstance(old.get(key), dict) else {}
         previous_timing = old_timing.get(key, {}) if isinstance(old_timing.get(key), dict) else {}
         manifest[key], timing[key] = {}, {}
         for name, segments in items:
             digest = hashlib.sha1(voce.fingerprint(segments, key, characters).encode()).hexdigest()
-            target = voice_dir / name
+            target = audio_dir / key / name
             if previous.get(name) != digest or not target.exists() or name not in previous_timing:
-                print(f"    🔊 {target.relative_to(ROOT)}")
-                timing[key][name] = await voce.render(segments, key, characters, target)
+                jobs.append(make(key, name, segments, digest, target))
             else:
                 timing[key][name] = previous_timing[name]
-            manifest[key][name] = digest
-            manifest["timing"] = timing
-            # scriem manifestul după fiecare fișier, ca o eroare să nu piardă munca făcută
-            manifest_file.write_text(json.dumps({**old, **manifest}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-        for stale in voice_dir.glob("*.mp3"):
+                manifest[key][name] = digest
+    await asyncio.gather(*jobs)
+
+    order = [name for name, _ in items]
+    for key in VOICES:
+        manifest[key] = {name: manifest[key][name] for name in order}
+        timing[key] = {name: timing[key][name] for name in order}
+        for stale in (audio_dir / key).glob("*.mp3"):
             if stale.name not in manifest[key]:
                 stale.unlink()
     for leftover in audio_dir.glob("*.mp3"):  # format vechi, fără folder pe voce
         leftover.unlink()
     manifest["timing"] = timing
-    manifest_file.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    save(manifest)
 
 
 # Grupurile de replici ale lui Lio din assets/lio-replici.json → fișierele lor audio și tonul lor.

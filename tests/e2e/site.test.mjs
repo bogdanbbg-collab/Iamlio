@@ -1,6 +1,6 @@
 // Teste în browser (Chromium, Firefox sau WebKit/Safari + serverul PHP real) pentru site-ul din build/site.
 // Rulare: python3 scripts/stories.py stage && BROWSER=webkit node --test tests/e2e/*.test.mjs
-import { test, before, after } from "node:test";
+import { test, before, after, afterEach } from "node:test";
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
 import { cpSync, existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
@@ -107,8 +107,18 @@ after(async () => {
   rmSync(site, { recursive: true, force: true });
 });
 
+// Ferestrele deschise de un test se închid după el; altfel zeci de pagini cu animații rămân deschise și
+// încetinesc tot browserul (mai ales WebKit fără placă video, pe serverele de test).
+const openContexts = [];
+afterEach(async () => {
+  await Promise.all(openContexts.splice(0).map((context) => context.close().catch(() => {})));
+});
+
+// Implicit cu „Reducere mișcare” (testele nu așteaptă animațiile); testele animațiilor cer mișcarea explicit.
 async function page(options = {}) {
-  const context = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, ...options });
+  const context = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true,
+    reducedMotion: "reduce", ...options });
+  openContexts.push(context);
   const p = await context.newPage();
   p.errors = [];
   p.on("pageerror", (e) => p.errors.push(e.message));
@@ -134,7 +144,7 @@ test("biblioteca afișează poveștile cu titlu și contor", async () => {
 });
 
 test("navigare: butoane, tastatură, atingere, swipe, final și reluare", async () => {
-  const p = await page();
+  const p = await page({ reducedMotion: "no-preference" }); // întoarcerea animată a paginii
   await p.goto(STORY_URL);
   await p.waitForSelector(".sheet.is-current");
   assert.equal(await p.textContent("#story-title"), STORY.title);
@@ -364,7 +374,7 @@ test("mișcare redusă: pagina se schimbă imediat", async () => {
 test("animația paginii: camera se mișcă pe pagina curentă, cu efectul ales în poveste", async () => {
   const story = JSON.parse(readFileSync(join(ROOT, "build/site/stories", STORY.id, "story.json"), "utf-8"));
   const first = story.pages[0].animation;
-  const p = await page();
+  const p = await page({ reducedMotion: "no-preference" });
   await p.goto(STORY_URL);
   await p.waitForSelector(".sheet.is-current");
   await p.click("#next-btn");

@@ -49,7 +49,7 @@ after(async () => {
 });
 
 async function page(options = {}) {
-  const context = await browser.newContext({ viewport: { width: 1280, height: 900 }, ...options });
+  const context = await browser.newContext({ viewport: { width: 1280, height: 900 }, reducedMotion: "reduce", ...options });
   const p = await context.newPage();
   p.errors = [];
   p.on("pageerror", (e) => p.errors.push(e.message));

@@ -285,10 +285,11 @@ async def render(segments, voice_key, characters, target, synth=synthesize):
             part = Path(tmp) / f"bucata-{number:03d}.mp3"
             await synth(segment.text, segment_params(segment, voice_key, characters), part)
             parts.append(part)
-        assemble(parts, [s.pause for s in segments], target)
+        # ffmpeg și ffprobe rulează în alt fir, ca celelalte fișiere să se genereze între timp
+        await asyncio.to_thread(assemble, parts, [s.pause for s in segments], target)
+        lengths = await asyncio.to_thread(lambda: [duration(part) for part in parts])
         timings, moment = [], LEAD_IN
-        for number, (part, segment) in enumerate(zip(parts, segments)):
-            length = duration(part)
+        for number, (length, segment) in enumerate(zip(lengths, segments)):
             timings.append([round(moment, 2), round(moment + length, 2)])
             moment += length + (TAIL if number == len(segments) - 1 else segment.pause)
         return timings
