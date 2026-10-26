@@ -33,6 +33,30 @@
   ],
   "stories": [
     {
+      "id": "aricel-si-visul-de-a-zbura",
+      "title": "Aricel și visul de a zbura",
+      "summary": "Aricel visează să zboare ca prietenii lui înaripați. După câteva încercări tare caraghioase, descoperă că talentul lui îi poate ajuta pe ceilalți într-un mod neașteptat.",
+      "age": "3-7",
+      "tags": [
+        "arici",
+        "păsări",
+        "talente",
+        "prietenie",
+        "umor",
+        "curaj"
+      ],
+      "categories": [
+        "animale",
+        "prietenie",
+        "amuzante"
+      ],
+      "created": "2026-10-26",
+      "cover": "stories/aricel-si-visul-de-a-zbura/images/coperta.webp",
+      "pages": 9,
+      "minutes": 5,
+      "published": "2026-10-26"
+    },
+    {
       "id": "lio-si-steluta-cazatoare",
       "title": "Lio și steluța căzătoare",
       "summary": "O steluță mică a căzut din cer și nu mai știe drumul spre casă. Lio o ajută să se întoarcă printre stele.",
