@@ -13,6 +13,20 @@
     "incearca-02.mp3": "28fdd89b7ec999481b2f6c3b99e688a7d0eaeb6c",
     "incearca-03.mp3": "6a48f6ec6a474962471ba2940a80b474f8c449b9"
   },
+  "masculin": {
+    "replica-01.mp3": "518b4c30998d0073b5755e6f695200be591de213",
+    "replica-02.mp3": "be74a42aefb0edff043d11f196a2467c8c458b26",
+    "replica-03.mp3": "e55458375b0faaa6cc424440ac74de2620adf1fd",
+    "replica-04.mp3": "81b3a59290cbd6f492eda92eaf48dd94b7b2ddb0",
+    "replica-05.mp3": "873d363732e0787f10cea44ece186855da770457",
+    "replica-06.mp3": "fa68a737391406f3cff4f7074f5ebde866a847cf",
+    "bravo-01.mp3": "7d2df1e64117b111adf0da011fe4d387eb4a1489",
+    "bravo-02.mp3": "d710ddbe81a16d1b998c41f45819307ce3ba7e80",
+    "bravo-03.mp3": "a3c9eb2fb40db43b024b0ac2f2f3eddc5548c499",
+    "incearca-01.mp3": "f5484fec16086248d6927b4d77fc029788abb711",
+    "incearca-02.mp3": "47ec2c2d573a4bdaaa2f63199f0ee0521db2154f",
+    "incearca-03.mp3": "3c8df9f4834ad951e4bb983750705fd4feabc91c"
+  },
   "timing": {
     "feminin": {
       "replica-01.mp3": [
@@ -162,19 +176,5 @@
         ]
       ]
     }
-  },
-  "masculin": {
-    "replica-01.mp3": "518b4c30998d0073b5755e6f695200be591de213",
-    "replica-02.mp3": "be74a42aefb0edff043d11f196a2467c8c458b26",
-    "replica-03.mp3": "e55458375b0faaa6cc424440ac74de2620adf1fd",
-    "replica-04.mp3": "81b3a59290cbd6f492eda92eaf48dd94b7b2ddb0",
-    "replica-05.mp3": "873d363732e0787f10cea44ece186855da770457",
-    "replica-06.mp3": "fa68a737391406f3cff4f7074f5ebde866a847cf",
-    "bravo-01.mp3": "7d2df1e64117b111adf0da011fe4d387eb4a1489",
-    "bravo-02.mp3": "d710ddbe81a16d1b998c41f45819307ce3ba7e80",
-    "bravo-03.mp3": "a3c9eb2fb40db43b024b0ac2f2f3eddc5548c499",
-    "incearca-01.mp3": "f5484fec16086248d6927b4d77fc029788abb711",
-    "incearca-02.mp3": "47ec2c2d573a4bdaaa2f63199f0ee0521db2154f",
-    "incearca-03.mp3": "3c8df9f4834ad951e4bb983750705fd4feabc91c"
   }
 }
