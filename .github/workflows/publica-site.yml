@@ -66,6 +66,16 @@ jobs:
             echo "::endgroup::"
           done
 
+      # Capturile de ecran din cele trei browsere, pentru verificarea vizuală (Actions → rularea → Artifacts).
+      - name: Salvează capturile de ecran
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: capturi-ecran
+          path: build/capturi/
+          retention-days: 14
+          if-no-files-found: ignore
+
       - name: La pull request, toate poveștile trebuie să treacă verificarea
         if: github.event_name == 'pull_request'
         run: python scripts/stories.py status

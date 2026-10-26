@@ -79,17 +79,19 @@
     cover.appendChild(el("span", "story-play", "▶"));
     link.appendChild(cover);
 
+    // Pe card: copertă, titlu și durată. Restul (vârsta, contorul, rezumatul) e mic și discret, pentru părinți.
     var body = el("div", "story-body");
-    body.appendChild(el("h3", null, story.title));
-    if (counts) {
-      body.appendChild(el("p", "story-reads", Iamlio.readsLabel(counts[story.id] || 0)));
-    }
+    var heading = el("div", "story-heading");
+    heading.appendChild(el("h3", null, story.title));
+    var minutes = el("span", "story-minutes", "~" + story.minutes + " min");
+    minutes.setAttribute("aria-label", "cam " + story.minutes + " minute");
+    heading.appendChild(minutes);
+    body.appendChild(heading);
+    var details = el("p", "story-details");
+    details.appendChild(el("span", null, story.age + " ani"));
+    if (counts) details.appendChild(el("span", "story-reads", Iamlio.readsLabel(counts[story.id] || 0)));
+    body.appendChild(details);
     body.appendChild(el("p", "story-summary", story.summary));
-    var meta = el("p", "story-meta");
-    meta.appendChild(el("span", null, story.pages + " pagini"));
-    meta.appendChild(el("span", null, "~" + story.minutes + " min"));
-    meta.appendChild(el("span", null, story.age + " ani"));
-    body.appendChild(meta);
     link.appendChild(body);
     item.appendChild(link);
     item.appendChild(Iamlio.favoriteButton(story.id, story.title, function () {
@@ -210,8 +212,6 @@
   var audio = new Audio();
 
   Iamlio.inlineSvg(heroLio, "assets/img/lio.svg");
-  Iamlio.bindVoiceSwitch(document.querySelector(".voice-picker"), function () { sayHello(); });
-
   fetch("assets/lio-replici.json").then(function (r) { return r.json(); }).then(function (d) { lines = d.replici; }).catch(function () {});
   fetch("assets/audio/manifest.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; })
     .then(function (d) { manifest = d; }).catch(function () {});

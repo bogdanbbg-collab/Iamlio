@@ -99,7 +99,10 @@ test("biblioteca afișează poveștile cu titlu și contor", async () => {
   await p.goto(`${BASE}/`);
   await p.waitForSelector(".story-card");
   assert.equal(await p.textContent(".story-card h3"), STORY.title);
+  assert.equal(await p.textContent(".story-card .story-minutes"), `~${STORY.minutes} min`);
   assert.match(await p.textContent(".story-reads"), /primul|Citită/);
+  // vocea se alege din setările cititorului, nu de pe pagina principală
+  assert.equal(await p.locator(".voice-switch").count(), 0);
   assert.deepEqual(p.errors, []);
 });
 
