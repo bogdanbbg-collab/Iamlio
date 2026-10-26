@@ -99,7 +99,7 @@ de probă cu fiecare variantă și arată rezultatul în rezumat (imaginile apar
 AI Studio: cât timp proiectul e pe „Free tier”, nu se plătește nimic. Pornește de la imaginea copertei, deci
 personajele rămân identice.
 
-**Gratuit — Cloudflare Workers AI:** cont gratuit pe cloudflare.com (fără card). Din panoul Cloudflare
+**Gratuit, rezervă — Cloudflare Workers AI:** cont gratuit pe cloudflare.com (fără card). Din panoul Cloudflare
 copiezi **Account ID** și creezi un **API token** cu permisiunea „Workers AI” (Read și Edit), apoi le pui în GitHub
 ca secretele `CLOUDFLARE_ACCOUNT_ID` și `CLOUDFLARE_API_TOKEN`. Cota gratuită zilnică ajunge pentru câteva povești
 pe zi; pe planul gratuit nu se plătește nimic, iar dacă cota se termină, restul imaginilor se fac a doua zi.
@@ -108,7 +108,7 @@ Modelul implicit e FLUX.1 schnell (se poate schimba cu variabila `CLOUDFLARE_IMA
 de la imaginea copertei: merită privită povestea după publicare. Cota zilei (cam 20 de imagini) se reînnoiește la
 00:00 UTC; în fiecare noapte, workflow-ul „Imagini rămase (zilnic)” pornește singur publicarea dacă lipsesc imagini.
 
-**Gratuit, rezervă — Pollinations:** când se termină cota Cloudflare, imaginile se fac cu Pollinations. Cont gratuit
+**Gratuit, prima variantă — Pollinations:** imaginile ies cele mai frumoase; când nu merge, se folosește Cloudflare. Cont gratuit
 pe enter.pollinations.ai (te conectezi cu GitHub), creezi o cheie **secretă** („sk_…”) și o pui în GitHub ca
 secretul `POLLINATIONS_API_KEY`. Modelul implicit e Z-Image Turbo (variabila `POLLINATIONS_IMAGE_MODEL`).
 

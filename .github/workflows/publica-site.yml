@@ -143,7 +143,7 @@ jobs:
       - name: Pregătește poveștile (reparare automată, imagini, verificare, rapoarte)
         if: env.NORMAL == 'true'
         env:
-          # imaginile lipsă, în ordine: Gemini, Cloudflare, Pollinations (gratuite), OpenAI (cu plată) — vezi scripts/imagini.py
+          # imaginile lipsă, în ordine: Gemini, Pollinations, Cloudflare (gratuite), OpenAI (cu plată) — vezi scripts/imagini.py
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_IMAGE_MODEL: ${{ vars.GEMINI_IMAGE_MODEL }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

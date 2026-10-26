@@ -1,7 +1,7 @@
 name: Test generare imagini
 
 # Pornit de mână (Actions → Test generare imagini → Run workflow): generează câte o imagine de probă cu fiecare
-# variantă configurată (Gemini, Cloudflare, Pollinations, OpenAI) și arată în rezumat care merge. Imaginile apar la Artifacts.
+# variantă configurată (Gemini, Pollinations, Cloudflare, OpenAI) și arată în rezumat care merge. Imaginile apar la Artifacts.
 on:
   workflow_dispatch:
 

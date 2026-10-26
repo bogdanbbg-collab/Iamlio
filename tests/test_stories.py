@@ -680,13 +680,13 @@ class PollinationsTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "Pollinations: .*exhausted"):
             client.images.generate(prompt="Cover")
 
-    def test_comes_after_cloudflare_and_before_openai(self):
+    def test_comes_before_cloudflare_and_openai(self):
         from unittest import mock
 
         env = {"GEMINI_API_KEY": "", "CLOUDFLARE_ACCOUNT_ID": "a", "CLOUDFLARE_API_TOKEN": "t",
                "POLLINATIONS_API_KEY": "sk", "OPENAI_API_KEY": "k"}
         with mock.patch.dict("os.environ", env):
-            self.assertEqual(imagini.providers(), ["cloudflare", "pollinations", "openai"])
+            self.assertEqual(imagini.providers(), ["pollinations", "cloudflare", "openai"])
 
 
 class GeminiAndFallbackTests(unittest.TestCase):
