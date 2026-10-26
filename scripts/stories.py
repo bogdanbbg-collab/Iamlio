@@ -902,6 +902,7 @@ def write_share_pages(site, stories):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; base-uri 'none'">
 <title>{title} — Iamlio</title>
 <meta name="description" content="{summary}">
 <meta property="og:type" content="article">
@@ -917,7 +918,6 @@ def write_share_pages(site, stories):
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="{base}/poveste.html?id={sid}">
 <meta http-equiv="refresh" content="0; url={reader}">
-<script>location.replace("{reader}");</script>
 </head>
 <body>
 <p><a href="{reader}">{title} — o poveste citită de Lio</a></p>

@@ -50,6 +50,8 @@ async function page(options = {}) {
   const p = await context.newPage();
   p.errors = [];
   p.on("pageerror", (e) => p.errors.push(e.message));
+  // o încălcare a politicii de securitate (CSP) e tot o eroare: ceva din pagină ar fi fost blocat
+  p.on("console", (m) => { if (/Content[ -]Security[ -]Policy/i.test(m.text())) p.errors.push(m.text()); });
   return p;
 }
 
@@ -169,7 +171,7 @@ test("admin: previzualizarea poveștilor personalizate se deschide cu aceeași p
 });
 
 test("admin: accesibilitate (WCAG AA) pe ecranul de intrare și pe panou", async () => {
-  const p = await page();
+  const p = await page({ bypassCSP: true }); // altfel politica paginii ar bloca scriptul axe al testului
   await p.goto(`${BASE}/admin.html`);
   await p.waitForSelector("#login:not([hidden])");
   for (const step of ["intrare", "panou"]) {
@@ -180,8 +182,7 @@ test("admin: accesibilitate (WCAG AA) pe ecranul de intrare și pe panou", async
     }
     await p.addScriptTag({ path: AXE });
     const result = await p.evaluate(() => window.axe.run(document, { runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"] } }));
-    const blocking = result.violations.filter((v) => ["serious", "critical"].includes(v.impact));
-    assert.deepEqual(blocking.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(" ")).slice(0, 3).join(", ")}`), [], step);
+    assert.deepEqual(result.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(" ")).slice(0, 3).join(", ")}`), [], step);
   }
 });
 

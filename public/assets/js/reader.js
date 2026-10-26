@@ -536,9 +536,10 @@
       audio.play().then(function () { autoStarting = false; }, function () {
         if (token !== playToken) return;
         if (autoStarting) {
-          // browserul cere o atingere înainte de sunet: Lio rămâne pe copertă, gata să fie apăsat
+          // browserul cere o atingere înainte de sunet: Lio rămâne pe copertă, iar un semn static arată unde să apeși
           autoStarting = false;
           setReading(false);
+          showTapHint(true);
           return;
         }
         speak(item.speech, token);
@@ -576,7 +577,21 @@
     preloadNext();
   }
 
-  playBtn.addEventListener("click", function () { setReading(!reading); });
+  playBtn.addEventListener("click", function () {
+    showTapHint(false);
+    setReading(!reading);
+  });
+
+  var tapHint = null;
+  function showTapHint(on) {
+    playBtn.classList.toggle("needs-tap", on);
+    if (on && !tapHint) {
+      tapHint = el("p", "tap-hint", "👇 Apasă pe Lio ca să înceapă povestea");
+      tapHint.setAttribute("role", "status");
+      playBtn.parentNode.insertBefore(tapHint, playBtn);
+    }
+    if (tapHint) tapHint.hidden = !on;
+  }
 
   // ---------- setări de citire ----------
 

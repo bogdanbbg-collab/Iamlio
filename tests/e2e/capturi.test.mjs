@@ -4,7 +4,8 @@
 import { test, before, after } from "node:test";
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
-import { mkdirSync, readFileSync } from "node:fs";
+import { cpSync, mkdirSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
@@ -14,11 +15,12 @@ const ENGINE = process.env.BROWSER || "chromium";
 const engine = require("playwright")[ENGINE];
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
-const SITE = join(ROOT, "build/site");
+const BUILT = join(ROOT, "build/site");
+let SITE; // o copie: serverul scrie date (contor, vizite) și nu trebuie să ajungă în ce se publică
 const OUT = join(ROOT, "build/capturi", ENGINE);
 const PORT = 8990 + Math.floor(Math.random() * 100);
 const BASE = `http://127.0.0.1:${PORT}`;
-const STORY = JSON.parse(readFileSync(join(SITE, "stories/index.json"), "utf-8")).stories[0];
+const STORY = JSON.parse(readFileSync(join(BUILT, "stories/index.json"), "utf-8")).stories[0];
 
 const SCREENS = { telefon: [390, 844], "telefon-mic": [360, 640], "telefon-culcat": [844, 390], tableta: [1024, 768], calculator: [1440, 900] };
 
@@ -26,6 +28,8 @@ let server, browser;
 
 before(async () => {
   mkdirSync(OUT, { recursive: true });
+  SITE = mkdtempSync(join(tmpdir(), "iamlio-"));
+  cpSync(BUILT, SITE, { recursive: true });
   server = spawn("php", ["-S", `127.0.0.1:${PORT}`, "-t", SITE], { stdio: "ignore" });
   for (let i = 0; i < 50; i++) {
     try { const r = await fetch(`${BASE}/`); await r.arrayBuffer(); if (r.ok) break; } catch { /* încă pornește */ }
@@ -37,6 +41,7 @@ before(async () => {
 after(async () => {
   await browser?.close();
   server?.kill();
+  rmSync(SITE, { recursive: true, force: true });
 });
 
 async function shot(name, [width, height], url, prepare) {

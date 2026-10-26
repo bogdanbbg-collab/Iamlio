@@ -98,7 +98,7 @@ jobs:
       (needs.verifica.result == 'success' || (needs.verifica.result == 'skipped' && inputs.versiune != ''))
     runs-on: ubuntu-24.04
     # o rulare blocată (de ex. o instalare care nu se termină) se oprește singură, fără să țină publicările pe loc
-    timeout-minutes: 30
+    timeout-minutes: 45
     permissions:
       contents: write
     env:
@@ -174,6 +174,21 @@ jobs:
         run: |
           python scripts/stories.py index
           python scripts/stories.py stage
+
+      # Site-ul exact așa cum se urcă (cu vocile și imaginile generate mai sus) trece încă o dată prin testele
+      # din browser, înainte de publicare; dacă pică, nu se urcă nimic și nu se salvează nimic în repository.
+      - uses: actions/setup-node@v5
+        if: env.NORMAL == 'true'
+        with:
+          node-version: "22"
+
+      - name: Testează site-ul final înainte de publicare (Chromium)
+        if: env.NORMAL == 'true'
+        timeout-minutes: 15
+        run: |
+          npm ci --no-audit --no-fund
+          npx playwright install --with-deps chromium
+          BROWSER=chromium node --test tests/e2e/*.test.mjs
 
       - name: Salvează reparațiile, imaginile, vocea, biblioteca și rapoartele în repository
         if: env.NORMAL == 'true'

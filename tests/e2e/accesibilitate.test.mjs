@@ -3,7 +3,8 @@
 import { test, before, after } from "node:test";
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
-import { readFileSync } from "node:fs";
+import { cpSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
@@ -14,14 +15,17 @@ const engine = require("playwright")[ENGINE];
 const AXE = require.resolve("axe-core/axe.min.js");
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
-const SITE = join(ROOT, "build/site");
+const BUILT = join(ROOT, "build/site");
+let SITE; // o copie: serverul scrie date (contor, vizite) și nu trebuie să ajungă în ce se publică
 const PORT = 8890 + Math.floor(Math.random() * 100);
 const BASE = `http://127.0.0.1:${PORT}`;
-const STORY = JSON.parse(readFileSync(join(SITE, "stories/index.json"), "utf-8")).stories[0];
+const STORY = JSON.parse(readFileSync(join(BUILT, "stories/index.json"), "utf-8")).stories[0];
 
 let server, browser;
 
 before(async () => {
+  SITE = mkdtempSync(join(tmpdir(), "iamlio-"));
+  cpSync(BUILT, SITE, { recursive: true });
   server = spawn("php", ["-S", `127.0.0.1:${PORT}`, "-t", SITE], { stdio: "ignore" });
   for (let i = 0; i < 50; i++) {
     try { const r = await fetch(`${BASE}/`); await r.arrayBuffer(); if (r.ok) break; } catch { /* încă pornește */ }
@@ -33,24 +37,22 @@ before(async () => {
 after(async () => {
   await browser?.close();
   server?.kill();
+  rmSync(SITE, { recursive: true, force: true });
 });
 
-// Problemele „serioase” și „critice” opresc publicarea; celelalte se afișează în jurnal.
+// Orice problemă WCAG 2.1 A/AA oprește publicarea, oricât de mică (axe le notează: minor … critical).
 async function audit(p, label) {
   await p.addScriptTag({ path: AXE });
   const result = await p.evaluate(() => window.axe.run(document, {
     runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"] },
   }));
   const describe = (v) => `${v.id} (${v.impact}): ${v.help} — ${v.nodes.slice(0, 3).map((n) => n.target.join(" ")).join(", ")}`;
-  for (const v of result.violations.filter((v) => !["serious", "critical"].includes(v.impact))) {
-    console.log(`[${label}] de îmbunătățit: ${describe(v)}`);
-  }
-  const blocking = result.violations.filter((v) => ["serious", "critical"].includes(v.impact));
-  assert.deepEqual(blocking.map(describe), [], `${label}: probleme de accesibilitate`);
+  assert.deepEqual(result.violations.map(describe), [], `${label}: probleme de accesibilitate`);
 }
 
 async function page(options = {}) {
-  const context = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: "reduce", ...options });
+  // bypassCSP: politica de securitate a paginii ar bloca scriptul axe adăugat de test (pe site nu se schimbă nimic)
+  const context = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: "reduce", bypassCSP: true, ...options });
   return context.newPage();
 }
 

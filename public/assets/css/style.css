@@ -676,6 +676,24 @@ body.reader {
   transition: transform .15s ease;
 }
 .play-btn:active { transform: translateY(3px); }
+/* când browserul n-a lăsat vocea să pornească singură: un inel și un îndemn, fără animație */
+.play-btn.needs-tap { box-shadow: 0 6px 0 var(--orange-dark), 0 0 0 6px #FFE7A3, 0 10px 24px rgba(0, 0, 0, .3); }
+.reader-controls { position: relative; }
+.tap-hint {
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #FFE7A3;
+  color: var(--ink);
+  font-weight: 700;
+  white-space: nowrap;
+  z-index: 5;
+}
+.tap-hint[hidden] { display: none; }
 .play-lio, .play-lio svg, .play-lio img { display: block; width: 100%; height: 100%; }
 .play-badge {
   position: absolute;
@@ -1012,6 +1030,7 @@ body.reader.bedtime {
   .play-badge { width: 26px; height: 26px; }
   .play-badge::before { left: 7px; top: 5px; }
   .play-btn.is-playing .play-badge::before { left: 5px; top: 4px; }
+  .tap-hint { position: fixed; left: auto; right: max(8px, env(safe-area-inset-right)); bottom: 82px; transform: none; }
   .dots { display: none; }
 }
 

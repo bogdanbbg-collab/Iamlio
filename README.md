@@ -65,8 +65,13 @@ imaginile și le salvează în `public/stories/<id>/`. După push, GitHub Action
    și masculină (`ro-RO-EmilNeural`), cu **regie de voce** (ton pe fiecare replică, voci de personaje, pauze);
    reîncearcă automat la erori de rețea și verifică apoi că există toate fișierele;
 5. actualizează biblioteca;
-6. urcă site-ul pe host prin **FTPS** (eșuează clar dacă lipsesc datele de conectare);
-7. verifică site-ul live (pagina, biblioteca, vocea, contorul, protecția datelor).
+6. **testează încă o dată site-ul final** (exact ce se urcă, cu vocile și imaginile noi) în browser; dacă pică,
+   nu se publică nimic;
+7. urcă site-ul pe host prin **FTPS** (eșuează clar dacă lipsesc datele de conectare);
+8. verifică site-ul live (pagina, biblioteca, vocea, contorul, panoul de administrare, protecția datelor).
+
+Fiecare pagină are o politică de securitate a conținutului (CSP): încarcă doar fișiere de pe iamlio.ro, fără
+scripturi străine sau scrise direct în pagină.
 
 Regulile sunt legate de proiect pentru orice AI: `AGENTS.md` (ChatGPT Codex și alții), `CLAUDE.md`, `GEMINI.md`,
 `.github/copilot-instructions.md`, `.cursor/rules/`. Toate trimit la aceleași reguli și la șablonul

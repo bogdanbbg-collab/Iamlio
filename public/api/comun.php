@@ -25,6 +25,9 @@ function send_json($code, $body)
     header('Content-Type: application/json; charset=utf-8');
     header('Cache-Control: no-store');
     header('X-Content-Type-Options: nosniff');
+    header('X-Frame-Options: DENY');
+    header('Referrer-Policy: strict-origin-when-cross-origin');
+    header("Content-Security-Policy: default-src 'none'; frame-ancestors 'none'");
     echo json_encode($body, JSON_UNESCAPED_UNICODE);
     exit;
 }

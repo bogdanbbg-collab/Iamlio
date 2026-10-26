@@ -94,6 +94,8 @@ async function page(options = {}) {
   const p = await context.newPage();
   p.errors = [];
   p.on("pageerror", (e) => p.errors.push(e.message));
+  // o încălcare a politicii de securitate (CSP) e tot o eroare: ceva din pagină ar fi fost blocat
+  p.on("console", (m) => { if (/Content[ -]Security[ -]Policy/i.test(m.text())) p.errors.push(m.text()); });
   return p;
 }
 
@@ -246,6 +248,19 @@ for (const [name, viewport] of [["telefon", [390, 844]], ["telefon mic", [360, 6
     assert.deepEqual(small, []);
   });
 }
+
+test("securitate: fiecare pagină are politica de conținut (doar fișiere proprii, fără scripturi din pagină)", async () => {
+  for (const url of ["", "poveste.html", "confidentialitate.html", "admin.html", `p/${STORY.id}.html`]) {
+    const html = await (await fetch(`${BASE}/${url}`)).text();
+    const csp = html.match(/http-equiv="Content-Security-Policy" content="([^"]+)"/);
+    assert.ok(csp, `${url || "/"}: lipsește politica`);
+    assert.ok(!csp[1].includes("unsafe-eval") && !/script-src[^;]*unsafe-inline/.test(csp[1]), csp[1]);
+    assert.ok(!/<script>/.test(html), `${url || "/"}: script direct în pagină`);
+  }
+  const api = await fetch(`${BASE}/api/citiri.php`);
+  await api.arrayBuffer();
+  assert.equal(api.headers.get("x-frame-options"), "DENY");
+});
 
 test("mișcare redusă: pagina se schimbă imediat", async () => {
   const p = await page({ reducedMotion: "reduce" });
@@ -444,6 +459,11 @@ test("„Lio, alege tu!”: dacă browserul blochează sunetul, Lio așteaptă o
   assert.equal(await p.evaluate(() => document.getElementById("play-btn").classList.contains("is-playing")), false);
   assert.equal(await p.evaluate(() => window.__spoken), 0);
   assert.equal(await p.getAttribute(".sheet.is-current", "aria-label"), "Copertă");
+  // un semn static arată unde să apeși; dispare la apăsare
+  assert.ok(await p.isVisible(".tap-hint"));
+  assert.match(await p.getAttribute("#play-btn", "class"), /needs-tap/);
+  await p.click("#play-btn");
+  assert.ok(await p.isHidden(".tap-hint"));
 });
 
 test("„Nou” și „Povestea săptămânii”: după data publicării, povestea săptămânii prima", async () => {

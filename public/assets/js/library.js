@@ -72,7 +72,14 @@
     var img = el("img");
     img.src = story.cover;
     img.alt = "";
-    img.loading = "lazy";
+    // primele coperți se văd imediat: se încarcă primele, cu prioritate; restul doar când ajungi la ele
+    if (grid.children.length < 2) {
+      img.loading = "eager";
+      img.setAttribute("fetchpriority", "high");
+    } else {
+      img.loading = "lazy";
+    }
+    img.decoding = "async";
     cover.appendChild(img);
     var tags = el("div", "story-tags");
     if (story.id === featuredId) tags.appendChild(el("span", "story-tag story-featured", "⭐ Povestea săptămânii"));
