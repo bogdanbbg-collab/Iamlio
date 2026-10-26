@@ -590,14 +590,16 @@ class CloudflareTests(unittest.TestCase):
         self.assertNotIn("reference image", body["prompt"], "fără referință: textul despre ea nu se trimite")
         self.assertTrue(body["prompt"].startswith(imagini.WIDE))
         self.assertLessEqual(len(body["prompt"]), imagini.CLOUDFLARE_MAX_PROMPT)
+        # FLUX.1 schnell primește doar prompt și steps (alți parametri sunt refuzați de Cloudflare)
+        self.assertEqual(set(body), {"prompt", "steps"})
         self.assertEqual(body["steps"], 8)
-        client.images.generate(prompt="Cover")
-        self.assertEqual(sent[0]["seed"], sent[1]["seed"], "aceeași sămânță pentru toată povestea")
 
     def test_models_that_answer_with_an_image_get_the_page_size(self):
         client, sent = self._client("image/png", self._image((1536, 1024), "PNG"), model="@cf/leonardo/lucid-origin")
         client.images.generate(prompt="Cover")
         self.assertEqual((sent[0]["width"], sent[0]["height"]), (1536, 1024))
+        client.images.generate(prompt="Page")
+        self.assertEqual(sent[0]["seed"], sent[1]["seed"], "aceeași sămânță pentru toată povestea")
 
     def test_errors_are_reported(self):
         client, _ = self._client("application/json", json.dumps({"success": False, "errors": [{"message": "cota zilnică"}]}).encode())

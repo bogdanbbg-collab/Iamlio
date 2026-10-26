@@ -8,8 +8,9 @@ s-a terminat), imaginea se face cu următoarea:
 1. Cloudflare Workers AI — GRATUIT (cota zilnică a planului gratuit, fără card): secretele CLOUDFLARE_ACCOUNT_ID
    și CLOUDFLARE_API_TOKEN. Opțional, variabila CLOUDFLARE_IMAGE_MODEL (implicit FLUX.1 schnell). Imaginile nu
    pornesc de la copertă ca referință (modelul nu poate), dar fiecare prompt are descrierea completă a
-   personajelor și aceeași „sămânță” pentru toată povestea, ca să semene între ele. Pe planul gratuit nu se
-   plătește nimic: când cota zilei se termină, restul imaginilor se generează la publicarea de a doua zi.
+   personajelor (și, la modelele care o acceptă, aceeași „sămânță” pentru toată povestea), ca să semene
+   între ele. Pe planul gratuit nu se plătește nimic: când cota zilei se termină, restul imaginilor se
+   generează la publicarea de a doua zi.
 2. OpenAI (cu plată) — secretul OPENAI_API_KEY. Opțional (variabile de repository):
   IMAGE_MODEL     modelul de imagine (implicit gpt-image-2)
   IMAGE_QUALITY   low | medium | high (implicit medium)
@@ -293,11 +294,11 @@ class CloudflareClient:
         import urllib.request
 
         prompt = (WIDE + " " + prompt)[:CLOUDFLARE_MAX_PROMPT]
-        body = {"prompt": prompt, "seed": self.seed}
+        body = {"prompt": prompt}
         if "flux-1-schnell" in self.model:
-            body["steps"] = 8  # maximul modelului: cea mai bună calitate
+            body["steps"] = 8  # maximul modelului: cea mai bună calitate (modelul nu primește alți parametri)
         else:
-            body.update(width=1536, height=1024)
+            body.update(width=1536, height=1024, seed=self.seed)
         request = urllib.request.Request(
             f"https://api.cloudflare.com/client/v4/accounts/{self.account}/ai/run/{self.model}",
             data=json.dumps(body).encode("utf-8"), method="POST",
