@@ -107,12 +107,20 @@ jobs:
         with:
           node-version: "22"
 
+      # pachetele de sistem și browserul păstrate între rulări (vezi scripts/instaleaza_browser.sh)
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/apt-browser
+            ~/.cache/ms-playwright
+          key: browser-${{ matrix.browser }}-ubuntu-24.04-${{ hashFiles('package-lock.json') }}-v1
+
       - name: Instalează uneltele și browserul
         timeout-minutes: 15
         run: |
           pip install -r requirements.lock
           npm ci --no-audit --no-fund
-          npx playwright install --with-deps ${{ matrix.browser }}
+          scripts/instaleaza_browser.sh ${{ matrix.browser }}
 
       - name: Teste în browser — ${{ matrix.browser }}
         run: |
@@ -233,12 +241,20 @@ jobs:
         with:
           node-version: "22"
 
+      - uses: actions/cache@v4
+        if: env.NORMAL == 'true'
+        with:
+          path: |
+            ~/.cache/apt-browser
+            ~/.cache/ms-playwright
+          key: browser-chromium-ubuntu-24.04-${{ hashFiles('package-lock.json') }}-v1
+
       - name: Testează site-ul final înainte de publicare (Chromium)
         if: env.NORMAL == 'true'
         timeout-minutes: 15
         run: |
           npm ci --no-audit --no-fund
-          npx playwright install --with-deps chromium
+          scripts/instaleaza_browser.sh chromium
           BROWSER=chromium node --test $(ls tests/e2e/*.test.mjs | grep -v capturi)
 
       # Imaginile și vocile s-au pregătit în același timp cu testele din browser; nimic nu se urcă și nimic nu se
