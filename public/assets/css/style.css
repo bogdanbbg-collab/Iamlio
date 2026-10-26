@@ -150,6 +150,24 @@ body.home {
   border-left: 0;
   transform: translateY(-50%);
 }
+.lio-picks {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 56px;
+  margin-top: 12px;
+  padding: 6px 22px 6px 8px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--teal);
+  color: #fff;
+  font: 700 1.15rem/1 var(--font);
+  cursor: pointer;
+  box-shadow: 0 4px 0 var(--teal-dark);
+}
+.lio-picks[hidden] { display: none; }
+.lio-picks img { width: 42px; height: 42px; border-radius: 50%; background: var(--gold); }
+.lio-picks:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--teal-dark); }
 .bubble h1 { margin: 0 0 4px; font-size: clamp(1.35rem, 3.6vw, 2.2rem); line-height: 1.1; color: var(--orange); }
 .bubble p { margin: 0; font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.35; }
 

@@ -399,6 +399,57 @@ for (const [name, viewport] of [["telefon", [390, 844]], ["telefon mic", [360, 6
   });
 }
 
+test("„Lio, alege tu!”: deschide altă poveste decât data trecută, gata de citit", async () => {
+  const p = await page();
+  let previous = "";
+  for (let i = 0; i < 6; i++) {
+    await p.goto(`${BASE}/`);
+    await p.waitForSelector("#lio-picks:not([hidden])");
+    await p.click("#lio-picks");
+    await p.waitForURL(/poveste\.html\?id=/);
+    await p.waitForSelector(".sheet.is-current");
+    const id = new URL(p.url()).searchParams.get("id");
+    assert.ok(id && id !== previous, `a ales ${id} după ${previous}`);
+    assert.ok(!p.url().includes("citeste=1"), "la reîncărcare nu mai pornește singură");
+    previous = id;
+  }
+  // vocea a pornit singură sau, dacă browserul a cerut o atingere, Lio așteaptă (nu rămâne „blocat” pornit fără sunet)
+  await p.waitForTimeout(500);
+  const state = await p.evaluate(() => ({
+    playing: document.getElementById("play-btn").classList.contains("is-playing"),
+    paused: document.querySelector("audio").paused,
+  }));
+  assert.ok(state.playing ? !state.paused : true, JSON.stringify(state));
+  assert.deepEqual(p.errors, []);
+});
+
+test("„Lio, alege tu!”: dacă browserul blochează sunetul, Lio așteaptă o atingere, fără vocea browserului", { skip: !VOICED && "nicio poveste nu are încă voce" }, async () => {
+  const p = await page();
+  await p.addInitScript(() => {
+    window.__spoken = 0;
+    HTMLMediaElement.prototype.play = function () { return Promise.reject(new DOMException("blocat", "NotAllowedError")); };
+    if (window.speechSynthesis) speechSynthesis.speak = () => { window.__spoken++; };
+  });
+  await p.goto(`${BASE}/poveste.html?id=${VOICED.id}&citeste=1`);
+  await p.waitForSelector(".sheet.is-current");
+  await p.waitForTimeout(500);
+  assert.equal(await p.evaluate(() => document.getElementById("play-btn").classList.contains("is-playing")), false);
+  assert.equal(await p.evaluate(() => window.__spoken), 0);
+  assert.equal(await p.getAttribute(".sheet.is-current", "aria-label"), "Copertă");
+});
+
+test("„Lio, alege tu!” apare doar de la trei povești", async () => {
+  const p = await page();
+  await p.route("**/stories/index.json*", async (route) => {
+    const body = await (await route.fetch()).json();
+    body.stories = body.stories.slice(0, 2);
+    await route.fulfill({ json: body });
+  });
+  await p.goto(`${BASE}/`);
+  await p.waitForSelector(".story-card");
+  assert.ok(await p.isHidden("#lio-picks"));
+});
+
 test("cu o singură poveste nu apare butonul „Filtre”", async () => {
   const p = await page();
   await p.route("**/stories/index.json*", async (route) => {

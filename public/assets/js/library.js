@@ -215,12 +215,28 @@
       counts = results[1];
       (results[0].categories || []).forEach(function (c) { categories[c.id] = c; });
       if (stories.length > 1) buildFilters(results[0].categories || []); // cu o singură poveste n-ai ce filtra
+      if (stories.length >= MIN_FOR_PICK) picksBtn.hidden = false;
       showStories();
     })
     .catch(function () {
       grid.textContent = "";
       grid.appendChild(el("p", "muted", "Nu am putut încărca poveștile. Încearcă din nou."));
     });
+
+  // ---------- „Lio, alege tu!” ----------
+
+  // Lio alege o poveste la întâmplare (alta decât data trecută) și o deschide gata de citit.
+  var MIN_FOR_PICK = 3;
+  var LAST_PICK = "iamlio-ales";
+  var picksBtn = document.getElementById("lio-picks");
+  picksBtn.addEventListener("click", function () {
+    var last = Iamlio.readSetting(LAST_PICK, "");
+    var choices = stories.filter(function (s) { return s.id !== last; });
+    var pick = choices[Math.floor(Math.random() * choices.length)];
+    if (!pick) return;
+    Iamlio.writeSetting(LAST_PICK, pick.id);
+    location.href = "poveste.html?id=" + encodeURIComponent(pick.id) + "&citeste=1";
+  });
 
   // ---------- Lio vorbește când îl atingi ----------
 

@@ -12,6 +12,9 @@
   var params = new URLSearchParams(location.search);
   // ?previzualizare=<id>: o poveste personalizată neaprobată, citită prin server, doar cu parola de previzualizare.
   var preview = !params.get("id") && !!params.get("previzualizare");
+  // ?citeste=1 (de la „Lio, alege tu!”): încearcă să pornească vocea singură; dacă browserul nu lasă, așteaptă o atingere
+  var autoStart = params.get("citeste") === "1";
+  var autoStarting = false;
   var storyId = (preview ? params.get("previzualizare") : params.get("id")) || "";
   var base = preview ? "api/previzualizare.php?id=" + encodeURIComponent(storyId) + "&f="
     : "stories/" + encodeURIComponent(storyId) + "/";
@@ -527,8 +530,15 @@
       applyAudioSettings();
       audio.onended = function () { onReadEnd(token); };
       audio.onerror = function () { if (token === playToken) speak(item.speech, token); };
-      audio.play().catch(function () {
-        if (token === playToken) speak(item.speech, token);
+      audio.play().then(function () { autoStarting = false; }, function () {
+        if (token !== playToken) return;
+        if (autoStarting) {
+          // browserul cere o atingere înainte de sunet: Lio rămâne pe copertă, gata să fie apăsat
+          autoStarting = false;
+          setReading(false);
+          return;
+        }
+        speak(item.speech, token);
       });
     } else {
       speak(item.speech, token);
@@ -694,6 +704,7 @@
     updateResume();
     applyBedtime();
     if (story.personalized) markPersonal(story);
+    if (autoStart) startByItself();
     if (preview) return; // previzualizarea nu se numără și nu are favorite sau recomandări
     if (!story.personalized) enableShare(story);
     Iamlio.countRead(story.id).then(showReads);
@@ -722,6 +733,13 @@
         done(url);
       }
     });
+  }
+
+  function startByItself() {
+    history.replaceState(null, "", location.pathname + "?id=" + encodeURIComponent(storyId)); // la reîncărcare nu mai pornește singură
+    if (!audioUrl(items[0])) return; // fără fișier audio, vocea browserului nu poate porni fără o atingere
+    autoStarting = true;
+    setReading(true);
   }
 
   // Povești personalizate: nu se indexează; până la aprobare se văd doar ca „Previzualizare”.
