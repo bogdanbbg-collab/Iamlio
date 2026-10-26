@@ -18,6 +18,20 @@ CEDILLA = str.maketrans({"ş": "ș", "ţ": "ț", "Ş": "Ș", "Ţ": "Ț"})
 RASTER = (".png", ".jpg", ".jpeg", ".webp")
 IMAGE_PATH = re.compile(r"^images/[a-z0-9][a-z0-9-]*\.(?:webp|png|jpe?g)$")
 ID_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+# Cuvinte după care se ghicesc categoriile, dacă AI-ul a uitat să le aleagă (căutate în titlu, rezumat,
+# etichete, învățătură și morală, fără diacritice).
+CATEGORY_HINTS = {
+    "de-culcare": ["noapte", "somn", "culcare", "vis", "stea", "stele", "luna", "seara", "adorm", "pijama"],
+    "aventuri": ["aventur", "calator", "explor", "comoar", "munte", "insula", "pestera", "harta"],
+    "animale": ["animal", "urs", "iepur", "vulpe", "arici", "bufnit", "leu", "pisic", "catel", "pasar", "peste",
+                "broasc", "veverit", "elefant", "girafa", "dinozaur", "albin", "furnic", "fluture", "melc"],
+    "prietenie": ["prieten", "emoti", "trist", "bucur", "fericit", "imparti", "ajut", "iert", "curaj", "frica",
+                  "empat", "suparar", "familie"],
+    "invatam": ["numar", "numer", "culor", "liter", "forme", "anotimp", "planet", "corp", "dinti", "igiena",
+                "sigurant", "meseri", "natura", "invat"],
+    "amuzante": ["amuzant", "haios", "glum", "ras", "nazdravan", "pozna", "caraghios"],
+}
+
 # Profiluri de voce pentru personajele care vorbesc și nu au unul (fiecare altfel, ca să se deosebească).
 VOICE_PALETTE = [{"pitch": 16, "rate": 2}, {"pitch": -8, "rate": -6}, {"pitch": 8, "rate": 4},
                  {"pitch": -14, "rate": -8}, {"pitch": 22, "rate": 6}, {"pitch": -4, "rate": 0}]
@@ -98,6 +112,11 @@ class Preparer:
         if age != normalized:
             d["age"] = normalized
             self.note(f"vârsta a fost normalizată la {normalized}")
+        if not d.get("categories"):
+            guessed = guess_categories(d)
+            if guessed:
+                d["categories"] = guessed
+                self.note(f"categoriile au fost alese automat: {', '.join(guessed)} (verifică-le)")
         if isinstance(d.get("learning"), str):
             d["learning"] = [d["learning"]]
             self.note("learning a fost transformat în listă")
@@ -235,6 +254,16 @@ class Preparer:
             if character.get("name") in speakers and not character.get("voice"):
                 character["voice"] = dict(next(palette))
                 self.note(f"{character['name']} a primit automat un profil de voce")
+
+
+def guess_categories(data):
+    """Cele mai potrivite 1–3 categorii după cuvintele din poveste; [] dacă nimic nu se potrivește."""
+    words = [data.get("title"), data.get("summary"), data.get("moral")]
+    words += [x for key in ("tags", "learning") for x in (data.get(key) or []) if isinstance(x, str)]
+    text = plain(" ".join(w for w in words if isinstance(w, str)))
+    scores = {key: sum(text.count(hint) for hint in hints) for key, hints in CATEGORY_HINTS.items()}
+    ranked = sorted((key for key in canon.CATEGORIES if scores[key]), key=lambda key: -scores[key])
+    return ranked[:canon.MAX_CATEGORIES]
 
 
 def prepare(folder, data):

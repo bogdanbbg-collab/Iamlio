@@ -1,4 +1,36 @@
 {
+  "categories": [
+    {
+      "id": "de-culcare",
+      "label": "De culcare",
+      "emoji": "🌙"
+    },
+    {
+      "id": "aventuri",
+      "label": "Aventuri",
+      "emoji": "🧭"
+    },
+    {
+      "id": "animale",
+      "label": "Animale",
+      "emoji": "🐾"
+    },
+    {
+      "id": "prietenie",
+      "label": "Prietenie și emoții",
+      "emoji": "💛"
+    },
+    {
+      "id": "invatam",
+      "label": "Învățăm",
+      "emoji": "📚"
+    },
+    {
+      "id": "amuzante",
+      "label": "Amuzante",
+      "emoji": "😄"
+    }
+  ],
   "stories": [
     {
       "id": "lio-si-steluta-cazatoare",
@@ -10,6 +42,11 @@
         "stele",
         "empatie",
         "noapte bună"
+      ],
+      "categories": [
+        "de-culcare",
+        "prietenie",
+        "invatam"
       ],
       "created": "2026-10-25",
       "cover": "stories/lio-si-steluta-cazatoare/images/coperta.webp",

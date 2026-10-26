@@ -10,7 +10,13 @@ Site cu povești ilustrate pentru copii de 3–7 ani, în limba română. Pagini
 - **Setări de citire** (butonul din dreapta sus): vocea, **viteza** (0,8×–1,1×), Lio dă singur paginile,
   **mod de culcare** (culori calme, imagini mai puțin luminoase, voce mai încetă) și **ecran complet**
   (pe iPhone/iPad: Partajează → „Adaugă pe ecranul principal”, iar site-ul se deschide ca o aplicație);
-- **reluarea poveștii**: coperta propune „Continuă” de la pagina la care a rămas copilul.
+- **reluarea poveștii**: coperta propune „Continuă” de la pagina la care a rămas copilul;
+- la final, **două recomandări** asemănătoare (aceleași categorii, necitite încă), nu o listă nesfârșită.
+
+Biblioteca are **categorii** (de culcare, aventuri, animale, prietenie și emoții, învățăm, amuzante), **filtre**
+după vârstă (3–5 / 5–7 ani) și durată (scurte / medii / lungi), **favorite** (♡ pe fiecare poveste) și eticheta
+„Continuă · pagina N” pentru poveștile începute. Filtrele stau în adresa paginii, deci o listă filtrată
+(de ex. `/?categorie=de-culcare`) poate fi trimisă cuiva.
 
 Preferințele rămân doar în browserul de pe dispozitiv (fără conturi).
 

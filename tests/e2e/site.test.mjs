@@ -3,7 +3,7 @@
 import { test, before, after } from "node:test";
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
-import { cpSync, existsSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
+import { cpSync, existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -25,10 +25,31 @@ const VOICED = index.stories.find((s) => existsSync(join(ROOT, "build/site/stori
 
 let server, browser, site;
 
+// Povești de probă (copii ale primei povești) cu categorii, vârste și durate diferite, pentru filtre și recomandări.
+const EXTRA = [
+  { id: "test-ursul", title: "Ursulețul somnoros", categories: ["de-culcare", "animale"], age: "3-5", minutes: 3 },
+  { id: "test-comoara", title: "Comoara din pădure", categories: ["aventuri", "amuzante"], age: "5-7", minutes: 6 },
+  { id: "test-planete", title: "Lio printre planete", categories: ["invatam", "aventuri"], age: "5-7", minutes: 9 },
+];
+
+function addExtraStories(root) {
+  const library = JSON.parse(readFileSync(join(root, "stories/index.json"), "utf-8"));
+  for (const extra of EXTRA) {
+    cpSync(join(root, "stories", STORY.id), join(root, "stories", extra.id), { recursive: true });
+    const file = join(root, "stories", extra.id, "story.json");
+    const story = JSON.parse(readFileSync(file, "utf-8"));
+    Object.assign(story, { id: extra.id, title: extra.title, categories: extra.categories, age: extra.age });
+    writeFileSync(file, JSON.stringify(story));
+    library.stories.push({ ...STORY, ...extra, cover: STORY.cover.replace(STORY.id, extra.id), tags: [] });
+  }
+  writeFileSync(join(root, "stories/index.json"), JSON.stringify(library));
+}
+
 before(async () => {
   site = mkdtempSync(join(tmpdir(), "iamlio-"));
   cpSync(join(ROOT, "build/site"), site, { recursive: true });
   rmSync(join(site, "api/data/citiri.json"), { force: true });
+  addExtraStories(site);
   server = spawn("php", ["-S", `127.0.0.1:${PORT}`, "-t", site], { stdio: "ignore" });
   for (let i = 0; i < 50; i++) {
     try { if ((await fetch(`${BASE}/stories/index.json`)).ok) break; } catch { /* încă pornește */ }
@@ -292,4 +313,83 @@ test("aplicație: manifest și pictograme pentru „Adaugă pe ecranul principal
   await p.click("#settings-btn");
   const offered = await p.isVisible("#fullscreen-btn") || await p.isVisible("#fullscreen-hint");
   assert.ok(offered, "ecranul complet e oferit (buton sau explicație pentru iPhone)");
+});
+
+const cardTitles = (p) => p.$$eval(".story-card h3", (nodes) => nodes.map((n) => n.textContent));
+
+test("filtre: categorie, vârstă, durată, păstrate în adresă, cu mesaj când nu se potrivește nimic", async () => {
+  const p = await page({ viewport: { width: 1280, height: 900 } });
+  await p.goto(`${BASE}/`);
+  await p.waitForSelector(".story-card");
+  assert.equal((await cardTitles(p)).length, 1 + EXTRA.length);
+  await p.click('#category-chips [data-value="animale"]');
+  assert.deepEqual(await cardTitles(p), ["Ursulețul somnoros"]);
+  assert.match(p.url(), /categorie=animale/);
+  await p.click('#category-chips [data-value=""]');
+  await p.click('[data-filter="varsta"] [data-value="3-5"]');
+  assert.ok(!(await cardTitles(p)).includes("Comoara din pădure"), "poveștile de 5–7 ani dispar la 3–5 ani");
+  await p.click('[data-filter="durata"] [data-value="lungi"]');
+  assert.equal(await p.locator(".empty-state").count(), 1);
+  await p.click('[data-filter="varsta"] [data-value=""]');
+  assert.deepEqual(await cardTitles(p), ["Lio printre planete"]);
+  await p.reload();
+  await p.waitForSelector(".story-card");
+  assert.deepEqual(await cardTitles(p), ["Lio printre planete"], "filtrul rămâne după reîncărcare");
+  assert.equal(await p.getAttribute('[data-filter="durata"] [data-value="lungi"]', "aria-pressed"), "true");
+  assert.match(await p.textContent("#results-count"), /1 din 4/);
+  assert.deepEqual(p.errors, []);
+});
+
+test("favorite: inimioara de pe card și din poveste, filtrul „Favorite”", async () => {
+  const p = await page({ viewport: { width: 1280, height: 900 } });
+  await p.goto(`${BASE}/`);
+  await p.waitForSelector(".story-card");
+  await p.click("#favorites-filter");
+  assert.match(await p.textContent(".empty-state"), /Încă nu ai povești favorite/);
+  await p.click("#favorites-filter");
+  const card = p.locator(".story-card", { hasText: "Comoara din pădure" });
+  await card.locator(".fav-btn").click();
+  assert.equal(await card.locator(".fav-btn").getAttribute("aria-pressed"), "true");
+  await p.click("#favorites-filter");
+  assert.deepEqual(await cardTitles(p), ["Comoara din pădure"]);
+  await p.goto(`${BASE}/poveste.html?id=test-comoara`);
+  await p.waitForSelector(".reader-bar .fav-btn");
+  assert.equal(await p.getAttribute(".reader-bar .fav-btn", "aria-pressed"), "true");
+  await p.click(".reader-bar .fav-btn");
+  await p.goto(`${BASE}/?favorite=1`);
+  await p.waitForSelector(".empty-state");
+  assert.deepEqual(p.errors, []);
+});
+
+test("recomandări: la final, două povești asemănătoare, fără cea curentă", async () => {
+  const p = await page({ reducedMotion: "reduce" });
+  await p.goto(`${BASE}/poveste.html?id=test-comoara`);
+  await p.waitForSelector(".sheet.is-current");
+  for (let i = 1; i < SHEETS; i++) {
+    await p.click("#next-btn");
+    await settle(p, i === SHEETS - 1 ? "Sfârșit" : `Pagina ${i}`);
+  }
+  await p.waitForSelector(".end-recs:not([hidden]) .rec-card");
+  const links = await p.$$eval(".is-current .rec-card", (cards) => cards.map((c) => c.getAttribute("href")));
+  assert.equal(links.length, 2);
+  assert.ok(!links.some((href) => href.includes("test-comoara")), "nu se recomandă povestea curentă");
+  assert.ok(links[0].includes("test-planete"), "prima recomandare are categorii comune (aventuri)");
+  await p.click(".is-current .rec-card >> nth=0");
+  await p.waitForURL(/test-planete/);
+  await p.waitForSelector(".sheet.is-current");
+  assert.equal(await p.textContent("#story-title"), "Lio printre planete");
+});
+
+test("biblioteca arată „Continuă · pagina N” pentru povestea începută", async () => {
+  const p = await page({ reducedMotion: "reduce", viewport: { width: 1280, height: 900 } });
+  await p.goto(`${BASE}/poveste.html?id=test-ursul`);
+  await p.waitForSelector(".sheet.is-current");
+  await p.click("#next-btn");
+  await settle(p, "Pagina 1");
+  await p.click("#next-btn");
+  await settle(p, "Pagina 2");
+  await p.goto(`${BASE}/`);
+  const card = p.locator(".story-card", { hasText: "Ursulețul somnoros" });
+  await card.locator(".story-resume").waitFor();
+  assert.equal(await card.locator(".story-resume").textContent(), "Continuă · pagina 2");
 });

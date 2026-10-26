@@ -55,6 +55,24 @@
 
     <section class="library" aria-labelledby="library-title">
       <h2 id="library-title">Poveștile lui Lio</h2>
+      <div class="filters" id="filters" hidden>
+        <div class="chips" id="category-chips" role="group" aria-label="Categorii"></div>
+        <div class="filter-row">
+          <div class="segmented" role="group" aria-label="Vârsta" data-filter="varsta">
+            <button type="button" data-value="">Orice vârstă</button>
+            <button type="button" data-value="3-5">3–5 ani</button>
+            <button type="button" data-value="5-7">5–7 ani</button>
+          </div>
+          <div class="segmented" role="group" aria-label="Durata" data-filter="durata">
+            <button type="button" data-value="">Orice durată</button>
+            <button type="button" data-value="scurte" title="până la 4 minute">Scurte</button>
+            <button type="button" data-value="medii" title="5–7 minute">Medii</button>
+            <button type="button" data-value="lungi" title="8–10 minute">Lungi</button>
+          </div>
+          <button type="button" class="chip chip-fav" id="favorites-filter" aria-pressed="false">♥ Favorite</button>
+        </div>
+        <p id="results-count" class="results-count" aria-live="polite"></p>
+      </div>
       <div id="stories" class="story-grid" aria-live="polite">
         <p class="muted">Se încarcă poveștile…</p>
       </div>

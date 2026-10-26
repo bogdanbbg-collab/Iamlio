@@ -51,6 +51,18 @@ class ValidationTests(StoryCase):
     def test_demo_story_is_valid(self):
         self.assertEqual(self.errors(), [])
 
+    def test_categories_must_be_known(self):
+        self.data["categories"] = ["dinozauri"]
+        self.assertError("categories")
+        self.data["categories"] = ["aventuri", "animale", "amuzante", "invatam"]
+        self.assertError("categories")
+        del self.data["categories"]
+        self.assertError("lipsește câmpul obligatoriu 'categories'")
+
+    def test_index_lists_categories_for_the_library(self):
+        entry = stories.index_entry(DEMO, demo_data())
+        self.assertEqual(entry["categories"], demo_data()["categories"])
+
     def test_learning_is_required(self):
         del self.data["learning"]
         self.assertError("learning")
@@ -253,6 +265,16 @@ class PreparationTests(StoryCase):
         data, changes = pregatire.prepare(DEMO, demo_data())
         self.assertEqual(changes, [])
         self.assertEqual(data, demo_data())
+
+    def test_missing_categories_are_guessed(self):
+        del self.data["categories"]
+        self.data["title"] = "Ursulețul care nu putea adormi"
+        self.data["tags"] = ["somn", "noapte", "urs"]
+        data, changes = pregatire.prepare(self.folder, self.data)
+        self.assertEqual(data["categories"][0], "de-culcare")
+        self.assertIn("animale", data["categories"])
+        self.assertLessEqual(len(data["categories"]), 3)
+        self.assertTrue(any("categoriile au fost alese automat" in c for c in changes))
 
     def test_text_normalization(self):
         self.assertEqual(pregatire.normalize_text('- Bună... a spus "Lio" cu  ş.'), "— Bună… a spus „Lio” cu ș.")

@@ -63,8 +63,8 @@ SUMMARY_WORDS = (8, 60)
 # Cuvinte care de obicei nu au ce căuta într-o poveste pentru 3–7 ani (avertisment, nu eroare).
 SENSITIVE_WORDS = ["moarte", "mort", "moartă", "murit", "sânge", "ucide", "omoară", "omorât", "armă", "pistol",
                    "cuțit", "bătaie", "prost", "proastă", "idiot", "urât", "drac", "iad", "înjur"]
-REQUIRED_FIELDS = ["id", "title", "summary", "moral", "learning", "created", "illustrationStyle", "characters",
-                   "cover", "pages", "review"]
+REQUIRED_FIELDS = ["id", "title", "summary", "moral", "learning", "categories", "created", "illustrationStyle",
+                   "characters", "cover", "pages", "review"]
 
 
 def load_stories():
@@ -215,6 +215,12 @@ def check_story(folder, data):
         errors.append(f"titlul are {word_count(title)} cuvinte (maximum 10; recomandat 2–7)")
     if data.get("age", "3-7") not in AGES:
         errors.append(f"age trebuie să fie unul dintre {', '.join(sorted(AGES))}")
+
+    categories = data.get("categories")
+    if categories is not None and (not isinstance(categories, list) or not 1 <= len(categories) <= canon.MAX_CATEGORIES
+                                   or len(set(categories)) != len(categories)
+                                   or any(c not in canon.CATEGORIES for c in categories)):
+        errors.append(f"categories: alege 1–{canon.MAX_CATEGORIES} categorii dintre {', '.join(canon.CATEGORIES)}")
 
     learning = data.get("learning")
     if learning is not None and (not isinstance(learning, list) or not 1 <= len(learning) <= 3
@@ -430,6 +436,7 @@ def template_story(story_id="id-ul-povestii", title=f"{canon.PLACEHOLDER}: titlu
             "imagePrompt": f"{canon.STYLE} Characters in this scene: Lio: {canon.LIO_DESCRIPTION}. Setting: {todo}. Action: {todo}.",
         },
         "pages": [page],
+        "categories": [],
         "review": {key: f"{todo}: {meaning}" for key, meaning in canon.REVIEW_FIELDS.items()},
     }
 
@@ -867,6 +874,7 @@ def index_entry(folder, data):
         "summary": data["summary"],
         "age": data.get("age", "3-7"),
         "tags": data.get("tags", []),
+        "categories": data.get("categories", []),
         "created": data["created"],
         "cover": f"stories/{data['id']}/{data['cover']['image']}",
         "pages": len(data["pages"]),
@@ -876,7 +884,9 @@ def index_entry(folder, data):
 
 def write_index(path, entries):
     entries.sort(key=lambda e: (e["created"], e["title"]), reverse=True)
-    path.write_text(json.dumps({"stories": entries}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    categories = [{"id": key, "label": label, "emoji": emoji} for key, (label, emoji) in canon.CATEGORIES.items()]
+    path.write_text(json.dumps({"categories": categories, "stories": entries}, indent=2, ensure_ascii=False) + "\n",
+                    encoding="utf-8")
 
 
 def cmd_index():

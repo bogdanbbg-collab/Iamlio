@@ -24,6 +24,17 @@ LIO_DESCRIPTION = (
 LIO_MARKERS = ("lion cub", "golden-yellow fur", "caramel-orange mane", "turquoise scarf", "yellow stars")
 LIO_VOICE = {"pitch": 12, "rate": 3}
 
+# Categoriile bibliotecii: fiecare poveste are 1–3 (câmpul "categories"). Ordinea de aici e ordinea de pe site.
+CATEGORIES = {
+    "de-culcare": ("De culcare", "🌙"),
+    "aventuri": ("Aventuri", "🧭"),
+    "animale": ("Animale", "🐾"),
+    "prietenie": ("Prietenie și emoții", "💛"),
+    "invatam": ("Învățăm", "📚"),
+    "amuzante": ("Amuzante", "😄"),
+}
+MAX_CATEGORIES = 3
+
 # Autoevaluarea pe care o scrie AI-ul în story.json (câmpul "review").
 REVIEW_FIELDS = {
     "imaginatie": "ce element magic sau neobișnuit are povestea",

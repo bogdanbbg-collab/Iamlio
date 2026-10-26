@@ -14,8 +14,56 @@
 
   // ---------- biblioteca ----------
 
-  function card(story, counts) {
-    var link = el("a", "story-card");
+  var filtersEl = document.getElementById("filters");
+  var chipsEl = document.getElementById("category-chips");
+  var favoritesBtn = document.getElementById("favorites-filter");
+  var countEl = document.getElementById("results-count");
+  var stories = [];
+  var categories = {};
+  var counts = null;
+
+  // Filtrele stau în adresa paginii (ex. ?categorie=de-culcare&varsta=3-5), ca o listă filtrată să poată fi trimisă.
+  var query = new URLSearchParams(location.search);
+  var filters = {
+    categorie: query.get("categorie") || "",
+    varsta: query.get("varsta") || "",
+    durata: query.get("durata") || "",
+    favorite: query.get("favorite") === "1"
+  };
+
+  function saveFilters() {
+    var params = new URLSearchParams();
+    if (filters.categorie) params.set("categorie", filters.categorie);
+    if (filters.varsta) params.set("varsta", filters.varsta);
+    if (filters.durata) params.set("durata", filters.durata);
+    if (filters.favorite) params.set("favorite", "1");
+    var search = params.toString();
+    try {
+      history.replaceState(null, "", search ? "?" + search : location.pathname);
+    } catch (e) { /* unele browsere refuză în previzualizări; filtrul merge oricum */ }
+  }
+
+  function ageFits(storyAge, wanted) {
+    return !wanted || storyAge === wanted || storyAge === "3-7";
+  }
+
+  function durationFits(minutes, wanted) {
+    if (wanted === "scurte") return minutes <= 4;
+    if (wanted === "medii") return minutes >= 5 && minutes <= 7;
+    if (wanted === "lungi") return minutes >= 8;
+    return true;
+  }
+
+  function matches(story) {
+    return (!filters.categorie || (story.categories || []).indexOf(filters.categorie) !== -1) &&
+      ageFits(story.age, filters.varsta) &&
+      durationFits(story.minutes, filters.durata) &&
+      (!filters.favorite || Iamlio.isFavorite(story.id));
+  }
+
+  function card(story) {
+    var item = el("article", "story-card");
+    var link = el("a", "story-link");
     link.href = "poveste.html?id=" + encodeURIComponent(story.id);
 
     var cover = el("div", "story-cover");
@@ -24,6 +72,10 @@
     img.alt = "";
     img.loading = "lazy";
     cover.appendChild(img);
+    var first = categories[(story.categories || [])[0]];
+    if (first) cover.appendChild(el("span", "story-tag", first.emoji + " " + first.label));
+    var page = Iamlio.savedPage(story.id);
+    if (page && page < story.pages + 1) cover.appendChild(el("span", "story-resume", "Continuă · pagina " + page));
     cover.appendChild(el("span", "story-play", "▶"));
     link.appendChild(cover);
 
@@ -39,7 +91,97 @@
     meta.appendChild(el("span", null, story.age + " ani"));
     body.appendChild(meta);
     link.appendChild(body);
-    return link;
+    item.appendChild(link);
+    item.appendChild(Iamlio.favoriteButton(story.id, story.title, function () {
+      if (filters.favorite) showStories();
+    }));
+    return item;
+  }
+
+  function emptyState() {
+    var box = el("div", "empty-state");
+    if (filters.favorite && !stories.some(function (s) { return Iamlio.isFavorite(s.id); })) {
+      box.appendChild(el("p", null, "Încă nu ai povești favorite. Apasă pe ♡ la o poveste ca s-o găsești ușor aici."));
+    } else {
+      box.appendChild(el("p", null, "Nicio poveste nu se potrivește filtrelor alese."));
+    }
+    var reset = el("button", "pill", "Arată toate poveștile");
+    reset.type = "button";
+    reset.addEventListener("click", function () {
+      filters = { categorie: "", varsta: "", durata: "", favorite: false };
+      syncFilters();
+      showStories();
+    });
+    box.appendChild(reset);
+    return box;
+  }
+
+  function showStories() {
+    saveFilters();
+    var shown = stories.filter(matches);
+    grid.textContent = "";
+    if (!stories.length) {
+      grid.appendChild(el("p", "muted", "Încă nu avem povești. Revino curând!"));
+      return;
+    }
+    if (!shown.length) grid.appendChild(emptyState());
+    shown.forEach(function (story) { grid.appendChild(card(story)); });
+    var filtered = shown.length !== stories.length;
+    countEl.textContent = filtered ? shown.length + " din " + stories.length + " povești" : "";
+  }
+
+  function syncFilters() {
+    Array.prototype.forEach.call(chipsEl.children, function (chip) {
+      chip.setAttribute("aria-pressed", chip.getAttribute("data-value") === filters.categorie ? "true" : "false");
+    });
+    Array.prototype.forEach.call(document.querySelectorAll(".segmented"), function (group) {
+      var key = group.getAttribute("data-filter");
+      Array.prototype.forEach.call(group.children, function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-value") === filters[key] ? "true" : "false");
+      });
+    });
+    favoritesBtn.setAttribute("aria-pressed", filters.favorite ? "true" : "false");
+  }
+
+  function buildFilters(list) {
+    var used = {};
+    stories.forEach(function (s) { (s.categories || []).forEach(function (c) { used[c] = (used[c] || 0) + 1; }); });
+    var all = el("button", "chip", "Toate");
+    all.type = "button";
+    all.setAttribute("data-value", "");
+    chipsEl.appendChild(all);
+    list.forEach(function (category) {
+      if (!used[category.id]) return; // doar categoriile care au povești
+      var chip = el("button", "chip", category.emoji + " " + category.label);
+      chip.type = "button";
+      chip.setAttribute("data-value", category.id);
+      chipsEl.appendChild(chip);
+    });
+    Array.prototype.forEach.call(chipsEl.children, function (chip) {
+      chip.addEventListener("click", function () {
+        filters.categorie = chip.getAttribute("data-value");
+        syncFilters();
+        showStories();
+      });
+    });
+    Array.prototype.forEach.call(document.querySelectorAll(".segmented"), function (group) {
+      var key = group.getAttribute("data-filter");
+      Array.prototype.forEach.call(group.children, function (button) {
+        button.addEventListener("click", function () {
+          filters[key] = button.getAttribute("data-value");
+          syncFilters();
+          showStories();
+        });
+      });
+    });
+    favoritesBtn.addEventListener("click", function () {
+      filters.favorite = !filters.favorite;
+      syncFilters();
+      showStories();
+    });
+    if (filters.categorie && !used[filters.categorie]) filters.categorie = "";
+    syncFilters();
+    filtersEl.hidden = false;
   }
 
   var storiesRequest = fetch("stories/index.json", { cache: "no-cache" }).then(function (res) {
@@ -49,16 +191,11 @@
 
   Promise.all([storiesRequest, Iamlio.fetchCounts()])
     .then(function (results) {
-      var data = results[0];
-      var counts = results[1];
-      grid.textContent = "";
-      if (!data.stories.length) {
-        grid.appendChild(el("p", "muted", "Încă nu avem povești. Revino curând!"));
-        return;
-      }
-      data.stories.forEach(function (story) {
-        grid.appendChild(card(story, counts));
-      });
+      stories = results[0].stories || [];
+      counts = results[1];
+      (results[0].categories || []).forEach(function (c) { categories[c.id] = c; });
+      if (stories.length) buildFilters(results[0].categories || []);
+      showStories();
     })
     .catch(function () {
       grid.textContent = "";

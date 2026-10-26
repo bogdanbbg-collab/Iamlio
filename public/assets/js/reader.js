@@ -155,6 +155,9 @@
       actions.appendChild(again);
       actions.appendChild(more);
       end.appendChild(actions);
+      var recs = el("div", "end-recs");
+      recs.hidden = true;
+      end.appendChild(recs);
       front.appendChild(end);
     }
 
@@ -253,6 +256,7 @@
     prevBtn.disabled = index === 0;
     nextBtn.disabled = index === sheets.length - 1;
     if (index > 0) Iamlio.writeSetting(RESUME_KEY, index < sheets.length - 1 ? String(index) : "0");
+    if (index === sheets.length - 1) Iamlio.markFinished(storyId);
     clearSpoken();
     preloadNext();
   }
@@ -635,6 +639,40 @@
     render();
     updateResume();
     Iamlio.countRead(story.id).then(showReads);
+    var bar = document.querySelector(".reader-bar");
+    bar.insertBefore(Iamlio.favoriteButton(story.id, story.title), settingsBtn);
+    fetch("stories/index.json", { cache: "no-cache" })
+      .then(function (res) { return res.ok ? res.json() : null; })
+      .then(function (data) { if (data) showRecommendations(data.stories || [], story); })
+      .catch(function () {});
+  }
+
+  // Pe pagina de final: două povești asemănătoare (necitite încă, dacă există), nu o listă nesfârșită.
+  function showRecommendations(all, story) {
+    var current = all.filter(function (s) { return s.id === story.id; })[0] ||
+      { id: story.id, categories: story.categories, tags: story.tags, age: story.age };
+    var picks = Iamlio.recommend(all, current, 2);
+    var box = book.querySelector(".end-recs");
+    if (!box || !picks.length) return;
+    box.appendChild(el("p", "end-recs-title", "Mai ascultă o poveste:"));
+    var list = el("div", "end-recs-list");
+    picks.forEach(function (pick) {
+      var link = el("a", "rec-card");
+      link.href = "poveste.html?id=" + encodeURIComponent(pick.id);
+      var img = el("img");
+      img.src = pick.cover;
+      img.alt = "";
+      img.loading = "lazy";
+      link.appendChild(img);
+      var info = el("span", "rec-info");
+      info.appendChild(el("span", "rec-title", pick.title));
+      info.appendChild(el("span", "rec-meta", "~" + pick.minutes + " min"));
+      link.appendChild(info);
+      list.appendChild(link);
+    });
+    box.appendChild(list);
+    box.hidden = false;
+    box.parentNode.classList.add("has-recs");
   }
 
   function showReads(counts) {

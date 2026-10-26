@@ -138,6 +138,84 @@ window.Iamlio = (function () {
     return true;
   }
 
+  // ---------- favorite, povești terminate, reluare (doar pe dispozitiv) ----------
+
+  function readList(key) {
+    try {
+      var list = JSON.parse(readSetting(key, "[]"));
+      return Array.isArray(list) ? list.filter(function (x) { return typeof x === "string"; }) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function isFavorite(id) { return readList("iamlio-favorite").indexOf(id) !== -1; }
+
+  function toggleFavorite(id) {
+    var list = readList("iamlio-favorite");
+    var at = list.indexOf(id);
+    if (at === -1) list.unshift(id); else list.splice(at, 1);
+    writeSetting("iamlio-favorite", JSON.stringify(list));
+    return at === -1;
+  }
+
+  function markFinished(id) {
+    var list = readList("iamlio-citite");
+    if (list.indexOf(id) === -1) {
+      list.push(id);
+      writeSetting("iamlio-citite", JSON.stringify(list));
+    }
+  }
+
+  function isFinished(id) { return readList("iamlio-citite").indexOf(id) !== -1; }
+
+  function savedPage(id) {
+    var value = Number(readSetting("iamlio-pagina-" + id, "0"));
+    return value > 0 ? value : 0;
+  }
+
+  // Buton de favorit (inimioară) care rămâne sincronizat cu lista salvată.
+  function favoriteButton(id, title, onChange) {
+    var button = document.createElement("button");
+    button.type = "button";
+    button.className = "fav-btn";
+    function sync() {
+      var on = isFavorite(id);
+      button.setAttribute("aria-pressed", on ? "true" : "false");
+      button.setAttribute("aria-label", (on ? "Scoate de la favorite: " : "Adaugă la favorite: ") + title);
+      button.textContent = on ? "♥" : "♡";
+    }
+    button.addEventListener("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      toggleFavorite(id);
+      sync();
+      button.classList.remove("pop");
+      void button.offsetWidth;
+      button.classList.add("pop");
+      if (onChange) onChange();
+    });
+    sync();
+    return button;
+  }
+
+  // Cele mai potrivite povești după una terminată: categorii comune, etichete comune, vârstă potrivită,
+  // iar cele necitite încă au întâietate. Întoarce cel mult `count` povești, fără cea curentă.
+  function recommend(stories, current, count) {
+    function ageFits(a, b) { return a === b || a === "3-7" || b === "3-7"; }
+    return stories
+      .filter(function (s) { return s.id !== current.id; })
+      .map(function (s, order) {
+        var shared = (s.categories || []).filter(function (c) { return (current.categories || []).indexOf(c) !== -1; });
+        var tags = (s.tags || []).filter(function (t) { return (current.tags || []).indexOf(t) !== -1; });
+        var score = shared.length * 3 + tags.length + (ageFits(s.age, current.age) ? 1 : 0) + (isFinished(s.id) ? 0 : 2);
+        return { story: s, score: score, order: order };
+      })
+      .sort(function (a, b) { return b.score - a.score || a.order - b.order; })
+      .slice(0, count)
+      .map(function (x) { return x.story; });
+  }
+
   return {
     readSetting: readSetting,
     writeSetting: writeSetting,
@@ -147,6 +225,13 @@ window.Iamlio = (function () {
     readsLabel: readsLabel,
     fetchCounts: fetchCounts,
     countRead: countRead,
-    speakWithBrowser: speakWithBrowser
+    speakWithBrowser: speakWithBrowser,
+    isFavorite: isFavorite,
+    toggleFavorite: toggleFavorite,
+    favoriteButton: favoriteButton,
+    markFinished: markFinished,
+    isFinished: isFinished,
+    savedPage: savedPage,
+    recommend: recommend
   };
 })();

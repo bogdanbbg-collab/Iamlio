@@ -264,6 +264,7 @@ public/stories/<id>/
   "age": "3-7",
   "moral": "Când nu renunți, chiar și lucrurile grele devin posibile.",
   "learning": ["numără până la zece", "stelele se văd doar noaptea", "răbdarea"],
+  "categories": ["de-culcare", "animale", "invatam"],
   "created": "2026-10-25",
   "tags": ["numere", "noapte", "răbdare"],
   "illustrationStyle": "High-quality 3D animated feature film still for young children, ...",
@@ -309,6 +310,23 @@ public/stories/<id>/
 
 Pentru un personaj cunoscut se adaugă în `characters`: `"knownCharacter": true, "source": "…"`.
 
+### Categoriile (`categories`, obligatoriu)
+
+Fiecare poveste are **1–3 categorii**, după care se filtrează biblioteca și se fac recomandările. Alege-le
+dintre (id → ce apare pe site):
+
+| `categories` | Pe site |
+| --- | --- |
+| `de-culcare` | 🌙 De culcare — liniștite, potrivite pentru seară |
+| `aventuri` | 🧭 Aventuri — călătorii, explorări, căutări |
+| `animale` | 🐾 Animale — eroii sunt animale sau învață despre ele |
+| `prietenie` | 💛 Prietenie și emoții |
+| `invatam` | 📚 Învățăm — accent pe ceva concret de învățat (numere, culori, natură…) |
+| `amuzante` | 😄 Amuzante — umorul e în prim-plan |
+
+Prima categorie din listă e cea mai importantă: apare ca etichetă pe coperta din bibliotecă.
+Dacă lipsesc, proiectul le alege automat după cuvintele din poveste și cere în raport să fie verificate.
+
 ### Autoevaluarea: câmpul `review` (obligatoriu)
 
 Înainte de commit, **recitești povestea ca un părinte exigent** și scrii în `review`, concret, cu trimiteri la pagini:
@@ -331,7 +349,8 @@ Dacă nu poți scrie cinstit unul dintre câmpuri (de ex. nu găsești două mom
 ### Ce repară singur proiectul (la fiecare publicare)
 
 Orice AI ar fi scris povestea, înainte de verificare proiectul corectează automat tot ce e mecanic:
-ș/ț cu virgulă, „…”, linia de dialog și ghilimelele; `id`, `created`, `age`, `learning` ca listă, numele
+ș/ț cu virgulă, „…”, linia de dialog și ghilimelele; `id`, `created`, `age`, `learning` ca listă,
+`categories` lipsă (alese după cuvintele din poveste, de verificat), numele
 folderului; stilul oficial în `illustrationStyle` și în fiecare `imagePrompt`; descrierea completă a
 personajelor din fiecare scenă în prompturi; descrierea și vocea oficială a lui Lio; prompturile de imagine
 lipsă (din textul paginii); imaginile numite altfel (`1.png`, `cover.jpg` → `images/pagina-01.png`,
@@ -357,7 +376,8 @@ O poveste nepublicată **nu apare pe site**, dar nu le oprește pe celelalte.
 
 La fiecare publicare, `python3 scripts/stories.py validate` respinge povestea dacă:
 
-- **structura:** lipsesc câmpuri obligatorii (inclusiv `learning`, `illustrationStyle`, `review`), id-ul nu e
+- **structura:** lipsesc câmpuri obligatorii (inclusiv `learning`, `categories`, `illustrationStyle`, `review`),
+  `categories` nu are 1–3 categorii din lista de mai sus, id-ul nu e
   identic cu folderul, `age` nu e `3-5`/`5-7`/`3-7`, titlul are peste 10 cuvinte, a rămas `DE COMPLETAT`;
 - **lungimea:** sub 6 sau peste 24 de pagini, sub 20 sau peste 70 de cuvinte pe pagină, sub 2 sau peste 10 minute;
 - **limba:** ș/ț cu sedilă în loc de virgulă;
@@ -385,7 +405,7 @@ Când primești „fă o poveste despre X”:
    Dacă cererea are ceva nepotrivit pentru copii, adapteaz-o (secțiunea 3) și spune ce ai schimbat.
 2. **Pornește de la șablon** (`python3 scripts/stories.py new "Titlu"` sau o copie a `sablon/story.json`).
 3. **Planifică.** Alege: elementul de imaginație, cele 1–3 lucruri de învățat, cele cel puțin două momente
-   amuzante, problema și rezolvarea, morala. Alege numărul de pagini după tabelul din secțiunea 2.
+   amuzante, problema și rezolvarea, morala, cele 1–3 categorii. Alege numărul de pagini după tabelul din secțiunea 2.
 4. **Scrie povestea** pagină cu pagină (20–70 de cuvinte pe pagină, un moment pe pagină).
    Apoi scrie **regia de voce** (`narration`) pentru fiecare pagină și profilul `voice` al personajelor (secțiunea 7).
 5. **Recitește ca un părinte**, corectează și scrie autoevaluarea (`review`); dacă un câmp nu se poate scrie cinstit, îmbunătățește povestea.
