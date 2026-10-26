@@ -1,29 +1,24 @@
 # Aricel și visul de a zbura
 
-**Stare: ❌ NEPUBLICATĂ** · verificată la 2026-10-26 13:07 UTC
+**Stare: ✅ PUBLICATĂ** · verificată la 2026-10-26 15:26 UTC
 
 Poveste: `public/stories/aricel-si-visul-de-a-zbura/story.json`
 
-## De corectat (de aceea nu este publicată)
+## Reparat automat
 
-- copertă: imaginea images/coperta.png nu există
-- pagina 1: imaginea images/pagina-01.png nu există
-- pagina 2: imaginea images/pagina-02.png nu există
-- pagina 3: imaginea images/pagina-03.png nu există
-- pagina 4: imaginea images/pagina-04.png nu există
-- pagina 5: imaginea images/pagina-05.png nu există
-- pagina 6: imaginea images/pagina-06.png nu există
-- pagina 7: imaginea images/pagina-07.png nu există
-- pagina 8: imaginea images/pagina-08.png nu există
-- pagina 9: imaginea images/pagina-09.png nu există
+Aceste lucruri au fost corectate automat în `story.json` (preia versiunea din repository înainte de a modifica din nou povestea):
 
-## Note de la publicare
-
-- lipsesc imagini: generează-le și salvează-le în images/ cu numele din story.json (sau proprietarul proiectului poate activa generarea automată: gratuit cu Cloudflare, secretele CLOUDFLARE_ACCOUNT_ID și CLOUDFLARE_API_TOKEN, ori cu plată cu OPENAI_API_KEY)
+- coperta: imaginea a fost generată automat (@cf/black-forest-labs/flux-1-schnell)
+- pagina 1: imaginea a fost generată automat (@cf/black-forest-labs/flux-1-schnell)
+- pagina 2: imaginea a fost generată automat (@cf/black-forest-labs/flux-1-schnell)
+- pagina 3: imaginea a fost generată automat (@cf/black-forest-labs/flux-1-schnell)
+- pagina 4: imaginea a fost generată automat (@cf/black-forest-labs/flux-1-schnell)
+- pagina 5: imaginea a fost generată automat (@cf/black-forest-labs/flux-1-schnell)
+- pagina 6: imaginea a fost generată automat (@cf/black-forest-labs/flux-1-schnell)
+- pagina 7: imaginea a fost generată automat (@cf/black-forest-labs/flux-1-schnell)
+- pagina 8: imaginea a fost generată automat (@cf/black-forest-labs/flux-1-schnell)
+- pagina 9: imaginea a fost generată automat (@cf/black-forest-labs/flux-1-schnell)
 
 ## Ce faci mai departe
 
-1. Corectează în `story.json` (și în `images/`) fiecare punct de la „De corectat”, respectând `REGULI_POVESTI.md`.
-2. Rulează `python3 scripts/stories.py validate` dacă poți; trebuie să afișeze `[OK]`.
-3. Fă commit pe `master`. După câteva minute, citește din nou acest raport.
-4. Repetă până când starea este „PUBLICATĂ”.
+Nimic: povestea este pe site, cu vocea feminină și masculină generate automat.
