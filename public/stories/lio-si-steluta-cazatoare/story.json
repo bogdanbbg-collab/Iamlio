@@ -52,7 +52,11 @@
   ],
   "cover": {
     "image": "images/coperta.webp",
-    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Steluța: a tiny glowing golden five-pointed star with a cute round face, small shiny dark eyes, pink cheeks and a soft warm halo of light around her. Setting: a magical pine forest at dusk, purple and pink sky with the first stars. Action: Lio raises his paws happily under the glowing little star floating above him. Emotions: joyful, full of wonder. Important details: the glowing star, pine trees, soft hills. Camera: wide shot."
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Steluța: a tiny glowing golden five-pointed star with a cute round face, small shiny dark eyes, pink cheeks and a soft warm halo of light around her. Setting: a magical pine forest at dusk, purple and pink sky with the first stars. Action: Lio raises his paws happily under the glowing little star floating above him. Emotions: joyful, full of wonder. Important details: the glowing star, pine trees, soft hills. Camera: wide shot.",
+    "animation": {
+      "camera": "zoom-in",
+      "effect": "stars"
+    }
   },
   "pages": [
     {
@@ -77,7 +81,11 @@
           "text": "Apoi a căscat atât de tare, că un fluture i-a zburat speriat din coamă.",
           "mood": "vesel"
         }
-      ]
+      ],
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "stars"
+      }
     },
     {
       "text": "Deodată, o steluță mică s-a desprins de pe cer. A zburat, a zburat, a zburat… și a căzut, pof!, drept într-un tufiș de mure.",
@@ -96,7 +104,11 @@
           "text": "și a căzut, pof!, drept într-un tufiș de mure.",
           "mood": "entuziasmat"
         }
-      ]
+      ],
+      "animation": {
+        "camera": "pan-down",
+        "effect": "sparkles"
+      }
     },
     {
       "text": "Lio a alergat într-acolo. Dar s-a împiedicat de propria coadă și s-a rostogolit ca un ghem: hop, hop, pleosc! A aterizat cu nasul fix lângă tufiș.",
@@ -120,7 +132,11 @@
           "text": "A aterizat cu nasul fix lângă tufiș.",
           "mood": "vesel"
         }
-      ]
+      ],
+      "animation": {
+        "camera": "pan-right",
+        "effect": "none"
+      }
     },
     {
       "text": "Steluța stătea în iarbă și plângea încet. — Nu mai știu drumul spre casă, a suspinat ea. Lio s-a apropiat blând. Când cineva e trist, îl întrebi ce s-a întâmplat și îl asculți cu răbdare.",
@@ -148,7 +164,11 @@
           "text": "Când cineva e trist, îl întrebi ce s-a întâmplat și îl asculți cu răbdare.",
           "mood": "calm"
         }
-      ]
+      ],
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
     },
     {
       "text": "— Nu-ți fie teamă, Steluțo, a zis Lio. Te ajut eu! A luat-o cu grijă în lăbuțe. Steluța era caldă, ca o cană cu lapte dulce.",
@@ -173,7 +193,11 @@
           "text": "Steluța era caldă, ca o cană cu lapte dulce.",
           "mood": "vesel"
         }
-      ]
+      ],
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "sparkles"
+      }
     },
     {
       "text": "Pe o creangă stătea bufnița Ula. Bufnițele dorm ziua și stau treze noaptea, așa că Ula știa toate secretele cerului. — Cum ajungem la cer? a întrebat Lio. — Urcați pe cel mai înalt deal, a răspuns Ula.",
@@ -206,7 +230,11 @@
           "text": "a răspuns Ula.",
           "mood": "calm"
         }
-      ]
+      ],
+      "animation": {
+        "camera": "pan-up",
+        "effect": "stars"
+      }
     },
     {
       "text": "Lio a urcat dealul pas cu pas. Drumul era lung și Lio obosea. Dar Steluța îi lumina cărarea și îi cânta încet. Împreună, drumul părea mai scurt.",
@@ -229,7 +257,11 @@
           "text": "Împreună, drumul părea mai scurt.",
           "mood": "calm"
         }
-      ]
+      ],
+      "animation": {
+        "camera": "pan-up",
+        "effect": "fireflies"
+      }
     },
     {
       "text": "Sus pe deal, Steluța i-a șoptit: — Stelele par mici, dar sunt foarte, foarte departe. Unele sunt chiar mai mari decât Soarele! — Uau! a făcut Lio, cu gura cât o portocală.",
@@ -260,7 +292,11 @@
           "text": "a făcut Lio, cu gura cât o portocală.",
           "mood": "vesel"
         }
-      ]
+      ],
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "stars"
+      }
     },
     {
       "text": "Lio a ridicat-o pe Steluța cât de sus a putut. — Zboară acum! a strigat el. Steluța a strălucit tare, tare… și s-a înălțat spre cer.",
@@ -288,7 +324,11 @@
           "text": "și s-a înălțat spre cer.",
           "mood": "vesel"
         }
-      ]
+      ],
+      "animation": {
+        "camera": "pan-up",
+        "effect": "sparkles"
+      }
     },
     {
       "text": "Sus, printre surori, Steluța i-a făcut cu ochiul. Lio a zâmbit fericit. De atunci, cea mai strălucitoare stea de pe cer este prietena lui Lio. Noapte bună!",
@@ -312,7 +352,11 @@
           "mood": "somnoros",
           "pause": 0.6
         }
-      ]
+      ],
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "stars"
+      }
     }
   ],
   "questions": [
