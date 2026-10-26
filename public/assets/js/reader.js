@@ -277,22 +277,34 @@
 
   // Textele lungi (până la 70 de cuvinte pe pagină, cât permit regulile) trebuie să încapă fără derulare:
   // dacă textul unei pagini nu încape, litera se micșorează puțin, doar pentru pagina aceea.
+  // Se refac: la pornire, după încărcarea fontului, când pagina devine vizibilă și ori de câte ori cartea își
+  // schimbă mărimea (ecran rotit, bara de sus care crește când apare „Citită de X ori”, imagini încărcate).
   var MIN_TEXT_PX = 13;
-  function fitText() {
-    Array.prototype.forEach.call(book.querySelectorAll(".sheet-text:not(.cover-text)"), function (text) {
-      text.style.fontSize = "";
-      var size = parseFloat(getComputedStyle(text).fontSize);
-      while (text.scrollHeight > text.clientHeight + 1 && size > MIN_TEXT_PX) {
-        size -= 0.5;
-        text.style.fontSize = size + "px";
-      }
-    });
+  function fitSheet(sheet) {
+    var text = sheet && sheet.querySelector(".sheet-text:not(.cover-text)");
+    if (!text) return;
+    text.style.fontSize = "";
+    var size = parseFloat(getComputedStyle(text).fontSize);
+    while (text.scrollHeight > text.clientHeight + 1 && size > MIN_TEXT_PX) {
+      size -= 0.5;
+      text.style.fontSize = size + "px";
+    }
   }
+  function fitText() {
+    sheets.forEach(fitSheet);
+  }
+  book.addEventListener("load", function (event) {
+    if (event.target.tagName === "IMG") fitSheet(event.target.closest(".sheet"));
+  }, true);
   var fitTimer = null;
-  window.addEventListener("resize", function () {
+  function fitSoon() {
     clearTimeout(fitTimer);
-    fitTimer = setTimeout(fitText, 150);
-  });
+    fitTimer = setTimeout(fitText, 100);
+  }
+  if (window.ResizeObserver) new ResizeObserver(fitSoon).observe(book);
+  else window.addEventListener("resize", fitSoon);
+  // fontul pentru diacritice se poate încărca mai târziu și schimbă lățimea rândurilor
+  if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", fitSoon);
 
   function render() {
     sheets.forEach(function (sheet, i) {
@@ -304,6 +316,8 @@
     Array.prototype.forEach.call(dotsEl.children, function (dot, i) {
       dot.classList.toggle("active", i === index);
     });
+    fitSheet(sheets[index]);
+    fitSheet(sheets[index + 1]);
     prevBtn.disabled = index === 0;
     nextBtn.disabled = index === sheets.length - 1;
     if (index > 0) Iamlio.writeSetting(RESUME_KEY, index < sheets.length - 1 ? String(index) : "0");

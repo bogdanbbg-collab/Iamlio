@@ -238,12 +238,15 @@ for (const [name, viewport] of [["telefon", [375, 667]], ["telefon culcat", [844
       for (let i = 1; i < story.pages + 2; i++) {
         await p.keyboard.press("ArrowRight");
         await p.waitForFunction(() => !document.querySelector(".sheet.is-turning"));
+        await p.waitForFunction(() => [...document.querySelectorAll(".sheet.is-current img")].every((img) => img.complete));
+        await p.evaluate(() => document.fonts.ready);
+        await p.waitForTimeout(150); // potrivirea textului se reface la 100 ms după o schimbare
         const fit = await p.evaluate(() => {
           const text = document.querySelector(".sheet.is-current .sheet-text");
-          return text ? { overflow: text.scrollHeight > text.clientHeight + 2, size: parseFloat(getComputedStyle(text).fontSize) }
-            : { overflow: false, size: 99 };
+          return text ? { overflow: text.scrollHeight > text.clientHeight + 2, size: parseFloat(getComputedStyle(text).fontSize),
+            scroll: text.scrollHeight, client: text.clientHeight, fonts: document.fonts.status } : { overflow: false, size: 99 };
         });
-        assert.equal(fit.overflow, false, `${story.id}, pagina ${i}`);
+        assert.equal(fit.overflow, false, `${story.id}, pagina ${i}: ${JSON.stringify(fit)}`);
         assert.ok(fit.size >= 13, `${story.id}, pagina ${i}: litera de ${fit.size}px e prea mică`);
       }
     }
@@ -280,6 +283,30 @@ test("securitate: fiecare pagină are politica de conținut (doar fișiere propr
   const api = await fetch(`${BASE}/api/citiri.php`);
   await api.arrayBuffer();
   assert.equal(api.headers.get("x-frame-options"), "DENY");
+});
+
+test("textul lung încape și când fontul, contorul și imaginile vin târziu (conexiune lentă)", async () => {
+  const p = await page({ viewport: { width: 390, height: 844 }, reducedMotion: "reduce" });
+  // „Citită de X ori” apare târziu în bara de sus, care crește și micșorează cartea
+  for (const pattern of ["**/api/citiri.php*", "**/stories/test-lunga/images/**", "**/assets/fonts/*.woff2"]) {
+    await p.route(pattern, async (route) => {
+      await new Promise((r) => setTimeout(r, 1500));
+      await route.continue();
+    });
+  }
+  await p.goto(`${BASE}/poveste.html?id=test-lunga`);
+  await p.waitForSelector(".sheet.is-current");
+  // pagina 1 se deschide înainte ca bara de sus să crească; apoi apare contorul, fără să mai dăm pagina
+  await p.keyboard.press("ArrowRight");
+  await p.waitForFunction(() => document.getElementById("story-reads").hidden === false, null, { timeout: 10000 });
+  await p.waitForFunction(() => [...document.querySelectorAll(".sheet.is-current img")].every((img) => img.complete && img.naturalWidth));
+  await p.waitForFunction(() => document.fonts.status === "loaded" && [...document.fonts].some((f) => f.status === "loaded"));
+  await p.waitForTimeout(400);
+  const overflow = await p.evaluate(() => {
+    const text = document.querySelector(".sheet.is-current .sheet-text");
+    return text.scrollHeight > text.clientHeight + 2;
+  });
+  assert.equal(overflow, false);
 });
 
 test("mișcare redusă: pagina se schimbă imediat", async () => {
