@@ -315,6 +315,42 @@
       ]
     }
   ],
+  "questions": [
+    {
+      "text": "Cine a căzut din cer în tufișul de mure?",
+      "options": [
+        {
+          "text": "O steluță",
+          "emoji": "⭐"
+        },
+        {
+          "text": "O frunză",
+          "emoji": "🍂"
+        },
+        {
+          "text": "Un fluture",
+          "emoji": "🦋"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Da! O steluță mică s-a desprins de pe cer și a căzut, pof!, drept în tufișul de mure."
+    },
+    {
+      "text": "Când stau treze bufnițele, ca bufnița Ula?",
+      "options": [
+        {
+          "text": "Ziua",
+          "emoji": "☀️"
+        },
+        {
+          "text": "Noaptea",
+          "emoji": "🌙"
+        }
+      ],
+      "answer": 1,
+      "explanation": "Corect! Bufnițele dorm ziua și stau treze noaptea, ca să vadă toate secretele cerului."
+    }
+  ],
   "review": {
     "imaginatie": "O stea mică și vie cade din cer, vorbește, cântă și luminează drumul; o bufniță înțeleaptă știe secretele cerului.",
     "invatare": "Empatia apare la pagina 4 (Lio o ascultă pe Steluța), bufnițele treze noaptea la pagina 6, distanța și mărimea stelelor la pagina 8 — toate spuse de personaje, în acțiune.",

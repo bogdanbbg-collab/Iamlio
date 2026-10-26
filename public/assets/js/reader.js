@@ -82,10 +82,12 @@
   // ---------- construirea cărții ----------
 
   function buildItems(story) {
+    var lio = story.lio || {};
     var list = [{
       kind: "cover",
       image: story.cover.image,
       title: story.title,
+      intro: lio.intro || "",
       audio: "coperta.mp3",
       speech: "Lio îți citește povestea: " + story.title + "."
     }];
@@ -104,6 +106,8 @@
     list.push({
       kind: "end",
       moral: story.moral,
+      outro: lio.outro || "",
+      questions: Array.isArray(story.questions) ? story.questions : [],
       audio: "final.mp3",
       speech: "Sfârșit. " + story.moral
     });
@@ -120,6 +124,15 @@
       coverArt.appendChild(image(item.image, true));
       front.appendChild(coverArt);
       var coverText = el("div", "sheet-text cover-text");
+      if (item.intro) {
+        var says = el("p", "lio-bubble");
+        var face = el("img", "lio-bubble-face");
+        face.src = "assets/img/lio-cap.svg";
+        face.alt = "";
+        says.appendChild(face);
+        says.appendChild(el("span", null, item.intro));
+        coverText.appendChild(says);
+      }
       coverText.appendChild(el("h2", null, item.title));
       coverText.appendChild(el("p", "cover-reads"));
       coverText.appendChild(el("p", "cover-hint", "Dă pagina sau apasă pe Lio ca să-ți citească."));
@@ -138,9 +151,11 @@
       var lio = el("img", "end-lio");
       lio.src = REDUCED_MOTION ? "assets/img/lio-static.svg" : "assets/img/lio.svg";
       lio.alt = "";
+      lio.setAttribute("data-awake", lio.src);
       end.appendChild(lio);
       end.appendChild(el("h2", null, "Sfârșit"));
       end.appendChild(el("p", "moral", item.moral));
+      if (item.outro) end.appendChild(el("p", "end-outro", item.outro));
       var actions = el("div", "end-actions");
       var again = el("button", "pill", "Citește din nou");
       again.type = "button";
@@ -152,6 +167,12 @@
       });
       var more = el("a", "pill pill-alt", "Alte povești");
       more.href = "./";
+      if (item.questions.length) {
+        var quiz = el("button", "pill pill-quiz", "🎲 Întrebările lui Lio");
+        quiz.type = "button";
+        quiz.addEventListener("click", function () { openQuiz(item.questions); });
+        actions.appendChild(quiz);
+      }
       actions.appendChild(again);
       actions.appendChild(more);
       end.appendChild(actions);
@@ -588,6 +609,8 @@
 
   function applyBedtime() {
     document.body.classList.toggle("bedtime", bedtime);
+    var endLio = book.querySelector(".end-lio");
+    if (endLio) endLio.src = bedtime ? "assets/img/lio-somnoros.svg" : endLio.getAttribute("data-awake");
     bedtimeInput.checked = bedtime;
     applyAudioSettings();
   }
@@ -638,13 +661,189 @@
     });
     render();
     updateResume();
+    applyBedtime();
     Iamlio.countRead(story.id).then(showReads);
+    if (story.personalized) markPersonal(story);
     var bar = document.querySelector(".reader-bar");
     bar.insertBefore(Iamlio.favoriteButton(story.id, story.title), settingsBtn);
     fetch("stories/index.json", { cache: "no-cache" })
       .then(function (res) { return res.ok ? res.json() : null; })
       .then(function (data) { if (data) showRecommendations(data.stories || [], story); })
       .catch(function () {});
+  }
+
+  // Povești personalizate: nu se indexează; până la aprobare se văd doar ca „Previzualizare”.
+  function markPersonal(story) {
+    var robots = document.createElement("meta");
+    robots.name = "robots";
+    robots.content = "noindex, nofollow";
+    document.head.appendChild(robots);
+    if (story.approved !== true) {
+      var banner = el("p", "preview-banner",
+        "Previzualizare: povestea pentru " + (story.personalized.for || "copil") + " așteaptă aprobarea. Nu trimite încă link-ul.");
+      banner.setAttribute("role", "status");
+      document.querySelector(".stage").prepend(banner);
+    }
+  }
+
+  // ---------- Întrebările lui Lio (după poveste, fără punctaj) ----------
+
+  var quizEl = null;
+  var lioManifest = null;
+  var quizAudio = new Audio();
+  quizAudio.hidden = true;
+  document.body.appendChild(quizAudio);
+
+  fetch("assets/audio/manifest.json", { cache: "no-cache" })
+    .then(function (res) { return res.ok ? res.json() : null; })
+    .then(function (data) { lioManifest = data; })
+    .catch(function () {});
+
+  function voiceUrl(folder, list, file) {
+    var voice = Iamlio.getVoice();
+    var digest = list && list[voice] && list[voice][file];
+    return digest ? folder + voice + "/" + file + "?v=" + String(digest).slice(0, 10) : "";
+  }
+
+  // Redă un fișier al poveștii sau al lui Lio; dacă lipsește, citește textul cu vocea browserului.
+  function sayQuiz(url, text, done) {
+    quizAudio.pause();
+    if ("speechSynthesis" in window) speechSynthesis.cancel();
+    if (url) {
+      quizAudio.src = url;
+      quizAudio.defaultPlaybackRate = speed;
+      quizAudio.playbackRate = speed;
+      quizAudio.volume = bedtime ? BEDTIME_VOLUME : 1;
+      quizAudio.onended = done || null;
+      quizAudio.play().catch(function () { Iamlio.speakWithBrowser(text, Iamlio.getVoice(), { speed: speed, onend: done }); });
+    } else {
+      Iamlio.speakWithBrowser(text, Iamlio.getVoice(), { speed: speed, onend: done });
+    }
+  }
+
+  function lioLine(group, texts) {
+    var count = lioManifest && lioManifest[Iamlio.getVoice()]
+      ? Object.keys(lioManifest[Iamlio.getVoice()]).filter(function (f) { return f.indexOf(group + "-") === 0; }).length : 0;
+    var n = Math.floor(Math.random() * Math.max(count, 1)) + 1;
+    var file = group + "-" + String(n).padStart(2, "0") + ".mp3";
+    return { url: voiceUrl("assets/audio/", lioManifest, file), text: texts[(n - 1) % texts.length] };
+  }
+
+  function optionsSentence(options) {
+    var texts = options.map(function (o) { return String(o.text).replace(/[.!?]+$/, ""); });
+    return texts.length > 1 ? texts.slice(0, -1).join(", ") + " sau " + texts[texts.length - 1] + "?" : texts[0] + "?";
+  }
+
+  function openQuiz(questions) {
+    setReading(false);
+    if (!quizEl) {
+      quizEl = el("div", "quiz");
+      quizEl.setAttribute("role", "dialog");
+      quizEl.setAttribute("aria-modal", "true");
+      quizEl.setAttribute("aria-label", "Întrebările lui Lio");
+      document.body.appendChild(quizEl);
+      quizEl.addEventListener("click", function (event) { if (event.target === quizEl) closeQuiz(); });
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && quizEl && !quizEl.hidden) closeQuiz();
+      });
+    }
+    quizEl.hidden = false;
+    showQuestion(questions, 0);
+  }
+
+  function closeQuiz() {
+    quizAudio.pause();
+    if ("speechSynthesis" in window) speechSynthesis.cancel();
+    quizEl.hidden = true;
+    var button = book.querySelector(".pill-quiz");
+    if (button) button.focus();
+  }
+
+  function showQuestion(questions, number) {
+    var question = questions[number];
+    quizEl.textContent = "";
+    var panel = el("div", "quiz-panel");
+    var head = el("div", "quiz-head");
+    head.appendChild(el("span", "quiz-progress", "Întrebarea " + (number + 1) + " din " + questions.length));
+    var close = el("button", "icon-btn quiz-close");
+    close.type = "button";
+    close.setAttribute("aria-label", "Închide întrebările");
+    close.textContent = "✕";
+    close.addEventListener("click", closeQuiz);
+    head.appendChild(close);
+    panel.appendChild(head);
+
+    var face = el("img", "quiz-lio");
+    face.src = "assets/img/lio-cap.svg";
+    face.alt = "";
+    panel.appendChild(face);
+    var text = el("p", "quiz-question", question.text);
+    panel.appendChild(text);
+    var feedback = el("p", "quiz-feedback");
+    feedback.setAttribute("aria-live", "polite");
+
+    var file = "intrebare-" + (number + 1) + ".mp3";
+    function askAloud() { sayQuiz(voiceUrl(base + "audio/", manifest, file), question.text + " " + optionsSentence(question.options)); }
+
+    var grid = el("div", "quiz-options");
+    question.options.forEach(function (option, n) {
+      var card = el("button", "quiz-option");
+      card.type = "button";
+      if (option.image) {
+        var img = el("img");
+        img.src = base + option.image;
+        img.alt = "";
+        card.appendChild(img);
+      } else {
+        card.appendChild(el("span", "quiz-emoji", option.emoji));
+      }
+      card.appendChild(el("span", "quiz-option-text", option.text));
+      card.addEventListener("click", function () {
+        if (panel.classList.contains("is-solved")) return;
+        if (n === question.answer) {
+          panel.classList.add("is-solved");
+          card.classList.add("is-right");
+          face.src = REDUCED_MOTION ? "assets/img/lio-bravo-static.svg" : "assets/img/lio-bravo.svg";
+          var praise = lioLine("bravo", ["Bravo! Ai ascultat cu mare atenție!"]);
+          feedback.textContent = praise.text + (question.explanation ? " " + question.explanation : "");
+          sayQuiz(praise.url, praise.text, function () {
+            if (question.explanation) {
+              sayQuiz(voiceUrl(base + "audio/", manifest, "raspuns-" + (number + 1) + ".mp3"), question.explanation);
+            }
+          });
+          next.hidden = false;
+          next.focus();
+        } else {
+          card.classList.remove("is-wrong");
+          void card.offsetWidth;
+          card.classList.add("is-wrong");
+          var retry = lioLine("incearca", ["Hmm, aproape! Mai încearcă o dată."]);
+          feedback.textContent = retry.text;
+          sayQuiz(retry.url, retry.text);
+        }
+      });
+      grid.appendChild(card);
+    });
+    panel.appendChild(grid);
+    panel.appendChild(feedback);
+
+    var actions = el("div", "quiz-actions");
+    var again = el("button", "pill pill-alt", "🔊 Ascultă din nou");
+    again.type = "button";
+    again.addEventListener("click", askAloud);
+    var last = number === questions.length - 1;
+    var next = el("button", "pill", last ? "Gata!" : "Următoarea întrebare");
+    next.type = "button";
+    next.hidden = true;
+    next.addEventListener("click", function () {
+      if (last) closeQuiz(); else showQuestion(questions, number + 1);
+    });
+    actions.appendChild(again);
+    actions.appendChild(next);
+    panel.appendChild(actions);
+    quizEl.appendChild(panel);
+    close.focus();
+    askAloud();
   }
 
   // Pe pagina de final: două povești asemănătoare (necitite încă, dacă există), nu o listă nesfârșită.

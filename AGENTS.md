@@ -13,6 +13,9 @@ Pe scurt, o poveste Iamlio:
 - durează **2–10 minute** (6–24 de pagini, 20–70 de cuvinte pe pagină);
 - are **imaginație**, **ceva folositor de învățat** (`learning`), **umor** și un **final fericit**;
 - are **1–3 categorii** (`categories`: de-culcare, aventuri, animale, prietenie, invatam, amuzante);
+- are, ideal, **1–2 întrebări ale lui Lio** după poveste (`questions`, cu variante ilustrate — secțiunea 8);
+- dacă e **personalizată** (cu prenumele unui copil): `stories.py new "Titlu" --pentru Prenume`, **doar prenumele**,
+  `"approved": false` — o aprobă doar proprietarul site-ului (secțiunea 8, „Povești personalizate”);
 - are **imagini în stil de film de animație 3D pentru copii**, câte una pe pagină, care arată **exact** ce
   se întâmplă pe pagină, cu personaje identice de la o pagină la alta și fără text în imagine;
 - poate folosi **personaje cunoscute** doar dacă utilizatorul le cere, desenate fidel (secțiunea 5);

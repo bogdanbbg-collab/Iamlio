@@ -150,6 +150,61 @@ def validate_narration(page, character_names):
     return errors
 
 
+def validate_questions(folder, questions, image_errors, warnings):
+    """Întrebările lui Lio (opționale): 1–3, fiecare cu 2–3 variante ilustrate (imagine sau emoji) și răspunsul corect."""
+    if questions is None:
+        return []
+    if not isinstance(questions, list) or not 1 <= len(questions) <= canon.MAX_QUESTIONS:
+        return [f"questions: între 1 și {canon.MAX_QUESTIONS} întrebări (sau deloc)"]
+    errors = []
+    low, high = canon.OPTIONS_PER_QUESTION
+    for n, question in enumerate(questions, start=1):
+        label = f"întrebarea {n}"
+        if not isinstance(question, dict) or not str(question.get("text") or "").strip():
+            errors.append(f"{label}: lipsește textul întrebării")
+            continue
+        if word_count(question["text"]) > canon.MAX_QUESTION_WORDS:
+            errors.append(f"{label}: maximum {canon.MAX_QUESTION_WORDS} de cuvinte (e pentru copii mici)")
+        options = question.get("options")
+        if not isinstance(options, list) or not low <= len(options) <= high:
+            errors.append(f"{label}: trebuie {low}–{high} variante de răspuns")
+            continue
+        for m, option in enumerate(options, start=1):
+            if not isinstance(option, dict) or not str(option.get("text") or "").strip():
+                errors.append(f"{label}, varianta {m}: lipsește textul")
+                continue
+            if option.get("image"):
+                check_image(folder, option["image"], f"{label}, varianta {m}", image_errors, warnings)
+            elif not str(option.get("emoji") or "").strip():
+                errors.append(f"{label}, varianta {m}: are nevoie de o imagine (image) sau de un emoji")
+        answer = question.get("answer")
+        if not isinstance(answer, int) or isinstance(answer, bool) or not 0 <= answer < len(options):
+            errors.append(f"{label}: answer trebuie să fie numărul variantei corecte, începând de la 0")
+        explanation = question.get("explanation")
+        if explanation is not None and (not isinstance(explanation, str) or word_count(explanation) > 40):
+            errors.append(f"{label}: explanation e o frază scurtă (maximum 40 de cuvinte)")
+    return errors
+
+
+def validate_personalized(data):
+    """Poveștile personalizate: doar prenumele copilului, link secret, aprobare înainte de a fi trimise."""
+    personalized = data.get("personalized")
+    if personalized is None:
+        return []
+    errors = []
+    name = personal_name(data)
+    if not isinstance(personalized, dict) or not re.fullmatch(r"[^\W\d_]+(?:[ -][^\W\d_]+)?", name) or len(name) > 20:
+        errors.append("personalized.for: doar prenumele copilului (sau un alint), fără nume de familie, cifre sau alte date")
+    elif not any(name.lower() in (p.get("text") or "").lower() for p in data.get("pages") or [] if isinstance(p, dict)):
+        errors.append(f"personalized: prenumele „{name}” trebuie să apară în poveste")
+    if not re.search(rf"-[a-z0-9]{{{canon.PERSONAL_SUFFIX_LENGTH},}}$", str(data.get("id", ""))):
+        errors.append(f"o poveste personalizată are un id care se termină cu un cod aleator de minimum "
+                      f"{canon.PERSONAL_SUFFIX_LENGTH} caractere (folosește: stories.py new \"Titlu\" --pentru Nume)")
+    if not isinstance(data.get("approved", False), bool):
+        errors.append("approved trebuie să fie true sau false")
+    return errors
+
+
 def narration_in_text(page):
     """Fiecare replică apare, în ordine, exact așa în textul paginii (pentru evidențierea sincronă)."""
     text, cursor = page.get("text") or "", 0
@@ -181,7 +236,8 @@ def structure_errors(data):
     """Tipurile câmpurilor, verificate înainte de orice altă regulă."""
     errors = []
     expect = {"title": str, "summary": str, "moral": str, "created": str, "illustrationStyle": str,
-              "characters": list, "pages": list, "cover": dict, "review": dict, "tags": list}
+              "characters": list, "pages": list, "cover": dict, "review": dict, "tags": list, "questions": list,
+              "personalized": dict}
     for key, kind in expect.items():
         if key in data and data[key] is not None and not isinstance(data[key], kind):
             errors.append(f"câmpul '{key}' trebuie să fie {dict(str='text', list='listă', dict='obiect')[kind.__name__]}")
@@ -287,6 +343,13 @@ def check_story(folder, data):
         if not MIN_MINUTES <= minutes <= MAX_MINUTES:
             errors.append(f"durata estimată e {minutes:.1f} minute (trebuie {MIN_MINUTES}–{MAX_MINUTES})")
 
+    errors.extend(validate_questions(folder, data.get("questions"), errors, warnings))
+    errors.extend(validate_personalized(data))
+    for question in data.get("questions") or []:
+        if isinstance(question, dict):
+            texts += [str(question.get("text", "")), str(question.get("explanation", ""))]
+            texts += [str(o.get("text", "")) for o in question.get("options") or [] if isinstance(o, dict)]
+
     if any(CEDILLA.search(t) for t in texts):
         errors.append("folosește ș/ț cu virgulă, nu ş/ţ cu sedilă")
     if canon.PLACEHOLDER in json.dumps(data, ensure_ascii=False):
@@ -389,12 +452,21 @@ def optimize_image(folder, rel_path):
     return str(Path(rel_path).with_suffix(".webp"))
 
 
+def image_entries(data):
+    """Toate locurile din story.json care au o imagine: coperta, paginile, variantele întrebărilor."""
+    entries = [data.get("cover") or {}] + [p for p in data.get("pages") or [] if isinstance(p, dict)]
+    for question in data.get("questions") or []:
+        if isinstance(question, dict):
+            entries += [o for o in question.get("options") or [] if isinstance(o, dict) and o.get("image")]
+    return entries
+
+
 def cmd_optimize():
     for folder, data in load_stories():
         if "_error" in data or structure_errors(data):
             continue  # structura greșită e raportată de validare
         changed = False
-        entries = [data.get("cover") or {}] + list(data.get("pages") or [])
+        entries = image_entries(data)
         for entry in entries:
             if entry.get("image"):
                 new_path = optimize_image(folder, entry["image"])
@@ -452,10 +524,15 @@ def cmd_template():
     return 0
 
 
-def cmd_new(title):
+def cmd_new(title, for_name=""):
+    import secrets
+    import string
     from datetime import date
 
     story_id = slugify(title)
+    if for_name:  # link secret: un cod aleator la final
+        alphabet = string.ascii_lowercase + string.digits
+        story_id += "-" + "".join(secrets.choice(alphabet) for _ in range(canon.PERSONAL_SUFFIX_LENGTH))
     folder = STORIES_DIR / story_id
     if not story_id or folder.exists():
         print(f"Nu pot crea „{story_id}”: id gol sau povestea există deja.")
@@ -463,6 +540,9 @@ def cmd_new(title):
     (folder / "images").mkdir(parents=True)
     data = template_story(story_id, title)
     data["created"] = date.today().isoformat()
+    if for_name:
+        data["personalized"] = {"for": for_name}
+        data["approved"] = False
     write_json(folder / "story.json", data)
     print(f"Poveste nouă: public/stories/{story_id}/story.json — completează tot ce e marcat „{canon.PLACEHOLDER}”.")
     return 0
@@ -542,7 +622,8 @@ def write_reports(repairs):
                                  "corectezi problemele de mai sus"]
         seen.add(f"{folder.name}.md")
         write_if_changed(REPORTS_DIR / f"{folder.name}.md",
-                         report_text(folder.name, str(title), published, changes, errors, notes, warnings, now), now)
+                         report_text(folder.name, str(title), published, changes, errors, notes, warnings, now,
+                        personal=bool(personal_name(data)), approved=data.get("approved") is True), now)
         status = "✅ publicată" if published else "❌ nepublicată"
         rows.append(f"| [{title}]({folder.name}.md) | {status} | {len(errors)} | {len(changes)} |")
         summary.append(f"- {status}: **{title}** — {len(errors)} de corectat, {len(changes)} reparate automat")
@@ -575,7 +656,9 @@ def write_if_changed(path, text, stamp):
     path.write_text(text, encoding="utf-8")
 
 
-def report_text(story_id, title, published, changes, errors, notes, warnings, when):
+def report_text(story_id, title, published, changes, errors, notes, warnings, when, personal=False, approved=False):
+    import os
+
     lines = [f"# {title}", "",
              f"**Stare: {'✅ PUBLICATĂ' if published else '❌ NEPUBLICATĂ'}** · verificată la {when}", "",
              f"Poveste: `public/stories/{story_id}/story.json`", ""]
@@ -583,6 +666,14 @@ def report_text(story_id, title, published, changes, errors, notes, warnings, wh
         lines += ["## De corectat (de aceea nu este publicată)", ""] + [f"- {e}" for e in errors] + [""]
     if notes:
         lines += ["## Note de la publicare", ""] + [f"- {n}" for n in notes] + [""]
+    if personal:
+        url = f"{(os.environ.get('SITE_URL') or 'https://iamlio.ro').rstrip('/')}/poveste.html?id={story_id}"
+        lines += ["## Poveste personalizată", "",
+                  f"- Link secret (nu apare în bibliotecă și nici în motoarele de căutare): {url}",
+                  "- " + ("**Aprobată** — link-ul poate fi trimis părinților." if approved else
+                          "**Așteaptă aprobarea.** Deschide link-ul: povestea apare cu eticheta „Previzualizare”. "
+                          "Dacă e în regulă, cere AI-ului „aprobă povestea " + story_id + "” (sau pune "
+                          "`\"approved\": true` în story.json). Abia apoi trimite link-ul."), ""]
     if changes:
         lines += ["## Reparat automat", "",
                   "Aceste lucruri au fost corectate automat în `story.json` (preia versiunea din repository înainte "
@@ -639,7 +730,7 @@ def previous_published(story_id, workdir, repo=ROOT):
 
 def version_story_assets(folder, data):
     """images/x.webp → images/x.webp?v=<amprentă>: după o modificare, browserul nu mai arată imaginea veche."""
-    for entry in [data.get("cover") or {}] + list(data.get("pages") or []):
+    for entry in image_entries(data):
         path = pregatire.safe_image(folder, entry.get("image"))
         if path is not None and path.is_file():
             entry["image"] = f"{entry['image']}?v={hashlib.sha1(path.read_bytes()).hexdigest()[:10]}"
@@ -666,9 +757,13 @@ def cmd_stage():
     entries, published = [], []
     for story_file in sorted((BUILD_DIR / "stories").glob("*/story.json")):
         data = json.loads(story_file.read_text(encoding="utf-8"))
+        intro, outro = lio_texts(data)
+        data["lio"] = {"intro": intro, "outro": outro}  # cititorul afișează ce spune Lio
+        version_story_assets(story_file.parent, data)
+        if personal_name(data):
+            continue  # link secret: nu apare în bibliotecă, recomandări sau sitemap
         entries.append(index_entry(story_file.parent, data))
         published.append(data)
-        version_story_assets(story_file.parent, data)
     by_id = {d["id"]: d for d in published}
     for entry in entries:
         entry["cover"] = f"stories/{entry['id']}/{by_id[entry['id']]['cover']['image']}"
@@ -730,14 +825,45 @@ def cmd_validate():
     return 1 if failed else 0
 
 
+def personal_name(data):
+    personalized = data.get("personalized")
+    return personalized.get("for", "").strip() if isinstance(personalized, dict) else ""
+
+
+def lio_texts(data):
+    """(salutul de la început, rămas-bunul de la final) ale lui Lio pentru această poveste."""
+    name = personal_name(data)
+    if name:
+        return canon.LIO_PERSONAL_INTRO.format(name=name), canon.LIO_PERSONAL_OUTRO.format(name=name)
+    first = (data.get("categories") or ["aventuri"])[0]
+    pick = int(hashlib.sha1(str(data.get("id", "")).encode()).hexdigest(), 16)
+    intros = canon.LIO_INTROS.get(first, canon.LIO_INTROS["aventuri"])
+    outros = canon.LIO_OUTROS.get(first, canon.LIO_OUTROS["default"])
+    return intros[pick % len(intros)], outros[pick % len(outros)]
+
+
+def options_sentence(options):
+    """„Lio, Ula sau Luna?” — variantele citite cu voce, pentru copiii care nu știu încă să citească."""
+    texts = [str(o.get("text", "")).strip().rstrip(".!?") for o in options]
+    return (", ".join(texts[:-1]) + " sau " + texts[-1] + "?") if len(texts) > 1 else (texts[0] + "?")
+
+
 def narration_items(data):
     """Fișierele audio ale unei povești: (nume fișier, listă de bucăți cu intonație)."""
     Segment = voce.Segment
-    items = [("coperta.mp3", [Segment("Lio îți citește povestea:", "vesel", "Lio", 0.4),
+    intro, outro = lio_texts(data)
+    bedtime = (data.get("categories") or [""])[0] == "de-culcare"
+    items = [("coperta.mp3", [Segment(intro, "vesel", "Lio", 0.6),
                               Segment(f"{data['title']}.", "entuziasmat", "Lio")])]
     for number, page in enumerate(data["pages"], start=1):
         items.append((f"pagina-{number:02d}.mp3", voce.page_segments(page, data.get("characters") or [])))
-    items.append(("final.mp3", [Segment("Sfârșit.", "calm", pause=0.6), Segment(data["moral"], "calm")]))
+    items.append(("final.mp3", [Segment("Sfârșit.", "calm", pause=0.6), Segment(data["moral"], "calm", pause=0.8),
+                                Segment(outro, "somnoros" if bedtime else "vesel", "Lio")]))
+    for number, question in enumerate(data.get("questions") or [], start=1):
+        items.append((f"intrebare-{number}.mp3", [Segment(question["text"], "mirat", "Lio", 0.5),
+                                                   Segment(options_sentence(question["options"]), "vesel", "Lio")]))
+        if question.get("explanation"):
+            items.append((f"raspuns-{number}.mp3", [Segment(question["explanation"], "vesel", "Lio")]))
     return items
 
 
@@ -775,11 +901,19 @@ async def generate_audio_set(audio_dir, items, characters):
     manifest_file.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
+# Grupurile de replici ale lui Lio din assets/lio-replici.json → fișierele lor audio și tonul lor.
+LIO_GROUPS = {"replici": ("replica", "vesel"), "bravo": ("bravo", "entuziasmat"), "incearca": ("incearca", "calm")}
+
+
 def lio_items():
     if not LIO_LINES_FILE.exists():
         return []
-    lines = json.loads(LIO_LINES_FILE.read_text(encoding="utf-8"))["replici"]
-    return [(f"replica-{n:02d}.mp3", [voce.Segment(text, "vesel", "Lio")]) for n, text in enumerate(lines, start=1)]
+    groups = json.loads(LIO_LINES_FILE.read_text(encoding="utf-8"))
+    items = []
+    for key, (prefix, mood) in LIO_GROUPS.items():
+        for n, text in enumerate(groups.get(key) or [], start=1):
+            items.append((f"{prefix}-{n:02d}.mp3", [voce.Segment(text, mood, "Lio")]))
+    return items
 
 
 def story_characters(data):
@@ -895,6 +1029,8 @@ def cmd_index():
         if validate_story(folder, data)[0]:
             print(f"[exclus din bibliotecă] {folder.name}")
             continue
+        if personal_name(data):
+            continue  # poveștile personalizate au doar link secret, nu apar în bibliotecă
         entries.append(index_entry(folder, data))
     write_index(INDEX_FILE, entries)
     print(f"Bibliotecă actualizată: {len(entries)} povești.")
@@ -904,7 +1040,13 @@ def cmd_index():
 def main():
     command = sys.argv[1] if len(sys.argv) > 1 else "validate"
     if command == "new" and len(sys.argv) > 2:
-        return cmd_new(" ".join(sys.argv[2:]))
+        args = sys.argv[2:]
+        for_name = ""
+        if "--pentru" in args:
+            at = args.index("--pentru")
+            for_name = " ".join(args[at + 1:])
+            args = args[:at]
+        return cmd_new(" ".join(args), for_name)
     if command == "template":
         return cmd_template()
     if command == "prepare":

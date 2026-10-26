@@ -194,6 +194,104 @@ class QualityTests(StoryCase):
         self.assertError("șablonul nu e completat")
 
 
+class LioAndQuizTests(StoryCase):
+    def test_lio_greets_and_says_goodbye_by_category(self):
+        intro, outro = stories.lio_texts(self.data)
+        self.assertIn(intro, canon.LIO_INTROS["de-culcare"])
+        self.assertIn(outro, canon.LIO_OUTROS["de-culcare"])
+        self.assertEqual(stories.lio_texts(self.data), (intro, outro), "aceeași poveste are mereu același salut")
+        items = dict(stories.narration_items(self.data))
+        self.assertEqual(items["coperta.mp3"][0].text, intro)
+        self.assertEqual(items["final.mp3"][-1].text, outro)
+        self.assertEqual(items["final.mp3"][-1].mood, "somnoros")
+
+    def test_questions_get_audio_with_options_read_aloud(self):
+        items = dict(stories.narration_items(self.data))
+        self.assertEqual(items["intrebare-2.mp3"][1].text, "Ziua sau Noaptea?")
+        self.assertIn("raspuns-1.mp3", items)
+
+    def test_question_rules(self):
+        question = self.data["questions"][0]
+        question["answer"] = 5
+        self.assertError("answer")
+        question["answer"] = 0
+        question["options"][1].pop("emoji")
+        self.assertError("varianta 2: are nevoie de o imagine")
+        question["options"] = question["options"][:1]
+        self.assertError("2–3 variante")
+        self.data["questions"] = [question] * 4
+        self.assertError("între 1 și 3 întrebări")
+
+    def test_question_image_must_exist_in_story(self):
+        self.data["questions"][0]["options"][0]["image"] = "images/nu-exista.png"
+        self.assertError("întrebarea 1, varianta 1")
+
+    def test_lio_lines_include_praise_and_encouragement(self):
+        names = [name for name, _ in stories.lio_items()]
+        self.assertIn("bravo-01.mp3", names)
+        self.assertIn("incearca-01.mp3", names)
+
+
+class PersonalizedTests(StoryCase):
+    def make_personal(self, name="Ana"):
+        self.data["personalized"] = {"for": name}
+        self.data["approved"] = False
+        self.data["id"] = "poveste-test-k7p2qx"
+        folder = self.folder.with_name("poveste-test-k7p2qx")
+        self.folder.rename(folder)
+        self.folder = folder
+        self.data["pages"][0]["text"] = self.data["pages"][0]["text"].replace("Lio, puiul", f"{name} și Lio, puiul")
+        self.data["pages"][0]["narration"] = None
+        self.data["pages"][0].pop("narration")
+
+    def test_valid_personalized_story(self):
+        self.make_personal()
+        errors = [e for e in self.errors() if "narration" not in e and "regia" not in e]
+        self.assertEqual(errors, [])
+        intro, outro = stories.lio_texts(self.data)
+        self.assertIn("Ana", intro)
+        self.assertIn("Ana", outro)
+
+    def test_only_a_first_name_is_allowed(self):
+        self.make_personal("Ana Popescu 7")
+        self.assertError("doar prenumele copilului")
+
+    def test_link_must_be_secret(self):
+        self.make_personal()
+        self.data["id"] = "poveste-test"
+        self.assertError("cod aleator")
+
+    def test_name_must_appear_in_story(self):
+        self.make_personal()
+        self.data["personalized"]["for"] = "Maria"
+        self.assertError("trebuie să apară în poveste")
+
+    def test_personalized_stories_stay_out_of_the_library(self):
+        self.make_personal()
+        saved = stories.STORIES_DIR, stories.INDEX_FILE
+        stories.STORIES_DIR, stories.INDEX_FILE = self.tmp, self.tmp / "index.json"
+        try:
+            (self.folder / "story.json").write_text(json.dumps(self.data, ensure_ascii=False), encoding="utf-8")
+            stories.cmd_index()
+        finally:
+            stories.STORIES_DIR, stories.INDEX_FILE = saved
+        index = json.loads((self.tmp / "index.json").read_text(encoding="utf-8"))
+        self.assertEqual(index["stories"], [])
+
+    def test_new_personalized_story_gets_secret_id(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            original = stories.STORIES_DIR
+            stories.STORIES_DIR = Path(tmp)
+            try:
+                self.assertEqual(stories.cmd_new("Ana și dragonul", "Ana"), 0)
+            finally:
+                stories.STORIES_DIR = original
+            folder = next(Path(tmp).iterdir())
+            self.assertRegex(folder.name, r"^ana-si-dragonul-[a-z0-9]{6}$")
+            data = json.loads((folder / "story.json").read_text(encoding="utf-8"))
+            self.assertEqual((data["personalized"], data["approved"]), ({"for": "Ana"}, False))
+
+
 class TemplateTests(unittest.TestCase):
     def test_committed_template_matches_canon(self):
         committed = json.loads((ROOT / "sablon" / "story.json").read_text(encoding="utf-8"))
@@ -412,7 +510,9 @@ class PreviousVersionTests(unittest.TestCase):
             (folder / "story.json").write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
             self.git("-c", "user.name=t", "-c", "user.email=t@t", "commit", "-qam", "versiune stricată")
 
-            found = stories.previous_published(DEMO.name, Path(tmp) / "lucru", repo=self.repo)
+            from unittest import mock
+            with mock.patch.object(stories, "missing_audio", return_value=[]):  # vocea e testată separat
+                found = stories.previous_published(DEMO.name, Path(tmp) / "lucru", repo=self.repo)
             self.assertIsNotNone(found)
             self.assertEqual(found[1], good)
             kept = json.loads((found[0] / "story.json").read_text(encoding="utf-8"))
@@ -511,9 +611,10 @@ class VoiceTests(unittest.TestCase):
 
     def test_demo_story_has_both_voices_for_every_page(self):
         names = [name for name, _ in stories.narration_items(demo_data())]
+        pages = len(demo_data()["pages"])
         self.assertEqual(names[0], "coperta.mp3")
-        self.assertEqual(names[-1], "final.mp3")
-        self.assertEqual(len(names), len(demo_data()["pages"]) + 2)
+        self.assertEqual(names[pages + 1], "final.mp3")
+        self.assertEqual(names[1:pages + 1], [f"pagina-{n:02d}.mp3" for n in range(1, pages + 1)])
 
     @unittest.skipUnless(shutil.which("ffmpeg") and shutil.which("ffprobe"), "ffmpeg lipsește")
     def test_corrupt_or_short_audio_is_detected(self):

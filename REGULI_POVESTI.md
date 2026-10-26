@@ -309,6 +309,7 @@ public/stories/<id>/
 ```
 
 Pentru un personaj cunoscut se adaugă în `characters`: `"knownCharacter": true, "source": "…"`.
+Salutul și rămas-bunul lui Lio (după categorie sau cu prenumele copilului) se adaugă **automat** — nu le scrie tu.
 
 ### Categoriile (`categories`, obligatoriu)
 
@@ -326,6 +327,44 @@ dintre (id → ce apare pe site):
 
 Prima categorie din listă e cea mai importantă: apare ca etichetă pe coperta din bibliotecă.
 Dacă lipsesc, proiectul le alege automat după cuvintele din poveste și cere în raport să fie verificate.
+
+### Întrebările lui Lio: câmpul `questions` (recomandat)
+
+După poveste, Lio poate pune **1–3 întrebări** simple. Copilul alege dintre **2–3 variante ilustrate**; nu există
+punctaj: la un răspuns greșit Lio spune blând „Mai încearcă!”, la cel corect „Bravo!” și explicația.
+
+- Întrebările verifică dacă povestea a fost înțeleasă sau ce s-a învățat (`learning`), nu detalii mărunte.
+- Maximum 20 de cuvinte; un singur răspuns corect, fără ambiguitate.
+- Fiecare variantă are `text` și **o imagine** (`image`, din `images/`, de exemplu imaginea unei pagini) **sau un emoji**
+  (`emoji`) — copiii mici nu știu încă să citească. Lio citește cu voce întrebarea și variantele.
+- `answer` = numărul variantei corecte, **începând de la 0**. `explanation` (opțional) = ce spune Lio după răspunsul corect.
+
+```json
+"questions": [
+  {
+    "text": "Când stau treze bufnițele?",
+    "options": [{ "text": "Ziua", "emoji": "☀️" }, { "text": "Noaptea", "emoji": "🌙" }],
+    "answer": 1,
+    "explanation": "Corect! Bufnițele dorm ziua și stau treze noaptea."
+  }
+]
+```
+
+### Povești personalizate: câmpurile `personalized` și `approved`
+
+Un părinte poate cere o poveste **cu prenumele copilului** („fă o poveste pentru Ana, despre dinozauri”).
+
+- Se creează cu `python3 scripts/stories.py new "Ana și dragonul" --pentru Ana`: id-ul primește un **cod aleator**
+  (link secret), iar `story.json` primește `"personalized": {"for": "Ana"}` și `"approved": false`.
+- **Doar prenumele** (sau un alint). Niciodată nume de familie, adresă, școală, grădiniță, oraș, fotografii,
+  date de sănătate sau alte informații despre copil. Copilul poate fi un personaj al poveștii, alături de Lio;
+  în imagini îl desenezi ca un copil de desen animat, **fără să încerci să semene cu un copil real**.
+- Prenumele trebuie să apară în poveste; Lio îl salută pe nume la început și la final.
+- Povestea **nu apare în bibliotecă**, în recomandări sau în motoarele de căutare; se deschide doar cu link-ul secret.
+- Cât timp `"approved": false`, povestea se vede doar ca **„Previzualizare”**. Proprietarul site-ului o citește și,
+  dacă e în regulă, spune „aprobă povestea <id>” — atunci (și doar atunci) setezi `"approved": true`.
+  Nu seta niciodată singur `approved` pe `true`.
+- Toate celelalte reguli (calitate, siguranță, lungime, imagini, voce) se aplică la fel.
 
 ### Autoevaluarea: câmpul `review` (obligatoriu)
 
@@ -438,5 +477,7 @@ O poveste care nu trece verificarea automată **nu** este publicată.
 - [ ] Fiecare imagine arată exact momentul paginii ei, în stilul Iamlio, fără text în imagine.
 - [ ] Personajele cunoscute (dacă au fost cerute) sunt fidele originalului și marcate cu `knownCharacter`.
 - [ ] `review` completat cinstit, cu pagini concrete; nu a rămas nimic `DE COMPLETAT`.
+- [ ] Ideal: 1–2 întrebări (`questions`) cu variante ilustrate și un singur răspuns corect.
+- [ ] Poveste personalizată: doar prenumele, id cu cod aleator, `"approved": false` până la aprobarea proprietarului.
 - [ ] `python3 scripts/stories.py validate` afișează `[OK]`.
 - [ ] După publicare, `rapoarte/<id>.md` spune **PUBLICATĂ**.

@@ -33,6 +33,22 @@ Povestea: <AICI scrii ce vrei, de ex.: „o poveste de 5 minute despre un arici 
 
 ---
 
+## Poveste personalizată (cu prenumele copilului)
+
+Folosește același text, dar înlocuiește ultima linie cu, de exemplu:
+
+```
+Povestea: o poveste PERSONALIZATĂ pentru Ana (4 ani), despre dinozauri. Creeaz-o cu
+python3 scripts/stories.py new "Ana și dinozaurul cel bun" --pentru Ana (sau, dacă nu poți rula comenzi, cu
+"personalized": {"for": "Ana"}, "approved": false și un id care se termină cu un cod aleator de 6 caractere).
+Folosește doar prenumele, respectă secțiunea „Povești personalizate” din REGULI_POVESTI.md și NU o aproba tu.
+La final dă-mi link-ul secret din rapoarte/<id>.md.
+```
+
+Apoi deschide link-ul (apare „Previzualizare”) și, dacă e în regulă, scrie-i AI-ului: „aprobă povestea <id>”.
+
+---
+
 După commit, proiectul repară automat ce poate, generează vocea și publică. Starea fiecărei povești e în
 `rapoarte/<id>.md`. Dacă AI-ul s-a oprit înainte să fie publicată, scrie-i doar:
 „Citește rapoarte/<id>.md și corectează până când povestea e publicată.”

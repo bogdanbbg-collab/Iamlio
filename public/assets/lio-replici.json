@@ -6,5 +6,15 @@
     "Uau, ce bine că ai venit! Care poveste ți-e dragă azi?",
     "Rrrrr! Nu te speria, așa râd eu. Hai la o poveste!",
     "Poveștile sunt ca stelele: fiecare strălucește altfel."
+  ],
+  "bravo": [
+    "Bravo! Ai ascultat cu mare atenție!",
+    "Corect! Ești un adevărat campion al poveștilor!",
+    "Ura! Exact așa a fost! Bate palma!"
+  ],
+  "incearca": [
+    "Hmm, aproape! Mai încearcă o dată.",
+    "Nu-i nimic, mai gândește-te puțin și alege din nou.",
+    "Ooo, nu chiar. Mai încearcă, știu că poți!"
   ]
 }

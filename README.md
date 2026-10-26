@@ -11,7 +11,19 @@ Site cu povești ilustrate pentru copii de 3–7 ani, în limba română. Pagini
   **mod de culcare** (culori calme, imagini mai puțin luminoase, voce mai încetă) și **ecran complet**
   (pe iPhone/iPad: Partajează → „Adaugă pe ecranul principal”, iar site-ul se deschide ca o aplicație);
 - **reluarea poveștii**: coperta propune „Continuă” de la pagina la care a rămas copilul;
-- la final, **două recomandări** asemănătoare (aceleași categorii, necitite încă), nu o listă nesfârșită.
+- la final, **două recomandări** asemănătoare (aceleași categorii, necitite încă), nu o listă nesfârșită;
+- **Lio salută** la început și **își ia rămas-bun** la final (altfel la poveștile de culcare decât la aventuri);
+  în modul de culcare, la final apare un Lio somnoros;
+- **Întrebările lui Lio** după poveste: 1–3 întrebări cu variante ilustrate, citite cu voce, fără punctaj.
+
+## Povești personalizate (cu prenumele copilului)
+
+Cere-i AI-ului, de exemplu: „Fă o poveste personalizată pentru Ana, 4 ani, despre dinozauri” (textul complet e în
+`PROMPT_POVESTE.md`). Povestea primește un **link secret**, nu apare în bibliotecă și nici în Google, iar până o
+aprobi se vede doar ca **„Previzualizare”**. Link-ul e în `rapoarte/<poveste>.md`. Deschide-l, citește povestea și,
+dacă e în regulă, spune-i AI-ului „aprobă povestea <id>”. Abia apoi trimite link-ul părinților.
+Se folosește doar prenumele copilului. Ca să ștergi o poveste personalizată, șterge-i folderul din
+`public/stories/` (sau cere-i AI-ului) — dispare de pe site la următoarea publicare.
 
 Biblioteca are **categorii** (de culcare, aventuri, animale, prietenie și emoții, învățăm, amuzante), **filtre**
 după vârstă (3–5 / 5–7 ani) și durată (scurte / medii / lungi), **favorite** (♡ pe fiecare poveste) și eticheta

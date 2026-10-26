@@ -799,6 +799,105 @@ body.reader {
 }
 .speed-switch button[aria-pressed="true"] { background: var(--orange); color: #fff; }
 
+/* ---------- Lio salută și își ia rămas-bun ---------- */
+
+.lio-bubble {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto 8px !important;
+  max-width: 30em;
+  padding: 8px 14px 8px 8px;
+  border-radius: 18px;
+  background: #FFF1DD;
+  text-align: left;
+  font-size: .72em;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.lio-bubble-face { width: 40px; height: 40px; flex: 0 0 auto; }
+.end-outro { margin: 0; max-width: 32em; color: var(--ink-soft); font-size: clamp(1rem, min(3.4cqw, 3.8cqh), 1.4rem); }
+.pill-quiz { background: #8E6CD9; box-shadow: 0 4px 0 #6C4FB8; }
+
+/* ---------- Întrebările lui Lio ---------- */
+
+.quiz {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(10, 16, 40, .6);
+}
+.quiz[hidden] { display: none; }
+.quiz-panel {
+  position: relative;
+  width: min(100%, 640px);
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  padding: 16px 20px 20px;
+  border-radius: 28px;
+  background: var(--paper);
+  color: var(--ink);
+  text-align: center;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .35);
+  animation: slide-up .25s ease;
+}
+.quiz-head { display: flex; align-items: center; justify-content: space-between; }
+.quiz-progress { font-weight: 700; color: var(--ink-soft); }
+.quiz-close { background: #F3E6CF; color: var(--ink); font-size: 1.2rem; }
+.quiz-lio { width: 96px; height: auto; margin: 0 auto; }
+.is-solved .quiz-lio { width: 120px; }
+.quiz-question { margin: 6px 0 14px; font-size: clamp(1.25rem, 3vw + .6rem, 1.8rem); font-weight: 700; line-height: 1.25; }
+.quiz-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(92px, 1fr)); gap: 10px; }
+.quiz-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 10px;
+  border: 3px solid #F3E2C6;
+  border-radius: 22px;
+  background: #fff;
+  color: var(--ink);
+  font: 700 1.15rem/1.2 var(--font);
+  cursor: pointer;
+  transition: transform .15s ease, border-color .2s ease, background .2s ease;
+}
+.quiz-option:active { transform: scale(.97); }
+.quiz-option img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 14px; }
+.quiz-emoji { font-size: 3.2rem; line-height: 1.1; }
+.quiz-option.is-right { border-color: var(--teal); background: #E3F7F4; animation: pop .4s ease; }
+.quiz-option.is-wrong { animation: shake .4s ease; }
+@keyframes shake { 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+.quiz-feedback { min-height: 1.4em; margin: 12px 0 0; font-weight: 700; color: var(--orange-dark); font-size: 1.1rem; }
+.quiz-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 14px; }
+.quiz-actions .pill[hidden] { display: none; }
+.bedtime .quiz-panel { background: #F1E6D2; }
+
+/* ---------- Povești personalizate: previzualizare până la aprobare ---------- */
+
+.preview-banner {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  z-index: 10;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100% - 32px);
+  margin: 0;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #FFD166;
+  color: #3A2A00;
+  font-weight: 700;
+  font-size: .9rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
+}
+.stage { position: relative; }
+
 /* ---------- Mod de culcare: culori calme, lumină mai slabă ---------- */
 
 body.reader.bedtime {
@@ -848,7 +947,8 @@ body.reader.bedtime {
 
 @media (prefers-reduced-motion: reduce) {
   .sheet, .shade { transition-duration: .01s; }
-  .hero-lio, .hero-lio.is-jumping, .play-btn.is-playing, .dot, .settings-panel, .seg,
+  .hero-lio, .hero-lio.is-jumping, .play-btn.is-playing, .dot, .settings-panel, .seg, .quiz-panel,
+  .quiz-option.is-right, .quiz-option.is-wrong, .fav-btn.pop,
   .is-talking .lio-mouth-open, .is-talking .lio-mouth-smile { animation: none; transition: none; }
   .story-card, .story-card:hover { transition: none; transform: none; }
 }

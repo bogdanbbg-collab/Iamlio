@@ -43,6 +43,14 @@ function addExtraStories(root) {
     library.stories.push({ ...STORY, ...extra, cover: STORY.cover.replace(STORY.id, extra.id), tags: [] });
   }
   writeFileSync(join(root, "stories/index.json"), JSON.stringify(library));
+  // povești personalizate: au doar link secret, nu intră în bibliotecă
+  for (const [id, approved] of [["test-ana-k7p2qx", false], ["test-ana-aprobata-q9w3zz", true]]) {
+    cpSync(join(root, "stories", STORY.id), join(root, "stories", id), { recursive: true });
+    const file = join(root, "stories", id, "story.json");
+    const story = JSON.parse(readFileSync(file, "utf-8"));
+    Object.assign(story, { id, title: "Ana și steluța", personalized: { for: "Ana" }, approved });
+    writeFileSync(file, JSON.stringify(story));
+  }
 }
 
 before(async () => {
@@ -392,4 +400,68 @@ test("biblioteca arată „Continuă · pagina N” pentru povestea începută",
   const card = p.locator(".story-card", { hasText: "Ursulețul somnoros" });
   await card.locator(".story-resume").waitFor();
   assert.equal(await card.locator(".story-resume").textContent(), "Continuă · pagina 2");
+});
+
+async function goToEnd(p, id) {
+  await p.goto(`${BASE}/poveste.html?id=${id}`);
+  await p.waitForSelector(".sheet.is-current");
+  for (let i = 1; i < SHEETS; i++) {
+    await p.click("#next-btn");
+    await settle(p, i === SHEETS - 1 ? "Sfârșit" : `Pagina ${i}`);
+  }
+}
+
+test("Lio salută pe copertă și își ia rămas-bun la final", async () => {
+  const p = await page({ reducedMotion: "reduce" });
+  await p.goto(STORY_URL);
+  await p.waitForSelector(".lio-bubble");
+  assert.ok((await p.textContent(".lio-bubble")).length > 10);
+  await goToEnd(p, STORY.id);
+  assert.ok((await p.textContent(".is-current .end-outro")).length > 10);
+});
+
+test("întrebările lui Lio: greșit → mai încearcă, corect → bravo, apoi următoarea și „Gata!”", async () => {
+  const p = await page({ reducedMotion: "reduce" });
+  await goToEnd(p, STORY.id);
+  const story = JSON.parse(readFileSync(join(site, "stories", STORY.id, "story.json"), "utf-8"));
+  if (!story.questions?.length) return; // povestea nu are întrebări
+  await p.click(".is-current .pill-quiz");
+  await p.waitForSelector(".quiz:not([hidden]) .quiz-option");
+  for (let n = 0; n < story.questions.length; n++) {
+    const question = story.questions[n];
+    assert.equal(await p.textContent(".quiz-question"), question.text);
+    assert.match(await p.textContent(".quiz-progress"), new RegExp(`${n + 1} din ${story.questions.length}`));
+    const wrong = question.answer === 0 ? 1 : 0;
+    await p.click(`.quiz-option >> nth=${wrong}`);
+    assert.match(await p.getAttribute(`.quiz-option >> nth=${wrong}`, "class"), /is-wrong/);
+    assert.ok(await p.isHidden(".quiz-actions .pill:not(.pill-alt)"), "nu trece mai departe la un răspuns greșit");
+    await p.click(`.quiz-option >> nth=${question.answer}`);
+    assert.match(await p.getAttribute(`.quiz-option >> nth=${question.answer}`, "class"), /is-right/);
+    assert.match(await p.getAttribute(".quiz-lio", "src"), /lio-bravo/);
+    await p.click(".quiz-actions .pill:not(.pill-alt)");
+  }
+  assert.ok(await p.isHidden(".quiz"), "„Gata!” închide întrebările");
+  assert.deepEqual(p.errors, []);
+});
+
+test("mod de culcare: la final, Lio e somnoros", async () => {
+  const p = await page({ reducedMotion: "reduce" });
+  await p.addInitScript(() => localStorage.setItem("iamlio-culcare", "1"));
+  await goToEnd(p, STORY.id);
+  assert.match(await p.getAttribute(".is-current .end-lio", "src"), /lio-somnoros/);
+});
+
+test("povești personalizate: link secret, în afara bibliotecii, previzualizare până la aprobare", async () => {
+  const p = await page({ viewport: { width: 1280, height: 900 } });
+  await p.goto(`${BASE}/`);
+  await p.waitForSelector(".story-card");
+  assert.ok(!(await cardTitles(p)).includes("Ana și steluța"), "nu apare în bibliotecă");
+  await p.goto(`${BASE}/poveste.html?id=test-ana-k7p2qx`);
+  await p.waitForSelector(".preview-banner");
+  assert.match(await p.textContent(".preview-banner"), /Ana/);
+  assert.equal(await p.getAttribute('meta[name="robots"]', "content"), "noindex, nofollow");
+  await p.goto(`${BASE}/poveste.html?id=test-ana-aprobata-q9w3zz`);
+  await p.waitForSelector(".sheet.is-current");
+  assert.equal(await p.locator(".preview-banner").count(), 0, "după aprobare nu mai e previzualizare");
+  assert.equal(await p.getAttribute('meta[name="robots"]', "content"), "noindex, nofollow");
 });

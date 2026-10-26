@@ -165,6 +165,16 @@ def main():
         standalone(lio(arms="wave", animated=True, talking_ready=True), "-135 -290 270 300", "Lio", TALK_STYLE), encoding="utf-8")
     (img / "lio-static.svg").write_text(
         standalone(lio(arms="wave"), "-135 -290 270 300", "Lio"), encoding="utf-8")
+    # Lio bucuros (răspuns corect): brațele sus, gura deschisă, sare de bucurie
+    hop = ('<animateTransform attributeName="transform" type="translate" values="0 0;0 -14;0 0;0 0" '
+           'keyTimes="0;.2;.4;1" dur="1.2s" repeatCount="indefinite"/>')
+    (img / "lio-bravo.svg").write_text(
+        standalone(f'<g>{lio(arms="up", mouth="open")}{hop}</g>', "-135 -300 270 310", "Lio se bucură"), encoding="utf-8")
+    (img / "lio-bravo-static.svg").write_text(
+        standalone(lio(arms="up", mouth="open"), "-135 -300 270 310", "Lio se bucură"), encoding="utf-8")
+    # Lio somnoros (modul de culcare): ochii închiși, lăbuțele ținute la piept
+    (img / "lio-somnoros.svg").write_text(
+        standalone(lio(arms="hold", eyes="closed"), "-135 -290 270 300", "Lio somnoros"), encoding="utf-8")
     (img / "lio-cap.svg").write_text(
         standalone(head_only(animated=True, talking_ready=True), "-92 -272 184 184", "Lio", TALK_STYLE), encoding="utf-8")
     (ROOT / "public" / "favicon.svg").write_text(

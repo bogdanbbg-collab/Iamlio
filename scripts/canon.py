@@ -35,6 +35,39 @@ CATEGORIES = {
 }
 MAX_CATEGORIES = 3
 
+# Ce spune Lio la începutul și la sfârșitul fiecărei povești, după prima ei categorie.
+# Se alege mereu aceeași variantă pentru aceeași poveste (după id), ca vocea generată să rămână stabilă.
+LIO_INTROS = {
+    "de-culcare": ["Bună seara! E vremea de poveste. Pune-te comod sub pătură și ascultă.",
+                   "Bună seara, prietene! Stingem lumina mare și pornim într-o poveste liniștită."],
+    "aventuri": ["Ești gata de aventură? Ține-te bine, pornim!",
+                 "Bună! Azi mergem într-o călătorie. Ia-mă de lăbuță și hai!"],
+    "animale": ["Bună! Azi cunoaștem niște animale tare simpatice.",
+                "Ssst… auzi? Ne așteaptă prietenii din pădure!"],
+    "prietenie": ["Bună! Am pentru tine o poveste despre prieteni.",
+                  "Bună! Hai să vedem ce înseamnă să ai un prieten adevărat."],
+    "invatam": ["Bună! Azi descoperim ceva nou. Ești curios?",
+                "Bună, micuțule explorator! Hai să aflăm ceva interesant."],
+    "amuzante": ["Bună! Pregătește-te să râzi, povestea asta e tare haioasă!",
+                 "Hi-hi! Am o poveste caraghioasă pentru tine!"],
+}
+LIO_OUTROS = {
+    "de-culcare": ["Noapte bună, somn ușor! Te aștept mâine seară cu o nouă poveste.",
+                   "Gata, e timpul de somn. Vise frumoase! Noapte bună!"],
+    "default": ["Ți-a plăcut? Te aștept cu drag la o nouă poveste!",
+                "Ce poveste frumoasă! Mai citim una data viitoare. Pa-pa!"],
+}
+LIO_PERSONAL_INTRO = "Bună, {name}! Lio are o poveste specială, doar pentru tine."
+LIO_PERSONAL_OUTRO = "Te-ai descurcat minunat, {name}! Te îmbrățișez și te aștept la o nouă poveste."
+
+# Întrebările lui Lio după poveste (câmpul opțional "questions"): fără punctaj, doar pentru joacă.
+MAX_QUESTIONS = 3
+OPTIONS_PER_QUESTION = (2, 3)
+MAX_QUESTION_WORDS = 20
+
+# Poveștile personalizate (câmpul "personalized"): nu apar în bibliotecă, au link secret și așteaptă aprobarea.
+PERSONAL_SUFFIX_LENGTH = 6  # id-ul se termină cu un cod aleator, ca link-ul să nu poată fi ghicit
+
 # Autoevaluarea pe care o scrie AI-ul în story.json (câmpul "review").
 REVIEW_FIELDS = {
     "imaginatie": "ce element magic sau neobișnuit are povestea",
