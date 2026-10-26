@@ -46,7 +46,7 @@
     }
   ],
   "cover": {
-    "image": "images/coperta.png",
+    "image": "images/coperta.webp",
     "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Tata: a tall friendly young father with short wavy reddish-brown hair, light stubble, warm brown eyes and a big kind smile, wearing a mustard-yellow checkered flannel shirt with rolled-up sleeves and jeans; Bostănel: a big round bright-orange pumpkin with smooth ribbed skin, a curly green stem on top and one small green leaf. Setting: a cozy kitchen on an autumn evening, soft warm light, dark blue sky and stars outside the window, autumn leaves on the window sill. Action: Bostănel now has a carved friendly face: two triangle eyes and a wide happy smile with one square tooth, glowing warm orange from inside; Victor and Tata sit together at the table smiling at the glowing pumpkin. Emotions: joyful, cozy, a little magical. Important details: a small jar of pumpkin seeds, a white crayon, autumn leaves. Camera: wide cinematic cover shot."
   },
   "pages": [
@@ -80,7 +80,7 @@
           "mood": "vesel"
         }
       ],
-      "image": "images/pagina-01.png",
+      "image": "images/pagina-01.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Tata: a tall friendly young father with short wavy reddish-brown hair, light stubble, warm brown eyes and a big kind smile, wearing a mustard-yellow checkered flannel shirt with rolled-up sleeves and jeans; Bostănel: a big round bright-orange pumpkin with smooth ribbed skin, a curly green stem on top and one small green leaf. Setting: the front yard of a small family house on an autumn evening, golden and rust-colored leaves on the ground, a lit window, the first evening stars. Action: Tata carries the huge pumpkin in his arms with puffed cheeks as if it were very heavy, while Victor walks beside him with a finger on his lips, giggling. Emotions: Tata pretending to struggle, Victor amused. Important details: falling autumn leaves, a garden path, warm light from the house. Camera: wide shot."
     },
     {
@@ -113,7 +113,7 @@
           "mood": "vesel"
         }
       ],
-      "image": "images/pagina-02.png",
+      "image": "images/pagina-02.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Tata: a tall friendly young father with short wavy reddish-brown hair, light stubble, warm brown eyes and a big kind smile, wearing a mustard-yellow checkered flannel shirt with rolled-up sleeves and jeans; Bostănel: a big round bright-orange pumpkin with smooth ribbed skin, a curly green stem on top and one small green leaf. Setting: a warm cozy family kitchen on an autumn evening, dark blue sky outside the window, soft warm lamp light, a wooden table covered with old newspapers. Action: Bostănel the pumpkin sits in the middle of the newspaper-covered table; Victor gives a funny proud salute like a little chef; Tata stands next to him explaining, holding a big wooden spoon out to Victor. Emotions: Victor proud and excited, Tata kind and serious. Important details: old newspapers, a big wooden spoon, a bowl, a white crayon. Camera: medium shot."
     },
     {
@@ -147,7 +147,7 @@
           "pause": 0.6
         }
       ],
-      "image": "images/pagina-03.png",
+      "image": "images/pagina-03.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Tata: a tall friendly young father with short wavy reddish-brown hair, light stubble, warm brown eyes and a big kind smile, wearing a mustard-yellow checkered flannel shirt with rolled-up sleeves and jeans; Bostănel: a big round bright-orange pumpkin with smooth ribbed skin, a curly green stem on top and one small green leaf. Setting: a warm cozy family kitchen on an autumn evening, dark blue sky outside the window, soft warm lamp light, a wooden table covered with old newspapers. Action: Tata holds the round pumpkin lid with its curly stem like a little hat; Victor scoops orange stringy pulp and seeds out of the open pumpkin with a big wooden spoon; Victor suddenly looks around surprised. Emotions: Victor surprised and curious, Tata smiling. Important details: orange stringy pulp like spaghetti, pale pumpkin seeds, the lid with the green stem. Camera: close-up over the pumpkin."
     },
     {
@@ -190,7 +190,7 @@
           "speaker": "Tata"
         }
       ],
-      "image": "images/pagina-04.png",
+      "image": "images/pagina-04.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Tata: a tall friendly young father with short wavy reddish-brown hair, light stubble, warm brown eyes and a big kind smile, wearing a mustard-yellow checkered flannel shirt with rolled-up sleeves and jeans; Bostănel: a big round bright-orange pumpkin with smooth ribbed skin, a curly green stem on top and one small green leaf. Setting: a warm cozy family kitchen on an autumn evening, dark blue sky outside the window, soft warm lamp light, a wooden table covered with old newspapers. Action: Bostănel the pumpkin wiggles its curly green stem happily as if laughing, with tiny sparkles around it; Victor stares at it with his mouth wide open, still holding the spoon; Tata winks. Emotions: Victor astonished, Tata playful, a magical moment. Important details: golden sparkles around the pumpkin stem, the spoon with seeds. Camera: medium shot."
     },
     {
@@ -219,7 +219,7 @@
           "mood": "calm"
         }
       ],
-      "image": "images/pagina-05.png",
+      "image": "images/pagina-05.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Tata: a tall friendly young father with short wavy reddish-brown hair, light stubble, warm brown eyes and a big kind smile, wearing a mustard-yellow checkered flannel shirt with rolled-up sleeves and jeans. Setting: a warm cozy family kitchen on an autumn evening, dark blue sky outside the window, soft warm lamp light, a wooden table covered with old newspapers. Action: Victor carefully drops pumpkin seeds one by one into a small glass jar, counting on his fingers with great concentration; Tata watches next to him and smiles. Emotions: Victor focused and proud, Tata proud. Important details: a small glass jar with pale pumpkin seeds, a bowl of orange pulp, newspapers. Camera: close-up of hands and jar."
     },
     {
@@ -252,7 +252,7 @@
           "speaker": "Bostănel"
         }
       ],
-      "image": "images/pagina-06.png",
+      "image": "images/pagina-06.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Bostănel: a big round bright-orange pumpkin with smooth ribbed skin, a curly green stem on top and one small green leaf. Setting: a warm cozy family kitchen on an autumn evening, dark blue sky outside the window, soft warm lamp light, a wooden table covered with old newspapers. Action: Victor draws a big surprised face on the pumpkin with a white crayon: two huge round eyes and a round O-shaped mouth; the drawn face looks comically astonished; Victor giggles. Emotions: Victor giggling, the drawn pumpkin face comically surprised. Important details: a white crayon, a small cloth for wiping, white chalky drawn lines on the orange skin. Camera: medium close-up."
     },
     {
@@ -285,7 +285,7 @@
           "speaker": "Bostănel"
         }
       ],
-      "image": "images/pagina-07.png",
+      "image": "images/pagina-07.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Tata: a tall friendly young father with short wavy reddish-brown hair, light stubble, warm brown eyes and a big kind smile, wearing a mustard-yellow checkered flannel shirt with rolled-up sleeves and jeans; Bostănel: a big round bright-orange pumpkin with smooth ribbed skin, a curly green stem on top and one small green leaf. Setting: a warm cozy family kitchen on an autumn evening, dark blue sky outside the window, soft warm lamp light, a wooden table covered with old newspapers. Action: Victor proudly finishes drawing a happy face on the pumpkin with a white crayon: two triangle eyes and a wide smile with one square tooth; Victor smiles happily; Tata claps. Emotions: Victor proud and delighted, Tata cheering. Important details: white crayon lines forming triangle eyes and a big smile with one tooth. Camera: medium shot."
     },
     {
@@ -318,7 +318,7 @@
           "mood": "vesel"
         }
       ],
-      "image": "images/pagina-08.png",
+      "image": "images/pagina-08.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Tata: a tall friendly young father with short wavy reddish-brown hair, light stubble, warm brown eyes and a big kind smile, wearing a mustard-yellow checkered flannel shirt with rolled-up sleeves and jeans; Bostănel: a big round bright-orange pumpkin with smooth ribbed skin, a curly green stem on top and one small green leaf. Setting: a warm cozy family kitchen on an autumn evening, dark blue sky outside the window, soft warm lamp light, a wooden table covered with old newspapers. Action: Bostănel now has a carved friendly face: two triangle eyes and a wide happy smile with one square tooth; Tata finishes carving carefully on his side of the table while Victor collects the little orange pieces from the newspapers into a bowl, laughing. Emotions: Bostănel cute and a little chilly, Victor laughing, Tata focused. Important details: small orange pumpkin pieces, a bowl, the newspapers. Camera: medium shot."
     },
     {
@@ -352,7 +352,7 @@
           "mood": "calm"
         }
       ],
-      "image": "images/pagina-09.png",
+      "image": "images/pagina-09.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Tata: a tall friendly young father with short wavy reddish-brown hair, light stubble, warm brown eyes and a big kind smile, wearing a mustard-yellow checkered flannel shirt with rolled-up sleeves and jeans; Bostănel: a big round bright-orange pumpkin with smooth ribbed skin, a curly green stem on top and one small green leaf. Setting: the cozy kitchen in the evening with the main lamp turned off, only soft warm light, dark blue sky outside the window. Action: Bostănel now has a carved friendly face: two triangle eyes and a wide happy smile with one square tooth; Tata carefully lights a small candle inside the pumpkin with a long match; Victor stands one step back with his hands on his cheeks, counting down. Emotions: Victor excited and waiting, Tata calm and careful. Important details: a small candle inside the pumpkin, a long match, a tiny warm flame. Camera: medium shot, slightly dim and cozy."
     },
     {
@@ -381,7 +381,7 @@
           "mood": "vesel"
         }
       ],
-      "image": "images/pagina-10.png",
+      "image": "images/pagina-10.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Tata: a tall friendly young father with short wavy reddish-brown hair, light stubble, warm brown eyes and a big kind smile, wearing a mustard-yellow checkered flannel shirt with rolled-up sleeves and jeans; Bostănel: a big round bright-orange pumpkin with smooth ribbed skin, a curly green stem on top and one small green leaf. Setting: the cozy kitchen in the evening with the lights off, the pumpkin glowing on the table, dark blue sky outside the window. Action: Bostănel now has a carved friendly face: two triangle eyes and a wide happy smile with one square tooth; Bostănel glows warm orange from inside, its triangle eyes and toothy smile shining brightly; Victor claps happily while Tata hugs him from behind. Emotions: joyful, wonder, warm. Important details: warm orange glow on their faces, soft light on the walls. Camera: wide shot."
     },
     {
@@ -414,7 +414,7 @@
           "mood": "somnoros"
         }
       ],
-      "image": "images/pagina-11.png",
+      "image": "images/pagina-11.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Victor: a cheerful six-year-old boy with short straight light-brown hair with a funny cowlick sticking up on top, big round blue eyes, rosy cheeks, wearing a cozy green knitted sweater with an orange autumn leaf on the chest, dark-blue trousers and brown boots; Tata: a tall friendly young father with short wavy reddish-brown hair, light stubble, warm brown eyes and a big kind smile, wearing a mustard-yellow checkered flannel shirt with rolled-up sleeves and jeans; Bostănel: a big round bright-orange pumpkin with smooth ribbed skin, a curly green stem on top and one small green leaf. Setting: a cozy window sill at night, a quiet street with autumn trees and other glowing windows outside, a big friendly moon. Action: Bostănel now has a carved friendly face: two triangle eyes and a wide happy smile with one square tooth; Bostănel sits glowing on the window sill; Victor in pajamas yawns hugely and waves goodnight to the pumpkin while Tata gently holds his hand. Emotions: sleepy, happy, cozy. Important details: the glowing pumpkin, the night street, the moon. Camera: wide shot from inside the room."
     }
   ],

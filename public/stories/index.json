@@ -33,6 +33,28 @@
   ],
   "stories": [
     {
+      "id": "victor-si-dovleacul-luminos",
+      "title": "Victor și dovleacul luminos",
+      "summary": "Într-o seară de toamnă, Victor și tata scobesc un dovleac uriaș. Dar dovleacul chicotește când e gâdilat și vrea neapărat o față veselă!",
+      "age": "3-7",
+      "tags": [
+        "dovleac",
+        "toamnă",
+        "tata",
+        "emoții"
+      ],
+      "categories": [
+        "amuzante",
+        "invatam",
+        "de-culcare"
+      ],
+      "created": "2026-10-26",
+      "cover": "stories/victor-si-dovleacul-luminos/images/coperta.webp",
+      "pages": 11,
+      "minutes": 4,
+      "published": "2026-10-26"
+    },
+    {
       "id": "matei-si-limonada-fermecata",
       "title": "Matei și limonada fermecată",
       "summary": "Matei îl ajută pe tata să facă limonadă, iar ulciorul fermecat al bunicului gustă fiecare încercare. Prea acră? Prea dulce? Matei găsește singur gustul potrivit!",
