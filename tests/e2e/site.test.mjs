@@ -8,6 +8,7 @@ import { tmpdir } from "node:os";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
+import { createHash } from "node:crypto";
 
 const require = createRequire(import.meta.url);
 const ENGINE = process.env.BROWSER || "chromium";
@@ -43,15 +44,25 @@ function addExtraStories(root) {
     library.stories.push({ ...STORY, ...extra, cover: STORY.cover.replace(STORY.id, extra.id), tags: [] });
   }
   writeFileSync(join(root, "stories/index.json"), JSON.stringify(library));
-  // povești personalizate: au doar link secret, nu intră în bibliotecă
+  // povești personalizate: au doar link secret, nu intră în bibliotecă; cea neaprobată stă în zona protejată,
+  // exact cum o pune `stories.py stage` când există PREVIEW_PASSWORD
   for (const [id, approved] of [["test-ana-k7p2qx", false], ["test-ana-aprobata-q9w3zz", true]]) {
-    cpSync(join(root, "stories", STORY.id), join(root, "stories", id), { recursive: true });
-    const file = join(root, "stories", id, "story.json");
+    const folder = approved ? join(root, "stories", id) : join(root, "api/data/previzualizare", id);
+    cpSync(join(root, "stories", STORY.id), folder, { recursive: true });
+    const file = join(folder, "story.json");
     const story = JSON.parse(readFileSync(file, "utf-8"));
     Object.assign(story, { id, title: "Ana și steluța", personalized: { for: "Ana" }, approved });
     writeFileSync(file, JSON.stringify(story));
   }
+  const salt = "sare-de-test";
+  writeFileSync(join(root, "api/data/previzualizare.json"),
+    JSON.stringify({ salt, hash: createHash("sha256").update(salt + PREVIEW_PASSWORD).digest("hex") }));
 }
+
+const PREVIEW_PASSWORD = "parola-de-test";
+
+// corpul răspunsului se citește complet (altfel fetch din Node poate crăpa)
+async function drain(response) { await response.arrayBuffer(); return response; }
 
 before(async () => {
   site = mkdtempSync(join(tmpdir(), "iamlio-"));
@@ -235,6 +246,40 @@ test("nicio pagină nu încarcă nimic de la alte site-uri (fonturi, reclame, ur
 const audioState = (p) => p.evaluate(() => {
   const a = document.querySelector("audio");
   return { rate: a.playbackRate, volume: a.volume, src: a.src };
+});
+
+test("distribuire: fiecare poveste are pagina ei cu titlu și copertă (Open Graph), care duce la cititor", async () => {
+  const html = await (await fetch(`${BASE}/p/${STORY.id}.html`)).text();
+  assert.ok(html.includes(`<meta property="og:title" content="${STORY.title}">`));
+  const image = html.match(/property="og:image" content="https:\/\/[^/]+\/(p\/[^"?]+\.jpg)\?v=/);
+  assert.ok(image, "og:image cu coperta poveștii");
+  const response = await fetch(`${BASE}/${image[1]}`);
+  assert.equal(response.headers.get("content-type"), "image/jpeg");
+  assert.ok((await response.arrayBuffer()).byteLength > 10000);
+  const p = await page();
+  await p.goto(`${BASE}/p/${STORY.id}.html`);
+  await p.waitForURL(/poveste\.html\?id=/);
+  await p.waitForSelector(".sheet.is-current");
+  await p.click("#settings-btn");
+  assert.ok(await p.isVisible("#share-btn"));
+});
+
+test("dialogul de setări păstrează focusul cu Tab și Shift+Tab", async () => {
+  const p = await page();
+  await p.goto(STORY_URL);
+  await p.waitForSelector(".sheet.is-current");
+  await p.click("#settings-btn");
+  const inside = () => p.evaluate(() => document.getElementById("settings").contains(document.activeElement));
+  for (let i = 0; i < 25; i++) {
+    await p.keyboard.press("Tab");
+    assert.ok(await inside(), `după ${i + 1} × Tab focusul a ieșit din dialog`);
+  }
+  for (let i = 0; i < 25; i++) {
+    await p.keyboard.press("Shift+Tab");
+    assert.ok(await inside(), `după ${i + 1} × Shift+Tab focusul a ieșit din dialog`);
+  }
+  await p.keyboard.press("Escape");
+  assert.equal(await p.evaluate(() => document.activeElement.id), "settings-btn");
 });
 
 test("setări: viteza vocii și modul de culcare se aplică și se păstrează", { skip: !VOICED && "nicio poveste nu are încă voce" }, async () => {
@@ -457,10 +502,31 @@ test("povești personalizate: link secret, în afara bibliotecii, previzualizare
   await p.goto(`${BASE}/`);
   await p.waitForSelector(".story-card");
   assert.ok(!(await cardTitles(p)).includes("Ana și steluța"), "nu apare în bibliotecă");
+  // neaprobată: nu există în partea publică, iar serverul nu dă fișierele fără parolă
+  assert.equal((await fetch(`${BASE}/stories/test-ana-k7p2qx/story.json`).then(drain)).status, 404);
+  assert.equal((await fetch(`${BASE}/api/previzualizare.php?id=test-ana-k7p2qx&f=story.json`).then(drain)).status, 401);
+  assert.equal((await fetch(`${BASE}/api/previzualizare.php?id=test-ana-k7p2qx&f=../../citiri.php`).then(drain)).status, 401);
   await p.goto(`${BASE}/poveste.html?id=test-ana-k7p2qx`);
+  await p.waitForSelector(".reader-error");
+  await p.goto(`${BASE}/poveste.html?previzualizare=test-ana-k7p2qx`);
+  await p.waitForSelector(".preview-login input[type=password]");
+  assert.ok(!(await p.textContent("body")).includes("Ana și steluța"), "fără parolă nu se vede nimic din poveste");
+  await p.fill(".preview-login input", "gresit");
+  await p.click(".preview-login button");
+  await p.waitForSelector("text=Parola nu este corectă");
+  await p.fill(".preview-login input", PREVIEW_PASSWORD);
+  await p.click(".preview-login button");
   await p.waitForSelector(".preview-banner");
   assert.match(await p.textContent(".preview-banner"), /Ana/);
   assert.equal(await p.getAttribute('meta[name="robots"]', "content"), "noindex, nofollow");
+  await p.waitForSelector(".sheet.is-current img");
+  const cover = await p.getAttribute(".sheet.is-current img", "src");
+  assert.match(cover, /^api\/previzualizare\.php\?id=test-ana-k7p2qx&f=images\//);
+  assert.ok(await p.$eval(".sheet.is-current img", (img) => img.complete && img.naturalWidth > 0), "imaginea vine prin server");
+  // după autentificare, căile în afara poveștii tot nu se pot citi
+  const cookies = (await p.context().cookies()).map((c) => `${c.name}=${c.value}`).join("; ");
+  const outside = await fetch(`${BASE}/api/previzualizare.php?id=test-ana-k7p2qx&f=../../cheie.txt`, { headers: { cookie: cookies } }).then(drain);
+  assert.equal(outside.status, 404);
   await p.goto(`${BASE}/poveste.html?id=test-ana-aprobata-q9w3zz`);
   await p.waitForSelector(".sheet.is-current");
   assert.equal(await p.locator(".preview-banner").count(), 0, "după aprobare nu mai e previzualizare");

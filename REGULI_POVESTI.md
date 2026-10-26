@@ -361,8 +361,10 @@ Un părinte poate cere o poveste **cu prenumele copilului** („fă o poveste pe
   în imagini îl desenezi ca un copil de desen animat, **fără să încerci să semene cu un copil real**.
 - Prenumele trebuie să apară în poveste; Lio îl salută pe nume la început și la final.
 - Povestea **nu apare în bibliotecă**, în recomandări sau în motoarele de căutare; se deschide doar cu link-ul secret.
-- Cât timp `"approved": false`, povestea se vede doar ca **„Previzualizare”**. Proprietarul site-ului o citește și,
-  dacă e în regulă, spune „aprobă povestea <id>” — atunci (și doar atunci) setezi `"approved": true`.
+- Cât timp `"approved": false`, povestea **nu e publică**: la publicare ajunge doar într-o zonă protejată de pe
+  server, pe care o poate deschide doar proprietarul site-ului, cu parola de previzualizare
+  (`poveste.html?previzualizare=<id>`, link-ul e în `rapoarte/<id>.md`). Proprietarul o citește și, dacă e în
+  regulă, spune „aprobă povestea <id>” — atunci (și doar atunci) setezi `"approved": true`.
   Nu seta niciodată singur `approved` pe `true`.
 - Toate celelalte reguli (calitate, siguranță, lungime, imagini, voce) se aplică la fel.
 

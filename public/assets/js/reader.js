@@ -10,8 +10,11 @@
   var PAUSE_BEFORE_TURN_MS = 1200;
 
   var params = new URLSearchParams(location.search);
-  var storyId = params.get("id") || "";
-  var base = "stories/" + encodeURIComponent(storyId) + "/";
+  // ?previzualizare=<id>: o poveste personalizată neaprobată, citită prin server, doar cu parola de previzualizare.
+  var preview = !params.get("id") && !!params.get("previzualizare");
+  var storyId = (preview ? params.get("previzualizare") : params.get("id")) || "";
+  var base = preview ? "api/previzualizare.php?id=" + encodeURIComponent(storyId) + "&f="
+    : "stories/" + encodeURIComponent(storyId) + "/";
 
   var book = document.getElementById("book");
   var titleEl = document.getElementById("story-title");
@@ -28,9 +31,10 @@
 
   var SPEEDS = [0.8, 0.9, 1, 1.1];
   var BEDTIME_VOLUME = 0.7;
-  var RESUME_KEY = "iamlio-pagina-" + (new URLSearchParams(location.search).get("id") || "");
+  var RESUME_KEY = "iamlio-pagina-" + storyId;
 
   var items = [];
+  var quizEl = null; // dialogul cu întrebările lui Lio, creat la prima deschidere
   var sheets = [];
   var index = 0;
   var busy = false;
@@ -579,6 +583,29 @@
     settingsBtn.focus();
   }
 
+  // Cât timp un dialog e deschis, Tab și Shift+Tab rămân în el (nu ajung la cartea din spate).
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "Tab") return;
+    var open = !settingsEl.hidden ? settingsEl : quizEl && !quizEl.hidden ? quizEl : null;
+    if (!open) return;
+    var focusable = Array.prototype.filter.call(
+      open.querySelectorAll("button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])"),
+      function (node) { return !node.disabled && node.offsetParent !== null; });
+    if (!focusable.length) return;
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
+    if (!open.contains(document.activeElement)) {
+      event.preventDefault();
+      first.focus();
+    } else if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+
   settingsBtn.addEventListener("click", openSettings);
   document.getElementById("settings-close").addEventListener("click", closeSettings);
   settingsEl.addEventListener("click", function (event) { if (event.target === settingsEl) closeSettings(); });
@@ -662,14 +689,35 @@
     render();
     updateResume();
     applyBedtime();
-    Iamlio.countRead(story.id).then(showReads);
     if (story.personalized) markPersonal(story);
+    if (preview) return; // previzualizarea nu se numără și nu are favorite sau recomandări
+    if (!story.personalized) enableShare(story);
+    Iamlio.countRead(story.id).then(showReads);
     var bar = document.querySelector(".reader-bar");
     bar.insertBefore(Iamlio.favoriteButton(story.id, story.title), settingsBtn);
     fetch("stories/index.json", { cache: "no-cache" })
       .then(function (res) { return res.ok ? res.json() : null; })
       .then(function (data) { if (data) showRecommendations(data.stories || [], story); })
       .catch(function () {});
+  }
+
+  // Pentru părinți: link-ul paginii de distribuire (p/<id>.html), care arată coperta și titlul poveștii
+  // când e trimis pe WhatsApp, Facebook etc. Pe telefon deschide meniul de partajare, altfel copiază link-ul.
+  function enableShare(story) {
+    var button = document.getElementById("share-btn");
+    var status = document.getElementById("share-status");
+    var url = new URL("p/" + story.id + ".html", location.href).href;
+    button.hidden = false;
+    button.addEventListener("click", function () {
+      function done(message) { status.textContent = message; status.hidden = false; }
+      if (navigator.share) {
+        navigator.share({ title: story.title, text: story.title + " — o poveste citită de Lio", url: url }).catch(function () {});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function () { done("Link copiat: " + url); }, function () { done(url); });
+      } else {
+        done(url);
+      }
+    });
   }
 
   // Povești personalizate: nu se indexează; până la aprobare se văd doar ca „Previzualizare”.
@@ -688,7 +736,6 @@
 
   // ---------- Întrebările lui Lio (după poveste, fără punctaj) ----------
 
-  var quizEl = null;
   var lioManifest = null;
   var quizAudio = new Audio();
   quizAudio.hidden = true;
@@ -893,18 +940,69 @@
     return;
   }
 
-  fetch(base + "audio/manifest.json", { cache: "no-cache" })
-    .then(function (res) { return res.ok ? res.json() : null; })
-    .catch(function () { return null; })
-    .then(function (data) { manifest = data; });
+  // Cartea pornește abia după ce se știe și ce fișiere audio există: altfel prima apăsare pe Lio ar putea
+  // citi cu vocea browserului, deși vocea înregistrată există.
+  function load() {
+    var voices = fetch(base + "audio/manifest.json", { cache: "no-cache" })
+      .then(function (res) { return res.ok ? res.json() : null; })
+      .catch(function () { return null; });
+    var text = fetch(base + "story.json", { cache: "no-cache" })
+      .then(function (res) {
+        if (!res.ok) throw new Error(res.status);
+        return res.json();
+      });
+    Promise.all([text, voices])
+      .then(function (both) {
+        manifest = both[1];
+        start(both[0]);
+      })
+      .catch(function () {
+        showError("Nu am găsit povestea aceasta.");
+      });
+  }
 
-  fetch(base + "story.json", { cache: "no-cache" })
-    .then(function (res) {
-      if (!res.ok) throw new Error(res.status);
-      return res.json();
-    })
-    .then(start)
-    .catch(function () {
-      showError("Nu am găsit povestea aceasta.");
+  // Previzualizarea cere parola (verificată pe server); fără ea serverul nu dă niciun fișier al poveștii.
+  function askPassword(message) {
+    book.textContent = "";
+    document.querySelector(".reader-controls").hidden = true;
+    var form = el("form", "reader-error preview-login");
+    form.appendChild(el("p", null, message || "Previzualizare: introdu parola ca să vezi povestea."));
+    var label = el("label", "preview-label", "Parola de previzualizare");
+    var input = el("input");
+    input.type = "password";
+    input.name = "parola";
+    input.required = true;
+    input.autocomplete = "current-password";
+    label.appendChild(input);
+    form.appendChild(label);
+    var submit = el("button", "pill", "Deschide");
+    submit.type = "submit";
+    form.appendChild(submit);
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      submit.disabled = true;
+      fetch("api/previzualizare.php", { method: "POST", body: new FormData(form), credentials: "same-origin" })
+        .then(function (res) {
+          if (res.ok) {
+            document.querySelector(".reader-controls").hidden = false;
+            book.textContent = "";
+            load();
+          } else {
+            askPassword(res.status === 429 ? "Prea multe încercări. Mai încearcă peste o oră." : "Parola nu este corectă. Mai încearcă.");
+          }
+        })
+        .catch(function () { askPassword("Nu am putut verifica parola. Mai încearcă."); });
     });
+    book.appendChild(form);
+    input.focus();
+  }
+
+  if (!preview) {
+    load();
+  } else {
+    fetch("api/previzualizare.php?stare=1", { cache: "no-store", credentials: "same-origin" })
+      .then(function (res) { return res.ok ? res.json() : {}; })
+      .catch(function () { return {}; })
+      .then(function (state) { if (state.autentificat) load(); else askPassword(); });
+  }
 })();

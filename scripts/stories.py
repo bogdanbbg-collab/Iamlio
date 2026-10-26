@@ -317,8 +317,8 @@ def check_story(folder, data):
             errors.append(f"{label}: lipsește regia de voce (narration) — vezi REGULI_POVESTI.md, secțiunea 7")
         errors.extend(f"{label}: {m}" for m in validate_narration(page, character_names))
         if isinstance(page.get("narration"), list) and not narration_in_text(page):
-            warnings.append(f"{label}: replicile din narration nu sunt copiate exact (cu aceeași punctuație) din text; "
-                            "evidențierea textului citit va fi mai puțin precisă")
+            errors.append(f"{label}: replicile din narration nu sunt copiate exact (cu aceeași punctuație) din text; "
+                          "rulează `python3 scripts/stories.py prepare` (le copiază automat din text)")
         for sentence in re.split(r"(?<=[.!?…])\s+", text):
             if word_count(sentence) > LONG_SENTENCE_WORDS:
                 warnings.append(f"{label}: o propoziție are {word_count(sentence)} cuvinte; împarte-o (ideal sub 15)")
@@ -550,11 +550,8 @@ def cmd_new(title, for_name=""):
 
 def cmd_prepare():
     """Repară, completează imaginile, optimizează și verifică; scrie câte un raport pentru fiecare poveste."""
-    import os
-
     repairs = {}
-    budget_file = REPORTS_DIR / "buget-imagini.json"
-    image_budget, month, used = imagini.budget(budget_file)
+    image_budget = imagini.Budget(REPORTS_DIR / "buget-imagini.json")
     for story_file in sorted(STORIES_DIR.glob("*/story.json")):
         folder = story_file.parent
         try:
@@ -565,12 +562,9 @@ def cmd_prepare():
             continue  # structura greșită se raportează; nu încercăm să reparăm ce nu înțelegem
         try:
             repairs[folder.name] = prepare_one(folder, data, image_budget)
-            image_budget -= repairs[folder.name][2]
         except Exception as exc:
             repairs[folder.name] = ([], [f"repararea automată a eșuat ({type(exc).__name__}: {exc})"], 0)
-    made_total = sum(r[2] for r in repairs.values())
-    if made_total:
-        imagini.record(budget_file, month, used + made_total)
+    image_budget.save()
     cmd_optimize()
     write_reports(repairs)
     return 0
@@ -631,7 +625,7 @@ def write_reports(repairs):
         for message in errors:
             print(f"    ✗ {message}")
     for old in REPORTS_DIR.glob("*.md"):
-        if old.name not in seen and old.name != "README.md":
+        if old.name not in seen and old.name not in ("README.md", "buget-imagini.md"):
             old.unlink()
     write_if_changed(REPORTS_DIR / "README.md",
         "# Rapoartele poveștilor\n\n"
@@ -667,13 +661,18 @@ def report_text(story_id, title, published, changes, errors, notes, warnings, wh
     if notes:
         lines += ["## Note de la publicare", ""] + [f"- {n}" for n in notes] + [""]
     if personal:
-        url = f"{(os.environ.get('SITE_URL') or 'https://iamlio.ro').rstrip('/')}/poveste.html?id={story_id}"
-        lines += ["## Poveste personalizată", "",
-                  f"- Link secret (nu apare în bibliotecă și nici în motoarele de căutare): {url}",
-                  "- " + ("**Aprobată** — link-ul poate fi trimis părinților." if approved else
-                          "**Așteaptă aprobarea.** Deschide link-ul: povestea apare cu eticheta „Previzualizare”. "
-                          "Dacă e în regulă, cere AI-ului „aprobă povestea " + story_id + "” (sau pune "
-                          "`\"approved\": true` în story.json). Abia apoi trimite link-ul."), ""]
+        site = (os.environ.get('SITE_URL') or 'https://iamlio.ro').rstrip('/')
+        if approved:
+            lines += ["## Poveste personalizată", "",
+                      f"- Link secret (nu apare în bibliotecă și nici în motoarele de căutare): {site}/poveste.html?id={story_id}",
+                      "- **Aprobată** — link-ul poate fi trimis părinților.", ""]
+        else:
+            lines += ["## Poveste personalizată", "",
+                      "- **Așteaptă aprobarea.** Până atunci NU este publică: o poate deschide doar cine știe parola "
+                      f"de previzualizare (secretul `PREVIEW_PASSWORD` din GitHub): {site}/poveste.html?previzualizare={story_id}",
+                      "- Dacă e în regulă, cere AI-ului „aprobă povestea " + story_id + "” (sau pune "
+                      "`\"approved\": true` în story.json). După publicare, link-ul pentru părinți va fi "
+                      f"{site}/poveste.html?id={story_id}", ""]
     if changes:
         lines += ["## Reparat automat", "",
                   "Aceste lucruri au fost corectate automat în `story.json` (preia versiunea din repository înainte "
@@ -754,12 +753,15 @@ def cmd_stage():
                 print(f"[versiunea anterioară] {name}: rămâne publicată versiunea din {found[1][:7]}")
             else:
                 print(f"[nepublicată] {name}")
-    entries, published = [], []
+    entries, published, previews = [], [], []
     for story_file in sorted((BUILD_DIR / "stories").glob("*/story.json")):
         data = json.loads(story_file.read_text(encoding="utf-8"))
         intro, outro = lio_texts(data)
         data["lio"] = {"intro": intro, "outro": outro}  # cititorul afișează ce spune Lio
         version_story_assets(story_file.parent, data)
+        if personal_name(data) and data.get("approved") is not True:
+            previews.append(story_file.parent)
+            continue
         if personal_name(data):
             continue  # link secret: nu apare în bibliotecă, recomandări sau sitemap
         entries.append(index_entry(story_file.parent, data))
@@ -768,10 +770,36 @@ def cmd_stage():
     for entry in entries:
         entry["cover"] = f"stories/{entry['id']}/{by_id[entry['id']]['cover']['image']}"
     write_index(BUILD_DIR / "stories" / "index.json", entries)
+    stage_previews(previews)
     add_asset_versions(BUILD_DIR)
     write_seo_files(BUILD_DIR, published)
+    write_share_pages(BUILD_DIR, published)
     print(f"Pregătit pentru publicare: {BUILD_DIR} ({len(entries)} povești pe site)")
     return 0
+
+
+def stage_previews(folders):
+    """Poveștile personalizate neaprobate NU rămân în partea publică (stories/): se mută în api/data/previzualizare/,
+    pe care serverul nu îl servește direct, și se citesc doar prin api/previzualizare.php, cu parola
+    PREVIEW_PASSWORD. Pe server ajunge doar o amprentă cu sare a parolei, nu parola."""
+    import os
+    import secrets
+
+    password = os.environ.get("PREVIEW_PASSWORD", "")
+    target = BUILD_DIR / "api" / "data" / "previzualizare"
+    for folder in folders:
+        if password:
+            target.mkdir(parents=True, exist_ok=True)
+            shutil.move(str(folder), str(target / folder.name))
+            print(f"[previzualizare] {folder.name}: doar cu parola, până la aprobare")
+        else:
+            shutil.rmtree(folder)
+            print(f"[nepublicată] {folder.name}: personalizată neaprobată; adaugă secretul PREVIEW_PASSWORD "
+                  "ca s-o poți previzualiza")
+    if password:
+        salt = secrets.token_hex(16)
+        config = {"salt": salt, "hash": hashlib.sha256((salt + password).encode("utf-8")).hexdigest()}
+        (BUILD_DIR / "api" / "data" / "previzualizare.json").write_text(json.dumps(config) + "\n", encoding="utf-8")
 
 
 def add_asset_versions(site):
@@ -798,6 +826,55 @@ def write_seo_files(site, stories):
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         f"{entries}</urlset>\n", encoding="utf-8")
     (site / "robots.txt").write_text(f"User-agent: *\nDisallow: /api/\nSitemap: {base}/sitemap.xml\n", encoding="utf-8")
+
+
+def write_share_pages(site, stories):
+    """p/<id>.html: pagina de distribuire a fiecărei povești, cu titlul, rezumatul și coperta ei (Open Graph),
+    ca un link trimis pe WhatsApp sau Facebook să arate povestea, nu doar site-ul. Trimite imediat la cititor."""
+    import os
+    from html import escape
+
+    from PIL import Image, ImageOps
+
+    base = (os.environ.get("SITE_URL") or "https://iamlio.ro").rstrip("/")
+    folder = site / "p"
+    folder.mkdir(exist_ok=True)
+    for story in stories:
+        sid = story["id"]
+        cover = site / "stories" / sid / story["cover"]["image"].split("?")[0]
+        with Image.open(cover) as image:
+            card = ImageOps.fit(image.convert("RGB"), (1200, 630), Image.LANCZOS, centering=(0.5, 0.4))
+            card.save(folder / f"{sid}.jpg", "JPEG", quality=82, optimize=True, progressive=True)
+        version = hashlib.sha1((folder / f"{sid}.jpg").read_bytes()).hexdigest()[:10]
+        title, summary = escape(story["title"]), escape(story.get("summary") or "")
+        reader = f"../poveste.html?id={sid}"
+        (folder / f"{sid}.html").write_text(f"""<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title} — Iamlio</title>
+<meta name="description" content="{summary}">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ro_RO">
+<meta property="og:site_name" content="Iamlio">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{summary}">
+<meta property="og:url" content="{base}/p/{sid}.html">
+<meta property="og:image" content="{base}/p/{sid}.jpg?v={version}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Coperta poveștii „{title}”">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="{base}/poveste.html?id={sid}">
+<meta http-equiv="refresh" content="0; url={reader}">
+<script>location.replace("{reader}");</script>
+</head>
+<body>
+<p><a href="{reader}">{title} — o poveste citită de Lio</a></p>
+</body>
+</html>
+""", encoding="utf-8")
 
 
 def cmd_status():

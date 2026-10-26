@@ -278,6 +278,30 @@ class PersonalizedTests(StoryCase):
         index = json.loads((self.tmp / "index.json").read_text(encoding="utf-8"))
         self.assertEqual(index["stories"], [])
 
+    def test_unapproved_stories_leave_the_public_site(self):
+        import hashlib
+        from unittest import mock
+
+        with tempfile.TemporaryDirectory() as tmp:
+            build = Path(tmp)
+            public = build / "stories" / "ana-k7p2qx"
+            public.mkdir(parents=True)
+            (public / "story.json").write_text("{}", encoding="utf-8")
+            with mock.patch.object(stories, "BUILD_DIR", build), mock.patch.dict("os.environ", {"PREVIEW_PASSWORD": "secret"}):
+                stories.stage_previews([public])
+            self.assertFalse(public.exists())
+            self.assertTrue((build / "api/data/previzualizare/ana-k7p2qx/story.json").exists())
+            config = json.loads((build / "api/data/previzualizare.json").read_text(encoding="utf-8"))
+            self.assertNotIn("secret", json.dumps(config))
+            self.assertEqual(config["hash"], hashlib.sha256((config["salt"] + "secret").encode()).hexdigest())
+
+            other = build / "stories" / "bob-q9w3zz"
+            other.mkdir()
+            with mock.patch.object(stories, "BUILD_DIR", build), mock.patch.dict("os.environ", {"PREVIEW_PASSWORD": ""}):
+                stories.stage_previews([other])
+            self.assertFalse(other.exists(), "fără parolă, povestea neaprobată nu se urcă deloc")
+            self.assertFalse((build / "api/data/previzualizare/bob-q9w3zz").exists())
+
     def test_new_personalized_story_gets_secret_id(self):
         with tempfile.TemporaryDirectory() as tmp:
             original = stories.STORIES_DIR
@@ -358,6 +382,16 @@ class PreparationTests(StoryCase):
         again, changes = pregatire.prepare(self.folder, copy.deepcopy(data))
         self.assertEqual(changes, [])
         self.assertEqual(again, data)
+
+    def test_narration_punctuation_is_copied_from_text(self):
+        text = "Lio a strigat: „Hai la joacă!” Ariciul a zâmbit."
+        narration = [{"text": "Lio a strigat", "mood": "vesel"}, {"text": "Hai la joaca", "speaker": "Lio"},
+                     {"text": "Ariciul a zambit!"}]
+        self.assertTrue(pregatire.Preparer.realign(narration, text))
+        self.assertEqual([i["text"] for i in narration], ["Lio a strigat:", "„Hai la joacă!”", "Ariciul a zâmbit."])
+        self.assertEqual((narration[0]["mood"], narration[1]["speaker"]), ("vesel", "Lio"))
+        self.assertTrue(stories.narration_in_text({"text": text, "narration": narration}))
+        self.assertFalse(pregatire.Preparer.realign(narration, text))
 
     def test_correct_story_is_left_alone(self):
         data, changes = pregatire.prepare(DEMO, demo_data())
@@ -444,21 +478,37 @@ class ImageGenerationTests(StoryCase):
         self.assertTrue(any("limita" in e for e in errors))
 
     def test_monthly_budget_is_respected_and_recorded(self):
-        import os
         from datetime import date
+        from unittest import mock
 
         budget_file = self.tmp / "buget.json"
         month = date.today().strftime("%Y-%m")
-        budget_file.write_text(json.dumps({month: 198}), encoding="utf-8")
-        os.environ["MAX_IMAGES_MONTH"] = "200"
-        try:
-            remaining, current, used = imagini.budget(budget_file)
-        finally:
-            del os.environ["MAX_IMAGES_MONTH"]
-        self.assertEqual((remaining, current, used), (2, month, 198))
-        _, _, made = imagini.generate_missing(self.folder, self.data, client=self.client, budget=remaining)
-        imagini.record(budget_file, current, used + made)
-        self.assertEqual(json.loads(budget_file.read_text(encoding="utf-8"))[month], 200)
+        budget_file.write_text(json.dumps({month: 198}), encoding="utf-8")  # formatul vechi
+        with mock.patch.dict("os.environ", {"MAX_IMAGES_MONTH": "200"}):
+            budget = imagini.Budget(budget_file)
+        _, _, made = imagini.generate_missing(self.folder, self.data, client=self.client, budget=budget)
+        self.assertEqual(made, 2)
+        budget.save()
+        self.assertEqual(json.loads(budget_file.read_text(encoding="utf-8"))[month]["imagini"], 200)
+        self.assertIn("| " + month + " | 200 |", budget_file.with_suffix(".md").read_text(encoding="utf-8"))
+
+    def test_monthly_money_limit_stops_generation(self):
+        from datetime import date
+        from types import SimpleNamespace
+        from unittest import mock
+
+        budget_file = self.tmp / "buget.json"
+        month = date.today().strftime("%Y-%m")
+        budget_file.write_text(json.dumps({month: {"imagini": 10, "lei": 9.0}}), encoding="utf-8")
+        with mock.patch.dict("os.environ", {"MAX_LEI_MONTH": "10"}):
+            budget = imagini.Budget(budget_file)  # media: 0,90 lei pe imagine → încă o imagine
+            _, errors, made = imagini.generate_missing(self.folder, self.data, client=self.client, budget=budget)
+        self.assertEqual(made, 1)
+        self.assertTrue(any("cost" in e for e in errors))
+        usage = SimpleNamespace(output_tokens=1_000_000, input_tokens=0,
+                                input_tokens_details=SimpleNamespace(text_tokens=0, image_tokens=0))
+        with mock.patch.dict("os.environ", {"IMAGE_PRICE_OUT": "40", "USD_LEI": "5"}):
+            self.assertAlmostEqual(imagini.cost_lei(SimpleNamespace(usage=usage)), 200.0)
 
     def test_failed_image_is_reported(self):
         self.fake.fail_on = self.data["pages"][1]["imagePrompt"][-40:]

@@ -19,9 +19,12 @@ Site cu povești ilustrate pentru copii de 3–7 ani, în limba română. Pagini
 ## Povești personalizate (cu prenumele copilului)
 
 Cere-i AI-ului, de exemplu: „Fă o poveste personalizată pentru Ana, 4 ani, despre dinozauri” (textul complet e în
-`PROMPT_POVESTE.md`). Povestea primește un **link secret**, nu apare în bibliotecă și nici în Google, iar până o
-aprobi se vede doar ca **„Previzualizare”**. Link-ul e în `rapoarte/<poveste>.md`. Deschide-l, citește povestea și,
-dacă e în regulă, spune-i AI-ului „aprobă povestea <id>”. Abia apoi trimite link-ul părinților.
+`PROMPT_POVESTE.md`). Povestea primește un **link secret** și nu apare în bibliotecă și nici în Google.
+**Până o aprobi, nu e publică deloc:** stă pe server într-o zonă protejată și se deschide doar cu parola de
+previzualizare (secretul `PREVIEW_PASSWORD`, vezi mai jos), la adresa `poveste.html?previzualizare=<id>` din
+`rapoarte/<poveste>.md`. Citește povestea și, dacă e în regulă, spune-i AI-ului „aprobă povestea <id>”. După
+publicare, raportul arată link-ul pentru părinți (`poveste.html?id=<id>`). Fără secretul `PREVIEW_PASSWORD`,
+poveștile neaprobate nu se urcă deloc pe host.
 Se folosește doar prenumele copilului. Ca să ștergi o poveste personalizată, șterge-i folderul din
 `public/stories/` (sau cere-i AI-ului) — dispare de pe site la următoarea publicare.
 
@@ -73,8 +76,12 @@ Dacă AI-ul folosit nu poate genera imagini, proiectul le poate genera singur cu
 **Settings → Secrets and variables → Actions → New repository secret** → `OPENAI_API_KEY` (o cheie de la
 platform.openai.com; se plătește separat de abonamentul ChatGPT). Opțional, la **Variables**: `IMAGE_MODEL`
 (implicit `gpt-image-2`), `IMAGE_QUALITY` (`low` / `medium` / `high`, implicit `medium`), `MAX_IMAGES`
-(maximum de imagini pe publicare, implicit 40), `MAX_IMAGES_MONTH` (maximum pe lună calendaristică, implicit 200;
-contorul lunar stă în `rapoarte/buget-imagini.json`). Fără cheie, imaginile lipsă apar în raport ca „de corectat”.
+(maximum de imagini pe publicare, implicit 40), `MAX_IMAGES_MONTH` (maximum pe lună calendaristică, implicit 200)
+și `MAX_LEI_MONTH` (cât se poate cheltui pe lună, în lei, implicit 100). Costul fiecărei imagini se calculează din
+tokenii raportați de OpenAI și prețurile din `scripts/imagini.py` (modificabile cu variabilele `IMAGE_PRICE_TEXT_IN`,
+`IMAGE_PRICE_IMAGE_IN`, `IMAGE_PRICE_OUT` — dolari pe 1 milion de tokeni — și `USD_LEI`; verifică-le pe pagina de
+prețuri OpenAI). Totalul lunar e în `rapoarte/buget-imagini.md`; suma exactă facturată se vede în contul OpenAI.
+Fără cheie, imaginile lipsă apar în raport ca „de corectat”.
 
 ## Dacă ceva nu merge după o publicare (revenire)
 
@@ -87,8 +94,8 @@ contorul lunar stă în `rapoarte/buget-imagini.json`). Fără cheie, imaginile 
 
 ## Monitorizare
 
-Workflow-ul **Monitorizare site** verifică site-ul live la fiecare 6 ore (pagina, biblioteca, o poveste, vocea,
-contorul și protecția datelor). Dacă ceva nu merge, deschide un issue în GitHub (primești email); când site-ul
+Workflow-ul **Monitorizare site** verifică site-ul live în fiecare oră (pagina, biblioteca, o poveste, ambele
+voci, contorul, previzualizarea protejată și protecția datelor; fiecare adresă cu codul HTTP, tipul și conținutul ei). Dacă ceva nu merge, deschide un issue în GitHub (primești email); când site-ul
 își revine, issue-ul se închide singur.
 
 ## Protecția branch-ului `master`
@@ -101,7 +108,9 @@ AI-urile care publică direct. Calitatea e păzită de verificările obligatorii
 ## Contorul „citită de X ori”
 
 `public/api/citiri.php` numără de câte ori a fost deschisă fiecare poveste: o dată pe sesiune de browser
-și, pe server, cel mult o dată la 30 de minute pe adresă și poveste (maximum 30 pe oră de la aceeași adresă).
+și, pe server, cel mult o dată la 30 de minute pe adresă și poveste (maximum 120 pe oră de la aceeași adresă,
+ca o grădiniță sau o familie cu aceeași rețea să nu fie limitată). Scrierea e atomică, iar în
+`api/data/copii/` se păstrează o copie zilnică a numerelor (ultimele 14 zile).
 Adresa IP nu se salvează: se păstrează cel mult o oră doar amprente HMAC cu o cheie secretă generată pe server
 (`api/data/cheie.txt`) și schimbată zilnic. Detalii pentru părinți: `public/confidentialitate.html`.
 Site-ul nu încarcă nimic de la alte companii (nici fonturi), fără cookie-uri, reclame sau programe de analiză.
@@ -120,6 +129,7 @@ Dacă hostul nu are PHP, site-ul funcționează normal, doar fără contor.
 | `FTP_PASSWORD` | parola contului FTP | da |
 | `FTP_SERVER_DIR` | `public_html/` (cu `/` la final) | nu (implicit `./`) |
 | `FTP_PORT` | `21` | nu |
+| `PREVIEW_PASSWORD` | o parolă lungă, doar a ta | doar pentru povești personalizate |
 
 Apoi rulează din nou workflow-ul **Publică site-ul** din tab-ul **Actions** (sau fă orice push).
 

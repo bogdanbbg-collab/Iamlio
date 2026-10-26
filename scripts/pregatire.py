@@ -225,6 +225,9 @@ class Preparer:
         for number, page in enumerate(self.data.get("pages") or [], start=1):
             narration = page.get("narration")
             if narration and self.matches(narration, page.get("text") or ""):
+                if self.realign(narration, page.get("text") or ""):
+                    self.note(f"pagina {number}: replicile din narration au fost copiate exact din text "
+                              "(aceeași punctuație), pentru evidențierea sincronă")
                 continue
             segments = voce.auto_segments(page.get("text") or "", characters)
             page["narration"] = [
@@ -241,6 +244,28 @@ class Preparer:
             return False
         words = lambda t: re.findall(r"\w+", plain(t))  # noqa: E731
         return words(" ".join(i["text"] for i in narration)) == words(text)
+
+    @staticmethod
+    def realign(narration, text):
+        """Aceleași cuvinte, altă punctuație: fiecare replică devine bucata exactă din text. True dacă a schimbat."""
+        spans = [m.span() for m in re.finditer(r"\w+", text)]
+        sizes = [len(re.findall(r"\w+", plain(item["text"]))) for item in narration]
+        if len(spans) != sum(sizes) or 0 in sizes:
+            return False
+        changed, start, used = False, 0, 0
+        for item, size in zip(narration, sizes):
+            used += size
+            end = spans[used - 1][1]
+            while end < len(text) and not text[end].isspace():
+                end += 1  # punctuația lipită de ultimul cuvânt („!”, „.”, „»”) rămâne la replica lui
+            if used == len(spans):
+                end = len(text)
+            exact = text[start:end].strip()
+            if item["text"] != exact:
+                item["text"] = exact
+                changed = True
+            start = end
+        return changed
 
     def voices(self):
         characters = self.data.get("characters") or []

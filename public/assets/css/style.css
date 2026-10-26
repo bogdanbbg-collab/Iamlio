@@ -22,11 +22,12 @@
   --paper-edge: #F3E6CF;
   --ink: #2B2D42;
   --ink-soft: #5C5F7A;
-  --orange: #E88A3C;
-  --orange-dark: #C96A26;
+  /* Culorile cu text pe ele sau text colorat au contrast WCAG AA (verificat de axe-core în teste). */
+  --orange: #B85410;
+  --orange-dark: #8A3E0A;
   --gold: #F8C95A;
-  --teal: #2EC4B6;
-  --teal-dark: #1E9C91;
+  --teal: #127A71;
+  --teal-dark: #0B5B54;
   --night: #2B3A73;
   --night-deep: #1B2A5C;
   --radius: 22px;
@@ -678,6 +679,22 @@ body.reader {
   height: 100%;
   font-size: 1.3rem;
   text-align: center;
+}
+
+.preview-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 1rem;
+}
+
+.preview-label input {
+  font: inherit;
+  font-size: 1.1rem;
+  padding: 10px 14px;
+  border: 2px solid currentColor;
+  border-radius: 14px;
+  min-width: min(280px, 80vw);
 }
 
 /* ---------- Evidențierea textului citit ---------- */

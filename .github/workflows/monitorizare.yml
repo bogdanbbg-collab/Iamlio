@@ -1,10 +1,10 @@
 name: Monitorizare site
 
-# Verifică site-ul live de 4 ori pe zi. Dacă ceva nu merge, deschide (sau actualizează) un issue în GitHub,
+# Verifică site-ul live în fiecare oră. Dacă ceva nu merge, deschide (sau actualizează) un issue în GitHub,
 # iar proprietarul repository-ului primește notificare pe email. Când site-ul își revine, issue-ul se închide.
 on:
   schedule:
-    - cron: "17 */6 * * *"
+    - cron: "17 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -23,22 +23,50 @@ jobs:
         id: check
         run: |
           problems=""
-          check() { curl -fsS --max-time 20 --retry 2 --retry-delay 10 -o /tmp/raspuns "$SITE_URL/$1" || problems="$problems\n- $1 nu răspunde"; }
-          check ""
-          grep -q "Lio îți citește o poveste" /tmp/raspuns || problems="$problems\n- pagina principală nu are conținutul așteptat"
-          check "stories/index.json"
-          story=$(python3 -c "import json; s=json.load(open('/tmp/raspuns'))['stories']; print(s[0]['id'] if s else '')" 2>/dev/null)
-          if [ -z "$story" ]; then
-            problems="$problems\n- biblioteca e goală sau invalidă"
-          else
-            check "stories/$story/story.json"
-            check "stories/$story/audio/manifest.json"
-            check "stories/$story/audio/feminin/coperta.mp3"
+          dir=$(mktemp -d)
+          # fiecare adresă are fișierul ei; conținutul se verifică doar dacă serverul a răspuns cu 200 și tipul așteptat
+          fetch() {  # fetch <nume> <cale> <tip de conținut așteptat>
+            rm -f "$dir/$1"
+            local info code type
+            info=$(curl -sS --max-time 20 --retry 2 --retry-delay 10 -H "Cache-Control: no-cache" \
+              -o "$dir/$1" -w "%{http_code} %{content_type}" "$SITE_URL/$2") || info="000 -"
+            code=${info%% *}; type=${info#* }
+            if [ "$code" != "200" ]; then
+              problems="$problems\n- $2 răspunde cu HTTP $code"; rm -f "$dir/$1"; return 1
+            fi
+            case "$type" in "$3"*) ;; *) problems="$problems\n- $2 are tipul „$type”, nu „$3”"; rm -f "$dir/$1"; return 1 ;; esac
+          }
+          if fetch home "" "text/html"; then
+            grep -q "Lio îți citește o poveste" "$dir/home" || problems="$problems\n- pagina principală nu are conținutul așteptat"
           fi
-          check "api/citiri.php"
-          python3 -c "import json; assert isinstance(json.load(open('/tmp/raspuns'))['citiri'], dict)" 2>/dev/null \
-            || problems="$problems\n- contorul de citiri nu răspunde corect"
-          for private in citiri.json cheie.txt; do
+          story=""
+          if fetch index "stories/index.json" "application/json"; then
+            story=$(python3 -c "import json,sys; s=json.load(open(sys.argv[1]))['stories']; print(s[0]['id'] if s else '')" "$dir/index" 2>/dev/null) \
+              || problems="$problems\n- biblioteca nu e JSON valid"
+            [ -n "$story" ] || problems="$problems\n- biblioteca e goală"
+          fi
+          if [ -n "$story" ]; then
+            if fetch story "stories/$story/story.json" "application/json"; then
+              python3 -c "import json,sys; d=json.load(open(sys.argv[1])); assert d['id']==sys.argv[2] and d['pages']" "$dir/story" "$story" 2>/dev/null \
+                || problems="$problems\n- stories/$story/story.json nu e o poveste validă"
+            fi
+            if fetch manifest "stories/$story/audio/manifest.json" "application/json"; then
+              python3 -c "import json,sys; d=json.load(open(sys.argv[1])); assert d['feminin'] and d['masculin']" "$dir/manifest" 2>/dev/null \
+                || problems="$problems\n- manifestul vocilor pentru $story e incomplet"
+            fi
+            for voice in feminin masculin; do
+              if fetch "mp3-$voice" "stories/$story/audio/$voice/coperta.mp3" "audio/mpeg"; then
+                [ "$(stat -c %s "$dir/mp3-$voice")" -gt 2000 ] || problems="$problems\n- vocea $voice pentru $story e prea scurtă"
+              fi
+            done
+          fi
+          if fetch counter "api/citiri.php" "application/json"; then
+            python3 -c "import json,sys; assert isinstance(json.load(open(sys.argv[1]))['citiri'], dict)" "$dir/counter" 2>/dev/null \
+              || problems="$problems\n- contorul de citiri nu răspunde corect"
+          fi
+          code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 20 "$SITE_URL/api/previzualizare.php?id=x&f=story.json")
+          [ "$code" = "401" ] || problems="$problems\n- previzualizarea fără parolă răspunde cu HTTP $code (trebuia 401)"
+          for private in citiri.json cheie.txt previzualizare.json; do
             code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 20 "$SITE_URL/api/data/$private")
             [ "$code" = "403" ] || [ "$code" = "404" ] || problems="$problems\n- api/data/$private e accesibil public (HTTP $code)"
           done
@@ -56,7 +84,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
         run: |
-          printf "\n\nVerificarea rulează automat la fiecare 6 ore (workflow-ul „Monitorizare site”). Issue-ul se închide singur când site-ul își revine.\n" >> /tmp/probleme.md
+          printf "\n\nVerificarea rulează automat în fiecare oră (workflow-ul „Monitorizare site”). Issue-ul se închide singur când site-ul își revine.\n" >> /tmp/probleme.md
           existing=$(gh issue list --state open --search "\"$TITLU\" in:title" --json number --jq '.[0].number')
           if [ -n "$existing" ]; then
             gh issue comment "$existing" --body-file /tmp/probleme.md

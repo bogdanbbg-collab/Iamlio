@@ -51,7 +51,7 @@ jobs:
         run: |
           python -m unittest discover -s tests -v
           for f in public/assets/js/*.js; do node --check "$f"; done
-          php -l public/api/citiri.php
+          for f in public/api/*.php; do php -l "$f"; done
 
       - name: Pregătește și verifică poveștile
         run: python scripts/stories.py prepare
@@ -117,6 +117,12 @@ jobs:
           IMAGE_QUALITY: ${{ vars.IMAGE_QUALITY }}
           MAX_IMAGES: ${{ vars.MAX_IMAGES }}
           MAX_IMAGES_MONTH: ${{ vars.MAX_IMAGES_MONTH }}
+          MAX_LEI_MONTH: ${{ vars.MAX_LEI_MONTH }}
+          IMAGE_COST_LEI: ${{ vars.IMAGE_COST_LEI }}
+          IMAGE_PRICE_TEXT_IN: ${{ vars.IMAGE_PRICE_TEXT_IN }}
+          IMAGE_PRICE_IMAGE_IN: ${{ vars.IMAGE_PRICE_IMAGE_IN }}
+          IMAGE_PRICE_OUT: ${{ vars.IMAGE_PRICE_OUT }}
+          USD_LEI: ${{ vars.USD_LEI }}
         run: python scripts/stories.py prepare
 
       - name: Generează vocea feminină și masculină (edge-tts + regie de voce)
@@ -128,6 +134,8 @@ jobs:
         run: python scripts/stories.py verify-audio
 
       - name: Actualizează biblioteca și pregătește site-ul (poveștile valide sau ultima lor versiune bună)
+        env:
+          PREVIEW_PASSWORD: ${{ secrets.PREVIEW_PASSWORD }}
         run: |
           python scripts/stories.py index
           python scripts/stories.py stage
@@ -174,6 +182,9 @@ jobs:
             **/.git*/**
             api/data/citiri.json
             api/data/cheie.txt
+            api/data/*.lock
+            api/data/previzualizare-incercari.json
+            api/data/copii/**
 
       - name: Verifică site-ul live
         run: |
@@ -188,9 +199,18 @@ jobs:
           if [ -n "$first" ]; then
             fetch "stories/$first/audio/manifest.json" | diff -q - "build/site/stories/$first/audio/manifest.json"
           fi
-          for private in citiri.json cheie.txt; do
+          for private in citiri.json cheie.txt previzualizare.json; do
             code=$(curl -s -o /dev/null -w "%{http_code}" "$SITE_URL/api/data/$private")
             [ "$code" = "403" ] || [ "$code" = "404" ] || { echo "::error::api/data/$private este accesibil public (HTTP $code)"; exit 1; }
+          done
+          # poveștile personalizate neaprobate: niciun fișier fără parola de previzualizare
+          for preview in build/site/api/data/previzualizare/*/; do
+            [ -d "$preview" ] || continue
+            id=$(basename "$preview")
+            for url in "stories/$id/story.json" "api/data/previzualizare/$id/story.json" "api/previzualizare.php?id=$id&f=story.json"; do
+              code=$(curl -s -o /dev/null -w "%{http_code}" "$SITE_URL/$url")
+              case "$code" in 401|403|404) ;; *) echo "::error::$url este accesibil fără parolă (HTTP $code)"; exit 1 ;; esac
+            done
           done
           echo "Site-ul live răspunde corect: $SITE_URL"
 

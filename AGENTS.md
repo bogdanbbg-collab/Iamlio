@@ -60,6 +60,8 @@ codul site-ului (`public/*.html`, `public/assets/`, `scripts/`, `.github/`) — 
   - `assets/img/lio*.svg`, `favicon.svg` — Lio, generat din `scripts/lio_svg.py` (nu edita SVG-urile de mână)
   - `assets/lio-replici.json` — ce spune Lio când e atins pe pagina principală
   - `api/citiri.php` — contorul „citită de X ori” (PHP; datele stau în `api/data/citiri.json` pe server)
+  - `api/previzualizare.php` — previzualizarea cu parolă a poveștilor personalizate neaprobate (`comun.php`: funcții comune)
+  - `p/<id>.html` (generat la publicare) — pagina de distribuire a fiecărei povești, cu titlu și copertă (Open Graph)
   - `stories/<id>/` — poveștile
 - `scripts/stories.py` — `optimize` | `validate` | `audio` (ambele voci) | `verify-audio` | `index` | `all`
 - `scripts/canon.py` — valorile oficiale: stilul imaginilor, descrierea și vocea lui Lio, câmpurile `review`
@@ -69,11 +71,13 @@ codul site-ului (`public/*.html`, `public/assets/`, `scripts/`, `.github/`) — 
 - `rapoarte/` — raportul fiecărei povești după publicare (PUBLICATĂ / NEPUBLICATĂ și ce e de corectat)
 - `scripts/voce.py` — regia de voce (tonuri, profiluri de personaj, pauze, lipirea cu ffmpeg)
 - `tests/` — teste automate (`python3 -m unittest discover -s tests`) și teste în browser
-  (`python3 scripts/stories.py stage && node --test tests/e2e/*.test.mjs`), rulate la fiecare publicare
+  (`python3 scripts/stories.py stage && node --test tests/e2e/*.test.mjs`, inclusiv accesibilitatea cu axe-core),
+  rulate la fiecare publicare
 - `.github/workflows/publica-site.yml` — publicarea automată (și revenirea la o versiune anterioară)
-- `.github/workflows/monitorizare.yml` — verificarea site-ului live la fiecare 6 ore
+- `.github/workflows/monitorizare.yml` — verificarea site-ului live în fiecare oră
 - `public/confidentialitate.html` — informarea pentru părinți despre date
-- `requirements.lock`, `package-lock.json` — versiunile exacte ale tuturor dependențelor
+- `requirements.lock`, `package-lock.json` — versiunile exacte ale tuturor dependențelor (`.github/dependabot.yml`
+  propune lunar actualizări, ca pull request-uri verificate de teste)
 
 ## Verificare și previzualizare
 

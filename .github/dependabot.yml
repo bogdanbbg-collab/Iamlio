@@ -1,0 +1,20 @@
+# Verificarea automată a dependențelor: Dependabot deschide un pull request când apare o versiune nouă
+# (sau o corecție de securitate) pentru pachetele Python, pentru Playwright și pentru acțiunile GitHub.
+# Pull request-ul rulează toate testele; se acceptă doar dacă trec.
+version: 2
+updates:
+  - package-ecosystem: pip
+    directory: "/"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 5
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 5
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 5
