@@ -217,7 +217,8 @@ test("mișcare redusă: pagina se schimbă imediat", async () => {
   const start = Date.now();
   await p.click("#next-btn");
   await settle(p, "Pagina 1");
-  assert.ok(Date.now() - start < 500, `a durat ${Date.now() - start} ms`);
+  // animația normală durează 1300 ms; sub 1000 ms (cu tot cu clicul, pe un server încărcat) înseamnă fără animație
+  assert.ok(Date.now() - start < 1000, `a durat ${Date.now() - start} ms`);
 });
 
 test("nicio pagină nu încarcă nimic de la alte site-uri (fonturi, reclame, urmărire)", async () => {
