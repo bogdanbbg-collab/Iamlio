@@ -258,6 +258,13 @@ jobs:
             code=$(curl -s -o /dev/null -w "%{http_code}" "$SITE_URL/api/data/$private")
             [ "$code" = "403" ] || [ "$code" = "404" ] || { echo "::error::api/data/$private este accesibil public (HTTP $code)"; exit 1; }
           done
+          # .htaccess: fișierele ascunse blocate, antetele de securitate prezente, http:// trimis pe https://
+          code=$(curl -s -o /dev/null -w "%{http_code}" "$SITE_URL/.htaccess")
+          [ "$code" = "403" ] || [ "$code" = "404" ] || { echo "::error::.htaccess este accesibil public (HTTP $code)"; exit 1; }
+          curl -sI "$SITE_URL/" | grep -qi "^x-content-type-options: nosniff" \
+            || echo "::warning::antetele de securitate din .htaccess nu apar (modulul mod_headers lipsește pe server?)"
+          redirect=$(curl -s -o /dev/null -w "%{http_code} %{redirect_url}" "http://${SITE_URL#https://}/")
+          case "$redirect" in 301\ https://*|302\ https://*) ;; *) echo "::warning::http:// nu trimite pe https:// ($redirect)" ;; esac
           code=$(curl -s -o /dev/null -w "%{http_code}" "$SITE_URL/api/admin.php")
           [ "$code" = "401" ] || { echo "::error::api/admin.php răspunde fără autentificare (HTTP $code)"; exit 1; }
           # poveștile personalizate neaprobate: niciun fișier fără parola de previzualizare

@@ -63,6 +63,7 @@ codul site-ului (`public/*.html`, `public/assets/`, `scripts/`, `.github/`) — 
   - `admin.html` + `assets/js/admin.js` + `api/admin.php` — panoul de administrare (vizite, citiri, erori; parola
     `ADMIN_PASSWORD`); `api/vizita.php` și `api/erori.php` primesc vizitele și erorile (doar totaluri, fără date personale)
   - `api/previzualizare.php` — previzualizarea poveștilor personalizate neaprobate, cu aceeași parolă (`comun.php`: funcții comune)
+  - `.htaccess` — setările serverului Apache: securitate, HTTPS, cache, compresie (testat în `tests/e2e/apache.test.mjs`)
   - `p/<id>.html` (generat la publicare) — pagina de distribuire a fiecărei povești, cu titlu și copertă (Open Graph)
   - `stories/<id>/` — poveștile
 - `scripts/stories.py` — `optimize` | `validate` | `audio` (ambele voci) | `verify-audio` | `index` | `all`

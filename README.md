@@ -71,7 +71,12 @@ imaginile și le salvează în `public/stories/<id>/`. După push, GitHub Action
 8. verifică site-ul live (pagina, biblioteca, vocea, contorul, panoul de administrare, protecția datelor).
 
 Fiecare pagină are o politică de securitate a conținutului (CSP): încarcă doar fișiere de pe iamlio.ro, fără
-scripturi străine sau scrise direct în pagină.
+scripturi străine sau scrise direct în pagină. `public/.htaccess` (pentru Apache, ca pe cPanel) adaugă antetele de
+securitate, trimite `http://` pe `https://`, blochează fișierele ascunse, comprimă textul și setează cache-ul
+(CSS/JS cu amprentă: un an; imaginile și vocile: 30 de zile; paginile și datele: verificate la fiecare vizită).
+E testat pe un server Apache real (`tests/e2e/apache.test.mjs`). Dacă schimbi versiunea de PHP din cPanel
+(MultiPHP Manager), cPanel scrie câteva rânduri în `.htaccess`: copiază-le și în `public/.htaccess`, altfel
+următoarea publicare le șterge.
 
 Regulile sunt legate de proiect pentru orice AI: `AGENTS.md` (ChatGPT Codex și alții), `CLAUDE.md`, `GEMINI.md`,
 `.github/copilot-instructions.md`, `.cursor/rules/`. Toate trimit la aceleași reguli și la șablonul

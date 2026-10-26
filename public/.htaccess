@@ -1,0 +1,63 @@
+# Iamlio — setările serverului Apache pentru tot site-ul (urcat automat la publicare).
+# Fiecare bloc e condiționat de modulul lui (<IfModule>), ca un modul lipsă de pe hosting să nu oprească site-ul.
+# Testat pe un server Apache real în tests/e2e/apache.test.mjs.
+
+AddDefaultCharset UTF-8
+
+<IfModule mod_mime.c>
+  AddType application/manifest+json .webmanifest
+  AddType image/webp .webp
+  AddType audio/mpeg .mp3
+  AddType font/woff2 .woff2
+  AddType image/svg+xml .svg
+</IfModule>
+
+# Doar HTTPS (și în spatele unui proxy care spune singur dacă vizita e pe HTTPS).
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  RewriteCond %{HTTP_HOST} !^(localhost|127\.0\.0\.1)(:\d+)?$
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+# Fișierele ascunse (.htaccess, starea publicării FTP etc.) nu se servesc niciodată.
+<IfModule mod_authz_core.c>
+  <FilesMatch "^\.">
+    Require all denied
+  </FilesMatch>
+</IfModule>
+
+# Antete de securitate pentru toate răspunsurile (paginile au și politica de conținut în <meta>).
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "DENY"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+  Header always set Strict-Transport-Security "max-age=15552000" env=HTTPS
+</IfModule>
+
+# Cache: CSS și JS au în adresă amprenta conținutului (?v=…), deci pot sta mult în browser; imaginile și vocile
+# poveștilor (tot cu ?v=…) 30 de zile, Lio și pictogramele o zi; paginile și datele (HTML, JSON) se verifică la
+# fiecare vizită, ca o publicare nouă să se vadă imediat.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(webp|jpe?g|mp3)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  <FilesMatch "\.(svg|png|ico)$">
+    Header set Cache-Control "public, max-age=86400"
+  </FilesMatch>
+  <FilesMatch "\.(html|json|webmanifest|xml|txt)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
+# Compresie pentru text (pagini, stiluri, scripturi, date, imagini SVG).
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript text/javascript application/json application/manifest+json image/svg+xml
+</IfModule>
