@@ -83,3 +83,42 @@ MIN_HUMOR_MOMENTS = 2
 MIN_DISTINCT_MOODS = 3
 MIN_KNOWN_CHARACTER_DESCRIPTION = 120
 PLACEHOLDER = "DE COMPLETAT"
+
+# Animația paginii în cititor (câmpul "animation" pe copertă și pe fiecare pagină): camera se mișcă încet peste
+# imagine și, dacă se potrivește cu scena, apare un efect ușor. Le desenează browserul: fără fișiere în plus,
+# iar pe telefoanele cu „Reducere mișcare” animația se oprește.
+CAMERAS = {
+    "zoom-in": "camera se apropie încet (momente importante, emoții, surprize)",
+    "zoom-out": "camera se depărtează încet (locuri largi, începuturi, finaluri)",
+    "pan-left": "camera alunecă spre stânga",
+    "pan-right": "camera alunecă spre dreapta",
+    "pan-up": "camera urcă (cer, zbor, copaci înalți)",
+    "pan-down": "camera coboară (ceva care cade, privit de sus)",
+    "still": "imaginea stă pe loc",
+}
+EFFECTS = {
+    "none": "fără efect",
+    "sparkles": "sclipiri aurii (magie, ceva fermecat)",
+    "stars": "stele care licăresc (noapte, cer)",
+    "leaves": "frunze care cad (toamnă, vânt, pădure)",
+    "snow": "fulgi de zăpadă",
+    "drops": "picături (ploaie, stropi, apă)",
+    "bubbles": "bule care urcă (apă, săpun, ceva care fierbe sau gâlgâie)",
+    "glow": "lumină caldă care pâlpâie (lumânare, felinar, foc de tabără, ceva luminos)",
+    "fireflies": "licurici (seară de vară, poiană)",
+    "hearts": "inimioare care urcă (dragoste, îmbrățișare, mulțumire)",
+}
+# Când lipsește animația: camerele alternează, iar efectul se ghicește din scenă (cuvinte căutate în acțiunea din
+# imagePrompt și în textul paginii, fără diacritice; prima potrivire câștigă).
+CAMERA_CYCLE = ("zoom-in", "pan-right", "zoom-out", "pan-left")
+EFFECT_HINTS = (
+    ("snow", ("snow", "zapad", "fulg")),
+    ("glow", ("candle", "lantern", "campfire", "lumanar", "felinar")),
+    ("stars", ("starry", "night sky", "stars", "stele", "noaptea")),
+    ("fireflies", ("firefl", "licurici")),
+    ("leaves", ("autumn leaves", "falling leaves", "frunze")),
+    ("drops", ("rain", "raindrop", "splash", "ploaie", "stropi")),
+    ("bubbles", ("bubble", "bule")),
+    ("hearts", ("hug", "imbratis")),
+    ("sparkles", ("sparkl", "magic wand", "fermecat", "magic")),
+)

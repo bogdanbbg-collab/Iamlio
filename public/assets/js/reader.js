@@ -75,6 +75,37 @@
     return img;
   }
 
+  // ---------- animația paginii ----------
+  // Camera se mișcă încet peste imaginea paginii curente, iar un efect ușor (frunze, stele, sclipiri…) se
+  // potrivește cu scena. Le alege povestea (câmpul "animation"); totul e CSS, fără fișiere în plus.
+  var CAMERAS = ["zoom-in", "zoom-out", "pan-left", "pan-right", "pan-up", "pan-down", "still"];
+  var EFFECTS = { sparkles: 14, stars: 16, leaves: 10, snow: 22, drops: 18, bubbles: 12, glow: 1, fireflies: 10, hearts: 8 };
+
+  function animatedArt(src, eager, animation) {
+    var art = el("figure", "sheet-art");
+    animation = animation || {};
+    var camera = CAMERAS.indexOf(animation.camera) >= 0 ? animation.camera : "zoom-in";
+    art.classList.add("cam-" + camera);
+    art.appendChild(image(src, eager));
+    var count = EFFECTS[animation.effect];
+    if (count && !REDUCED_MOTION) {
+      var fx = el("div", "fx fx-" + animation.effect);
+      fx.setAttribute("aria-hidden", "true");
+      for (var i = 0; i < count; i++) {
+        var bit = el("span");
+        // poziții și ritmuri diferite, dar aceleași la fiecare deschidere (fără Math.random)
+        bit.style.setProperty("--x", ((i * 37 + 11) % 100) + "%");
+        bit.style.setProperty("--y", ((i * 53 + 7) % 90) + "%");
+        bit.style.setProperty("--d", ((i * 7) % 11) * 0.6 + "s");
+        bit.style.setProperty("--t", 5 + ((i * 5) % 7) + "s");
+        bit.style.setProperty("--s", 0.6 + ((i * 3) % 5) * 0.15);
+        fx.appendChild(bit);
+      }
+      art.appendChild(fx);
+    }
+    return art;
+  }
+
   function showError(message) {
     book.textContent = "";
     var box = el("div", "reader-error");
@@ -93,6 +124,7 @@
     var list = [{
       kind: "cover",
       image: story.cover.image,
+      animation: story.cover.animation,
       title: story.title,
       intro: lio.intro || "",
       audio: "coperta.mp3",
@@ -103,6 +135,7 @@
       list.push({
         kind: "page",
         image: page.image,
+        animation: page.animation,
         text: page.text,
         narration: Array.isArray(page.narration) ? page.narration.map(function (n) { return n.text; }) : [],
         number: i + 1,
@@ -127,9 +160,7 @@
     sheet.setAttribute("aria-label", item.kind === "page" ? "Pagina " + item.number : item.kind === "cover" ? "Copertă" : "Sfârșit");
 
     if (item.kind === "cover") {
-      var coverArt = el("figure", "sheet-art");
-      coverArt.appendChild(image(item.image, true));
-      front.appendChild(coverArt);
+      front.appendChild(animatedArt(item.image, true, item.animation));
       var coverText = el("div", "sheet-text cover-text");
       if (item.intro) {
         var says = el("p", "lio-bubble");
@@ -150,9 +181,7 @@
       coverText.appendChild(resumeBox());
       front.appendChild(coverText);
     } else if (item.kind === "page") {
-      var art = el("figure", "sheet-art");
-      art.appendChild(image(item.image, i < 3));
-      front.appendChild(art);
+      front.appendChild(animatedArt(item.image, i < 3, item.animation));
       var text = el("div", "sheet-text");
       text.appendChild(pageText(item));
       text.appendChild(el("span", "page-num", String(item.number)));

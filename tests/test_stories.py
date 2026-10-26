@@ -391,6 +391,43 @@ def sloppy_story(folder, data):
     return data
 
 
+class AnimationTests(StoryCase):
+    """Animația paginii (camera și efectul): aleasă de poveste, completată automat dacă lipsește."""
+
+    def test_demo_story_has_an_animation_on_every_page(self):
+        for entry in [self.data["cover"]] + self.data["pages"]:
+            self.assertIn(entry["animation"]["camera"], canon.CAMERAS)
+            self.assertIn(entry["animation"]["effect"], canon.EFFECTS)
+
+    def test_unknown_camera_or_effect_is_rejected(self):
+        self.data["pages"][0]["animation"] = {"camera": "salt-mortal", "effect": "none"}
+        self.assertError("animation.camera necunoscută")
+        self.data["pages"][0]["animation"] = {"camera": "zoom-in", "effect": "artificii"}
+        self.assertError("animation.effect necunoscut")
+        self.data["cover"]["animation"] = "zoom"
+        self.assertError("copertă: animation trebuie să fie un obiect")
+
+    def test_missing_animation_is_only_a_warning_and_is_filled_from_the_scene(self):
+        for entry in [self.data["cover"]] + self.data["pages"]:
+            del entry["animation"]
+        errors, warnings = stories.validate_story(self.folder, self.data)
+        self.assertEqual(errors, [])
+        self.assertTrue(any("lipsește animation" in w for w in warnings))
+        data, changes = pregatire.prepare(self.folder, self.data)
+        self.assertTrue(any("animația paginii" in c for c in changes))
+        cameras = [p["animation"]["camera"] for p in data["pages"]]
+        self.assertEqual(cameras[:4], list(canon.CAMERA_CYCLE), "camera variază de la o pagină la alta")
+        self.assertEqual(data["pages"][0]["animation"]["effect"], "stars", "pagina 1: Lio numără stelele")
+        self.assertEqual(stories.validate_story(self.folder, data)[1], [])
+
+    def test_effect_ignores_the_style_and_the_character_descriptions(self):
+        # „magical” din stil și „stars” din eșarfa lui Lio nu sunt scena paginii
+        characters = [{"name": "Lio", "description": canon.LIO_DESCRIPTION}]
+        prompt = f"{canon.STYLE} Characters in this scene: Lio: {canon.LIO_DESCRIPTION}. Action: Lio eats an apple."
+        self.assertEqual(pregatire.guess_effect("Lio mănâncă un măr.", prompt, characters), "none")
+        self.assertEqual(pregatire.guess_effect("Tata aprinde lumânarea.", prompt, characters), "glow")
+
+
 class PreparationTests(StoryCase):
     def setUp(self):
         super().setUp()

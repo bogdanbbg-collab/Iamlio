@@ -20,6 +20,7 @@ Pe scurt, povestea trebuie:
 - să aibă câte o imagine pe pagină plus copertă, în stilul Iamlio (film de animație 3D pentru copii),
   care arată exact ce se întâmplă pe pagină, cu personaje identice pe toate paginile și fără text în imagine;
 - să aibă regie de voce (narration) pe fiecare pagină și profil de voce pentru personajele care vorbesc;
+- să aibă animația fiecărei pagini (animation: mișcarea camerei și efectul potrivit cu scena);
 - să aibă autoevaluarea (review) completată cinstit.
 
 Generează textul și imaginile, salvează-le în public/stories/<id>/ (story.json + images/), verifică lista

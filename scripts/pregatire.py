@@ -86,6 +86,7 @@ class Preparer:
         self.images()
         self.narration()
         self.voices()
+        self.animation()
         self.remove_empty_folders()
         return self.data, self.changes
 
@@ -279,6 +280,41 @@ class Preparer:
             if character.get("name") in speakers and not character.get("voice"):
                 character["voice"] = dict(next(palette))
                 self.note(f"{character['name']} a primit automat un profil de voce")
+
+
+    # ---------- animație ----------
+
+    def animation(self):
+        """Fiecare pagină are o mișcare de cameră și, poate, un efect; ce lipsește sau e greșit se completează."""
+        d = self.data
+        entries = [("coperta", d.get("cover") or {}, "zoom-in")] + [
+            (f"pagina {n}", page, canon.CAMERA_CYCLE[(n - 1) % len(canon.CAMERA_CYCLE)])
+            for n, page in enumerate(d.get("pages") or [], start=1)]
+        filled = []
+        for label, entry, camera in entries:
+            current = entry.get("animation") if isinstance(entry.get("animation"), dict) else {}
+            fixed = {"camera": current.get("camera") if current.get("camera") in canon.CAMERAS else camera,
+                     "effect": current.get("effect") if current.get("effect") in canon.EFFECTS
+                     else guess_effect(entry.get("text") or "", entry.get("imagePrompt") or "", d.get("characters"))}
+            if fixed != current:
+                entry["animation"] = fixed
+                filled.append(label)
+        if filled:
+            self.note("animația paginii (mișcarea camerei și efectul) a fost aleasă automat pentru: "
+                      + ", ".join(filled) + " (verifică dacă se potrivește cu scena)")
+
+
+def guess_effect(text, prompt, characters=()):
+    """Efectul potrivit scenei, după cuvintele din text și din acțiunea promptului (fără stil și descrieri)."""
+    scene = prompt.replace(canon.STYLE, " ")
+    for character in characters or []:
+        if character.get("description"):
+            scene = scene.replace(character["description"], " ")
+    haystack = plain(f"{text} {scene}")
+    for effect, words in canon.EFFECT_HINTS:
+        if any(word in haystack for word in words):
+            return effect
+    return "none"
 
 
 def guess_categories(data):

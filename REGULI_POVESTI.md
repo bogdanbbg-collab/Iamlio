@@ -152,6 +152,41 @@ se văd trei).
   (pe telefon marginile pot fi tăiate).
 - Format **.png, .jpg sau .webp** (nu SVG). Imaginile se optimizează **automat** (devin .webp, sub ~450 KB) la publicare.
 
+### Animația paginii: câmpul `animation` (obligatoriu pentru poveștile noi)
+
+În cititor, imaginea paginii curente „prinde viață”: camera se mișcă încet peste ea și, dacă se potrivește cu
+scena, apare un efect ușor. Le desenează browserul (fără fișiere și fără timp în plus la publicare); pe telefoanele
+cu „Reducere mișcare” animația se oprește singură. Pe copertă și pe **fiecare pagină** scrii:
+
+```json
+"animation": { "camera": "zoom-in", "effect": "leaves" }
+```
+
+| `camera` | Când o alegi |
+| --- | --- |
+| `zoom-in` | camera se apropie încet: momente importante, emoții, surprize, un detaliu |
+| `zoom-out` | camera se depărtează încet: locuri largi, începutul sau finalul poveștii |
+| `pan-left` / `pan-right` | camera alunecă spre stânga / dreapta: drum, mers, privirea spre cineva |
+| `pan-up` / `pan-down` | camera urcă (cer, zbor, copaci înalți) / coboară (ceva care cade) |
+| `still` | imaginea stă pe loc: momente foarte liniștite |
+
+| `effect` | Când îl alegi |
+| --- | --- |
+| `none` | fără efect (cele mai multe pagini: efectul e pentru momentele care îl cer) |
+| `sparkles` | sclipiri aurii: magie, ceva fermecat care prinde viață |
+| `stars` | stele care licăresc: noapte, cer |
+| `leaves` | frunze care cad: toamnă, vânt, pădure |
+| `snow` | fulgi de zăpadă |
+| `drops` | picături: ploaie, stropi, apă |
+| `bubbles` | bule care urcă: apă, săpun, ceva care gâlgâie |
+| `glow` | lumină caldă care pâlpâie: lumânare, felinar, foc de tabără, ceva care se aprinde |
+| `fireflies` | licurici: seară de vară, poiană |
+| `hearts` | inimioare care urcă: îmbrățișare, dragoste, mulțumire |
+
+Variază camera de la o pagină la alta și potrivește efectul cu **ce se întâmplă exact pe pagină** (dacă textul
+spune că se aprinde lumânarea, `glow`; dacă e noapte cu stele, `stars`). Dacă `animation` lipsește, publicarea o
+alege automat și cere în raport să fie verificată.
+
 ### Șablon de prompt pentru imagine (în engleză)
 
 ```
@@ -396,7 +431,8 @@ folderului; stilul oficial în `illustrationStyle` și în fiecare `imagePrompt`
 personajelor din fiecare scenă în prompturi; descrierea și vocea oficială a lui Lio; prompturile de imagine
 lipsă (din textul paginii); imaginile numite altfel (`1.png`, `cover.jpg` → `images/pagina-01.png`,
 `images/coperta.jpg`); regia de voce lipsă sau greșită (cu detectarea vorbitorului și a tonului din
-„a suspinat”, „a strigat”, „a șoptit”, din „!”, „?”, „…”); profilurile de voce pentru personajele care vorbesc.
+„a suspinat”, „a strigat”, „a șoptit”, din „!”, „?”, „…”); profilurile de voce pentru personajele care vorbesc;
+animația paginii lipsă (camera alternată, efectul ghicit din scenă).
 
 Ce generează singur: **vocea** (feminină și masculină) și, **dacă proprietarul a activat generatorul de imagini**
 (secretul `OPENAI_API_KEY`), **imaginile care lipsesc** — coperta întâi, apoi paginile pornind de la copertă,
@@ -427,6 +463,7 @@ La fiecare publicare, `python3 scripts/stories.py validate` respinge povestea da
   cuvânt cu cuvânt, un personaj e numit într-un `imagePrompt` fără descrierea lui completă din `characters`;
 - **personajele:** descriere vizuală lipsă sau prea scurtă, Lio fără descrierea și vocea oficială, personaj
   cunoscut fără `source` sau fără o descriere foarte detaliată;
+- **animația:** `animation.camera` sau `animation.effect` care nu e din listele de la secțiunea 6;
 - **vocea:** o pagină fără `narration`, `narration` care nu conține exact cuvintele din `text`, ton necunoscut,
   vorbitor care nu e în `characters`, personaj care vorbește fără profil `voice`, dialog fără `speaker`,
   mai puțin de 3 tonuri diferite în toată povestea;
@@ -451,7 +488,8 @@ Când primești „fă o poveste despre X”:
    Apoi scrie **regia de voce** (`narration`) pentru fiecare pagină și profilul `voice` al personajelor (secțiunea 7).
 5. **Recitește ca un părinte**, corectează și scrie autoevaluarea (`review`); dacă un câmp nu se poate scrie cinstit, îmbunătățește povestea.
 6. **Descrie personajele** în `characters` (în engleză, foarte vizual; Lio exact ca în secțiunea 4).
-7. **Scrie prompturile** de imagine cu șablonul din secțiunea 6: coperta + câte unul pentru fiecare pagină.
+7. **Scrie prompturile** de imagine cu șablonul din secțiunea 6: coperta + câte unul pentru fiecare pagină,
+   și animația fiecăreia (`animation`: mișcarea camerei și efectul potrivit cu scena).
 8. **Generează imaginile** (coperta prima, apoi paginile, păstrând personajele identice) și verifică fiecare
    imagine: se potrivește cu textul? personajele arată la fel? nu are text? Refă-le pe cele care nu se potrivesc.
 9. **Salvează** `story.json` și imaginile în `public/stories/<id>/`.
@@ -477,6 +515,7 @@ O poveste care nu trece verificarea automată **nu** este publicată.
 - [ ] Fiecare pagină are `narration` cu tonuri potrivite; personajele care vorbesc au profil `voice`.
 - [ ] Fiecare personaj descris o dată în `characters` și copiat întocmai în prompturile în care apare.
 - [ ] Fiecare imagine arată exact momentul paginii ei, în stilul Iamlio, fără text în imagine.
+- [ ] Coperta și fiecare pagină au `animation` (camera variată, efectul potrivit cu scena sau `none`).
 - [ ] Personajele cunoscute (dacă au fost cerute) sunt fidele originalului și marcate cu `knownCharacter`.
 - [ ] `review` completat cinstit, cu pagini concrete; nu a rămas nimic `DE COMPLETAT`.
 - [ ] Ideal: 1–2 întrebări (`questions`) cu variante ilustrate și un singur răspuns corect.

@@ -21,6 +21,7 @@ Pe scurt, o poveste Iamlio:
 - poate folosi **personaje cunoscute** doar dacă utilizatorul le cere, desenate fidel (secțiunea 5);
 - are o **autoevaluare cinstită** (`review`): imaginație, învățătură, cel puțin două momente amuzante cu pagina lor,
   emoție, siguranță, imagini, voce;
+- are **animație pe fiecare pagină** (`animation`: mișcarea camerei și un efect potrivit cu scena — secțiunea 6);
 - are **regie de voce** scrisă de tine (`narration` pe fiecare pagină, `voice` pentru personaje — secțiunea 7);
   fișierele audio (feminin și masculin) **nu** le generezi tu, se generează automat.
 

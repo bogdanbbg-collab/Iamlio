@@ -218,6 +218,21 @@ def narration_in_text(page):
     return True
 
 
+def check_animation(entry, label, errors, warnings):
+    """Animația paginii (REGULI_POVESTI.md, secțiunea 6): o mișcare de cameră și un efect, din listele oficiale."""
+    animation = entry.get("animation")
+    if animation is None:
+        warnings.append(f"{label}: lipsește animation (mișcarea camerei și efectul); se alege automat la publicare")
+        return
+    if not isinstance(animation, dict):
+        errors.append(f"{label}: animation trebuie să fie un obiect {{\"camera\": …, \"effect\": …}}")
+        return
+    if animation.get("camera") not in canon.CAMERAS:
+        errors.append(f"{label}: animation.camera necunoscută „{animation.get('camera')}” (permise: {', '.join(canon.CAMERAS)})")
+    if animation.get("effect", "none") not in canon.EFFECTS:
+        errors.append(f"{label}: animation.effect necunoscut „{animation.get('effect')}” (permise: {', '.join(canon.EFFECTS)})")
+
+
 def validate_story(folder, data):
     """Verifică o poveste. O structură neașteptată devine o eroare a acestei povești, nu oprește restul."""
     if not isinstance(data, dict):
@@ -299,6 +314,7 @@ def check_story(folder, data):
     texts = [title, data.get("summary", ""), data.get("moral", "")]
     cover = data.get("cover") or {}
     check_image(folder, cover.get("image"), "copertă", errors, warnings)
+    check_animation(cover, "copertă", errors, warnings)
     if len(cover.get("imagePrompt") or "") < MIN_PROMPT_CHARS:
         errors.append("copertă: lipsește imagePrompt sau e prea scurt")
 
@@ -314,6 +330,7 @@ def check_story(folder, data):
             errors.append(f"{label}: are {words} cuvinte (trebuie {MIN_WORDS}–{MAX_WORDS})")
         if re.search(r"\d", text):
             warnings.append(f"{label}: conține cifre; scrie numerele în litere pentru citirea cu voce")
+        check_animation(page, label, errors, warnings)
         if not page.get("narration"):
             errors.append(f"{label}: lipsește regia de voce (narration) — vezi REGULI_POVESTI.md, secțiunea 7")
         errors.extend(f"{label}: {m}" for m in validate_narration(page, character_names))
@@ -492,6 +509,7 @@ def template_story(story_id="id-ul-povestii", title=f"{canon.PLACEHOLDER}: titlu
         "image": "images/pagina-01.png",
         "imagePrompt": f"{canon.STYLE} Characters in this scene: Lio: {canon.LIO_DESCRIPTION}. "
                        f"Setting: {todo}. Action: {todo}. Emotions: {todo}. Important details: {todo}. Camera: {todo}.",
+        "animation": {"camera": "zoom-in", "effect": "none"},
     }
     return {
         "id": story_id,
@@ -507,6 +525,7 @@ def template_story(story_id="id-ul-povestii", title=f"{canon.PLACEHOLDER}: titlu
         "cover": {
             "image": "images/coperta.png",
             "imagePrompt": f"{canon.STYLE} Characters in this scene: Lio: {canon.LIO_DESCRIPTION}. Setting: {todo}. Action: {todo}.",
+            "animation": {"camera": "zoom-in", "effect": "none"},
         },
         "pages": [page],
         "categories": [],

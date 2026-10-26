@@ -321,6 +321,47 @@ test("mișcare redusă: pagina se schimbă imediat", async () => {
   assert.ok(Date.now() - start < 1000, `a durat ${Date.now() - start} ms`);
 });
 
+test("animația paginii: camera se mișcă pe pagina curentă, cu efectul ales în poveste", async () => {
+  const story = JSON.parse(readFileSync(join(ROOT, "build/site/stories", STORY.id, "story.json"), "utf-8"));
+  const first = story.pages[0].animation;
+  const p = await page();
+  await p.goto(STORY_URL);
+  await p.waitForSelector(".sheet.is-current");
+  await p.click("#next-btn");
+  await settle(p, "Pagina 1");
+  const state = await p.evaluate(() => {
+    const art = document.querySelector(".sheet.is-current .sheet-art");
+    const next = document.querySelector(".sheet.is-next .sheet-art img");
+    return {
+      classes: art.className,
+      animation: getComputedStyle(art.querySelector("img")).animationName,
+      nextAnimation: next ? getComputedStyle(next).animationName : "none",
+      bits: art.querySelectorAll(".fx span").length,
+      fxHidden: art.querySelector(".fx")?.getAttribute("aria-hidden"),
+    };
+  });
+  assert.match(state.classes, new RegExp(`cam-${first.camera}`));
+  assert.equal(state.animation, first.camera === "still" ? "none" : `cam-${first.camera}`);
+  assert.equal(state.nextAnimation, "none", "doar pagina curentă se mișcă");
+  if (first.effect !== "none") {
+    assert.ok(state.bits > 0, "efectul paginii apare");
+    assert.equal(state.fxHidden, "true", "efectul e doar decor pentru cititoarele de ecran");
+  }
+  assert.deepEqual(p.errors, []);
+});
+
+test("animația paginii: cu „Reducere mișcare” imaginea stă pe loc și nu apar efecte", async () => {
+  const p = await page({ reducedMotion: "reduce" });
+  await p.goto(STORY_URL);
+  await p.waitForSelector(".sheet.is-current");
+  const state = await p.evaluate(() => ({
+    animations: [...document.querySelectorAll(".sheet-art img")].map((img) => getComputedStyle(img).animationName),
+    bits: document.querySelectorAll(".fx span").length,
+  }));
+  assert.ok(state.animations.every((name) => name === "none"), state.animations.join(","));
+  assert.equal(state.bits, 0);
+});
+
 test("nicio pagină nu încarcă nimic de la alte site-uri (fonturi, reclame, urmărire)", async () => {
   const p = await page();
   const external = [];

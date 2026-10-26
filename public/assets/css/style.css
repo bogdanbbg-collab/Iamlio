@@ -557,6 +557,106 @@ body.reader {
 }
 .sheet-art img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
 
+/* Animația paginii: camera se mișcă încet peste imaginea paginii curente (câmpul "animation" din poveste). */
+.sheet-art { position: relative; overflow: hidden; }
+.sheet-art img { transform-origin: 50% 50%; will-change: transform; }
+.is-current .cam-zoom-in img { animation: cam-zoom-in 18s ease-in-out infinite alternate; }
+.is-current .cam-zoom-out img { animation: cam-zoom-out 18s ease-in-out infinite alternate; }
+.is-current .cam-pan-left img { animation: cam-pan-left 20s ease-in-out infinite alternate; }
+.is-current .cam-pan-right img { animation: cam-pan-right 20s ease-in-out infinite alternate; }
+.is-current .cam-pan-up img { animation: cam-pan-up 20s ease-in-out infinite alternate; }
+.is-current .cam-pan-down img { animation: cam-pan-down 20s ease-in-out infinite alternate; }
+@keyframes cam-zoom-in { from { transform: scale(1); } to { transform: scale(1.12); } }
+@keyframes cam-zoom-out { from { transform: scale(1.12); } to { transform: scale(1); } }
+@keyframes cam-pan-left { from { transform: scale(1.12) translateX(4%); } to { transform: scale(1.12) translateX(-4%); } }
+@keyframes cam-pan-right { from { transform: scale(1.12) translateX(-4%); } to { transform: scale(1.12) translateX(4%); } }
+@keyframes cam-pan-up { from { transform: scale(1.12) translateY(4%); } to { transform: scale(1.12) translateY(-4%); } }
+@keyframes cam-pan-down { from { transform: scale(1.12) translateY(-4%); } to { transform: scale(1.12) translateY(4%); } }
+
+/* Efectele: bucățele mici desenate peste imagine, doar pe pagina curentă. */
+.fx { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.sheet:not(.is-current) .fx { display: none; }
+.fx span {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  animation-duration: var(--t);
+  animation-delay: calc(-1 * var(--d));
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.fx-leaves span {
+  width: calc(16px * var(--s)); height: calc(10px * var(--s));
+  background: linear-gradient(135deg, #E8892B, #B8461B);
+  border-radius: 0 80% 0 80%;
+  animation-name: fx-fall-sway;
+}
+.fx-snow span {
+  width: calc(8px * var(--s)); height: calc(8px * var(--s));
+  background: #fff; border-radius: 50%; opacity: .9;
+  box-shadow: 0 0 6px rgba(255, 255, 255, .8);
+  animation-name: fx-fall-sway;
+}
+.fx-drops span {
+  width: 2px; height: calc(14px * var(--s));
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(220, 240, 255, .9));
+  border-radius: 2px;
+  animation-name: fx-fall;
+  animation-duration: calc(var(--t) * .25);
+}
+.fx-bubbles span {
+  width: calc(14px * var(--s)); height: calc(14px * var(--s));
+  border: 1.5px solid rgba(255, 255, 255, .85); border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, .7), rgba(255, 255, 255, .08) 60%);
+  animation-name: fx-rise;
+}
+.fx-hearts span { animation-name: fx-rise; font-size: calc(18px * var(--s)); line-height: 1; color: #F06A8C; }
+.fx-hearts span::before { content: "♥"; }
+.fx-sparkles span {
+  font-size: calc(18px * var(--s)); line-height: 1; color: #FFD45C;
+  text-shadow: 0 0 8px rgba(255, 220, 120, .9);
+  animation-name: fx-twinkle; animation-timing-function: ease-in-out;
+}
+.fx-sparkles span::before { content: "✦"; }
+.fx-stars span {
+  top: calc(var(--y) * .5);
+  width: calc(5px * var(--s)); height: calc(5px * var(--s));
+  background: #FFF6D5; border-radius: 50%;
+  box-shadow: 0 0 8px 2px rgba(255, 246, 213, .8);
+  animation-name: fx-twinkle; animation-timing-function: ease-in-out;
+}
+.fx-fireflies span {
+  width: calc(7px * var(--s)); height: calc(7px * var(--s));
+  background: #F6F08A; border-radius: 50%;
+  box-shadow: 0 0 10px 4px rgba(246, 240, 138, .75);
+  animation-name: fx-firefly; animation-timing-function: ease-in-out;
+}
+.fx-glow span {
+  inset: 0; left: 0; top: 0;
+  background: radial-gradient(ellipse at 50% 60%, rgba(255, 170, 60, .38), rgba(255, 140, 40, 0) 60%);
+  mix-blend-mode: screen;
+  animation: fx-flicker 2.6s ease-in-out infinite;
+}
+@keyframes fx-fall { from { top: -10%; } to { top: 110%; } }
+@keyframes fx-fall-sway {
+  0% { top: -10%; transform: translateX(0) rotate(0deg); }
+  50% { transform: translateX(24px) rotate(160deg); }
+  100% { top: 110%; transform: translateX(-12px) rotate(320deg); }
+}
+@keyframes fx-rise {
+  0% { top: 105%; opacity: 0; transform: translateX(0); }
+  15% { opacity: .95; }
+  50% { transform: translateX(12px); }
+  100% { top: -12%; opacity: 0; transform: translateX(-8px); }
+}
+@keyframes fx-twinkle { 0%, 100% { opacity: 0; transform: scale(.3); } 50% { opacity: 1; transform: scale(1); } }
+@keyframes fx-firefly {
+  0%, 100% { opacity: .15; transform: translate(0, 0); }
+  30% { opacity: 1; transform: translate(14px, -10px); }
+  60% { opacity: .4; transform: translate(-8px, -18px); }
+}
+@keyframes fx-flicker { 0%, 100% { opacity: .75; } 30% { opacity: 1; } 55% { opacity: .82; } 80% { opacity: .95; } }
+
 .sheet-text {
   position: relative;
   flex: 0 1 auto;
@@ -1041,4 +1141,6 @@ body.reader.bedtime {
   .quiz-option.is-right, .quiz-option.is-wrong, .fav-btn.pop,
   .is-talking .lio-mouth-open, .is-talking .lio-mouth-smile { animation: none; transition: none; }
   .story-card, .story-card:hover { transition: none; transform: none; }
+  .sheet-art img { animation: none !important; transform: none; }
+  .fx { display: none; }
 }
