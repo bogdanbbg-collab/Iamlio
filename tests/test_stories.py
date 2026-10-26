@@ -601,7 +601,8 @@ class CloudflareTests(unittest.TestCase):
         prompt = (f"{canon.STYLE} Characters in this scene: Aricel: a tiny round hedgehog with a teal scarf; "
                   "Piu: a small sky-blue songbird. Setting and action: Aricel jumps off a low stump with leaf wings.")
         result = imagini.scene_first(prompt, characters)
-        self.assertTrue(result.startswith("Setting and action: Aricel jumps off a low stump"), result)
+        self.assertTrue(result.startswith("Setting and action: Aricel (a tiny round hedgehog) jumps off a low stump"),
+                        "scena e prima, cu ce fel de personaj e lângă nume")
         self.assertNotIn(canon.STYLE, result)
         self.assertIn(imagini.SHORT_STYLE, result)
         self.assertTrue(result.endswith("Characters: Aricel: a tiny round hedgehog with a teal scarf; "

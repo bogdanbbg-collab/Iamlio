@@ -272,22 +272,29 @@ WIDE = ("Wide horizontal 3:2 composition: keep every character and the main acti
 # iar descrierile personajelor la urmă; altfel toate imaginile ieșeau portrete, fără ce se întâmplă pe pagină.
 SHORT_STYLE = ("3D animated feature film still for young children, cute expressive characters with big eyes, "
                "soft warm cinematic lighting, rich gentle colors, nothing scary, no text, no letters. Show the whole "
-               "scene and the setting, characters with their full bodies, not a close-up portrait.")
+               "scene and the setting, characters with their full bodies, not a close-up portrait. Only the characters "
+               "named here, no other animals or people.")
 _LABEL = re.compile(r"Characters in this scene[^:]*:", re.I)
 
 
 def scene_first(prompt, characters=()):
     """Promptul rearanjat pentru FLUX: scena (ce se întâmplă), stilul scurt, apoi descrierile personajelor."""
     body = prompt.replace(canon.STYLE, " ")
-    people = []
+    people, present = [], []
     for c in characters or ():
         name, description = (c.get("name") or "").strip(), (c.get("description") or "").strip().rstrip(".")
         if not description or description not in body:
             continue
         people.append(f"{name}: {description}" if name else description)
+        present.append((name, description))
         body = body.replace(f"{name}: {description}", " ").replace(description, " ") if name else body.replace(description, " ")
     body = _LABEL.sub(" ", body)
     scene = " ".join(re.sub(r"(?:\s*[;.,]\s*){2,}", ". ", " " + body).split()).lstrip(".;, ").strip()
+    for name, description in present:
+        if name:
+            # ce fel de personaj e, chiar lângă nume: descrierile complete de la final pot fi tăiate de model
+            short = re.split(r",| with ", description, maxsplit=1)[0].strip()
+            scene = re.sub(rf"\b{re.escape(name)}\b", f"{name} ({short})", scene, count=1)
     parts = [scene, SHORT_STYLE, WIDE]
     if people:
         parts.append("Characters: " + "; ".join(people) + ".")
