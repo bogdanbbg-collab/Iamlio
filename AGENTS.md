@@ -70,7 +70,8 @@ codul site-ului (`public/*.html`, `public/assets/`, `scripts/`, `.github/`) — 
 - `scripts/canon.py` — valorile oficiale: stilul imaginilor, descrierea și vocea lui Lio, câmpurile `review`
 - `sablon/story.json` — șablonul de poveste (generat din `canon.py` cu `python3 scripts/stories.py template`)
 - `scripts/pregatire.py` — repararea automată a poveștilor (`stories.py prepare`)
-- `scripts/imagini.py` — generarea imaginilor lipsă cu OpenAI (doar dacă există secretul `OPENAI_API_KEY`)
+- `scripts/imagini.py` — generarea automată a imaginilor lipsă: gratuit cu Cloudflare Workers AI (secretele
+  `CLOUDFLARE_ACCOUNT_ID` și `CLOUDFLARE_API_TOKEN`) sau cu plată cu OpenAI (`OPENAI_API_KEY`)
 - `rapoarte/` — raportul fiecărei povești după publicare (PUBLICATĂ / NEPUBLICATĂ și ce e de corectat)
 - `scripts/voce.py` — regia de voce (tonuri, profiluri de personaj, pauze, lipirea cu ffmpeg)
 - `tests/` — teste automate (`python3 -m unittest discover -s tests`) și teste în browser

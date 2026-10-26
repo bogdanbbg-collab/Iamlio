@@ -545,6 +545,78 @@ class ImageGenerationTests(StoryCase):
         self.assertTrue(errors and errors[0].startswith("pagina 2"))
 
 
+class CloudflareTests(unittest.TestCase):
+    """Generarea gratuită de imagini (Cloudflare Workers AI), cu un server simulat."""
+
+    @staticmethod
+    def _image(size=(1024, 1024), fmt="JPEG"):
+        import io
+
+        from PIL import Image
+
+        buffer = io.BytesIO()
+        Image.new("RGB", size, (90, 140, 200)).save(buffer, fmt)
+        return buffer.getvalue()
+
+    def _client(self, kind, payload, model=imagini.CLOUDFLARE_MODEL):
+        import io
+
+        sent = []
+
+        class Response(io.BytesIO):
+            headers = {"Content-Type": kind}
+
+        def opener(request, timeout):
+            sent.append(json.loads(request.data.decode("utf-8")))
+            self.assertIn("/ai/run/" + model, request.full_url)
+            self.assertEqual(request.get_header("Authorization"), "Bearer jeton")
+            return Response(payload)
+
+        return imagini.CloudflareClient("cont", "jeton", model, "arici-zboara", opener=opener), sent
+
+    def test_flux_answer_becomes_a_wide_page_image_for_free(self):
+        import base64
+        import io
+
+        from PIL import Image
+
+        answer = json.dumps({"success": True, "result": {"image": base64.b64encode(self._image()).decode()}}).encode()
+        client, sent = self._client("application/json", answer)
+        result = client.images.edit(prompt=imagini.CONSISTENCY + "A hedgehog " + "x" * 3000, model="m")
+        with Image.open(io.BytesIO(base64.b64decode(result.data[0].b64_json))) as image:
+            self.assertEqual((image.format, image.size), ("PNG", (1536, 1024)))
+        self.assertEqual(imagini.cost_lei(result), 0.0)
+        body = sent[0]
+        self.assertNotIn("reference image", body["prompt"], "fără referință: textul despre ea nu se trimite")
+        self.assertTrue(body["prompt"].startswith(imagini.WIDE))
+        self.assertLessEqual(len(body["prompt"]), imagini.CLOUDFLARE_MAX_PROMPT)
+        self.assertEqual(body["steps"], 8)
+        client.images.generate(prompt="Cover")
+        self.assertEqual(sent[0]["seed"], sent[1]["seed"], "aceeași sămânță pentru toată povestea")
+
+    def test_models_that_answer_with_an_image_get_the_page_size(self):
+        client, sent = self._client("image/png", self._image((1536, 1024), "PNG"), model="@cf/leonardo/lucid-origin")
+        client.images.generate(prompt="Cover")
+        self.assertEqual((sent[0]["width"], sent[0]["height"]), (1536, 1024))
+
+    def test_errors_are_reported(self):
+        client, _ = self._client("application/json", json.dumps({"success": False, "errors": [{"message": "cota zilnică"}]}).encode())
+        with self.assertRaisesRegex(RuntimeError, "cota zilnică"):
+            client.images.generate(prompt="Cover")
+
+    def test_free_variant_is_preferred_when_configured(self):
+        from unittest import mock
+
+        both = {"CLOUDFLARE_ACCOUNT_ID": "a", "CLOUDFLARE_API_TOKEN": "t", "OPENAI_API_KEY": "k"}
+        with mock.patch.dict("os.environ", both):
+            self.assertEqual(imagini.provider(), "cloudflare")
+            self.assertIsInstance(imagini.make_client("poveste"), imagini.CloudflareClient)
+        with mock.patch.dict("os.environ", {"CLOUDFLARE_ACCOUNT_ID": "", "CLOUDFLARE_API_TOKEN": "", "OPENAI_API_KEY": "k"}):
+            self.assertEqual(imagini.provider(), "openai")
+        with mock.patch.dict("os.environ", {"CLOUDFLARE_ACCOUNT_ID": "", "CLOUDFLARE_API_TOKEN": "", "OPENAI_API_KEY": ""}):
+            self.assertFalse(imagini.enabled())
+
+
 class RobustnessTests(unittest.TestCase):
     def test_malformed_story_files_do_not_stop_the_others(self):
         with tempfile.TemporaryDirectory() as tmp:

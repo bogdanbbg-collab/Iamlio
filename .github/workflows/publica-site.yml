@@ -143,6 +143,10 @@ jobs:
       - name: Pregătește poveștile (reparare automată, imagini, verificare, rapoarte)
         if: env.NORMAL == 'true'
         env:
+          # imaginile lipsă: gratuit cu Cloudflare Workers AI (dacă există cele două secrete), altfel OpenAI (cu plată)
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_IMAGE_MODEL: ${{ vars.CLOUDFLARE_IMAGE_MODEL }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           IMAGE_MODEL: ${{ vars.IMAGE_MODEL }}
           IMAGE_QUALITY: ${{ vars.IMAGE_QUALITY }}

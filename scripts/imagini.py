@@ -1,7 +1,12 @@
-"""Generarea imaginilor care lipsesc (OpenAI), ca o poveste să se publice chiar dacă AI-ul care a scris-o
-nu a putut face imagini.
+"""Generarea imaginilor care lipsesc, ca o poveste să se publice chiar dacă AI-ul care a scris-o nu a putut
+face imagini. Două variante (se folosește prima configurată):
 
-Se activează doar dacă există secretul OPENAI_API_KEY. Opțional (variabile de repository):
+1. Cloudflare Workers AI — GRATUIT (cota zilnică a planului gratuit, fără card): secretele CLOUDFLARE_ACCOUNT_ID
+   și CLOUDFLARE_API_TOKEN. Opțional, variabila CLOUDFLARE_IMAGE_MODEL (implicit FLUX.1 schnell). Imaginile nu
+   pornesc de la copertă ca referință (modelul nu poate), dar fiecare prompt are descrierea completă a
+   personajelor și aceeași „sămânță” pentru toată povestea, ca să semene între ele. Pe planul gratuit nu se
+   plătește nimic: când cota zilei se termină, restul imaginilor se generează la publicarea de a doua zi.
+2. OpenAI (cu plată) — secretul OPENAI_API_KEY. Opțional (variabile de repository):
   IMAGE_MODEL     modelul de imagine (implicit gpt-image-2)
   IMAGE_QUALITY   low | medium | high (implicit medium)
   MAX_IMAGES      câte imagini se pot genera într-o publicare (implicit 40)
@@ -103,7 +108,9 @@ class Budget:
 
 
 def cost_lei(result):
-    """Costul unei imagini, în lei, din tokenii raportați în răspunsul OpenAI."""
+    """Costul unei imagini, în lei, din tokenii raportați în răspunsul OpenAI (0 pentru varianta gratuită)."""
+    if getattr(result, "free", False):
+        return 0.0
     usage = getattr(result, "usage", None)
     if usage is None or getattr(usage, "output_tokens", None) is None:
         return _number("IMAGE_COST_LEI", DEFAULT_IMAGE_COST_LEI)
@@ -117,14 +124,102 @@ def cost_lei(result):
     return dollars * _number("USD_LEI", 4.6)
 
 
+def provider():
+    """„cloudflare” (gratuit), „openai” sau "" (generarea automată nu e activată)."""
+    if os.environ.get("CLOUDFLARE_ACCOUNT_ID") and os.environ.get("CLOUDFLARE_API_TOKEN"):
+        return "cloudflare"
+    return "openai" if os.environ.get("OPENAI_API_KEY") else ""
+
+
 def enabled():
-    return bool(os.environ.get("OPENAI_API_KEY"))
+    return bool(provider())
 
 
-def make_client():
+def make_client(story_id=""):
+    if provider() == "cloudflare":
+        return CloudflareClient(os.environ["CLOUDFLARE_ACCOUNT_ID"], os.environ["CLOUDFLARE_API_TOKEN"],
+                                os.environ.get("CLOUDFLARE_IMAGE_MODEL") or CLOUDFLARE_MODEL, story_id)
     from openai import OpenAI
 
     return OpenAI()
+
+
+# ---------- Cloudflare Workers AI (gratuit) ----------
+
+CLOUDFLARE_MODEL = "@cf/black-forest-labs/flux-1-schnell"
+CLOUDFLARE_MAX_PROMPT = 2048
+WIDE = ("Wide horizontal 3:2 composition: keep every character and the main action in the middle of the frame, "
+        "with some empty background at the top and bottom.")
+
+
+class CloudflareImages:
+    """images.generate / images.edit, ca la OpenAI, ca restul codului să nu știe ce serviciu folosește."""
+
+    def __init__(self, client):
+        self.client = client
+
+    def generate(self, prompt, **_):
+        return self.client.run(prompt)
+
+    def edit(self, prompt, **_):
+        # Modelul nu primește imaginea de referință: personajele vin din descrierile complete din prompt.
+        return self.client.run(prompt[len(CONSISTENCY):] if prompt.startswith(CONSISTENCY) else prompt)
+
+
+class CloudflareClient:
+    def __init__(self, account, token, model, story_id="", opener=None):
+        import zlib
+
+        self.account, self.token, self.model = account, token, model
+        self.seed = zlib.crc32(story_id.encode("utf-8")) % 2_000_000_000  # aceeași pentru toată povestea
+        self.images = CloudflareImages(self)
+        self.opener = opener
+
+    def run(self, prompt):
+        import json
+        import urllib.request
+
+        prompt = (WIDE + " " + prompt)[:CLOUDFLARE_MAX_PROMPT]
+        body = {"prompt": prompt, "seed": self.seed}
+        if "flux-1-schnell" in self.model:
+            body["steps"] = 8  # maximul modelului: cea mai bună calitate
+        else:
+            body.update(width=1536, height=1024)
+        request = urllib.request.Request(
+            f"https://api.cloudflare.com/client/v4/accounts/{self.account}/ai/run/{self.model}",
+            data=json.dumps(body).encode("utf-8"), method="POST",
+            headers={"Authorization": f"Bearer {self.token}", "Content-Type": "application/json"})
+        opener = self.opener or urllib.request.urlopen
+        try:
+            with opener(request, timeout=180) as response:
+                kind = response.headers.get("Content-Type", "")
+                payload = response.read()
+        except Exception as exc:
+            detail = exc.read().decode("utf-8", "replace")[:300] if hasattr(exc, "read") else str(exc)
+            raise RuntimeError(f"Cloudflare: {detail}") from exc
+        if kind.startswith("image/"):
+            raw = payload
+        else:
+            answer = json.loads(payload.decode("utf-8"))
+            image = (answer.get("result") or {}).get("image") if answer.get("success", True) else None
+            if not image:
+                raise RuntimeError(f"Cloudflare: {str(answer.get('errors') or answer)[:300]}")
+            raw = base64.b64decode(image)
+        return _as_page_image(raw)
+
+
+def _as_page_image(raw):
+    """Orice imagine primită devine PNG 1536×1024 (3:2), tăiată din centru dacă are alt format."""
+    import io
+    from types import SimpleNamespace
+
+    from PIL import Image, ImageOps
+
+    with Image.open(io.BytesIO(raw)) as image:
+        page = ImageOps.fit(image.convert("RGB"), (1536, 1024), Image.LANCZOS, centering=(0.5, 0.5))
+    buffer = io.BytesIO()
+    page.save(buffer, "PNG")
+    return SimpleNamespace(data=[SimpleNamespace(b64_json=base64.b64encode(buffer.getvalue()).decode())], free=True)
 
 
 def safe_image(folder, rel):
@@ -152,8 +247,8 @@ def generate_missing(folder, data, client=None, budget=None):
     todo = missing(folder, data)
     if not todo:
         return [], [], 0
-    client = client or make_client()
-    model = os.environ.get("IMAGE_MODEL") or DEFAULT_MODEL
+    client = client or make_client(folder.name)
+    model = getattr(client, "model", None) or os.environ.get("IMAGE_MODEL") or DEFAULT_MODEL
     quality = os.environ.get("IMAGE_QUALITY") or DEFAULT_QUALITY
     if not isinstance(budget, Budget):
         budget = Budget(images=budget)

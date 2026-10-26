@@ -589,7 +589,8 @@ def prepare_one(folder, data, image_budget):
                 notes += errors
             else:
                 notes.append("lipsesc imagini: generează-le și salvează-le în images/ cu numele din story.json "
-                             "(sau proprietarul proiectului poate activa generarea automată cu secretul OPENAI_API_KEY)")
+                             "(sau proprietarul proiectului poate activa generarea automată: gratuit cu Cloudflare, secretele "
+                             "CLOUDFLARE_ACCOUNT_ID și CLOUDFLARE_API_TOKEN, ori cu plată cu OPENAI_API_KEY)")
         if json.dumps(data, ensure_ascii=False, sort_keys=True) != original:
             write_json(folder / "story.json", data)
         return changes, notes, made

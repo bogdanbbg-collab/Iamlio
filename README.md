@@ -88,6 +88,17 @@ Dacă un fișier audio lipsește totuși pe server, site-ul citește textul cu v
 
 ## Generarea automată a imaginilor (opțională)
 
+Dacă AI-ul folosit nu poate genera imagini, proiectul le generează singur la publicare, după descrierile din poveste.
+
+**Gratuit — Cloudflare Workers AI (recomandat):** cont gratuit pe cloudflare.com (fără card). Din panoul Cloudflare
+copiezi **Account ID** și creezi un **API token** cu permisiunea „Workers AI” (Read și Edit), apoi le pui în GitHub
+ca secretele `CLOUDFLARE_ACCOUNT_ID` și `CLOUDFLARE_API_TOKEN`. Cota gratuită zilnică ajunge pentru câteva povești
+pe zi; pe planul gratuit nu se plătește nimic, iar dacă cota se termină, restul imaginilor se fac a doua zi.
+Modelul implicit e FLUX.1 schnell (se poate schimba cu variabila `CLOUDFLARE_IMAGE_MODEL`). Personajele seamănă
+între pagini datorită descrierilor complete din fiecare prompt, dar mai puțin decât la OpenAI, care pornește
+de la imaginea copertei: merită privită povestea după publicare.
+
+**Cu plată — OpenAI:** dacă există secretele Cloudflare, se folosește Cloudflare; altfel OpenAI.
 Dacă AI-ul folosit nu poate genera imagini, proiectul le poate genera singur cu OpenAI:
 **Settings → Secrets and variables → Actions → New repository secret** → `OPENAI_API_KEY` (o cheie de la
 platform.openai.com; se plătește separat de abonamentul ChatGPT). Opțional, la **Variables**: `IMAGE_MODEL`
