@@ -40,8 +40,15 @@ const EXTRA = [
 const day = (offset) => { const d = new Date(Date.now() - offset * 86400000); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`; };
 const PUBLISHED = { "test-ursul": day(0) };
 
+const LONG_TEXT = ("Într-o dimineață cu miros de trifoi, Aricel privea păsărelele care dansau printre norii pufoși. " +
+  "— Uitați-vă la mine! a strigat el, întinzând lăbuțele ca două aripi. — Astăzi învăț să zbor! Piu, pasărea " +
+  "albastră, a făcut un cerc deasupra lui. Cipi, cea galbenă, a ciripit curioasă, iar Riri, cu pieptul roșcat, " +
+  "a coborât aproape de pământ. Aricel a simțit un gâdilat de aventură până în vârful țepilor lui mici strălucitori.");
+
 function addExtraStories(root) {
   const library = JSON.parse(readFileSync(join(root, "stories/index.json"), "utf-8"));
+  // biblioteca de test e mereu aceeași (prima poveste + cele de test), oricâte povești reale are site-ul
+  library.stories = library.stories.filter((s) => s.id === STORY.id);
   library.stories.forEach((s) => { s.published = day(60); });
   for (const extra of EXTRA) {
     cpSync(join(root, "stories", STORY.id), join(root, "stories", extra.id), { recursive: true });
@@ -53,6 +60,13 @@ function addExtraStories(root) {
       published: PUBLISHED[extra.id] || day(60) });
   }
   writeFileSync(join(root, "stories/index.json"), JSON.stringify(library));
+  // o poveste cu pagini de 70 de cuvinte lungi (maximul permis de reguli), pentru încăperea textului
+  cpSync(join(root, "stories", STORY.id), join(root, "stories", "test-lunga"), { recursive: true });
+  const longFile = join(root, "stories", "test-lunga", "story.json");
+  const longStory = JSON.parse(readFileSync(longFile, "utf-8"));
+  longStory.id = "test-lunga";
+  longStory.pages.forEach((page) => { page.text = LONG_TEXT; page.narration = [{ text: LONG_TEXT }]; });
+  writeFileSync(longFile, JSON.stringify(longStory));
   // povești personalizate: au doar link secret, nu intră în bibliotecă; cea neaprobată stă în zona protejată,
   // exact cum o pune `stories.py stage` când există ADMIN_PASSWORD
   for (const [id, approved] of [["test-ana-k7p2qx", false], ["test-ana-aprobata-q9w3zz", true]]) {
@@ -217,17 +231,20 @@ for (const [name, viewport] of [["telefon", [375, 667]], ["telefon culcat", [844
       await p.waitForTimeout(300);
       assert.equal(await p.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, url);
     }
-    for (const story of index.stories) {
+    // toate poveștile reale, plus una cu pagini de 70 de cuvinte (maximul din reguli)
+    for (const story of [...index.stories, { id: "test-lunga", pages: STORY.pages }]) {
       await p.goto(`${BASE}/poveste.html?id=${story.id}`);
       await p.waitForSelector(".sheet.is-current");
       for (let i = 1; i < story.pages + 2; i++) {
         await p.keyboard.press("ArrowRight");
         await p.waitForFunction(() => !document.querySelector(".sheet.is-turning"));
-        const overflow = await p.evaluate(() => {
+        const fit = await p.evaluate(() => {
           const text = document.querySelector(".sheet.is-current .sheet-text");
-          return text ? text.scrollHeight > text.clientHeight + 2 : false;
+          return text ? { overflow: text.scrollHeight > text.clientHeight + 2, size: parseFloat(getComputedStyle(text).fontSize) }
+            : { overflow: false, size: 99 };
         });
-        assert.equal(overflow, false, `${story.id}, pagina ${i}`);
+        assert.equal(fit.overflow, false, `${story.id}, pagina ${i}`);
+        assert.ok(fit.size >= 13, `${story.id}, pagina ${i}: litera de ${fit.size}px e prea mică`);
       }
     }
     for (const control of ["#play-btn", "#next-btn", "#prev-btn"]) {

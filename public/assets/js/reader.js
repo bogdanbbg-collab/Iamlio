@@ -275,6 +275,25 @@
     if (reading) playCurrent();
   }
 
+  // Textele lungi (până la 70 de cuvinte pe pagină, cât permit regulile) trebuie să încapă fără derulare:
+  // dacă textul unei pagini nu încape, litera se micșorează puțin, doar pentru pagina aceea.
+  var MIN_TEXT_PX = 13;
+  function fitText() {
+    Array.prototype.forEach.call(book.querySelectorAll(".sheet-text:not(.cover-text)"), function (text) {
+      text.style.fontSize = "";
+      var size = parseFloat(getComputedStyle(text).fontSize);
+      while (text.scrollHeight > text.clientHeight + 1 && size > MIN_TEXT_PX) {
+        size -= 0.5;
+        text.style.fontSize = size + "px";
+      }
+    });
+  }
+  var fitTimer = null;
+  window.addEventListener("resize", function () {
+    clearTimeout(fitTimer);
+    fitTimer = setTimeout(fitText, 150);
+  });
+
   function render() {
     sheets.forEach(function (sheet, i) {
       sheet.className = "sheet" + (i === index ? " is-current" : i === index + 1 ? " is-next" : "");
@@ -719,6 +738,8 @@
       return sheet;
     });
     render();
+    fitText();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitText);
     updateResume();
     applyBedtime();
     if (story.personalized) markPersonal(story);
