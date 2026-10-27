@@ -4,7 +4,7 @@
 // POST actiune=intrare, parola=…  → autentificare (sesiune de 12 ore)
 // POST actiune=iesire             → deconectare
 // POST actiune=sterge-erori       → golește lista de erori (după ce au fost rezolvate)
-// GET                             → toate datele panoului: poveștile, citirile, vizitele, erorile, starea serverului
+// GET                             → toate datele panoului: poveștile, citirile, părerile, vizitele, erorile, starea serverului
 require __DIR__ . '/comun.php';
 
 header('X-Robots-Tag: noindex, nofollow');
@@ -34,6 +34,7 @@ if ($method !== 'GET') {
 $reads = read_json_file(data_path('citiri.json'));
 $visits = read_json_file(data_path('vizite.json'));
 $errors = read_json_file(data_path('erori.json'));
+$likes = read_json_file(data_path('pareri.json'));
 $backups = glob(data_path('copii') . '/citiri-*.json') ?: [];
 $lastBackup = $backups ? max(array_map('filemtime', $backups)) : 0;
 
@@ -47,6 +48,8 @@ send_json(200, [
         'zile' => (object) (isset($reads['zile']) && is_array($reads['zile']) ? $reads['zile'] : []),
     ],
     'vizite' => (object) (isset($visits['zile']) && is_array($visits['zile']) ? $visits['zile'] : []),
+    // „Ți-a plăcut povestea?”: pe poveste, câte voturi 1 (😐), 2 (🙂), 3 (😍)
+    'pareri' => (object) (isset($likes['totaluri']) && is_array($likes['totaluri']) ? $likes['totaluri'] : []),
     'erori' => array_values(isset($errors['grupuri']) && is_array($errors['grupuri']) ? $errors['grupuri'] : []),
     'server' => [
         'php' => PHP_VERSION,

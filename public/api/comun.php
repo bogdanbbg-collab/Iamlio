@@ -294,3 +294,17 @@ function admin_logout()
     admin_cookie('', time() - 3600);
     send_json(200, ['autentificat' => false]);
 }
+
+// Poveștile din bibliotecă (stories/index.json). Doar ele se numără și primesc păreri: cele personalizate au
+// link secret, care nu trebuie să apară în răspunsurile publice.
+function public_story_ids()
+{
+    $index = read_json_file(__DIR__ . '/../stories/index.json');
+    $ids = [];
+    foreach (isset($index['stories']) && is_array($index['stories']) ? $index['stories'] : [] as $story) {
+        if (is_array($story) && isset($story['id']) && is_string($story['id'])) {
+            $ids[$story['id']] = true;
+        }
+    }
+    return $ids;
+}

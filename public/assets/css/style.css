@@ -331,6 +331,15 @@ body.home {
 .segmented { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 999px; background: #FFF1DD; }
 .segmented button { min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: var(--orange-dark); }
 .results-count { margin: -6px 0 14px; color: var(--ink-soft); font-weight: 600; }
+/* Căutarea (apare de la 12 povești) */
+.search { display: flex; flex-direction: column; gap: 4px; margin: 0 0 14px; }
+.search[hidden] { display: none; }
+.search label { font-weight: 700; color: var(--ink-soft); font-size: .95rem; }
+.search input {
+  min-height: 48px; padding: 8px 16px; border: 2px solid rgba(43, 45, 66, .15); border-radius: 999px;
+  background: #fff; font: inherit; color: var(--ink);
+}
+.search input:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; border-color: transparent; }
 .results-count:empty { display: none; }
 
 .empty-state {
@@ -704,6 +713,7 @@ body.reader {
 
 .sheet-end {
   flex: 1;
+  min-height: 0; /* ca Lio să se poată micșora în loc să împingă butoanele afară */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -713,7 +723,8 @@ body.reader {
   text-align: center;
   background: radial-gradient(circle at 50% 30%, #FFF1DD, var(--paper) 70%);
 }
-.end-lio { width: auto; height: 34cqh; max-height: 260px; }
+/* Lio se micșorează singur când pagina de final are mai multe rânduri (păreri, încă o poveste de seară) */
+.end-lio { flex: 0 1 34cqh; width: auto; height: 34cqh; min-height: 64px; max-height: 260px; object-fit: contain; }
 .sheet-end h2 { margin: 0; font-size: clamp(1.8rem, min(8cqw, 9cqh), 3.4rem); color: var(--orange); line-height: 1; }
 .moral { margin: 0; max-width: 34em; font-size: clamp(1.05rem, min(4cqw, 4.4cqh), 1.7rem); line-height: 1.35; }
 .end-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 1cqh; }
@@ -740,8 +751,7 @@ body.reader {
     gap: 2cqh 5cqw;
     text-align: left;
   }
-  .end-lio { grid-row: 1 / 5; height: 52cqh; align-self: center; }
-  .end-recs { grid-column: 2; }
+  .end-lio { grid-row: 1 / span 6; height: 52cqh; align-self: center; }
   .end-actions { justify-content: flex-start; }
 }
 
@@ -996,6 +1006,18 @@ body.reader {
 .lio-bubble-face { width: 40px; height: 40px; flex: 0 0 auto; }
 .end-outro { margin: 0; max-width: 32em; color: var(--ink-soft); font-size: clamp(1rem, min(3.4cqw, 3.8cqh), 1.4rem); }
 .pill-quiz { background: #8E6CD9; box-shadow: 0 4px 0 #6C4FB8; }
+.pill-night { background: #2E3A6E; box-shadow: 0 4px 0 #1C2550; }
+/* „Ți-a plăcut povestea?” de pe pagina de final */
+.feedback { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.feedback-question, .feedback-thanks { margin: 0; font-weight: 700; color: var(--ink-soft); }
+.feedback-row { display: flex; gap: 10px; }
+.feedback-btn {
+  width: 52px; height: 52px; border: 0; border-radius: 50%; background: #fff; font-size: 1.7rem; line-height: 1;
+  cursor: pointer; box-shadow: 0 3px 10px rgba(43, 45, 66, .12);
+}
+.feedback-btn:hover, .feedback-btn:focus-visible { transform: scale(1.08); }
+.bedtime .feedback-btn { background: #F6ECDB; }
+.pill-night[hidden] { display: none; }
 
 /* ---------- Întrebările lui Lio ---------- */
 

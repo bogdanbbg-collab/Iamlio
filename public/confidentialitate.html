@@ -40,6 +40,9 @@
     <h2>Contorul „citită de X ori”</h2>
     <p>Când deschizi o poveste, site-ul adaugă o citire la contorul ei. Ca o citire să nu fie numărată de mai multe ori, serverul păstrează pentru <strong>cel mult o oră</strong> o amprentă criptografică (HMAC, cu o cheie secretă schimbată în fiecare zi) calculată din adresa de internet. Adresa în sine <strong>nu este salvată</strong>, iar amprenta nu poate fi legată de o persoană, nici comparată de la o zi la alta. Numărul afișat este doar un total pe poveste.</p>
 
+    <h2>„Ți-a plăcut povestea?”</h2>
+    <p>La finalul unei povești, copilul poate apăsa pe una dintre trei fețe (😍 🙂 😐). Păstrăm <strong>doar totalul</strong> pentru fiecare poveste, ca să știm ce povești plac și ce să mai scriem. Ca același răspuns să nu fie numărat de multe ori, serverul păstrează <strong>cel mult o zi</strong> aceeași amprentă criptografică de la contor; adresa de internet nu se salvează.</p>
+
     <h2>Statistici și erori</h2>
     <p>Ca să știm dacă site-ul e folosit și dacă funcționează, numărăm <strong>doar totaluri pe zi</strong>: câte pagini au fost afișate și câți vizitatori aproximativi au fost. Ca un vizitator să fie numărat o singură dată pe zi, serverul păstrează până la sfârșitul zilei aceeași amprentă criptografică de mai sus; adresa de internet nu se salvează și nu există cookie-uri sau profiluri.</p>
     <p>Dacă ceva nu merge (o imagine sau un sunet nu se încarcă, o eroare în pagină), browserul trimite un scurt raport tehnic: mesajul erorii, pagina și tipul browserului (de exemplu „Safari · telefon”). Rapoartele nu conțin date personale și se șterg după 14 zile.</p>

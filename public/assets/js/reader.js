@@ -71,13 +71,51 @@
     if (small) {
       // telefonul ia imaginea mică (768 px), ecranele mari pe cea întreagă (1536 px)
       img.srcset = base + small + " 768w, " + base + src + " 1536w";
-      img.sizes = "(orientation: portrait) 100vw, 55vw";
+      img.sizes = "(orientation: portrait) 92vw, 55vw"; // cartea are margini: pe telefon ajunge imaginea mică
     }
     img.alt = "";
     img.decoding = "async";
     img.loading = eager ? "eager" : "lazy";
     img.draggable = false;
     return img;
+  }
+
+  // ---------- „Ți-a plăcut povestea?” ----------
+  // Trei fețe mari, pe înțelesul celor care nu citesc. Serverul păstrează doar totalurile pe poveste.
+  var VOTES = [["3", "😍", "Foarte mult"], ["2", "🙂", "Da"], ["1", "😐", "Așa și așa"]];
+  function feedbackBox() {
+    var box = el("div", "feedback");
+    box.setAttribute("role", "group");
+    box.setAttribute("aria-label", "Ți-a plăcut povestea?");
+    var key = "iamlio-parere-" + storyId;
+    var thanks = function () {
+      box.textContent = "";
+      box.appendChild(el("p", "feedback-thanks", "Mulțumim! ❤"));
+    };
+    var given = false;
+    try { given = sessionStorage.getItem(key) === "1"; } catch (e) { /* fără sesiune: întrebăm */ }
+    if (given) {
+      thanks();
+      return box;
+    }
+    box.appendChild(el("p", "feedback-question", "Ți-a plăcut povestea?"));
+    var row = el("div", "feedback-row");
+    VOTES.forEach(function (vote) {
+      var button = el("button", "feedback-btn", vote[1]);
+      button.type = "button";
+      button.setAttribute("aria-label", vote[2]);
+      button.title = vote[2];
+      button.addEventListener("click", function () {
+        try { sessionStorage.setItem(key, "1"); } catch (e) { /* ignorăm */ }
+        thanks();
+        fetch("api/parere.php?id=" + encodeURIComponent(storyId) + "&nota=" + vote[0], { method: "POST" })
+          .then(function (r) { return r.text(); })
+          .catch(function () {}); // fără server (previzualizare locală) nu se întâmplă nimic
+      });
+      row.appendChild(button);
+    });
+    box.appendChild(row);
+    return box;
   }
 
   // ---------- animația paginii ----------
@@ -203,6 +241,7 @@
       end.appendChild(el("h2", null, "Sfârșit"));
       end.appendChild(el("p", "moral", item.moral));
       if (item.outro) end.appendChild(el("p", "end-outro", item.outro));
+      if (!preview && !isPersonal) end.appendChild(feedbackBox()); // cele personalizate nu sunt în bibliotecă
       var actions = el("div", "end-actions");
       var again = el("button", "pill", "Citește din nou");
       again.type = "button";
@@ -214,6 +253,9 @@
       });
       var more = el("a", "pill pill-alt", "Alte povești");
       more.href = "./";
+      // în modul de culcare: încă o poveste de seară, pornită direct (legătura apare doar dacă există una)
+      var night = el("a", "pill pill-night", "🌙 Încă o poveste de seară");
+      night.hidden = true;
       if (item.questions.length) {
         var quiz = el("button", "pill pill-quiz", "🎲 Întrebările lui Lio");
         quiz.type = "button";
@@ -222,6 +264,7 @@
       }
       actions.appendChild(again);
       actions.appendChild(more);
+      actions.appendChild(night);
       end.appendChild(actions);
       front.appendChild(end);
     }
@@ -755,7 +798,36 @@
     Iamlio.writeSetting("iamlio-autoturn", autoTurn ? "1" : "0");
   });
 
+  // Următoarea poveste de culcare din bibliotecă (în ordinea ei, după cea curentă), pentru „Încă o poveste de seară”.
+  var nightNext = null;
+  var nightLoaded = false;
+  function loadNightNext() {
+    if (nightLoaded || preview || !storyId) return;
+    nightLoaded = true;
+    Iamlio.fetchWithTimeout("stories/index.json", { cache: "no-cache" }, 10000)
+      .then(function (res) { return res.ok ? res.json() : null; })
+      .then(function (library) {
+        var list = (library && library.stories || []).filter(function (s) {
+          return (s.categories || []).indexOf("de-culcare") !== -1;
+        });
+        var at = list.map(function (s) { return s.id; }).indexOf(storyId);
+        var next = list.length && (at === -1 ? list[0] : list[(at + 1) % list.length]);
+        if (next && next.id !== storyId) nightNext = next;
+        applyBedtime();
+      })
+      .catch(function () {});
+  }
+
   function applyBedtime() {
+    if (bedtime) loadNightNext();
+    var night = book.querySelector(".pill-night");
+    if (night) {
+      night.hidden = !(bedtime && nightNext);
+      if (nightNext) {
+        night.href = "poveste.html?id=" + encodeURIComponent(nightNext.id) + "&citeste=1";
+        night.setAttribute("aria-label", "Încă o poveste de seară: " + nightNext.title);
+      }
+    }
     document.body.classList.toggle("bedtime", bedtime);
     var endLio = book.querySelector(".end-lio");
     if (endLio) endLio.src = bedtime ? "assets/img/lio-somnoros.svg" : endLio.getAttribute("data-awake");
@@ -795,7 +867,9 @@
 
   // ---------- pornire ----------
 
+  var isPersonal = false;
   function start(story) {
+    isPersonal = !!story.personalized;
     document.title = story.title + " — Iamlio";
     // pentru motoarele de căutare, pagina poveștii e cea statică (p/<id>.html, cu tot textul); cititorul e aplicația
     if (!preview && !story.personalized) {
@@ -1068,7 +1142,20 @@
         if (!res.ok) throw new Error(res.status);
         return res.json();
       })
-      .then(function (data) { found = true; return data; });
+      .then(function (data) {
+        found = true;
+        // coperta începe să se descarce imediat, fără să aștepte lista fișierelor audio
+        var cover = data && data.cover;
+        if (cover && cover.image) {
+          var early = new Image();
+          if (cover.imageSmall) {
+            early.sizes = "(orientation: portrait) 92vw, 55vw";
+            early.srcset = base + cover.imageSmall + " 768w, " + base + cover.image + " 1536w";
+          }
+          early.src = base + cover.image;
+        }
+        return data;
+      });
     Promise.all([text, voices])
       .then(function (both) {
         manifest = both[1];

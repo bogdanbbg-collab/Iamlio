@@ -30,7 +30,7 @@ let server, browser, site;
 before(async () => {
   site = mkdtempSync(join(tmpdir(), "iamlio-admin-"));
   cpSync(join(ROOT, "build/site"), site, { recursive: true });
-  for (const name of ["citiri.json", "vizite.json", "erori.json"]) rmSync(join(site, "api/data", name), { force: true });
+  for (const name of ["citiri.json", "vizite.json", "erori.json", "pareri.json"]) rmSync(join(site, "api/data", name), { force: true });
   const salt = "sare";
   writeFileSync(join(site, "api/data/parola.json"),
     JSON.stringify({ salt, hash: createHash("sha256").update(salt + PASSWORD).digest("hex") }));
@@ -149,6 +149,33 @@ test("admin: erorile din browser apar grupate, fără date personale, și se pot
   admin.once("dialog", (dialog) => dialog.accept());
   await admin.click("#clear-errors");
   await admin.waitForFunction(() => document.getElementById("errors").textContent.includes("Nicio eroare"));
+});
+
+test("admin: „Ți-a plăcut povestea?” se numără o dată pe zi și apare în panou", async () => {
+  const vote = async (nota) => {
+    const r = await fetch(`${BASE}/api/parere.php?id=${STORY.id}&nota=${nota}`, { method: "POST" });
+    return { status: r.status, body: await r.json() };
+  };
+  const first = await vote(3);
+  assert.equal(first.status, 200);
+  assert.equal(first.body.numarat, true);
+  assert.equal((await vote(1)).body.numarat, false, "același vizitator, aceeași zi: nu se mai numără");
+  const bad = await fetch(`${BASE}/api/parere.php?id=${STORY.id}&nota=7`, { method: "POST" });
+  await bad.arrayBuffer();
+  assert.equal(bad.status, 400);
+  const unknown = await fetch(`${BASE}/api/parere.php?id=nu-exista&nota=3`, { method: "POST" });
+  await unknown.arrayBuffer();
+  assert.equal(unknown.status, 404);
+  const get = await fetch(`${BASE}/api/parere.php`);
+  await get.arrayBuffer();
+  assert.equal(get.status, 405, "totalurile nu sunt publice");
+
+  const admin = await loggedIn();
+  const data = await adminData(admin);
+  assert.equal(data.pareri[STORY.id]["3"], 1);
+  await admin.reload();
+  await admin.waitForSelector("#panel:not([hidden])");
+  assert.match(await admin.textContent("#likes"), new RegExp(STORY.title));
 });
 
 test("admin: rapoartele de erori invalide sau prea multe sunt refuzate", async () => {

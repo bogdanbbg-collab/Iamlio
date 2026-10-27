@@ -48,19 +48,6 @@ $hourly = array_filter($hourly, function ($entry) use ($now) {
 $dirty = count($recent) + count($hourly) !== $before || !isset($stored['citiri']);
 $counted = false;
 
-// Doar poveștile din bibliotecă se numără și se arată: cele personalizate au link secret, care nu trebuie
-// să apară în răspunsul public al contorului.
-function public_story_ids()
-{
-    $index = read_json_file(__DIR__ . '/../stories/index.json');
-    $ids = [];
-    foreach (isset($index['stories']) && is_array($index['stories']) ? $index['stories'] : [] as $story) {
-        if (is_array($story) && isset($story['id']) && is_string($story['id'])) {
-            $ids[$story['id']] = true;
-        }
-    }
-    return $ids;
-}
 $public = public_story_ids();
 
 if ($method === 'POST') {

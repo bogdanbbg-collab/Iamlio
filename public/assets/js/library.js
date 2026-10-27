@@ -16,6 +16,9 @@
 
   var filtersEl = document.getElementById("filters");
   var toggleBtn = document.getElementById("filters-toggle");
+  var searchBox = document.getElementById("search-box");
+  var searchInput = document.getElementById("search");
+  var MIN_FOR_SEARCH = 12; // căutarea apare când biblioteca e destul de mare ca să ajute
   var badgeEl = document.getElementById("filters-badge");
   var chipsEl = document.getElementById("category-chips");
   var favoritesBtn = document.getElementById("favorites-filter");
@@ -29,7 +32,8 @@
   var filters = {
     categorie: query.get("categorie") || "",
     durata: query.get("durata") || "",
-    favorite: query.get("favorite") === "1"
+    favorite: query.get("favorite") === "1",
+    cauta: query.get("cauta") || ""
   };
 
   function saveFilters() {
@@ -37,6 +41,7 @@
     if (filters.categorie) params.set("categorie", filters.categorie);
     if (filters.durata) params.set("durata", filters.durata);
     if (filters.favorite) params.set("favorite", "1");
+    if (filters.cauta.trim()) params.set("cauta", filters.cauta.trim());
     var search = params.toString();
     try {
       history.replaceState(null, "", search ? "?" + search : location.pathname);
@@ -50,10 +55,24 @@
     return true;
   }
 
+  // Căutarea: fără diacritice și fără majuscule; fiecare cuvânt căutat trebuie să apară în titlu, rezumat,
+  // etichete sau categorii („arici”, „iarna”, „culcare”).
+  function plainText(text) {
+    return String(text || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  }
+  function searchFits(story) {
+    var words = plainText(filters.cauta).split(/\s+/).filter(Boolean);
+    if (!words.length) return true;
+    var labels = (story.categories || []).map(function (c) { return categories[c] ? categories[c].label : c; });
+    var haystack = plainText([story.title, story.summary].concat(story.tags || [], labels).join(" "));
+    return words.every(function (word) { return haystack.indexOf(word) !== -1; });
+  }
+
   function matches(story) {
     return (!filters.categorie || (story.categories || []).indexOf(filters.categorie) !== -1) &&
       durationFits(story.minutes, filters.durata) &&
-      (!filters.favorite || Iamlio.isFavorite(story.id));
+      (!filters.favorite || Iamlio.isFavorite(story.id)) &&
+      searchFits(story);
   }
 
   function card(story) {
@@ -123,12 +142,15 @@
     if (filters.favorite && !stories.some(function (s) { return Iamlio.isFavorite(s.id); })) {
       box.appendChild(el("p", null, "Încă nu ai povești favorite. Apasă pe ♡ la o poveste ca s-o găsești ușor aici."));
     } else {
-      box.appendChild(el("p", null, "Nicio poveste nu se potrivește filtrelor alese."));
+      box.appendChild(el("p", null, filters.cauta.trim()
+        ? "Nu am găsit nicio poveste pentru „" + filters.cauta.trim() + "”."
+        : "Nicio poveste nu se potrivește filtrelor alese."));
     }
     var reset = el("button", "pill", "Arată toate poveștile");
     reset.type = "button";
     reset.addEventListener("click", function () {
-      filters = { categorie: "", durata: "", favorite: false };
+      filters = { categorie: "", durata: "", favorite: false, cauta: "" };
+      searchInput.value = "";
       syncFilters();
       showStories();
     });
@@ -275,6 +297,12 @@
       if (stories.length > 1) buildFilters(library.categories || []); // cu o singură poveste n-ai ce filtra
       else toggleBtn.hidden = true;
       picksBtn.hidden = stories.length < MIN_FOR_PICK;
+      if (stories.length >= MIN_FOR_SEARCH) {
+        searchBox.hidden = false;
+        searchInput.value = filters.cauta;
+      } else {
+        filters.cauta = "";
+      }
       showStories();
       Iamlio.fetchCounts().then(function (result) {
         if (!result) return;
@@ -295,6 +323,15 @@
       again.addEventListener("click", function () { location.reload(); });
       grid.appendChild(again);
     });
+
+  var searchTimer = null;
+  searchInput.addEventListener("input", function () {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(function () {
+      filters.cauta = searchInput.value;
+      showStories();
+    }, 150);
+  });
 
   // ---------- „Lio, alege tu!” ----------
 

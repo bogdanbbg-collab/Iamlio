@@ -158,6 +158,7 @@
     renderBars(document.getElementById("chart-visits"), days30, visitors, "vizitatori");
     renderBars(document.getElementById("chart-reads"), days30, reads, "povești deschise");
     renderTop(stories, totals, readsByDay, days30);
+    renderLikes(stories, data.pareri || {});
     renderLibrary(site, stories);
     renderTodo(site);
     renderErrors(data.erori || []);
@@ -258,6 +259,36 @@
       row.appendChild(el("td", "num", number(r.week)));
       row.appendChild(el("td", "num", number(r.month)));
       row.appendChild(el("td", null, r.story && r.story.published ? dateLabel(r.story.published, true) : "—"));
+    });
+    box.appendChild(table);
+  }
+
+  function renderLikes(stories, likes) {
+    var box = document.getElementById("likes");
+    box.textContent = "";
+    var titles = {};
+    stories.forEach(function (s) { titles[s.id] = s.title; });
+    var rows = Object.keys(likes).map(function (id) {
+      var v = likes[id] || {};
+      var love = Number(v["3"] || 0), yes = Number(v["2"] || 0), meh = Number(v["1"] || 0);
+      var all = love + yes + meh;
+      return { id: id, love: love, yes: yes, meh: meh, all: all, score: all ? (love * 3 + yes * 2 + meh) / all : 0 };
+    }).filter(function (r) { return r.all > 0; })
+      .sort(function (a, b) { return b.score - a.score || b.all - a.all; });
+    if (!rows.length) {
+      box.appendChild(el("p", "admin-muted", "Încă nu există răspunsuri."));
+      return;
+    }
+    var table = el("table", "admin-table");
+    var head = table.createTHead().insertRow();
+    ["Povestea", "😍 Foarte mult", "🙂 Da", "😐 Așa și așa", "Răspunsuri"].forEach(function (h, i) {
+      head.appendChild(el("th", i ? "num" : null, h));
+    });
+    var body = table.createTBody();
+    rows.forEach(function (r) {
+      var row = body.insertRow();
+      row.appendChild(el("td", null, titles[r.id] || r.id));
+      [r.love, r.yes, r.meh, r.all].forEach(function (n) { row.appendChild(el("td", "num", number(n))); });
     });
     box.appendChild(table);
   }

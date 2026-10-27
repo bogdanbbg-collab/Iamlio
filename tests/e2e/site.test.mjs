@@ -897,6 +897,71 @@ test("mod de culcare: la final, Lio e somnoros", async () => {
   assert.match(await p.getAttribute(".is-current .end-lio", "src"), /lio-somnoros/);
 });
 
+test("mod de culcare: la final, „Încă o poveste de seară” pornește altă poveste de culcare", async () => {
+  const p = await page({ reducedMotion: "reduce" });
+  await p.addInitScript(() => localStorage.setItem("iamlio-culcare", "1"));
+  await goToEnd(p, STORY.id);
+  const night = p.locator(".is-current .pill-night");
+  await night.waitFor({ state: "visible" });
+  const href = await night.getAttribute("href");
+  assert.match(href, /poveste\.html\?id=[a-z0-9-]+&citeste=1$/);
+  assert.ok(!href.includes(`id=${STORY.id}&`), "nu e aceeași poveste");
+  const library = JSON.parse(readFileSync(join(site, "stories/index.json"), "utf-8"));
+  const next = library.stories.find((s) => href.includes(`id=${s.id}&`));
+  assert.ok(next && next.categories.includes("de-culcare"), "tot o poveste de culcare");
+
+  const day = await page({ reducedMotion: "reduce" }); // fără modul de culcare, butonul nu apare
+  await goToEnd(day, STORY.id);
+  await day.waitForTimeout(500);
+  assert.ok(await day.locator(".is-current .pill-night").isHidden());
+});
+
+test("„Ți-a plăcut povestea?”: trei fețe la final, un singur răspuns, apoi „Mulțumim!”", async () => {
+  const p = await page({ reducedMotion: "reduce" });
+  const sent = [];
+  p.on("request", (r) => { if (r.url().includes("api/parere.php")) sent.push(r.url()); });
+  await goToEnd(p, STORY.id);
+  const buttons = p.locator(".is-current .feedback-btn");
+  assert.equal(await buttons.count(), 3);
+  assert.equal(await buttons.nth(0).getAttribute("aria-label"), "Foarte mult");
+  await buttons.nth(0).click();
+  await p.waitForSelector(".is-current .feedback-thanks");
+  await p.waitForTimeout(300);
+  assert.equal(sent.length, 1);
+  assert.match(sent[0], new RegExp(`id=${STORY.id}&nota=3$`));
+  assert.deepEqual(p.errors, []);
+});
+
+test("căutare: apare de la 12 povești, fără diacritice, păstrată în adresă", async () => {
+  const p = await page();
+  await p.route("**/stories/index.json*", async (route) => {
+    const body = await (await route.fetch()).json();
+    const base = body.stories[0];
+    for (let i = 1; body.stories.length < 12; i++) {
+      body.stories.push({ ...base, id: `proba-${i}`, title: `Poveste de probă ${i}`, summary: "Un text oarecare.", tags: [] });
+    }
+    await route.fulfill({ json: body });
+  });
+  await p.goto(`${BASE}/`);
+  await p.waitForSelector(".story-card .fav-btn");
+  assert.ok(await p.isVisible("#search"));
+  await p.fill("#search", "ursuletul");
+  await p.waitForFunction(() => document.querySelectorAll(".story-card").length === 1);
+  assert.match(await p.textContent(".story-card h3"), /Ursulețul somnoros/);
+  assert.match(p.url(), /cauta=ursuletul/);
+  await p.fill("#search", "zzz nimic");
+  await p.waitForSelector(".empty-state");
+  assert.match(await p.textContent(".empty-state"), /Nu am găsit nicio poveste/);
+  await p.click(".empty-state .pill");
+  await p.waitForFunction(() => document.querySelectorAll(".story-card").length === 12);
+  assert.equal(await p.inputValue("#search"), "");
+
+  const few = await page(); // sub 12 povești căutarea nu apare
+  await few.goto(`${BASE}/`);
+  await few.waitForSelector(".story-card .fav-btn");
+  assert.ok(await few.isHidden("#search-box"));
+});
+
 test("povești personalizate: link secret, în afara bibliotecii, previzualizare până la aprobare", async () => {
   const p = await page({ viewport: { width: 1280, height: 900 } });
   await p.goto(`${BASE}/`);

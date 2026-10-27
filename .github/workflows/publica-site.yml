@@ -343,6 +343,7 @@ jobs:
             api/data/vizite.json
             api/data/erori.json
             api/data/erori-vizitatori.json
+            api/data/pareri.json
             api/data/*.tmp
             api/data/copii/**
 
@@ -362,7 +363,7 @@ jobs:
             fetch "p/$first.html" | diff -q - "build/site/p/$first.html"
             fetch "stories/$first/audio/manifest.json" | diff -q - "build/site/stories/$first/audio/manifest.json"
           fi
-          for private in citiri.json cheie.txt parola.json admin-info.json vizite.json erori.json; do
+          for private in citiri.json cheie.txt parola.json admin-info.json vizite.json erori.json pareri.json; do
             code=$(curl -s -o /dev/null -w "%{http_code}" "$SITE_URL/api/data/$private")
             [ "$code" = "403" ] || [ "$code" = "404" ] || { echo "::error::api/data/$private este accesibil public (HTTP $code)"; exit 1; }
           done
