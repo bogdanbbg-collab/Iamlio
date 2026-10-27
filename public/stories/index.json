@@ -56,6 +56,29 @@
       "published": "2026-10-27"
     },
     {
+      "id": "lio-si-omul-de-zapada",
+      "title": "Lio și omul de zăpadă",
+      "summary": "A nins! Lio face un om de zăpadă care prinde viață, strănută și vrea un fular. Dar un iepuraș flămând îi mănâncă nasul de morcov… Cum îl ajută Lio pe toată lumea?",
+      "age": "3-7",
+      "tags": [
+        "iarnă",
+        "zăpadă",
+        "om de zăpadă",
+        "iepure",
+        "păsări"
+      ],
+      "categories": [
+        "invatam",
+        "amuzante",
+        "prietenie"
+      ],
+      "created": "2026-10-27",
+      "cover": "stories/lio-si-omul-de-zapada/images/coperta.webp",
+      "pages": 11,
+      "minutes": 4,
+      "published": "2026-10-27"
+    },
+    {
       "id": "victor-si-dovleacul-luminos",
       "title": "Victor și dovleacul luminos",
       "summary": "Într-o seară de toamnă, Victor și tata scobesc un dovleac uriaș. Dar dovleacul chicotește când e gâdilat și vrea neapărat o față veselă!",
