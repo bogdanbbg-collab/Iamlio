@@ -61,9 +61,13 @@ imaginile și le salvează în `public/stories/<id>/`. După push, GitHub Action
 3. optimizează imaginile (WebP, 1536×1024) și verifică povestea după reguli; scrie raportul
    `rapoarte/<poveste>.md` (**PUBLICATĂ** / **NEPUBLICATĂ** și ce e de corectat) — o poveste care nu trece
    **nu ajunge pe site**, dar nu le oprește pe celelalte;
-4. generează vocea în română cu `edge-tts` (gratuit), **în două variante**: feminină (`ro-RO-AlinaNeural`)
-   și masculină (`ro-RO-EmilNeural`), cu **regie de voce** (ton pe fiecare replică, voci de personaje, pauze);
-   reîncearcă automat la erori de rețea și verifică apoi că există toate fișierele;
+4. generează vocea în română cu **Google Chirp 3 HD** (secretul `GOOGLE_TTS_API_KEY`; 1.000.000 de caractere
+   gratuite pe lună, limită proprie de 800.000 în variabila `MAX_TTS_CHARS_MONTH`, consumul în
+   `rapoarte/buget-voce.md`), **în două variante**: naratoare Sulafat și narator Algieba; Lio și fiecare personaj
+   au voce proprie. Fără cheie, peste limită sau dacă Google nu răspunde, se folosește `edge-tts` (gratuit),
+   iar la publicarea următoare se încearcă din nou Chirp. Cu **regie de voce** (ton pe fiecare replică, pauze);
+   reîncearcă automat la erori de rețea și verifică apoi că există toate fișierele (`scripts/test_voce.py` și
+   workflow-ul „Test voce” fac mostre pentru alegerea vocilor);
 5. actualizează biblioteca;
 6. **testează încă o dată site-ul final** (exact ce se urcă, cu vocile și imaginile noi) în browser; dacă pică,
    nu se publică nimic;

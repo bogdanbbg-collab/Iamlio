@@ -207,8 +207,10 @@ Câmpul `illustrationStyle` din `story.json` conține primele 4 rânduri (stilul
 
 ## 7. Vocea și regia de voce
 
-Vocea se generează **automat** de GitHub Actions (cu `edge-tts`, gratuit), după push, în **două variante**:
-**feminină** (`ro-RO-AlinaNeural`) și **masculină** (`ro-RO-EmilNeural`). Cel care citește alege din site.
+Vocea se generează **automat** de GitHub Actions (cu vocile naturale Google **Chirp 3 HD**; rezervă `edge-tts`),
+după push, în **două variante**: **feminină** (naratoarea Sulafat) și **masculină** (naratorul Algieba). Cel care
+citește alege din site. Lio și fiecare personaj care vorbește primesc automat o **voce proprie**, diferită de a
+povestitorului și a celorlalte personaje.
 **Nu genera tu fișiere audio** și nu adăuga câmpuri `audio`.
 
 Ca povestea să nu sune robotic, **scrii explicit regia de voce** — cum se citește fiecare bucată.
@@ -253,7 +255,10 @@ Fiecare personaj care vorbește poate avea un profil de voce, ca să se deosebea
 
 - `type`: `feminin` sau `masculin` — vocea fixă a personajului; lipsă = vocea aleasă de cel care ascultă;
 - `pitch`: înălțimea, între −30 și +40 (pozitiv = mai subțire: copii, animale mici; negativ = mai gros: urși, uriași);
-- `rate`: viteza, între −30 și +30 (negativ = mai rar: bunici, bufnițe înțelepte; pozitiv = mai repede: veverițe).
+  cu Chirp, `pitch` alege tipul vocii: de la +10 în sus o voce tânără și vioaie, de la −8 în jos una gravă, matură;
+- `rate`: viteza, între −30 și +30 (negativ = mai rar: bunici, bufnițe înțelepte; pozitiv = mai repede: veverițe);
+- `chirp`: (opțional, rar) numele exact al unei voci Chirp 3 HD, dacă vrei una anume (de ex. `"Charon"`); lipsă =
+  aleasă automat. Vocile ocupate: Sulafat și Algieba (povestitorul), Leda și Puck (Lio).
 
 Lio are deja profilul lui (`"pitch": 12, "rate": 3`) — folosește-l la fel când Lio vorbește.
 

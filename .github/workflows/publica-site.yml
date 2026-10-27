@@ -215,8 +215,12 @@ jobs:
           USD_LEI: ${{ vars.USD_LEI }}
         run: python scripts/stories.py prepare
 
-      - name: Generează vocea feminină și masculină (edge-tts + regie de voce)
+      - name: Generează vocea feminină și masculină (Google Chirp 3 HD, rezervă edge-tts; regie de voce)
         if: env.NORMAL == 'true'
+        env:
+          # Google Cloud Text-to-Speech (Chirp 3 HD): 1.000.000 de caractere gratuite pe lună; limita de aici e mai mică
+          GOOGLE_TTS_API_KEY: ${{ secrets.GOOGLE_TTS_API_KEY }}
+          MAX_TTS_CHARS_MONTH: ${{ vars.MAX_TTS_CHARS_MONTH }}
         run: python scripts/stories.py audio
 
       - name: Verifică fișierele audio (decodare completă, ambele voci, toate paginile)

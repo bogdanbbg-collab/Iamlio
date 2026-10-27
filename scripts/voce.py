@@ -1,19 +1,51 @@
 """Regia de voce pentru Iamlio: împarte textul în replici, le dă intonație și le lipește cu pauze.
 
-edge-tts nu acceptă SSML, așa că intonația se obține generând fiecare bucată separat, cu viteza,
-înălțimea și volumul potrivite tonului (`mood`) și personajului, apoi lipind bucățile cu ffmpeg.
+Vocea principală e Google Cloud Text-to-Speech, Chirp 3 HD (cheia în GOOGLE_TTS_API_KEY): voci naturale, iar
+fiecare personaj primește o voce proprie. Dacă nu e cheie, serviciul nu răspunde sau s-a atins limita lunară de
+caractere, se folosește edge-tts (gratuit, fără cont), unde personajele se deosebesc prin înălțime și viteză.
+Fiecare bucată se generează separat, cu tonul ei (`mood`), apoi bucățile se lipesc cu ffmpeg.
 Formatul explicit (câmpul `narration` al unei pagini) e descris în REGULI_POVESTI.md, secțiunea 7.
 """
 
 import asyncio
+import base64
+import json
+import math
+import os
 import re
 import shutil
 import subprocess
 import tempfile
+import time
 from dataclasses import dataclass
 from pathlib import Path
 
 VOICES = {"feminin": "ro-RO-AlinaNeural", "masculin": "ro-RO-EmilNeural"}
+
+# Chirp 3 HD: vocea povestitorului, a lui Lio și vocile din care primesc personajele (după tip și înălțime).
+# Între paranteze, descrierea Google a vocii.
+CHIRP_NARRATOR = {"feminin": "Sulafat", "masculin": "Algieba"}  # caldă / catifelată
+CHIRP_LIO = {"feminin": "Leda", "masculin": "Puck"}  # tinerească / veselă
+CHIRP_POOLS = {
+    "feminin": {
+        "inalt": ["Laomedeia", "Zephyr", "Autonoe", "Leda"],  # veselă, luminoasă, luminoasă, tinerească
+        "grav": ["Gacrux", "Kore", "Pulcherrima"],  # matură, fermă, directă
+        "normal": ["Achernar", "Vindemiatrix", "Aoede", "Despina", "Callirrhoe", "Erinome"],
+    },
+    "masculin": {
+        "inalt": ["Fenrir", "Sadachbia", "Puck"],  # entuziasmată, vioaie, veselă
+        "grav": ["Algenib", "Charon", "Rasalgethi", "Alnilam"],  # răgușită, gravă, sfătoasă, fermă
+        "normal": ["Achird", "Iapetus", "Umbriel", "Schedar", "Zubenelgenubi", "Orus", "Sadaltager", "Enceladus"],
+    },
+}
+CHIRP_VOICES = sorted({v for pools in CHIRP_POOLS.values() for pool in pools.values() for v in pool}
+                      | set(CHIRP_NARRATOR.values()) | set(CHIRP_LIO.values()))
+CHIRP_HIGH, CHIRP_LOW = 10, -8  # de la ce înălțime (pitch) un personaj primește o voce „înaltă” sau „gravă”
+CHIRP_RATE = 0.92  # puțin mai rar decât normal: ascultă copii mici
+CHIRP_URL = "https://texttospeech.googleapis.com/v1/text:synthesize"
+CHIRP_LANGUAGE = "ro-RO"
+CHIRP_WAITS = (3, 6, 12, 24, 48)  # secunde între reîncercări (limita de cereri pe minut)
+DEFAULT_CHIRP_MONTH_CHARS = 800_000  # din 1.000.000 gratuite pe lună; peste limită se trece pe edge-tts
 
 # Versiunea regiei: schimb-o când modifici tonurile, ca să se regenereze toate fișierele audio.
 ENGINE_VERSION = "3"  # 3: se salvează și momentul fiecărei replici (pentru evidențierea textului)
@@ -62,9 +94,11 @@ class Params:
     rate: int
     pitch: int
     volume: int
+    engine: str = "edge"
 
     def key(self):
-        return f"{self.voice}|{self.rate}|{self.pitch}|{self.volume}"
+        base = f"{self.voice}|{self.rate}|{self.pitch}|{self.volume}"
+        return base if self.engine == "edge" else f"{self.engine}|{base}"
 
 
 def clamp(value, bounds):
@@ -195,11 +229,43 @@ def page_segments(page, characters=()):
     return segments
 
 
-def segment_params(segment, voice_key, characters):
+def chirp_cast(voice_key, characters):
+    """Vocea Chirp a fiecărui personaj, în ordinea din characters: Lio are vocea lui, ceilalți primesc pe rând
+    prima voce liberă potrivită tipului și înălțimii lor (sau vocea scrisă explicit în voice.chirp)."""
+    used = {CHIRP_NARRATOR[voice_key], CHIRP_LIO[voice_key]}
+    cast = {"Lio": CHIRP_LIO[voice_key]}
+    for character in characters:
+        name = character.get("name")
+        if not name or name == "Lio":
+            continue
+        profile = character.get("voice") or {}
+        if profile.get("chirp") in CHIRP_VOICES:
+            cast[name] = profile["chirp"]
+            used.add(profile["chirp"])
+            continue
+        gender = profile.get("type") if profile.get("type") in VOICES else voice_key
+        pitch = int(profile.get("pitch", 0) or 0)
+        height = "inalt" if pitch >= CHIRP_HIGH else "grav" if pitch <= CHIRP_LOW else "normal"
+        pools = CHIRP_POOLS[gender]
+        candidates = pools[height] + [v for h in ("normal", "inalt", "grav") if h != height for v in pools[h]]
+        choice = next((v for v in candidates if v not in used), candidates[0])
+        cast[name] = choice
+        used.add(choice)
+    return cast
+
+
+def segment_params(segment, voice_key, characters, engine="edge"):
     """Vocea finală a unei bucăți: vocea aleasă + tonul + profilul personajului care vorbește."""
     rate, pitch, volume = MOODS.get(segment.mood, MOODS[NARRATOR_MOOD])
-    voice = VOICES[voice_key]
     profile = next((c.get("voice") or {} for c in characters if c.get("name") == segment.speaker), {})
+    if engine == "chirp":
+        # vocile Chirp au deja intonație naturală și voce proprie pentru fiecare personaj: tonul schimbă doar
+        # puțin viteza (jumătate din cât la edge-tts) și volumul (șoptit, somnoros)
+        voice = chirp_cast(voice_key, characters).get(segment.speaker) if segment.speaker else None
+        rate = (rate + int(profile.get("rate", 0))) // 2
+        return Params(voice or CHIRP_NARRATOR[voice_key], clamp(rate, LIMITS["rate"]), 0,
+                      clamp(volume, LIMITS["volume"]), "chirp")
+    voice = VOICES[voice_key]
     if profile.get("type") in VOICES:
         voice = VOICES[profile["type"]]
     rate += int(profile.get("rate", 0))
@@ -207,11 +273,102 @@ def segment_params(segment, voice_key, characters):
     return Params(voice, clamp(rate, LIMITS["rate"]), clamp(pitch, LIMITS["pitch"]), clamp(volume, LIMITS["volume"]))
 
 
-def fingerprint(segments, voice_key, characters):
+def fingerprint(segments, voice_key, characters, engine="edge"):
     parts = [ENGINE_VERSION, voice_key]
     for s in segments:
-        parts.append(f"{s.text}|{s.pause}|{segment_params(s, voice_key, characters).key()}")
+        parts.append(f"{s.text}|{s.pause}|{segment_params(s, voice_key, characters, engine).key()}")
     return "\n".join(parts)
+
+
+class ChirpUnavailable(RuntimeError):
+    """Chirp nu poate genera acum (fără cheie, limita lunară, cheie greșită, serviciul nu răspunde): se trece pe edge-tts."""
+
+
+class ChirpBudget:
+    """Caracterele trimise la Google în fiecare lună (în rapoarte/buget-voce.json), ca să nu se treacă de partea gratuită."""
+
+    def __init__(self, path=None):
+        from datetime import date
+
+        self.path = Path(path) if path else None
+        self.month = date.today().strftime("%Y-%m")
+        try:
+            data = json.loads(self.path.read_text(encoding="utf-8")) if self.path else {}
+        except (OSError, ValueError):
+            data = {}
+        self.history = {m: int(v) for m, v in data.items() if isinstance(v, int)} if isinstance(data, dict) else {}
+        self.used = self.history.get(self.month, 0)
+        try:
+            self.limit = int(os.environ.get("MAX_TTS_CHARS_MONTH") or DEFAULT_CHIRP_MONTH_CHARS)
+        except ValueError:
+            self.limit = DEFAULT_CHIRP_MONTH_CHARS
+
+    def take(self, characters):
+        if self.used + characters > self.limit:
+            raise ChirpUnavailable(f"limita lunară de {self.limit} caractere (MAX_TTS_CHARS_MONTH) a fost atinsă")
+        self.used += characters
+
+    def save(self):
+        if not self.path or self.used == self.history.get(self.month, 0):
+            return
+        self.history[self.month] = self.used
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        self.path.write_text(json.dumps(self.history, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
+class Chirp:
+    """Clientul Google Cloud Text-to-Speech (Chirp 3 HD), cu limita lunară și oprire la prima eroare definitivă."""
+
+    def __init__(self, key, budget):
+        self.key = key
+        self.budget = budget
+        self.broken = ""  # după o eroare definitivă (cheie greșită, limită), restul fișierelor trec direct pe edge-tts
+
+    def _call(self, body):
+        import urllib.error
+        import urllib.request
+
+        request = urllib.request.Request(CHIRP_URL, data=json.dumps(body).encode(),
+                                         headers={"Content-Type": "application/json", "X-Goog-Api-Key": self.key})
+        for attempt, wait in enumerate((*CHIRP_WAITS, None), start=1):
+            try:
+                with urllib.request.urlopen(request, timeout=60) as response:
+                    return json.load(response)
+            except urllib.error.HTTPError as exc:
+                detail = exc.read().decode(errors="replace")[:300]
+                if exc.code != 429 and exc.code < 500 or wait is None:
+                    raise ChirpUnavailable(f"Google TTS HTTP {exc.code} (încercarea {attempt}): {detail}") from None
+            except (urllib.error.URLError, TimeoutError, OSError) as exc:
+                if wait is None:
+                    raise ChirpUnavailable(f"Google TTS nu răspunde: {exc}") from None
+            time.sleep(wait)  # prea multe cereri pe minut sau o eroare temporară la Google
+        raise ChirpUnavailable("Google TTS nu răspunde")
+
+    async def synthesize(self, text, params, target):
+        if self.broken:
+            raise ChirpUnavailable(self.broken)
+        spoken = text.lstrip("—– ").strip() or text
+        try:
+            self.budget.take(len(spoken))
+            body = {
+                "input": {"text": spoken},
+                "voice": {"languageCode": CHIRP_LANGUAGE, "name": f"{CHIRP_LANGUAGE}-Chirp3-HD-{params.voice}"},
+                "audioConfig": {"audioEncoding": "MP3", "speakingRate": round(CHIRP_RATE * (1 + params.rate / 100), 3)},
+            }
+            data = await asyncio.to_thread(self._call, body)
+        except ChirpUnavailable as exc:
+            self.broken = str(exc)
+            raise
+        audio = base64.b64decode(data.get("audioContent") or "")
+        if not audio:
+            raise ChirpUnavailable("Google TTS a trimis un fișier audio gol")
+        target.write_bytes(audio)
+        if params.volume:
+            gain = 20 * math.log10(max(0.05, 1 + params.volume / 100))
+            louder = target.with_name(target.stem + "-vol.mp3")
+            await asyncio.to_thread(subprocess.run, [ffmpeg_binary(), "-y", "-loglevel", "error", "-i", str(target),
+                                                     "-af", f"volume={gain:.1f}dB", str(louder)], check=True)
+            os.replace(louder, target)
 
 
 async def synthesize(text, params, target):
@@ -276,14 +433,14 @@ def duration(path):
     return Path(path).stat().st_size / 6000
 
 
-async def render(segments, voice_key, characters, target, synth=synthesize):
+async def render(segments, voice_key, characters, target, synth=synthesize, engine="edge"):
     """Generează un fișier audio complet din bucăți (synth poate fi înlocuit în teste).
     Întoarce momentele [început, sfârșit] (secunde) ale fiecărei replici, pentru evidențierea textului."""
     with tempfile.TemporaryDirectory() as tmp:
         parts = []
         for number, segment in enumerate(segments):
             part = Path(tmp) / f"bucata-{number:03d}.mp3"
-            await synth(segment.text, segment_params(segment, voice_key, characters), part)
+            await synth(segment.text, segment_params(segment, voice_key, characters, engine), part)
             parts.append(part)
         # ffmpeg și ffprobe rulează în alt fir, ca celelalte fișiere să se genereze între timp
         await asyncio.to_thread(assemble, parts, [s.pause for s in segments], target)

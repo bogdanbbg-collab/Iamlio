@@ -19,6 +19,7 @@ Comenzi:
 import asyncio
 import hashlib
 import json
+import os
 import re
 import shutil
 import sys
@@ -118,6 +119,8 @@ def validate_voice_profile(name, profile):
         return [f"personajul {name}: voice trebuie să fie un obiect"]
     if "type" in profile and profile["type"] not in VOICES:
         errors.append(f"personajul {name}: voice.type trebuie să fie {' sau '.join(VOICES)}")
+    if "chirp" in profile and profile["chirp"] not in voce.CHIRP_VOICES:
+        errors.append(f"personajul {name}: voice.chirp trebuie să fie una dintre vocile {', '.join(voce.CHIRP_VOICES)}")
     for key, bounds in (("pitch", voce.CHARACTER_PITCH), ("rate", voce.CHARACTER_RATE)):
         value = profile.get(key, 0)
         if not isinstance(value, int) or not bounds[0] <= value <= bounds[1]:
@@ -1027,8 +1030,10 @@ def narration_items(data):
 AUDIO_CONCURRENCY = 6  # câte fișiere audio se generează deodată (edge-tts + ffmpeg)
 
 
-async def generate_audio_set(audio_dir, items, characters):
-    """Generează items pentru fiecare voce, doar ce s-a schimbat (după amprenta regiei), câte mai multe deodată."""
+async def generate_audio_set(audio_dir, items, characters, chirp=None):
+    """Generează items pentru fiecare voce, doar ce s-a schimbat (după amprenta regiei), câte mai multe deodată.
+    Cu chirp (Google Chirp 3 HD) vocile sunt cele naturale; dacă Chirp nu poate, fișierul se face cu edge-tts
+    și se reface cu Chirp la o publicare următoare (amprenta lui spune cu ce a fost generat)."""
     manifest_file = audio_dir / "manifest.json"
     old = read_manifest(manifest_file)
     manifest = {}
@@ -1039,15 +1044,32 @@ async def generate_audio_set(audio_dir, items, characters):
     def save(data):
         write_json_atomic(manifest_file, data)
 
-    async def make(key, name, segments, digest, target):
+    def digest_for(segments, key, engine):
+        return hashlib.sha1(voce.fingerprint(segments, key, characters, engine).encode()).hexdigest()
+
+    async def make(key, name, segments, target, previous, previous_timing):
         async with limit:
-            print(f"    🔊 {target.relative_to(ROOT)}")
-            result = await voce.render(segments, key, characters, target)
+            result = None
+            if chirp and not chirp.broken:
+                print(f"    🔊 {target.relative_to(ROOT)}")
+                try:
+                    result = await voce.render(segments, key, characters, target, synth=chirp.synthesize, engine="chirp")
+                    digest = digest_for(segments, key, "chirp")
+                except voce.ChirpUnavailable:
+                    result = None  # motivul se afișează o singură dată, la final
+            if result is None:
+                digest = digest_for(segments, key, "edge")
+                if previous.get(name) == digest and target.exists() and name in previous_timing:
+                    result = previous_timing[name]  # varianta edge-tts de dinainte e încă bună
+                else:
+                    print(f"    🔊 {target.relative_to(ROOT)} (edge-tts)")
+                    result = await voce.render(segments, key, characters, target)
         timing[key][name] = result
         manifest[key][name] = digest
         # scriem manifestul după fiecare fișier, ca o eroare să nu piardă munca făcută
         save({**old, **manifest, "timing": timing})
 
+    engine = "chirp" if chirp and not chirp.broken else "edge"
     jobs = []
     for key in VOICES:
         (audio_dir / key).mkdir(parents=True, exist_ok=True)
@@ -1055,10 +1077,10 @@ async def generate_audio_set(audio_dir, items, characters):
         previous_timing = old_timing.get(key, {}) if isinstance(old_timing.get(key), dict) else {}
         manifest[key], timing[key] = {}, {}
         for name, segments in items:
-            digest = hashlib.sha1(voce.fingerprint(segments, key, characters).encode()).hexdigest()
+            digest = digest_for(segments, key, engine)
             target = audio_dir / key / name
             if previous.get(name) != digest or not target.exists() or name not in previous_timing:
-                jobs.append(make(key, name, segments, digest, target))
+                jobs.append(make(key, name, segments, target, previous, previous_timing))
             else:
                 timing[key][name] = previous_timing[name]
                 manifest[key][name] = digest
@@ -1138,14 +1160,49 @@ def cmd_audio():
     items = lio_items()
     if items:
         groups.append(("replicile lui Lio", LIO_AUDIO_DIR, items, [LIO_PROFILE]))
+    chirp = make_chirp()
     for label, audio_dir, group_items, characters in groups:
         print(f"[audio] {label}")
         try:
-            asyncio.run(generate_audio_set(audio_dir, group_items, characters))
+            asyncio.run(generate_audio_set(audio_dir, group_items, characters, chirp))
         except Exception as exc:  # rețea, ffmpeg, limită de cereri
             failed.append(label)
             print(f"::warning::vocea pentru {label} nu s-a putut genera complet: {exc}")
+    if chirp:
+        chirp.budget.save()
+        write_voice_report(chirp)
+        if chirp.broken:
+            print(f"::warning::vocile Google Chirp 3 HD nu au putut fi folosite ({chirp.broken}); "
+                  "s-a folosit edge-tts, iar la o publicare următoare se încearcă din nou")
     return 1 if failed else 0
+
+
+VOICE_BUDGET_FILE = REPORTS_DIR / "buget-voce.json"
+
+
+def make_chirp():
+    """Clientul Chirp 3 HD, dacă e configurată cheia GOOGLE_TTS_API_KEY; altfel vocile se fac cu edge-tts."""
+    key = os.environ.get("GOOGLE_TTS_API_KEY", "").strip()
+    if not key:
+        print("[audio] fără GOOGLE_TTS_API_KEY: vocile se generează cu edge-tts")
+        return None
+    budget = voce.ChirpBudget(VOICE_BUDGET_FILE)
+    print(f"[audio] Google Chirp 3 HD: {budget.used} caractere folosite luna aceasta (limita {budget.limit})")
+    return voce.Chirp(key, budget)
+
+
+def write_voice_report(chirp):
+    def number(value):
+        return f"{value:,}".replace(",", ".")
+
+    rows = "".join(f"| {month} | {number(used)} |\n" for month, used in sorted(chirp.budget.history.items()))
+    status = (f"\n**Ultima publicare:** vocile Chirp nu au putut fi folosite ({chirp.broken}); s-a folosit edge-tts.\n"
+              if chirp.broken else "")
+    VOICE_BUDGET_FILE.with_suffix(".md").write_text(
+        "# Caracterele trimise la Google Text-to-Speech (Chirp 3 HD)\n\n"
+        f"Gratuit: 1.000.000 de caractere pe lună. Limita pusă aici: {number(chirp.budget.limit)} (variabila "
+        "MAX_TTS_CHARS_MONTH); peste ea, vocile se fac cu edge-tts până luna următoare.\n"
+        + status + "\n| Luna | Caractere |\n| --- | --- |\n" + rows, encoding="utf-8")
 
 
 MIN_AUDIO_SECONDS = 0.5

@@ -2,13 +2,16 @@
 
 import asyncio
 import copy
+import hashlib
 import json
+import os
 import shutil
 import subprocess
 import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -1039,6 +1042,78 @@ class VoiceTests(unittest.TestCase):
         a = voce.fingerprint([voce.Segment("Bună.", "calm")], "feminin", [])
         b = voce.fingerprint([voce.Segment("Bună.", "vesel")], "feminin", [])
         self.assertNotEqual(a, b)
+
+    def test_chirp_gives_each_character_its_own_voice(self):
+        characters = [{"name": "Cucu", "voice": {"type": "masculin", "pitch": 24}},
+                      {"name": "Bunicul", "voice": {"type": "masculin", "pitch": -14}},
+                      {"name": "Zâna", "voice": {"type": "feminin", "pitch": 22}},
+                      {"name": "Fluturel", "voice": {"type": "masculin", "pitch": 30}},
+                      {"name": "Ursul", "voice": {"chirp": "Charon"}}]
+        cast = voce.chirp_cast("feminin", characters)
+        self.assertEqual(cast["Lio"], voce.CHIRP_LIO["feminin"])
+        self.assertIn(cast["Cucu"], voce.CHIRP_POOLS["masculin"]["inalt"])
+        self.assertIn(cast["Bunicul"], voce.CHIRP_POOLS["masculin"]["grav"])
+        self.assertIn(cast["Zâna"], voce.CHIRP_POOLS["feminin"]["inalt"])
+        self.assertEqual(cast["Ursul"], "Charon")
+        voices = list(cast.values()) + [voce.CHIRP_NARRATOR["feminin"]]
+        self.assertEqual(len(voices), len(set(voices)), "două personaje au aceeași voce")
+        # vocea unui personaj nu se schimbă când se adaugă altele după el
+        self.assertEqual(voce.chirp_cast("feminin", characters[:1])["Cucu"], cast["Cucu"])
+
+    def test_chirp_params_use_cast_and_narrator(self):
+        characters = [{"name": "Cucu", "voice": {"type": "masculin", "pitch": 24, "rate": 8}}]
+        narrator = voce.segment_params(voce.Segment("Era odată."), "masculin", characters, "chirp")
+        self.assertEqual((narrator.voice, narrator.engine), (voce.CHIRP_NARRATOR["masculin"], "chirp"))
+        cucu = voce.segment_params(voce.Segment("— Cucu!", "vesel", "Cucu"), "masculin", characters, "chirp")
+        self.assertEqual(cucu.voice, voce.chirp_cast("masculin", characters)["Cucu"])
+        self.assertEqual(cucu.rate, 5)  # (2 vesel + 8 personaj) / 2
+        self.assertNotEqual(voce.fingerprint([voce.Segment("Bună.")], "feminin", [], "chirp"),
+                            voce.fingerprint([voce.Segment("Bună.")], "feminin", []))
+
+    def test_chirp_budget_stops_at_monthly_limit(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "buget-voce.json"
+            with mock.patch.dict(os.environ, {"MAX_TTS_CHARS_MONTH": "100"}):
+                budget = voce.ChirpBudget(path)
+            budget.take(60)
+            with self.assertRaises(voce.ChirpUnavailable):
+                budget.take(50)
+            budget.save()
+            self.assertEqual(voce.ChirpBudget(path).used, 60)
+
+    def test_invalid_chirp_voice_is_rejected(self):
+        self.assertTrue(stories.validate_voice_profile("X", {"chirp": "Nimeni"}))
+        self.assertFalse(stories.validate_voice_profile("X", {"chirp": "Puck"}))
+
+    @unittest.skipUnless(shutil.which("ffmpeg") and shutil.which("ffprobe"), "ffmpeg lipsește")
+    def test_audio_falls_back_to_edge_when_chirp_fails(self):
+        def tone(target):
+            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i",
+                            "sine=frequency=440:sample_rate=24000:duration=0.6", "-ac", "1", str(target)], check=True)
+
+        class BrokenChirp:
+            broken = ""
+
+            async def synthesize(self, text, params, target):
+                self.broken = "HTTP 403"
+                raise voce.ChirpUnavailable(self.broken)
+
+        async def fake_edge(segments, key, characters, target, synth=None, engine="edge"):
+            if engine == "chirp":
+                await synth("x", None, target)
+            tone(target)
+            return [[0.15, 0.75]]
+
+        items = [("pagina-01.mp3", [voce.Segment("Era odată.")])]
+        with tempfile.TemporaryDirectory() as tmp, mock.patch.object(voce, "render", fake_edge):
+            audio_dir = Path(tmp) / "audio"
+            with mock.patch.object(stories, "ROOT", Path(tmp)):
+                asyncio.run(stories.generate_audio_set(audio_dir, items, [], BrokenChirp()))
+            manifest = json.loads((audio_dir / "manifest.json").read_text())
+            edge = hashlib.sha1(voce.fingerprint(items[0][1], "feminin", [], "edge").encode()).hexdigest()
+            # s-a generat cu edge-tts, iar amprenta spune asta (ca la publicarea următoare să se încerce Chirp din nou)
+            self.assertEqual(manifest["feminin"]["pagina-01.mp3"], edge)
+            self.assertTrue((audio_dir / "masculin" / "pagina-01.mp3").exists())
 
     def test_demo_story_has_both_voices_for_every_page(self):
         names = [name for name, _ in stories.narration_items(demo_data())]
