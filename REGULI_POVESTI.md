@@ -512,6 +512,10 @@ Când primești „fă o poveste despre X”:
      tot ce e la „De corectat”, fă din nou commit și **repetă până când raportul spune PUBLICATĂ**.
 13. **Privește fiecare imagine și autocorectează-te, fără să întrebi** (vezi mai jos). Treaba ta se termină abia
      când povestea e PUBLICATĂ și fiecare imagine arată pagina ei.
+14. **Bariera.** O poveste nouă are `"verified": false` (din șablon): după generare, raportul spune „ÎN VERIFICARE”,
+     povestea se vede doar ca previzualizare (cu parola de administrator, link în raport și în panou), dar **nu apare
+     în bibliotecă**. Abia după ce ai privit coperta și fiecare pagină și ai refăcut ce era greșit, pui
+     `"verified": true` și faci commit — atunci apare pe site. Nu pui `true` fără să fi văzut imaginile.
 
 O poveste care nu trece verificarea automată **nu** este publicată.
 

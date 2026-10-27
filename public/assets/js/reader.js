@@ -894,6 +894,7 @@
     updateResume();
     applyBedtime();
     if (story.personalized) markPersonal(story);
+    else if (preview) markChecking();
     if (autoStart) startByItself();
     if (preview) return; // previzualizarea nu se numără și nu are favorite
     if (!story.personalized) enableShare(story);
@@ -941,6 +942,17 @@
       banner.setAttribute("role", "status");
       document.querySelector(".stage").prepend(banner);
     }
+  }
+
+  // O poveste nouă, încă în verificare (imaginile sunt privite înainte să apară în bibliotecă).
+  function markChecking() {
+    var robots = document.createElement("meta");
+    robots.name = "robots";
+    robots.content = "noindex, nofollow";
+    document.head.appendChild(robots);
+    var banner = el("p", "preview-banner", "Previzualizare: povestea e în verificare și nu apare încă în bibliotecă.");
+    banner.setAttribute("role", "status");
+    document.querySelector(".stage").prepend(banner);
   }
 
   // ---------- Întrebările lui Lio (după poveste, fără punctaj) ----------

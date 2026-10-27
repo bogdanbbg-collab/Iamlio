@@ -48,6 +48,10 @@ imaginilor”): o imagine care contrazice textul se reface, nu povestea. Rescrii
 nu „fără X”), pui `"imageVariant": 1, 2, 3…`, ștergi imaginea și faci commit; cel mult trei încercări pe imagine.
 Nu ceri voie pentru asta; la final spui ce ai refăcut.
 
+**Bariera: o poveste nouă nu apare în bibliotecă până nu îi verifici imaginile.** Șablonul pune `"verified": false`;
+povestea se generează și se vede doar ca previzualizare. După ce ai privit coperta și fiecare pagină (și ai refăcut
+ce era greșit), pui `"verified": true` și faci commit. Nu pui `true` fără să fi văzut imaginile.
+
 **Id-ul unei povești e permanent.** După ce o poveste a fost publicată, nu redenumi folderul ei (adresa
 `poveste.html?id=…` ar înceta să funcționeze); poți schimba titlul din `story.json`, dar nu și id-ul.
 

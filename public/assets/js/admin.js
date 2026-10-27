@@ -335,7 +335,8 @@
     box.textContent = "";
     var problems = site.problems || [];
     var waiting = (site.personal || []).filter(function (p) { return !p.approved; });
-    if (!problems.length && !waiting.length) {
+    var checking = site.verificare || [];
+    if (!problems.length && !waiting.length && !checking.length) {
       box.appendChild(el("p", "admin-ok", "✓ Nimic de rezolvat: toate poveștile sunt publicate."));
       return;
     }
@@ -346,6 +347,16 @@
       p.errors.forEach(function (e) { list.appendChild(el("li", null, e)); });
       item.appendChild(list);
       item.appendChild(el("p", "admin-muted", "Detalii: rapoarte/" + p.id + ".md în repository"));
+      box.appendChild(item);
+    });
+    checking.forEach(function (p) {
+      var item = el("div", "admin-todo");
+      item.appendChild(el("strong", null, p.title + " — în verificare: imaginile sunt privite și refăcute înainte de bibliotecă"));
+      var link = el("a", null, "Previzualizează");
+      link.href = "poveste.html?previzualizare=" + encodeURIComponent(p.id);
+      var line = el("p");
+      line.appendChild(link);
+      item.appendChild(line);
       box.appendChild(item);
     });
     waiting.forEach(function (p) {

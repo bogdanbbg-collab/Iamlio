@@ -269,6 +269,8 @@ def structure_errors(data):
     for key, kind in expect.items():
         if key in data and data[key] is not None and not isinstance(data[key], kind):
             errors.append(f"câmpul '{key}' trebuie să fie {dict(str='text', list='listă', dict='obiect')[kind.__name__]}")
+    if "verified" in data and not isinstance(data["verified"], bool):
+        errors.append("câmpul 'verified' trebuie să fie true sau false")
     for n, page in enumerate(data.get("pages") if isinstance(data.get("pages"), list) else [], start=1):
         if not isinstance(page, dict):
             errors.append(f"pagina {n} trebuie să fie un obiect cu text, narration, image, imagePrompt")
@@ -551,6 +553,8 @@ def template_story(story_id="id-ul-povestii", title=f"{canon.PLACEHOLDER}: titlu
         "pages": [page],
         "categories": [],
         "review": {key: f"{todo}: {meaning}" for key, meaning in canon.REVIEW_FIELDS.items()},
+        # bariera: povestea apare în bibliotecă abia după ce imaginile au fost privite una câte una (secțiunea 10)
+        "verified": False,
     }
 
 
@@ -660,8 +664,9 @@ def write_reports(repairs):
         seen.add(f"{folder.name}.md")
         write_if_changed(REPORTS_DIR / f"{folder.name}.md",
                          report_text(folder.name, str(title), published, changes, errors, notes, warnings, now,
-                        personal=bool(personal_name(data)), approved=data.get("approved") is True), now)
-        status = "✅ publicată" if published else "❌ nepublicată"
+                        personal=bool(personal_name(data)), approved=data.get("approved") is True,
+                        verified=data.get("verified") is not False), now)
+        status = ("⏳ în verificare" if data.get("verified") is False else "✅ publicată") if published else "❌ nepublicată"
         rows.append(f"| [{title}]({folder.name}.md) | {status} | {len(errors)} | {len(changes)} |")
         summary.append(f"- {status}: **{title}** — {len(errors)} de corectat, {len(changes)} reparate automat")
         print(f"[{'OK' if published else 'EROARE'}] {folder.name}: {len(changes)} reparate automat, {len(errors)} de corectat")
@@ -693,11 +698,14 @@ def write_if_changed(path, text, stamp):
     path.write_text(text, encoding="utf-8")
 
 
-def report_text(story_id, title, published, changes, errors, notes, warnings, when, personal=False, approved=False):
+def report_text(story_id, title, published, changes, errors, notes, warnings, when, personal=False, approved=False,
+                verified=True):
     import os
 
+    state = ("✅ PUBLICATĂ" if verified else "⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)") if published \
+        else "❌ NEPUBLICATĂ"
     lines = [f"# {title}", "",
-             f"**Stare: {'✅ PUBLICATĂ' if published else '❌ NEPUBLICATĂ'}** · verificată la {when}", "",
+             f"**Stare: {state}** · verificată la {when}", "",
              f"Poveste: `public/stories/{story_id}/story.json`", ""]
     if errors:
         lines += ["## De corectat (de aceea nu este publicată)", ""] + [f"- {e}" for e in errors] + [""]
@@ -723,7 +731,14 @@ def report_text(story_id, title, published, changes, errors, notes, warnings, wh
     if warnings:
         lines += ["## Avertismente (merită verificate, dar nu blochează publicarea)", ""] + [f"- {w}" for w in warnings] + [""]
     lines += ["## Ce faci mai departe", ""]
-    if published:
+    if published and not verified:
+        site = (os.environ.get('SITE_URL') or 'https://iamlio.ro').rstrip('/')
+        lines += ["1. Privește coperta și fiecare pagină din `images/` și compar-o cu textul (REGULI_POVESTI.md, "
+                  "secțiunea 10, „Autocorectarea imaginilor”); refă imaginile greșite.",
+                  "2. Abia când fiecare imagine arată pagina ei, pune `\"verified\": true` în story.json și fă commit: "
+                  "atunci povestea apare în bibliotecă.",
+                  f"3. Până atunci se poate vedea doar cu parola de administrator: {site}/poveste.html?previzualizare={story_id}"]
+    elif published:
         lines.append("Nimic: povestea este pe site, cu vocea feminină și masculină generate automat.")
     else:
         lines += ["1. Corectează în `story.json` (și în `images/`) fiecare punct de la „De corectat”, respectând "
@@ -849,7 +864,7 @@ def cmd_stage():
                 print(f"[versiunea anterioară] {name}: rămâne publicată versiunea din {found[1][:7]}")
             else:
                 print(f"[nepublicată] {name}")
-    entries, published, previews, personal = [], [], [], []
+    entries, published, previews, personal, waiting = [], [], [], [], []
     for story_file in sorted((BUILD_DIR / "stories").glob("*/story.json")):
         data = json.loads(story_file.read_text(encoding="utf-8"))
         intro, outro = lio_texts(data)
@@ -858,6 +873,11 @@ def cmd_stage():
         if personal_name(data):
             personal.append({"id": data["id"], "title": data.get("title", ""), "for": personal_name(data),
                              "approved": data.get("approved") is True})
+        if data.get("verified") is False:
+            # bariera: până când imaginile sunt verificate, doar previzualizare (cu parola de administrator)
+            waiting.append({"id": data["id"], "title": data.get("title", "")})
+            previews.append(story_file.parent)
+            continue
         if personal_name(data) and data.get("approved") is not True:
             previews.append(story_file.parent)
             continue
@@ -873,7 +893,7 @@ def cmd_stage():
     add_asset_versions(BUILD_DIR)
     library = json.loads((BUILD_DIR / "stories" / "index.json").read_text(encoding="utf-8"))
     seo.write_all(BUILD_DIR, library.get("stories") or [], published)
-    write_admin_info(entries, personal, invalid)  # la final, ca mărimea site-ului să includă tot
+    write_admin_info(entries, personal, invalid, waiting)  # la final, ca mărimea site-ului să includă tot
     print(f"Pregătit pentru publicare: {BUILD_DIR} ({len(entries)} povești pe site)")
     return 0
 
@@ -912,7 +932,7 @@ def stage_previews(folders):
         (BUILD_DIR / "api" / "data" / "parola.json").write_text(json.dumps(config) + "\n", encoding="utf-8")
 
 
-def write_admin_info(entries, personal, invalid):
+def write_admin_info(entries, personal, invalid, waiting=()):
     """api/data/admin-info.json: ce știe panoul de administrare despre site (privat, ca toate datele din api/data):
     poveștile publicate, cele cu probleme, cele personalizate, versiunea publicată și costul imaginilor."""
     import os
@@ -942,6 +962,7 @@ def write_admin_info(entries, personal, invalid):
                     for e in entries],
         "problems": problems,
         "personal": personal,
+        "verificare": list(waiting),
         "image_budget": budget,
         "consum": consum.collect(REPORTS_DIR, BUILD_DIR, stories_dir=STORIES_DIR),
     }
@@ -967,6 +988,10 @@ def add_asset_versions(site):
 
 def cmd_status():
     invalid = [folder.name for folder, data in load_stories() if validate_story(folder, data)[0]]
+    checking = [folder.name for folder, data in load_stories()
+                if isinstance(data, dict) and data.get("verified") is False and folder.name not in invalid]
+    if checking:
+        print("În verificare (gata, dar încă nu în bibliotecă): " + ", ".join(checking))
     if invalid:
         print("Povești nepublicate (vezi rapoarte/): " + ", ".join(invalid))
         return 1
@@ -1426,6 +1451,9 @@ def cmd_index():
             continue
         if personal_name(data):
             continue  # poveștile personalizate au doar link secret, nu apar în bibliotecă
+        if data.get("verified") is False:
+            print(f"[în verificare] {folder.name}: apare în bibliotecă după verificarea imaginilor")
+            continue
         entries.append(index_entry(folder, data))
     write_index(INDEX_FILE, entries)
     print(f"Bibliotecă actualizată: {len(entries)} povești.")

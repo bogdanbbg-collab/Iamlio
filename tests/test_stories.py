@@ -282,6 +282,23 @@ class PersonalizedTests(StoryCase):
         index = json.loads((self.tmp / "index.json").read_text(encoding="utf-8"))
         self.assertEqual(index["stories"], [])
 
+    def test_unverified_stories_wait_outside_the_library(self):
+        self.data["verified"] = False
+        saved = stories.STORIES_DIR, stories.INDEX_FILE
+        stories.STORIES_DIR, stories.INDEX_FILE = self.tmp, self.tmp / "index.json"
+        try:
+            (self.folder / "story.json").write_text(json.dumps(self.data, ensure_ascii=False), encoding="utf-8")
+            stories.cmd_index()
+        finally:
+            stories.STORIES_DIR, stories.INDEX_FILE = saved
+        self.assertEqual(json.loads((self.tmp / "index.json").read_text(encoding="utf-8"))["stories"], [])
+        report = stories.report_text("x", "X", True, [], [], [], [], "acum", verified=False)
+        self.assertIn("ÎN VERIFICARE", report)
+        self.assertIn('"verified": true', report)
+        self.assertEqual(stories.template_story()["verified"], False, "o poveste nouă așteaptă verificarea")
+        self.data["verified"] = "da"
+        self.assertTrue(stories.structure_errors(self.data))
+
     def test_unapproved_stories_leave_the_public_site(self):
         import hashlib
         from unittest import mock
