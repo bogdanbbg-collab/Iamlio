@@ -1,180 +1,210 @@
 {
   "feminin": {
-    "replica-01.mp3": "7f9a45bf072334e596718afc1383fc18d3573301",
-    "replica-02.mp3": "8bc68226c25597e343c0da3aeabf007564f7c8ad",
-    "replica-03.mp3": "43bebac0dffce76415cea4dbf8d88c4b742c4398",
-    "replica-04.mp3": "206abc581feba092bfa7091affb8860a6f3bb06d",
-    "replica-05.mp3": "133ce24bbe50c5976534912840b2409730fe1bfb",
-    "replica-06.mp3": "d86a65962f9c5155de3cd6d3fe444247c043f539",
-    "bravo-01.mp3": "5d8c86dc1bbf672acd31e138a9dc4a8d105161ff",
-    "bravo-02.mp3": "2bc6c3faa7158b9c78e366e7a1ec6a2a14d47d1a",
-    "bravo-03.mp3": "8ec353d3cd7ce7df13fa431dd9771585d2a06dea",
-    "incearca-01.mp3": "6604cb056891c99fc0ebdeee7167be720ccaed70",
-    "incearca-02.mp3": "776d6a681e56794dffa1f0bf2b769f25d5bbe559",
-    "incearca-03.mp3": "bbdf51d758498aecb77ae429bbda307470fe861c"
+    "replica-01.mp3": "147737e7d0fb7a2c44df5197e0954f33f057f7f0",
+    "replica-02.mp3": "64737d876d8260a320cfa74b6d08074c94039c0f",
+    "replica-03.mp3": "79430ddd4681b95c6021737078ccc4653bb4fcac",
+    "replica-04.mp3": "986a4a24b6c28ba9d1994ccec8e234a3e5623982",
+    "replica-05.mp3": "308d20e849fb6568f763c4b3e28c2b3614559dc7",
+    "replica-06.mp3": "9a8eec2bf94c6553795753bccd86ae968d19806e",
+    "bravo-01.mp3": "fb732bf19e62c54524b3f6cbc643a3bb0bcb09ab",
+    "bravo-02.mp3": "feb488a8fc519c98df29f544eacfad1b3c34c47b",
+    "bravo-03.mp3": "67aec56b06d35c7169c193d0cbcebb18c58595ab",
+    "incearca-01.mp3": "c02fcf7a65bbfbf82c5e443b1db0865705aca70d",
+    "incearca-02.mp3": "93d9049b9b9e1737d96f13aa25285512bd729637",
+    "incearca-03.mp3": "01a076cd79a9af3184655e6760f3122c6b653b46"
   },
   "masculin": {
-    "replica-01.mp3": "e1720e00af00fa42aefc1b92bc865033792bd235",
-    "replica-02.mp3": "f731cd028051060664206cbefe6b6a945d79a32a",
-    "replica-03.mp3": "8f2a388bf8dab3de870395f4006f64d110a5e7e2",
-    "replica-04.mp3": "8a693f211c6f844c958d2433a68e7dc9b7571ad3",
-    "replica-05.mp3": "a9888a9c350616a1080c1eed774996a2fd519e00",
-    "replica-06.mp3": "34b5428ad5d969a4bf8ef6976aa2bfe799e0788b",
-    "bravo-01.mp3": "c5ffa6799bfa77dc284baffd39385c1754192810",
-    "bravo-02.mp3": "a44a3498a1ba2ac2c738717cc44f2f5283383555",
-    "bravo-03.mp3": "61fe63d274b8c2c8e3c2110002355903d6d017e4",
-    "incearca-01.mp3": "891fb09968691be2e3e5d43d699ab783ac588ff8",
-    "incearca-02.mp3": "6d95e2e3a21c1bd34975bf295602401dc5816f4e",
-    "incearca-03.mp3": "29712b9197551d7f87ac48c14f1a6b3eb23a4d34"
+    "replica-01.mp3": "cd5d367bce049918bdd234614792acfd597f370c",
+    "replica-02.mp3": "1f7214ee1594ebe484b68c04c80041ecee61ebec",
+    "replica-03.mp3": "7264c98027cc42f8f9533d41e57ab85a28dd72e0",
+    "replica-04.mp3": "28dc4e25291c8f0fd62d9f4cba7f2958b9e2de4b",
+    "replica-05.mp3": "b0db804c89fa30c7845deca09c2e5b9f7b4b80e4",
+    "replica-06.mp3": "7fe96415b57cae7721ed89c822a00f8f46a61b83",
+    "bravo-01.mp3": "95d9b8cc85ffcdb568336452812379c3e6c62c6b",
+    "bravo-02.mp3": "5a1a97b4f6fd0089bb67dec2593207638f38852c",
+    "bravo-03.mp3": "bd6788a65462eb5b19c08f97ad393deede9e7265",
+    "incearca-01.mp3": "4b566f5acd9434762ed14dc8d9c1edb7c9dc02b3",
+    "incearca-02.mp3": "ed06b5dda37c4c8dd9e15d51d2336923b28403dd",
+    "incearca-03.mp3": "0417dbb610b35cf129daac9d69f6a589c28db742"
   },
   "timing": {
     "feminin": {
       "replica-01.mp3": [
         [
-          0.15,
-          4.3
+          0.6,
+          4.69
         ]
       ],
       "replica-02.mp3": [
         [
-          0.15,
-          4.42
+          0.6,
+          5.31
         ]
       ],
       "replica-03.mp3": [
         [
-          0.15,
-          4.71
+          0.6,
+          4.41
         ]
       ],
       "replica-04.mp3": [
         [
-          0.15,
-          4.59
+          0.6,
+          4.97
         ]
       ],
       "replica-05.mp3": [
         [
-          0.15,
-          5.29
+          0.6,
+          5.65
         ]
       ],
       "replica-06.mp3": [
         [
-          0.15,
-          4.88
+          0.6,
+          4.94
         ]
       ],
       "bravo-01.mp3": [
         [
-          0.15,
-          3.22
+          0.6,
+          3.37
         ]
       ],
       "bravo-02.mp3": [
         [
-          0.15,
-          3.85
+          0.6,
+          4.12
         ]
       ],
       "bravo-03.mp3": [
         [
-          0.15,
-          4.09
+          0.6,
+          4.39
         ]
       ],
       "incearca-01.mp3": [
         [
-          0.15,
-          3.34
+          0.6,
+          4.1
         ]
       ],
       "incearca-02.mp3": [
         [
-          0.15,
-          5.26
+          0.6,
+          4.9
         ]
       ],
       "incearca-03.mp3": [
         [
-          0.15,
-          3.92
+          0.6,
+          5.28
         ]
       ]
     },
     "masculin": {
       "replica-01.mp3": [
         [
-          0.15,
-          4.01
+          0.6,
+          5.12
         ]
       ],
       "replica-02.mp3": [
         [
-          0.15,
-          5.09
+          0.6,
+          4.98
         ]
       ],
       "replica-03.mp3": [
         [
-          0.15,
-          5.29
+          0.6,
+          5.17
         ]
       ],
       "replica-04.mp3": [
         [
-          0.15,
-          6.01
+          0.6,
+          5.6
         ]
       ],
       "replica-05.mp3": [
         [
-          0.15,
-          7.37
+          0.6,
+          6.99
         ]
       ],
       "replica-06.mp3": [
         [
-          0.15,
-          5.67
+          0.6,
+          5.23
         ]
       ],
       "bravo-01.mp3": [
         [
-          0.15,
-          3.73
+          0.6,
+          3.21
         ]
       ],
       "bravo-02.mp3": [
         [
-          0.15,
-          3.46
+          0.6,
+          3.98
         ]
       ],
       "bravo-03.mp3": [
         [
-          0.15,
-          3.77
+          0.6,
+          4.17
         ]
       ],
       "incearca-01.mp3": [
         [
-          0.15,
-          3.73
+          0.6,
+          4.88
         ]
       ],
       "incearca-02.mp3": [
         [
-          0.15,
-          4.95
+          0.6,
+          4.72
         ]
       ],
       "incearca-03.mp3": [
         [
-          0.15,
-          7.01
+          0.6,
+          5.94
         ]
       ]
+    }
+  },
+  "motor": {
+    "feminin": {
+      "replica-01.mp3": "chirp",
+      "replica-02.mp3": "chirp",
+      "replica-03.mp3": "chirp",
+      "replica-04.mp3": "chirp",
+      "replica-05.mp3": "chirp",
+      "replica-06.mp3": "chirp",
+      "bravo-01.mp3": "chirp",
+      "bravo-02.mp3": "chirp",
+      "bravo-03.mp3": "chirp",
+      "incearca-01.mp3": "chirp",
+      "incearca-02.mp3": "chirp",
+      "incearca-03.mp3": "chirp"
+    },
+    "masculin": {
+      "replica-01.mp3": "chirp",
+      "replica-02.mp3": "chirp",
+      "replica-03.mp3": "chirp",
+      "replica-04.mp3": "chirp",
+      "replica-05.mp3": "chirp",
+      "replica-06.mp3": "chirp",
+      "bravo-01.mp3": "chirp",
+      "bravo-02.mp3": "chirp",
+      "bravo-03.mp3": "chirp",
+      "incearca-01.mp3": "chirp",
+      "incearca-02.mp3": "chirp",
+      "incearca-03.mp3": "chirp"
     }
   }
 }
