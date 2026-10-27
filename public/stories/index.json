@@ -33,6 +33,30 @@
   ],
   "stories": [
     {
+      "id": "tudor-si-masinuta-fulger",
+      "title": "Tudor și mașinuța Fulger",
+      "summary": "Fulger, mașinuța roșie a lui Tudor, nu reușește să treacă prin bucla pistei. Cu Lio, cu multe încercări caraghioase și cu Ana, sora lui mai mică, Tudor descoperă secretul vitezei.",
+      "age": "3-7",
+      "tags": [
+        "mașinuțe",
+        "curse",
+        "pistă",
+        "viteză",
+        "rândul la joacă",
+        "frați"
+      ],
+      "categories": [
+        "aventuri",
+        "amuzante",
+        "invatam"
+      ],
+      "created": "2026-10-27",
+      "cover": "stories/tudor-si-masinuta-fulger/images/coperta.webp",
+      "pages": 12,
+      "minutes": 5,
+      "published": "2026-10-27"
+    },
+    {
       "id": "lio-si-pensula-toamnei",
       "title": "Lio și pensula toamnei",
       "summary": "E toamnă, dar pădurea a rămas verde: Zâna Toamnei și-a pierdut pensula fermecată! Lio și puiul de veveriță Ronțăilă o caută prin scorburi, pe lac și pe deal.",
@@ -74,6 +98,28 @@
       ],
       "created": "2026-10-27",
       "cover": "stories/lio-si-omul-de-zapada/images/coperta.webp",
+      "pages": 11,
+      "minutes": 5,
+      "published": "2026-10-27"
+    },
+    {
+      "id": "lio-si-ceasul-care-a-uitat-ora",
+      "title": "Lio și ceasul care a uitat ora",
+      "summary": "Cucu, păsărica din ceasul lui Lio, a uitat cum se citește ceasul și iese din ușiță când nu trebuie! Bunicul Ceas îi învață pe amândoi ce arată cele două limbi.",
+      "age": "3-7",
+      "tags": [
+        "ceas",
+        "ore",
+        "numărat",
+        "răbdare",
+        "cuc"
+      ],
+      "categories": [
+        "invatam",
+        "amuzante"
+      ],
+      "created": "2026-10-27",
+      "cover": "stories/lio-si-ceasul-care-a-uitat-ora/images/coperta.webp",
       "pages": 11,
       "minutes": 5,
       "published": "2026-10-27"
