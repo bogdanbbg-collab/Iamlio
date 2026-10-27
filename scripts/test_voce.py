@@ -93,21 +93,25 @@ def describe(characters):
     return "; ".join(f"{c['name']}: {c.get('description', '').split(',')[0]}" for c in characters if c.get("name") != "Lio")
 
 
-def storyteller_prompt(page, characters):
+def storyteller_prompt(page, characters, variant):
     text = page["text"]
-    return ("You are a warm, wonderfully expressive storyteller reading a picture book aloud, in Romanian, to a "
-            "four-year-old child. Perform it like the best children's audiobook narrator: lively, natural intonation, "
-            "real emotions (joy, surprise, suspense, tenderness), a smile in your voice on happy moments, little "
-            "pauses before surprises, laughter where the characters laugh, and a slightly different voice for each "
-            f"character ({describe(characters)}). Read exactly this Romanian text, word for word, adding nothing:\n\n"
-            + text)
+    if variant == "scurt":
+        return ("Read aloud in Romanian, like a warm, very expressive storyteller reading a picture book to a "
+                "four-year-old, with real emotions and a slightly different voice for each character: " + text)
+    # formatul recomandat de Google pentru indicații lungi: notele regizorului separat de textul de citit
+    return ("# AUDIO PROFILE: a warm, wonderfully expressive children's storyteller\n"
+            "## THE SCENE: reading a picture book aloud, in Romanian, to a four-year-old child at bedtime\n"
+            "### DIRECTOR'S NOTES\n"
+            "Lively, natural intonation and real emotions: joy, surprise, suspense, tenderness. A smile in the "
+            "voice on happy moments, small pauses before surprises, laughter where the characters laugh. A slightly "
+            f"different voice for each character ({describe(characters)}). Read only the transcript, word for word.\n"
+            "#### TRANSCRIPT\n" + text)
 
 
 def line_prompt(segment, characters):
     who = next((c for c in characters if c.get("name") == segment.speaker), None)
-    role = f", as {who['name']} ({who.get('description', '').split(',')[0]})" if who else ""
-    return (f"Read this Romanian line aloud to a small child, {MOOD_EN.get(segment.mood, MOOD_EN['calm'])}{role}. "
-            f"Say only the line itself: {segment.text.lstrip('—– ').strip()}")
+    role = f", as {who.get('description', '').split(',')[0]}" if who else ""
+    return f"Say {MOOD_EN.get(segment.mood, MOOD_EN['calm'])}{role}: {segment.text.lstrip('—– ').strip()}"
 
 
 async def gemini_lines(model, key, page, characters, target):
@@ -154,18 +158,19 @@ def main():
             models = []
             results.append(f"- lista modelelor Gemini: EȘUAT — {exc}")
         print(f"Modele Gemini TTS: {', '.join(models) or 'niciunul'}")
-        jobs = [("gemini-povestitor-p07-feminin.mp3", "povestitor", 7, "feminin"),
-                ("gemini-povestitor-p07-masculin.mp3", "povestitor", 7, "masculin"),
-                ("gemini-povestitor-p01-feminin.mp3", "povestitor", 1, "feminin"),
-                ("gemini-replici-p07.mp3", "replici", 7, "feminin")]
+        jobs = [("gemini-povestitor-p07-feminin.mp3", "regie", 7, "feminin"),
+                ("gemini-povestitor-scurt-p07-feminin.mp3", "scurt", 7, "feminin"),
+                ("gemini-replici-p07.mp3", "replici", 7, "feminin"),
+                ("gemini-povestitor-p07-masculin.mp3", "regie", 7, "masculin"),
+                ("gemini-povestitor-p01-feminin.mp3", "regie", 1, "feminin")]
         for model in models[:2]:
             ok = False
             for name, kind, number, voice_key in jobs:
                 page = story["pages"][number - 1]
                 target = OUT / name.replace(".mp3", f"-{model}.mp3")
                 try:
-                    if kind == "povestitor":
-                        pcm, mime = gemini(model, storyteller_prompt(page, characters),
+                    if kind != "replici":
+                        pcm, mime = gemini(model, storyteller_prompt(page, characters, kind),
                                            {"x": voce.CHIRP_NARRATOR[voice_key]}, gemini_key)
                         with tempfile.TemporaryDirectory() as tmp:
                             raw, trimmed = Path(tmp) / "a.wav", Path(tmp) / "b.wav"
@@ -174,7 +179,14 @@ def main():
                             voce.assemble([trimmed], [0], target, LEAD_IN)
                     else:
                         asyncio.run(gemini_lines(model, gemini_key, page, characters, target))
-                    results.append(f"- {target.name}: OK")
+                    # citește și indicațiile? atunci mostra e mult mai lungă decât aceeași pagină cu Chirp
+                    reference = OUT / f"chirp-ritm-p{number:02d}.mp3"
+                    length = voce.duration(target)
+                    if reference.exists() and length > 1.7 * voce.duration(reference):
+                        target.rename(target.with_name("RESPINS-" + target.name))
+                        results.append(f"- {target.name}: RESPINS ({length:.0f} s, probabil a citit și indicațiile)")
+                        continue
+                    results.append(f"- {target.name}: OK ({length:.0f} s)")
                     ok = True
                 except Exception as exc:  # noqa: BLE001
                     results.append(f"- {target.name}: EȘUAT — {exc}")
