@@ -4,4 +4,4 @@ Limita lunară: 200 imagini și 100 lei (variabilele MAX_IMAGES_MONTH și MAX_LE
 
 | Luna | Imagini | Cost estimat |
 | --- | --- | --- |
-| 2026-10 | 59 | 0.00 lei |
+| 2026-10 | 63 | 0.00 lei |
