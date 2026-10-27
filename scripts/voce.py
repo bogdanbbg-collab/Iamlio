@@ -397,10 +397,19 @@ def ffmpeg_binary():
     return binary
 
 
-def assemble(parts, pauses, target):
-    """Lipește fișierele mp3 cu pauzele date (secunde) într-un singur mp3 mono 48 kbit/s."""
+def trim_silence(source, target):
+    """Taie liniștea de la începutul și sfârșitul unei bucăți (serviciile de voce lasă ~0,3 s la fiecare capăt),
+    ca pauzele dintre replici să fie exact cele din regie. Păstrează puțin aer, ca să nu taie sfârșitul cuvintelor."""
+    edge = "silenceremove=start_periods=1:start_duration=0:start_threshold=-50dB:start_silence={}"
+    graph = f"{edge.format(0.04)},areverse,{edge.format(0.12)},areverse"
+    subprocess.run([ffmpeg_binary(), "-y", "-loglevel", "error", "-i", str(source), "-af", graph,
+                    "-ac", "1", "-ar", str(SAMPLE_RATE), str(target)], check=True)
+
+
+def assemble(parts, pauses, target, lead_in=None):
+    """Lipește fișierele audio cu pauzele date (secunde) într-un singur mp3 mono 48 kbit/s."""
     inputs, filters, labels = [], [], []
-    plan = [("silence", LEAD_IN)]
+    plan = [("silence", LEAD_IN if lead_in is None else lead_in)]
     for part, pause in zip(parts, pauses):
         plan.append(("file", part))
         plan.append(("silence", pause))
@@ -433,19 +442,24 @@ def duration(path):
     return Path(path).stat().st_size / 6000
 
 
-async def render(segments, voice_key, characters, target, synth=synthesize, engine="edge"):
+async def render(segments, voice_key, characters, target, synth=synthesize, engine="edge", trim=False, lead_in=None):
     """Generează un fișier audio complet din bucăți (synth poate fi înlocuit în teste).
     Întoarce momentele [început, sfârșit] (secunde) ale fiecărei replici, pentru evidențierea textului."""
+    lead_in = LEAD_IN if lead_in is None else lead_in
     with tempfile.TemporaryDirectory() as tmp:
         parts = []
         for number, segment in enumerate(segments):
             part = Path(tmp) / f"bucata-{number:03d}.mp3"
             await synth(segment.text, segment_params(segment, voice_key, characters, engine), part)
+            if trim:
+                trimmed = part.with_suffix(".wav")
+                await asyncio.to_thread(trim_silence, part, trimmed)
+                part = trimmed
             parts.append(part)
         # ffmpeg și ffprobe rulează în alt fir, ca celelalte fișiere să se genereze între timp
-        await asyncio.to_thread(assemble, parts, [s.pause for s in segments], target)
+        await asyncio.to_thread(assemble, parts, [s.pause for s in segments], target, lead_in)
         lengths = await asyncio.to_thread(lambda: [duration(part) for part in parts])
-        timings, moment = [], LEAD_IN
+        timings, moment = [], lead_in
         for number, (length, segment) in enumerate(zip(lengths, segments)):
             timings.append([round(moment, 2), round(moment + length, 2)])
             moment += length + (TAIL if number == len(segments) - 1 else segment.pause)

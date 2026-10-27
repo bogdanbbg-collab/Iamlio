@@ -1,18 +1,24 @@
-"""Mostre de voce cu Google Cloud Text-to-Speech (Chirp 3 HD), ca să alegem vocile după ureche.
+"""Mostre de voce, ca să alegem după ureche (workflow-ul „Test voce”). Generează în build/test-voce/,
+pentru paginile 1 și 7 din „Matei și limonada fermecată”:
 
-Pornit de workflow-ul „Test voce” (cheia în GOOGLE_TTS_API_KEY). Generează în build/test-voce/:
-- naratoare-<Voce>.mp3 / narator-<Voce>.mp3 — pagina 1 din „Lio și ceasul care a uitat ora”, citită de o singură voce;
-- regie-pagina-NN.mp3 — paginile 1 și 4 cu regie: naratoare + câte o voce diferită pentru fiecare personaj;
-- edge-pagina-NN.mp3 — aceleași pagini cu vocea de acum (edge-tts), pentru comparație.
+- chirp-ritm-pNN.mp3 — Google Chirp 3 HD ca pe site, dar cu liniștea tăiată de la capetele fiecărei replici
+  (pauzele sunt exact cele din regie) și 0,6 s de liniște la început (pentru telefoane și căști Bluetooth);
+- gemini-povestitor-pNN-<voce>.mp3 — Gemini TTS: toată pagina dintr-o dată, cu indicații de interpretare
+  (povestitor de audiobook pentru copii, care face și vocile personajelor);
+- gemini-replici-pNN.mp3 — Gemini TTS: fiecare replică cu emoția ei și cu vocea personajului.
+
+Cheile: GOOGLE_TTS_API_KEY (Chirp) și GEMINI_API_KEY (Gemini, cota gratuită din Google AI Studio).
 """
 
 import asyncio
 import base64
 import json
 import os
+import subprocess
 import sys
 import tempfile
-import urllib.parse
+import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -20,102 +26,164 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 import voce
 
-API = "https://texttospeech.googleapis.com/v1"
-STORY = ROOT / "public/stories/lio-si-ceasul-care-a-uitat-ora/story.json"
+STORY = ROOT / "public/stories/matei-si-limonada-fermecata/story.json"
 OUT = ROOT / "build/test-voce"
-LANGUAGE = "ro-RO"
-RATE = 0.92  # puțin mai rar decât normal, pentru copii
+PAGES = (1, 7)
+LEAD_IN = 0.6
+GEMINI_API = "https://generativelanguage.googleapis.com/v1beta"
+GEMINI_WAITS = (20, 40, 60)  # cota gratuită are puține cereri pe minut
 
-# voci candidate (descrierea Google între paranteze)
-FEMALE = ["Sulafat", "Achernar", "Vindemiatrix", "Aoede", "Kore"]  # caldă, moale, blândă, aerisită, fermă
-MALE = ["Achird", "Algieba", "Enceladus", "Charon"]  # prietenoasă, catifelată, șoptită, informativă
-CAST = {"": "Sulafat", "Cucu": "Puck", "Bunicul Ceas": "Algenib"}  # naratoare, cuc vioi, bunic cu voce gravă
-
-
-def call(path, body=None):
-    key = os.environ["GOOGLE_TTS_API_KEY"]
-    sep = "&" if "?" in path else "?"
-    request = urllib.request.Request(f"{API}/{path}{sep}key={urllib.parse.quote(key)}",
-                                     data=json.dumps(body).encode() if body else None,
-                                     headers={"Content-Type": "application/json"})
-    try:
-        with urllib.request.urlopen(request, timeout=60) as response:
-            return json.load(response)
-    except urllib.error.HTTPError as exc:
-        raise RuntimeError(f"HTTP {exc.code}: {exc.read().decode(errors='replace')[:600]}") from None
+MOOD_EN = {
+    "calm": "in a calm, warm storytelling voice",
+    "vesel": "cheerfully, with a smile in your voice",
+    "entuziasmat": "very excited and joyful",
+    "mirat": "surprised and curious",
+    "trist": "sadly, a little disappointed",
+    "șoptit": "in a soft whisper, like telling a secret",
+    "misterios": "mysteriously, with suspense",
+    "somnoros": "sleepily and very softly",
+    "speriat": "a little scared",
+    "hotărât": "firmly and determined",
+}
 
 
-def synthesize(text, voice, target):
-    data = call("text:synthesize", {
-        "input": {"text": text},
-        "voice": {"languageCode": LANGUAGE, "name": f"{LANGUAGE}-Chirp3-HD-{voice}"},
-        "audioConfig": {"audioEncoding": "MP3", "speakingRate": RATE},
-    })
-    target.write_bytes(base64.b64decode(data["audioContent"]))
+def gemini(model, text, voices, key):
+    """O cerere Gemini TTS; voices = {vorbitor: voce} (2 = dialog cu două voci) sau o singură voce."""
+    if len(voices) == 1:
+        speech = {"voiceConfig": {"prebuiltVoiceConfig": {"voiceName": next(iter(voices.values()))}}}
+    else:
+        speech = {"multiSpeakerVoiceConfig": {"speakerVoiceConfigs": [
+            {"speaker": who, "voiceConfig": {"prebuiltVoiceConfig": {"voiceName": v}}} for who, v in voices.items()]}}
+    body = {"contents": [{"parts": [{"text": text}]}],
+            "generationConfig": {"responseModalities": ["AUDIO"], "speechConfig": speech}}
+    request = urllib.request.Request(f"{GEMINI_API}/models/{model}:generateContent", data=json.dumps(body).encode(),
+                                     headers={"Content-Type": "application/json", "X-Goog-Api-Key": key})
+    for wait in (*GEMINI_WAITS, None):
+        try:
+            with urllib.request.urlopen(request, timeout=180) as response:
+                data = json.load(response)
+            part = data["candidates"][0]["content"]["parts"][0]["inlineData"]
+            return base64.b64decode(part["data"]), part.get("mimeType", "")
+        except urllib.error.HTTPError as exc:
+            detail = exc.read().decode(errors="replace")[:500]
+            if exc.code not in (429, 500, 503) or wait is None:
+                raise RuntimeError(f"Gemini HTTP {exc.code}: {detail}") from None
+        time.sleep(wait)
+    raise RuntimeError("Gemini nu răspunde")
 
 
-def spoken(text):
-    return text.lstrip("—– ").strip()
+def pcm_to_file(pcm, mime, target):
+    rate = "24000"
+    if "rate=" in mime:
+        rate = mime.split("rate=")[1].split(";")[0]
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "s16le", "-ar", rate, "-ac", "1", "-i", "pipe:0",
+                    "-ar", str(voce.SAMPLE_RATE), str(target)], input=pcm, check=True)
 
 
-def directed(page, target, cast):
-    """O pagină cu regie: fiecare replică cu vocea personajului, lipite cu pauzele din narration."""
-    segments = voce.page_segments(page)
+def tts_models(key):
+    request = urllib.request.Request(f"{GEMINI_API}/models?pageSize=200", headers={"X-Goog-Api-Key": key})
+    with urllib.request.urlopen(request, timeout=30) as response:
+        names = [m["name"].split("/")[-1] for m in json.load(response).get("models", [])]
+    tts = sorted((n for n in names if "tts" in n), reverse=True)
+    # cel mai nou „flash” întâi (cota gratuită e de obicei la flash)
+    return sorted(tts, key=lambda n: ("flash" not in n, n.count("preview")))
+
+
+def describe(characters):
+    return "; ".join(f"{c['name']}: {c.get('description', '').split(',')[0]}" for c in characters if c.get("name") != "Lio")
+
+
+def storyteller_prompt(page, characters):
+    text = page["text"]
+    return ("You are a warm, wonderfully expressive storyteller reading a picture book aloud, in Romanian, to a "
+            "four-year-old child. Perform it like the best children's audiobook narrator: lively, natural intonation, "
+            "real emotions (joy, surprise, suspense, tenderness), a smile in your voice on happy moments, little "
+            "pauses before surprises, laughter where the characters laugh, and a slightly different voice for each "
+            f"character ({describe(characters)}). Read exactly this Romanian text, word for word, adding nothing:\n\n"
+            + text)
+
+
+def line_prompt(segment, characters):
+    who = next((c for c in characters if c.get("name") == segment.speaker), None)
+    role = f", as {who['name']} ({who.get('description', '').split(',')[0]})" if who else ""
+    return (f"Read this Romanian line aloud to a small child, {MOOD_EN.get(segment.mood, MOOD_EN['calm'])}{role}. "
+            f"Say only the line itself: {segment.text.lstrip('—– ').strip()}")
+
+
+async def gemini_lines(model, key, page, characters, target):
+    """Fiecare replică separat, cu emoția ei și vocea personajului (vocile Chirp au aceleași nume în Gemini)."""
+    cast = voce.chirp_cast("feminin", characters)
+    segments = voce.page_segments(page, characters)
     with tempfile.TemporaryDirectory() as tmp:
         parts = []
         for number, segment in enumerate(segments):
-            part = Path(tmp) / f"{number:03d}.mp3"
-            synthesize(spoken(segment.text), cast.get(segment.speaker, cast[""]), part)
-            parts.append(part)
-        voce.assemble(parts, [s.pause for s in segments], target)
+            name = cast.get(segment.speaker) if segment.speaker else voce.CHIRP_NARRATOR["feminin"]
+            pcm, mime = await asyncio.to_thread(gemini, model, line_prompt(segment, characters), {"x": name}, key)
+            raw = Path(tmp) / f"{number:03d}.wav"
+            pcm_to_file(pcm, mime, raw)
+            trimmed = Path(tmp) / f"{number:03d}-t.wav"
+            voce.trim_silence(raw, trimmed)
+            parts.append(trimmed)
+        voce.assemble(parts, [s.pause for s in segments], target, LEAD_IN)
 
 
 def main():
-    if not os.environ.get("GOOGLE_TTS_API_KEY"):
-        sys.exit("Lipsește secretul GOOGLE_TTS_API_KEY.")
     OUT.mkdir(parents=True, exist_ok=True)
     story = json.loads(STORY.read_text(encoding="utf-8"))
-    pages = story["pages"]
     characters = story.get("characters") or []
-
-    available = sorted(v["name"].rsplit("-", 1)[-1] for v in call(f"voices?languageCode={LANGUAGE}")["voices"]
-                       if "Chirp3-HD" in v["name"])
-    print(f"Voci Chirp 3 HD în română ({len(available)}): {', '.join(available) or 'niciuna'}")
-    if not available:
-        sys.exit("Nu există voci Chirp 3 HD pentru română pe acest cont.")
-
-    text = " ".join(spoken(item["text"]) for item in pages[0]["narration"])
-    characters_used = 0
     results = []
-    for label, voices in (("naratoare", FEMALE), ("narator", MALE)):
-        for voice in voices:
-            if voice not in available:
-                results.append(f"- {label} {voice}: nu există în română")
-                continue
-            try:
-                synthesize(text, voice, OUT / f"{label}-{voice}.mp3")
-                characters_used += len(text)
-                results.append(f"- {label} {voice}: OK")
-            except RuntimeError as exc:
-                results.append(f"- {label} {voice}: EȘUAT — {exc}")
 
-    cast = {who: (voice if voice in available else available[0]) for who, voice in CAST.items()}
-    roles = ", ".join(f"{who or 'naratoare'}={voice}" for who, voice in cast.items())
-    for index in (0, 3):
+    chirp_key = os.environ.get("GOOGLE_TTS_API_KEY")
+    if chirp_key:
+        chirp = voce.Chirp(chirp_key, voce.ChirpBudget())
+        for number in PAGES:
+            page = story["pages"][number - 1]
+            try:
+                asyncio.run(voce.render(voce.page_segments(page, characters), "feminin", characters,
+                                        OUT / f"chirp-ritm-p{number:02d}.mp3", synth=chirp.synthesize,
+                                        engine="chirp", trim=True, lead_in=LEAD_IN))
+                results.append(f"- chirp-ritm p{number}: OK")
+            except Exception as exc:  # noqa: BLE001 — o mostră eșuată nu le oprește pe celelalte
+                results.append(f"- chirp-ritm p{number}: EȘUAT — {exc}")
+
+    gemini_key = os.environ.get("GEMINI_API_KEY")
+    if gemini_key:
         try:
-            directed(pages[index], OUT / f"regie-pagina-{index + 1:02d}.mp3", cast)
-            characters_used += sum(len(n["text"]) for n in pages[index]["narration"])
-            results.append(f"- regie pagina {index + 1} ({roles}): OK")
-        except RuntimeError as exc:
-            results.append(f"- regie pagina {index + 1}: EȘUAT — {exc}")
-        try:
-            asyncio.run(voce.render(voce.page_segments(pages[index], characters), "feminin", characters,
-                                    OUT / f"edge-pagina-{index + 1:02d}.mp3"))
-        except Exception as exc:  # noqa: BLE001 — doar pentru comparație
-            results.append(f"- edge pagina {index + 1}: EȘUAT — {exc}")
+            models = tts_models(gemini_key)
+        except (OSError, ValueError) as exc:
+            models = []
+            results.append(f"- lista modelelor Gemini: EȘUAT — {exc}")
+        print(f"Modele Gemini TTS: {', '.join(models) or 'niciunul'}")
+        jobs = [("gemini-povestitor-p07-feminin.mp3", "povestitor", 7, "feminin"),
+                ("gemini-povestitor-p07-masculin.mp3", "povestitor", 7, "masculin"),
+                ("gemini-povestitor-p01-feminin.mp3", "povestitor", 1, "feminin"),
+                ("gemini-replici-p07.mp3", "replici", 7, "feminin")]
+        for model in models[:2]:
+            ok = False
+            for name, kind, number, voice_key in jobs:
+                page = story["pages"][number - 1]
+                target = OUT / name.replace(".mp3", f"-{model}.mp3")
+                try:
+                    if kind == "povestitor":
+                        pcm, mime = gemini(model, storyteller_prompt(page, characters),
+                                           {"x": voce.CHIRP_NARRATOR[voice_key]}, gemini_key)
+                        with tempfile.TemporaryDirectory() as tmp:
+                            raw, trimmed = Path(tmp) / "a.wav", Path(tmp) / "b.wav"
+                            pcm_to_file(pcm, mime, raw)
+                            voce.trim_silence(raw, trimmed)
+                            voce.assemble([trimmed], [0], target, LEAD_IN)
+                    else:
+                        asyncio.run(gemini_lines(model, gemini_key, page, characters, target))
+                    results.append(f"- {target.name}: OK")
+                    ok = True
+                except Exception as exc:  # noqa: BLE001
+                    results.append(f"- {target.name}: EȘUAT — {exc}")
+                    if "HTTP 429" in str(exc) or "HTTP 403" in str(exc):
+                        break  # fără cotă pentru modelul acesta: următorul
+            if ok:
+                break
 
     print("\n".join(results))
-    print(f"Caractere consumate: ~{characters_used} (din 1.000.000 gratuite pe lună)")
     if not any(OUT.glob("*.mp3")):
         sys.exit(1)
 
