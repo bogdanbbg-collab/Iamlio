@@ -1,0 +1,519 @@
+{
+  "id": "lio-si-pensula-toamnei",
+  "title": "Lio și pensula toamnei",
+  "summary": "E toamnă, dar pădurea a rămas verde: Zâna Toamnei și-a pierdut pensula fermecată! Lio și puiul de veveriță Ronțăilă o caută prin scorburi, pe lac și pe deal.",
+  "age": "3-7",
+  "moral": "Când ajuți un prieten, chiar și cea mai grea căutare devine o aventură frumoasă.",
+  "learning": [
+    "toamna frunzele se fac galbene, portocalii, roșii și maro, apoi cad",
+    "animalele se pregătesc de iarnă: veverițele strâng nuci, iar multe păsări pleacă spre țările calde",
+    "culorile toamnei"
+  ],
+  "created": "2026-10-27",
+  "tags": [
+    "toamnă",
+    "frunze",
+    "culori",
+    "veveriță",
+    "păsări călătoare"
+  ],
+  "illustrationStyle": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered.",
+  "characters": [
+    {
+      "name": "Lio",
+      "description": "a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression",
+      "voice": {
+        "pitch": 12,
+        "rate": 3
+      }
+    },
+    {
+      "name": "Ronțăilă",
+      "description": "a small fluffy baby red squirrel with bright orange-red fur, a big bushy curled tail, a cream-colored belly, tufted pointy ears, big shiny black eyes, two little front teeth and a tiny brown acorn-cap hat on his head",
+      "voice": {
+        "type": "masculin",
+        "pitch": 20,
+        "rate": 12
+      }
+    },
+    {
+      "name": "Zâna Toamnei",
+      "description": "a tiny kind autumn fairy the size of a sparrow, with rosy cheeks, big warm amber eyes, long wavy copper-red hair with a crown of small autumn leaves, a flowing dress made of yellow, orange and red leaves, and translucent golden wings shaped like maple leaves",
+      "voice": {
+        "type": "feminin",
+        "pitch": 16,
+        "rate": -2
+      }
+    }
+  ],
+  "cover": {
+    "image": "images/coperta.png",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Ronțăilă: a small fluffy baby red squirrel with bright orange-red fur, a big bushy curled tail, a cream-colored belly, tufted pointy ears, big shiny black eyes, two little front teeth and a tiny brown acorn-cap hat on his head; Zâna Toamnei: a tiny kind autumn fairy the size of a sparrow, with rosy cheeks, big warm amber eyes, long wavy copper-red hair with a crown of small autumn leaves, a flowing dress made of yellow, orange and red leaves, and translucent golden wings shaped like maple leaves. Setting: a magical forest where one half is still green and the other half glows in yellow, orange and red autumn colors, golden light. Action: Lio holds up a small magical wooden paintbrush with a golden handle and rainbow-colored bristles with a rainbow trail, Zâna Toamnei flies above his hand and Ronțăilă sits on his shoulder, while colorful leaves swirl around them. Emotions: joyful, magical, cozy. Important details: the magical paintbrush, swirling colorful leaves. Camera: wide cinematic cover shot.",
+    "animation": {
+      "camera": "zoom-in",
+      "effect": "leaves"
+    }
+  },
+  "pages": [
+    {
+      "text": "Era o dimineață răcoroasă de toamnă. Lio și-a strâns eșarfa turcoaz și a ieșit în pădure. Dar ceva era ciudat: toți copacii erau încă verzi, ca vara. — Hm… Toamna n-ar trebui să fie colorată? s-a mirat Lio, scărpinându-se după ureche.",
+      "narration": [
+        {
+          "text": "Era o dimineață răcoroasă de toamnă.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lio și-a strâns eșarfa turcoaz și a ieșit în pădure.",
+          "mood": "calm"
+        },
+        {
+          "text": "Dar ceva era ciudat: toți copacii erau încă verzi, ca vara.",
+          "mood": "misterios"
+        },
+        {
+          "text": "— Hm… Toamna n-ar trebui să fie colorată?",
+          "mood": "mirat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "s-a mirat Lio, scărpinându-se după ureche.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-01.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: a magical forest on a cool autumn morning where all the trees are still completely green like in summer, soft morning mist, mushrooms and moss. Action: Lio walks on a forest path holding his turquoise scarf against the cool wind and looks up puzzled at the completely green trees, scratching behind his ear. Emotions: Lio curious and puzzled. Important details: green leaves everywhere, a cool breeze, morning mist. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Pe lângă el a trecut în fugă Ronțăilă, un pui de veveriță cu obrajii plini de nuci. — Toamna strâng nuci pentru iarnă! a bolborosit el. Apoi a ascuns o alună… chiar în coama lui Lio. — Aici n-o găsește nimeni! a chicotit el.",
+      "narration": [
+        {
+          "text": "Pe lângă el a trecut în fugă Ronțăilă, un pui de veveriță cu obrajii plini de nuci.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Toamna strâng nuci pentru iarnă!",
+          "mood": "entuziasmat",
+          "speaker": "Ronțăilă"
+        },
+        {
+          "text": "a bolborosit el.",
+          "mood": "calm"
+        },
+        {
+          "text": "Apoi a ascuns o alună… chiar în coama lui Lio.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Aici n-o găsește nimeni!",
+          "mood": "vesel",
+          "speaker": "Ronțăilă"
+        },
+        {
+          "text": "a chicotit el.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-02.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Ronțăilă: a small fluffy baby red squirrel with bright orange-red fur, a big bushy curled tail, a cream-colored belly, tufted pointy ears, big shiny black eyes, two little front teeth and a tiny brown acorn-cap hat on his head. Setting: a magical forest on a cool autumn morning where all the trees are still completely green like in summer, soft morning mist, mushrooms and moss. Action: Ronțăilă the baby squirrel, with cheeks comically puffed full of nuts, stands on Lio's shoulder and tucks a hazelnut into Lio's fluffy mane, while Lio looks sideways surprised. Emotions: Ronțăilă mischievous and giggling, Lio surprised. Important details: a hazelnut in Lio's mane, puffed squirrel cheeks, nuts on the path. Camera: medium close-up.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Deodată, au auzit un plânset subțire, ca un clinchet de clopoțel. Pe o ciupercă stătea o zână mică, cu aripi ca frunzele de arțar. — Sunt Zâna Toamnei, a suspinat ea. — Mi-am pierdut pensula fermecată. Fără ea, nu pot colora frunzele!",
+      "narration": [
+        {
+          "text": "Deodată, au auzit un plânset subțire, ca un clinchet de clopoțel.",
+          "mood": "misterios"
+        },
+        {
+          "text": "Pe o ciupercă stătea o zână mică, cu aripi ca frunzele de arțar.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Sunt Zâna Toamnei,",
+          "mood": "trist",
+          "speaker": "Zâna Toamnei"
+        },
+        {
+          "text": "a suspinat ea.",
+          "mood": "trist"
+        },
+        {
+          "text": "— Mi-am pierdut pensula fermecată. Fără ea, nu pot colora frunzele!",
+          "mood": "trist",
+          "speaker": "Zâna Toamnei"
+        }
+      ],
+      "image": "images/pagina-03.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Ronțăilă: a small fluffy baby red squirrel with bright orange-red fur, a big bushy curled tail, a cream-colored belly, tufted pointy ears, big shiny black eyes, two little front teeth and a tiny brown acorn-cap hat on his head; Zâna Toamnei: a tiny kind autumn fairy the size of a sparrow, with rosy cheeks, big warm amber eyes, long wavy copper-red hair with a crown of small autumn leaves, a flowing dress made of yellow, orange and red leaves, and translucent golden wings shaped like maple leaves. Setting: a magical forest on a cool autumn morning where all the trees are still completely green like in summer, soft morning mist, mushrooms and moss. Action: Zâna Toamnei the tiny fairy sits on a big red-capped mushroom wiping a tear, while Lio and Ronțăilă lean in gently to listen. Emotions: the fairy sad, Lio and Ronțăilă caring and kind. Important details: a large mushroom, tiny sparkles around the fairy's wings. Camera: medium shot at mushroom height.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "sparkles"
+      }
+    },
+    {
+      "text": "Zâna le-a explicat: — Toamna, zilele se fac mai scurte și mai reci. Copacii se pregătesc de somn. — Frunzele se fac galbene, portocalii și roșii, apoi maro, și cad pe pământ. — Te ajutăm noi să-ți găsești pensula! a spus Lio, cu pieptul umflat de curaj.",
+      "narration": [
+        {
+          "text": "Zâna le-a explicat:",
+          "mood": "calm"
+        },
+        {
+          "text": "— Toamna, zilele se fac mai scurte și mai reci. Copacii se pregătesc de somn.",
+          "mood": "calm",
+          "speaker": "Zâna Toamnei"
+        },
+        {
+          "text": "— Frunzele se fac galbene, portocalii și roșii, apoi maro, și cad pe pământ.",
+          "mood": "calm",
+          "speaker": "Zâna Toamnei"
+        },
+        {
+          "text": "— Te ajutăm noi să-ți găsești pensula!",
+          "mood": "hotărât",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a spus Lio, cu pieptul umflat de curaj.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-04.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Ronțăilă: a small fluffy baby red squirrel with bright orange-red fur, a big bushy curled tail, a cream-colored belly, tufted pointy ears, big shiny black eyes, two little front teeth and a tiny brown acorn-cap hat on his head; Zâna Toamnei: a tiny kind autumn fairy the size of a sparrow, with rosy cheeks, big warm amber eyes, long wavy copper-red hair with a crown of small autumn leaves, a flowing dress made of yellow, orange and red leaves, and translucent golden wings shaped like maple leaves. Setting: a magical forest on a cool autumn morning where all the trees are still completely green like in summer, soft morning mist, mushrooms and moss. Action: Zâna Toamnei floats in the air and shows on her open palm four magical glowing leaves, one yellow, one orange, one red and one brown; Lio puffs his chest out bravely and Ronțăilă salutes. Emotions: the fairy hopeful, Lio brave, Ronțăilă eager. Important details: four glowing leaves in yellow, orange, red and brown floating above her hand. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-up",
+        "effect": "sparkles"
+      }
+    },
+    {
+      "text": "Mai întâi, au căutat în scorbura lui Ronțăilă. Lio a băgat capul înăuntru și… bum, bum, bum! O ploaie de nuci i-a căzut în cap. — Am uitat câte am strâns! a râs Ronțăilă. Dar pensula nu era acolo.",
+      "narration": [
+        {
+          "text": "Mai întâi, au căutat în scorbura lui Ronțăilă.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lio a băgat capul înăuntru și…",
+          "mood": "misterios"
+        },
+        {
+          "text": "bum, bum, bum!",
+          "mood": "entuziasmat",
+          "pause": 0.5
+        },
+        {
+          "text": "O ploaie de nuci i-a căzut în cap.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Am uitat câte am strâns!",
+          "mood": "vesel",
+          "speaker": "Ronțăilă"
+        },
+        {
+          "text": "a râs Ronțăilă.",
+          "mood": "calm"
+        },
+        {
+          "text": "Dar pensula nu era acolo.",
+          "mood": "trist"
+        }
+      ],
+      "image": "images/pagina-05.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Ronțăilă: a small fluffy baby red squirrel with bright orange-red fur, a big bushy curled tail, a cream-colored belly, tufted pointy ears, big shiny black eyes, two little front teeth and a tiny brown acorn-cap hat on his head. Setting: a magical forest on a cool autumn morning where all the trees are still completely green like in summer, soft morning mist, mushrooms and moss. Action: Lio has his head poked into a hollow in a big tree trunk while a funny shower of nuts and acorns tumbles out onto his head; Ronțăilă laughs next to him holding his tummy. Emotions: funny, Ronțăilă laughing, Lio comically surprised. Important details: a tree hollow, falling nuts and acorns, little stars of bonk. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-down",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Apoi au mers la lac. Pe cer zbura un stol de gâște sălbatice, așezate ca un V mare. — Unde pleacă? a întrebat Lio. — Spre țările calde. Multe păsări pleacă toamna și se întorc primăvara, a spus zâna. Gâștele au gâgâit că au văzut ceva colorat zburând spre deal.",
+      "narration": [
+        {
+          "text": "Apoi au mers la lac.",
+          "mood": "calm"
+        },
+        {
+          "text": "Pe cer zbura un stol de gâște sălbatice, așezate ca un V mare.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Unde pleacă?",
+          "mood": "mirat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a întrebat Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Spre țările calde. Multe păsări pleacă toamna și se întorc primăvara,",
+          "mood": "calm",
+          "speaker": "Zâna Toamnei"
+        },
+        {
+          "text": "a spus zâna.",
+          "mood": "calm"
+        },
+        {
+          "text": "Gâștele au gâgâit că au văzut ceva colorat zburând spre deal.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-06.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Ronțăilă: a small fluffy baby red squirrel with bright orange-red fur, a big bushy curled tail, a cream-colored belly, tufted pointy ears, big shiny black eyes, two little front teeth and a tiny brown acorn-cap hat on his head; Zâna Toamnei: a tiny kind autumn fairy the size of a sparrow, with rosy cheeks, big warm amber eyes, long wavy copper-red hair with a crown of small autumn leaves, a flowing dress made of yellow, orange and red leaves, and translucent golden wings shaped like maple leaves. Setting: the shore of a calm forest lake on an autumn morning, green trees around, reeds, a blue sky. Action: Lio, Ronțăilă and Zâna Toamnei stand on the lake shore looking up at a flock of wild geese flying in a big V shape across the sky; the geese point with their wings toward a hill. Emotions: Lio amazed, Ronțăilă curious, the fairy smiling. Important details: a V-shaped flock of wild geese, the lake, a distant hill. Camera: wide low-angle shot.",
+      "animation": {
+        "camera": "pan-up",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Pe deal era o grămadă uriașă de frunze uscate. — Poate e acolo! a strigat Lio și a sărit drept în grămadă. Fâșș! A ieșit plin de frunze din cap până-n coadă, ca un arici foarte ciufulit.",
+      "narration": [
+        {
+          "text": "Pe deal era o grămadă uriașă de frunze uscate.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Poate e acolo!",
+          "mood": "entuziasmat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a strigat Lio și a sărit drept în grămadă.",
+          "mood": "calm"
+        },
+        {
+          "text": "Fâșș!",
+          "mood": "entuziasmat",
+          "pause": 0.5
+        },
+        {
+          "text": "A ieșit plin de frunze din cap până-n coadă, ca un arici foarte ciufulit.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-07.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Ronțăilă: a small fluffy baby red squirrel with bright orange-red fur, a big bushy curled tail, a cream-colored belly, tufted pointy ears, big shiny black eyes, two little front teeth and a tiny brown acorn-cap hat on his head. Setting: the top of a grassy hill with one big pile of dry brown leaves, a wide view of the green forest below. Action: Lio pops out of a huge pile of dry brown leaves completely covered in leaves from head to tail, looking like a very messy hedgehog, with only his eyes and nose visible; Ronțăilă watches nearby. Emotions: hilarious, Lio silly and happy, Ronțăilă amazed. Important details: flying dry leaves, the big leaf pile. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "leaves"
+      }
+    },
+    {
+      "text": "Ronțăilă s-a tăvălit de râs. Dar zâna a bătut din palme: — Uite! Pensula mea e în coama ta! Pensula a strănutat: hapciu! Și i-a colorat lui Lio vârful nasului în portocaliu.",
+      "narration": [
+        {
+          "text": "Ronțăilă s-a tăvălit de râs.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Dar zâna a bătut din palme:",
+          "mood": "calm"
+        },
+        {
+          "text": "— Uite! Pensula mea e în coama ta!",
+          "mood": "entuziasmat",
+          "speaker": "Zâna Toamnei"
+        },
+        {
+          "text": "Pensula a strănutat: hapciu!",
+          "mood": "entuziasmat",
+          "pause": 0.4
+        },
+        {
+          "text": "Și i-a colorat lui Lio vârful nasului în portocaliu.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-08.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Ronțăilă: a small fluffy baby red squirrel with bright orange-red fur, a big bushy curled tail, a cream-colored belly, tufted pointy ears, big shiny black eyes, two little front teeth and a tiny brown acorn-cap hat on his head; Zâna Toamnei: a tiny kind autumn fairy the size of a sparrow, with rosy cheeks, big warm amber eyes, long wavy copper-red hair with a crown of small autumn leaves, a flowing dress made of yellow, orange and red leaves, and translucent golden wings shaped like maple leaves. Setting: the top of the grassy hill, scattered dry leaves around. Action: Zâna Toamnei points happily at a small magical wooden paintbrush with a golden handle and rainbow-colored bristles sticking out of Lio's leafy mane; the paintbrush sneezes a little puff of colors and Lio's nose tip turns bright orange; Ronțăilă rolls on the grass laughing. Emotions: joyful and funny, Lio cross-eyed looking at his orange nose. Important details: the magical paintbrush, a puff of rainbow color dust, Lio's orange nose tip. Camera: close-up.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "sparkles"
+      }
+    },
+    {
+      "text": "Zâna l-a lăsat pe Lio să picteze și el. Lio a vopsit o frunză de arțar în roșu, una de mesteacăn în galben și una de stejar în maro. Ronțăilă a vrut doar portocaliu, fiindcă era culoarea lui preferată… și a cozii lui.",
+      "narration": [
+        {
+          "text": "Zâna l-a lăsat pe Lio să picteze și el.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lio a vopsit o frunză de arțar în roșu, una de mesteacăn în galben și una de stejar în maro.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Ronțăilă a vrut doar portocaliu,",
+          "mood": "vesel"
+        },
+        {
+          "text": "fiindcă era culoarea lui preferată… și a cozii lui.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-09.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Ronțăilă: a small fluffy baby red squirrel with bright orange-red fur, a big bushy curled tail, a cream-colored belly, tufted pointy ears, big shiny black eyes, two little front teeth and a tiny brown acorn-cap hat on his head; Zâna Toamnei: a tiny kind autumn fairy the size of a sparrow, with rosy cheeks, big warm amber eyes, long wavy copper-red hair with a crown of small autumn leaves, a flowing dress made of yellow, orange and red leaves, and translucent golden wings shaped like maple leaves. Setting: a branch of a big tree at the edge of the forest, sunlight through the leaves. Action: Lio carefully paints leaves on a branch with a small magical wooden paintbrush with a golden handle and rainbow-colored bristles: one maple leaf red, one birch leaf yellow, one oak leaf brown; Ronțăilă proudly holds up an orange leaf next to his orange tail; Zâna Toamnei hovers and guides Lio. Emotions: concentrated and happy. Important details: a red maple leaf, a yellow birch leaf, a brown oak leaf, an orange leaf. Camera: close-up on the branch.",
+      "animation": {
+        "camera": "pan-left",
+        "effect": "sparkles"
+      }
+    },
+    {
+      "text": "Zâna a fluturat pensula peste toată pădurea. Copacii s-au aprins în galben, portocaliu și roșu, ca un curcubeu de toamnă. Vântul a suflat ușor, iar frunzele au început să cadă, rotindu-se ca niște fluturi. — Frunzele căzute fac o pătură caldă pentru pământ și pentru gâzele mici, a spus zâna.",
+      "narration": [
+        {
+          "text": "Zâna a fluturat pensula peste toată pădurea.",
+          "mood": "entuziasmat"
+        },
+        {
+          "text": "Copacii s-au aprins în galben, portocaliu și roșu, ca un curcubeu de toamnă.",
+          "mood": "entuziasmat"
+        },
+        {
+          "text": "Vântul a suflat ușor, iar frunzele au început să cadă, rotindu-se ca niște fluturi.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Frunzele căzute fac o pătură caldă pentru pământ și pentru gâzele mici,",
+          "mood": "calm",
+          "speaker": "Zâna Toamnei"
+        },
+        {
+          "text": "a spus zâna.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-10.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Ronțăilă: a small fluffy baby red squirrel with bright orange-red fur, a big bushy curled tail, a cream-colored belly, tufted pointy ears, big shiny black eyes, two little front teeth and a tiny brown acorn-cap hat on his head; Zâna Toamnei: a tiny kind autumn fairy the size of a sparrow, with rosy cheeks, big warm amber eyes, long wavy copper-red hair with a crown of small autumn leaves, a flowing dress made of yellow, orange and red leaves, and translucent golden wings shaped like maple leaves. Setting: a view over the whole forest from the hill, the trees now glowing in yellow, orange and red autumn colors, golden sunlight. Action: Zâna Toamnei flies high and waves the magical paintbrush leaving a rainbow trail as the whole forest turns yellow, orange and red; colorful leaves swirl down like butterflies; Lio and Ronțăilă watch in wonder. Emotions: wonder and joy. Important details: a trail of colorful sparkles from the brush, swirling falling leaves. Camera: wide epic shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "leaves"
+      }
+    },
+    {
+      "text": "Atunci, Ronțăilă s-a scărpinat în cap. — Stai puțin… unde am ascuns eu aluna de dimineață? Lio și-a scuturat coama, și aluna a căzut drept în lăbuțele veveriței. — Am găsit-o! a chiuit Ronțăilă, iar toți trei au râs de s-au ținut de burtă.",
+      "narration": [
+        {
+          "text": "Atunci, Ronțăilă s-a scărpinat în cap.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Stai puțin… unde am ascuns eu aluna de dimineață?",
+          "mood": "mirat",
+          "speaker": "Ronțăilă"
+        },
+        {
+          "text": "Lio și-a scuturat coama, și aluna a căzut drept în lăbuțele veveriței.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Am găsit-o!",
+          "mood": "entuziasmat",
+          "speaker": "Ronțăilă"
+        },
+        {
+          "text": "a chiuit Ronțăilă, iar toți trei au râs de s-au ținut de burtă.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-11.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Ronțăilă: a small fluffy baby red squirrel with bright orange-red fur, a big bushy curled tail, a cream-colored belly, tufted pointy ears, big shiny black eyes, two little front teeth and a tiny brown acorn-cap hat on his head; Zâna Toamnei: a tiny kind autumn fairy the size of a sparrow, with rosy cheeks, big warm amber eyes, long wavy copper-red hair with a crown of small autumn leaves, a flowing dress made of yellow, orange and red leaves, and translucent golden wings shaped like maple leaves. Setting: a colorful autumn forest clearing with yellow, orange and red trees and a carpet of fallen leaves. Action: Lio shakes his fluffy mane and a hazelnut falls out right into Ronțăilă's little paws; Ronțăilă cheers with joy; Zâna Toamnei laughs in the air. Emotions: everyone laughing. Important details: a hazelnut falling from Lio's mane, Lio's orange nose tip, fallen leaves. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Seara, Lio s-a întors acasă printr-o ploaie de frunze aurii. Avea nasul încă puțin portocaliu, dar era tare mulțumit. — Mulțumesc, Lio! Fără tine, toamna ar fi rămas verde, i-a șoptit zâna. Lio a căscat și a zâmbit. Ce toamnă frumoasă!",
+      "narration": [
+        {
+          "text": "Seara, Lio s-a întors acasă printr-o ploaie de frunze aurii.",
+          "mood": "calm"
+        },
+        {
+          "text": "Avea nasul încă puțin portocaliu, dar era tare mulțumit.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Mulțumesc, Lio! Fără tine, toamna ar fi rămas verde,",
+          "mood": "calm",
+          "speaker": "Zâna Toamnei"
+        },
+        {
+          "text": "i-a șoptit zâna.",
+          "mood": "șoptit"
+        },
+        {
+          "text": "Lio a căscat și a zâmbit. Ce toamnă frumoasă!",
+          "mood": "somnoros"
+        }
+      ],
+      "image": "images/pagina-12.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Zâna Toamnei: a tiny kind autumn fairy the size of a sparrow, with rosy cheeks, big warm amber eyes, long wavy copper-red hair with a crown of small autumn leaves, a flowing dress made of yellow, orange and red leaves, and translucent golden wings shaped like maple leaves. Setting: a forest path at golden sunset in autumn, trees in yellow, orange and red, warm low sunlight. Action: Lio walks home yawning happily along the path covered in golden leaves, his nose tip still a little orange, while tiny Zâna Toamnei flies beside his ear whispering thank you. Emotions: calm, sleepy, happy. Important details: golden falling leaves, the sunset glow. Camera: wide shot from behind at a slight angle.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "leaves"
+      }
+    }
+  ],
+  "categories": [
+    "invatam",
+    "aventuri",
+    "amuzante"
+  ],
+  "review": {
+    "imaginatie": "Zâna Toamnei colorează frunzele cu o pensulă fermecată, care strănută culori (pagina 8); pădurea rămâne verde până când Lio o găsește, iar la final se aprinde ca un curcubeu de toamnă (pagina 10).",
+    "invatare": "De ce se schimbă frunzele: pagina 4 (zile mai scurte și mai reci, copacii se pregătesc de somn; galben, portocaliu, roșu, apoi maro) și pagina 10 (frunzele cad și fac o pătură caldă pentru pământ). Animalele se pregătesc de iarnă: pagina 2 (veverița strânge nuci) și pagina 6 (gâștele sălbatice pleacă spre țările calde și se întorc primăvara). Culorile: pagina 9 (frunză roșie de arțar, galbenă de mesteacăn, maro de stejar, portocalie ca a cozii lui Ronțăilă).",
+    "umor": [
+      "pagina 2: Ronțăilă ascunde o alună chiar în coama lui Lio",
+      "pagina 5: o ploaie de nuci îi cade lui Lio în cap — bum, bum, bum!",
+      "pagina 7: Lio iese din grămada de frunze ca un arici foarte ciufulit",
+      "pagina 8: pensula strănută și îi colorează lui Lio nasul în portocaliu",
+      "pagina 11: aluna uitată cade din coama lui Lio drept în lăbuțele lui Ronțăilă"
+    ],
+    "emotie": "Problema e pe înțelesul copiilor: zâna e tristă că a pierdut pensula, iar pădurea a rămas verde. Trei căutări: scorbura (pagina 5), lacul (pagina 6), dealul (pagina 7), unde Lio o găsește cu curaj și joacă. Finalul e cald: pădurea se colorează, aluna pierdută e găsită, iar Lio se întoarce acasă mulțumit și somnoros (pagina 12).",
+    "siguranta": "Nimic nu sperie: zâna e blândă, căutările sunt jocuri, nucile care cad sunt o glumă fără nicio lovitură descrisă, iar săritura în frunze e pe o grămadă moale de frunze uscate. Nu există pericole reale, personaje rele sau frici nerezolvate.",
+    "imagini": "Fiecare prompt arată momentul paginii: pădurea verde (1), aluna în coamă (2), zâna pe ciupercă (3), cele patru frunze colorate (4), ploaia de nuci (5), stolul în V (6), Lio acoperit de frunze (7), pensula și nasul portocaliu (8), frunzele pictate (9), pădurea colorată (10), aluna regăsită (11), drumul spre casă la apus (12). Lio are descrierea oficială în fiecare prompt, iar Ronțăilă și zâna aceeași descriere completă peste tot; pădurea e verde până la pagina 9 și colorată de la pagina 10. Voi privi imaginile după publicare și le refac pe cele care nu se potrivesc.",
+    "voce": "Narațiunea e calmă, cu misterios înainte de surprize (plânsetul zânei, scorbura, „Fâșș!”), entuziasmat la găsirea pensulei și la pădurea colorată, somnoros la final. Pauze după „bum, bum, bum!”, „Fâșș!” și „hapciu!”. Lio are vocea lui oficială, Ronțăilă o voce de pui, subțire și grăbită, iar zâna o voce feminină, caldă și puțin mai rară."
+  },
+  "questions": [
+    {
+      "text": "Ce fac veverițele toamna?",
+      "options": [
+        {
+          "text": "Strâng nuci pentru iarnă",
+          "emoji": "🌰"
+        },
+        {
+          "text": "Fac baie în lac",
+          "emoji": "🛁"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Corect! Veverițele strâng nuci și le ascund, ca să aibă ce mânca iarna. Ca Ronțăilă!"
+    },
+    {
+      "text": "Ce culori au frunzele toamna?",
+      "options": [
+        {
+          "text": "Galben, portocaliu și roșu",
+          "emoji": "🍂"
+        },
+        {
+          "text": "Albastru și mov",
+          "emoji": "💙"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Bravo! Toamna frunzele se fac galbene, portocalii, roșii și maro, apoi cad pe pământ."
+    }
+  ]
+}
