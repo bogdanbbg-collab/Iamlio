@@ -40,7 +40,7 @@ AddDefaultCharset UTF-8
 </IfModule>
 
 # Cache: CSS și JS au în adresă amprenta conținutului (?v=…), deci pot sta mult în browser; imaginile și vocile
-# poveștilor (tot cu ?v=…) 30 de zile, Lio și pictogramele o zi; paginile și datele (HTML, JSON) se verifică la
+# poveștilor (tot cu ?v=…) 30 de zile, Lio și pictogramele o săptămână; paginile și datele (HTML, JSON) se verifică la
 # fiecare vizită, ca o publicare nouă să se vadă imediat.
 <IfModule mod_headers.c>
   <FilesMatch "\.(css|js|woff2)$">
@@ -50,7 +50,7 @@ AddDefaultCharset UTF-8
     Header set Cache-Control "public, max-age=2592000"
   </FilesMatch>
   <FilesMatch "\.(svg|png|ico)$">
-    Header set Cache-Control "public, max-age=86400"
+    Header set Cache-Control "public, max-age=604800"
   </FilesMatch>
   <FilesMatch "\.(html|json|webmanifest|xml|txt)$">
     Header set Cache-Control "no-cache"

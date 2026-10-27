@@ -766,12 +766,27 @@ def previous_published(story_id, workdir, repo=ROOT):
     return None
 
 
+SMALL_IMAGE = (768, 512)  # pentru telefoane: destul pentru ecranul lor, de câteva ori mai ușoară decât 1536×1024
+
+
 def version_story_assets(folder, data):
-    """images/x.webp → images/x.webp?v=<amprentă>: după o modificare, browserul nu mai arată imaginea veche."""
+    """images/x.webp → images/x.webp?v=<amprentă>: după o modificare, browserul nu mai arată imaginea veche.
+    Pentru fiecare imagine se face și o variantă mică (images/x-mic.webp, „imageSmall”), aleasă de telefoane."""
+    from PIL import Image, ImageOps
+
     for entry in image_entries(data):
         path = pregatire.safe_image(folder, entry.get("image"))
-        if path is not None and path.is_file():
-            entry["image"] = f"{entry['image']}?v={hashlib.sha1(path.read_bytes()).hexdigest()[:10]}"
+        if path is None or not path.is_file():
+            continue
+        small = path.with_name(f"{path.stem}-mic.webp")
+        try:
+            with Image.open(path) as image:
+                ImageOps.fit(image.convert("RGB"), SMALL_IMAGE, Image.LANCZOS).save(small, "WEBP", quality=78, method=6)
+            rel = small.relative_to(folder).as_posix()
+            entry["imageSmall"] = f"{rel}?v={hashlib.sha1(small.read_bytes()).hexdigest()[:10]}"
+        except OSError:
+            pass  # fără variantă mică, cititorul folosește imaginea mare
+        entry["image"] = f"{entry['image']}?v={hashlib.sha1(path.read_bytes()).hexdigest()[:10]}"
     write_json(folder / "story.json", data)
 
 

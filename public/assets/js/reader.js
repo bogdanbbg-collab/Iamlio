@@ -65,9 +65,14 @@
     return node;
   }
 
-  function image(src, eager) {
+  function image(src, eager, small) {
     var img = el("img");
     img.src = base + src;
+    if (small) {
+      // telefonul ia imaginea mică (768 px), ecranele mari pe cea întreagă (1536 px)
+      img.srcset = base + small + " 768w, " + base + src + " 1536w";
+      img.sizes = "(orientation: portrait) 100vw, 55vw";
+    }
     img.alt = "";
     img.decoding = "async";
     img.loading = eager ? "eager" : "lazy";
@@ -81,12 +86,12 @@
   var CAMERAS = ["zoom-in", "zoom-out", "pan-left", "pan-right", "pan-up", "pan-down", "still"];
   var EFFECTS = { sparkles: 14, stars: 16, leaves: 10, snow: 22, drops: 18, bubbles: 12, glow: 1, fireflies: 10, hearts: 8 };
 
-  function animatedArt(src, eager, animation) {
+  function animatedArt(src, eager, animation, small) {
     var art = el("figure", "sheet-art");
     animation = animation || {};
     var camera = CAMERAS.indexOf(animation.camera) >= 0 ? animation.camera : "zoom-in";
     art.classList.add("cam-" + camera);
-    art.appendChild(image(src, eager));
+    art.appendChild(image(src, eager, small));
     var count = EFFECTS[animation.effect];
     if (count && !REDUCED_MOTION) {
       var fx = el("div", "fx fx-" + animation.effect);
@@ -124,6 +129,7 @@
     var list = [{
       kind: "cover",
       image: story.cover.image,
+      imageSmall: story.cover.imageSmall,
       animation: story.cover.animation,
       title: story.title,
       intro: lio.intro || "",
@@ -135,6 +141,7 @@
       list.push({
         kind: "page",
         image: page.image,
+        imageSmall: page.imageSmall,
         animation: page.animation,
         text: page.text,
         narration: Array.isArray(page.narration) ? page.narration.map(function (n) { return n.text; }) : [],
@@ -160,7 +167,7 @@
     sheet.setAttribute("aria-label", item.kind === "page" ? "Pagina " + item.number : item.kind === "cover" ? "Copertă" : "Sfârșit");
 
     if (item.kind === "cover") {
-      front.appendChild(animatedArt(item.image, true, item.animation));
+      front.appendChild(animatedArt(item.image, true, item.animation, item.imageSmall));
       var coverText = el("div", "sheet-text cover-text");
       if (item.intro) {
         var says = el("p", "lio-bubble");
@@ -181,7 +188,7 @@
       coverText.appendChild(resumeBox());
       front.appendChild(coverText);
     } else if (item.kind === "page") {
-      front.appendChild(animatedArt(item.image, i < 3, item.animation));
+      front.appendChild(animatedArt(item.image, i < 3, item.animation, item.imageSmall));
       var text = el("div", "sheet-text");
       text.appendChild(pageText(item));
       text.appendChild(el("span", "page-num", String(item.number)));

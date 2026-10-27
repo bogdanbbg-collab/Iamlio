@@ -446,6 +446,23 @@ const audioState = (p) => p.evaluate(() => {
   return { rate: a.playbackRate, volume: a.volume, src: a.src };
 });
 
+test("pagina principală nu sare la încărcare (fonturi, listă și contor care vin târziu)", async () => {
+  const p = await page({ viewport: { width: 412, height: 823 }, reducedMotion: "reduce" });
+  await p.addInitScript(() => {
+    window.__cls = 0;
+    new PerformanceObserver((list) => { for (const e of list.getEntries()) if (!e.hadRecentInput) window.__cls += e.value; })
+      .observe({ type: "layout-shift", buffered: true });
+  });
+  for (const [pattern, ms] of [["**/*.woff2", 1500], ["**/stories/index.json", 800], ["**/api/citiri.php*", 1200]]) {
+    await p.route(pattern, async (route) => { await new Promise((r) => setTimeout(r, ms)); await route.continue(); });
+  }
+  await p.goto(`${BASE}/`);
+  await p.waitForSelector(".story-reads");
+  await p.waitForTimeout(800);
+  const cls = await p.evaluate(() => window.__cls);
+  assert.ok(cls < 0.1, `Cumulative Layout Shift ${cls.toFixed(3)} (Google cere sub 0,1)`);
+});
+
 test("pagina poveștii: statică (fără JavaScript), cu text, date structurate, copertă de distribuire și buton spre cititor", async () => {
   const story = JSON.parse(readFileSync(join(ROOT, "build/site/stories", STORY.id, "story.json"), "utf-8"));
   const html = await (await fetch(`${BASE}/p/${STORY.id}.html`)).text();
@@ -497,6 +514,10 @@ test("Google și AI: sitemap cu paginile poveștilor și copertele lor, robots.t
   const p = await page({ javaScriptEnabled: false });
   await p.goto(`${BASE}/`);
   assert.ok(await p.isVisible(`.story-index a[href="p/${STORY.id}.html"]`), "legăturile se văd și fără JavaScript");
+  // cardurile sunt deja în pagină (nu sar când pornește JavaScript-ul), cu prima copertă descărcată imediat
+  assert.ok(await p.locator(".story-card").count() >= 1, "cardurile sunt scrise direct în pagină");
+  assert.equal(await p.getAttribute(".story-card img >> nth=0", "fetchpriority"), "high");
+  assert.match(await p.getAttribute(".story-card img >> nth=0", "srcset"), /-mic\.webp\?v=\w+ 768w/);
   const data = JSON.parse(await p.textContent('script[type="application/ld+json"]'));
   assert.ok(data["@graph"].some((x) => x["@type"] === "WebSite"));
   assert.deepEqual(p.errors, []);
@@ -705,7 +726,7 @@ test("„Lio, alege tu!” apare doar de la trei povești", async () => {
     await route.fulfill({ json: body });
   });
   await p.goto(`${BASE}/`);
-  await p.waitForSelector(".story-card");
+  await p.waitForSelector(".story-card .fav-btn"); // cardurile refăcute de JavaScript din lista reală
   assert.ok(await p.isHidden("#lio-picks"));
 });
 
@@ -717,7 +738,7 @@ test("cu o singură poveste nu apare butonul „Filtre”", async () => {
     await route.fulfill({ json: body });
   });
   await p.goto(`${BASE}/`);
-  await p.waitForSelector(".story-card");
+  await p.waitForSelector(".story-card .fav-btn"); // cardurile refăcute de JavaScript din lista reală
   assert.ok(await p.isHidden("#filters-toggle"));
   assert.ok(await p.isHidden("#filters"));
 });

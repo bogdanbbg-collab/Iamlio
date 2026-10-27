@@ -65,6 +65,11 @@
     var cover = el("div", "story-cover");
     var img = el("img");
     img.src = story.cover;
+    if (story.coverSmall) {
+      // pe telefon ajunge coperta mică (de câteva ori mai ușoară); pe ecranele late, cea mare
+      img.srcset = story.coverSmall + " 768w, " + story.cover + " 1536w";
+      img.sizes = "(max-width: 640px) calc(100vw - 32px), 380px";
+    }
     img.alt = "";
     // primele coperți se văd imediat: se încarcă primele, cu prioritate; restul doar când ajungi la ele
     if (grid.children.length < 2) {
@@ -259,8 +264,10 @@
       stories = library.stories || [];
       featuredId = weeklyStory(stories);
       (library.categories || []).forEach(function (c) { categories[c.id] = c; });
+      // butoanele pot fi deja vizibile din pagina pregătită la publicare; aici se potrivesc cu lista reală
       if (stories.length > 1) buildFilters(library.categories || []); // cu o singură poveste n-ai ce filtra
-      if (stories.length >= MIN_FOR_PICK) picksBtn.hidden = false;
+      else toggleBtn.hidden = true;
+      picksBtn.hidden = stories.length < MIN_FOR_PICK;
       showStories();
       Iamlio.fetchCounts().then(function (result) {
         if (!result) return;

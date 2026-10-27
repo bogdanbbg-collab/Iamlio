@@ -64,11 +64,45 @@ def write_all(site, entries, stories):
     entries = [e for e in entries if e["id"] in by_id]
     for entry in entries:
         entry["lastmod"] = last_changed(entry["id"], entry.get("published") or entry.get("created"))
+    write_thumbnails(site, entries)
     write_story_pages(site, entries, by_id, base)
     write_sitemap(site, entries, by_id, base)
     write_robots(site, base)
     write_llms(site, entries, by_id, base)
     update_home(site, entries, base)
+
+
+# ---------- coperți mici pentru bibliotecă ----------
+
+THUMB_SIZE = (768, 512)  # destul pentru un card pe telefon cu ecran dens; coperta mare rămâne pentru ecranele late
+COVER_SIZES = "(max-width: 640px) calc(100vw - 32px), 380px"
+
+
+def write_thumbnails(site, entries):
+    """Coperta fiecărei povești în mărime de card (de câteva ori mai mică), trecută și în stories/index.json."""
+    from PIL import Image, ImageOps
+
+    index_file = site / "stories" / "index.json"
+    library = json.loads(index_file.read_text(encoding="utf-8"))
+    small = {}
+    for entry in entries:
+        sid = entry["id"]
+        source = site / plain_image(entry["cover"])
+        # aceeași variantă mică pe care o folosește și cititorul (stories.py, version_story_assets)
+        target = source.with_name(f"{source.stem}-mic.webp")
+        try:
+            if not target.is_file():
+                with Image.open(source) as image:
+                    ImageOps.fit(image.convert("RGB"), THUMB_SIZE, Image.LANCZOS).save(target, "WEBP", quality=78, method=6)
+        except OSError:
+            continue  # fără copertă mică, biblioteca folosește coperta mare
+        version = hashlib.sha1(target.read_bytes()).hexdigest()[:10]
+        small[sid] = f"stories/{sid}/{target.relative_to(site / 'stories' / sid).as_posix()}?v={version}"
+        entry["coverSmall"] = small[sid]
+    for story in library.get("stories") or []:
+        if story.get("id") in small:
+            story["coverSmall"] = small[story["id"]]
+    index_file.write_text(json.dumps(library, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 # ---------- paginile statice ale poveștilor ----------
@@ -276,11 +310,86 @@ def write_llms(site, entries, by_id, base):
 
 # ---------- pagina principală ----------
 
+NEW_DAYS = 14          # ca în library.js
+MIN_FOR_FEATURED = 3
+MIN_FOR_PICK = 3
+
+
+def days_since(day, today):
+    from datetime import date
+
+    try:
+        return (today - date.fromisoformat(day)).days
+    except (TypeError, ValueError):
+        return None
+
+
+def weekly_story(entries, today):
+    """Povestea săptămânii, exact ca în library.js (ca pagina să nu se schimbe când pornește JavaScript-ul)."""
+    from datetime import date
+
+    if len(entries) < MIN_FOR_FEATURED:
+        return ""
+    # ca sort-ul stabil din JavaScript: la aceeași zi câștigă cea aflată prima în bibliotecă
+    recent = [(d, n, e["id"]) for n, e in enumerate(entries)
+              if (d := days_since(e.get("published"), today)) is not None and 0 <= d < 7]
+    if recent:
+        return min(recent)[2]
+    week = (today - date(2024, 1, 1)).days // 7
+    ids = sorted(e["id"] for e in entries)
+    return ids[week % len(ids)]
+
+
+def prerender_library(html, entries):
+    """Cardurile poveștilor scrise direct în pagină (aceleași ca cele din library.js): se văd imediat, coperta
+    principală începe să se descarce odată cu pagina, iar nimic nu mai sare când pornește JavaScript-ul."""
+    from datetime import date
+
+    today = date.today()
+    featured = weekly_story(entries, today)
+    ordered = sorted(entries, key=lambda e: e["id"] != featured)
+    cards = []
+    for n, entry in enumerate(ordered):
+        tags = []
+        if entry["id"] == featured:
+            tags.append('<span class="story-tag story-featured">⭐ Povestea săptămânii</span>')
+        days = days_since(entry.get("published"), today)
+        if days is not None and 0 <= days < NEW_DAYS:
+            tags.append('<span class="story-tag story-new">Nou</span>')
+        first = (entry.get("categories") or [None])[0]
+        if first in canon.CATEGORIES and entry["id"] != featured:
+            label, emoji = canon.CATEGORIES[first]
+            tags.append(f'<span class="story-tag">{emoji} {escape(label)}</span>')
+        loading = 'loading="eager" fetchpriority="high"' if n < 2 else 'loading="lazy"'
+        srcset = (f' srcset="{escape(entry["coverSmall"])} 768w, {escape(entry["cover"])} 1536w" sizes="{COVER_SIZES}"'
+                  if entry.get("coverSmall") else "")
+        minutes = entry.get("minutes") or 5
+        cards.append(
+            f'<article class="story-card" data-id="{escape(entry["id"])}">'
+            f'<a class="story-link" href="poveste.html?id={escape(entry["id"])}">'
+            f'<div class="story-cover"><img src="{escape(entry["cover"])}"{srcset} alt="" {loading} decoding="async">'
+            f'<div class="story-tags">{"".join(tags)}</div><span class="story-play">▶</span></div>'
+            f'<div class="story-body"><div class="story-heading"><h3>{escape(entry["title"])}</h3>'
+            f'<span class="story-minutes" aria-label="cam {minutes} minute">~{minutes} min</span></div>'
+            f'<p class="story-details"></p><p class="story-summary">{escape(entry.get("summary") or "")}</p></div>'
+            f'</a></article>')
+    if cards:
+        html = html.replace('<p class="muted">Se încarcă poveștile…</p>', "\n        ".join(cards), 1)
+    # butoanele care depind doar de numărul de povești apar de la început, nu după ce pornește JavaScript-ul
+    if len(entries) >= MIN_FOR_PICK:
+        html = html.replace('<button id="lio-picks" class="lio-picks" type="button" hidden>',
+                            '<button id="lio-picks" class="lio-picks" type="button">', 1)
+    if len(entries) > 1:
+        html = html.replace('aria-controls="filters" hidden>', 'aria-controls="filters">', 1)
+    return html
+
+
 def update_home(site, entries, base):
     """În index.html: lista poveștilor ca legături simple (pentru cine nu rulează JavaScript, ca roboții AI),
     datele structurate ale site-ului și codurile de verificare pentru Google și Bing (dacă sunt setate)."""
     page = site / "index.html"
     html = page.read_text(encoding="utf-8")
+    html = prerender_library(html, entries)
     links = " · ".join(f'<a href="p/{escape(e["id"])}.html">{escape(e["title"])}</a>' for e in entries)
     nav = (f'  <nav class="story-index" aria-label="Toate poveștile">\n    <p><strong>Toate poveștile:</strong> {links}</p>\n'
            f'  </nav>\n\n  <footer class="site-footer">')

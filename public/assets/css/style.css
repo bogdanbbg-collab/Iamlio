@@ -15,6 +15,16 @@
   src: url("../fonts/baloo2-latin.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/* Până se încarcă Baloo 2, textul folosește un font de sistem adus la aceleași dimensiuni (lățime, înălțime),
+   ca rândurile să nu sară când apare fontul (mai puțin „Cumulative Layout Shift”). */
+@font-face {
+  font-family: "Baloo 2 Fallback";
+  src: local("Arial"), local("Helvetica"), local("Liberation Sans"), local("Roboto");
+  size-adjust: 93.1%;
+  ascent-override: 115.8%;
+  descent-override: 56.3%;
+  line-gap-override: 0%;
+}
 
 :root {
   --cream: #FFF8EC;
@@ -31,7 +41,7 @@
   --night: #2B3A73;
   --night-deep: #1B2A5C;
   --radius: 22px;
-  --font: "Baloo 2", "Trebuchet MS", system-ui, sans-serif;
+  --font: "Baloo 2", "Baloo 2 Fallback", "Trebuchet MS", system-ui, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -374,7 +384,8 @@ body.home {
   white-space: nowrap;
 }
 .story-body p { margin: 0; color: var(--ink-soft); line-height: 1.35; font-size: .9rem; }
-.story-details { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 4px !important; }
+/* rândul contorului „citită de X ori” e rezervat de la început: cardul nu crește când vine contorul */
+.story-details { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 4px !important; min-height: 1.5em; }
 .story-details .story-reads { color: var(--teal-dark); font-weight: 600; }
 .story-reads::before { content: "★ "; color: var(--gold); }
 .story-summary {
