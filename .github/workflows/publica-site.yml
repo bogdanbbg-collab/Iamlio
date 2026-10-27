@@ -386,6 +386,12 @@ jobs:
           done
           echo "Site-ul live răspunde corect: $SITE_URL"
 
+      # Bing (și prin el ChatGPT/Copilot) află imediat de paginile noi sau schimbate (vezi scripts/indexnow.py).
+      - name: Anunță motoarele de căutare (IndexNow)
+        if: env.NORMAL == 'true'
+        continue-on-error: true
+        run: python scripts/indexnow.py build/site
+
       # Fiecare publicare reușită primește un tag, ca să se poată reveni oricând la ea.
       - name: Marchează versiunea publicată
         if: env.NORMAL == 'true'

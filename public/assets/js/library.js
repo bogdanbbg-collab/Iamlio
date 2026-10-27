@@ -106,7 +106,14 @@
     link.appendChild(body);
     item.appendChild(link);
     item.appendChild(Iamlio.favoriteButton(story.id, story.title, function () {
-      if (filters.favorite) showStories();
+      if (!filters.favorite) return;
+      // cu filtrul „Favorite” cardul dispare: focusul trece pe cardul care îi ia locul (sau pe titlul listei)
+      var position = Array.prototype.indexOf.call(grid.querySelectorAll(".story-card"), item);
+      showStories();
+      var cards = grid.querySelectorAll(".story-card .fav-btn");
+      var target = cards[Math.min(position, cards.length - 1)] || document.getElementById("library-title");
+      if (target === document.getElementById("library-title")) target.setAttribute("tabindex", "-1");
+      target.focus();
     }));
     return item;
   }

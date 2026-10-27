@@ -232,6 +232,12 @@ function admin_password_ok($password)
     if (empty($config['salt']) || empty($config['hash']) || $password === '') {
         return false;
     }
+    if (($config['alg'] ?? '') === 'pbkdf2-sha256') {
+        $iterations = max(1, min((int) ($config['iter'] ?? 0), 2000000));
+        $hash = hash_pbkdf2('sha256', $password, (string) $config['salt'], $iterations, 64);
+        return hash_equals((string) $config['hash'], $hash);
+    }
+    // formatul vechi (o singură amprentă SHA-256), până la următoarea publicare
     return hash_equals((string) $config['hash'], hash('sha256', $config['salt'] . $password));
 }
 

@@ -46,8 +46,13 @@ def category_labels(ids):
 
 def last_changed(sid, fallback):
     """Data ultimei modificări a poveștii (din istoricul git), altfel data publicării."""
+    return file_changed(f"public/stories/{sid}", fallback)
+
+
+def file_changed(rel, fallback=None):
+    """Data ultimei modificări a unui fișier sau folder din repository (din istoricul git)."""
     try:
-        day = subprocess.run(["git", "log", "-1", "--format=%cs", "--", f"public/stories/{sid}"],
+        day = subprocess.run(["git", "log", "-1", "--format=%cs", "--", rel],
                              capture_output=True, text=True, timeout=20, cwd=Path(__file__).resolve().parent.parent)
         if day.returncode == 0 and len(day.stdout.strip()) == 10:
             return day.stdout.strip()
@@ -221,7 +226,7 @@ def story_page(story, entry, others, base, css_version, card_version):
       <p><a href="../">Toate poveștile</a></p>
     </nav>
   </main>
-  <footer>{SITE_NAME} · povești pentru copii · <a href="../confidentialitate.html">Confidențialitate</a> · <a href="mailto:{CONTACT}">{CONTACT}</a></footer>
+  <footer>{SITE_NAME} · povești pentru copii · <a href="../despre.html">Despre</a> · <a href="../confidentialitate.html">Confidențialitate</a> · <a href="mailto:{CONTACT}">{CONTACT}</a></footer>
 </body>
 </html>
 """
@@ -231,7 +236,8 @@ def story_page(story, entry, others, base, css_version, card_version):
 
 def write_sitemap(site, entries, by_id, base):
     newest = max((e["lastmod"] for e in entries if e.get("lastmod")), default=None)
-    rows = [url_row(f"{base}/", newest), url_row(f"{base}/confidentialitate.html", None)]
+    rows = [url_row(f"{base}/", newest), url_row(f"{base}/despre.html", file_changed("public/despre.html")),
+            url_row(f"{base}/confidentialitate.html", file_changed("public/confidentialitate.html"))]
     for entry in entries:
         story = by_id[entry["id"]]
         image = (f"{base}/stories/{story['id']}/{plain_image(story['cover']['image'])}", story["title"])
@@ -284,6 +290,7 @@ def write_llms(site, entries, by_id, base):
         lines.append(f"- [{story['title']}]({story_url(base, story['id'])}): {story.get('summary', '')} ({details})")
     lines += ["", "## Despre site", "",
               f"- [Biblioteca de povești]({base}/): toate poveștile, cu filtre după categorie și durată",
+              f"- [Despre Iamlio]({base}/despre.html): cum sunt făcute poveștile (reguli de calitate și siguranță)",
               f"- [Confidențialitate]({base}/confidentialitate.html): ce date se folosesc (doar totaluri, fără "
               "reclame, fără urmărire)",
               f"- Contact: {CONTACT}",

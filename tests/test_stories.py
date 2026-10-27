@@ -293,7 +293,9 @@ class PersonalizedTests(StoryCase):
             self.assertTrue((build / "api/data/previzualizare/ana-k7p2qx/story.json").exists())
             config = json.loads((build / "api/data/parola.json").read_text(encoding="utf-8"))
             self.assertNotIn("secret", json.dumps(config))
-            self.assertEqual(config["hash"], hashlib.sha256((config["salt"] + "secret").encode()).hexdigest())
+            self.assertEqual(config["alg"], "pbkdf2-sha256")
+            self.assertEqual(config["hash"], hashlib.pbkdf2_hmac("sha256", b"secret", config["salt"].encode(), config["iter"]).hex())
+            self.assertGreaterEqual(config["iter"], 100_000, "parola se păstrează cu multe repetări, greu de ghicit")
 
             other = build / "stories" / "bob-q9w3zz"
             other.mkdir()

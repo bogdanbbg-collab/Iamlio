@@ -337,7 +337,7 @@ for (const [name, viewport] of [["telefon", [390, 844]], ["telefon mic", [360, 6
 }
 
 test("securitate: fiecare pagină are politica de conținut (doar fișiere proprii, fără scripturi din pagină)", async () => {
-  for (const url of ["", "poveste.html", "confidentialitate.html", "admin.html", `p/${STORY.id}.html`]) {
+  for (const url of ["", "poveste.html", "confidentialitate.html", "despre.html", "admin.html", `p/${STORY.id}.html`]) {
     const html = await (await fetch(`${BASE}/${url}`)).text();
     const csp = html.match(/http-equiv="Content-Security-Policy" content="([^"]+)"/);
     assert.ok(csp, `${url || "/"}: lipsește politica`);

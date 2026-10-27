@@ -900,7 +900,10 @@ def stage_previews(folders):
                   "ca s-o poți previzualiza")
     if password:
         salt = secrets.token_hex(16)
-        config = {"salt": salt, "hash": hashlib.sha256((salt + password).encode("utf-8")).hexdigest()}
+        # PBKDF2 cu multe repetări: chiar dacă fișierul ar ajunge la cineva, parola nu se poate ghici ușor
+        iterations = 200_000
+        config = {"alg": "pbkdf2-sha256", "iter": iterations, "salt": salt,
+                  "hash": hashlib.pbkdf2_hmac("sha256", password.encode("utf-8"), salt.encode("utf-8"), iterations).hex()}
         (BUILD_DIR / "api" / "data").mkdir(parents=True, exist_ok=True)
         (BUILD_DIR / "api" / "data" / "parola.json").write_text(json.dumps(config) + "\n", encoding="utf-8")
 

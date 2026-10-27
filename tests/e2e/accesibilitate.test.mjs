@@ -86,3 +86,9 @@ test("accesibilitate: pagina statică a poveștii", { skip: !STORY && "nicio pov
   await p.goto(`${BASE}/p/${STORY.id}.html`);
   await audit(p, "pagina poveștii");
 });
+
+test("accesibilitate: pagina Despre", async () => {
+  const p = await page();
+  await p.goto(`${BASE}/despre.html`);
+  await audit(p, "despre");
+});
