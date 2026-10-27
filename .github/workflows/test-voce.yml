@@ -1,0 +1,52 @@
+name: Test voce
+
+# Pornit de mână (Actions → Test voce → Run workflow): generează mostre cu vocile Google Chirp 3 HD (secretul
+# GOOGLE_TTS_API_KEY) și, pentru comparație, cu vocea de acum. Mostrele apar la Artifacts și pe ramura mostre-voce.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: test-voce
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.12"
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: ~/.cache/apt-ffmpeg
+          key: apt-ffmpeg-ubuntu-24.04-v1
+      - name: Instalează uneltele
+        timeout-minutes: 15
+        run: |
+          pip install -r requirements.lock
+          scripts/instaleaza_ffmpeg.sh
+      - name: Generează mostrele
+        env:
+          GOOGLE_TTS_API_KEY: ${{ secrets.GOOGLE_TTS_API_KEY }}
+        run: python scripts/test_voce.py | tee -a "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: mostre-voce
+          path: build/test-voce/
+          if-no-files-found: ignore
+      - name: Pune mostrele pe ramura mostre-voce
+        if: always()
+        run: |
+          [ -n "$(ls build/test-voce/*.mp3 2>/dev/null)" ] || exit 0
+          cd build/test-voce
+          git init -q -b mostre-voce
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -qm "Mostre de voce ($GITHUB_RUN_ID)"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" mostre-voce
