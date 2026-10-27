@@ -53,7 +53,9 @@ async function shot(name, [width, height], url, prepare) {
   const errors = [];
   p.on("pageerror", (e) => errors.push(e.message));
   await p.goto(url);
-  await p.waitForLoadState("networkidle");
+  // capturile sunt pentru ochi, nu verificări: dacă rețeaua nu se liniștește (de ex. o descărcare audio lungă),
+  // nu așteptăm la nesfârșit; elementele de care e nevoie le așteaptă prepare
+  await p.waitForLoadState("networkidle", { timeout: 10000 }).catch(() => {});
   if (prepare) await prepare(p);
   await p.waitForTimeout(300);
   await p.screenshot({ path: join(OUT, `${name}.png`) });

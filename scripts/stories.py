@@ -945,6 +945,9 @@ def write_admin_info(entries, personal, invalid):
         "image_budget": budget,
         "consum": consum.collect(REPORTS_DIR, BUILD_DIR),
     }
+    for r in info["consum"]["resurse"]:
+        print(f"[consum] {r['nume']}: {r['folosit']} / {r['limita'] or '—'} {r['unitate']}"
+              + (f" ({r['nota'][:120]})" if r["folosit"] is None else ""))
     target = BUILD_DIR / "api" / "data" / "admin-info.json"
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(info, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
