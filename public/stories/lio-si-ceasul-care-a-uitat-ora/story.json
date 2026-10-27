@@ -1,0 +1,458 @@
+{
+  "id": "lio-si-ceasul-care-a-uitat-ora",
+  "title": "Lio și ceasul care a uitat ora",
+  "summary": "Cucu, păsărica din ceasul lui Lio, a uitat cum se citește ceasul și iese din ușiță când nu trebuie! Bunicul Ceas îi învață pe amândoi ce arată cele două limbi.",
+  "age": "3-7",
+  "moral": "Ce nu știi azi poți învăța, puțin câte puțin, cu prieteni răbdători.",
+  "learning": [
+    "ceasul are două limbi: cea mică arată ora, cea mare arată minutele",
+    "ora fixă: limba mare stă sus; ora opt vine o dată dimineața și o dată seara",
+    "numărăm până la opt; timpul nu se grăbește, avem răbdare"
+  ],
+  "created": "2026-10-27",
+  "tags": [
+    "ceas",
+    "ore",
+    "numărat",
+    "răbdare",
+    "cuc"
+  ],
+  "illustrationStyle": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered.",
+  "characters": [
+    {
+      "name": "Lio",
+      "description": "a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression",
+      "voice": {
+        "pitch": 12,
+        "rate": 3
+      }
+    },
+    {
+      "name": "Cucu",
+      "description": "a tiny round cuckoo bird carved from polished warm-brown wood, with softly painted feathers, a bright orange beak, big round shiny black eyes, rosy painted cheeks and a small red feather crest on his head",
+      "voice": {
+        "type": "masculin",
+        "pitch": 24,
+        "rate": 8
+      }
+    },
+    {
+      "name": "Bunicul Ceas",
+      "description": "a tall friendly old grandfather clock made of dark honey-colored wood, with a round cream clock face that has twelve small golden dots instead of numbers and two black clock hands (one short, one long), kind painted eyes with bushy white eyebrows above the clock face, and a shiny golden pendulum swinging behind a glass window in his long body",
+      "voice": {
+        "type": "masculin",
+        "pitch": -14,
+        "rate": -10
+      }
+    }
+  ],
+  "cover": {
+    "image": "images/coperta.png",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Cucu: a tiny round cuckoo bird carved from polished warm-brown wood, with softly painted feathers, a bright orange beak, big round shiny black eyes, rosy painted cheeks and a small red feather crest on his head; Bunicul Ceas: a tall friendly old grandfather clock made of dark honey-colored wood, with a round cream clock face that has twelve small golden dots instead of numbers and two black clock hands (one short, one long), kind painted eyes with bushy white eyebrows above the clock face, and a shiny golden pendulum swinging behind a glass window in his long body. Setting: the cozy hallway of Lio's little house, warm wooden floor, a soft rug, a sunny window. Action: Lio stands in front of Bunicul Ceas, the tall friendly grandfather clock, holding Cucu the wooden cuckoo bird in his paws; all three smile; the golden pendulum swings. Emotions: warm, curious, a little magical. Important details: the clock face with twelve golden dots, the golden pendulum, soft sparkles. Camera: wide cinematic cover shot.",
+    "animation": {
+      "camera": "zoom-in",
+      "effect": "sparkles"
+    }
+  },
+  "pages": [
+    {
+      "text": "În casa lui Lio, pe perete, stătea un ceas de lemn cu o ușiță mică. În fiecare oră, ușița se deschidea și ieșea Cucu, un cuc de lemn, adică o păsărică ce cântă „cucu”. — Cucu! Cucu! cânta el, tare mândru.",
+      "narration": [
+        {
+          "text": "În casa lui Lio, pe perete, stătea un ceas de lemn cu o ușiță mică.",
+          "mood": "calm"
+        },
+        {
+          "text": "În fiecare oră, ușița se deschidea și ieșea Cucu, un cuc de lemn, adică o păsărică ce cântă „cucu”.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Cucu! Cucu!",
+          "mood": "vesel",
+          "speaker": "Cucu"
+        },
+        {
+          "text": "cânta el, tare mândru.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-01.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Cucu: a tiny round cuckoo bird carved from polished warm-brown wood, with softly painted feathers, a bright orange beak, big round shiny black eyes, rosy painted cheeks and a small red feather crest on his head. Setting: the cozy living room of Lio's little house, warm wooden floor, a soft rug, a sunny window. Action: Cucu the wooden cuckoo bird pops proudly out of the tiny open door of a carved wooden cuckoo clock on the wall, with a round cream clock face with twelve small golden dots instead of numbers and a tiny round wooden door above the face, singing with his beak open; Lio looks up at him from below, smiling. Emotions: Cucu proud and cheerful, Lio delighted. Important details: the carved cuckoo clock, little music notes in the air. Camera: medium shot looking up at the wall.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Într-o dimineață însă, ușița a rămas închisă. Lio a bătut încet: cioc, cioc. Cucu a scos capul, cu ochii triști. — Am uitat cum se citește ceasul! Nu mai știu când să ies, a suspinat el. — Azi-noapte am ieșit de trei ori și am trezit toată casa!",
+      "narration": [
+        {
+          "text": "Într-o dimineață însă, ușița a rămas închisă.",
+          "mood": "misterios"
+        },
+        {
+          "text": "Lio a bătut încet: cioc, cioc.",
+          "mood": "calm"
+        },
+        {
+          "text": "Cucu a scos capul, cu ochii triști.",
+          "mood": "trist"
+        },
+        {
+          "text": "— Am uitat cum se citește ceasul! Nu mai știu când să ies,",
+          "mood": "trist",
+          "speaker": "Cucu"
+        },
+        {
+          "text": "a suspinat el.",
+          "mood": "trist"
+        },
+        {
+          "text": "— Azi-noapte am ieșit de trei ori și am trezit toată casa!",
+          "mood": "mirat",
+          "speaker": "Cucu"
+        }
+      ],
+      "image": "images/pagina-02.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Cucu: a tiny round cuckoo bird carved from polished warm-brown wood, with softly painted feathers, a bright orange beak, big round shiny black eyes, rosy painted cheeks and a small red feather crest on his head. Setting: the cozy living room of Lio's little house, warm wooden floor, a soft rug, a sunny window. Action: Lio stands on tiptoe and gently knocks on the tiny door of a carved wooden cuckoo clock on the wall, with a round cream clock face with twelve small golden dots instead of numbers and a tiny round wooden door above the face; Cucu peeks out sadly, only his head out of the little door. Emotions: Cucu sad and embarrassed, Lio kind and concerned. Important details: the tiny half-open wooden door. Camera: close-up.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Din hol s-a auzit o voce groasă și blândă: — Nu-ți face griji, puiule. Te învăț eu! Era Bunicul Ceas, un ceas înalt de lemn, cu o greutate aurie care se legăna dintr-o parte în alta: tic-tac, tic-tac. Lio l-a luat pe Cucu în lăbuțe și au mers amândoi în hol.",
+      "narration": [
+        {
+          "text": "Din hol s-a auzit o voce groasă și blândă:",
+          "mood": "calm"
+        },
+        {
+          "text": "— Nu-ți face griji, puiule. Te învăț eu!",
+          "mood": "calm",
+          "speaker": "Bunicul Ceas"
+        },
+        {
+          "text": "Era Bunicul Ceas, un ceas înalt de lemn, cu o greutate aurie care se legăna dintr-o parte în alta: tic-tac, tic-tac.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lio l-a luat pe Cucu în lăbuțe și au mers amândoi în hol.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-03.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Cucu: a tiny round cuckoo bird carved from polished warm-brown wood, with softly painted feathers, a bright orange beak, big round shiny black eyes, rosy painted cheeks and a small red feather crest on his head; Bunicul Ceas: a tall friendly old grandfather clock made of dark honey-colored wood, with a round cream clock face that has twelve small golden dots instead of numbers and two black clock hands (one short, one long), kind painted eyes with bushy white eyebrows above the clock face, and a shiny golden pendulum swinging behind a glass window in his long body. Setting: the cozy hallway of Lio's little house, warm wooden floor, a soft rug, a sunny window. Action: Lio walks into the hallway carrying Cucu carefully in his paws toward Bunicul Ceas, the tall grandfather clock, who smiles warmly at them while his golden pendulum swings. Emotions: warm and welcoming. Important details: the swinging golden pendulum. Camera: wide shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "— Uitați-vă la fața mea, a spus Bunicul Ceas. — Am două limbi. Cea mică și scurtă arată ora. Cea mare și lungă arată minutele. Cucu a scos limbuța lui de păsărică: — Și eu am o limbă! Lio a râs atât de tare, încât i-a tremurat coama.",
+      "narration": [
+        {
+          "text": "— Uitați-vă la fața mea,",
+          "mood": "calm",
+          "speaker": "Bunicul Ceas"
+        },
+        {
+          "text": "a spus Bunicul Ceas.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Am două limbi. Cea mică și scurtă arată ora. Cea mare și lungă arată minutele.",
+          "mood": "calm",
+          "speaker": "Bunicul Ceas"
+        },
+        {
+          "text": "Cucu a scos limbuța lui de păsărică:",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Și eu am o limbă!",
+          "mood": "vesel",
+          "speaker": "Cucu"
+        },
+        {
+          "text": "Lio a râs atât de tare, încât i-a tremurat coama.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-04.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Cucu: a tiny round cuckoo bird carved from polished warm-brown wood, with softly painted feathers, a bright orange beak, big round shiny black eyes, rosy painted cheeks and a small red feather crest on his head; Bunicul Ceas: a tall friendly old grandfather clock made of dark honey-colored wood, with a round cream clock face that has twelve small golden dots instead of numbers and two black clock hands (one short, one long), kind painted eyes with bushy white eyebrows above the clock face, and a shiny golden pendulum swinging behind a glass window in his long body. Setting: the cozy hallway of Lio's little house, warm wooden floor, a soft rug, a sunny window. Action: close view of Bunicul Ceas's round clock face with twelve golden dots, one short black hand and one long black hand; Cucu, sitting on Lio's paw, sticks out his tiny tongue playfully; Lio laughs so hard that his mane shakes. Emotions: funny and joyful. Important details: the short hand and the long hand clearly different in length. Camera: close-up on the clock face with the characters in front.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "— Când limba mare stă sus de tot, e oră fixă, a continuat Bunicul Ceas. — Atunci te uiți unde arată limba mică. Limba mare era sus, iar cea mică arăta spre opt. — E ora opt! Ora de mic dejun!",
+      "narration": [
+        {
+          "text": "— Când limba mare stă sus de tot, e oră fixă,",
+          "mood": "calm",
+          "speaker": "Bunicul Ceas"
+        },
+        {
+          "text": "a continuat Bunicul Ceas.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Atunci te uiți unde arată limba mică.",
+          "mood": "calm",
+          "speaker": "Bunicul Ceas"
+        },
+        {
+          "text": "Limba mare era sus, iar cea mică arăta spre opt.",
+          "mood": "calm"
+        },
+        {
+          "text": "— E ora opt! Ora de mic dejun!",
+          "mood": "entuziasmat",
+          "speaker": "Lio"
+        }
+      ],
+      "image": "images/pagina-05.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Cucu: a tiny round cuckoo bird carved from polished warm-brown wood, with softly painted feathers, a bright orange beak, big round shiny black eyes, rosy painted cheeks and a small red feather crest on his head; Bunicul Ceas: a tall friendly old grandfather clock made of dark honey-colored wood, with a round cream clock face that has twelve small golden dots instead of numbers and two black clock hands (one short, one long), kind painted eyes with bushy white eyebrows above the clock face, and a shiny golden pendulum swinging behind a glass window in his long body. Setting: the cozy hallway of Lio's little house, warm wooden floor, a soft rug, a sunny window. Action: Bunicul Ceas's clock face shows eight o'clock: the long hand points straight up to the top dot and the short hand points down to the lower left; Lio points at the clock excitedly and Cucu flaps his wooden wings. Emotions: Lio excited, Cucu amazed, Bunicul Ceas proud. Important details: the clock face with the long hand straight up. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Cucu a zburat la ușița lui, ca să cânte de opt ori. — Cucu, cucu, cucu, cucu, cucu, cucu, cucu, cucu, cucu, cucu, cucu! Lio și-a astupat urechile. — Gata, gata! Ai cântat de unsprezece ori!",
+      "narration": [
+        {
+          "text": "Cucu a zburat la ușița lui, ca să cânte de opt ori.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Cucu, cucu, cucu, cucu, cucu, cucu, cucu, cucu, cucu, cucu, cucu!",
+          "mood": "entuziasmat",
+          "speaker": "Cucu"
+        },
+        {
+          "text": "Lio și-a astupat urechile.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Gata, gata! Ai cântat de unsprezece ori!",
+          "mood": "vesel",
+          "speaker": "Lio"
+        }
+      ],
+      "image": "images/pagina-06.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Cucu: a tiny round cuckoo bird carved from polished warm-brown wood, with softly painted feathers, a bright orange beak, big round shiny black eyes, rosy painted cheeks and a small red feather crest on his head. Setting: the cozy living room of Lio's little house, warm wooden floor, a soft rug, a sunny window. Action: Cucu bursts out of the tiny door of a carved wooden cuckoo clock on the wall, with a round cream clock face with twelve small golden dots instead of numbers and a tiny round wooden door above the face, singing loudly again and again with lots of little music notes flying everywhere; Lio covers his ears with both paws, laughing. Emotions: hilarious, Cucu overexcited, Lio laughing. Important details: a whirl of music notes. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-up",
+        "effect": "sparkles"
+      }
+    },
+    {
+      "text": "Au încercat din nou, numărând împreună pe degete: — Unu, doi, trei, patru, cinci, șase, șapte, opt! Cucu a cântat exact de opt ori și s-a umflat în pene de mândrie. Apoi Lio a mâncat clătite cu miere, la ora potrivită.",
+      "narration": [
+        {
+          "text": "Au încercat din nou, numărând împreună pe degete:",
+          "mood": "calm"
+        },
+        {
+          "text": "— Unu, doi, trei, patru, cinci, șase, șapte, opt!",
+          "mood": "entuziasmat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Cucu a cântat exact de opt ori și s-a umflat în pene de mândrie.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Apoi Lio a mâncat clătite cu miere, la ora potrivită.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-07.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Cucu: a tiny round cuckoo bird carved from polished warm-brown wood, with softly painted feathers, a bright orange beak, big round shiny black eyes, rosy painted cheeks and a small red feather crest on his head. Setting: a cozy kitchen table in Lio's house in the morning, warm sunlight, a plate of pancakes with honey. Action: Lio sits at the table counting on his raised paw fingers, a plate of pancakes with honey in front of him; Cucu stands on the table next to the plate, puffing up his chest proudly. Emotions: proud and happy. Important details: a stack of pancakes with golden honey, Lio's raised fingers. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "La prânz, cele două limbi s-au întâlnit sus de tot, una peste alta, ca două prietene care se îmbrățișează. — E ora douăsprezece! Ora de prânz! a strigat Cucu, fără să mai întrebe pe nimeni. Bunicul Ceas a zâmbit, iar pendulul lui a bătut mai vesel: tic-tac, tic-tac.",
+      "narration": [
+        {
+          "text": "La prânz, cele două limbi s-au întâlnit sus de tot, una peste alta, ca două prietene care se îmbrățișează.",
+          "mood": "calm"
+        },
+        {
+          "text": "— E ora douăsprezece! Ora de prânz!",
+          "mood": "entuziasmat",
+          "speaker": "Cucu"
+        },
+        {
+          "text": "a strigat Cucu, fără să mai întrebe pe nimeni.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Bunicul Ceas a zâmbit, iar pendulul lui a bătut mai vesel: tic-tac, tic-tac.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-08.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Cucu: a tiny round cuckoo bird carved from polished warm-brown wood, with softly painted feathers, a bright orange beak, big round shiny black eyes, rosy painted cheeks and a small red feather crest on his head; Bunicul Ceas: a tall friendly old grandfather clock made of dark honey-colored wood, with a round cream clock face that has twelve small golden dots instead of numbers and two black clock hands (one short, one long), kind painted eyes with bushy white eyebrows above the clock face, and a shiny golden pendulum swinging behind a glass window in his long body. Setting: the cozy hallway of Lio's little house, warm wooden floor, a soft rug, a sunny window. Action: Bunicul Ceas's clock face shows twelve o'clock: both the short hand and the long hand point straight up together; Cucu stands on top of the grandfather clock and shouts happily; Lio claps. Emotions: joyful and proud. Important details: both clock hands straight up, the golden pendulum swinging. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "După-amiază, lui Cucu i s-a făcut dor de joacă. A împins cu ciocul limba cea mare, ca să vină mai repede ora de joacă. — Hopa! a chicotit Bunicul Ceas. — Timpul nu se grăbește dacă împingi limbile. Ora de joacă vine la ora ei.",
+      "narration": [
+        {
+          "text": "După-amiază, lui Cucu i s-a făcut dor de joacă.",
+          "mood": "calm"
+        },
+        {
+          "text": "A împins cu ciocul limba cea mare, ca să vină mai repede ora de joacă.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Hopa!",
+          "mood": "mirat",
+          "speaker": "Bunicul Ceas"
+        },
+        {
+          "text": "a chicotit Bunicul Ceas.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Timpul nu se grăbește dacă împingi limbile. Ora de joacă vine la ora ei.",
+          "mood": "calm",
+          "speaker": "Bunicul Ceas"
+        }
+      ],
+      "image": "images/pagina-09.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Cucu: a tiny round cuckoo bird carved from polished warm-brown wood, with softly painted feathers, a bright orange beak, big round shiny black eyes, rosy painted cheeks and a small red feather crest on his head; Bunicul Ceas: a tall friendly old grandfather clock made of dark honey-colored wood, with a round cream clock face that has twelve small golden dots instead of numbers and two black clock hands (one short, one long), kind painted eyes with bushy white eyebrows above the clock face, and a shiny golden pendulum swinging behind a glass window in his long body. Setting: the cozy hallway of Lio's little house, warm wooden floor, a soft rug, a sunny window. Action: Cucu sits on the edge of Bunicul Ceas's clock face and pushes the long clock hand with his little beak; Bunicul Ceas giggles with raised bushy eyebrows; Lio watches with a paw over his mouth, amused. Emotions: funny and gentle. Important details: the long clock hand being pushed by the beak, afternoon golden light. Camera: close-up.",
+      "animation": {
+        "camera": "pan-left",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Seara, limba mare a ajuns iar sus, iar cea mică a arătat din nou spre opt. — Iar ora opt? Dar a fost azi-dimineață! — Limba mică face două ture pe zi, a spus Bunicul Ceas. — Ora opt vine o dată dimineața și o dată seara.",
+      "narration": [
+        {
+          "text": "Seara, limba mare a ajuns iar sus, iar cea mică a arătat din nou spre opt.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Iar ora opt? Dar a fost azi-dimineață!",
+          "mood": "mirat",
+          "speaker": "Cucu"
+        },
+        {
+          "text": "— Limba mică face două ture pe zi,",
+          "mood": "calm",
+          "speaker": "Bunicul Ceas"
+        },
+        {
+          "text": "a spus Bunicul Ceas.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Ora opt vine o dată dimineața și o dată seara.",
+          "mood": "calm",
+          "speaker": "Bunicul Ceas"
+        }
+      ],
+      "image": "images/pagina-10.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Cucu: a tiny round cuckoo bird carved from polished warm-brown wood, with softly painted feathers, a bright orange beak, big round shiny black eyes, rosy painted cheeks and a small red feather crest on his head; Bunicul Ceas: a tall friendly old grandfather clock made of dark honey-colored wood, with a round cream clock face that has twelve small golden dots instead of numbers and two black clock hands (one short, one long), kind painted eyes with bushy white eyebrows above the clock face, and a shiny golden pendulum swinging behind a glass window in his long body. Setting: the cozy hallway of Lio's little house in the evening, warm lamp light, dark blue sky with stars through the window. Action: Bunicul Ceas's clock face shows eight o'clock again: the long hand straight up and the short hand down to the lower left; Cucu tilts his head in surprise; Lio in pajamas listens; the window shows the evening sky. Emotions: curious, calm. Important details: the evening window with first stars, the clock face. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "stars"
+      }
+    },
+    {
+      "text": "Cucu a cântat de opt ori, încet, ca un cântec de leagăn. Lio și-a pus pijamaua și s-a cuibărit sub pătură. — Noapte bună, Cucu. Noapte bună, Bunicule Ceas, a șoptit el. Tic-tac, tic-tac… și toată casa a adormit.",
+      "narration": [
+        {
+          "text": "Cucu a cântat de opt ori, încet, ca un cântec de leagăn.",
+          "mood": "somnoros"
+        },
+        {
+          "text": "Lio și-a pus pijamaua și s-a cuibărit sub pătură.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Noapte bună, Cucu. Noapte bună, Bunicule Ceas,",
+          "mood": "somnoros",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a șoptit el.",
+          "mood": "șoptit"
+        },
+        {
+          "text": "Tic-tac, tic-tac… și toată casa a adormit.",
+          "mood": "somnoros"
+        }
+      ],
+      "image": "images/pagina-11.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Cucu: a tiny round cuckoo bird carved from polished warm-brown wood, with softly painted feathers, a bright orange beak, big round shiny black eyes, rosy painted cheeks and a small red feather crest on his head. Setting: Lio's cozy bedroom at night, soft moonlight through the window, a warm night lamp. Action: Lio is tucked in bed under a soft blanket, smiling sleepily; on the wall above, Cucu sings softly from the tiny door of a carved wooden cuckoo clock on the wall, with a round cream clock face with twelve small golden dots instead of numbers and a tiny round wooden door above the face, with gentle music notes floating. Emotions: sleepy, calm, cozy. Important details: moonlight, soft music notes, the blanket. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "stars"
+      }
+    }
+  ],
+  "categories": [
+    "invatam",
+    "amuzante"
+  ],
+  "review": {
+    "imaginatie": "Cucu, cucul de lemn din ceasul de perete, și Bunicul Ceas, un ceas înalt cu față blândă și pendul auriu, vorbesc și îl învață pe Lio (paginile 2–3); Cucu chiar împinge cu ciocul limba ceasului ca să vină mai repede ora de joacă (pagina 9).",
+    "invatare": "Cele două limbi ale ceasului: pagina 4 (cea mică arată ora, cea mare minutele). Ora fixă: pagina 5 (limba mare sus, limba mică spre opt) și pagina 8 (amândouă sus la ora douăsprezece). Ora opt de două ori pe zi: pagina 10. Numărat până la opt: pagina 7. Răbdarea: pagina 9 (timpul nu se grăbește).",
+    "umor": [
+      "pagina 2: Cucu a ieșit de trei ori azi-noapte și a trezit toată casa",
+      "pagina 4: Cucu scoate limbuța — „Și eu am o limbă!”",
+      "pagina 6: Cucu cântă de unsprezece ori în loc de opt, iar Lio își astupă urechile",
+      "pagina 9: Cucu împinge cu ciocul limba ceasului ca să vină mai repede ora de joacă"
+    ],
+    "emotie": "Problema e pe înțelesul copiilor: Cucu e trist că a uitat cum se citește ceasul și încurcă tot. Încearcă de mai multe ori: greșește numărul (pagina 6), reușește numărând pe degete (pagina 7), apoi recunoaște singur ora prânzului (pagina 8). Finalul e liniștit: seara, Cucu cântă încet de opt ori ca un cântec de leagăn și toată casa adoarme (pagina 11).",
+    "siguranta": "Nimic nu sperie: ceasurile sunt prietenoase, iar greșelile sunt glume blânde. Nu există pericole, personaje rele sau certuri; Bunicul Ceas îl corectează pe Cucu cu răbdare și umor.",
+    "imagini": "Fiecare prompt arată momentul paginii: cucul care cântă (1), ușița închisă (2), drumul spre Bunicul Ceas (3), cele două limbi de lungimi diferite și limbuța lui Cucu (4), ora opt pe cadran (5), notele muzicale și urechile astupate (6), clătitele și numărarea pe degete (7), ora douăsprezece (8), ciocul care împinge limba (9), seara la ora opt (10), dormitorul noaptea (11). Cadranele au puncte în loc de cifre (fără cifre în imagini). Voi privi imaginile după publicare și le refac pe cele care nu se potrivesc.",
+    "voce": "Narațiunea e calmă, cu misterios la ușița închisă, entuziasmat la orele recunoscute și la numărat, trist când Cucu își povestește necazul și somnoros la final. Cucu are o voce subțire și grăbită, de păsărică, iar Bunicul Ceas o voce groasă, rară și blândă, ca un ceas bătrân."
+  },
+  "questions": [
+    {
+      "text": "Ce arată limba mică a ceasului?",
+      "options": [
+        {
+          "text": "Ora",
+          "emoji": "🕗"
+        },
+        {
+          "text": "Vremea de afară",
+          "emoji": "🌦️"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Corect! Limba mică arată ora, iar limba mare arată minutele."
+    },
+    {
+      "text": "Ce înseamnă când limba mare stă sus de tot?",
+      "options": [
+        {
+          "text": "E oră fixă",
+          "emoji": "🕛"
+        },
+        {
+          "text": "Ceasul s-a stricat",
+          "emoji": "🔧"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Bravo! Când limba mare e sus, e oră fixă: te uiți unde arată limba mică și afli ora."
+    }
+  ]
+}
