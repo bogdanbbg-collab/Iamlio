@@ -1,6 +1,6 @@
 {
   "feminin": {
-    "coperta.mp3": "6e8ce082ebc167621937b7b1a41cf5d423fd4189",
+    "coperta.mp3": "a7aebca1d255e93d80bd60ff7049f5afc1453460",
     "pagina-01.mp3": "8e01eea30bdae07c8830aede624b346dfb318651",
     "pagina-02.mp3": "97ea7eb3487107ecfbb0050d6ecedd1079b782a0",
     "pagina-03.mp3": "96e0e05a73ca4b9d8487dca0d2529c5462eb53f4",
@@ -42,11 +42,11 @@
       "coperta.mp3": [
         [
           0.6,
-          5.07
+          6.21
         ],
         [
-          5.67,
-          7.71
+          6.21,
+          8.41
         ]
       ],
       "pagina-01.mp3": [
@@ -617,7 +617,7 @@
   },
   "motor": {
     "feminin": {
-      "coperta.mp3": "chirp",
+      "coperta.mp3": "gemini",
       "pagina-01.mp3": "chirp",
       "pagina-02.mp3": "chirp",
       "pagina-03.mp3": "chirp",
