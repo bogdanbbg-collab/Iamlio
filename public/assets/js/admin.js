@@ -163,6 +163,7 @@
     renderTodo(site);
     renderErrors(data.erori || []);
     renderSystem(data, site);
+    renderUsage(site.consum, data.acum);
   }
 
   function renderTiles(tiles) {
@@ -393,6 +394,53 @@
     var wrap = el("div", "admin-table-wrap");
     wrap.appendChild(table);
     box.appendChild(wrap);
+  }
+
+  // Consumul serviciilor (scris la publicare de scripts/consum.py): o bară pentru fiecare resursă cu limită.
+  // Verde sub 70%, portocaliu până la 90%, roșu peste. O cotă care s-a resetat între timp apare ca 0.
+  function renderUsage(usage, nowIso) {
+    var box = document.getElementById("usage");
+    var updated = document.getElementById("usage-updated");
+    box.textContent = "";
+    if (!usage || !(usage.resurse || []).length) {
+      updated.textContent = "Datele apar după următoarea publicare.";
+      return;
+    }
+    updated.textContent = "Actualizat la publicarea din " + timeLabel(usage.actualizat) +
+      " · se actualizează la fiecare publicare";
+    var now = new Date(nowIso || Date.now());
+    usage.resurse.forEach(function (r) {
+      var reset = r.resetare ? new Date(r.resetare) : null;
+      var wasReset = reset && now >= reset;
+      var used = wasReset ? 0 : r.folosit;
+      var item = el("div", "admin-usage-item");
+      var head = el("div", "admin-usage-head");
+      head.appendChild(el("span", "admin-usage-name", r.nume));
+      var value = used === null || used === undefined ? "—" : (r.estimat ? "~" : "") + number(used);
+      var hasLimit = typeof r.limita === "number" && r.limita > 0 && typeof used === "number";
+      var share = hasLimit ? Math.min(100, Math.round(used / r.limita * 100)) : null;
+      head.appendChild(el("span", "admin-usage-value",
+        value + (hasLimit ? " / " + number(r.limita) : "") + " " + r.unitate + (hasLimit ? " (" + share + "%)" : "")));
+      item.appendChild(head);
+      if (hasLimit) {
+        var bar = el("div", "admin-meter" + (share >= 90 ? " is-danger" : share >= 70 ? " is-warn" : ""));
+        bar.setAttribute("role", "progressbar");
+        bar.setAttribute("aria-label", r.nume);
+        bar.setAttribute("aria-valuemin", "0");
+        bar.setAttribute("aria-valuemax", "100");
+        bar.setAttribute("aria-valuenow", String(share));
+        var fill = el("span", "admin-meter-fill");
+        fill.style.width = Math.max(share, used > 0 ? 1 : 0) + "%";
+        bar.appendChild(fill);
+        item.appendChild(bar);
+      }
+      var notes = [];
+      if (wasReset) notes.push("Cota s-a resetat de la ultima publicare.");
+      else if (reset) notes.push("Se resetează " + timeLabel(r.resetare) + ".");
+      if (r.nota) notes.push(r.nota);
+      if (notes.length) item.appendChild(el("p", "admin-usage-note", notes.join(" ")));
+      box.appendChild(item);
+    });
   }
 
   function renderSystem(data, site) {

@@ -201,6 +201,31 @@ test("admin: previzualizarea poveștilor personalizate se deschide cu aceeași p
   assert.equal(state.autentificat, true);
 });
 
+test("admin: „Consum și cote” arată o bară pe resursă; o cotă resetată între timp apare ca 0", async () => {
+  const file = join(site, "api/data/admin-info.json");
+  const info = JSON.parse(readFileSync(file, "utf-8"));
+  const r = (id, folosit, limita, resetare, extra = {}) =>
+    ({ id, nume: `Resursa ${id}`, folosit, limita, unitate: "caractere", resetare, nota: `nota ${id}`, estimat: false, ...extra });
+  info.consum = { actualizat: "2026-10-27T12:00:00+00:00", resurse: [
+    r("voce", 200000, 800000, "2099-01-01T00:00:00+00:00"),
+    r("cloudflare", 19, 20, "2001-01-01T00:00:00+00:00", { unitate: "imagini", estimat: true }),
+    r("openai", 95, 100, "2099-01-01T00:00:00+00:00", { unitate: "lei" }),
+    r("pollinations", 0.002, null, null, { unitate: "pollen" }),
+  ] };
+  writeFileSync(file, JSON.stringify(info));
+  const p = await loggedIn();
+  const meters = p.locator("#usage .admin-meter");
+  assert.equal(await meters.count(), 3, "fără bară pentru o resursă fără limită");
+  assert.equal(await meters.nth(0).getAttribute("aria-valuenow"), "25");
+  assert.equal(await meters.nth(1).getAttribute("aria-valuenow"), "0", "cota zilnică s-a resetat de la publicare");
+  assert.match(await p.textContent("#usage"), /s-a resetat/);
+  assert.match(await meters.nth(2).getAttribute("class"), /is-danger/);
+  assert.match(await p.textContent("#usage"), /200\.000 \/ 800\.000 caractere \(25%\)/);
+  assert.match(await p.textContent("#usage"), /Resursa pollinations/);
+  assert.deepEqual(p.errors, []);
+  await p.context().close();
+});
+
 test("admin: accesibilitate (WCAG AA) pe ecranul de intrare și pe panou", async () => {
   const p = await page({ bypassCSP: true }); // altfel politica paginii ar bloca scriptul axe al testului
   await p.goto(`${BASE}/admin.html`);

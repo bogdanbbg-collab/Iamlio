@@ -235,6 +235,21 @@ jobs:
           GOOGLE_SITE_VERIFICATION: ${{ vars.GOOGLE_SITE_VERIFICATION }}
           BING_SITE_VERIFICATION: ${{ vars.BING_SITE_VERIFICATION }}
           PREVIEW_PASSWORD: ${{ secrets.PREVIEW_PASSWORD }}
+          # „Consum și cote” din panoul de administrare (scripts/consum.py): ce servicii sunt configurate,
+          # soldul Pollinations, minutele GitHub Actions din luna aceasta și limitele
+          GH_TOKEN: ${{ github.token }}
+          GOOGLE_TTS_API_KEY: ${{ secrets.GOOGLE_TTS_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          POLLINATIONS_API_KEY: ${{ secrets.POLLINATIONS_API_KEY }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          MAX_TTS_CHARS_MONTH: ${{ vars.MAX_TTS_CHARS_MONTH }}
+          MAX_IMAGES_MONTH: ${{ vars.MAX_IMAGES_MONTH }}
+          MAX_LEI_MONTH: ${{ vars.MAX_LEI_MONTH }}
+          CLOUDFLARE_IMAGES_DAY: ${{ vars.CLOUDFLARE_IMAGES_DAY }}
+          ACTIONS_MINUTES_MONTH: ${{ vars.ACTIONS_MINUTES_MONTH }}
+          HOSTING_QUOTA_MB: ${{ vars.HOSTING_QUOTA_MB }}
           # la o publicare reală se notează data la care apare fiecare poveste nouă (pentru „Nou”)
           PUBLICARE: ${{ env.NORMAL == 'true' && '1' || '' }}
         run: |

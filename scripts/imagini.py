@@ -68,6 +68,9 @@ class Budget:
         current = self.history.get(self.month) or {}
         self.used_images = int(current.get("imagini", 0))
         self.used_lei = float(current.get("lei", 0))
+        # pe furnizor: în luna aceasta și pe zile (Cloudflare are cotă pe zi, reînnoită la 00:00 UTC)
+        self.by_provider = dict(current.get("furnizori") or {})
+        self.by_day = {day: dict(v) for day, v in (current.get("zile") or {}).items() if isinstance(v, dict)}
         self.run_left = int(_number("MAX_IMAGES", DEFAULT_MAX_IMAGES)) if images is None else images
         self.month_images = int(_number("MAX_IMAGES_MONTH", DEFAULT_MAX_IMAGES_MONTH))
         self.month_lei = _number("MAX_LEI_MONTH", DEFAULT_MAX_LEI_MONTH)
@@ -96,17 +99,25 @@ class Budget:
         return (self.made < self.run_left and self.used_images < self.month_images
                 and self.used_lei + self.estimate() <= self.month_lei)
 
-    def spend(self, lei):
+    def spend(self, lei, provider=""):
+        from datetime import datetime, timezone
+
         self.made += 1
         self.used_images += 1
         self.used_lei += lei
+        if provider:
+            day = datetime.now(timezone.utc).date().isoformat()
+            self.by_provider[provider] = self.by_provider.get(provider, 0) + 1
+            self.by_day.setdefault(day, {})[provider] = self.by_day.get(day, {}).get(provider, 0) + 1
 
     def save(self):
         import json
 
         if not self.path or not self.made:
             return
-        self.history[self.month] = {"imagini": self.used_images, "lei": round(self.used_lei, 2)}
+        self.history[self.month] = {"imagini": self.used_images, "lei": round(self.used_lei, 2),
+                                    "furnizori": self.by_provider,
+                                    "zile": {d: self.by_day[d] for d in sorted(self.by_day)[-7:]}}
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.path.write_text(json.dumps(self.history, indent=2, sort_keys=True) + "\n", encoding="utf-8")
         rows = "".join(f"| {month} | {v['imagini']} | {v['lei']:.2f} lei |\n" for month, v in sorted(self.history.items()))
@@ -161,6 +172,12 @@ def enabled():
 
 
 def single_client(name, story_id="", characters=()):
+    client = _single_client(name, story_id, characters)
+    client.provider = name
+    return client
+
+
+def _single_client(name, story_id, characters):
     if name == "gemini":
         return GeminiClient(os.environ["GEMINI_API_KEY"], os.environ.get("GEMINI_IMAGE_MODEL") or GEMINI_MODEL)
     if name == "cloudflare":
@@ -189,6 +206,7 @@ class ChainClient:
     def __init__(self, clients):
         self.clients = list(clients)
         self.model = getattr(self.clients[0], "model", "")
+        self.provider = ""  # varianta care a desenat ultima imagine
         self.images = self
         self.accepts_variant = True
         self.problems = []  # motivele rămân și pentru imaginile următoare, după ce variantele au fost scoase
@@ -209,6 +227,7 @@ class ChainClient:
                 self.clients.remove(client)
                 continue
             self.model = getattr(client, "model", self.model)
+            self.provider = getattr(client, "provider", "")
             return result
         raise RuntimeError("nicio variantă nu a mers — " + " | ".join(problems))
 
@@ -517,7 +536,7 @@ def generate_missing(folder, data, client=None, budget=None):
             errors.append(f"{label}: imaginea nu a putut fi generată ({type(exc).__name__}: {str(exc)[:800]})")
             continue
         entry["image"] = str(Path(entry["image"]).with_suffix(".png"))
-        budget.spend(cost_lei(result))
+        budget.spend(cost_lei(result), getattr(client, "provider", "") or provider() or "openai")
         made += 1
         changes.append(f"{label}: imaginea a fost generată automat ({getattr(client, 'model', None) or model})")
     return changes, errors, made

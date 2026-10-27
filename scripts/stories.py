@@ -27,6 +27,7 @@ import unicodedata
 from pathlib import Path
 
 import canon
+import consum
 import imagini
 import pregatire
 import seo
@@ -869,10 +870,10 @@ def cmd_stage():
         entry["cover"] = f"stories/{entry['id']}/{by_id[entry['id']]['cover']['image']}"
     write_index(BUILD_DIR / "stories" / "index.json", entries)
     stage_previews(previews)
-    write_admin_info(entries, personal, invalid)
     add_asset_versions(BUILD_DIR)
     library = json.loads((BUILD_DIR / "stories" / "index.json").read_text(encoding="utf-8"))
     seo.write_all(BUILD_DIR, library.get("stories") or [], published)
+    write_admin_info(entries, personal, invalid)  # la final, ca mărimea site-ului să includă tot
     print(f"Pregătit pentru publicare: {BUILD_DIR} ({len(entries)} povești pe site)")
     return 0
 
@@ -942,6 +943,7 @@ def write_admin_info(entries, personal, invalid):
         "problems": problems,
         "personal": personal,
         "image_budget": budget,
+        "consum": consum.collect(REPORTS_DIR, BUILD_DIR),
     }
     target = BUILD_DIR / "api" / "data" / "admin-info.json"
     target.parent.mkdir(parents=True, exist_ok=True)

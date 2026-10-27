@@ -57,6 +57,16 @@
 .admin-tile-value { font-size: 2rem; font-weight: 800; line-height: 1.15; font-variant-numeric: tabular-nums; }
 .admin-tile-note { color: var(--ink-soft); font-size: .8rem; }
 
+/* Consum și cote: o bară orizontală pe resursă */
+.admin-usage { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 18px 28px; }
+.admin-usage-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 12px; font-weight: 700; }
+.admin-usage-value { font-variant-numeric: tabular-nums; color: var(--ink-soft); }
+.admin-meter { height: 14px; margin-top: 6px; border-radius: 999px; background: #EFE6D6; overflow: hidden; }
+.admin-meter-fill { display: block; height: 100%; border-radius: 999px; background: var(--teal); }
+.admin-meter.is-warn .admin-meter-fill { background: #C2410C; }
+.admin-meter.is-danger .admin-meter-fill { background: #A3122A; }
+.admin-usage-note { margin: 6px 0 0; color: var(--ink-soft); font-size: .85rem; }
+
 /* Grafic cu bare verticale: o singură serie, bare subțiri cu colțuri rotunjite sus, 2 px între ele */
 .admin-bars {
   display: grid;

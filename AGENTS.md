@@ -66,7 +66,7 @@ codul site-ului (`public/*.html`, `public/assets/`, `scripts/`, `.github/`) — 
   - `assets/img/lio*.svg`, `favicon.svg` — Lio, generat din `scripts/lio_svg.py` (nu edita SVG-urile de mână)
   - `assets/lio-replici.json` — ce spune Lio când e atins pe pagina principală
   - `api/citiri.php` — contorul „citită de X ori” (PHP; datele stau în `api/data/citiri.json` pe server)
-  - `admin.html` + `assets/js/admin.js` + `api/admin.php` — panoul de administrare (vizite, citiri, erori; parola
+  - `admin.html` + `assets/js/admin.js` + `api/admin.php` — panoul de administrare (vizite, citiri, erori, consum și cote; parola
     `ADMIN_PASSWORD`); `api/vizita.php` și `api/erori.php` primesc vizitele și erorile (doar totaluri, fără date personale)
   - `api/previzualizare.php` — previzualizarea poveștilor personalizate neaprobate, cu aceeași parolă (`comun.php`: funcții comune)
   - `.htaccess` — setările serverului Apache: securitate, HTTPS, cache, compresie (testat în `tests/e2e/apache.test.mjs`)
@@ -85,7 +85,8 @@ codul site-ului (`public/*.html`, `public/assets/`, `scripts/`, `.github/`) — 
   (`OPENAI_API_KEY`);
   `python3 scripts/imagini.py test` (sau workflow-ul „Test generare imagini”) arată care merge
 - `rapoarte/` — raportul fiecărei povești după publicare (PUBLICATĂ / NEPUBLICATĂ și ce e de corectat)
-- `scripts/voce.py` — regia de voce (tonuri, profiluri de personaj, pauze, lipirea cu ffmpeg)
+- `scripts/consum.py` — consumul serviciilor (voci, imagini, GitHub Actions, spațiu) pentru panoul de administrare
+- `scripts/voce.py` — regia de voce (Google Chirp 3 HD, rezervă edge-tts; tonuri, profiluri de personaj, pauze, lipirea cu ffmpeg)
 - `tests/` — teste automate (`python3 -m unittest discover -s tests`) și teste în browser
   (`python3 scripts/stories.py stage && node --test tests/e2e/*.test.mjs`, inclusiv accesibilitatea cu axe-core),
   rulate la fiecare publicare

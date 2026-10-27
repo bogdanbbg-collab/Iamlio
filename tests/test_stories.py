@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import canon  # noqa: E402
+import consum  # noqa: E402
 import imagini  # noqa: E402
 import pregatire  # noqa: E402
 import stories  # noqa: E402
@@ -999,6 +1000,47 @@ class OptimizeTests(StoryCase):
         self.assertFalse((self.folder / "images" / "pagina-01.png").exists())
         with Image.open(self.folder / "images" / "pagina-01.webp") as img:
             self.assertEqual(img.size, (1536, 1024))
+
+
+class UsageTests(unittest.TestCase):
+    def test_collect_reports_voice_images_and_hosting(self):
+        from datetime import datetime, timezone
+
+        now = datetime(2026, 10, 27, 15, 0, tzinfo=timezone.utc)
+        with tempfile.TemporaryDirectory() as tmp:
+            reports, site = Path(tmp) / "rapoarte", Path(tmp) / "site"
+            reports.mkdir()
+            site.mkdir()
+            (site / "a.txt").write_bytes(b"x" * 2048)
+            (reports / "buget-voce.json").write_text('{"2026-10": 5000}')
+            (reports / "buget-imagini.json").write_text(json.dumps({"2026-10": {
+                "imagini": 12, "lei": 0, "furnizori": {"cloudflare": 9},
+                "zile": {"2026-10-26": {"cloudflare": 5}, "2026-10-27": {"cloudflare": 4}}}}))
+            env = {"CLOUDFLARE_ACCOUNT_ID": "a", "CLOUDFLARE_API_TOKEN": "b", "GH_TOKEN": "", "POLLINATIONS_API_KEY": "",
+                   "GEMINI_API_KEY": "", "OPENAI_API_KEY": "", "MAX_TTS_CHARS_MONTH": ""}
+            with mock.patch.dict(os.environ, env):
+                usage = consum.collect(reports, site, now)
+        found = {r["id"]: r for r in usage["resurse"]}
+        self.assertEqual(found["voce"]["folosit"], 5000)
+        self.assertEqual(found["voce"]["resetare"], "2026-11-01T00:00:00+00:00")
+        self.assertEqual(found["cloudflare"]["folosit"], 4, "doar imaginile de azi")
+        self.assertEqual(found["cloudflare"]["resetare"], "2026-10-28T00:00:00+00:00")
+        self.assertEqual(found["imagini"]["folosit"], 12)
+        self.assertNotIn("pollinations", found)
+        self.assertIn("hosting", found)
+
+    def test_image_budget_counts_providers_per_day(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "buget.json"
+            budget = imagini.Budget(path)
+            budget.spend(0, "pollinations")
+            budget.spend(0, "cloudflare")
+            budget.spend(0, "cloudflare")
+            budget.save()
+            month = json.loads(path.read_text())[budget.month]
+        self.assertEqual(month["imagini"], 3)
+        self.assertEqual(month["furnizori"], {"pollinations": 1, "cloudflare": 2})
+        self.assertEqual(sum(month["zile"][max(month["zile"])].values()), 3)
 
 
 class VoiceTests(unittest.TestCase):
