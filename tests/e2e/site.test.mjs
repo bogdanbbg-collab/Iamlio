@@ -446,6 +446,28 @@ const audioState = (p) => p.evaluate(() => {
   return { rate: a.playbackRate, volume: a.volume, src: a.src };
 });
 
+test("pagini pe categorii: statice, cu poveștile categoriei, legate din pagina principală și din sitemap", async () => {
+  const story = JSON.parse(readFileSync(join(ROOT, "build/site/stories", STORY.id, "story.json"), "utf-8"));
+  const slugs = { "de-culcare": "povesti-de-culcare", aventuri: "povesti-cu-aventuri", animale: "povesti-cu-animale",
+    prietenie: "povesti-despre-prietenie", invatam: "povesti-educative", amuzante: "povesti-amuzante" };
+  const slug = slugs[story.categories[0]];
+  const html = await (await fetch(`${BASE}/${slug}.html`)).text();
+  assert.ok(html.includes(`href="p/${STORY.id}.html"`), "povestea apare în pagina categoriei ei");
+  assert.ok(html.includes(`<link rel="canonical" href="https://iamlio.ro/${slug}.html">`));
+  const data = JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
+  assert.ok(data["@graph"].some((x) => x["@type"] === "BreadcrumbList"));
+  const sitemap = await (await fetch(`${BASE}/sitemap.xml`)).text();
+  assert.ok(sitemap.includes(`<loc>https://iamlio.ro/${slug}.html</loc>`));
+  const p = await page({ javaScriptEnabled: false });
+  await p.goto(`${BASE}/`);
+  assert.ok(await p.isVisible(`.story-index a[href="${slug}.html"]`), "legată din pagina principală");
+  await p.goto(`${BASE}/p/${STORY.id}.html`);
+  assert.ok(await p.isVisible(`.facts a[href="../${slug}.html"]`), "legată din pagina poveștii");
+  await p.goto(`${BASE}/${slug}.html`);
+  assert.ok(await p.evaluate(() => [...document.images].every((img) => img.complete)), "imaginile se încarcă");
+  assert.deepEqual(p.errors, []);
+});
+
 test("pagina principală nu sare la încărcare (fonturi, listă și contor care vin târziu)", async () => {
   const p = await page({ viewport: { width: 412, height: 823 }, reducedMotion: "reduce" });
   await p.addInitScript(() => {

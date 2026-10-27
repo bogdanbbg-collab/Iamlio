@@ -92,3 +92,9 @@ test("accesibilitate: pagina Despre", async () => {
   await p.goto(`${BASE}/despre.html`);
   await audit(p, "despre");
 });
+
+test("accesibilitate: o pagină de categorie", async () => {
+  const p = await page();
+  await p.goto(`${BASE}/povesti-de-culcare.html`);
+  await audit(p, "categorie");
+});

@@ -27,6 +27,33 @@ DESCRIPTION = ("Povești ilustrate pentru copii, în limba română, citite cu v
 CONTACT = "contact@iamlio.ro"
 
 
+# Paginile pe categorii: adresa (cuvintele căutate de părinți), titlul și o scurtă prezentare.
+CATEGORY_PAGES = {
+    "de-culcare": ("povesti-de-culcare", "Povești de culcare pentru copii",
+                   "Povești liniștite pentru seară, cu un final calm, numai bune înainte de somn. Lio le citește "
+                   "încet, cu voce caldă, iar modul de culcare face ecranul mai blând și sunetul mai încet."),
+    "aventuri": ("povesti-cu-aventuri", "Povești cu aventuri pentru copii",
+                 "Povești cu drumuri, căutări și descoperiri, în care eroii rezolvă singuri problemele, cu curaj "
+                 "și cu prieteni alături."),
+    "animale": ("povesti-cu-animale", "Povești cu animale pentru copii",
+                "Povești cu animale simpatice: arici, veverițe, iepuri, păsări și pui de leu. Copiii află cum "
+                "trăiesc animalele și cum le putem ajuta."),
+    "prietenie": ("povesti-despre-prietenie", "Povești despre prietenie și emoții",
+                  "Povești despre prietenie, împărțit, răbdare și emoții: cum recunoaștem bucuria, tristețea sau "
+                  "supărarea și cum ne ajutăm unii pe alții."),
+    "invatam": ("povesti-educative", "Povești educative pentru copii",
+                "Povești în care copilul învață ceva folositor fără să observe: culori, numere, anotimpuri, "
+                "natură, emoții și reguli de siguranță."),
+    "amuzante": ("povesti-amuzante", "Povești amuzante pentru copii",
+                 "Povești caraghioase, cu strănuturi, încurcături și personaje stângace, dar simpatice, care îi "
+                 "fac pe copii să râdă."),
+}
+
+
+def category_url(base, category):
+    return f"{base}/{CATEGORY_PAGES[category][0]}.html"
+
+
 def base_url():
     return (os.environ.get("SITE_URL") or "https://iamlio.ro").rstrip("/")
 
@@ -71,10 +98,11 @@ def write_all(site, entries, stories):
         entry["lastmod"] = last_changed(entry["id"], entry.get("published") or entry.get("created"))
     write_thumbnails(site, entries)
     write_story_pages(site, entries, by_id, base)
-    write_sitemap(site, entries, by_id, base)
+    categories = write_category_pages(site, entries, by_id, base)
+    write_sitemap(site, entries, by_id, base, categories)
     write_robots(site, base)
-    write_llms(site, entries, by_id, base)
-    update_home(site, entries, base)
+    write_llms(site, entries, by_id, base, categories)
+    update_home(site, entries, base, categories)
 
 
 # ---------- coperți mici pentru bibliotecă ----------
@@ -169,7 +197,9 @@ def story_page(story, entry, others, base, css_version, card_version):
     json_ld = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
     pages = "\n".join(f"      <p>{escape(p.get('text') or '')}</p>" for p in story.get("pages") or [])
     learn = "".join(f"<li>{escape(x)}</li>" for x in learning)
-    facts = " · ".join([f"~{minutes} minute", *labels])
+    facts = " · ".join([f"~{minutes} minute"] + [
+        f'<a href="../{CATEGORY_PAGES[c][0]}.html">{escape(canon.CATEGORIES[c][0])}</a>'
+        for c in story.get("categories") or [] if c in CATEGORY_PAGES and c in canon.CATEGORIES])
     more = "\n".join(f'      <li><a href="{escape(e["id"])}.html">{escape(e["title"])}</a></li>' for e in others)
     moral = f'\n      <p class="moral">{escape(story["moral"])}</p>' if story.get("moral") else ""
     return f"""<!doctype html>
@@ -206,7 +236,7 @@ def story_page(story, entry, others, base, css_version, card_version):
       <img class="cover" src="../stories/{sid}/{escape(cover_rel)}" alt="Coperta poveștii „{title}”" width="1536" height="1024">
       <h1>{title}</h1>
       <p class="lead">{summary}</p>
-      <p class="facts">{escape(facts)}</p>
+      <p class="facts">{facts}</p>
       <p><a class="read" href="{reader}">▶ Citește cu Lio</a></p>
       <section>
         <h2>Ce învață copilul</h2>
@@ -232,12 +262,105 @@ def story_page(story, entry, others, base, css_version, card_version):
 """
 
 
+# ---------- paginile pe categorii ----------
+
+def write_category_pages(site, entries, by_id, base):
+    """<adresă>.html pentru fiecare categorie cu povești (ex. povesti-de-culcare.html). Întoarce [(categorie, povești)]."""
+    css = site / "assets" / "css" / "pagina.css"
+    css_version = hashlib.sha1(css.read_bytes()).hexdigest()[:10] if css.exists() else "1"
+    pages = []
+    for category in CATEGORY_PAGES:
+        members = [e for e in entries if category in (by_id[e["id"]].get("categories") or [])]
+        if members:
+            pages.append((category, members))
+    for category, members in pages:
+        others = [c for c, _ in pages if c != category]
+        (site / f"{CATEGORY_PAGES[category][0]}.html").write_text(
+            category_page(category, members, others, base, css_version), encoding="utf-8")
+    return pages
+
+
+def category_page(category, members, others, base, css_version):
+    slug, heading, intro = CATEGORY_PAGES[category]
+    url = category_url(base, category)
+    emoji = canon.CATEGORIES.get(category, ("", ""))[1]
+    data = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {"@type": "CollectionPage", "name": heading, "description": intro, "url": url, "inLanguage": "ro",
+             "isPartOf": {"@type": "WebSite", "name": SITE_NAME, "url": f"{base}/"}},
+            {"@type": "ItemList", "name": heading,
+             "itemListElement": [{"@type": "ListItem", "position": n, "url": story_url(base, e["id"]), "name": e["title"]}
+                                 for n, e in enumerate(members, start=1)]},
+            {"@type": "BreadcrumbList", "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": SITE_NAME, "item": f"{base}/"},
+                {"@type": "ListItem", "position": 2, "name": heading, "item": url}]},
+        ],
+    }
+    json_ld = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+    cards = []
+    for e in members:
+        image = e.get("coverSmall") or e["cover"]
+        cards.append(f"""      <li class="card">
+        <a href="p/{escape(e["id"])}.html" tabindex="-1" aria-hidden="true"><img src="{escape(image)}" alt="" width="768" height="512" loading="lazy" decoding="async"></a>
+        <h2><a href="p/{escape(e["id"])}.html">{escape(e["title"])}</a></h2>
+        <p>{escape(e.get("summary") or "")}</p>
+        <p class="facts">~{e.get("minutes") or 5} minute · <a class="listen" href="poveste.html?id={escape(e["id"])}">▶ Citește cu Lio</a></p>
+      </li>""")
+    more = " · ".join(f'<a href="{CATEGORY_PAGES[c][0]}.html">{escape(CATEGORY_PAGES[c][1])}</a>' for c in others)
+    description = escape(f"{intro} {len(members)} povești gratuite, citite cu voce de Lio.")
+    return f"""<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>{escape(heading)}, citite cu voce de Lio | {SITE_NAME}</title>
+<meta name="description" content="{description}">
+<link rel="canonical" href="{url}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ro_RO">
+<meta property="og:site_name" content="{SITE_NAME}">
+<meta property="og:title" content="{escape(heading)}">
+<meta property="og:description" content="{description}">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{base}/assets/img/og-image.png?v=2">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/pagina.css?v={css_version}">
+<script type="application/ld+json">{json_ld}</script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="./"><img src="favicon.svg" alt="" width="40" height="40"><span>I am <strong>Lio</strong></span></a>
+  </header>
+  <main>
+    <nav class="crumbs" aria-label="Unde ești"><a href="./">Toate poveștile</a> › {escape(heading)}</nav>
+    <h1>{emoji} {escape(heading)}</h1>
+    <p class="lead">{escape(intro)}</p>
+    <ul class="cards">
+{chr(10).join(cards)}
+    </ul>
+    <nav class="more" aria-label="Alte categorii">
+      <h2>Alte categorii</h2>
+      <p>{more or '<a href="./">Toate poveștile</a>'}</p>
+    </nav>
+  </main>
+  <footer>{SITE_NAME} · povești pentru copii · <a href="despre.html">Despre</a> · <a href="confidentialitate.html">Confidențialitate</a> · <a href="mailto:{CONTACT}">{CONTACT}</a></footer>
+</body>
+</html>
+"""
+
+
 # ---------- sitemap.xml și robots.txt ----------
 
-def write_sitemap(site, entries, by_id, base):
+def write_sitemap(site, entries, by_id, base, categories=()):
     newest = max((e["lastmod"] for e in entries if e.get("lastmod")), default=None)
     rows = [url_row(f"{base}/", newest), url_row(f"{base}/despre.html", file_changed("public/despre.html")),
             url_row(f"{base}/confidentialitate.html", file_changed("public/confidentialitate.html"))]
+    for category, members in categories:
+        newest_in = max((e["lastmod"] for e in members if e.get("lastmod")), default=None)
+        rows.append(url_row(category_url(base, category), newest_in))
     for entry in entries:
         story = by_id[entry["id"]]
         image = (f"{base}/stories/{story['id']}/{plain_image(story['cover']['image'])}", story["title"])
@@ -271,7 +394,7 @@ def write_robots(site, base):
 
 # ---------- llms.txt pentru asistenții AI ----------
 
-def write_llms(site, entries, by_id, base):
+def write_llms(site, entries, by_id, base, categories=()):
     lines = [f"# {SITE_NAME}", "",
              f"> {SITE_NAME} ({base}) este o bibliotecă gratuită de povești ilustrate pentru copii, în limba română. "
              "Fiecare poveste este citită cu voce (feminină sau masculină, la alegere) de Lio, un pui de leu, iar paginile "
@@ -288,6 +411,10 @@ def write_llms(site, entries, by_id, base):
         if learning:
             details += f"; copilul învață: {learning}"
         lines.append(f"- [{story['title']}]({story_url(base, story['id'])}): {story.get('summary', '')} ({details})")
+    if categories:
+        lines += ["", "## Categorii", ""]
+        lines += [f"- [{CATEGORY_PAGES[c][1]}]({category_url(base, c)}): {CATEGORY_PAGES[c][2]} ({len(m)} povești)"
+                  for c, m in categories]
     lines += ["", "## Despre site", "",
               f"- [Biblioteca de povești]({base}/): toate poveștile, cu filtre după categorie și durată",
               f"- [Despre Iamlio]({base}/despre.html): cum sunt făcute poveștile (reguli de calitate și siguranță)",
@@ -391,15 +518,18 @@ def prerender_library(html, entries):
     return html
 
 
-def update_home(site, entries, base):
+def update_home(site, entries, base, categories=()):
     """În index.html: lista poveștilor ca legături simple (pentru cine nu rulează JavaScript, ca roboții AI),
     datele structurate ale site-ului și codurile de verificare pentru Google și Bing (dacă sunt setate)."""
     page = site / "index.html"
     html = page.read_text(encoding="utf-8")
     html = prerender_library(html, entries)
     links = " · ".join(f'<a href="p/{escape(e["id"])}.html">{escape(e["title"])}</a>' for e in entries)
-    nav = (f'  <nav class="story-index" aria-label="Toate poveștile">\n    <p><strong>Toate poveștile:</strong> {links}</p>\n'
-           f'  </nav>\n\n  <footer class="site-footer">')
+    by_category = " · ".join(f'<a href="{CATEGORY_PAGES[c][0]}.html">{escape(CATEGORY_PAGES[c][1])}</a>'
+                             for c, _ in categories)
+    category_line = f'\n    <p><strong>Pe categorii:</strong> {by_category}</p>' if by_category else ""
+    nav = (f'  <nav class="story-index" aria-label="Toate poveștile">\n    <p><strong>Toate poveștile:</strong> {links}</p>'
+           f'{category_line}\n  </nav>\n\n  <footer class="site-footer">')
     html = html.replace('  <footer class="site-footer">', nav, 1)
     data = {
         "@context": "https://schema.org",
