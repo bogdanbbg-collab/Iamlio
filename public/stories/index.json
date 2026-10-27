@@ -33,6 +33,29 @@
   ],
   "stories": [
     {
+      "id": "lio-si-pensula-toamnei",
+      "title": "Lio și pensula toamnei",
+      "summary": "E toamnă, dar pădurea a rămas verde: Zâna Toamnei și-a pierdut pensula fermecată! Lio și puiul de veveriță Ronțăilă o caută prin scorburi, pe lac și pe deal.",
+      "age": "3-7",
+      "tags": [
+        "toamnă",
+        "frunze",
+        "culori",
+        "veveriță",
+        "păsări călătoare"
+      ],
+      "categories": [
+        "invatam",
+        "aventuri",
+        "amuzante"
+      ],
+      "created": "2026-10-27",
+      "cover": "stories/lio-si-pensula-toamnei/images/coperta.webp",
+      "pages": 12,
+      "minutes": 4,
+      "published": "2026-10-27"
+    },
+    {
       "id": "victor-si-dovleacul-luminos",
       "title": "Victor și dovleacul luminos",
       "summary": "Într-o seară de toamnă, Victor și tata scobesc un dovleac uriaș. Dar dovleacul chicotește când e gâdilat și vrea neapărat o față veselă!",
