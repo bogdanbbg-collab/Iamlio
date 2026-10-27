@@ -329,7 +329,10 @@ def scene_first(prompt, characters=()):
     for name, description in present:
         if name:
             # ce fel de personaj e, chiar lângă nume: descrierile complete de la final pot fi tăiate de model
-            short = re.split(r",| with ", description, maxsplit=1)[0].strip()
+            # până la „with” / paranteză, ca adjectivele cu virgulă să nu taie specia: „a small, chubby, adorable
+            # lion cub” (nu doar „a small”, din care modelul desena un băiat în loc de Lio)
+            short = re.split(r" with |\(| wearing | who ", description, maxsplit=1)[0].strip().rstrip(",")
+            short = " ".join(short.split()[:12])
             scene = re.sub(rf"\b{re.escape(name)}\b", f"{name} ({short})", scene, count=1)
     parts = [scene, SHORT_STYLE, WIDE]
     if people:

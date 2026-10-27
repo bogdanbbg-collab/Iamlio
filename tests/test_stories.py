@@ -1019,6 +1019,14 @@ class OptimizeTests(StoryCase):
             self.assertEqual(img.size, (1536, 1024))
 
 
+class ScenePromptTests(unittest.TestCase):
+    def test_species_stays_next_to_the_name(self):
+        lio = {"name": "Lio", "description": canon.LIO_DESCRIPTION}
+        prompt = f"{canon.STYLE} Characters in this scene: Lio: {canon.LIO_DESCRIPTION}. Action: Lio points at the clock."
+        scene = imagini.scene_first(prompt, [lio])
+        self.assertIn("Lio (a small, chubby, adorable lion cub)", scene)
+
+
 class UsageTests(unittest.TestCase):
     def test_collect_reports_voice_images_and_hosting(self):
         from datetime import datetime, timezone
