@@ -215,12 +215,16 @@ jobs:
           USD_LEI: ${{ vars.USD_LEI }}
         run: python scripts/stories.py prepare
 
-      - name: Generează vocea feminină și masculină (Google Chirp 3 HD, rezervă edge-tts; regie de voce)
+      - name: Generează vocea feminină și masculină (Gemini povestitor, Chirp 3 HD, rezervă edge-tts)
         if: env.NORMAL == 'true'
         env:
           # Google Cloud Text-to-Speech (Chirp 3 HD): 1.000.000 de caractere gratuite pe lună; limita de aici e mai mică
           GOOGLE_TTS_API_KEY: ${{ secrets.GOOGLE_TTS_API_KEY }}
           MAX_TTS_CHARS_MONTH: ${{ vars.MAX_TTS_CHARS_MONTH }}
+          # Gemini TTS („povestitorul”, cu emoție): cota gratuită are câteva cereri pe zi; fișierele trec treptat pe el
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_TTS_DAILY: ${{ vars.GEMINI_TTS_DAILY }}
+          GEMINI_TTS_MODEL: ${{ vars.GEMINI_TTS_MODEL }}
         run: python scripts/stories.py audio
 
       - name: Verifică fișierele audio (decodare completă, ambele voci, toate paginile)
@@ -245,6 +249,7 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           MAX_TTS_CHARS_MONTH: ${{ vars.MAX_TTS_CHARS_MONTH }}
+          GEMINI_TTS_DAILY: ${{ vars.GEMINI_TTS_DAILY }}
           MAX_IMAGES_MONTH: ${{ vars.MAX_IMAGES_MONTH }}
           MAX_LEI_MONTH: ${{ vars.MAX_LEI_MONTH }}
           CLOUDFLARE_IMAGES_DAY: ${{ vars.CLOUDFLARE_IMAGES_DAY }}

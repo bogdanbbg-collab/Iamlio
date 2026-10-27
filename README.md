@@ -61,7 +61,9 @@ imaginile și le salvează în `public/stories/<id>/`. După push, GitHub Action
 3. optimizează imaginile (WebP, 1536×1024) și verifică povestea după reguli; scrie raportul
    `rapoarte/<poveste>.md` (**PUBLICATĂ** / **NEPUBLICATĂ** și ce e de corectat) — o poveste care nu trece
    **nu ajunge pe site**, dar nu le oprește pe celelalte;
-4. generează vocea în română cu **Google Chirp 3 HD** (secretul `GOOGLE_TTS_API_KEY`; 1.000.000 de caractere
+4. generează vocea în română: întâi **Google Chirp 3 HD**, apoi, treptat, **Gemini TTS „povestitorul”** (cu emoție;
+   secretul `GEMINI_API_KEY`, cota gratuită de ~10 cereri pe zi, variabila `GEMINI_TTS_DAILY`; workflow-ul zilnic
+   reia după reînnoirea cotei, întâi poveștile noi și vocea feminină). Chirp 3 HD (secretul `GOOGLE_TTS_API_KEY`; 1.000.000 de caractere
    gratuite pe lună, limită proprie de 800.000 în variabila `MAX_TTS_CHARS_MONTH`, consumul în
    `rapoarte/buget-voce.md`), **în două variante**: naratoare Sulafat și narator Algieba; Lio și fiecare personaj
    au voce proprie. Fără cheie, peste limită sau dacă Google nu răspunde, se folosește `edge-tts` (gratuit),

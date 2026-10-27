@@ -1,9 +1,12 @@
 """Regia de voce pentru Iamlio: împarte textul în replici, le dă intonație și le lipește cu pauze.
 
-Vocea principală e Google Cloud Text-to-Speech, Chirp 3 HD (cheia în GOOGLE_TTS_API_KEY): voci naturale, iar
-fiecare personaj primește o voce proprie. Dacă nu e cheie, serviciul nu răspunde sau s-a atins limita lunară de
-caractere, se folosește edge-tts (gratuit, fără cont), unde personajele se deosebesc prin înălțime și viteză.
-Fiecare bucată se generează separat, cu tonul ei (`mood`), apoi bucățile se lipesc cu ffmpeg.
+Trei motoare, de la cel mai expresiv:
+- Gemini TTS (GEMINI_API_KEY, cota gratuită: câteva cereri pe zi): „povestitorul” — citește toată pagina dintr-o
+  dată, cu indicații de interpretare (emoții, râs, suspans, voci pentru personaje). Cota nu ajunge pentru tot
+  dintr-o dată, așa că fișierele se înlocuiesc treptat, câteva pe zi;
+- Google Chirp 3 HD (GOOGLE_TTS_API_KEY): voci naturale, fiecare personaj cu vocea lui; fiecare bucată se
+  generează separat, cu tonul ei (`mood`), apoi bucățile se lipesc cu ffmpeg;
+- edge-tts (gratuit, fără cont): rezerva, când celelalte nu pot.
 Formatul explicit (câmpul `narration` al unei pagini) e descris în REGULI_POVESTI.md, secțiunea 7.
 """
 
@@ -48,7 +51,7 @@ CHIRP_WAITS = (3, 6, 12, 24, 48)  # secunde între reîncercări (limita de cere
 DEFAULT_CHIRP_MONTH_CHARS = 800_000  # din 1.000.000 gratuite pe lună; peste limită se trece pe edge-tts
 
 # Versiunea regiei: schimb-o când modifici tonurile, ca să se regenereze toate fișierele audio.
-ENGINE_VERSION = "3"  # 3: se salvează și momentul fiecărei replici (pentru evidențierea textului)
+ENGINE_VERSION = "4"  # 4: liniștea tăiată la capetele bucăților, 0,6 s la început (telefoane, Bluetooth)
 
 # ton → (viteză %, înălțime Hz, volum %)
 MOODS = {
@@ -72,7 +75,7 @@ CHARACTER_RATE = (-30, 30)
 PAUSE_DEFAULT = 0.3
 PAUSE_ELLIPSIS = 0.7
 PAUSE_MAX = 3.0
-LEAD_IN = 0.15
+LEAD_IN = 0.6  # telefoanele și căștile Bluetooth „se trezesc” greu: prima silabă nu se pierde
 TAIL = 0.35
 RETRIES = 3
 
@@ -442,7 +445,7 @@ def duration(path):
     return Path(path).stat().st_size / 6000
 
 
-async def render(segments, voice_key, characters, target, synth=synthesize, engine="edge", trim=False, lead_in=None):
+async def render(segments, voice_key, characters, target, synth=synthesize, engine="edge", trim=True, lead_in=None):
     """Generează un fișier audio complet din bucăți (synth poate fi înlocuit în teste).
     Întoarce momentele [început, sfârșit] (secunde) ale fiecărei replici, pentru evidențierea textului."""
     lead_in = LEAD_IN if lead_in is None else lead_in
@@ -464,3 +467,184 @@ async def render(segments, voice_key, characters, target, synth=synthesize, engi
             timings.append([round(moment, 2), round(moment + length, 2)])
             moment += length + (TAIL if number == len(segments) - 1 else segment.pause)
         return timings
+
+
+# ---------- Gemini TTS: povestitorul ----------
+
+GEMINI_TTS_API = "https://generativelanguage.googleapis.com/v1beta"
+GEMINI_TTS_MODEL = "gemini-3.8-flash-tts"  # sau variabila GEMINI_TTS_MODEL
+GEMINI_PROMPT_VERSION = "1"  # schimb-o când schimbi indicațiile, ca fișierele să se refacă (treptat)
+DEFAULT_GEMINI_DAILY = 10  # cererile gratuite pe zi (ziua Google începe la miezul nopții în California)
+GEMINI_INTERVAL = 21  # secunde între cereri: cota gratuită are și o limită pe minut
+GEMINI_WAITS = (30, 60)  # reîncercări doar la erorile temporare ale serviciului (500, 503)
+LIO_EN = "Lio, a cheerful, sweet little lion cub, the friendly host of the stories"
+
+
+class GeminiUnavailable(RuntimeError):
+    """Gemini nu poate genera acum (cota zilnică, cheie greșită, serviciul nu răspunde, rezultat respins)."""
+
+
+def gemini_day(now=None):
+    """Ziua cotei Gemini: Google o reînnoiește la miezul nopții în California (~08:00 UTC)."""
+    from datetime import datetime, timedelta, timezone
+
+    return ((now or datetime.now(timezone.utc)) - timedelta(hours=8)).date().isoformat()
+
+
+class GeminiBudget:
+    """Cererile Gemini din fiecare zi (rapoarte/buget-gemini-voce.json), ca să nu trecem de cota gratuită."""
+
+    def __init__(self, path=None):
+        self.path = Path(path) if path else None
+        self.day = gemini_day()
+        try:
+            data = json.loads(self.path.read_text(encoding="utf-8")) if self.path else {}
+        except (OSError, ValueError):
+            data = {}
+        self.history = {d: int(v) for d, v in data.items() if isinstance(v, int)} if isinstance(data, dict) else {}
+        self.used = self.history.get(self.day, 0)
+        try:
+            self.limit = int(os.environ.get("GEMINI_TTS_DAILY") or DEFAULT_GEMINI_DAILY)
+        except ValueError:
+            self.limit = DEFAULT_GEMINI_DAILY
+
+    def left(self):
+        return max(0, self.limit - self.used)
+
+    def take(self):
+        if not self.left():
+            raise GeminiUnavailable("cota zilnică de cereri Gemini a fost folosită")
+        self.used += 1
+
+    def save(self):
+        if not self.path or self.used == self.history.get(self.day, 0):
+            return
+        self.history[self.day] = self.used
+        self.history = {d: self.history[d] for d in sorted(self.history)[-31:]}
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        self.path.write_text(json.dumps(self.history, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def gemini_voice(segments, voice_key):
+    """Vocea fișierului: a lui Lio dacă vorbește doar el (salutul, întrebările), altfel a povestitorului."""
+    if segments and all(s.speaker == "Lio" for s in segments):
+        return CHIRP_LIO[voice_key]
+    return CHIRP_NARRATOR[voice_key]
+
+
+def gemini_prompt(segments, characters, style=""):
+    transcript = " ".join(s.text.strip() for s in segments)
+    if all(s.speaker == "Lio" for s in segments):
+        return ("# AUDIO PROFILE: " + LIO_EN + "\n"
+                "## THE SCENE: talking directly to a four-year-old child, in Romanian, before or after a story\n"
+                "### DIRECTOR'S NOTES\n"
+                "Warm, playful and full of joy, like a beloved cartoon character; natural, lively intonation. "
+                + style + " Read only the transcript, word for word.\n#### TRANSCRIPT\n" + transcript)
+    cast = "; ".join(f"{c['name']}: {(c.get('description') or '').split(',')[0]}" if c.get("name") != "Lio"
+                     else f"Lio: {LIO_EN}" for c in characters if c.get("name"))
+    return ("# AUDIO PROFILE: a warm, wonderfully expressive children's storyteller\n"
+            "## THE SCENE: reading a picture book aloud, in Romanian, to a four-year-old child\n"
+            "### DIRECTOR'S NOTES\n"
+            "Lively, natural intonation and real emotions: joy, surprise, suspense, tenderness. A smile in the "
+            "voice on happy moments, small pauses before surprises, laughter where the characters laugh. A slightly "
+            f"different voice for each character ({cast}). {style} Read only the transcript, word for word.\n"
+            "#### TRANSCRIPT\n" + transcript)
+
+
+def proportional_timings(segments, start, length):
+    """Momentul fiecărei replici când pagina e citită dintr-o dată: împărțit după lungimea textului (aproximativ)."""
+    total = sum(max(1, len(s.text)) for s in segments) or 1
+    timings, moment = [], start
+    for s in segments:
+        share = length * max(1, len(s.text)) / total
+        timings.append([round(moment, 2), round(moment + share, 2)])
+        moment += share
+    return timings
+
+
+class Gemini:
+    """Clientul Gemini TTS (Google AI Studio), câte o cerere pe fișier, una după alta (cota pe minut)."""
+
+    def __init__(self, key, budget, model=None):
+        self.key = key
+        self.budget = budget
+        self.model = model or os.environ.get("GEMINI_TTS_MODEL") or GEMINI_TTS_MODEL
+        self.broken = ""
+        self.made = 0
+        self._lock = None
+        self._last = 0.0
+
+    def available(self):
+        return not self.broken and self.budget.left() > 0
+
+    def _call(self, prompt, voice):
+        import urllib.error
+        import urllib.request
+
+        body = {"contents": [{"parts": [{"text": prompt}]}],
+                "generationConfig": {"responseModalities": ["AUDIO"], "speechConfig": {
+                    "voiceConfig": {"prebuiltVoiceConfig": {"voiceName": voice}}}}}
+        request = urllib.request.Request(f"{GEMINI_TTS_API}/models/{self.model}:generateContent",
+                                         data=json.dumps(body).encode(),
+                                         headers={"Content-Type": "application/json", "X-Goog-Api-Key": self.key})
+        for wait in (*GEMINI_WAITS, None):
+            try:
+                with urllib.request.urlopen(request, timeout=240) as response:
+                    data = json.load(response)
+                part = data["candidates"][0]["content"]["parts"][0]["inlineData"]
+                return base64.b64decode(part["data"]), part.get("mimeType", "")
+            except urllib.error.HTTPError as exc:
+                detail = exc.read().decode(errors="replace")[:300]
+                if exc.code not in (500, 503) or wait is None:
+                    raise GeminiUnavailable(f"Gemini TTS HTTP {exc.code}: {detail}") from None
+            except (urllib.error.URLError, TimeoutError, OSError, KeyError, IndexError, ValueError) as exc:
+                if wait is None:
+                    raise GeminiUnavailable(f"Gemini TTS nu a răspuns cum trebuie: {exc}") from None
+            time.sleep(wait)
+        raise GeminiUnavailable("Gemini TTS nu răspunde")
+
+    async def render(self, segments, voice_key, characters, target, style=""):
+        """Generează fișierul dintr-o singură cerere; întoarce momentele (aproximative) ale replicilor.
+        Fișierul existent (Chirp) rămâne neatins dacă Gemini nu reușește sau rezultatul e respins."""
+        if self._lock is None:
+            self._lock = asyncio.Lock()
+        async with self._lock:
+            if self.broken:
+                raise GeminiUnavailable(self.broken)
+            self.budget.take()
+            wait = GEMINI_INTERVAL - (time.monotonic() - self._last)
+            if wait > 0:
+                await asyncio.sleep(wait)
+            try:
+                pcm, mime = await asyncio.to_thread(
+                    self._call, gemini_prompt(segments, characters, style), gemini_voice(segments, voice_key))
+            except GeminiUnavailable as exc:
+                if "HTTP 429" in str(exc) or "HTTP 403" in str(exc) or "HTTP 400" in str(exc):
+                    self.broken = str(exc)  # cota s-a terminat sau cheia nu e bună: restul rămâne pe Chirp
+                raise
+            finally:
+                self._last = time.monotonic()
+        try:
+            return await self._finish(pcm, mime, segments, target)
+        except subprocess.CalledProcessError as exc:  # sunet primit stricat
+            raise GeminiUnavailable(f"sunetul primit nu a putut fi prelucrat: {exc}") from None
+
+    async def _finish(self, pcm, mime, segments, target):
+        rate = mime.split("rate=")[1].split(";")[0] if "rate=" in mime else "24000"
+        with tempfile.TemporaryDirectory() as tmp:
+            raw, trimmed, out = Path(tmp) / "brut.wav", Path(tmp) / "taiat.wav", Path(tmp) / "gata.mp3"
+            await asyncio.to_thread(subprocess.run, [ffmpeg_binary(), "-y", "-loglevel", "error", "-f", "s16le",
+                                                     "-ar", rate, "-ac", "1", "-i", "pipe:0", str(raw)],
+                                    input=pcm, check=True)
+            await asyncio.to_thread(trim_silence, raw, trimmed)
+            speech = await asyncio.to_thread(duration, trimmed)
+            # citește și indicațiile? atunci e mult mai lung decât varianta Chirp sau decât ar cere textul
+            words = sum(word_count(s.text) for s in segments)
+            reference = await asyncio.to_thread(duration, target) if target.exists() else words / 2.2 + LEAD_IN + TAIL
+            if speech > 1.45 * reference + 1.5:
+                raise GeminiUnavailable(f"rezultat respins ({speech:.0f} s față de ~{reference:.0f} s: a citit probabil "
+                                        "și indicațiile)")
+            await asyncio.to_thread(assemble, [trimmed], [TAIL], out, LEAD_IN)
+            shutil.move(str(out), str(target))  # dosarul temporar poate fi pe alt disc
+        self.made += 1
+        return proportional_timings(segments, LEAD_IN, speech)

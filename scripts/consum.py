@@ -65,6 +65,27 @@ def voice(reports, now):
     return resource("voce", "Voci (Google Chirp 3 HD)", used, limit, "caractere", _month_end(now), note)
 
 
+def gemini_voice(reports, stories_dir, now):
+    """Povestitorul Gemini: cererile de azi din cota gratuită și câte fișiere audio au deja vocea lui."""
+    if not os.environ.get("GEMINI_API_KEY"):
+        return None
+    used = int(_read(Path(reports) / "buget-gemini-voce.json").get(voce.gemini_day(now), 0))
+    limit = int(_number("GEMINI_TTS_DAILY", voce.DEFAULT_GEMINI_DAILY))
+    done = total = 0
+    for manifest_file in Path(stories_dir).glob("*/audio/manifest.json"):
+        manifest = _read(manifest_file)
+        motor = manifest.get("motor") if isinstance(manifest.get("motor"), dict) else {}
+        for key in voce.VOICES:
+            files = manifest.get(key) if isinstance(manifest.get(key), dict) else {}
+            engines = motor.get(key) if isinstance(motor.get(key), dict) else {}
+            total += len(files)
+            done += sum(1 for name in files if engines.get(name) == "gemini")
+    reset = (now - timedelta(hours=8)).replace(hour=8, minute=0, second=0, microsecond=0) + timedelta(days=1)
+    return resource("gemini-voce", "Voci Gemini, povestitorul (azi)", used, limit, "cereri", reset,
+                    f"{done} din {total} fișiere audio au deja vocea Gemini (cu emoție); celelalte au vocea Chirp și "
+                    f"se refac câte {limit} pe zi, întâi poveștile noi și vocea feminină.")
+
+
 def images(reports, now):
     month = now.strftime("%Y-%m")
     budget = _read(Path(reports) / "buget-imagini.json").get(month) or {}
@@ -162,9 +183,13 @@ def hosting(site):
                         "" if quota else " Pune spațiul total al găzduirii în variabila HOSTING_QUOTA_MB ca să vezi și bara."))
 
 
-def collect(reports, site, now=None):
+def collect(reports, site, now=None, stories_dir=None):
     now = now or datetime.now(timezone.utc)
-    found = [voice(reports, now), *images(reports, now)]
+    found = [voice(reports, now)]
+    storyteller = gemini_voice(reports, stories_dir or Path(site) / "stories", now)
+    if storyteller:
+        found.append(storyteller)
+    found += images(reports, now)
     minutes = actions_minutes(now)
     if minutes:
         found.append(minutes)

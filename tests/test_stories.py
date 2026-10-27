@@ -1157,6 +1157,64 @@ class VoiceTests(unittest.TestCase):
             self.assertEqual(manifest["feminin"]["pagina-01.mp3"], edge)
             self.assertTrue((audio_dir / "masculin" / "pagina-01.mp3").exists())
 
+    @unittest.skipUnless(shutil.which("ffmpeg") and shutil.which("ffprobe"), "ffmpeg lipsește")
+    def test_gemini_storyteller_within_daily_quota_then_previous_voice_stays(self):
+        def tone(target):
+            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i",
+                            "sine=frequency=440:sample_rate=24000:duration=0.6", "-ac", "1", str(target)], check=True)
+
+        async def fake_render(segments, key, characters, target, synth=None, engine="edge", **_):
+            tone(target)
+            return [[0.6, 1.2]]
+
+        class FakeGemini:
+            def __init__(self):
+                self.budget = voce.GeminiBudget()
+                self.budget.limit, self.broken, self.calls = 1, "", []
+
+            def available(self):
+                return self.budget.left() > 0
+
+            async def render(self, segments, key, characters, target, style=""):
+                self.budget.take()
+                self.calls.append((key, target.name))
+                tone(target)
+                return [[0.6, 1.2]]
+
+        items = [("pagina-01.mp3", [voce.Segment("Era odată.")]), ("pagina-02.mp3", [voce.Segment("Apoi.")])]
+        with tempfile.TemporaryDirectory() as tmp, mock.patch.object(voce, "render", fake_render), \
+                mock.patch.object(stories, "ROOT", Path(tmp)):
+            audio_dir = Path(tmp) / "audio"
+            asyncio.run(stories.generate_audio_set(audio_dir, items, []))  # ziua 1: fără Gemini (edge-tts)
+            gemini = FakeGemini()
+            asyncio.run(stories.generate_audio_set(audio_dir, items, [], None, gemini, ("feminin",)))
+            manifest = json.loads((audio_dir / "manifest.json").read_text())
+            # o singură cerere pe zi: prima pagină a vocii feminine; restul rămân cum erau
+            self.assertEqual(gemini.calls, [("feminin", "pagina-01.mp3")])
+            self.assertEqual(manifest["motor"]["feminin"], {"pagina-01.mp3": "gemini", "pagina-02.mp3": "edge"})
+            self.assertEqual(manifest["motor"]["masculin"]["pagina-01.mp3"], "edge")
+            # a doua zi: pagina deja făcută cu Gemini nu se mai cere din nou
+            gemini = FakeGemini()
+            asyncio.run(stories.generate_audio_set(audio_dir, items, [], None, gemini, ("feminin",)))
+            self.assertEqual(gemini.calls, [("feminin", "pagina-02.mp3")])
+            manifest = json.loads((audio_dir / "manifest.json").read_text())
+            self.assertEqual(set(manifest["motor"]["feminin"].values()), {"gemini"})
+            # fără cotă: ce e făcut cu Gemini rămâne
+            asyncio.run(stories.generate_audio_set(audio_dir, items, []))
+            manifest = json.loads((audio_dir / "manifest.json").read_text())
+            self.assertEqual(set(manifest["motor"]["feminin"].values()), {"gemini"})
+
+    def test_gemini_prompt_and_timings(self):
+        segments = [voce.Segment("Lio a râs."), voce.Segment("— Bună!", "vesel", "Lio")]
+        prompt = voce.gemini_prompt(segments, [{"name": "Lio"}, {"name": "Cucu", "description": "a wooden cuckoo, red"}])
+        self.assertTrue(prompt.endswith("#### TRANSCRIPT\nLio a râs. — Bună!"))
+        self.assertIn("Cucu: a wooden cuckoo", prompt)
+        self.assertEqual(voce.gemini_voice(segments, "feminin"), voce.CHIRP_NARRATOR["feminin"])
+        self.assertEqual(voce.gemini_voice(segments[1:], "masculin"), voce.CHIRP_LIO["masculin"])
+        timings = voce.proportional_timings(segments, 0.6, 3.0)
+        self.assertEqual(timings[0][0], 0.6)
+        self.assertAlmostEqual(timings[-1][1], 3.6, places=1)
+
     def test_demo_story_has_both_voices_for_every_page(self):
         names = [name for name, _ in stories.narration_items(demo_data())]
         pages = len(demo_data()["pages"])

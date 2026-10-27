@@ -207,10 +207,14 @@ Câmpul `illustrationStyle` din `story.json` conține primele 4 rânduri (stilul
 
 ## 7. Vocea și regia de voce
 
-Vocea se generează **automat** de GitHub Actions (cu vocile naturale Google **Chirp 3 HD**; rezervă `edge-tts`),
-după push, în **două variante**: **feminină** (naratoarea Sulafat) și **masculină** (naratorul Algieba). Cel care
-citește alege din site. Lio și fiecare personaj care vorbește primesc automat o **voce proprie**, diferită de a
-povestitorului și a celorlalte personaje.
+Vocea se generează **automat** de GitHub Actions, după push, în **două variante**: **feminină** (naratoarea
+Sulafat) și **masculină** (naratorul Algieba). Cel care citește alege din site.
+- Imediat: vocile naturale Google **Chirp 3 HD**, unde Lio și fiecare personaj primesc automat o **voce proprie**;
+- apoi, treptat (câteva pagini pe zi, cât permite cota gratuită): **Gemini TTS, „povestitorul”**, care citește
+  toată pagina dintr-o dată, cu emoție, râs, suspans și voci pentru personaje. Pentru el contează mult ca
+  `description` din `characters` să spună cine e personajul (prima parte, până la virgulă: „a cheerful
+  five-year-old boy”), iar textul să aibă punctuație expresivă;
+- rezerva, când serviciile Google nu pot: `edge-tts`.
 **Nu genera tu fișiere audio** și nu adăuga câmpuri `audio`.
 
 Ca povestea să nu sune robotic, **scrii explicit regia de voce** — cum se citește fiecare bucată.

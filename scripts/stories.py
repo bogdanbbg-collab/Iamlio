@@ -943,7 +943,7 @@ def write_admin_info(entries, personal, invalid):
         "problems": problems,
         "personal": personal,
         "image_budget": budget,
-        "consum": consum.collect(REPORTS_DIR, BUILD_DIR),
+        "consum": consum.collect(REPORTS_DIR, BUILD_DIR, stories_dir=STORIES_DIR),
     }
     for r in info["consum"]["resurse"]:
         print(f"[consum] {r['nume']}: {r['folosit']} / {r['limita'] or '—'} {r['unitate']}"
@@ -1035,60 +1035,96 @@ def narration_items(data):
 AUDIO_CONCURRENCY = 6  # câte fișiere audio se generează deodată (edge-tts + ffmpeg)
 
 
-async def generate_audio_set(audio_dir, items, characters, chirp=None):
+async def generate_audio_set(audio_dir, items, characters, chirp=None, gemini=None, gemini_keys=(), style=""):
     """Generează items pentru fiecare voce, doar ce s-a schimbat (după amprenta regiei), câte mai multe deodată.
-    Cu chirp (Google Chirp 3 HD) vocile sunt cele naturale; dacă Chirp nu poate, fișierul se face cu edge-tts
-    și se reface cu Chirp la o publicare următoare (amprenta lui spune cu ce a fost generat)."""
+    Motorul fiecărui fișier, de la cel mai expresiv: Gemini (povestitorul, cât permite cota zilnică, doar pentru
+    vocile din gemini_keys), Chirp 3 HD, edge-tts. Un fișier făcut cu un motor de rezervă se reface cu cel mai bun
+    la o publicare următoare (manifestul ține amprenta și motorul fiecărui fișier)."""
     manifest_file = audio_dir / "manifest.json"
     old = read_manifest(manifest_file)
     manifest = {}
     old_timing = old.get("timing") if isinstance(old.get("timing"), dict) else {}
     timing = {}
+    motor = {}
     limit = asyncio.Semaphore(AUDIO_CONCURRENCY)
 
     def save(data):
         write_json_atomic(manifest_file, data)
 
     def digest_for(segments, key, engine):
-        return hashlib.sha1(voce.fingerprint(segments, key, characters, engine).encode()).hexdigest()
+        if engine == "gemini":
+            text = "\n".join([voce.ENGINE_VERSION, "gemini", voce.GEMINI_PROMPT_VERSION, voce.gemini_voice(segments, key),
+                              voce.gemini_prompt(segments, characters, style)])
+        else:
+            text = voce.fingerprint(segments, key, characters, engine)
+        return hashlib.sha1(text.encode()).hexdigest()
+
+    def current(previous, previous_timing, name, target, digest):
+        return previous.get(name) == digest and target.exists() and name in previous_timing
+
+    def fallback():
+        return "chirp" if chirp and not chirp.broken else "edge"
 
     async def make(key, name, segments, target, previous, previous_timing):
+        result, engine = None, None
+        rel = target.relative_to(ROOT)
+        if gemini and key in gemini_keys and gemini.available():
+            try:
+                # în afara limitei de fișiere simultane: cererile Gemini merg oricum una câte una
+                result = await gemini.render(segments, key, characters, target, style)
+                engine = "gemini"
+                print(f"    🎭 {rel} (Gemini, povestitor)")
+            except voce.GeminiUnavailable as exc:
+                if gemini.budget.left() and not gemini.broken:
+                    print(f"::warning::{rel}: {exc}; rămâne vocea de până acum")
         async with limit:
-            result = None
-            if chirp and not chirp.broken:
-                print(f"    🔊 {target.relative_to(ROOT)}")
-                try:
-                    result = await voce.render(segments, key, characters, target, synth=chirp.synthesize, engine="chirp")
-                    digest = digest_for(segments, key, "chirp")
-                except voce.ChirpUnavailable:
-                    result = None  # motivul se afișează o singură dată, la final
+            if result is None and fallback() == "chirp":
+                engine = "chirp"
+                if current(previous, previous_timing, name, target, digest_for(segments, key, "chirp")):
+                    result = previous_timing[name]
+                else:
+                    print(f"    🔊 {rel}")
+                    try:
+                        result = await voce.render(segments, key, characters, target, synth=chirp.synthesize,
+                                                   engine="chirp")
+                    except voce.ChirpUnavailable:
+                        result = None  # motivul se afișează o singură dată, la final
             if result is None:
-                digest = digest_for(segments, key, "edge")
-                if previous.get(name) == digest and target.exists() and name in previous_timing:
+                engine = "edge"
+                if current(previous, previous_timing, name, target, digest_for(segments, key, "edge")):
                     result = previous_timing[name]  # varianta edge-tts de dinainte e încă bună
                 else:
-                    print(f"    🔊 {target.relative_to(ROOT)} (edge-tts)")
+                    print(f"    🔊 {rel} (edge-tts)")
                     result = await voce.render(segments, key, characters, target)
         timing[key][name] = result
-        manifest[key][name] = digest
+        manifest[key][name] = digest_for(segments, key, engine)
+        motor[key][name] = engine
         # scriem manifestul după fiecare fișier, ca o eroare să nu piardă munca făcută
-        save({**old, **manifest, "timing": timing})
+        save({**old, **manifest, "timing": timing, "motor": motor})
 
-    engine = "chirp" if chirp and not chirp.broken else "edge"
+    old_motor = old.get("motor") if isinstance(old.get("motor"), dict) else {}
     jobs = []
     for key in VOICES:
         (audio_dir / key).mkdir(parents=True, exist_ok=True)
         previous = old.get(key, {}) if isinstance(old.get(key), dict) else {}
         previous_timing = old_timing.get(key, {}) if isinstance(old_timing.get(key), dict) else {}
-        manifest[key], timing[key] = {}, {}
+        previous_motor = old_motor.get(key, {}) if isinstance(old_motor.get(key), dict) else {}
+        manifest[key], timing[key], motor[key] = {}, {}, {}
         for name, segments in items:
-            digest = digest_for(segments, key, engine)
             target = audio_dir / key / name
-            if previous.get(name) != digest or not target.exists() or name not in previous_timing:
-                jobs.append(make(key, name, segments, target, previous, previous_timing))
-            else:
+            kept = None
+            for engine in ("gemini", fallback()):
+                digest = digest_for(segments, key, engine)
+                if current(previous, previous_timing, name, target, digest):
+                    kept = (engine, digest)
+                    break
+            wants_gemini = gemini and key in gemini_keys and gemini.available()
+            if kept and (kept[0] == "gemini" or not wants_gemini):
                 timing[key][name] = previous_timing[name]
-                manifest[key][name] = digest
+                manifest[key][name] = kept[1]
+                motor[key][name] = previous_motor.get(name, kept[0])
+            else:
+                jobs.append(make(key, name, segments, target, previous, previous_timing))
     results = await asyncio.gather(*jobs, return_exceptions=True)  # un fișier eșuat nu le oprește pe celelalte
     failed = [r for r in results if isinstance(r, BaseException)]
     if failed:
@@ -1104,6 +1140,7 @@ async def generate_audio_set(audio_dir, items, characters, chirp=None):
     for leftover in audio_dir.glob("*.mp3"):  # format vechi, fără folder pe voce
         leftover.unlink()
     manifest["timing"] = timing
+    manifest["motor"] = {key: {name: motor[key][name] for name in order if name in motor[key]} for key in VOICES}
     save(manifest)
 
 
@@ -1158,28 +1195,91 @@ def write_json_atomic(path, data):
 
 def cmd_audio():
     """Vocile tuturor poveștilor; o poveste care eșuează (de ex. serviciul de voce nu răspunde) nu le oprește
-    pe celelalte. La final, verify-audio spune exact ce lipsește."""
+    pe celelalte. La final, verify-audio spune exact ce lipsește.
+    Gemini (povestitorul) are puține cereri gratuite pe zi: le primesc întâi poveștile cele mai noi și vocea
+    feminină, apoi vocea masculină; restul fișierelor rămân cu Chirp până la zilele următoare."""
     failed = []
-    groups = [(folder.name, folder / "audio", narration_items(data), story_characters(data))
-              for folder, data in valid_stories()]
+    published = read_json(REPORTS_DIR / "publicari.json")
+    stories_found = sorted(valid_stories(), key=lambda item: published.get(item[0].name, "9999"), reverse=True)
+    groups = [(folder.name, folder / "audio", narration_items(data), story_characters(data), bedtime_style(data))
+              for folder, data in stories_found]
+    chirp, gemini = make_chirp(), make_gemini()
+    passes = [("feminin",), ("masculin",)] if gemini else [()]
+    for gemini_keys in passes:
+        for label, audio_dir, group_items, characters, style in groups:
+            if label in failed:
+                continue
+            print(f"[audio] {label}" + (f" (Gemini: vocea {gemini_keys[0]})" if gemini_keys else ""))
+            try:
+                asyncio.run(generate_audio_set(audio_dir, group_items, characters, chirp, gemini, gemini_keys, style))
+            except Exception as exc:  # rețea, ffmpeg, limită de cereri
+                failed.append(label)
+                print(f"::warning::vocea pentru {label} nu s-a putut genera complet: {exc}")
     items = lio_items()
     if items:
-        groups.append(("replicile lui Lio", LIO_AUDIO_DIR, items, [LIO_PROFILE]))
-    chirp = make_chirp()
-    for label, audio_dir, group_items, characters in groups:
-        print(f"[audio] {label}")
+        print("[audio] replicile lui Lio")
         try:
-            asyncio.run(generate_audio_set(audio_dir, group_items, characters, chirp))
-        except Exception as exc:  # rețea, ffmpeg, limită de cereri
-            failed.append(label)
-            print(f"::warning::vocea pentru {label} nu s-a putut genera complet: {exc}")
+            asyncio.run(generate_audio_set(LIO_AUDIO_DIR, items, [LIO_PROFILE], chirp))
+        except Exception as exc:  # noqa: BLE001
+            failed.append("replicile lui Lio")
+            print(f"::warning::vocea pentru replicile lui Lio nu s-a putut genera complet: {exc}")
     if chirp:
         chirp.budget.save()
         write_voice_report(chirp)
         if chirp.broken:
             print(f"::warning::vocile Google Chirp 3 HD nu au putut fi folosite ({chirp.broken}); "
                   "s-a folosit edge-tts, iar la o publicare următoare se încearcă din nou")
+    if gemini:
+        gemini.budget.save()
+        print(f"[audio] Gemini: {gemini.made} fișiere refăcute azi cu povestitorul "
+              f"({gemini.budget.used}/{gemini.budget.limit} cereri folosite)"
+              + (f"; oprit: {gemini.broken}" if gemini.broken else ""))
     return 1 if failed else 0
+
+
+def read_json(path):
+    try:
+        data = json.loads(Path(path).read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def bedtime_style(data):
+    if (data.get("categories") or [""])[0] == "de-culcare":
+        return "This is a bedtime story: soft, calm and cozy, getting a little sleepier towards the end."
+    return ""
+
+
+GEMINI_BUDGET_FILE = REPORTS_DIR / "buget-gemini-voce.json"
+
+
+def make_gemini():
+    """Povestitorul Gemini, dacă e configurată cheia GEMINI_API_KEY și a mai rămas cotă azi."""
+    key = os.environ.get("GEMINI_API_KEY", "").strip()
+    if not key or os.environ.get("GEMINI_TTS_DAILY", "").strip() == "0":
+        return None
+    budget = voce.GeminiBudget(GEMINI_BUDGET_FILE)
+    print(f"[audio] Gemini TTS: {budget.used}/{budget.limit} cereri folosite azi")
+    return voce.Gemini(key, budget)
+
+
+def voices_pending():
+    """Câte fișiere audio ale poveștilor nu au încă vocea Gemini (pentru reluarea zilnică)."""
+    import contextlib
+    import io
+
+    pending = 0
+    with contextlib.redirect_stdout(io.StringIO()):  # rezultatul ajunge în GITHUB_OUTPUT: fără alte mesaje
+        found = list(valid_stories())
+    for folder, _ in found:
+        manifest = read_manifest(folder / "audio" / "manifest.json")
+        motor = manifest.get("motor") if isinstance(manifest.get("motor"), dict) else {}
+        for key in VOICES:
+            files = manifest.get(key) if isinstance(manifest.get(key), dict) else {}
+            engines = motor.get(key) if isinstance(motor.get(key), dict) else {}
+            pending += sum(1 for name in files if engines.get(name) != "gemini")
+    return pending
 
 
 VOICE_BUDGET_FILE = REPORTS_DIR / "buget-voce.json"
