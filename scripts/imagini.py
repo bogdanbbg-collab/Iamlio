@@ -201,7 +201,7 @@ class ChainClient:
             try:
                 result = getattr(client.images, method)(**dict(kwargs, model=getattr(client, "model", kwargs.get("model"))))
             except Exception as exc:
-                problems.append(f"{getattr(client, 'model', '?')}: {str(exc)[:160]}")
+                problems.append(f"{getattr(client, 'model', '?')}: {str(exc)[:200]}")
                 self.clients.remove(client)
                 continue
             self.model = getattr(client, "model", self.model)
@@ -350,11 +350,8 @@ class CloudflareClient:
             f"https://api.cloudflare.com/client/v4/accounts/{self.account}/ai/run/{self.model}",
             data=json.dumps(body).encode("utf-8"), method="POST",
             headers={"Authorization": f"Bearer {self.token}", "Content-Type": "application/json"})
-        opener = self.opener or urllib.request.urlopen
         try:
-            with opener(request, timeout=180) as response:
-                kind = response.headers.get("Content-Type", "")
-                payload = response.read()
+            kind, payload = _send(self.opener or urllib.request.urlopen, request)
         except Exception as exc:
             detail = exc.read().decode("utf-8", "replace")[:300] if hasattr(exc, "read") else str(exc)
             raise RuntimeError(f"Cloudflare: {detail}") from exc
@@ -396,10 +393,8 @@ class PollinationsClient:
         request = urllib.request.Request(
             "https://gen.pollinations.ai/v1/images/generations", data=json.dumps(body).encode("utf-8"), method="POST",
             headers={"Authorization": f"Bearer {self.key}", "Content-Type": "application/json"})
-        opener = self.opener or urllib.request.urlopen
         try:
-            with opener(request, timeout=180) as response:
-                answer = json.loads(response.read().decode("utf-8"))
+            answer = json.loads(_send(self.opener or urllib.request.urlopen, request)[1].decode("utf-8"))
         except Exception as exc:  # 402: s-a terminat creditul gratuit al zilei
             detail = exc.read().decode("utf-8", "replace")[:300] if hasattr(exc, "read") else str(exc)
             raise RuntimeError(f"Pollinations: {detail}") from exc
@@ -407,6 +402,36 @@ class PollinationsClient:
         if not image:
             raise RuntimeError(f"Pollinations: {str(answer)[:300]}")
         return _as_page_image(base64.b64decode(image))
+
+
+# O pană de câteva secunde a unui serviciu gratuit (503, prea multe cereri, rețea) nu trebuie să lase povestea fără
+# imagini: cererea se mai încearcă de două ori, cu pauză. Alte erori (cheie greșită, credit terminat) nu se reîncearcă.
+RETRY_STATUS = (429, 500, 502, 503, 504)
+RETRY_WAITS = (5, 20)
+
+
+def _sleep(seconds):
+    import time
+
+    time.sleep(seconds)
+
+
+def _send(opener, request):
+    """Întoarce (Content-Type, conținut) al răspunsului, cu reîncercări la penele temporare."""
+    import urllib.error
+
+    for wait in RETRY_WAITS + (None,):
+        try:
+            with opener(request, timeout=180) as response:
+                headers = getattr(response, "headers", None) or {}
+                return headers.get("Content-Type", ""), response.read()
+        except urllib.error.HTTPError as exc:
+            if wait is None or exc.code not in RETRY_STATUS:
+                raise
+        except (urllib.error.URLError, TimeoutError, ConnectionError):
+            if wait is None:
+                raise
+        _sleep(wait)
 
 
 def _as_page_image(raw):
@@ -474,7 +499,7 @@ def generate_missing(folder, data, client=None, budget=None):
                 result = client.images.generate(model=model, prompt=entry["imagePrompt"], size=SIZE, quality=quality)
             save(result, target)
         except Exception as exc:  # cheie greșită, limită de cost, prompt refuzat de filtrul de siguranță…
-            errors.append(f"{label}: imaginea nu a putut fi generată ({type(exc).__name__}: {str(exc)[:400]})")
+            errors.append(f"{label}: imaginea nu a putut fi generată ({type(exc).__name__}: {str(exc)[:800]})")
             continue
         entry["image"] = str(Path(entry["image"]).with_suffix(".png"))
         budget.spend(cost_lei(result))

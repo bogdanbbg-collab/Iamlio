@@ -712,6 +712,38 @@ class PollinationsTests(unittest.TestCase):
         self.assertEqual((body["model"], body["size"], body["response_format"]),
                          (imagini.POLLINATIONS_MODEL, "1536x1024", "b64_json"))
 
+    def test_a_short_outage_is_retried_but_exhausted_credit_is_not(self):
+        import base64
+        import io
+        import urllib.error
+        from unittest import mock
+
+        from PIL import Image
+
+        buffer = io.BytesIO()
+        Image.new("RGB", (1024, 1024), (90, 140, 200)).save(buffer, "JPEG")
+        good = json.dumps({"data": [{"b64_json": base64.b64encode(buffer.getvalue()).decode()}]}).encode()
+        calls = []
+
+        def flaky(request, timeout):
+            calls.append(1)
+            if len(calls) < 3:
+                raise urllib.error.HTTPError(request.full_url, 503, "indisponibil", {},
+                                             io.BytesIO(b'{"error":"SERVICE_UNAVAILABLE"}'))
+            return io.BytesIO(good)
+
+        client = imagini.PollinationsClient("sk", imagini.POLLINATIONS_MODEL, "arici", opener=flaky)
+        with mock.patch.object(imagini, "_sleep") as sleep:
+            client.images.generate(prompt="Cover")
+        self.assertEqual(len(calls), 3, "două pene trecătoare, apoi imaginea")
+        self.assertEqual([c.args[0] for c in sleep.call_args_list], list(imagini.RETRY_WAITS))
+
+        client, _ = self._client(402, {"error": "PAYMENT_REQUIRED"})
+        with mock.patch.object(imagini, "_sleep") as sleep:
+            with self.assertRaises(RuntimeError):
+                client.images.generate(prompt="Cover")
+        sleep.assert_not_called()
+
     def test_exhausted_credit_is_reported(self):
         client, _ = self._client(402, {"error": "PAYMENT_REQUIRED: balance exhausted"})
         with self.assertRaisesRegex(RuntimeError, "Pollinations: .*exhausted"):
