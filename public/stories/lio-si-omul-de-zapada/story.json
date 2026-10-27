@@ -1,0 +1,453 @@
+{
+  "id": "lio-si-omul-de-zapada",
+  "title": "Lio și omul de zăpadă",
+  "summary": "A nins! Lio face un om de zăpadă care prinde viață, strănută și vrea un fular. Dar un iepuraș flămând îi mănâncă nasul de morcov… Cum îl ajută Lio pe toată lumea?",
+  "age": "3-7",
+  "moral": "Când împarți cu alții, iarna devine mai caldă pentru toată lumea.",
+  "learning": [
+    "fulgii de nea sunt apă înghețată, cu șase brațe, și nu există doi la fel",
+    "iarna ne îmbrăcăm gros, iar animalele găsesc greu hrană: le putem ajuta cu semințe",
+    "mare, mijlociu, mic"
+  ],
+  "created": "2026-10-27",
+  "tags": [
+    "iarnă",
+    "zăpadă",
+    "om de zăpadă",
+    "iepure",
+    "păsări"
+  ],
+  "illustrationStyle": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered.",
+  "characters": [
+    {
+      "name": "Lio",
+      "description": "a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression",
+      "voice": {
+        "pitch": 12,
+        "rate": 3
+      }
+    },
+    {
+      "name": "Bulgărel",
+      "description": "a friendly round snowman made of three stacked snowballs (a big one at the bottom, a medium one in the middle and a small round head), two shiny black pebble eyes, a wide happy smile of small black pebbles and two thin brown twig arms",
+      "voice": {
+        "pitch": -12,
+        "rate": -4
+      }
+    },
+    {
+      "name": "Țupi",
+      "description": "a small fluffy snow-white winter hare with long upright ears with pink inside, a pink twitchy nose, big shiny black eyes, long whiskers and a little round white tail",
+      "voice": {
+        "type": "masculin",
+        "pitch": 18,
+        "rate": 6
+      }
+    }
+  ],
+  "cover": {
+    "image": "images/coperta.png",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bulgărel: a friendly round snowman made of three stacked snowballs (a big one at the bottom, a medium one in the middle and a small round head), two shiny black pebble eyes, a wide happy smile of small black pebbles and two thin brown twig arms; Țupi: a small fluffy snow-white winter hare with long upright ears with pink inside, a pink twitchy nose, big shiny black eyes, long whiskers and a little round white tail. Setting: a snowy garden in front of Lio's small cozy wooden cottage on a bright winter morning, soft fresh snow everywhere, snowy fir trees, gentle snowflakes falling. Action: Lio hugs Bulgărel the snowman, who has a long orange carrot nose and a red-and-white striped scarf, while Țupi the white hare peeks out from behind the snowman; small birds sit at a wooden feeder nearby; Lio also wears a red knitted winter hat with a pompom and red mittens. Emotions: joyful, cozy, a little magical. Important details: gently falling snowflakes, the bird feeder, golden magical sparkles. Camera: wide cinematic cover shot.",
+    "animation": {
+      "camera": "zoom-in",
+      "effect": "snow"
+    }
+  },
+  "pages": [
+    {
+      "text": "Într-o dimineață, Lio a deschis ochii și a văzut că fereastra era albă. Ninsese! Prima zăpadă a iernii! Și-a pus repede căciula roșie, mănușile și cizmele groase, iar eșarfa turcoaz a stat, ca întotdeauna, la gâtul lui. — Iarna ne îmbrăcăm gros, ca să nu ne fie frig! a spus el.",
+      "narration": [
+        {
+          "text": "Într-o dimineață, Lio a deschis ochii și a văzut că fereastra era albă.",
+          "mood": "calm"
+        },
+        {
+          "text": "Ninsese! Prima zăpadă a iernii!",
+          "mood": "entuziasmat"
+        },
+        {
+          "text": "Și-a pus repede căciula roșie, mănușile și cizmele groase, iar eșarfa turcoaz a stat, ca întotdeauna, la gâtul lui.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Iarna ne îmbrăcăm gros, ca să nu ne fie frig!",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a spus el.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-01.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: a cozy warm bedroom with a wooden window full of snow outside, morning light. Action: Lio stands by the window happily pulling on a red knitted winter hat with a pompom and red mittens, looking out at the first snow. Emotions: excited and happy. Important details: the snowy view through the window, warm boots by the bed. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "snow"
+      }
+    },
+    {
+      "text": "Afară, fulgii cădeau încet, ca niște pene mici. Un fulg s-a așezat pe mănușa lui Lio. Lio s-a uitat de aproape: fulgul avea șase brațe sclipitoare, ca o steluță de gheață. Fulgii de nea sunt apă înghețată, și nu există doi fulgi la fel. Alt fulg i s-a topit pe nas și l-a gâdilat. Hi-hi!",
+      "narration": [
+        {
+          "text": "Afară, fulgii cădeau încet, ca niște pene mici.",
+          "mood": "calm"
+        },
+        {
+          "text": "Un fulg s-a așezat pe mănușa lui Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lio s-a uitat de aproape: fulgul avea șase brațe sclipitoare, ca o steluță de gheață.",
+          "mood": "mirat"
+        },
+        {
+          "text": "Fulgii de nea sunt apă înghețată, și nu există doi fulgi la fel.",
+          "mood": "calm"
+        },
+        {
+          "text": "Alt fulg i s-a topit pe nas și l-a gâdilat. Hi-hi!",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-02.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: a snowy garden in front of Lio's small cozy wooden cottage on a bright winter morning, soft fresh snow everywhere, snowy fir trees, gentle snowflakes falling. Action: Lio looks cross-eyed with wonder at one big sparkling six-armed snowflake resting on his red mitten, while another snowflake lands on his nose; Lio also wears a red knitted winter hat with a pompom and red mittens. Emotions: amazed and giggly. Important details: a large detailed six-pointed snowflake crystal on the red mitten. Camera: close-up.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "snow"
+      }
+    },
+    {
+      "text": "Lio a hotărât să facă un om de zăpadă. A rostogolit un bulgăre mare, unul mijlociu și unul mic. Dar bulgărele cel mare a pornit la vale… cu Lio agățat de el! Bum! S-au oprit într-o grămadă moale de zăpadă, iar din ea se vedea doar coada lui Lio.",
+      "narration": [
+        {
+          "text": "Lio a hotărât să facă un om de zăpadă.",
+          "mood": "hotărât"
+        },
+        {
+          "text": "A rostogolit un bulgăre mare, unul mijlociu și unul mic.",
+          "mood": "calm"
+        },
+        {
+          "text": "Dar bulgărele cel mare a pornit la vale…",
+          "mood": "misterios"
+        },
+        {
+          "text": "cu Lio agățat de el!",
+          "mood": "entuziasmat"
+        },
+        {
+          "text": "Bum! S-au oprit într-o grămadă moale de zăpadă, iar din ea se vedea doar coada lui Lio.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-03.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: a gentle snowy slope in the garden with a big soft heap of snow at the bottom. Action: a big snowball rolls down the gentle slope with Lio clinging onto it, and at the bottom only Lio's tail with its caramel tuft sticks out of a soft heap of snow; Lio also wears a red knitted winter hat with a pompom and red mittens. Emotions: funny, playful. Important details: a big snowball, a medium and a small snowball waiting at the top, flying snow powder. Camera: wide shot.",
+      "animation": {
+        "camera": "pan-down",
+        "effect": "snow"
+      }
+    },
+    {
+      "text": "Lio a pus bulgării unul peste altul: mare, mijlociu, mic. I-a făcut ochi din pietricele, mâini din crenguțe și un nas lung dintr-un morcov. — Te voi numi Bulgărel! a spus Lio și și-a scuturat mănușile, mulțumit.",
+      "narration": [
+        {
+          "text": "Lio a pus bulgării unul peste altul: mare, mijlociu, mic.",
+          "mood": "calm"
+        },
+        {
+          "text": "I-a făcut ochi din pietricele, mâini din crenguțe și un nas lung dintr-un morcov.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Te voi numi Bulgărel!",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a spus Lio și și-a scuturat mănușile, mulțumit.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-04.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bulgărel: a friendly round snowman made of three stacked snowballs (a big one at the bottom, a medium one in the middle and a small round head), two shiny black pebble eyes, a wide happy smile of small black pebbles and two thin brown twig arms. Setting: a snowy garden in front of Lio's small cozy wooden cottage on a bright winter morning, soft fresh snow everywhere, snowy fir trees, gentle snowflakes falling. Action: Lio carefully pushes a long orange carrot into the snowman's face as its nose; the snowman Bulgărel is complete with pebble eyes, a pebble smile and twig arms; Lio also wears a red knitted winter hat with a pompom and red mittens. Emotions: proud and happy. Important details: a long orange carrot nose, a bucket with pebbles and twigs. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-up",
+        "effect": "snow"
+      }
+    },
+    {
+      "text": "Deodată, omul de zăpadă a clipit. — Hapciu! Brr, ce frig îmi e la gât! Lio a făcut ochii mari: un om de zăpadă căruia îi e frig? A alergat în casă și i-a adus un fular roșu, cu dungi albe. — Mulțumesc! Acum sunt cel mai elegant om de zăpadă!",
+      "narration": [
+        {
+          "text": "Deodată, omul de zăpadă a clipit.",
+          "mood": "misterios",
+          "pause": 0.6
+        },
+        {
+          "text": "— Hapciu! Brr, ce frig îmi e la gât!",
+          "mood": "mirat",
+          "speaker": "Bulgărel"
+        },
+        {
+          "text": "Lio a făcut ochii mari: un om de zăpadă căruia îi e frig?",
+          "mood": "mirat"
+        },
+        {
+          "text": "A alergat în casă și i-a adus un fular roșu, cu dungi albe.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Mulțumesc! Acum sunt cel mai elegant om de zăpadă!",
+          "mood": "entuziasmat",
+          "speaker": "Bulgărel"
+        }
+      ],
+      "image": "images/pagina-05.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bulgărel: a friendly round snowman made of three stacked snowballs (a big one at the bottom, a medium one in the middle and a small round head), two shiny black pebble eyes, a wide happy smile of small black pebbles and two thin brown twig arms. Setting: a snowy garden in front of Lio's small cozy wooden cottage on a bright winter morning, soft fresh snow everywhere, snowy fir trees, gentle snowflakes falling. Action: Bulgărel the snowman, with his long orange carrot nose, has come alive: he sneezes a little puff of snow and smiles while Lio wraps a red-and-white striped scarf around his neck; Lio also wears a red knitted winter hat with a pompom and red mittens. Emotions: magical surprise, Lio amazed, Bulgărel delighted. Important details: golden magical sparkles around the snowman, the red-and-white striped scarf, the carrot nose. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "sparkles"
+      }
+    },
+    {
+      "text": "Când s-a uitat din nou, Bulgărel nu mai avea nas! Lângă el, un iepure alb ronțăia de zor un morcov. — Iertați-mă! a spus iepurele Țupi, cu urechile lăsate. — Iarna, sub zăpadă, găsesc foarte greu de mâncare.",
+      "narration": [
+        {
+          "text": "Când s-a uitat din nou, Bulgărel nu mai avea nas!",
+          "mood": "mirat"
+        },
+        {
+          "text": "Lângă el, un iepure alb ronțăia de zor un morcov.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Iertați-mă!",
+          "mood": "trist",
+          "speaker": "Țupi"
+        },
+        {
+          "text": "a spus iepurele Țupi, cu urechile lăsate.",
+          "mood": "trist"
+        },
+        {
+          "text": "— Iarna, sub zăpadă, găsesc foarte greu de mâncare.",
+          "mood": "trist",
+          "speaker": "Țupi"
+        }
+      ],
+      "image": "images/pagina-06.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bulgărel: a friendly round snowman made of three stacked snowballs (a big one at the bottom, a medium one in the middle and a small round head), two shiny black pebble eyes, a wide happy smile of small black pebbles and two thin brown twig arms; Țupi: a small fluffy snow-white winter hare with long upright ears with pink inside, a pink twitchy nose, big shiny black eyes, long whiskers and a little round white tail. Setting: a snowy garden in front of Lio's small cozy wooden cottage on a bright winter morning, soft fresh snow everywhere, snowy fir trees, gentle snowflakes falling. Action: Bulgărel the snowman, wearing his red-and-white striped scarf, now has NO carrot nose, only a small round hole in the middle of his face, and looks comically surprised; next to him Țupi the white hare holds a half-eaten carrot with droopy ears and an apologetic face; Lio looks on kindly; Lio also wears a red knitted winter hat with a pompom and red mittens. Emotions: Țupi sorry and shy, Bulgărel surprised, Lio understanding. Important details: a half-eaten orange carrot in the hare's paws, little hare footprints in the snow. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Lio s-a gândit la prietenii din pădure. Ursul doarme toată iarna în bârlogul lui, iar veverița mănâncă nucile strânse din toamnă. Dar iepurii și păsărelele caută hrană prin zăpadă în fiecare zi. — Fără nas nu mai simt mirosul zăpezii! a pufnit Bulgărel, și toți au râs.",
+      "narration": [
+        {
+          "text": "Lio s-a gândit la prietenii din pădure.",
+          "mood": "calm"
+        },
+        {
+          "text": "Ursul doarme toată iarna în bârlogul lui, iar veverița mănâncă nucile strânse din toamnă.",
+          "mood": "calm"
+        },
+        {
+          "text": "Dar iepurii și păsărelele caută hrană prin zăpadă în fiecare zi.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Fără nas nu mai simt mirosul zăpezii!",
+          "mood": "vesel",
+          "speaker": "Bulgărel"
+        },
+        {
+          "text": "a pufnit Bulgărel, și toți au râs.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-07.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bulgărel: a friendly round snowman made of three stacked snowballs (a big one at the bottom, a medium one in the middle and a small round head), two shiny black pebble eyes, a wide happy smile of small black pebbles and two thin brown twig arms; Țupi: a small fluffy snow-white winter hare with long upright ears with pink inside, a pink twitchy nose, big shiny black eyes, long whiskers and a little round white tail. Setting: the snowy garden at the edge of a winter forest, a cozy bear den with a sleeping brown bear visible far in the background under the snowy trees. Action: Lio thinks with his paw on his chin, Țupi the hare sits beside him, and Bulgărel the snowman without a nose, wearing his red-and-white striped scarf, laughs; far behind them a brown bear sleeps peacefully in a snowy den; Lio also wears a red knitted winter hat with a pompom and red mittens. Emotions: thoughtful, then laughing. Important details: the sleeping bear in its den in the distance, small birds on snowy branches. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "snow"
+      }
+    },
+    {
+      "text": "— Am o idee! a strigat Lio. — Facem o căsuță cu mâncare pentru animale! Au luat o cutie veche de lemn și au umplut-o cu semințe de floarea-soarelui pentru păsărele. Iar pentru Țupi, Lio a adus un coș cu morcovi și mere.",
+      "narration": [
+        {
+          "text": "— Am o idee!",
+          "mood": "entuziasmat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a strigat Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Facem o căsuță cu mâncare pentru animale!",
+          "mood": "entuziasmat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Au luat o cutie veche de lemn și au umplut-o cu semințe de floarea-soarelui pentru păsărele.",
+          "mood": "calm"
+        },
+        {
+          "text": "Iar pentru Țupi, Lio a adus un coș cu morcovi și mere.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-08.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bulgărel: a friendly round snowman made of three stacked snowballs (a big one at the bottom, a medium one in the middle and a small round head), two shiny black pebble eyes, a wide happy smile of small black pebbles and two thin brown twig arms; Țupi: a small fluffy snow-white winter hare with long upright ears with pink inside, a pink twitchy nose, big shiny black eyes, long whiskers and a little round white tail. Setting: a snowy garden in front of Lio's small cozy wooden cottage on a bright winter morning, soft fresh snow everywhere, snowy fir trees, gentle snowflakes falling. Action: Lio hangs a small wooden bird feeder box full of sunflower seeds on a snowy branch, Bulgărel the snowman without a nose holds the box steady with his twig arms, and Țupi the hare looks happily at a basket of carrots and red apples; Lio also wears a red knitted winter hat with a pompom and red mittens. Emotions: busy, kind and happy. Important details: the wooden bird feeder, sunflower seeds, a basket of carrots and red apples. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Cip-cirip! Pițigoii au venit unul câte unul la căsuța cu semințe. Țupi a ronțăit fericit un măr. Apoi a ales cel mai frumos morcov din coș și i l-a dăruit lui Bulgărel. — Un nas nou, ca mulțumire!",
+      "narration": [
+        {
+          "text": "Cip-cirip! Pițigoii au venit unul câte unul la căsuța cu semințe.",
+          "mood": "vesel",
+          "pause": 0.4
+        },
+        {
+          "text": "Țupi a ronțăit fericit un măr.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Apoi a ales cel mai frumos morcov din coș și i l-a dăruit lui Bulgărel.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Un nas nou, ca mulțumire!",
+          "mood": "vesel",
+          "speaker": "Țupi"
+        }
+      ],
+      "image": "images/pagina-09.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bulgărel: a friendly round snowman made of three stacked snowballs (a big one at the bottom, a medium one in the middle and a small round head), two shiny black pebble eyes, a wide happy smile of small black pebbles and two thin brown twig arms; Țupi: a small fluffy snow-white winter hare with long upright ears with pink inside, a pink twitchy nose, big shiny black eyes, long whiskers and a little round white tail. Setting: a snowy garden in front of Lio's small cozy wooden cottage on a bright winter morning, soft fresh snow everywhere, snowy fir trees, gentle snowflakes falling. Action: small yellow-and-blue tit birds eat sunflower seeds at the wooden feeder; Țupi the hare stands on his hind legs and offers a big orange carrot to Bulgărel the snowman, who has no nose yet and smiles; Lio claps his mittens; Lio also wears a red knitted winter hat with a pompom and red mittens. Emotions: grateful and joyful. Important details: several small blue tit birds at the feeder, the basket of carrots and apples, the carrot gift. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-left",
+        "effect": "hearts"
+      }
+    },
+    {
+      "text": "Bulgărel și-a pus nasul cel nou și s-a învârtit de bucurie. — Arăt mai bine ca oricând! Dar s-a învârtit așa de tare, încât o mână de crenguță i-a zburat drept în tufiș. Țupi i-a adus-o înapoi, sărind prin zăpadă: țup, țup, țup!",
+      "narration": [
+        {
+          "text": "Bulgărel și-a pus nasul cel nou și s-a învârtit de bucurie.",
+          "mood": "entuziasmat"
+        },
+        {
+          "text": "— Arăt mai bine ca oricând!",
+          "mood": "entuziasmat",
+          "speaker": "Bulgărel"
+        },
+        {
+          "text": "Dar s-a învârtit așa de tare, încât o mână de crenguță i-a zburat drept în tufiș.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Țupi i-a adus-o înapoi, sărind prin zăpadă: țup, țup, țup!",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-10.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bulgărel: a friendly round snowman made of three stacked snowballs (a big one at the bottom, a medium one in the middle and a small round head), two shiny black pebble eyes, a wide happy smile of small black pebbles and two thin brown twig arms; Țupi: a small fluffy snow-white winter hare with long upright ears with pink inside, a pink twitchy nose, big shiny black eyes, long whiskers and a little round white tail. Setting: a snowy garden in front of Lio's small cozy wooden cottage on a bright winter morning, soft fresh snow everywhere, snowy fir trees, gentle snowflakes falling. Action: Bulgărel the snowman, with a new long orange carrot nose and his red-and-white striped scarf, spins with joy and one of his twig arms flies off into a snowy bush; Țupi the hare hops through the snow bringing the twig back in his mouth; Lio laughs; Lio also wears a red knitted winter hat with a pompom and red mittens. Emotions: joyful and funny. Important details: the flying twig arm, the snowy bush, hare footprints. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "sparkles"
+      }
+    },
+    {
+      "text": "Seara, luna a aprins zăpada ca pe o pătură de steluțe. Bulgărel păzea căsuța cu semințe, iar Țupi dormea ghemuit lângă el. — Noapte bună, prieteni, a șoptit Lio de la fereastră, cu o cană de lapte cald în lăbuțe. Afară ningea încet. Ce iarnă frumoasă!",
+      "narration": [
+        {
+          "text": "Seara, luna a aprins zăpada ca pe o pătură de steluțe.",
+          "mood": "calm"
+        },
+        {
+          "text": "Bulgărel păzea căsuța cu semințe, iar Țupi dormea ghemuit lângă el.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Noapte bună, prieteni,",
+          "mood": "somnoros",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a șoptit Lio de la fereastră, cu o cană de lapte cald în lăbuțe.",
+          "mood": "somnoros"
+        },
+        {
+          "text": "Afară ningea încet. Ce iarnă frumoasă!",
+          "mood": "somnoros"
+        }
+      ],
+      "image": "images/pagina-11.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bulgărel: a friendly round snowman made of three stacked snowballs (a big one at the bottom, a medium one in the middle and a small round head), two shiny black pebble eyes, a wide happy smile of small black pebbles and two thin brown twig arms; Țupi: a small fluffy snow-white winter hare with long upright ears with pink inside, a pink twitchy nose, big shiny black eyes, long whiskers and a little round white tail. Setting: the snowy garden at night under a big bright full moon, the snow sparkling, the warm glowing window of Lio's cottage. Action: Bulgărel the snowman, with his carrot nose and red-and-white striped scarf, stands guard by the bird feeder while Țupi the hare sleeps curled up at his feet; Lio, in cozy pajamas, waves goodnight from the warm lit window holding a mug of warm milk. Emotions: calm, sleepy, cozy. Important details: the full moon, gently falling snow, the warm window light. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "snow"
+      }
+    }
+  ],
+  "categories": [
+    "invatam",
+    "amuzante",
+    "prietenie"
+  ],
+  "review": {
+    "imaginatie": "Omul de zăpadă Bulgărel prinde viață, strănută și îi e frig la gât (pagina 5); un iepure îi mănâncă nasul de morcov și, la final, îi dăruiește unul nou (pagina 9).",
+    "invatare": "Fulgii de nea: pagina 2 (apă înghețată, șase brațe, nu există doi la fel). Îmbrăcatul gros: pagina 1 (căciulă, mănuși, cizme, eșarfă). Animalele iarna: pagina 7 (ursul doarme toată iarna, veverița mănâncă nucile din toamnă, iepurii și păsărelele caută hrană) și paginile 8–9 (căsuța cu semințe pentru păsărele). Mare, mijlociu, mic: paginile 3–4 (cei trei bulgări).",
+    "umor": [
+      "pagina 3: bulgărele cel mare o ia la vale cu Lio agățat de el, iar din zăpadă i se vede doar coada",
+      "pagina 5: un om de zăpadă căruia îi e frig la gât",
+      "pagina 6: Bulgărel rămâne fără nas, mâncat de un iepure",
+      "pagina 7: „Fără nas nu mai simt mirosul zăpezii!”",
+      "pagina 10: Bulgărel se învârte de bucurie și îi zboară o mână de crenguță în tufiș"
+    ],
+    "emotie": "Problema e pe înțelesul copiilor: iepurele flămând i-a mâncat nasul lui Bulgărel, pentru că iarna găsește greu hrană. Lio nu se supără, ci se gândește la animale și vine cu o idee: o căsuță cu semințe și un coș cu morcovi (pagina 8). Iepurele îi dăruiește lui Bulgărel un nas nou (pagina 9). Finalul e liniștit: noaptea, Bulgărel păzește căsuța, iepurele doarme, iar Lio spune noapte bună cu o cană de lapte cald (pagina 11).",
+    "siguranta": "Nimic nu sperie: căderea în zăpadă e într-o grămadă moale, fără nicio lovitură; iepurele își cere iertare și e iertat; ursul doarme liniștit, departe. Nu sunt pericole reale (fără gheață pe lac, fără foc), iar copilul învață să se îmbrace gros.",
+    "imagini": "Fiecare prompt arată momentul paginii: îmbrăcatul la fereastră (1), fulgul cu șase brațe pe mănușă (2), bulgărele care o ia la vale (3), nasul de morcov pus (4), fularul dungat (5), Bulgărel fără nas și iepurele cu morcovul (6), ursul care doarme departe (7), căsuța cu semințe (8), pițigoii și morcovul dăruit (9), mâna de crenguță care zboară (10), noaptea cu lună (11). Nasul și fularul lui Bulgărel apar sau lipsesc exact ca în text; Lio are mereu căciula și mănușile roșii afară. Voi privi imaginile după publicare și le refac pe cele care nu se potrivesc.",
+    "voce": "Narațiunea e calmă, cu misterios înainte de surprize (bulgărele care pornește la vale, omul de zăpadă care clipește), entuziasmat la idei și la nasul nou, trist la scuzele iepurelui și somnoros la final. Pauze după „Cip-cirip!” și înainte ca Bulgărel să prindă viață. Lio are vocea lui oficială, Bulgărel o voce groasă și rară, iar Țupi o voce de pui, subțire și repede."
+  },
+  "questions": [
+    {
+      "text": "Câte brațe are un fulg de nea?",
+      "options": [
+        {
+          "text": "Șase",
+          "emoji": "❄️"
+        },
+        {
+          "text": "Două",
+          "emoji": "✌️"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Corect! Fulgul de nea are șase brațe și nu există doi fulgi la fel."
+    },
+    {
+      "text": "Cum le ajutăm pe păsărele iarna?",
+      "options": [
+        {
+          "text": "Le punem semințe",
+          "emoji": "🌻"
+        },
+        {
+          "text": "Le facem un om de zăpadă",
+          "emoji": "⛄"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Bravo! Iarna păsărelele găsesc greu hrană, așa că le punem semințe într-o căsuță, ca Lio."
+    }
+  ]
+}
