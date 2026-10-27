@@ -310,11 +310,16 @@
     var text = sheet && sheet.querySelector(".sheet-text:not(.cover-text)");
     if (!text) return;
     text.style.fontSize = "";
-    var size = parseFloat(getComputedStyle(text).fontSize);
-    while (text.scrollHeight > text.clientHeight + 1 && size > MIN_TEXT_PX) {
-      size -= 0.5;
-      text.style.fontSize = size + "px";
+    var overflows = function () { return text.scrollHeight > text.clientHeight + 1; };
+    if (!overflows()) return;
+    // căutare înjumătățită între mărimea minimă și cea normală: câteva măsurători, nu zeci
+    var lo = MIN_TEXT_PX, hi = parseFloat(getComputedStyle(text).fontSize);
+    while (hi - lo > 0.5) {
+      var mid = (lo + hi) / 2;
+      text.style.fontSize = mid + "px";
+      if (overflows()) hi = mid; else lo = mid;
     }
+    text.style.fontSize = lo + "px";
   }
   function fitText() {
     sheets.forEach(fitSheet);
@@ -323,9 +328,13 @@
     if (event.target.tagName === "IMG") fitSheet(event.target.closest(".sheet"));
   }, true);
   var fitTimer = null;
+  // la o schimbare de mărime se potrivesc doar pagina deschisă și următoarea; celelalte, când ajung la rând (render)
   function fitSoon() {
     clearTimeout(fitTimer);
-    fitTimer = setTimeout(fitText, 100);
+    fitTimer = setTimeout(function () {
+      fitSheet(sheets[index]);
+      fitSheet(sheets[index + 1]);
+    }, 100);
   }
   if (window.ResizeObserver) new ResizeObserver(fitSoon).observe(book);
   else window.addEventListener("resize", fitSoon);
@@ -488,6 +497,9 @@
   nextBtn.addEventListener("click", function () { turn(1); });
 
   document.addEventListener("keydown", function (event) {
+    // tastele nu întorc pagini cât timp se scrie într-un câmp, e deschis un dialog sau cartea nu e gata
+    if (!sheets.length || event.target.closest("input, textarea, select, [contenteditable], form")) return;
+    if (!settingsEl.hidden || (quizEl && !quizEl.hidden)) return;
     if (event.key === "ArrowRight") turn(1);
     else if (event.key === "ArrowLeft") turn(-1);
     else if (event.key === " " && !event.target.closest("button, a")) {
@@ -531,15 +543,19 @@
     }
   }
 
+  var followFrame = 0; // o singură buclă de urmărire, chiar dacă „playing” vine de mai multe ori (după buffering)
   function followAudio() {
+    followFrame = 0;
     if (audio.paused || !timing) return;
     showMoment(audio.currentTime);
-    requestAnimationFrame(followAudio);
+    followFrame = requestAnimationFrame(followAudio);
   }
 
   audio.addEventListener("playing", function () {
-    if (timing) followAudio();
-    else talking(true);
+    if (timing) {
+      if (followFrame) cancelAnimationFrame(followFrame);
+      followAudio();
+    } else talking(true);
   });
   audio.addEventListener("timeupdate", function () { if (timing) showMoment(audio.currentTime); });
   audio.addEventListener("pause", function () { talking(false); });
@@ -586,21 +602,29 @@
     if (url) {
       audio.src = url;
       applyAudioSettings();
+      // dacă fișierul lipsește sau nu se poate reda, citește vocea browserului, o singură dată
+      var fellBack = false;
+      var fallback = function () {
+        if (fellBack || token !== playToken) return;
+        fellBack = true;
+        speak(item.speech, token);
+      };
       audio.onended = function () { onReadEnd(token); };
       audio.onerror = function () {
         Iamlio.reportError("audio", "fișierul audio nu s-a putut reda", url.split("?")[0], 0);
-        if (token === playToken) speak(item.speech, token);
+        fallback();
       };
-      audio.play().then(function () { autoStarting = false; }, function () {
+      audio.play().then(function () { autoStarting = false; }, function (err) {
         if (token !== playToken) return;
-        if (autoStarting) {
+        if (autoStarting && err && err.name === "NotAllowedError") {
           // browserul cere o atingere înainte de sunet: Lio rămâne pe copertă, iar un semn static arată unde să apeși
           autoStarting = false;
           setReading(false);
           showTapHint(true);
           return;
         }
-        speak(item.speech, token);
+        autoStarting = false;
+        fallback();
       });
     } else {
       speak(item.speech, token);
@@ -766,6 +790,13 @@
 
   function start(story) {
     document.title = story.title + " — Iamlio";
+    // pentru motoarele de căutare, pagina poveștii e cea statică (p/<id>.html, cu tot textul); cititorul e aplicația
+    if (!preview && !story.personalized) {
+      var canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      canonical.href = new URL("p/" + encodeURIComponent(story.id) + ".html", location.href).href;
+      document.head.appendChild(canonical);
+    } // poveștile personalizate primesc „noindex” în markPersonal
     titleEl.textContent = story.title;
     items = buildItems(story);
     book.textContent = "";
@@ -785,7 +816,7 @@
     if (autoStart) startByItself();
     if (preview) return; // previzualizarea nu se numără și nu are favorite
     if (!story.personalized) enableShare(story);
-    Iamlio.countRead(story.id).then(showReads);
+    if (!story.personalized) Iamlio.countRead(story.id).then(showReads); // link secret: nu ajunge la contorul public
     var bar = document.querySelector(".reader-bar");
     bar.insertBefore(Iamlio.favoriteButton(story.id, story.title), settingsBtn);
   }
@@ -810,7 +841,8 @@
   }
 
   function startByItself() {
-    history.replaceState(null, "", location.pathname + "?id=" + encodeURIComponent(storyId)); // la reîncărcare nu mai pornește singură
+    // la reîncărcare nu mai pornește singură (păstrând același fel de adresă: poveste sau previzualizare)
+    history.replaceState(null, "", location.pathname + (preview ? "?previzualizare=" : "?id=") + encodeURIComponent(storyId));
     if (!audioUrl(items[0])) return; // fără fișier audio, vocea browserului nu poate porni fără o atingere
     autoStarting = true;
     setReading(true);
@@ -849,7 +881,15 @@
   }
 
   // Redă un fișier al poveștii sau al lui Lio; dacă lipsește, citește textul cu vocea browserului.
-  function sayQuiz(url, text, done) {
+  var quizToken = 0; // o replică întreruptă (altă întrebare, dialog închis) nu mai pornește continuarea ei
+  function sayQuiz(url, text, then) {
+    var token = ++quizToken;
+    var finished = false;
+    var done = then ? function () {
+      if (finished || token !== quizToken) return;
+      finished = true;
+      then();
+    } : null;
     quizAudio.pause();
     if ("speechSynthesis" in window) speechSynthesis.cancel();
     if (url) {
@@ -895,6 +935,7 @@
   }
 
   function closeQuiz() {
+    quizToken++;
     quizAudio.pause();
     if ("speechSynthesis" in window) speechSynthesis.cancel();
     quizEl.hidden = true;
@@ -1011,21 +1052,25 @@
   // Cartea pornește abia după ce se știe și ce fișiere audio există: altfel prima apăsare pe Lio ar putea
   // citi cu vocea browserului, deși vocea înregistrată există.
   function load() {
-    var voices = fetch(base + "audio/manifest.json", { cache: "no-cache" })
+    var voices = Iamlio.fetchWithTimeout(base + "audio/manifest.json", { cache: "no-cache" }, 10000)
       .then(function (res) { return res.ok ? res.json() : null; })
       .catch(function () { return null; });
-    var text = fetch(base + "story.json", { cache: "no-cache" })
+    var found = false;
+    var text = Iamlio.fetchWithTimeout(base + "story.json", { cache: "no-cache" }, 15000)
       .then(function (res) {
         if (!res.ok) throw new Error(res.status);
         return res.json();
-      });
+      })
+      .then(function (data) { found = true; return data; });
     Promise.all([text, voices])
       .then(function (both) {
         manifest = both[1];
         start(both[0]);
       })
-      .catch(function () {
-        showError("Nu am găsit povestea aceasta.");
+      .catch(function (error) {
+        // o poveste găsită care nu pornește e o eroare de cod sau de date: ajunge în panoul de administrare
+        if (found) Iamlio.reportError("js", "povestea nu a putut porni: " + (error && error.message), "reader.js", 0);
+        showError(found ? "Povestea nu a putut fi deschisă. Încearcă din nou." : "Nu am găsit povestea aceasta.");
       });
   }
 

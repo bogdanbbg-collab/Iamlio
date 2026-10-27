@@ -34,20 +34,20 @@ jobs:
     outputs:
       cod: ${{ steps.schimbari.outputs.cod }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.12"
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: "22"
 
       # pachetele ffmpeg păstrate între rulări (vezi scripts/instaleaza_ffmpeg.sh)
-      - uses: actions/cache@v4
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: ~/.cache/apt-ffmpeg
           key: apt-ffmpeg-ubuntu-24.04-v1
@@ -97,18 +97,18 @@ jobs:
       matrix:
         browser: [chromium, firefox, webkit]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.12"
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: "22"
 
       # pachetele de sistem și browserul păstrate între rulări (vezi scripts/instaleaza_browser.sh)
-      - uses: actions/cache@v4
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: |
             ~/.cache/apt-browser
@@ -132,7 +132,7 @@ jobs:
       # Capturile de ecran, pentru verificarea vizuală (Actions → rularea → Artifacts).
       - name: Salvează capturile de ecran
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: capturi-ecran-${{ matrix.browser }}
           path: build/capturi/
@@ -155,7 +155,7 @@ jobs:
     env:
       NORMAL: ${{ !inputs.versiune }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           fetch-depth: 0
 
@@ -170,12 +170,12 @@ jobs:
           git checkout -q "$sha"
           echo "Se republică versiunea $VERSIUNE ($sha)."
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.12"
 
       # pachetele ffmpeg păstrate între rulări (vezi scripts/instaleaza_ffmpeg.sh)
-      - uses: actions/cache@v4
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: ~/.cache/apt-ffmpeg
           key: apt-ffmpeg-ubuntu-24.04-v1
@@ -227,6 +227,9 @@ jobs:
         env:
           # parola administratorului (panoul de administrare și previzualizarea poveștilor personalizate)
           ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+          # codurile de verificare din Google Search Console și Bing Webmaster Tools (variabile de repository)
+          GOOGLE_SITE_VERIFICATION: ${{ vars.GOOGLE_SITE_VERIFICATION }}
+          BING_SITE_VERIFICATION: ${{ vars.BING_SITE_VERIFICATION }}
           PREVIEW_PASSWORD: ${{ secrets.PREVIEW_PASSWORD }}
           # la o publicare reală se notează data la care apare fiecare poveste nouă (pentru „Nou”)
           PUBLICARE: ${{ env.NORMAL == 'true' && '1' || '' }}
@@ -236,12 +239,12 @@ jobs:
 
       # Site-ul exact așa cum se urcă (cu vocile și imaginile generate mai sus) trece încă o dată prin testele
       # din browser, înainte de publicare; dacă pică, nu se urcă nimic și nu se salvează nimic în repository.
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         if: env.NORMAL == 'true'
         with:
           node-version: "22"
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         if: env.NORMAL == 'true'
         with:
           path: |
@@ -290,8 +293,18 @@ jobs:
           git add -A public/stories public/assets/audio rapoarte
           if ! git diff --cached --quiet; then
             git commit -m "Povești pregătite automat: reparații, imagini, voce, bibliotecă, rapoarte"
-            git pull --rebase origin master
-            git push origin HEAD:master
+          fi
+          # versiunea care se urcă acum (pentru tag): fără commit-urile altcuiva aduse mai jos de „pull”
+          echo "PUBLICAT_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+          if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/master)" ]; then
+            # un commit nou între timp pe master: dacă se ciocnește cu reparațiile, site-ul se urcă oricum,
+            # iar reparațiile se refac la publicarea următoare (pornită chiar de acel commit)
+            if git pull --rebase origin master; then
+              git push origin HEAD:master || echo "::warning::reparațiile automate nu s-au putut salva; se refac la publicarea următoare"
+            else
+              git rebase --abort || true
+              echo "::warning::reparațiile automate se ciocnesc cu un commit nou; se refac la publicarea următoare"
+            fi
           fi
 
       - name: Verifică datele FTPS
@@ -310,7 +323,7 @@ jobs:
           fi
 
       - name: Urcă site-ul pe host (FTPS)
-        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        uses: SamKirkland/FTP-Deploy-Action@110f9186c050f71550953127052e77650219c287 # v4.4.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
@@ -341,9 +354,12 @@ jobs:
           fetch "confidentialitate.html" | grep -q "Confidențialitate"
           fetch "stories/index.json" | diff -q - build/site/stories/index.json
           fetch "sitemap.xml" | diff -q - build/site/sitemap.xml
+          fetch "llms.txt" | diff -q - build/site/llms.txt
+          fetch "robots.txt" | diff -q - build/site/robots.txt
           fetch "api/citiri.php" | python -c "import json,sys; assert isinstance(json.load(sys.stdin)['citiri'], dict)"
           first=$(python -c "import json; s=json.load(open('build/site/stories/index.json'))['stories']; print(s[0]['id'] if s else '')")
           if [ -n "$first" ]; then
+            fetch "p/$first.html" | diff -q - "build/site/p/$first.html"
             fetch "stories/$first/audio/manifest.json" | diff -q - "build/site/stories/$first/audio/manifest.json"
           fi
           for private in citiri.json cheie.txt parola.json admin-info.json vizite.json erori.json; do
@@ -375,7 +391,7 @@ jobs:
         if: env.NORMAL == 'true'
         run: |
           tag="publicat-$(date -u +%Y%m%d-%H%M%S)"
-          git tag "$tag"
+          git tag "$tag" "${PUBLICAT_SHA:-HEAD}"
           git push origin "$tag"
           echo "Versiune publicată: $tag" >> "$GITHUB_STEP_SUMMARY"
 

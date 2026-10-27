@@ -190,6 +190,7 @@ class ChainClient:
         self.clients = list(clients)
         self.model = getattr(self.clients[0], "model", "")
         self.images = self
+        self.accepts_variant = True
         self.problems = []  # motivele rămân și pentru imaginile următoare, după ce variantele au fost scoase
 
     def _call(self, method, kwargs):
@@ -198,8 +199,11 @@ class ChainClient:
             reference = kwargs.get("image")
             for handle in reference or []:
                 handle.seek(0)  # fiecare variantă citește imaginea de referință de la început
+            call = dict(kwargs, model=getattr(client, "model", kwargs.get("model")))
+            if not getattr(client.images, "accepts_variant", False):
+                call.pop("variant", None)  # OpenAI nu cunoaște varianta (alege singur alt desen la fiecare cerere)
             try:
-                result = getattr(client.images, method)(**dict(kwargs, model=getattr(client, "model", kwargs.get("model"))))
+                result = getattr(client.images, method)(**call)
             except Exception as exc:
                 problems.append(f"{getattr(client, 'model', '?')}: {str(exc)[:200]}")
                 self.clients.remove(client)
@@ -221,6 +225,8 @@ GEMINI_MODEL = "gemini-2.5-flash-image"
 
 
 class GeminiImages:
+    accepts_variant = True  # Gemini desenează oricum altfel la fiecare cerere
+
     def __init__(self, client):
         self.client = client
 
@@ -315,15 +321,17 @@ def scene_first(prompt, characters=()):
 class CloudflareImages:
     """images.generate / images.edit, ca la OpenAI, ca restul codului să nu știe ce serviciu folosește."""
 
+    accepts_variant = True
+
     def __init__(self, client):
         self.client = client
 
-    def generate(self, prompt, **_):
-        return self.client.run(prompt)
+    def generate(self, prompt, variant=0, **_):
+        return self.client.run(prompt, variant)
 
-    def edit(self, prompt, **_):
+    def edit(self, prompt, variant=0, **_):
         # Modelul nu primește imaginea de referință: personajele vin din descrierile complete din prompt.
-        return self.client.run(prompt[len(CONSISTENCY):] if prompt.startswith(CONSISTENCY) else prompt)
+        return self.client.run(prompt[len(CONSISTENCY):] if prompt.startswith(CONSISTENCY) else prompt, variant)
 
 
 class CloudflareClient:
@@ -336,7 +344,7 @@ class CloudflareClient:
         self.images = CloudflareImages(self)
         self.opener = opener
 
-    def run(self, prompt):
+    def run(self, prompt, variant=0):
         import json
         import urllib.request
 
@@ -345,7 +353,7 @@ class CloudflareClient:
         if "flux-1-schnell" in self.model:
             body["steps"] = 8  # maximul modelului: cea mai bună calitate (modelul nu primește alți parametri)
         else:
-            body.update(width=1536, height=1024, seed=self.seed)
+            body.update(width=1536, height=1024, seed=variant_seed(self.seed, variant))
         request = urllib.request.Request(
             f"https://api.cloudflare.com/client/v4/accounts/{self.account}/ai/run/{self.model}",
             data=json.dumps(body).encode("utf-8"), method="POST",
@@ -384,12 +392,12 @@ class PollinationsClient:
         self.images = CloudflareImages(self)
         self.opener = opener
 
-    def run(self, prompt):
+    def run(self, prompt, variant=0):
         import json
         import urllib.request
 
         body = {"model": self.model, "prompt": scene_first(prompt, self.characters), "size": "1536x1024",
-                "seed": self.seed, "response_format": "b64_json"}
+                "seed": variant_seed(self.seed, variant), "response_format": "b64_json"}
         request = urllib.request.Request(
             "https://gen.pollinations.ai/v1/images/generations", data=json.dumps(body).encode("utf-8"), method="POST",
             headers={"Authorization": f"Bearer {self.key}", "Content-Type": "application/json"})
@@ -432,6 +440,11 @@ def _send(opener, request):
             if wait is None:
                 raise
         _sleep(wait)
+
+
+def variant_seed(seed, variant):
+    """Aceeași sămânță pentru toată povestea; „imageVariant” (pe o pagină) cere un alt desen al aceleiași scene."""
+    return (seed + int(variant or 0) * 7919) % 2_000_000_000
 
 
 def _as_page_image(raw):
@@ -490,13 +503,15 @@ def generate_missing(folder, data, client=None, budget=None):
         cover_file = safe_image(folder, cover_entry.get("image"))
         if target is None:
             continue
+        # „imageVariant”: altă încercare de desen pentru aceeași scenă (vezi REGULI_POVESTI.md, secțiunea 10)
+        extra = {"variant": entry.get("imageVariant") or 0} if getattr(client.images, "accepts_variant", False) else {}
         try:
             if entry is not cover_entry and cover_file is not None and cover_file.is_file():
                 with open(cover_file, "rb") as reference:
                     result = client.images.edit(model=model, image=[reference], prompt=CONSISTENCY + entry["imagePrompt"],
-                                                size=SIZE, quality=quality)
+                                                size=SIZE, quality=quality, **extra)
             else:
-                result = client.images.generate(model=model, prompt=entry["imagePrompt"], size=SIZE, quality=quality)
+                result = client.images.generate(model=model, prompt=entry["imagePrompt"], size=SIZE, quality=quality, **extra)
             save(result, target)
         except Exception as exc:  # cheie greșită, limită de cost, prompt refuzat de filtrul de siguranță…
             errors.append(f"{label}: imaginea nu a putut fi generată ({type(exc).__name__}: {str(exc)[:800]})")

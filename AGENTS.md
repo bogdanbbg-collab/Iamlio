@@ -43,6 +43,11 @@ verifică, generează vocile, actualizează biblioteca și urcă site-ul pe host
 repetă până când raportul spune **PUBLICATĂ**. Dacă nu poți aștepta, spune-i utilizatorului să-ți ceară
 „verifică raportul poveștii” peste câteva minute.
 
+**Apoi te uiți la fiecare imagine și te autocorectezi singur** (`REGULI_POVESTI.md`, secțiunea 10, „Autocorectarea
+imaginilor”): o imagine care contrazice textul se reface, nu povestea. Rescrii `imagePrompt` concret (ce se vede,
+nu „fără X”), pui `"imageVariant": 1, 2, 3…`, ștergi imaginea și faci commit; cel mult trei încercări pe imagine.
+Nu ceri voie pentru asta; la final spui ce ai refăcut.
+
 **Id-ul unei povești e permanent.** După ce o poveste a fost publicată, nu redenumi folderul ei (adresa
 `poveste.html?id=…` ar înceta să funcționeze); poți schimba titlul din `story.json`, dar nu și id-ul.
 
@@ -65,9 +70,13 @@ codul site-ului (`public/*.html`, `public/assets/`, `scripts/`, `.github/`) — 
     `ADMIN_PASSWORD`); `api/vizita.php` și `api/erori.php` primesc vizitele și erorile (doar totaluri, fără date personale)
   - `api/previzualizare.php` — previzualizarea poveștilor personalizate neaprobate, cu aceeași parolă (`comun.php`: funcții comune)
   - `.htaccess` — setările serverului Apache: securitate, HTTPS, cache, compresie (testat în `tests/e2e/apache.test.mjs`)
-  - `p/<id>.html` (generat la publicare) — pagina de distribuire a fiecărei povești, cu titlu și copertă (Open Graph)
+  - `p/<id>.html` (generat la publicare) — pagina statică a fiecărei povești (pentru Google, AI și distribuire): titlu,
+    rezumat, ce învață copilul, textul complet, date structurate și copertă (Open Graph); stil în `assets/css/pagina.css`
+  - `sitemap.xml`, `robots.txt`, `llms.txt`, `llms-full.txt` (generate la publicare de `scripts/seo.py`)
   - `stories/<id>/` — poveștile
 - `scripts/stories.py` — `optimize` | `validate` | `audio` (ambele voci) | `verify-audio` | `index` | `all`
+- `scripts/seo.py` — tot ce ajută la găsirea în Google și în asistenții AI (paginile statice, sitemap, llms.txt,
+  datele structurate; codurile de verificare din variabilele `GOOGLE_SITE_VERIFICATION` și `BING_SITE_VERIFICATION`)
 - `scripts/canon.py` — valorile oficiale: stilul imaginilor, descrierea și vocea lui Lio, câmpurile `review`
 - `sablon/story.json` — șablonul de poveste (generat din `canon.py` cu `python3 scripts/stories.py template`)
 - `scripts/pregatire.py` — repararea automată a poveștilor (`stories.py prepare`)

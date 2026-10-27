@@ -501,9 +501,33 @@ Când primești „fă o poveste despre X”:
 12. **Citește raportul** `rapoarte/<id>.md` după 3–5 minute (preia întâi ultima versiune din repository:
      robotul poate fi reparat automat `story.json` și a mutat imaginile). Dacă scrie **NEPUBLICATĂ**, corectează
      tot ce e la „De corectat”, fă din nou commit și **repetă până când raportul spune PUBLICATĂ**.
-     Treaba ta se termină abia atunci.
+13. **Privește fiecare imagine și autocorectează-te, fără să întrebi** (vezi mai jos). Treaba ta se termină abia
+     când povestea e PUBLICATĂ și fiecare imagine arată pagina ei.
 
 O poveste care nu trece verificarea automată **nu** este publicată.
+
+### Autocorectarea imaginilor (obligatorie, pentru fiecare poveste)
+
+Generatorul de imagini greșește uneori: uită un personaj, adaugă unul în plus, desenează un obiect care în
+text lipsește (de exemplu nasul pe care tocmai l-a mâncat iepurele) sau nu arată acțiunea paginii. După
+publicare, **te uiți la copertă și la fiecare pagină** și le compari cu textul: cine apare, ce face, ce obiecte
+sunt (sau lipsesc), momentul zilei, iar personajele arată la fel ca pe celelalte pagini.
+
+Când o imagine contrazice textul, **repari imaginea, nu povestea**:
+
+1. **Nu schimbi textul, morala sau întâmplările** ca să se potrivească cu o imagine greșită. Povestea rămâne cum
+   a fost scrisă; imaginea trebuie s-o arate.
+2. **Rescrii `imagePrompt` mai concret**, cu ce se vede, nu cu ce lipsește: generatoarele nu înțeleg bine
+   „fără X”, „no X”. În loc de „omul de zăpadă fără nas” descrii fața care se vede („o față netedă, doar doi ochi
+   și gura”) sau ascunzi lucrul care lipsește prin compoziție (personajul își acoperă fața cu mâinile, e văzut din
+   profil, obiectul lipsă apare în altă parte: iepurele ține morcovul în lăbuțe). Pune acțiunea principală prima.
+3. **Ceri alt desen** cu `"imageVariant": 1` (apoi 2, 3…) pe acea pagină (sau pe copertă), ștergi fișierul imaginii
+   din `images/` și faci commit: la publicare se generează din nou doar imaginea lipsă.
+4. Cel mult **trei încercări** pentru aceeași imagine. Apoi păstrezi imaginea care arată cel mai bine momentul
+   paginii, cu condiția să nu contrazică ce e esențial în poveste. Ce a rămas imperfect scrii cinstit în `review.imagini`.
+5. Detaliile mărunte (o nuanță a hainelor, un fundal puțin altfel) nu se refac; se refac imaginile care schimbă
+   ce se întâmplă pe pagină, cine apare sau cum arată personajele.
+6. Nu ceri voie pentru aceste corecturi: le faci singur și spui la final ce ai refăcut și de ce.
 
 ### Lista de verificare (înainte de commit)
 
@@ -522,3 +546,4 @@ O poveste care nu trece verificarea automată **nu** este publicată.
 - [ ] Poveste personalizată: doar prenumele, id cu cod aleator, `"approved": false` până la aprobarea proprietarului.
 - [ ] `python3 scripts/stories.py validate` afișează `[OK]`.
 - [ ] După publicare, `rapoarte/<id>.md` spune **PUBLICATĂ**.
+- [ ] După publicare, fiecare imagine arată pagina ei (altfel: autocorectarea imaginilor, secțiunea 10).

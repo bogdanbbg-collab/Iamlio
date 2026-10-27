@@ -1,0 +1,10 @@
+# În folderul poveștilor sunt doar imagini, sunete și story.json: serverul nu rulează niciodată cod de aici,
+# chiar dacă un fișier ar ajunge aici din greșeală (publicarea copiază oricum doar fișierele permise).
+<FilesMatch "\.(php[0-9]?|phtml|phar|pl|py|cgi|sh|shtml|htaccess|htpasswd)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+</FilesMatch>
+<IfModule mod_php.c>
+  php_flag engine off
+</IfModule>

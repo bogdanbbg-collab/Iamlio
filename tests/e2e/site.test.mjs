@@ -264,6 +264,19 @@ test("fără zoom la dublă atingere (mărirea cu două degete rămâne)", async
   }
 });
 
+test("contorul public nu dezvăluie link-urile secrete ale poveștilor personalizate", async () => {
+  const secret = "test-ana-aprobata-q9w3zz";
+  const post = await fetch(`${BASE}/api/citiri.php?id=${secret}`, { method: "POST" });
+  await post.arrayBuffer();
+  assert.equal(post.status, 404, "o poveste din afara bibliotecii nu se numără");
+  const p = await page();
+  await p.goto(`${BASE}/poveste.html?id=${secret}`);
+  await p.waitForSelector(".sheet.is-current");
+  await p.waitForTimeout(500);
+  const all = await (await fetch(`${BASE}/api/citiri.php`)).json();
+  assert.ok(!Object.keys(all.citiri).includes(secret), "id-ul secret nu apare în răspunsul public");
+});
+
 test("poveste inexistentă: mesaj clar, fără erori", async () => {
   const p = await page();
   await p.goto(`${BASE}/poveste.html?id=nu-exista`);
@@ -339,12 +352,17 @@ test("securitate: fiecare pagină are politica de conținut (doar fișiere propr
 test("textul lung încape și când fontul, contorul și imaginile vin târziu (conexiune lentă)", async () => {
   const p = await page({ viewport: { width: 390, height: 844 }, reducedMotion: "reduce" });
   // „Citită de X ori” apare târziu în bara de sus, care crește și micșorează cartea
-  for (const pattern of ["**/api/citiri.php*", "**/stories/test-lunga/images/**", "**/assets/fonts/*.woff2"]) {
+  for (const pattern of ["**/stories/test-lunga/images/**", "**/assets/fonts/*.woff2"]) {
     await p.route(pattern, async (route) => {
       await new Promise((r) => setTimeout(r, 1500));
       await route.continue();
     });
   }
+  // povestea de test nu e în bibliotecă (contorul real n-o numără): contorul răspunde târziu, simulat
+  await p.route("**/api/citiri.php*", async (route) => {
+    await new Promise((r) => setTimeout(r, 1500));
+    await route.fulfill({ contentType: "application/json", body: JSON.stringify({ citiri: { "test-lunga": 3 }, numarat: true }) });
+  });
   await p.goto(`${BASE}/poveste.html?id=test-lunga`);
   await p.waitForSelector(".sheet.is-current");
   // pagina 1 se deschide înainte ca bara de sus să crească; apoi apare contorul, fără să mai dăm pagina
@@ -428,20 +446,60 @@ const audioState = (p) => p.evaluate(() => {
   return { rate: a.playbackRate, volume: a.volume, src: a.src };
 });
 
-test("distribuire: fiecare poveste are pagina ei cu titlu și copertă (Open Graph), care duce la cititor", async () => {
+test("pagina poveștii: statică (fără JavaScript), cu text, date structurate, copertă de distribuire și buton spre cititor", async () => {
+  const story = JSON.parse(readFileSync(join(ROOT, "build/site/stories", STORY.id, "story.json"), "utf-8"));
   const html = await (await fetch(`${BASE}/p/${STORY.id}.html`)).text();
   assert.ok(html.includes(`<meta property="og:title" content="${STORY.title}">`));
+  assert.ok(!html.includes('http-equiv="refresh"'), "nu mai redirecționează: e pagina indexată");
+  assert.ok(html.includes(`<link rel="canonical" href="https://iamlio.ro/p/${STORY.id}.html">`));
   const image = html.match(/property="og:image" content="https:\/\/[^/]+\/(p\/[^"?]+\.jpg)\?v=/);
   assert.ok(image, "og:image cu coperta poveștii");
   const response = await fetch(`${BASE}/${image[1]}`);
   assert.equal(response.headers.get("content-type"), "image/jpeg");
   assert.ok((await response.arrayBuffer()).byteLength > 10000);
-  const p = await page();
+  const data = JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
+  assert.equal(data.name, STORY.title);
+  assert.equal(data.inLanguage, "ro");
+
+  const p = await page({ javaScriptEnabled: false });
   await p.goto(`${BASE}/p/${STORY.id}.html`);
-  await p.waitForURL(/poveste\.html\?id=/);
-  await p.waitForSelector(".sheet.is-current");
-  await p.click("#settings-btn");
-  assert.ok(await p.isVisible("#share-btn"));
+  assert.equal(await p.textContent("h1"), STORY.title);
+  assert.ok((await p.textContent(".text")).includes(story.pages[0].text.slice(0, 40)), "textul poveștii e în pagină");
+  assert.ok(await p.evaluate(() => document.querySelector(".cover").naturalWidth > 0), "coperta se încarcă");
+  assert.deepEqual(p.errors, []);
+
+  const q = await page();
+  await q.goto(`${BASE}/p/${STORY.id}.html`);
+  await q.click(".read >> nth=0");
+  await q.waitForURL(/poveste\.html\?id=/);
+  await q.waitForSelector(".sheet.is-current");
+  assert.equal(await q.getAttribute('link[rel="canonical"]', "href"), `${BASE}/p/${STORY.id}.html`,
+    "cititorul trimite motoarele de căutare spre pagina statică");
+  await q.click("#settings-btn");
+  assert.ok(await q.isVisible("#share-btn"));
+  assert.deepEqual(q.errors, []);
+});
+
+test("Google și AI: sitemap cu paginile poveștilor și copertele lor, robots.txt, llms.txt, lista poveștilor fără JavaScript", async () => {
+  const sitemap = await (await fetch(`${BASE}/sitemap.xml`)).text();
+  assert.ok(sitemap.includes(`<loc>https://iamlio.ro/p/${STORY.id}.html</loc>`));
+  assert.ok(sitemap.includes(`<image:loc>https://iamlio.ro/stories/${STORY.id}/`));
+  assert.ok(!sitemap.includes("test-ana"), "poveștile personalizate (link secret) nu apar");
+  const robots = await (await fetch(`${BASE}/robots.txt`)).text();
+  assert.match(robots, /Sitemap: https:\/\/iamlio\.ro\/sitemap\.xml/);
+  assert.match(robots, /Disallow: \/api\//);
+  const llms = await (await fetch(`${BASE}/llms.txt`)).text();
+  assert.match(llms, /^# Iamlio/);
+  assert.ok(llms.includes(`[${STORY.title}](https://iamlio.ro/p/${STORY.id}.html)`));
+  const full = await (await fetch(`${BASE}/llms-full.txt`)).text();
+  assert.ok(full.includes(`## ${STORY.title}`));
+
+  const p = await page({ javaScriptEnabled: false });
+  await p.goto(`${BASE}/`);
+  assert.ok(await p.isVisible(`.story-index a[href="p/${STORY.id}.html"]`), "legăturile se văd și fără JavaScript");
+  const data = JSON.parse(await p.textContent('script[type="application/ld+json"]'));
+  assert.ok(data["@graph"].some((x) => x["@type"] === "WebSite"));
+  assert.deepEqual(p.errors, []);
 });
 
 test("dialogul de setări păstrează focusul cu Tab și Shift+Tab", async () => {

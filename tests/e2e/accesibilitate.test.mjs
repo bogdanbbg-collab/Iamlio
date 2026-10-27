@@ -80,3 +80,9 @@ test("accesibilitate: pagina de confidențialitate", async () => {
   await p.goto(`${BASE}/confidentialitate.html`);
   await audit(p, "confidențialitate");
 });
+
+test("accesibilitate: pagina statică a poveștii", { skip: !STORY && "nicio poveste" }, async () => {
+  const p = await page();
+  await p.goto(`${BASE}/p/${STORY.id}.html`);
+  await audit(p, "pagina poveștii");
+});

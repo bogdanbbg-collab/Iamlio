@@ -90,12 +90,18 @@
   }
 
   logoutBtn.addEventListener("click", function () {
-    post("iesire").then(function () { showLogin("Te-ai deconectat."); });
+    // chiar dacă serverul nu răspunde, ecranul revine la intrare (cookie-ul expiră oricum în 12 ore)
+    post("iesire").catch(function () {}).then(function () { showLogin("Te-ai deconectat."); });
   });
 
   clearBtn.addEventListener("click", function () {
     if (!window.confirm("Ștergi lista de erori? Fă asta după ce le-ai rezolvat.")) return;
-    post("sterge-erori").then(load);
+    post("sterge-erori")
+      .then(function (res) {
+        if (res.status === 401) showLogin("Sesiunea a expirat. Intră din nou.");
+        else load();
+      })
+      .catch(function () { window.alert("Nu am putut șterge erorile. Încearcă din nou."); });
   });
 
   document.getElementById("refresh").addEventListener("click", load);

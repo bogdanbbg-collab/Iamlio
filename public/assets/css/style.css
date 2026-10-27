@@ -385,6 +385,10 @@ body.home {
   overflow: hidden;
 }
 
+/* Lista simplă a tuturor poveștilor (legături spre paginile lor), utilă și fără JavaScript. */
+.story-index { max-width: 1100px; margin: 0 auto; padding: 0 16px; text-align: center; font-size: .95rem; color: var(--ink-soft); }
+.story-index a { color: var(--teal-dark); }
+
 .site-footer { text-align: center; color: var(--ink-soft); padding: 16px 16px 32px; }
 .site-footer a { color: inherit; }
 

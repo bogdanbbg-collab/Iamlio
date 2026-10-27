@@ -17,18 +17,31 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-python@v6
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.12"
       - name: Lipsesc imagini?
         id: lipsa
+        env:
+          # doar ca să se știe dacă e configurat vreun generator (fără el, publicarea n-ar avea ce face)
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          POLLINATIONS_API_KEY: ${{ secrets.POLLINATIONS_API_KEY }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           python - <<'PY' >> "$GITHUB_OUTPUT"
           import sys
           sys.path.insert(0, "scripts")
           import imagini, stories
-          lipsa = [folder.name for folder, data in stories.load_stories() if imagini.missing(folder, data)]
+          lipsa = []
+          if imagini.enabled():
+              for folder, data in stories.load_stories():
+                  # o poveste cu structura stricată nu poate fi completată automat: o arată raportul ei
+                  if isinstance(data, dict) and not data.get("_error") and not stories.structure_errors(data):
+                      if imagini.missing(folder, data):
+                          lipsa.append(folder.name)
           print("povesti=" + " ".join(lipsa))
           PY
       - name: Pornește publicarea

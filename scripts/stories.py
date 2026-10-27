@@ -28,6 +28,7 @@ from pathlib import Path
 import canon
 import imagini
 import pregatire
+import seo
 import voce
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -218,6 +219,13 @@ def narration_in_text(page):
     return True
 
 
+def check_image_variant(entry, label, errors):
+    """imageVariant (opțional): numărul încercării de desen pentru o imagine refăcută (REGULI_POVESTI.md, secțiunea 10)."""
+    variant = entry.get("imageVariant")
+    if variant is not None and (isinstance(variant, bool) or not isinstance(variant, int) or not 0 <= variant <= 99):
+        errors.append(f"{label}: imageVariant trebuie să fie un număr întreg între 0 și 99")
+
+
 def check_animation(entry, label, errors, warnings):
     """Animația paginii (REGULI_POVESTI.md, secțiunea 6): o mișcare de cameră și un efect, din listele oficiale."""
     animation = entry.get("animation")
@@ -281,6 +289,13 @@ def check_story(folder, data):
         errors.append(f"id-ul '{story_id}' trebuie să fie identic cu numele folderului '{folder.name}'")
     if not ID_PATTERN.match(folder.name):
         errors.append("numele folderului trebuie să conțină doar litere mici fără diacritice, cifre și cratime")
+    for path in sorted(folder.rglob("*")) if folder.is_dir() else []:
+        rel = path.relative_to(folder).as_posix()
+        if path.is_symlink():
+            errors.append(f"{rel}: legăturile simbolice nu sunt permise într-o poveste")
+        elif path.is_file() and not STORY_FILE.match(rel):
+            warnings.append(f"{rel}: fișier necunoscut, nu se publică (într-o poveste intră doar story.json, "
+                            "images/ și audio/)")
 
     title = (data.get("title") or "").strip()
     if title and word_count(title) > 10:
@@ -315,6 +330,7 @@ def check_story(folder, data):
     cover = data.get("cover") or {}
     check_image(folder, cover.get("image"), "copertă", errors, warnings)
     check_animation(cover, "copertă", errors, warnings)
+    check_image_variant(cover, "copertă", errors)
     if len(cover.get("imagePrompt") or "") < MIN_PROMPT_CHARS:
         errors.append("copertă: lipsește imagePrompt sau e prea scurt")
 
@@ -331,6 +347,7 @@ def check_story(folder, data):
         if re.search(r"\d", text):
             warnings.append(f"{label}: conține cifre; scrie numerele în litere pentru citirea cu voce")
         check_animation(page, label, errors, warnings)
+        check_image_variant(page, label, errors)
         if not page.get("narration"):
             errors.append(f"{label}: lipsește regia de voce (narration) — vezi REGULI_POVESTI.md, secțiunea 7")
         errors.extend(f"{label}: {m}" for m in validate_narration(page, character_names))
@@ -758,6 +775,38 @@ def version_story_assets(folder, data):
     write_json(folder / "story.json", data)
 
 
+# Dintr-un folder de poveste se publică doar aceste fișiere (nimic executabil, nicio legătură simbolică).
+STORY_FILE = re.compile(r"^(story\.json|images/[a-z0-9][a-z0-9-]*\.(webp|png|jpe?g)|audio/manifest\.json"
+                        r"|audio/(feminin|masculin)/[a-z0-9][a-z0-9-]*\.mp3)$")
+STORY_DIRS = {"images", "audio", "audio/feminin", "audio/masculin"}
+
+
+def story_ignore(directory, names, story_root):
+    """Ce NU se copiază dintr-un folder de poveste: legături simbolice și orice fișier în afara listei permise."""
+    skipped = []
+    for name in names:
+        path = directory / name
+        rel = path.relative_to(story_root).as_posix()
+        if path.is_symlink():
+            skipped.append(name)
+        elif path.is_dir():
+            if rel not in STORY_DIRS:
+                skipped.append(name)
+        elif not STORY_FILE.match(rel):
+            skipped.append(name)
+    return skipped
+
+
+def staging_ignore(directory, names):
+    """La copierea site-ului: fără legături simbolice; în poveștile din stories/ doar fișierele permise."""
+    directory = Path(directory)
+    skipped = [n for n in names if (directory / n).is_symlink()]
+    if STORIES_DIR in directory.parents:
+        story_root = STORIES_DIR / directory.relative_to(STORIES_DIR).parts[0]
+        skipped += [n for n in story_ignore(directory, names, story_root) if n not in skipped]
+    return skipped
+
+
 def cmd_stage():
     """build/site = ce se publică: poveștile valide; pentru una invalidă, ultima ei versiune bună (dacă a existat)."""
     import tempfile
@@ -765,13 +814,19 @@ def cmd_stage():
     invalid = {folder.name for folder, data in load_stories() if validate_story(folder, data)[0]}
     if BUILD_DIR.exists():
         shutil.rmtree(BUILD_DIR)
-    ignore = lambda directory, names: [n for n in names if Path(directory) == STORIES_DIR and n in invalid]  # noqa: E731
+    def ignore(directory, names):
+        skipped = staging_ignore(directory, names)
+        if Path(directory) == STORIES_DIR:
+            skipped += [n for n in names if n in invalid]
+        return skipped
+
     shutil.copytree(ROOT / "public", BUILD_DIR, ignore=ignore)
     with tempfile.TemporaryDirectory() as workdir:
         for name in sorted(invalid):
             found = previous_published(name, workdir) if ID_PATTERN.match(name) else None
             if found:
-                shutil.copytree(found[0], BUILD_DIR / "stories" / name)
+                shutil.copytree(found[0], BUILD_DIR / "stories" / name,
+                                ignore=lambda d, names, root=found[0]: story_ignore(Path(d), names, Path(root)))
                 print(f"[versiunea anterioară] {name}: rămâne publicată versiunea din {found[1][:7]}")
             else:
                 print(f"[nepublicată] {name}")
@@ -798,8 +853,8 @@ def cmd_stage():
     stage_previews(previews)
     write_admin_info(entries, personal, invalid)
     add_asset_versions(BUILD_DIR)
-    write_seo_files(BUILD_DIR, published)
-    write_share_pages(BUILD_DIR, published)
+    library = json.loads((BUILD_DIR / "stories" / "index.json").read_text(encoding="utf-8"))
+    seo.write_all(BUILD_DIR, library.get("stories") or [], published)
     print(f"Pregătit pentru publicare: {BUILD_DIR} ({len(entries)} povești pe site)")
     return 0
 
@@ -884,69 +939,6 @@ def add_asset_versions(site):
         page.write_text(html, encoding="utf-8")
 
 
-def write_seo_files(site, stories):
-    import os
-    from html import escape
-
-    base = (os.environ.get("SITE_URL") or "https://iamlio.ro").rstrip("/")
-    urls = [(f"{base}/", None), (f"{base}/confidentialitate.html", None)] + [(f"{base}/poveste.html?id={s['id']}", s.get("created")) for s in stories]
-    entries = "".join(
-        f"  <url><loc>{escape(url)}</loc>{f'<lastmod>{day}</lastmod>' if day else ''}</url>\n" for url, day in urls)
-    (site / "sitemap.xml").write_text(
-        '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-        f"{entries}</urlset>\n", encoding="utf-8")
-    (site / "robots.txt").write_text(f"User-agent: *\nDisallow: /api/\nDisallow: /admin.html\nSitemap: {base}/sitemap.xml\n", encoding="utf-8")
-
-
-def write_share_pages(site, stories):
-    """p/<id>.html: pagina de distribuire a fiecărei povești, cu titlul, rezumatul și coperta ei (Open Graph),
-    ca un link trimis pe WhatsApp sau Facebook să arate povestea, nu doar site-ul. Trimite imediat la cititor."""
-    import os
-    from html import escape
-
-    from PIL import Image, ImageOps
-
-    base = (os.environ.get("SITE_URL") or "https://iamlio.ro").rstrip("/")
-    folder = site / "p"
-    folder.mkdir(exist_ok=True)
-    for story in stories:
-        sid = story["id"]
-        cover = site / "stories" / sid / story["cover"]["image"].split("?")[0]
-        with Image.open(cover) as image:
-            card = ImageOps.fit(image.convert("RGB"), (1200, 630), Image.LANCZOS, centering=(0.5, 0.4))
-            card.save(folder / f"{sid}.jpg", "JPEG", quality=82, optimize=True, progressive=True)
-        version = hashlib.sha1((folder / f"{sid}.jpg").read_bytes()).hexdigest()[:10]
-        title, summary = escape(story["title"]), escape(story.get("summary") or "")
-        reader = f"../poveste.html?id={sid}"
-        (folder / f"{sid}.html").write_text(f"""<!doctype html>
-<html lang="ro">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; base-uri 'none'">
-<title>{title} — Iamlio</title>
-<meta name="description" content="{summary}">
-<meta property="og:type" content="article">
-<meta property="og:locale" content="ro_RO">
-<meta property="og:site_name" content="Iamlio">
-<meta property="og:title" content="{title}">
-<meta property="og:description" content="{summary}">
-<meta property="og:url" content="{base}/p/{sid}.html">
-<meta property="og:image" content="{base}/p/{sid}.jpg?v={version}">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Coperta poveștii „{title}”">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="{base}/poveste.html?id={sid}">
-<meta http-equiv="refresh" content="0; url={reader}">
-</head>
-<body>
-<p><a href="{reader}">{title} — o poveste citită de Lio</a></p>
-</body>
-</html>
-""", encoding="utf-8")
-
-
 def cmd_status():
     invalid = [folder.name for folder, data in load_stories() if validate_story(folder, data)[0]]
     if invalid:
@@ -1020,14 +1012,14 @@ AUDIO_CONCURRENCY = 6  # câte fișiere audio se generează deodată (edge-tts +
 async def generate_audio_set(audio_dir, items, characters):
     """Generează items pentru fiecare voce, doar ce s-a schimbat (după amprenta regiei), câte mai multe deodată."""
     manifest_file = audio_dir / "manifest.json"
-    old = json.loads(manifest_file.read_text(encoding="utf-8")) if manifest_file.exists() else {}
+    old = read_manifest(manifest_file)
     manifest = {}
     old_timing = old.get("timing") if isinstance(old.get("timing"), dict) else {}
     timing = {}
     limit = asyncio.Semaphore(AUDIO_CONCURRENCY)
 
     def save(data):
-        manifest_file.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        write_json_atomic(manifest_file, data)
 
     async def make(key, name, segments, digest, target):
         async with limit:
@@ -1052,7 +1044,10 @@ async def generate_audio_set(audio_dir, items, characters):
             else:
                 timing[key][name] = previous_timing[name]
                 manifest[key][name] = digest
-    await asyncio.gather(*jobs)
+    results = await asyncio.gather(*jobs, return_exceptions=True)  # un fișier eșuat nu le oprește pe celelalte
+    failed = [r for r in results if isinstance(r, BaseException)]
+    if failed:
+        raise RuntimeError(f"{len(failed)} fișiere audio nu s-au putut genera: {failed[0]}")
 
     order = [name for name, _ in items]
     for key in VOICES:
@@ -1098,15 +1093,41 @@ def valid_stories():
         yield folder, data
 
 
+def read_manifest(path):
+    """Manifestul vocilor; unul lipsă sau stricat (o rulare întreruptă) înseamnă „totul de refăcut”, nu o eroare."""
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def write_json_atomic(path, data):
+    """Scriere prin fișier temporar + redenumire: un fișier nu rămâne niciodată scris pe jumătate."""
+    import os
+
+    tmp = path.with_name(path.name + ".tmp")
+    tmp.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    os.replace(tmp, path)
+
+
 def cmd_audio():
-    for folder, data in valid_stories():
-        print(f"[audio] {folder.name}")
-        asyncio.run(generate_audio_set(folder / "audio", narration_items(data), story_characters(data)))
+    """Vocile tuturor poveștilor; o poveste care eșuează (de ex. serviciul de voce nu răspunde) nu le oprește
+    pe celelalte. La final, verify-audio spune exact ce lipsește."""
+    failed = []
+    groups = [(folder.name, folder / "audio", narration_items(data), story_characters(data))
+              for folder, data in valid_stories()]
     items = lio_items()
     if items:
-        print("[audio] replicile lui Lio")
-        asyncio.run(generate_audio_set(LIO_AUDIO_DIR, items, [LIO_PROFILE]))
-    return 0
+        groups.append(("replicile lui Lio", LIO_AUDIO_DIR, items, [LIO_PROFILE]))
+    for label, audio_dir, group_items, characters in groups:
+        print(f"[audio] {label}")
+        try:
+            asyncio.run(generate_audio_set(audio_dir, group_items, characters))
+        except Exception as exc:  # rețea, ffmpeg, limită de cereri
+            failed.append(label)
+            print(f"::warning::vocea pentru {label} nu s-a putut genera complet: {exc}")
+    return 1 if failed else 0
 
 
 MIN_AUDIO_SECONDS = 0.5
@@ -1134,8 +1155,7 @@ def audio_problem(path):
 
 
 def missing_audio(audio_dir, names):
-    manifest_file = audio_dir / "manifest.json"
-    manifest = json.loads(manifest_file.read_text(encoding="utf-8")) if manifest_file.exists() else {}
+    manifest = read_manifest(audio_dir / "manifest.json")
     missing = []
     for key in VOICES:
         for name in names:
@@ -1164,8 +1184,11 @@ def cmd_verify_audio():
 def index_entry(folder, data):
     """Intrarea din bibliotecă a unei povești (durata vine din fișierele audio, dacă există)."""
     minutes = estimated_minutes(data["pages"])
-    mp3s = list((folder / "audio" / "feminin").glob("*.mp3"))
-    if len(mp3s) == len(data["pages"]) + 2:
+    voice = folder / "audio" / "feminin"
+    # doar coperta, paginile și finalul (întrebările lui Lio de după poveste nu intră în durată)
+    names = ["coperta.mp3", "final.mp3"] + [f"pagina-{n:02d}.mp3" for n in range(1, len(data["pages"]) + 1)]
+    mp3s = [voice / n for n in names if (voice / n).is_file()]
+    if len(mp3s) == len(names):
         seconds = sum(f.stat().st_size for f in mp3s) / MP3_BYTES_PER_SECOND
         minutes = (seconds + len(data["pages"]) * SECONDS_PER_PAGE_TURN) / 60
     return {

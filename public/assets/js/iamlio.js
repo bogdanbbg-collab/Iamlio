@@ -53,7 +53,10 @@ window.Iamlio = (function () {
   // Inserează un SVG ca element (nu <img>), ca să poată fi animat din CSS.
   function inlineSvg(container, src) {
     return fetch(src)
-      .then(function (res) { return res.text(); })
+      .then(function (res) {
+        if (!res.ok) throw new Error(res.status); // o pagină de eroare nu ajunge în locul lui Lio
+        return res.text();
+      })
       .then(function (text) {
         container.innerHTML = text;
         var svg = container.querySelector("svg");

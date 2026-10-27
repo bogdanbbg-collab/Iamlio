@@ -58,6 +58,7 @@
 
   function card(story) {
     var item = el("article", "story-card");
+    item.setAttribute("data-id", story.id);
     var link = el("a", "story-link");
     link.href = "poveste.html?id=" + encodeURIComponent(story.id);
 
@@ -264,7 +265,12 @@
       Iamlio.fetchCounts().then(function (result) {
         if (!result) return;
         counts = result;
-        showStories();
+        // doar numerele se adaugă în carduri, fără să refacem lista (focusul și derularea rămân pe loc)
+        Array.prototype.forEach.call(grid.querySelectorAll(".story-card[data-id]"), function (card) {
+          var details = card.querySelector(".story-details");
+          if (!details || details.querySelector(".story-reads")) return;
+          details.appendChild(el("span", "story-reads", Iamlio.readsLabel(counts[card.getAttribute("data-id")] || 0)));
+        });
       });
     })
     .catch(function () {

@@ -5,6 +5,7 @@ const DATA_DIR = __DIR__ . '/data';
 const ADMIN_COOKIE = 'iamlio_admin';
 const ADMIN_SESSION_SECONDS = 43200; // 12 ore
 const ADMIN_MAX_FAILED_PER_HOUR = 10;
+const ADMIN_MAX_FAILED_TOTAL_PER_HOUR = 100; // de la toate adresele la un loc (o încercare din multe locuri deodată)
 
 date_default_timezone_set('Europe/Bucharest'); // „azi” pentru statistici înseamnă ziua din România
 
@@ -33,16 +34,35 @@ function send_json($code, $body)
 }
 
 // Cheia secretă a serverului (creată la prima nevoie, nu e în repository și nu se urcă prin FTP).
+// Se creează o singură dată, sub blocare (două cereri simultane nu pot crea două chei diferite) și prin fișier
+// temporar + redenumire (nicio cerere nu poate citi o cheie scrisă pe jumătate).
 function secret_key()
 {
-    $file = data_path('cheie.txt');
-    $key = is_file($file) ? trim((string) file_get_contents($file)) : '';
-    if (strlen($key) < 64) {
-        $key = bin2hex(random_bytes(32));
-        file_put_contents($file, $key, LOCK_EX);
-        @chmod($file, 0600);
+    static $cached = null;
+    if ($cached !== null) {
+        return $cached;
     }
-    return $key;
+    $file = data_path('cheie.txt');
+    $read = function () use ($file) {
+        return is_file($file) ? trim((string) file_get_contents($file)) : '';
+    };
+    $key = $read();
+    if (strlen($key) < 64) {
+        $lock = lock_resource('cheie');
+        $key = $read();
+        if (strlen($key) < 64) {
+            $key = bin2hex(random_bytes(32));
+            $tmp = $file . '.' . bin2hex(random_bytes(4)) . '.tmp';
+            if (file_put_contents($tmp, $key) !== strlen($key) || !rename($tmp, $file)) {
+                @unlink($tmp);
+                send_json(500, ['error' => 'serverul nu poate salva cheia (folderul api/data nu se poate scrie)']);
+            }
+            @chmod($file, 0600);
+        }
+        flock($lock, LOCK_UN);
+        fclose($lock);
+    }
+    return $cached = $key;
 }
 
 function read_json_file($file)
@@ -217,7 +237,8 @@ function admin_password_ok($password)
 
 function admin_cookie($value, $expires)
 {
-    $secure = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off';
+    $secure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+        || strtolower((string) ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '')) === 'https';
     setcookie(ADMIN_COOKIE, $value, [
         'expires' => $expires, 'path' => '/', 'secure' => $secure, 'httponly' => true, 'samesite' => 'Strict',
     ]);
@@ -232,20 +253,34 @@ function admin_login()
     $attempts = array_filter(read_json_file($file), function ($entry) use ($now) {
         return is_array($entry) && isset($entry[0], $entry[1]) && $now - $entry[0] < 3600;
     });
-    $who = visitor_mark('autentificare');
+    // amprenta nu se schimbă la miezul nopții (ca limita să nu se reseteze), iar o adresă IPv6 contează după
+    // rețeaua ei (/64), nu după fiecare adresă din ea
+    $who = hash_hmac('sha256', 'autentificare|' . network_of((string) ($_SERVER['REMOTE_ADDR'] ?? '')), secret_key());
     $failed = isset($attempts[$who]) ? (int) $attempts[$who][1] : 0;
-    if ($failed >= ADMIN_MAX_FAILED_PER_HOUR) {
+    $failedEverywhere = array_sum(array_map(function ($entry) { return (int) $entry[1]; }, $attempts));
+    if ($failed >= ADMIN_MAX_FAILED_PER_HOUR || $failedEverywhere >= ADMIN_MAX_FAILED_TOTAL_PER_HOUR) {
         send_json(429, ['error' => 'prea multe încercări; mai încearcă peste o oră']);
     }
     if (!admin_password_ok(isset($_POST['parola']) ? (string) $_POST['parola'] : '')) {
         $attempts[$who] = [isset($attempts[$who]) ? $attempts[$who][0] : $now, $failed + 1];
         write_json_atomic($file, (object) $attempts);
+        flock($lock, LOCK_UN); // așteptarea de mai jos nu ține pe loc alte cereri (de ex. administratorul real)
         sleep(1);
         send_json(401, ['error' => 'parolă greșită']);
     }
     $expires = $now + ADMIN_SESSION_SECONDS;
     admin_cookie($expires . '.' . hash_hmac('sha256', 'admin|' . $expires, secret_key()), $expires);
     send_json(200, ['autentificat' => true]);
+}
+
+// Rețeaua unei adrese: IPv4 întreagă, IPv6 primele 64 de biți (o singură conexiune primește tot blocul /64).
+function network_of($address)
+{
+    $packed = @inet_pton($address);
+    if ($packed !== false && strlen($packed) === 16) {
+        return bin2hex(substr($packed, 0, 8)) . '::/64';
+    }
+    return $address;
 }
 
 function admin_logout()

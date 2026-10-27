@@ -672,6 +672,69 @@ class CloudflareTests(unittest.TestCase):
             self.assertFalse(imagini.enabled())
 
 
+class StagingSafetyTests(StoryCase):
+    """Dintr-o poveste se publică doar story.json, imaginile și sunetele: nimic executabil, nicio legătură simbolică."""
+
+    def test_only_story_files_are_published(self):
+        root = self.folder
+        (root / "audio").mkdir(exist_ok=True)
+        (root / "images" / "evil.php").write_text("<?php echo 1;")
+        (root / ".htaccess").write_text("x")
+        (root / "notite.txt").write_text("x")
+        skipped = stories.story_ignore(root, ["story.json", "images", ".htaccess", "notite.txt", "audio"], root)
+        self.assertEqual(sorted(skipped), [".htaccess", "notite.txt"])
+        self.assertIn("evil.php", stories.story_ignore(root / "images", ["evil.php", "pagina-01.webp"], root))
+        self.assertNotIn("pagina-01.webp", stories.story_ignore(root / "images", ["pagina-01.webp"], root))
+
+    def test_symlinks_are_rejected(self):
+        (self.folder / "images" / "legatura.png").symlink_to("/etc/passwd")
+        self.assertError("legăturile simbolice nu sunt permise")
+        self.assertIn("legatura.png", stories.story_ignore(self.folder / "images", ["legatura.png"], self.folder))
+
+    def test_unknown_files_only_warn(self):
+        (self.folder / "notite.txt").write_text("x")
+        errors, warnings = stories.validate_story(self.folder, self.data)
+        self.assertEqual(errors, [])
+        self.assertTrue(any("fișier necunoscut" in w for w in warnings))
+
+
+class ImageVariantTests(StoryCase):
+    """„imageVariant”: altă încercare de desen pentru o imagine care nu se potrivește cu pagina."""
+
+    def test_variant_must_be_a_small_whole_number(self):
+        self.data["pages"][2]["imageVariant"] = 2
+        self.assertEqual(self.errors(), [])
+        for bad in (-1, 100, 1.5, "2", True):
+            self.data["pages"][2]["imageVariant"] = bad
+            self.assertError("imageVariant trebuie să fie")
+
+    def test_variant_changes_the_seed_only_for_that_image(self):
+        self.assertEqual(imagini.variant_seed(1234, 0), 1234)
+        self.assertNotEqual(imagini.variant_seed(1234, 1), imagini.variant_seed(1234, 2))
+
+    def test_variant_reaches_the_free_providers_but_not_openai(self):
+        seen = []
+
+        class Ours:
+            accepts_variant = True
+            def __init__(self):
+                self.images = self
+            def generate(self, **kwargs):
+                seen.append(("ours", kwargs.get("variant")))
+                raise RuntimeError("pană")
+
+        class OpenAILike:
+            def __init__(self):
+                self.images = self
+            def generate(self, prompt, model=None, size=None, quality=None):  # fără „variant”, ca SDK-ul OpenAI
+                seen.append(("openai", None))
+                return "imagine"
+
+        chain = imagini.ChainClient([Ours(), OpenAILike()])
+        self.assertEqual(chain.images.generate(prompt="p", model="m", variant=3), "imagine")
+        self.assertEqual(seen, [("ours", 3), ("openai", None)])
+
+
 class PollinationsTests(unittest.TestCase):
     """Rezerva gratuită după Cloudflare, cu un server simulat."""
 
