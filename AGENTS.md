@@ -95,7 +95,9 @@ codul site-ului (`public/*.html`, `public/assets/`, `scripts/`, `.github/`) — 
   (`python3 scripts/stories.py stage && node --test tests/e2e/*.test.mjs`, inclusiv accesibilitatea cu axe-core),
   rulate la fiecare publicare
 - `.github/workflows/publica-site.yml` — publicarea automată (și revenirea la o versiune anterioară)
-- `.github/workflows/monitorizare.yml` — verificarea site-ului live în fiecare oră
+- `.github/workflows/monitorizare.yml` — verificarea site-ului live o dată la 3 ore
+- `planificare/teme.json` + `planificare/RUTINA.md` — cele 100 de teme și procedura rutinei „Povestea zilei”
+  (o poveste nouă în fiecare dimineață, verificată de agenți separați)
 - `public/confidentialitate.html` — informarea pentru părinți despre date
 - `requirements.lock`, `package-lock.json` — versiunile exacte ale tuturor dependențelor (`.github/dependabot.yml`
   propune lunar actualizări, ca pull request-uri verificate de teste)

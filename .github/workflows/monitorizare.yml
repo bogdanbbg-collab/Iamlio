@@ -1,10 +1,11 @@
 name: Monitorizare site
 
-# Verifică site-ul live în fiecare oră. Dacă ceva nu merge, deschide (sau actualizează) un issue în GitHub,
+# Verifică site-ul live o dată la 3 ore (destul pentru un site static; fiecare publicare verifică oricum site-ul
+# live, iar minutele gratuite GitHub Actions ajung așa și pentru povestea zilnică). Dacă ceva nu merge, deschide (sau actualizează) un issue în GitHub,
 # iar proprietarul repository-ului primește notificare pe email. Când site-ul își revine, issue-ul se închide.
 on:
   schedule:
-    - cron: "17 * * * *"
+    - cron: "17 */3 * * *"
   workflow_dispatch:
 
 permissions:
