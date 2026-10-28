@@ -299,6 +299,21 @@ class PersonalizedTests(StoryCase):
         self.data["verified"] = "da"
         self.assertTrue(stories.structure_errors(self.data))
 
+    def test_story_in_verification_is_not_restored_from_an_older_version(self):
+        from unittest import mock
+
+        self.data["verified"] = False
+        self.data["pages"][0]["image"] = "images/lipsa.png"  # incompletă: ar intra în calcul versiunea veche
+        (self.folder / "story.json").write_text(json.dumps(self.data, ensure_ascii=False), encoding="utf-8")
+        with tempfile.TemporaryDirectory() as tmp, \
+                mock.patch.object(stories, "STORIES_DIR", self.tmp), \
+                mock.patch.object(stories, "BUILD_DIR", Path(tmp) / "site"), \
+                mock.patch.object(stories, "previous_published", side_effect=AssertionError("nu se caută versiunea veche")):
+            invalid = {f.name for f, d in stories.load_stories() if stories.validate_story(f, d)[0]}
+            self.assertIn(self.folder.name, invalid)
+            checking = {f.name for f, d in stories.load_stories() if d.get("verified") is False}
+            self.assertIn(self.folder.name, checking)
+
     def test_unapproved_stories_leave_the_public_site(self):
         import hashlib
         from unittest import mock

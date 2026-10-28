@@ -855,8 +855,14 @@ def cmd_stage():
         return skipped
 
     shutil.copytree(ROOT / "public", BUILD_DIR, ignore=ignore)
+    # o poveste pusă în verificare („verified”: false) nu se întoarce pe site nici cu o versiune mai veche:
+    # versiunea veche e tocmai cea care trebuia ascunsă (de ex. cu imagini greșite)
+    checking = {folder.name for folder, data in load_stories() if isinstance(data, dict) and data.get("verified") is False}
     with tempfile.TemporaryDirectory() as workdir:
         for name in sorted(invalid):
+            if name in checking:
+                print(f"[în verificare] {name}: nu se publică nicio versiune până la verificarea imaginilor")
+                continue
             found = previous_published(name, workdir) if ID_PATTERN.match(name) else None
             if found:
                 shutil.copytree(found[0], BUILD_DIR / "stories" / name,
