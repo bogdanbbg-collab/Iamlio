@@ -2,7 +2,7 @@
   "feminin": {
     "coperta.mp3": "a7aebca1d255e93d80bd60ff7049f5afc1453460",
     "pagina-01.mp3": "509b0ad8772e4279ef35eac0dfd131857b2eb33d",
-    "pagina-02.mp3": "97ea7eb3487107ecfbb0050d6ecedd1079b782a0",
+    "pagina-02.mp3": "cb0042a0b922b682ff88bbe23c845983f897c25e",
     "pagina-03.mp3": "96e0e05a73ca4b9d8487dca0d2529c5462eb53f4",
     "pagina-04.mp3": "07e2242de0dc9fcbe516f963d3d53d6bb6ab77ef",
     "pagina-05.mp3": "7ff5bd747e5f728ae4f39f3de3e056b8bf8d585a",
@@ -74,23 +74,23 @@
       "pagina-02.mp3": [
         [
           0.6,
-          4.92
+          4.71
         ],
         [
-          5.22,
-          8.51
+          4.71,
+          7.94
         ],
         [
-          8.81,
-          16.55
+          7.94,
+          15.37
         ],
         [
-          16.85,
-          21.66
+          15.37,
+          20.96
         ],
         [
-          21.96,
-          27.14
+          20.96,
+          25.33
         ]
       ],
       "pagina-03.mp3": [
@@ -619,7 +619,7 @@
     "feminin": {
       "coperta.mp3": "gemini",
       "pagina-01.mp3": "gemini",
-      "pagina-02.mp3": "chirp",
+      "pagina-02.mp3": "gemini",
       "pagina-03.mp3": "chirp",
       "pagina-04.mp3": "chirp",
       "pagina-05.mp3": "chirp",
