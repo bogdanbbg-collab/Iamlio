@@ -1,0 +1,443 @@
+{
+  "id": "tepi-si-frunza-cea-mai-frumoasa",
+  "title": "Țepi și frunza cea mai frumoasă",
+  "summary": "Țepi, un arici mic, caută cea mai frumoasă frunză pentru culcușul de iarnă. O frunză roșie care vorbește și o veveriță veselă îl ajută să afle ce înseamnă cu adevărat „cea mai frumoasă”.",
+  "age": "3-7",
+  "moral": "Împreună, lucrurile mici fac ceva mare și cald.",
+  "learning": [
+    "culorile toamnei: galben, portocaliu, roșu și maro",
+    "animalele se pregătesc de iarnă: ariciul hibernează, veverița strânge alune",
+    "sortăm după culoare"
+  ],
+  "created": "2026-10-29",
+  "tags": [
+    "arici",
+    "toamnă",
+    "frunze",
+    "culori",
+    "hibernare",
+    "veveriță"
+  ],
+  "illustrationStyle": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered.",
+  "characters": [
+    {
+      "name": "Țepi",
+      "description": "a tiny round baby hedgehog with soft light-brown spikes, a cream-colored face and belly, big shiny black eyes, a small pink nose and a little red knitted hat",
+      "voice": {
+        "type": "masculin",
+        "pitch": 22,
+        "rate": 4
+      }
+    },
+    {
+      "name": "Ronțăilă",
+      "description": "a cheerful red squirrel with a huge fluffy orange tail, a white belly, big dark eyes and tufted ears",
+      "voice": {
+        "type": "feminin",
+        "pitch": 16,
+        "rate": 10
+      }
+    },
+    {
+      "name": "Rubina",
+      "description": "a big bright red maple leaf with a tiny friendly smiling face with two small dark eyes, floating gently in the air",
+      "voice": {
+        "type": "feminin",
+        "pitch": 18,
+        "rate": -4
+      }
+    }
+  ],
+  "cover": {
+    "image": "images/coperta.png",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țepi: a tiny round baby hedgehog with soft light-brown spikes, a cream-colored face and belly, big shiny black eyes, a small pink nose and a little red knitted hat; Ronțăilă: a cheerful red squirrel with a huge fluffy orange tail, a white belly, big dark eyes and tufted ears; Rubina: a big bright red maple leaf with a tiny friendly smiling face with two small dark eyes, floating gently in the air. Setting: a sunny autumn forest clearing with tall trees covered in yellow, orange, red and brown leaves, a soft carpet of fallen leaves on the ground, warm golden afternoon light. Action: Țepi the tiny baby hedgehog in a red knitted hat holds a bright red maple leaf with a tiny smiling face, Rubina, up to the sky with joy, while Ronțăilă the red squirrel with a huge fluffy tail peeks from behind a tree trunk, smiling. Emotions: joyful, warm, a little magical. Important details: colorful falling leaves, soft sparkles. Camera: wide cinematic cover shot.",
+    "animation": {
+      "camera": "zoom-in",
+      "effect": "leaves"
+    }
+  },
+  "pages": [
+    {
+      "text": "Era toamnă în pădure, iar copacii se îmbrăcaseră în galben, portocaliu, roșu și maro. Țepi, un arici mic cu o căciuliță roșie, avea o treabă importantă. Trebuia să-și facă un culcuș moale din frunze uscate, ca să doarmă cald toată iarna.",
+      "narration": [
+        {
+          "text": "Era toamnă în pădure, iar copacii se îmbrăcaseră în galben, portocaliu, roșu și maro.",
+          "mood": "calm"
+        },
+        {
+          "text": "Țepi, un arici mic cu o căciuliță roșie, avea o treabă importantă.",
+          "mood": "calm"
+        },
+        {
+          "text": "Trebuia să-și facă un culcuș moale din frunze uscate, ca să doarmă cald toată iarna.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-01.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țepi: a tiny round baby hedgehog with soft light-brown spikes, a cream-colored face and belly, big shiny black eyes, a small pink nose and a little red knitted hat. Setting: a sunny autumn forest clearing with tall trees covered in yellow, orange, red and brown leaves, a soft carpet of fallen leaves on the ground, warm golden afternoon light. Action: Țepi the tiny baby hedgehog in a red knitted hat stands proudly in the middle of the leafy clearing, looking up at the colorful trees with wide curious eyes. Emotions: curious and determined. Important details: trees in yellow, orange, red and brown, leaves gently falling. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "leaves"
+      }
+    },
+    {
+      "text": "Dar Țepi voia doar cea mai frumoasă frunză. A găsit una galbenă și a zâmbit. Apoi a văzut una portocalie, și mai frumoasă, și a lăsat-o pe cea galbenă. Apoi una maro, lucioasă ca o castană. — Asta e cea mai frumoasă! Ba nu, aceea!",
+      "narration": [
+        {
+          "text": "Dar Țepi voia doar cea mai frumoasă frunză.",
+          "mood": "calm"
+        },
+        {
+          "text": "A găsit una galbenă și a zâmbit.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Apoi a văzut una portocalie, și mai frumoasă, și a lăsat-o pe cea galbenă.",
+          "mood": "calm"
+        },
+        {
+          "text": "Apoi una maro, lucioasă ca o castană.",
+          "mood": "mirat"
+        },
+        {
+          "text": "— Asta e cea mai frumoasă! Ba nu, aceea!",
+          "mood": "entuziasmat",
+          "speaker": "Țepi"
+        }
+      ],
+      "image": "images/pagina-02.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țepi: a tiny round baby hedgehog with soft light-brown spikes, a cream-colored face and belly, big shiny black eyes, a small pink nose and a little red knitted hat. Setting: a sunny autumn forest clearing with tall trees covered in yellow, orange, red and brown leaves, a soft carpet of fallen leaves on the ground, warm golden afternoon light. Action: Țepi the tiny baby hedgehog in a red knitted hat holds up one shiny brown leaf while looking excitedly at an orange leaf on the ground; a yellow leaf lies forgotten behind him. Emotions: excited, a little indecisive. Important details: one yellow leaf, one orange leaf, one shiny brown leaf. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "În timp ce alerga de colo-colo, frunzele i se înfigeau în spinare, una după alta. — Gata, îmi port culcușul cu mine! a strigat el, mândru. Veverița Ronțăilă a sărit jos de pe o creangă și a râs: — Un tufiș care merge! Așa ceva n-am mai văzut!",
+      "narration": [
+        {
+          "text": "În timp ce alerga de colo-colo, frunzele i se înfigeau în spinare, una după alta.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Gata, îmi port culcușul cu mine!",
+          "mood": "entuziasmat",
+          "speaker": "Țepi"
+        },
+        {
+          "text": "a strigat el, mândru.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Veverița Ronțăilă a sărit jos de pe o creangă și a râs:",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Un tufiș care merge! Așa ceva n-am mai văzut!",
+          "mood": "entuziasmat",
+          "speaker": "Ronțăilă"
+        }
+      ],
+      "image": "images/pagina-03.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țepi: a tiny round baby hedgehog with soft light-brown spikes, a cream-colored face and belly, big shiny black eyes, a small pink nose and a little red knitted hat; Ronțăilă: a cheerful red squirrel with a huge fluffy orange tail, a white belly, big dark eyes and tufted ears. Setting: a sunny autumn forest clearing with tall trees covered in yellow, orange, red and brown leaves, a soft carpet of fallen leaves on the ground, warm golden afternoon light. Action: Țepi the tiny baby hedgehog in a red knitted hat is completely covered in colorful leaves stuck on his spikes, looking like a small walking bush with tiny feet; Ronțăilă the red squirrel with a huge fluffy tail has just hopped down from a low branch and lands beside him, laughing and pointing. Emotions: funny and cheerful. Important details: lots of yellow, orange and red leaves stuck on the hedgehog's back, only his face and red hat visible. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "leaves"
+      }
+    },
+    {
+      "text": "Deodată, o frunză mare și roșie a coborât legănat și i s-a așezat pe nas. — Bună! Eu sunt Rubina, a spus frunza, cu o voce subțire. Sunt cea mai roșie frunză din pădure. Alege-mă pe mine! Țepi s-a uitat la ea cruciș, cu ochii lipiți de nas: o frunză care vorbește!",
+      "narration": [
+        {
+          "text": "Deodată, o frunză mare și roșie a coborât legănat și i s-a așezat pe nas.",
+          "mood": "misterios"
+        },
+        {
+          "text": "— Bună! Eu sunt Rubina,",
+          "mood": "vesel",
+          "speaker": "Rubina"
+        },
+        {
+          "text": "a spus frunza, cu o voce subțire.",
+          "mood": "calm"
+        },
+        {
+          "text": "Sunt cea mai roșie frunză din pădure. Alege-mă pe mine!",
+          "mood": "vesel",
+          "speaker": "Rubina"
+        },
+        {
+          "text": "Țepi s-a uitat la ea cruciș, cu ochii lipiți de nas: o frunză care vorbește!",
+          "mood": "mirat"
+        }
+      ],
+      "image": "images/pagina-04.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țepi: a tiny round baby hedgehog with soft light-brown spikes, a cream-colored face and belly, big shiny black eyes, a small pink nose and a little red knitted hat; Rubina: a big bright red maple leaf with a tiny friendly smiling face with two small dark eyes, floating gently in the air. Setting: a sunny autumn forest clearing with tall trees covered in yellow, orange, red and brown leaves, a soft carpet of fallen leaves on the ground, warm golden afternoon light. Action: Rubina the big red maple leaf with a tiny smiling face has landed softly on the nose of Țepi the tiny baby hedgehog in a red knitted hat, who has a few colorful leaves still stuck on his spikes; the hedgehog looks at her cross-eyed with huge surprised eyes; tiny golden sparkles around the leaf. Emotions: magical surprise, funny. Important details: the big red maple leaf on the hedgehog's nose, golden sparkles. Camera: close-up.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "sparkles"
+      }
+    },
+    {
+      "text": "Atunci a venit vântul de toamnă: vâjjj, vâjjj! Frunzele s-au rotit prin aer, iar Țepi s-a făcut ghem. — Hapciu! a strănutat el, și toate frunzele din spinare au zburat ca niște confeti colorate. Ronțăilă a râs atât de tare, încât s-a rostogolit drept într-o grămadă moale de frunze.",
+      "narration": [
+        {
+          "text": "Atunci a venit vântul de toamnă: vâjjj, vâjjj!",
+          "mood": "misterios"
+        },
+        {
+          "text": "Frunzele s-au rotit prin aer, iar Țepi s-a făcut ghem.",
+          "mood": "mirat"
+        },
+        {
+          "text": "— Hapciu!",
+          "mood": "vesel",
+          "speaker": "Țepi"
+        },
+        {
+          "text": "a strănutat el, și toate frunzele din spinare au zburat ca niște confeti colorate.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Ronțăilă a râs atât de tare, încât s-a rostogolit drept într-o grămadă moale de frunze.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-05.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țepi: a tiny round baby hedgehog with soft light-brown spikes, a cream-colored face and belly, big shiny black eyes, a small pink nose and a little red knitted hat; Ronțăilă: a cheerful red squirrel with a huge fluffy orange tail, a white belly, big dark eyes and tufted ears. Setting: a sunny autumn forest clearing with tall trees covered in yellow, orange, red and brown leaves, a soft carpet of fallen leaves on the ground, warm golden afternoon light. Action: a gust of wind swirls colorful leaves in the air; Țepi the tiny baby hedgehog in a red knitted hat sneezes and the leaves fly off his spikes like confetti; Ronțăilă the red squirrel with a huge fluffy tail tumbles laughing into a soft pile of leaves. Emotions: funny, playful. Important details: a swirl of flying leaves like confetti. Camera: wide shot.",
+      "animation": {
+        "camera": "pan-up",
+        "effect": "leaves"
+      }
+    },
+    {
+      "text": "Țepi a rămas doar cu Rubina și și-a făcut culcușul din ea. Rubina era mare pentru o frunză, dar mică pentru o pătură: îi acoperea doar spinarea. Lăbuțele i s-au răcit, iar codița tremura de frig. — Brrr! O singură frunză, oricât de frumoasă, nu ține de cald, a oftat el.",
+      "narration": [
+        {
+          "text": "Țepi a rămas doar cu Rubina și și-a făcut culcușul din ea.",
+          "mood": "calm"
+        },
+        {
+          "text": "Rubina era mare pentru o frunză, dar mică pentru o pătură: îi acoperea doar spinarea.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lăbuțele i s-au răcit, iar codița tremura de frig.",
+          "mood": "trist"
+        },
+        {
+          "text": "— Brrr! O singură frunză, oricât de frumoasă, nu ține de cald,",
+          "mood": "trist",
+          "speaker": "Țepi"
+        },
+        {
+          "text": "a oftat el.",
+          "mood": "trist"
+        }
+      ],
+      "image": "images/pagina-06.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țepi: a tiny round baby hedgehog with soft light-brown spikes, a cream-colored face and belly, big shiny black eyes, a small pink nose and a little red knitted hat; Rubina: a big bright red maple leaf with a tiny friendly smiling face with two small dark eyes, floating gently in the air. Setting: the same autumn clearing in the cool shade of a big tree, late afternoon. Action: Țepi the tiny baby hedgehog in a red knitted hat lies curled up and shivering on the bare ground; Rubina the big red maple leaf with a tiny smiling face covers only his back like a tiny blanket, while his paws and tiny tail stick out. Emotions: Țepi chilly and a little sad, Rubina worried. Important details: the hedgehog's paws sticking out, the single red leaf on his back. Camera: close-up.",
+      "animation": {
+        "camera": "still",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Țepi s-a gândit, s-a gândit… și deodată a sărit în picioare. — Dacă o frunză nu ține de cald, poate multe frunze țin! — Din toate culorile! a șoptit Rubina, bucuroasă. Ronțăilă l-a ajutat, și au făcut patru grămezi: galbenă, portocalie, roșie și maro.",
+      "narration": [
+        {
+          "text": "Țepi s-a gândit, s-a gândit… și deodată a sărit în picioare.",
+          "mood": "misterios"
+        },
+        {
+          "text": "— Dacă o frunză nu ține de cald, poate multe frunze țin!",
+          "mood": "entuziasmat",
+          "speaker": "Țepi"
+        },
+        {
+          "text": "— Din toate culorile!",
+          "mood": "șoptit",
+          "speaker": "Rubina"
+        },
+        {
+          "text": "a șoptit Rubina, bucuroasă.",
+          "mood": "calm"
+        },
+        {
+          "text": "Ronțăilă l-a ajutat, și au făcut patru grămezi: galbenă, portocalie, roșie și maro.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-07.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țepi: a tiny round baby hedgehog with soft light-brown spikes, a cream-colored face and belly, big shiny black eyes, a small pink nose and a little red knitted hat; Ronțăilă: a cheerful red squirrel with a huge fluffy orange tail, a white belly, big dark eyes and tufted ears; Rubina: a big bright red maple leaf with a tiny friendly smiling face with two small dark eyes, floating gently in the air. Setting: a sunny autumn forest clearing with tall trees covered in yellow, orange, red and brown leaves, a soft carpet of fallen leaves on the ground, warm golden afternoon light. Action: Țepi the tiny baby hedgehog in a red knitted hat and Ronțăilă the red squirrel with a huge fluffy tail sort fallen leaves into four neat piles by color on the ground: a yellow pile, an orange pile, a red pile and a brown pile; Rubina the big red maple leaf with a tiny smiling face floats beside Țepi's ear, smiling. Emotions: busy and happy, working together. Important details: four piles of leaves: yellow, orange, red and brown. Camera: medium shot from slightly above.",
+      "animation": {
+        "camera": "pan-left",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Apoi au construit culcușul, rotund ca un cuib. Jos au pus frunzele maro, apoi pe cele galbene, portocalii și roșii. Iar deasupra, ca o pătură de sărbătoare, s-a așezat Rubina. — Acum sunt cea mai frumoasă frunză, pentru că țin de cald împreună cu celelalte! a spus Rubina, fericită.",
+      "narration": [
+        {
+          "text": "Apoi au construit culcușul, rotund ca un cuib.",
+          "mood": "calm"
+        },
+        {
+          "text": "Jos au pus frunzele maro, apoi pe cele galbene, portocalii și roșii.",
+          "mood": "calm"
+        },
+        {
+          "text": "Iar deasupra, ca o pătură de sărbătoare, s-a așezat Rubina.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Acum sunt cea mai frumoasă frunză, pentru că țin de cald împreună cu celelalte!",
+          "mood": "entuziasmat",
+          "speaker": "Rubina"
+        },
+        {
+          "text": "a spus Rubina, fericită.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-08.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țepi: a tiny round baby hedgehog with soft light-brown spikes, a cream-colored face and belly, big shiny black eyes, a small pink nose and a little red knitted hat; Ronțăilă: a cheerful red squirrel with a huge fluffy orange tail, a white belly, big dark eyes and tufted ears; Rubina: a big bright red maple leaf with a tiny friendly smiling face with two small dark eyes, floating gently in the air. Setting: a cozy hollow under a big tree root in the autumn forest, warm golden light. Action: a round cozy nest made of many brown, yellow, orange and red leaves; Rubina the big red maple leaf with a tiny smiling face lies proudly on top like a blanket; Țepi the tiny baby hedgehog in a red knitted hat stands beside the nest admiring it, while Ronțăilă the red squirrel with a huge fluffy tail pats the nest with her paws. Emotions: proud and warm. Important details: the round colorful leaf nest, the red leaf on top. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "sparkles"
+      }
+    },
+    {
+      "text": "Țepi a căscat. — Tu ce faci iarna? a întrebat-o el pe Ronțăilă. — Eu am ascuns alune într-o scorbură, o căsuță scobită în trunchiul copacului. Tu dormi toată iarna: asta se cheamă hibernare, a spus veverița, căscând și ea.",
+      "narration": [
+        {
+          "text": "Țepi a căscat.",
+          "mood": "somnoros"
+        },
+        {
+          "text": "— Tu ce faci iarna?",
+          "mood": "mirat",
+          "speaker": "Țepi"
+        },
+        {
+          "text": "a întrebat-o el pe Ronțăilă.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Eu am ascuns alune într-o scorbură, o căsuță scobită în trunchiul copacului. Tu dormi toată iarna: asta se cheamă hibernare,",
+          "mood": "calm",
+          "speaker": "Ronțăilă"
+        },
+        {
+          "text": "a spus veverița, căscând și ea.",
+          "mood": "somnoros"
+        }
+      ],
+      "image": "images/pagina-09.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țepi: a tiny round baby hedgehog with soft light-brown spikes, a cream-colored face and belly, big shiny black eyes, a small pink nose and a little red knitted hat; Ronțăilă: a cheerful red squirrel with a huge fluffy orange tail, a white belly, big dark eyes and tufted ears. Setting: the autumn forest at sunset, warm orange light, a hollow in a tree trunk full of hazelnuts. Action: Ronțăilă the red squirrel with a huge fluffy tail sits at the entrance of a tree hollow full of hazelnuts, yawning; Țepi the tiny baby hedgehog in a red knitted hat yawns too, looking up at her from the ground. Emotions: calm, sleepy, friendly. Important details: the tree hollow with hazelnuts, sunset light. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-up",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Seara, Țepi s-a strecurat în culcușul cel nou. Era moale, foșnitor și cald ca o îmbrățișare. — Noapte bună, Ronțăilă. Noapte bună, Rubina. Ne vedem la primăvară, a șoptit el. Și ariciul a adormit, ghemuit, până când au înflorit ghioceii.",
+      "narration": [
+        {
+          "text": "Seara, Țepi s-a strecurat în culcușul cel nou.",
+          "mood": "somnoros"
+        },
+        {
+          "text": "Era moale, foșnitor și cald ca o îmbrățișare.",
+          "mood": "somnoros"
+        },
+        {
+          "text": "— Noapte bună, Ronțăilă. Noapte bună, Rubina. Ne vedem la primăvară,",
+          "mood": "somnoros",
+          "speaker": "Țepi"
+        },
+        {
+          "text": "a șoptit el.",
+          "mood": "șoptit",
+          "pause": 0.6
+        },
+        {
+          "text": "Și ariciul a adormit, ghemuit, până când au înflorit ghioceii.",
+          "mood": "somnoros"
+        }
+      ],
+      "image": "images/pagina-10.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țepi: a tiny round baby hedgehog with soft light-brown spikes, a cream-colored face and belly, big shiny black eyes, a small pink nose and a little red knitted hat; Rubina: a big bright red maple leaf with a tiny friendly smiling face with two small dark eyes, floating gently in the air; Ronțăilă: a cheerful red squirrel with a huge fluffy orange tail, a white belly, big dark eyes and tufted ears. Setting: a cozy hollow under a big tree root in the autumn forest at dusk, a few early stars in the deep blue sky, gentle warm light. Action: Țepi the tiny baby hedgehog in a red knitted hat sleeps curled up into a little ball inside the round nest of colorful leaves, smiling; Rubina the big red maple leaf with a tiny smiling face covers him like a soft blanket; in the background, Ronțăilă the red squirrel with a huge fluffy tail waves goodnight from her tree hollow. Emotions: peaceful, sleepy, cozy. Important details: the colorful leaf nest, first stars in the sky. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "stars"
+      }
+    }
+  ],
+  "categories": [
+    "animale",
+    "invatam",
+    "de-culcare"
+  ],
+  "review": {
+    "imaginatie": "Rubina, o frunză roșie de arțar care vorbește, coboară pe nasul lui Țepi (pagina 4) și devine pătura culcușului (pagina 8); vântul de toamnă transformă frunzele din spinarea ariciului în confeti (pagina 5).",
+    "invatare": "Culorile toamnei: pagina 1 (copacii), pagina 2 (frunze galbene, portocalii, maro), pagina 7 (patru grămezi sortate după culoare) și pagina 8 (culcușul din toate culorile). Pregătirea animalelor de iarnă: paginile 1 și 10 (culcușul și somnul de iarnă), pagina 9 (veverița ascunde alune într-o scorbură, ariciul hibernează — ambele cuvinte explicate).",
+    "umor": [
+      "pagina 3: frunzele i se înfig în spinare, Țepi zice că își poartă culcușul cu el, iar Ronțăilă vede un tufiș care merge",
+      "pagina 4: Țepi se uită cruciș la frunza care i s-a așezat pe nas",
+      "pagina 5: Țepi strănută și frunzele zboară ca niște confeti, iar Ronțăilă se rostogolește de râs în grămada de frunze"
+    ],
+    "emotie": "Problema e pe înțelesul copiilor: Țepi vrea doar cea mai frumoasă frunză. Trei încercări: schimbă mereu frunza aleasă (pagina 2), își „poartă culcușul” în spinare, dar vântul i-l ia (paginile 3 și 5), își face culcuș dintr-o singură frunză și îi e frig (pagina 6). Apoi are singur ideea cea bună — multe frunze țin de cald — și, cu Rubina și Ronțăilă, face culcușul din toate culorile (paginile 7–8). Finalul e liniștit: ariciul adoarme cald până la primăvară (pagina 10).",
+    "siguranta": "Nimic nu sperie: vântul doar rotește frunzele, frigul de pe pagina 6 se rezolvă două pagini mai târziu, cu un culcuș cald; nu există pericole sau personaje rele. Rostogolirea veveriței e într-o grămadă moale de frunze, comică.",
+    "imagini": "Cel mult trei personaje pe imagine, fiecare numit cu ce este în acțiune (ariciul cu căciuliță roșie, veverița cu coada pufoasă, frunza roșie cu fețișoară). Fiecare prompt arată momentul paginii, cu toți cei care vorbesc pe ea: pădurea (1), alegerea frunzelor (2), tufișul care merge (3), frunza pe nas (4), confeti din frunze (5), frigul (6), cele patru grămezi (7), culcușul din toate culorile (8), scorbura cu alune (9), somnul, cu veverița care face cu mâna (10). Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
+    "voce": "Narațiune calmă, cu misterios când vine frunza și vântul, vesel și entuziasmat la momentele amuzante, trist când lui Țepi îi e frig și somnoros la final, cu o pauză înaintea ultimei propoziții. Țepi are o voce de puișor, Ronțăilă una vioaie și grăbită, iar Rubina una blândă și mai rară."
+  },
+  "verified": false,
+  "questions": [
+    {
+      "text": "De ce a avut nevoie Țepi de multe frunze?",
+      "options": [
+        {
+          "text": "Ca să-i fie cald iarna",
+          "emoji": "🤗"
+        },
+        {
+          "text": "Ca să se joace de-a ascunselea",
+          "emoji": "🙈"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Corect! O singură frunză nu ține de cald, dar multe frunze împreună fac un culcuș cald."
+    },
+    {
+      "text": "Ce face ariciul iarna?",
+      "options": [
+        {
+          "text": "Merge la mare",
+          "emoji": "🏖️"
+        },
+        {
+          "text": "Doarme toată iarna",
+          "emoji": "😴"
+        }
+      ],
+      "answer": 1,
+      "explanation": "Bravo! Ariciul doarme toată iarna. Asta se cheamă hibernare."
+    },
+    {
+      "text": "Ce culoare avea Rubina, frunza care vorbea?",
+      "options": [
+        {
+          "text": "Roșie",
+          "emoji": "🍁"
+        },
+        {
+          "text": "Albastră",
+          "emoji": "💙"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Corect! Rubina era cea mai roșie frunză din pădure."
+    }
+  ]
+}
