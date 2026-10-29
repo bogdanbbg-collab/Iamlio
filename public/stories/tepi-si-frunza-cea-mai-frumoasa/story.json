@@ -49,7 +49,7 @@
     }
   ],
   "cover": {
-    "image": "images/coperta.png",
+    "image": "images/coperta.webp",
     "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țepi: a tiny round baby hedgehog with soft light-brown spikes, a cream-colored face and belly, big shiny black eyes, a small pink nose and a little red knitted hat; Ronțăilă: a cheerful red squirrel with a huge fluffy orange tail, a white belly, big dark eyes and tufted ears; Rubina: a big bright red maple leaf with a tiny friendly smiling face with two small dark eyes, floating gently in the air. Setting: a sunny autumn forest clearing with tall trees covered in yellow, orange, red and brown leaves, a soft carpet of fallen leaves on the ground, warm golden afternoon light. Action: Țepi the tiny baby hedgehog in a red knitted hat holds a bright red maple leaf with a tiny smiling face, Rubina, up to the sky with joy, while Ronțăilă the red squirrel with a huge fluffy tail peeks from behind a tree trunk, smiling. Emotions: joyful, warm, a little magical. Important details: colorful falling leaves, soft sparkles. Camera: wide cinematic cover shot.",
     "animation": {
       "camera": "zoom-in",
@@ -73,7 +73,7 @@
           "mood": "calm"
         }
       ],
-      "image": "images/pagina-01.png",
+      "image": "images/pagina-01.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țepi: a tiny round baby hedgehog with soft light-brown spikes, a cream-colored face and belly, big shiny black eyes, a small pink nose and a little red knitted hat. Setting: a sunny autumn forest clearing with tall trees covered in yellow, orange, red and brown leaves, a soft carpet of fallen leaves on the ground, warm golden afternoon light. Action: Țepi the tiny baby hedgehog in a red knitted hat stands proudly in the middle of the leafy clearing, looking up at the colorful trees with wide curious eyes. Emotions: curious and determined. Important details: trees in yellow, orange, red and brown, leaves gently falling. Camera: wide shot.",
       "animation": {
         "camera": "zoom-out",
@@ -105,7 +105,7 @@
           "speaker": "Țepi"
         }
       ],
-      "image": "images/pagina-02.png",
+      "image": "images/pagina-02.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țepi: a tiny round baby hedgehog with soft light-brown spikes, a cream-colored face and belly, big shiny black eyes, a small pink nose and a little red knitted hat. Setting: a sunny autumn forest clearing with tall trees covered in yellow, orange, red and brown leaves, a soft carpet of fallen leaves on the ground, warm golden afternoon light. Action: Țepi the tiny baby hedgehog in a red knitted hat holds up one shiny brown leaf while looking excitedly at an orange leaf on the ground; a yellow leaf lies forgotten behind him. Emotions: excited, a little indecisive. Important details: one yellow leaf, one orange leaf, one shiny brown leaf. Camera: medium shot.",
       "animation": {
         "camera": "pan-right",
@@ -138,7 +138,7 @@
           "speaker": "Ronțăilă"
         }
       ],
-      "image": "images/pagina-03.png",
+      "image": "images/pagina-03.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țepi: a tiny round baby hedgehog with soft light-brown spikes, a cream-colored face and belly, big shiny black eyes, a small pink nose and a little red knitted hat; Ronțăilă: a cheerful red squirrel with a huge fluffy orange tail, a white belly, big dark eyes and tufted ears. Setting: a sunny autumn forest clearing with tall trees covered in yellow, orange, red and brown leaves, a soft carpet of fallen leaves on the ground, warm golden afternoon light. Action: Țepi the tiny baby hedgehog in a red knitted hat is completely covered in colorful leaves stuck on his spikes, looking like a small walking bush with tiny feet; Ronțăilă the red squirrel with a huge fluffy tail has just hopped down from a low branch and lands beside him, laughing and pointing. Emotions: funny and cheerful. Important details: lots of yellow, orange and red leaves stuck on the hedgehog's back, only his face and red hat visible. Camera: medium shot.",
       "animation": {
         "camera": "zoom-in",
@@ -171,7 +171,7 @@
           "mood": "mirat"
         }
       ],
-      "image": "images/pagina-04.png",
+      "image": "images/pagina-04.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țepi: a tiny round baby hedgehog with soft light-brown spikes, a cream-colored face and belly, big shiny black eyes, a small pink nose and a little red knitted hat; Rubina: a big bright red maple leaf with a tiny friendly smiling face with two small dark eyes, floating gently in the air. Setting: a sunny autumn forest clearing with tall trees covered in yellow, orange, red and brown leaves, a soft carpet of fallen leaves on the ground, warm golden afternoon light. Action: Rubina the big red maple leaf with a tiny smiling face has landed softly on the nose of Țepi the tiny baby hedgehog in a red knitted hat, who has a few colorful leaves still stuck on his spikes; the hedgehog looks at her cross-eyed with huge surprised eyes; tiny golden sparkles around the leaf. Emotions: magical surprise, funny. Important details: the big red maple leaf on the hedgehog's nose, golden sparkles. Camera: close-up.",
       "animation": {
         "camera": "zoom-in",
@@ -203,7 +203,7 @@
           "mood": "vesel"
         }
       ],
-      "image": "images/pagina-05.png",
+      "image": "images/pagina-05.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țepi: a tiny round baby hedgehog with soft light-brown spikes, a cream-colored face and belly, big shiny black eyes, a small pink nose and a little red knitted hat; Ronțăilă: a cheerful red squirrel with a huge fluffy orange tail, a white belly, big dark eyes and tufted ears. Setting: a sunny autumn forest clearing with tall trees covered in yellow, orange, red and brown leaves, a soft carpet of fallen leaves on the ground, warm golden afternoon light. Action: a gust of wind swirls colorful leaves in the air; Țepi the tiny baby hedgehog in a red knitted hat sneezes and the leaves fly off his spikes like confetti; Ronțăilă the red squirrel with a huge fluffy tail tumbles laughing into a soft pile of leaves. Emotions: funny, playful. Important details: a swirl of flying leaves like confetti. Camera: wide shot.",
       "animation": {
         "camera": "pan-up",
@@ -235,7 +235,7 @@
           "mood": "trist"
         }
       ],
-      "image": "images/pagina-06.png",
+      "image": "images/pagina-06.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țepi: a tiny round baby hedgehog with soft light-brown spikes, a cream-colored face and belly, big shiny black eyes, a small pink nose and a little red knitted hat; Rubina: a big bright red maple leaf with a tiny friendly smiling face with two small dark eyes, floating gently in the air. Setting: the same autumn clearing in the cool shade of a big tree, late afternoon. Action: Țepi the tiny baby hedgehog in a red knitted hat lies curled up and shivering on the bare ground; Rubina the big red maple leaf with a tiny smiling face covers only his back like a tiny blanket, while his paws and tiny tail stick out. Emotions: Țepi chilly and a little sad, Rubina worried. Important details: the hedgehog's paws sticking out, the single red leaf on his back. Camera: close-up.",
       "animation": {
         "camera": "still",
@@ -268,7 +268,7 @@
           "mood": "vesel"
         }
       ],
-      "image": "images/pagina-07.png",
+      "image": "images/pagina-07.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țepi: a tiny round baby hedgehog with soft light-brown spikes, a cream-colored face and belly, big shiny black eyes, a small pink nose and a little red knitted hat; Ronțăilă: a cheerful red squirrel with a huge fluffy orange tail, a white belly, big dark eyes and tufted ears; Rubina: a big bright red maple leaf with a tiny friendly smiling face with two small dark eyes, floating gently in the air. Setting: a sunny autumn forest clearing with tall trees covered in yellow, orange, red and brown leaves, a soft carpet of fallen leaves on the ground, warm golden afternoon light. Action: Țepi the tiny baby hedgehog in a red knitted hat and Ronțăilă the red squirrel with a huge fluffy tail sort fallen leaves into four neat piles by color on the ground: a yellow pile, an orange pile, a red pile and a brown pile; Rubina the big red maple leaf with a tiny smiling face floats beside Țepi's ear, smiling. Emotions: busy and happy, working together. Important details: four piles of leaves: yellow, orange, red and brown. Camera: medium shot from slightly above.",
       "animation": {
         "camera": "pan-left",
@@ -300,7 +300,7 @@
           "mood": "vesel"
         }
       ],
-      "image": "images/pagina-08.png",
+      "image": "images/pagina-08.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țepi: a tiny round baby hedgehog with soft light-brown spikes, a cream-colored face and belly, big shiny black eyes, a small pink nose and a little red knitted hat; Ronțăilă: a cheerful red squirrel with a huge fluffy orange tail, a white belly, big dark eyes and tufted ears; Rubina: a big bright red maple leaf with a tiny friendly smiling face with two small dark eyes, floating gently in the air. Setting: a cozy hollow under a big tree root in the autumn forest, warm golden light. Action: a round cozy nest made of many brown, yellow, orange and red leaves; Rubina the big red maple leaf with a tiny smiling face lies proudly on top like a blanket; Țepi the tiny baby hedgehog in a red knitted hat stands beside the nest admiring it, while Ronțăilă the red squirrel with a huge fluffy tail pats the nest with her paws. Emotions: proud and warm. Important details: the round colorful leaf nest, the red leaf on top. Camera: medium shot.",
       "animation": {
         "camera": "zoom-in",
@@ -333,7 +333,7 @@
           "mood": "somnoros"
         }
       ],
-      "image": "images/pagina-09.png",
+      "image": "images/pagina-09.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țepi: a tiny round baby hedgehog with soft light-brown spikes, a cream-colored face and belly, big shiny black eyes, a small pink nose and a little red knitted hat; Ronțăilă: a cheerful red squirrel with a huge fluffy orange tail, a white belly, big dark eyes and tufted ears. Setting: the autumn forest at sunset, warm orange light, a hollow in a tree trunk full of hazelnuts. Action: Ronțăilă the red squirrel with a huge fluffy tail sits at the entrance of a tree hollow full of hazelnuts, yawning; Țepi the tiny baby hedgehog in a red knitted hat yawns too, looking up at her from the ground. Emotions: calm, sleepy, friendly. Important details: the tree hollow with hazelnuts, sunset light. Camera: medium shot.",
       "animation": {
         "camera": "pan-up",
@@ -366,7 +366,7 @@
           "mood": "somnoros"
         }
       ],
-      "image": "images/pagina-10.png",
+      "image": "images/pagina-10.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țepi: a tiny round baby hedgehog with soft light-brown spikes, a cream-colored face and belly, big shiny black eyes, a small pink nose and a little red knitted hat; Rubina: a big bright red maple leaf with a tiny friendly smiling face with two small dark eyes, floating gently in the air; Ronțăilă: a cheerful red squirrel with a huge fluffy orange tail, a white belly, big dark eyes and tufted ears. Setting: a cozy hollow under a big tree root in the autumn forest at dusk, a few early stars in the deep blue sky, gentle warm light. Action: Țepi the tiny baby hedgehog in a red knitted hat sleeps curled up into a little ball inside the round nest of colorful leaves, smiling; Rubina the big red maple leaf with a tiny smiling face covers him like a soft blanket; in the background, Ronțăilă the red squirrel with a huge fluffy tail waves goodnight from her tree hollow. Emotions: peaceful, sleepy, cozy. Important details: the colorful leaf nest, first stars in the sky. Camera: wide shot.",
       "animation": {
         "camera": "zoom-out",
