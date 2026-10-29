@@ -5,15 +5,15 @@ s-a terminat), imaginea se face cu următoarea:
 0. Google Gemini („Nano Banana”) — secretul GEMINI_API_KEY (din aistudio.google.com). Gratuit cât timp proiectul
    Google rămâne pe „Free tier” (fără cont de plată legat), dacă Google oferă imagini pe nivelul gratuit.
    Pornește de la imaginea copertei, ca personajele să fie identice. Opțional: GEMINI_IMAGE_MODEL.
-1. Pollinations — GRATUIT, prima variantă (imaginile ies cele mai frumoase): secretul POLLINATIONS_API_KEY
-   (cheia secretă „sk_…” din enter.pollinations.ai, cont gratuit). Opțional, variabila POLLINATIONS_IMAGE_MODEL
-   (implicit Z-Image Turbo). Ca la Cloudflare: fără imaginea copertei ca referință, aceeași „sămânță” pe poveste.
-2. Cloudflare Workers AI — GRATUIT, rezerva (cota zilnică a planului gratuit, fără card): secretele CLOUDFLARE_ACCOUNT_ID
+1. Cloudflare Workers AI — GRATUIT, prima variantă (cota zilnică a planului gratuit, fără card): secretele CLOUDFLARE_ACCOUNT_ID
    și CLOUDFLARE_API_TOKEN. Opțional, variabila CLOUDFLARE_IMAGE_MODEL (implicit FLUX.2 klein 4B). Paginile primesc
    coperta ca imagine de referință, iar scenele cu Lio și imaginea lui (scripts/referinte/lio.png), ca personajele
    să arate la fel; fiecare prompt are și descrierea personajelor și aceeași „sămânță” pentru toată povestea. Dacă
-   modelul nou refuză o cerere (alta decât cota), imaginea se face cu FLUX.1 schnell, fără referințe. Pe planul gratuit nu se plătește nimic: când cota zilei se termină, restul imaginilor se
-   generează la publicarea de a doua zi.
+   modelul nou refuză o cerere (alta decât cota), imaginea se face cu FLUX.1 schnell, fără referințe. Pe planul
+   gratuit nu se plătește nimic: când cota zilei se termină, restul imaginilor se fac cu Pollinations sau a doua zi.
+2. Pollinations — GRATUIT, rezerva după Cloudflare: secretul POLLINATIONS_API_KEY
+   (cheia secretă „sk_…” din enter.pollinations.ai, cont gratuit). Opțional, variabila POLLINATIONS_IMAGE_MODEL
+   (implicit Z-Image Turbo). Ca la Cloudflare: fără imaginea copertei ca referință, aceeași „sămânță” pe poveste.
 3. OpenAI (cu plată) — secretul OPENAI_API_KEY. Opțional (variabile de repository):
   IMAGE_MODEL     modelul de imagine (implicit gpt-image-2)
   IMAGE_QUALITY   low | medium | high (implicit medium)
@@ -147,15 +147,16 @@ def cost_lei(result):
 
 
 def providers():
-    """Variantele configurate, în ordinea în care se încearcă: gemini, pollinations, cloudflare (gratuite), openai."""
+    """Variantele configurate, în ordinea în care se încearcă: gemini, cloudflare, pollinations (gratuite), openai."""
     found = []
     if os.environ.get("GEMINI_API_KEY"):
         found.append("gemini")
-    # Pollinations înaintea Cloudflare: imaginile ies mai frumoase și personajele mai asemănătoare între pagini
-    if os.environ.get("POLLINATIONS_API_KEY"):
-        found.append("pollinations")
+    # Cloudflare (FLUX.2 klein) înaintea Pollinations: primește coperta ca referință, deci personajele arată la fel
+    # pe toate paginile; Pollinations nu primește imagini de referință
     if os.environ.get("CLOUDFLARE_ACCOUNT_ID") and os.environ.get("CLOUDFLARE_API_TOKEN"):
         found.append("cloudflare")
+    if os.environ.get("POLLINATIONS_API_KEY"):
+        found.append("pollinations")
     if os.environ.get("OPENAI_API_KEY"):
         found.append("openai")
     return found

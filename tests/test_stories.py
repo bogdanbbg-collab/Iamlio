@@ -906,7 +906,7 @@ class PollinationsTests(unittest.TestCase):
         env = {"GEMINI_API_KEY": "", "CLOUDFLARE_ACCOUNT_ID": "a", "CLOUDFLARE_API_TOKEN": "t",
                "POLLINATIONS_API_KEY": "sk", "OPENAI_API_KEY": "k"}
         with mock.patch.dict("os.environ", env):
-            self.assertEqual(imagini.providers(), ["pollinations", "cloudflare", "openai"])
+            self.assertEqual(imagini.providers(), ["cloudflare", "pollinations", "openai"])
 
 
 class GeminiAndFallbackTests(unittest.TestCase):

@@ -219,7 +219,7 @@
         "camera": "zoom-in",
         "effect": "none"
       },
-      "imageVariant": 2
+      "imageVariant": 3
     },
     {
       "text": "Cucu a zburat la ușița lui, ca să cânte de opt ori. — Cucu, cucu, cucu, cucu, cucu, cucu, cucu, cucu, cucu, cucu, cucu! Lio și-a astupat urechile. — Gata, gata! Ai cântat de unsprezece ori!",
@@ -249,7 +249,7 @@
         "camera": "pan-up",
         "effect": "sparkles"
       },
-      "imageVariant": 1
+      "imageVariant": 3
     },
     {
       "text": "Au încercat din nou, numărând împreună pe degete: — Unu, doi, trei, patru, cinci, șase, șapte, opt! Cucu a cântat exact de opt ori și s-a umflat în pene de mândrie. Apoi Lio a mâncat clătite cu miere, la ora potrivită.",
@@ -278,7 +278,7 @@
         "camera": "pan-right",
         "effect": "none"
       },
-      "imageVariant": 1
+      "imageVariant": 3
     },
     {
       "text": "La prânz, cele două limbi s-au întâlnit sus de tot, una peste alta, ca două prietene care se îmbrățișează. — E ora douăsprezece! Ora de prânz! a strigat Cucu, fără să mai întrebe pe nimeni. Bunicul Ceas a zâmbit, iar pendulul lui a bătut mai vesel: tic-tac, tic-tac.",
@@ -307,7 +307,7 @@
         "camera": "zoom-in",
         "effect": "none"
       },
-      "imageVariant": 1
+      "imageVariant": 3
     },
     {
       "text": "După-amiază, lui Cucu i s-a făcut dor de joacă. A împins cu ciocul limba cea mare, ca să vină mai repede ora de joacă. — Hopa! a chicotit Bunicul Ceas. — Timpul nu se grăbește dacă împingi limbile. Ora de joacă vine la ora ei.",
@@ -341,7 +341,7 @@
         "camera": "pan-left",
         "effect": "none"
       },
-      "imageVariant": 1
+      "imageVariant": 3
     },
     {
       "text": "Seara, limba mare a ajuns iar sus, iar cea mică a arătat din nou spre opt. — Iar ora opt? Dar a fost azi-dimineață! — Limba mică face două ture pe zi, a spus Bunicul Ceas. — Ora opt vine o dată dimineața și o dată seara.",
@@ -376,7 +376,7 @@
         "camera": "zoom-out",
         "effect": "stars"
       },
-      "imageVariant": 1
+      "imageVariant": 3
     },
     {
       "text": "Cucu a cântat de opt ori, încet, ca un cântec de leagăn. Lio și-a pus pijamaua și s-a cuibărit sub pătură. — Noapte bună, Cucu. Noapte bună, Bunicule Ceas, a șoptit el. Tic-tac, tic-tac… și toată casa a adormit.",
@@ -409,7 +409,7 @@
         "camera": "zoom-out",
         "effect": "stars"
       },
-      "imageVariant": 1
+      "imageVariant": 3
     }
   ],
   "categories": [
@@ -427,7 +427,7 @@
     ],
     "emotie": "Problema e pe înțelesul copiilor: Cucu e trist că a uitat cum se citește ceasul și încurcă tot. Încearcă de mai multe ori: greșește numărul (pagina 6), reușește numărând pe degete (pagina 7), apoi recunoaște singur ora prânzului (pagina 8). Finalul e liniștit: seara, Cucu cântă încet de opt ori ca un cântec de leagăn și toată casa adoarme (pagina 11).",
     "siguranta": "Nimic nu sperie: ceasurile sunt prietenoase, iar greșelile sunt glume blânde. Nu există pericole, personaje rele sau certuri; Bunicul Ceas îl corectează pe Cucu cu răbdare și umor.",
-    "imagini": "Paginile 5–11 au ieșit greșit la prima generare (Lio desenat ca un băiat, un personaj în plus, cifre pe cadran); am numit fiecare personaj cu specia lui chiar în acțiune și am cerut desene noi; povestea rămâne ascunsă până verific fiecare imagine. Fiecare prompt arată momentul paginii: cucul care cântă (1), ușița închisă (2), drumul spre Bunicul Ceas (3), cele două limbi de lungimi diferite și limbuța lui Cucu (4), ora opt pe cadran (5), notele muzicale și urechile astupate (6), clătitele și numărarea pe degete (7), ora douăsprezece (8), ciocul care împinge limba (9), seara la ora opt (10), dormitorul noaptea (11). Cadranele au puncte în loc de cifre (fără cifre în imagini). Voi privi imaginile după publicare și le refac pe cele care nu se potrivesc.",
+    "imagini": "Paginile 5–11 au ieșit greșit la prima generare (Lio desenat ca un băiat, un personaj în plus, cifre pe cadran); am numit fiecare personaj cu specia lui chiar în acțiune și am cerut desene noi; povestea rămâne ascunsă până verific fiecare imagine. Fiecare prompt arată momentul paginii: cucul care cântă (1), ușița închisă (2), drumul spre Bunicul Ceas (3), cele două limbi de lungimi diferite și limbuța lui Cucu (4), ora opt pe cadran (5), notele muzicale și urechile astupate (6), clătitele și numărarea pe degete (7), ora douăsprezece (8), ciocul care împinge limba (9), seara la ora opt (10), dormitorul noaptea (11). Cadranele au puncte în loc de cifre (fără cifre în imagini). Voi privi imaginile după publicare și le refac pe cele care nu se potrivesc. Generatorul s-a schimbat (FLUX.2 klein, care primește coperta și imaginea lui Lio ca referință), așa că am cerut din nou paginile 5–11; coperta și paginile 1–4 erau bune.",
     "voce": "Narațiunea e calmă, cu misterios la ușița închisă, entuziasmat la orele recunoscute și la numărat, trist când Cucu își povestește necazul și somnoros la final. Cucu are o voce subțire și grăbită, de păsărică, iar Bunicul Ceas o voce groasă, rară și blândă, ca un ceas bătrân."
   },
   "questions": [
