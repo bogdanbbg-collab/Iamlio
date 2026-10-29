@@ -26,8 +26,10 @@ regulile, o adaptezi.
 ## 3. Scrie povestea
 
 `python3 scripts/stories.py new "Titlu"`, apoi completezi tot, după `REGULI_POVESTI.md` (secțiunea 10). În plus,
-ca imaginile gratuite (Cloudflare, ~20 pe zi, fără imagine de referință) să iasă bine:
-- **9–11 pagini** (~4 minute): rămâne loc în cotă pentru refacerea câtorva imagini;
+ca imaginile gratuite (Cloudflare FLUX.2 klein, ~50 pe zi, cu coperta și Lio ca imagini de referință) să iasă bine:
+- **9–12 pagini** (~4 minute): rămâne loc în cotă pentru refacerea câtorva imagini și a celor rămase din zilele trecute;
+- **coperta contează cel mai mult**: toate paginile pornesc de la ea, deci pe copertă apar personajele principale,
+  clar, din față, cu semnele lor distinctive; dacă coperta e greșită, o refaci întâi pe ea;
 - **cel mult 2–3 personaje într-o imagine**; personaje ușor de desenat, cu un semn distinctiv clar
   (o culoare, o haină); Lio apare în imagine doar unde e cu adevărat în scenă;
 - în `Action`, fiecare personaj **numit împreună cu ce este**: „Lio the little lion cub”, „Ana, the girl in the

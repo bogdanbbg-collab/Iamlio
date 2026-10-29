@@ -656,7 +656,7 @@ class CloudflareTests(unittest.TestCase):
         from PIL import Image
 
         answer = json.dumps({"success": True, "result": {"image": base64.b64encode(self._image()).decode()}}).encode()
-        client, sent = self._client("application/json", answer)
+        client, sent = self._client("application/json", answer, model=imagini.CLOUDFLARE_FALLBACK_MODEL)
         result = client.images.edit(prompt=imagini.CONSISTENCY + "A hedgehog " + "x" * 3000, model="m")
         with Image.open(io.BytesIO(base64.b64decode(result.data[0].b64_json))) as image:
             self.assertEqual((image.format, image.size), ("PNG", (1536, 1024)))
@@ -668,6 +668,55 @@ class CloudflareTests(unittest.TestCase):
         # FLUX.1 schnell primește doar prompt și steps (alți parametri sunt refuzați de Cloudflare)
         self.assertEqual(set(body), {"prompt", "steps"})
         self.assertEqual(body["steps"], 8)
+
+    def test_klein_gets_the_cover_and_lio_as_reference_images(self):
+        import io
+        from unittest import mock
+
+        sent = []
+
+        class Response(io.BytesIO):
+            headers = {"Content-Type": "image/png"}
+
+        def opener(request, timeout):
+            sent.append((request.full_url, request.get_header("Content-type"), request.data))
+            return Response(self._image((1536, 1024), "PNG"))
+
+        client = imagini.CloudflareClient("cont", "jeton", imagini.CLOUDFLARE_MODEL, "arici", opener=opener)
+        with mock.patch.object(imagini, "LIO_REFERENCE", mock.Mock(exists=lambda: True, read_bytes=lambda: self._image((64, 64), "PNG"))):
+            client.images.edit(prompt="Lio and a hedgehog sit on a log.", image=[io.BytesIO(self._image((1536, 1024)))])
+        url, kind, body = sent[0]
+        self.assertIn("/ai/run/" + imagini.CLOUDFLARE_MODEL, url)
+        self.assertTrue(kind.startswith("multipart/form-data; boundary="))
+        self.assertIn(b'name="input_image_0"', body)
+        self.assertIn(b'name="input_image_1"', body, "Lio e în scenă: și imaginea lui de referință")
+        self.assertIn(imagini.KLEIN_INTRO.encode(), body)
+        self.assertIn(b'name="width"', body)
+
+    def test_klein_falls_back_to_schnell_but_not_on_the_daily_quota(self):
+        import io
+        from urllib.error import HTTPError
+
+        urls = []
+
+        class Response(io.BytesIO):
+            headers = {"Content-Type": "image/png"}
+
+        def failing(message):
+            def opener(request, timeout):
+                urls.append(request.full_url)
+                if "flux-2" in request.full_url:
+                    raise HTTPError(request.full_url, 400, "x", {}, io.BytesIO(message.encode()))
+                return Response(self._image((1536, 1024), "PNG"))
+            return opener
+
+        client = imagini.CloudflareClient("cont", "jeton", imagini.CLOUDFLARE_MODEL, "arici", opener=failing("bad input"))
+        client.images.generate(prompt="A hedgehog")
+        self.assertIn(imagini.CLOUDFLARE_FALLBACK_MODEL, urls[-1])
+        client = imagini.CloudflareClient("cont", "jeton", imagini.CLOUDFLARE_MODEL, "arici",
+                                          opener=failing('{"errors":[{"code":4006,"message":"daily free allocation"}]}'))
+        with self.assertRaisesRegex(RuntimeError, "4006"):
+            client.images.generate(prompt="A hedgehog")
 
     def test_scene_goes_first_and_character_descriptions_last(self):
         characters = [{"name": "Aricel", "description": "a tiny round hedgehog with a teal scarf"},
@@ -692,7 +741,8 @@ class CloudflareTests(unittest.TestCase):
         self.assertEqual(sent[0]["seed"], sent[1]["seed"], "aceeași sămânță pentru toată povestea")
 
     def test_errors_are_reported(self):
-        client, _ = self._client("application/json", json.dumps({"success": False, "errors": [{"message": "cota zilnică"}]}).encode())
+        client, _ = self._client("application/json", json.dumps({"success": False, "errors": [{"message": "cota zilnică"}]}).encode(),
+                                    model=imagini.CLOUDFLARE_FALLBACK_MODEL)
         with self.assertRaisesRegex(RuntimeError, "cota zilnică"):
             client.images.generate(prompt="Cover")
 

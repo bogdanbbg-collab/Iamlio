@@ -9,10 +9,10 @@ s-a terminat), imaginea se face cu următoarea:
    (cheia secretă „sk_…” din enter.pollinations.ai, cont gratuit). Opțional, variabila POLLINATIONS_IMAGE_MODEL
    (implicit Z-Image Turbo). Ca la Cloudflare: fără imaginea copertei ca referință, aceeași „sămânță” pe poveste.
 2. Cloudflare Workers AI — GRATUIT, rezerva (cota zilnică a planului gratuit, fără card): secretele CLOUDFLARE_ACCOUNT_ID
-   și CLOUDFLARE_API_TOKEN. Opțional, variabila CLOUDFLARE_IMAGE_MODEL (implicit FLUX.1 schnell). Imaginile nu
-   pornesc de la copertă ca referință (modelul nu poate), dar fiecare prompt are descrierea completă a
-   personajelor (și, la modelele care o acceptă, aceeași „sămânță” pentru toată povestea), ca să semene
-   între ele. Pe planul gratuit nu se plătește nimic: când cota zilei se termină, restul imaginilor se
+   și CLOUDFLARE_API_TOKEN. Opțional, variabila CLOUDFLARE_IMAGE_MODEL (implicit FLUX.2 klein 4B). Paginile primesc
+   coperta ca imagine de referință, iar scenele cu Lio și imaginea lui (scripts/referinte/lio.png), ca personajele
+   să arate la fel; fiecare prompt are și descrierea personajelor și aceeași „sămânță” pentru toată povestea. Dacă
+   modelul nou refuză o cerere (alta decât cota), imaginea se face cu FLUX.1 schnell, fără referințe. Pe planul gratuit nu se plătește nimic: când cota zilei se termină, restul imaginilor se
    generează la publicarea de a doua zi.
 3. OpenAI (cu plată) — secretul OPENAI_API_KEY. Opțional (variabile de repository):
   IMAGE_MODEL     modelul de imagine (implicit gpt-image-2)
@@ -227,6 +227,7 @@ class ChainClient:
                 self.clients.remove(client)
                 continue
             self.model = getattr(client, "model", self.model)
+            self.last_model = getattr(client, "last_model", self.model)  # modelul care a desenat de fapt
             self.provider = getattr(client, "provider", "")
             return result
         raise RuntimeError("nicio variantă nu a mers — " + " | ".join(problems))
@@ -300,7 +301,12 @@ class GeminiClient:
 
 # ---------- Cloudflare Workers AI (gratuit) ----------
 
-CLOUDFLARE_MODEL = "@cf/black-forest-labs/flux-1-schnell"
+CLOUDFLARE_MODEL = "@cf/black-forest-labs/flux-2-klein-4b"  # primește imagini de referință: personaje la fel
+CLOUDFLARE_FALLBACK_MODEL = "@cf/black-forest-labs/flux-1-schnell"  # dacă modelul nou nu răspunde (nu la cotă)
+REFERENCE_MAX = 500  # Workers AI cere imagini de referință mai mici de 512×512
+LIO_REFERENCE = Path(__file__).resolve().parent / "referinte" / "lio.png"  # Lio cum arată pe site
+KLEIN_INTRO = ("Keep every character exactly as in the reference images (same face, fur, colors, clothes, proportions) "
+               "and the same 3D animated film style, but draw a completely new scene: ")
 CLOUDFLARE_MAX_PROMPT = 2048
 WIDE = ("Wide horizontal 3:2 composition: keep every character and the main action in the middle of the frame, "
         "with some empty background at the top and bottom.")
@@ -351,12 +357,48 @@ class CloudflareImages:
     def generate(self, prompt, variant=0, **_):
         return self.client.run(prompt, variant)
 
-    def edit(self, prompt, variant=0, **_):
-        # Modelul nu primește imaginea de referință: personajele vin din descrierile complete din prompt.
-        return self.client.run(prompt[len(CONSISTENCY):] if prompt.startswith(CONSISTENCY) else prompt, variant)
+    def edit(self, prompt, variant=0, image=None, **_):
+        # FLUX.2 klein primește coperta ca referință, ca personajele să arate la fel; FLUX.1 schnell nu primește
+        # imagini, iar personajele vin doar din descrierile din prompt
+        prompt = prompt[len(CONSISTENCY):] if prompt.startswith(CONSISTENCY) else prompt
+        if not getattr(self.client, "supports_references", False):
+            return self.client.run(prompt, variant)
+        references = [handle.read() for handle in image or []]
+        return self.client.run(prompt, variant, references)
+
+
+def reference_png(raw):
+    """O imagine de referință, micșorată sub limita Workers AI (512×512), ca PNG."""
+    import io
+
+    from PIL import Image
+
+    with Image.open(io.BytesIO(raw)) as source:
+        picture = source.convert("RGB")
+        picture.thumbnail((REFERENCE_MAX, REFERENCE_MAX))
+        buffer = io.BytesIO()
+        picture.save(buffer, "PNG")
+    return buffer.getvalue()
+
+
+def multipart(fields, files):
+    """Corpul unei cereri multipart/form-data (fără biblioteci în plus)."""
+    import uuid
+
+    boundary = "iamlio" + uuid.uuid4().hex
+    parts = []
+    for name, value in fields.items():
+        parts.append(f'--{boundary}\r\nContent-Disposition: form-data; name="{name}"\r\n\r\n{value}\r\n'.encode())
+    for name, data in files.items():
+        parts.append(f'--{boundary}\r\nContent-Disposition: form-data; name="{name}"; filename="{name}.png"\r\n'
+                     f"Content-Type: image/png\r\n\r\n".encode() + data + b"\r\n")
+    parts.append(f"--{boundary}--\r\n".encode())
+    return b"".join(parts), f"multipart/form-data; boundary={boundary}"
 
 
 class CloudflareClient:
+    supports_references = True
+
     def __init__(self, account, token, model, story_id="", opener=None, characters=()):
         import zlib
 
@@ -366,20 +408,61 @@ class CloudflareClient:
         self.images = CloudflareImages(self)
         self.opener = opener
 
-    def run(self, prompt, variant=0):
+    def run(self, prompt, variant=0, references=()):
+        scene = scene_first(prompt, self.characters)
+        self.last_model = self.model
+        if "flux-2" in self.model:
+            try:
+                return self._run_klein(scene, prompt, variant, references)
+            except RuntimeError as exc:
+                if "4006" in str(exc) or "daily free allocation" in str(exc):
+                    raise  # cota zilnică: și modelul vechi ar fi refuzat
+                print(f"  [imagini] {self.model} nu a mers ({str(exc)[:160]}); încerc {CLOUDFLARE_FALLBACK_MODEL}")
+            self.last_model = CLOUDFLARE_FALLBACK_MODEL
+            return self._run_json(scene, variant, CLOUDFLARE_FALLBACK_MODEL)
+        return self._run_json(scene, variant, self.model)
+
+    def _run_json(self, scene, variant, model):
         import json
         import urllib.request
 
-        prompt = scene_first(prompt, self.characters)
-        body = {"prompt": prompt}
-        if "flux-1-schnell" in self.model:
+        body = {"prompt": scene}
+        if "flux-1-schnell" in model:
             body["steps"] = 8  # maximul modelului: cea mai bună calitate (modelul nu primește alți parametri)
         else:
             body.update(width=1536, height=1024, seed=variant_seed(self.seed, variant))
         request = urllib.request.Request(
-            f"https://api.cloudflare.com/client/v4/accounts/{self.account}/ai/run/{self.model}",
+            f"https://api.cloudflare.com/client/v4/accounts/{self.account}/ai/run/{model}",
             data=json.dumps(body).encode("utf-8"), method="POST",
             headers={"Authorization": f"Bearer {self.token}", "Content-Type": "application/json"})
+        return self._answer(request)
+
+    def _run_klein(self, scene, original, variant, references):
+        """FLUX.2 klein: coperta (dacă există) și Lio (dacă e în scenă) ca imagini de referință."""
+        import urllib.request
+
+        images = [reference_png(raw) for raw in references][:3]
+        if re.search(r"\bLio\b", original) and LIO_REFERENCE.exists():
+            images.append(LIO_REFERENCE.read_bytes())
+        fields = {"prompt": ((KLEIN_INTRO if images else "") + scene)[:CLOUDFLARE_MAX_PROMPT],
+                  "width": "1536", "height": "1024", "seed": str(variant_seed(self.seed, variant))}
+        files = {f"input_image_{n}": data for n, data in enumerate(images)}
+        for attempt in (1, 2):
+            body, content_type = multipart(fields, files)
+            request = urllib.request.Request(
+                f"https://api.cloudflare.com/client/v4/accounts/{self.account}/ai/run/{self.model}",
+                data=body, method="POST", headers={"Authorization": f"Bearer {self.token}", "Content-Type": content_type})
+            try:
+                return self._answer(request)
+            except RuntimeError as exc:
+                if attempt == 2 or "seed" not in str(exc).lower():
+                    raise
+                fields.pop("seed")  # dacă modelul nu primește „seed”, cerem fără
+
+    def _answer(self, request):
+        import json
+        import urllib.request
+
         try:
             kind, payload = _send(self.opener or urllib.request.urlopen, request)
         except Exception as exc:
@@ -541,7 +624,8 @@ def generate_missing(folder, data, client=None, budget=None):
         entry["image"] = str(Path(entry["image"]).with_suffix(".png"))
         budget.spend(cost_lei(result), getattr(client, "provider", "") or provider() or "openai")
         made += 1
-        changes.append(f"{label}: imaginea a fost generată automat ({getattr(client, 'model', None) or model})")
+        changes.append(f"{label}: imaginea a fost generată automat "
+                       f"({getattr(client, 'last_model', None) or getattr(client, 'model', None) or model})")
     return changes, errors, made
 
 
@@ -560,7 +644,16 @@ def test_providers(out_dir):
             kwargs = {"prompt": prompt, "model": getattr(client, "model", None), "size": SIZE, "quality": DEFAULT_QUALITY}
             result = client.images.generate(**kwargs)
             save(result, out_dir / f"{name}.png")
-            results.append((name, f"merge ({getattr(client, 'model', '')}); imaginea: {name}.png", True))
+            used = getattr(client, "last_model", None) or getattr(client, "model", "")
+            message = f"merge ({used}); imaginea: {name}.png"
+            if getattr(client, "supports_references", False):
+                # pagina următoare, cu prima imagine ca referință (cum se face la povești, cu coperta)
+                with open(out_dir / f"{name}.png", "rb") as reference:
+                    result = client.images.edit(prompt=CONSISTENCY + "Lio, a little lion cub, reads a book under a tree.",
+                                                image=[reference], model=kwargs["model"])
+                save(result, out_dir / f"{name}-cu-referinta.png")
+                message += f"; cu referință: {getattr(client, 'last_model', '')} ({name}-cu-referinta.png)"
+            results.append((name, message, True))
         except Exception as exc:
             results.append((name, f"nu merge: {str(exc)[:400]}", False))
     return results

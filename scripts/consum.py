@@ -13,7 +13,7 @@ from pathlib import Path
 
 import voce
 
-CLOUDFLARE_IMAGES_DAY = 20  # estimat: 10.000 de „neuroni” gratuiți pe zi ajung pentru ~20 de imagini 1536×1024
+CLOUDFLARE_IMAGES_DAY = 50  # estimat: 10.000 de „neuroni” gratuiți pe zi ajung pentru ~50 de imagini FLUX.2 klein 1536×1024
 POLLINATIONS_IMAGE_COST = 0.004  # pollen pe imagine (din mesajul de eroare al Pollinations)
 ACTIONS_MINUTES_MONTH = 2000  # GitHub Free, repository privat
 TIMEOUT = 15

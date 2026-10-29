@@ -108,9 +108,10 @@ personajele rămân identice.
 copiezi **Account ID** și creezi un **API token** cu permisiunea „Workers AI” (Read și Edit), apoi le pui în GitHub
 ca secretele `CLOUDFLARE_ACCOUNT_ID` și `CLOUDFLARE_API_TOKEN`. Cota gratuită zilnică ajunge pentru câteva povești
 pe zi; pe planul gratuit nu se plătește nimic, iar dacă cota se termină, restul imaginilor se fac a doua zi.
-Modelul implicit e FLUX.1 schnell (se poate schimba cu variabila `CLOUDFLARE_IMAGE_MODEL`). Personajele seamănă
-între pagini datorită descrierilor complete din fiecare prompt, dar mai puțin decât la OpenAI, care pornește
-de la imaginea copertei: merită privită povestea după publicare. Cota zilei (cam 20 de imagini) se reînnoiește la
+Modelul implicit e FLUX.2 klein 4B (se poate schimba cu variabila `CLOUDFLARE_IMAGE_MODEL`): fiecare pagină primește
+coperta ca imagine de referință, iar scenele cu Lio și `scripts/referinte/lio.png`, ca personajele să arate la fel;
+dacă modelul refuză o cerere, imaginea se face cu FLUX.1 schnell, fără referințe. Merită privită povestea după
+publicare. Cota zilei (cam 50 de imagini) se reînnoiește la
 00:00 UTC; în fiecare noapte, workflow-ul „Imagini rămase (zilnic)” pornește singur publicarea dacă lipsesc imagini.
 
 **Gratuit, prima variantă — Pollinations:** imaginile ies cele mai frumoase; când nu merge, se folosește Cloudflare. Cont gratuit
