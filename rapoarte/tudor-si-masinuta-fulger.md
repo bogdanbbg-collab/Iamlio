@@ -1,20 +1,8 @@
 # Tudor și mașinuța Fulger
 
-**Stare: ⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)** · verificată la 2026-10-29 03:55 UTC
+**Stare: ⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)** · verificată la 2026-10-29 04:07 UTC
 
 Poveste: `public/stories/tudor-si-masinuta-fulger/story.json`
-
-## Reparat automat
-
-Aceste lucruri au fost corectate automat în `story.json` (preia versiunea din repository înainte de a modifica din nou povestea):
-
-- pagina 1: imaginea a fost generată automat (@cf/black-forest-labs/flux-1-schnell)
-- pagina 2: imaginea a fost generată automat (@cf/black-forest-labs/flux-1-schnell)
-- pagina 3: imaginea a fost generată automat (@cf/black-forest-labs/flux-1-schnell)
-- pagina 4: imaginea a fost generată automat (@cf/black-forest-labs/flux-1-schnell)
-- pagina 5: imaginea a fost generată automat (@cf/black-forest-labs/flux-1-schnell)
-- pagina 8: imaginea a fost generată automat (@cf/black-forest-labs/flux-1-schnell)
-- pagina 12: imaginea a fost generată automat (@cf/black-forest-labs/flux-1-schnell)
 
 ## Ce faci mai departe
 
