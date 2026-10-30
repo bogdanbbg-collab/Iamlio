@@ -1366,6 +1366,23 @@ class VoiceTests(unittest.TestCase):
             manifest = json.loads((audio_dir / "manifest.json").read_text())
             self.assertEqual(set(manifest["motor"]["feminin"].values()), {"gemini"})
 
+    def test_gemini_works_across_stories_each_with_its_own_event_loop(self):
+        from unittest import mock
+
+        budget = voce.GeminiBudget()
+        budget.limit = 5
+        gemini = voce.Gemini("cheie", budget)
+        gemini.broken = ""
+        with mock.patch.object(gemini, "_call", side_effect=voce.GeminiUnavailable("Gemini TTS HTTP 500: pană")), \
+                mock.patch.object(voce, "GEMINI_INTERVAL", 0):
+            async def story():  # ca la publicare: mai multe fișiere ale poveștii deodată
+                calls = [gemini.render([voce.Segment("Era odată.")], "feminin", [], Path(f"{n}.mp3")) for n in range(3)]
+                return await asyncio.gather(*calls, return_exceptions=True)
+
+            for _ in range(2):  # două povești = două asyncio.run, deci două bucle diferite
+                errors = asyncio.run(story())
+                self.assertTrue(all(isinstance(e, voce.GeminiUnavailable) for e in errors), errors)
+
     def test_gemini_prompt_and_timings(self):
         segments = [voce.Segment("Lio a râs."), voce.Segment("— Bună!", "vesel", "Lio")]
         prompt = voce.gemini_prompt(segments, [{"name": "Lio"}, {"name": "Cucu", "description": "a wooden cuckoo, red"}])

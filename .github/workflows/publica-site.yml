@@ -424,7 +424,9 @@ jobs:
         run: |
           tag="publicat-$(date -u +%Y%m%d-%H%M%S)"
           git tag "$tag" "${PUBLICAT_SHA:-HEAD}"
-          git push origin "$tag"
+          # GitHub refuză tag-ul robotului dacă în versiunea publicată s-a schimbat chiar un workflow (rar): site-ul
+          # e oricum urcat, iar tag-ul următoarei publicări îl înlocuiește
+          git push origin "$tag" || { echo "::warning::tag-ul $tag nu s-a putut salva (workflow schimbat în această versiune)"; exit 0; }
           echo "Versiune publicată: $tag" >> "$GITHUB_STEP_SUMMARY"
 
       # Site-ul e publicat cu poveștile bune; dacă una nu trece verificarea, rularea apare cu roșu

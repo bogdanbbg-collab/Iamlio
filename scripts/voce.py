@@ -571,7 +571,7 @@ class Gemini:
         self.model = model or os.environ.get("GEMINI_TTS_MODEL") or GEMINI_TTS_MODEL
         self.broken = ""
         self.made = 0
-        self._lock = None
+        self._lock, self._lock_loop = None, None
         self._last = 0.0
 
     def available(self):
@@ -606,8 +606,10 @@ class Gemini:
     async def render(self, segments, voice_key, characters, target, style=""):
         """Generează fișierul dintr-o singură cerere; întoarce momentele (aproximative) ale replicilor.
         Fișierul existent (Chirp) rămâne neatins dacă Gemini nu reușește sau rezultatul e respins."""
-        if self._lock is None:
-            self._lock = asyncio.Lock()
+        # fiecare poveste rulează în propriul asyncio.run (altă buclă): lacătul se face din nou pentru bucla curentă
+        loop = asyncio.get_running_loop()
+        if self._lock is None or self._lock_loop is not loop:
+            self._lock, self._lock_loop = asyncio.Lock(), loop
         async with self._lock:
             if self.broken:
                 raise GeminiUnavailable(self.broken)
