@@ -1,19 +1,8 @@
 # Țepi și frunza cea mai frumoasă
 
-**Stare: ⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)** · verificată la 2026-10-30 04:37 UTC
+**Stare: ⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)** · verificată la 2026-10-30 05:55 UTC
 
 Poveste: `public/stories/tepi-si-frunza-cea-mai-frumoasa/story.json`
-
-## Reparat automat
-
-Aceste lucruri au fost corectate automat în `story.json` (preia versiunea din repository înainte de a modifica din nou povestea):
-
-- coperta: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 4: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 5: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 6: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 8: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 10: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 
 ## Ce faci mai departe
 

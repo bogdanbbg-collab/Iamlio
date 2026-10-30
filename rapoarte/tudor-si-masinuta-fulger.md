@@ -1,26 +1,8 @@
 # Tudor și mașinuța Fulger
 
-**Stare: ⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)** · verificată la 2026-10-30 04:37 UTC
+**Stare: ⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)** · verificată la 2026-10-30 05:55 UTC
 
 Poveste: `public/stories/tudor-si-masinuta-fulger/story.json`
-
-## Reparat automat
-
-Aceste lucruri au fost corectate automat în `story.json` (preia versiunea din repository înainte de a modifica din nou povestea):
-
-- coperta: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 1: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 2: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 3: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 4: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 5: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 6: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 7: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 8: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 9: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 10: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 11: imaginea a fost generată automat (@cf/black-forest-labs/flux-1-schnell)
-- pagina 12: imaginea a fost generată automat (@cf/black-forest-labs/flux-1-schnell)
 
 ## Ce faci mai departe
 
