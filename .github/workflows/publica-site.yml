@@ -321,9 +321,10 @@ jobs:
           # versiunea care se urcă acum (pentru tag): fără commit-urile altcuiva aduse mai jos de „pull”
           echo "PUBLICAT_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
           if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/master)" ]; then
-            # un commit nou între timp pe master: dacă se ciocnește cu reparațiile, site-ul se urcă oricum,
-            # iar reparațiile se refac la publicarea următoare (pornită chiar de acel commit)
-            if git pull --rebase origin master; then
+            # un commit nou între timp pe master (de ex. altă publicare): la o ciocnire în fișierele generate
+            # (rapoarte, voci) rămâne varianta acestei publicări, ca imaginile generate acum să nu se piardă;
+            # dacă tot nu merge, site-ul se urcă oricum, iar reparațiile se refac la publicarea următoare
+            if git pull --rebase -X theirs origin master; then
               git push origin HEAD:master || echo "::warning::reparațiile automate nu s-au putut salva; se refac la publicarea următoare"
             else
               git rebase --abort || true
