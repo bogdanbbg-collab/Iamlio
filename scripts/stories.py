@@ -992,16 +992,31 @@ def add_asset_versions(site):
         page.write_text(html, encoding="utf-8")
 
 
+def only_missing_images(errors):
+    """Povestea e gata, doar așteaptă imaginile (cota gratuită a zilei): nu e o greșeală de corectat."""
+    return bool(errors) and all(re.search(r"imaginea .* nu există", message) for message in errors)
+
+
 def cmd_status():
-    invalid = [folder.name for folder, data in load_stories() if validate_story(folder, data)[0]]
-    checking = [folder.name for folder, data in load_stories()
-                if isinstance(data, dict) and data.get("verified") is False and folder.name not in invalid]
+    """Codul de ieșire e 1 (publicare „roșie”, cu e-mail de eșec) doar când o poveste are ceva de corectat; o poveste
+    care așteaptă imaginile sau verificarea lor e o stare normală, nu un eșec."""
+    invalid, waiting, checking = [], [], []
+    for folder, data in load_stories():
+        errors = validate_story(folder, data)[0]
+        if only_missing_images(errors):
+            waiting.append(folder.name)
+        elif errors:
+            invalid.append(folder.name)
+        elif isinstance(data, dict) and data.get("verified") is False:
+            checking.append(folder.name)
+    if waiting:
+        print("Așteaptă imaginile (se generează la o publicare următoare, când e cotă): " + ", ".join(waiting))
     if checking:
         print("În verificare (gata, dar încă nu în bibliotecă): " + ", ".join(checking))
     if invalid:
-        print("Povești nepublicate (vezi rapoarte/): " + ", ".join(invalid))
+        print("Povești nepublicate, cu ceva de corectat (vezi rapoarte/): " + ", ".join(invalid))
         return 1
-    print("Toate poveștile sunt publicate.")
+    print("Nicio poveste nu are ceva de corectat.")
     return 0
 
 

@@ -55,6 +55,15 @@ class ValidationTests(StoryCase):
     def test_demo_story_is_valid(self):
         self.assertEqual(self.errors(), [])
 
+    def test_a_story_waiting_for_images_is_not_a_failure(self):
+        # fără e-mail de eșec cât timp povestea doar așteaptă imaginile din cota zilei următoare
+        (self.folder / "images" / "pagina-02.webp").unlink()
+        self.data["pages"][1]["image"] = "images/pagina-02.webp"
+        self.assertTrue(stories.only_missing_images(self.errors()))
+        self.data["title"] = "DE COMPLETAT"
+        self.assertFalse(stories.only_missing_images(self.errors()), "o greșeală adevărată rămâne eșec")
+        self.assertFalse(stories.only_missing_images([]))
+
     def test_categories_must_be_known(self):
         self.data["categories"] = ["dinozauri"]
         self.assertError("categories")
