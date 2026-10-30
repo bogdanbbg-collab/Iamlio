@@ -55,6 +55,14 @@ class ValidationTests(StoryCase):
     def test_demo_story_is_valid(self):
         self.assertEqual(self.errors(), [])
 
+    def test_an_image_used_twice_is_optimized_once_and_both_paths_follow(self):
+        from PIL import Image
+
+        Image.new("RGB", (64, 64), "red").save(self.folder / "images" / "dublu.png")
+        self.assertEqual(stories.optimize_image(self.folder, "images/dublu.png"), "images/dublu.webp")
+        self.assertEqual(stories.optimize_image(self.folder, "images/dublu.png"), "images/dublu.webp",
+                         "a doua folosire (de ex. într-o întrebare) primește și ea calea .webp")
+
     def test_a_story_waiting_for_images_is_not_a_failure(self):
         # fără e-mail de eșec cât timp povestea doar așteaptă imaginile din cota zilei următoare
         (self.folder / "images" / "pagina-02.webp").unlink()
@@ -701,6 +709,43 @@ class CloudflareTests(unittest.TestCase):
         self.assertIn(b'name="input_image_1"', body, "Lio e în scenă: și imaginea lui de referință")
         self.assertIn(imagini.KLEIN_INTRO.encode(), body)
         self.assertIn(b'name="width"', body)
+
+    def test_klein_draws_each_character_sheet_once_and_sends_only_the_scene_cast(self):
+        import io
+        import tempfile
+        from unittest import mock
+
+        sent = []
+
+        class Response(io.BytesIO):
+            headers = {"Content-Type": "image/png"}
+
+        def opener(request, timeout):
+            sent.append(request.data)
+            return Response(self._image((1024, 1024), "PNG"))
+
+        lio = {"name": "Lio", "description": "a small lion cub with a turquoise scarf"}
+        pufi = {"name": "Pufi", "description": "a fluffy cloud with a cute face"}
+        daisy = {"name": "Mărgărica", "description": "a little white daisy with a tiny face"}
+        client = imagini.CloudflareClient("cont", "jeton", imagini.CLOUDFLARE_MODEL, "nor", opener=opener,
+                                          characters=[lio, pufi, daisy])
+        with tempfile.TemporaryDirectory() as folder, \
+                mock.patch.object(imagini, "LIO_REFERENCE", mock.Mock(exists=lambda: True, read_bytes=lambda: self._image((64, 64), "PNG"))):
+            client.reference_dir = Path(folder) / imagini.CHARACTER_DIR
+            prompt = f"Characters in this scene: Lio: {lio['description']}; Pufi: {pufi['description']}. Action: Lio waves."
+            client.images.edit(prompt=prompt, image=[io.BytesIO(self._image())])
+            self.assertEqual(sorted(p.name for p in client.reference_dir.iterdir()), ["lio.png", "pufi.png"],
+                             "doar personajele din scenă primesc fișă")
+            self.assertIn(b"Character reference sheet", sent[0])
+            self.assertIn(b'name="input_image_0"', sent[0], "fișa lui Lio pornește de la imaginea lui oficială")
+            self.assertNotIn(b'name="input_image_0"', sent[1], "fișa lui Pufi se desenează doar din descriere")
+            page = sent[2]
+            self.assertIn(b"image 1 is Lio, image 2 is Pufi", page)
+            self.assertIn(b'name="input_image_1"', page)
+            self.assertNotIn(b'name="input_image_2"', page, "coperta nu mai e trimisă: doar fișele")
+            client.images.generate(prompt=prompt)
+            self.assertEqual(len(sent), 4, "fișele existente nu se mai desenează")
+        self.assertEqual(imagini.character_slug("Mărgărica"), "margarica")
 
     def test_klein_falls_back_to_schnell_but_not_on_the_daily_quota(self):
         import io

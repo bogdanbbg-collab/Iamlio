@@ -85,7 +85,7 @@ codul site-ului (`public/*.html`, `public/assets/`, `scripts/`, `.github/`) — 
 - `sablon/story.json` — șablonul de poveste (generat din `canon.py` cu `python3 scripts/stories.py template`)
 - `scripts/pregatire.py` — repararea automată a poveștilor (`stories.py prepare`)
 - `scripts/imagini.py` — generarea automată a imaginilor lipsă, în ordine: Gemini (`GEMINI_API_KEY`), Cloudflare
-  Workers AI cu FLUX.2 klein și coperta ca referință (`CLOUDFLARE_ACCOUNT_ID` + `CLOUDFLARE_API_TOKEN`), Pollinations
+  Workers AI cu FLUX.2 klein și fișele personajelor ca referință (`CLOUDFLARE_ACCOUNT_ID` + `CLOUDFLARE_API_TOKEN`), Pollinations
   (`POLLINATIONS_API_KEY`), OpenAI cu plată
   (`OPENAI_API_KEY`);
   `python3 scripts/imagini.py test` (sau workflow-ul „Test generare imagini”) arată care merge

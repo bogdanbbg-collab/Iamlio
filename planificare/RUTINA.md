@@ -28,8 +28,9 @@ regulile, o adaptezi.
 `python3 scripts/stories.py new "Titlu"`, apoi completezi tot, după `REGULI_POVESTI.md` (secțiunea 10). În plus,
 ca imaginile gratuite (Cloudflare FLUX.2 klein, ~50 pe zi, cu coperta și Lio ca imagini de referință) să iasă bine:
 - **9–12 pagini** (~4 minute): rămâne loc în cotă pentru refacerea câtorva imagini și a celor rămase din zilele trecute;
-- **coperta contează cel mai mult**: toate paginile pornesc de la ea, deci pe copertă apar personajele principale,
-  clar, din față, cu semnele lor distinctive; dacă coperta e greșită, o refaci întâi pe ea;
+- fiecare personaj primește automat o **fișă** (desenat singur, în `public/stories/<id>/personaje/`), iar fiecare
+  imagine pornește doar de la fișele personajelor din scena ei; în `Action` scrie „exactly one lion cub, Lio” și
+  „only …” când trebuie să apară doar anumite personaje;
 - **cel mult 2–3 personaje într-o imagine**; personaje ușor de desenat, cu un semn distinctiv clar
   (o culoare, o haină); Lio apare în imagine doar unde e cu adevărat în scenă;
 - în `Action`, fiecare personaj **numit împreună cu ce este**: „Lio the little lion cub”, „Ana, the girl in the
@@ -58,6 +59,8 @@ Aștepți commit-ul robotului („Povești pregătite automat…”, ~10 minute)
   calea fișierului și textul paginii, plus descrierile personajelor; el se uită la fiecare imagine și răspunde,
   pe pagină: se potrivește / nu se potrivește și de ce (cine apare, ce face, obiecte, text în imagine, personaj
   care arată altfel);
+- verifică întâi **fișele personajelor** (`personaje/*.png`): o fișă greșită strică toate paginile; o ștergi și
+  se face din nou la publicarea următoare (cu încă o variantă, `imageVariant` pe paginile afectate);
 - uită-te și tu la o planșă cu toate imaginile; pentru fiecare imagine greșită aplici „Autocorectarea imaginilor”
   (secțiunea 10): `imagePrompt` mai concret, `imageVariant` următor, ștergi imaginea, commit; cel mult trei
   încercări pe imagine;

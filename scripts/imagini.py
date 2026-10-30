@@ -6,9 +6,9 @@ s-a terminat), imaginea se face cu următoarea:
    Google rămâne pe „Free tier” (fără cont de plată legat), dacă Google oferă imagini pe nivelul gratuit.
    Pornește de la imaginea copertei, ca personajele să fie identice. Opțional: GEMINI_IMAGE_MODEL.
 1. Cloudflare Workers AI — GRATUIT, prima variantă (cota zilnică a planului gratuit, fără card): secretele CLOUDFLARE_ACCOUNT_ID
-   și CLOUDFLARE_API_TOKEN. Opțional, variabila CLOUDFLARE_IMAGE_MODEL (implicit FLUX.2 klein 4B). Paginile primesc
-   coperta ca imagine de referință, iar scenele cu Lio și imaginea lui (scripts/referinte/lio.png), ca personajele
-   să arate la fel; fiecare prompt are și descrierea personajelor și aceeași „sămânță” pentru toată povestea. Dacă
+   și CLOUDFLARE_API_TOKEN. Opțional, variabila CLOUDFLARE_IMAGE_MODEL (implicit FLUX.2 klein 4B). Fiecare personaj
+   are o fișă (desenat singur, pe fundal simplu, în public/stories/<id>/personaje/; Lio pornește de la
+   scripts/referinte/lio.png), iar coperta și fiecare pagină primesc ca referință doar fișele personajelor din scenă; fiecare prompt are și descrierea personajelor și aceeași „sămânță” pentru toată povestea. Dacă
    modelul nou refuză o cerere (alta decât cota), imaginea se face cu FLUX.1 schnell, fără referințe. Pe planul
    gratuit nu se plătește nimic: când cota zilei se termină, restul imaginilor se fac cu Pollinations sau a doua zi.
 2. Pollinations — GRATUIT, rezerva după Cloudflare: secretul POLLINATIONS_API_KEY
@@ -308,6 +308,18 @@ REFERENCE_MAX = 500  # Workers AI cere imagini de referință mai mici de 512×5
 LIO_REFERENCE = Path(__file__).resolve().parent / "referinte" / "lio.png"  # Lio cum arată pe site
 KLEIN_INTRO = ("Keep every character exactly as in the reference images (same face, fur, colors, clothes, proportions) "
                "and the same 3D animated film style, but draw a completely new scene: ")
+# Cu coperta ca referință, modelul tinde să redeseneze coperta (aceeași compoziție, personaje în plus). De aceea
+# fiecare personaj are fișa lui (desenat singur, pe fundal simplu), iar o pagină primește doar fișele personajelor
+# din scena ei. Fișele stau în public/stories/<id>/personaje/ (nu se publică pe site); una ștearsă se face din nou.
+CHARACTER_DIR = "personaje"
+SHEET_SIZE = 1024
+SHEET_PROMPT = ("{style} Character reference sheet: one single full-body view of {name}, {description}. Standing alone "
+                "in the center, facing the viewer, friendly expression, the whole body visible from head to feet, plain "
+                "soft light-blue-grey studio background, no other characters, no scenery, no text.")
+CAST_INTRO = ("The reference images only show what the characters look like: {cast}. Draw a completely new scene with "
+              "its own background, composition, poses and camera angle (do not copy the reference backgrounds or "
+              "poses), in the same 3D animated film style; draw each of these characters exactly once and no other "
+              "characters: ")
 CLOUDFLARE_MAX_PROMPT = 2048
 WIDE = ("Wide horizontal 3:2 composition: keep every character and the main action in the middle of the frame, "
         "with some empty background at the top and bottom.")
@@ -399,6 +411,7 @@ def multipart(fields, files):
 
 class CloudflareClient:
     supports_references = True
+    reference_dir = None  # folderul cu fișele personajelor (îl pune generate_missing)
 
     def __init__(self, account, token, model, story_id="", opener=None, characters=()):
         import zlib
@@ -438,29 +451,60 @@ class CloudflareClient:
             headers={"Authorization": f"Bearer {self.token}", "Content-Type": "application/json"})
         return self._answer(request)
 
-    def _run_klein(self, scene, original, variant, references):
-        """FLUX.2 klein: coperta (dacă există) și Lio (dacă e în scenă) ca imagini de referință."""
-        import urllib.request
+    def scene_cast(self, original):
+        """Personajele din scenă: cele a căror descriere completă e în prompt (cum cere validarea), cel mult patru."""
+        return [c for c in self.characters if isinstance(c, dict) and c.get("name") and c.get("description")
+                and c["description"] in original][:4]
 
+    def character_sheet(self, character):
+        """Fișa personajului (PNG): din folderul poveștii sau, dacă lipsește, desenată acum și salvată acolo."""
+        path = Path(self.reference_dir) / f"{character_slug(character['name'])}.png"
+        if path.is_file():
+            return path.read_bytes()
+        prompt = SHEET_PROMPT.format(style=SHORT_STYLE, name=character["name"], description=character["description"])
+        # Lio pornește de la imaginea lui oficială, ca să arate ca pe site
+        images = [LIO_REFERENCE.read_bytes()] if character["name"] == "Lio" and LIO_REFERENCE.exists() else []
+        raw = self._klein((KLEIN_INTRO if images else "") + prompt, images, variant_seed(self.seed, 0),
+                          SHEET_SIZE, SHEET_SIZE, page=False)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(raw)
+        print(f"  [imagini] fișa personajului {character['name']}: {path}")
+        return raw
+
+    def _run_klein(self, scene, original, variant, references):
+        """FLUX.2 klein cu imagini de referință: fișele personajelor din scenă (dacă povestea are folder de fișe);
+        altfel coperta (dacă există) și Lio (dacă e în scenă)."""
+        seed = variant_seed(self.seed, variant)
+        if self.reference_dir is not None:
+            cast = self.scene_cast(original)
+            images = [reference_png(self.character_sheet(c)) for c in cast]
+            names = ", ".join(f"image {n} is {c['name']}" for n, c in enumerate(cast, 1))
+            intro = CAST_INTRO.format(cast=names) if cast else ""
+            return self._klein(intro + scene, images, seed)
         images = [reference_png(raw) for raw in references][:3]
         if re.search(r"\bLio\b", original) and LIO_REFERENCE.exists():
             images.append(LIO_REFERENCE.read_bytes())
-        fields = {"prompt": ((KLEIN_INTRO if images else "") + scene)[:CLOUDFLARE_MAX_PROMPT],
-                  "width": "1536", "height": "1024", "seed": str(variant_seed(self.seed, variant))}
-        files = {f"input_image_{n}": data for n, data in enumerate(images)}
+        return self._klein((KLEIN_INTRO if images else "") + scene, images, seed)
+
+    def _klein(self, prompt, images, seed, width=1536, height=1024, page=True):
+        import urllib.request
+
+        fields = {"prompt": prompt[:CLOUDFLARE_MAX_PROMPT], "width": str(width), "height": str(height),
+                  "seed": str(seed)}
+        files = {f"input_image_{n}": reference_png(data) for n, data in enumerate(images)}
         for attempt in (1, 2):
             body, content_type = multipart(fields, files)
             request = urllib.request.Request(
                 f"https://api.cloudflare.com/client/v4/accounts/{self.account}/ai/run/{self.model}",
                 data=body, method="POST", headers={"Authorization": f"Bearer {self.token}", "Content-Type": content_type})
             try:
-                return self._answer(request)
+                return self._answer(request, page)
             except RuntimeError as exc:
                 if attempt == 2 or "seed" not in str(exc).lower():
                     raise
                 fields.pop("seed")  # dacă modelul nu primește „seed”, cerem fără
 
-    def _answer(self, request):
+    def _answer(self, request, page=True):
         import json
         import urllib.request
 
@@ -477,7 +521,7 @@ class CloudflareClient:
             if not image:
                 raise RuntimeError(f"Cloudflare: {str(answer.get('errors') or answer)[:300]}")
             raw = base64.b64decode(image)
-        return _as_page_image(raw)
+        return _as_page_image(raw) if page else raw
 
 
 # ---------- Pollinations (rezerva gratuită, după Cloudflare) ----------
@@ -567,6 +611,13 @@ def _as_page_image(raw):
     return SimpleNamespace(data=[SimpleNamespace(b64_json=base64.b64encode(buffer.getvalue()).decode())], free=True)
 
 
+def character_slug(name):
+    import unicodedata
+
+    plain = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode().lower()
+    return re.sub(r"[^a-z0-9]+", "-", plain).strip("-") or "personaj"
+
+
 def safe_image(folder, rel):
     from pregatire import safe_image as check
 
@@ -593,6 +644,9 @@ def generate_missing(folder, data, client=None, budget=None):
     if not todo:
         return [], [], 0
     client = client or make_client(folder.name, data.get("characters"))
+    for single in getattr(client, "clients", [client]):
+        if getattr(single, "supports_references", False):
+            single.reference_dir = folder / CHARACTER_DIR
     model = getattr(client, "model", None) or os.environ.get("IMAGE_MODEL") or DEFAULT_MODEL
     quality = os.environ.get("IMAGE_QUALITY") or DEFAULT_QUALITY
     if not isinstance(budget, Budget):

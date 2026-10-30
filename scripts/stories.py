@@ -474,6 +474,9 @@ def optimize_image(folder, rel_path):
     from PIL import Image
 
     path = pregatire.safe_image(folder, rel_path)
+    if path is not None and not path.exists() and path.with_suffix(".webp").is_file():
+        # aceeași imagine folosită de două ori (de ex. o pagină și o variantă a unei întrebări): a fost deja optimizată
+        return str(Path(rel_path).with_suffix(".webp"))
     if path is None or path.suffix.lower() not in RASTER_EXTENSIONS or not path.is_file() or path.is_symlink():
         return rel_path  # căile nesigure nu se ating; validarea le respinge
     target = path.with_suffix(".webp")

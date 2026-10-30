@@ -109,8 +109,9 @@ copiezi **Account ID** și creezi un **API token** cu permisiunea „Workers AI�
 ca secretele `CLOUDFLARE_ACCOUNT_ID` și `CLOUDFLARE_API_TOKEN`. Cota gratuită zilnică ajunge pentru câteva povești
 pe zi; pe planul gratuit nu se plătește nimic, iar dacă cota se termină, restul imaginilor se fac cu Pollinations
 sau a doua zi.
-Modelul implicit e FLUX.2 klein 4B (se poate schimba cu variabila `CLOUDFLARE_IMAGE_MODEL`): fiecare pagină primește
-coperta ca imagine de referință, iar scenele cu Lio și `scripts/referinte/lio.png`, ca personajele să arate la fel;
+Modelul implicit e FLUX.2 klein 4B (se poate schimba cu variabila `CLOUDFLARE_IMAGE_MODEL`): fiecare personaj are o
+fișă (desenat singur, pe fundal simplu, în `public/stories/<id>/personaje/`; Lio pornește de la
+`scripts/referinte/lio.png`), iar fiecare imagine primește ca referință doar fișele personajelor din scena ei;
 dacă modelul refuză o cerere, imaginea se face cu FLUX.1 schnell, fără referințe. Merită privită povestea după
 publicare. Cota zilei (cam 50 de imagini) se reînnoiește la
 00:00 UTC; în fiecare noapte, workflow-ul „Imagini rămase (zilnic)” pornește singur publicarea dacă lipsesc imagini.
