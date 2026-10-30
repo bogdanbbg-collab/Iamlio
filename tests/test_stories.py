@@ -51,6 +51,24 @@ class StoryCase(unittest.TestCase):
         self.assertTrue(any(fragment in e for e in errors), f"lipsește eroarea „{fragment}” în {errors}")
 
 
+class FreeImagesBudgetTests(unittest.TestCase):
+    def test_free_images_do_not_use_up_the_monthly_limit(self):
+        import tempfile
+        from datetime import date
+        from unittest import mock
+
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "buget.json"
+            month = date.today().strftime("%Y-%m")
+            path.write_text(json.dumps({month: {"imagini": 205, "lei": 0, "furnizori": {"cloudflare": 205}}}))
+            with mock.patch.dict("os.environ", {"MAX_IMAGES_MONTH": "200"}):
+                budget = imagini.Budget(path)
+                self.assertTrue(budget.allows(), "205 imagini gratuite nu opresc generarea")
+                budget.by_provider["openai"] = 200
+                budget.used_images += 200
+                self.assertFalse(budget.allows(), "200 de imagini cu plată ating limita")
+
+
 class ValidationTests(StoryCase):
     def test_demo_story_is_valid(self):
         self.assertEqual(self.errors(), [])
@@ -1169,7 +1187,7 @@ class UsageTests(unittest.TestCase):
         self.assertEqual(found["voce"]["resetare"], "2026-11-01T00:00:00+00:00")
         self.assertEqual(found["cloudflare"]["folosit"], 4, "doar imaginile de azi")
         self.assertEqual(found["cloudflare"]["resetare"], "2026-10-28T00:00:00+00:00")
-        self.assertEqual(found["imagini"]["folosit"], 12)
+        self.assertEqual(found["imagini"]["folosit"], 3, "doar imaginile cu plată (12 în total, 9 gratuite)")
         self.assertNotIn("pollinations", found)
         self.assertIn("hosting", found)
 

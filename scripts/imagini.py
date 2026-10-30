@@ -18,7 +18,8 @@ s-a terminat), imaginea se face cu următoarea:
   IMAGE_MODEL     modelul de imagine (implicit gpt-image-2)
   IMAGE_QUALITY   low | medium | high (implicit medium)
   MAX_IMAGES      câte imagini se pot genera într-o publicare (implicit 40)
-  MAX_IMAGES_MONTH  câte imagini se pot genera într-o lună calendaristică (implicit 200)
+  MAX_IMAGES_MONTH  câte imagini cu plată se pot genera într-o lună calendaristică (implicit 200; cele gratuite,
+                    de la Cloudflare și Pollinations, nu intră aici)
   MAX_LEI_MONTH   cât se poate cheltui pe imagini într-o lună, în lei (implicit 100)
   Prețurile (verifică-le pe pagina de prețuri OpenAI pentru modelul ales): IMAGE_PRICE_TEXT_IN, IMAGE_PRICE_IMAGE_IN,
   IMAGE_PRICE_OUT (dolari pe 1 milion de tokeni; implicit 5, 10, 40), USD_LEI (cursul, implicit 4.6) și
@@ -42,6 +43,7 @@ DEFAULT_MODEL = "gpt-image-2"
 DEFAULT_QUALITY = "medium"
 DEFAULT_MAX_IMAGES = 40
 DEFAULT_MAX_IMAGES_MONTH = 200
+FREE_PROVIDERS = ("cloudflare", "pollinations")  # gratuite: nu intră în limita lunară de imagini
 DEFAULT_MAX_LEI_MONTH = 100
 DEFAULT_IMAGE_COST_LEI = 0.5
 SIZE = "1536x1024"
@@ -95,8 +97,13 @@ class Budget:
             return self.used_lei / self.used_images
         return _number("IMAGE_COST_LEI", DEFAULT_IMAGE_COST_LEI)
 
+    def paid_images(self):
+        """Imaginile care au costat ceva: doar ele intră în limita lunară (Cloudflare și Pollinations sunt gratuite,
+        cu cota lor zilnică)."""
+        return self.used_images - sum(int(self.by_provider.get(name, 0)) for name in FREE_PROVIDERS)
+
     def allows(self):
-        return (self.made < self.run_left and self.used_images < self.month_images
+        return (self.made < self.run_left and self.paid_images() < self.month_images
                 and self.used_lei + self.estimate() <= self.month_lei)
 
     def spend(self, lei, provider=""):
@@ -123,7 +130,7 @@ class Budget:
         rows = "".join(f"| {month} | {v['imagini']} | {v['lei']:.2f} lei |\n" for month, v in sorted(self.history.items()))
         self.path.with_suffix(".md").write_text(
             "# Costul imaginilor generate automat\n\n"
-            f"Limita lunară: {self.month_images} imagini și {self.month_lei:.0f} lei (variabilele MAX_IMAGES_MONTH și "
+            f"Limita lunară: {self.month_images} imagini cu plată și {self.month_lei:.0f} lei (variabilele MAX_IMAGES_MONTH și "
             "MAX_LEI_MONTH). Costul e calculat din tokenii raportați de OpenAI și prețurile din `scripts/imagini.py`; "
             "suma exactă facturată se vede în contul OpenAI.\n\n"
             "| Luna | Imagini | Cost estimat |\n| --- | --- | --- |\n" + rows, encoding="utf-8")

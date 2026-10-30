@@ -109,9 +109,12 @@ def images(reports, now):
         found.append(resource("openai", "Imagini OpenAI (cost luna aceasta)", round(float(budget.get("lei", 0)), 2),
                               _number("MAX_LEI_MONTH", 100), "lei", _month_end(now),
                               f"Cu plată. {by_provider.get('openai', 0)} imagini luna aceasta."))
-    found.append(resource("imagini", "Imagini generate (toate, luna aceasta)", int(budget.get("imagini", 0)),
+    free = sum(int(by_provider.get(name, 0)) for name in ("cloudflare", "pollinations"))
+    total = int(budget.get("imagini", 0))
+    found.append(resource("imagini", "Imagini cu plată (luna aceasta)", total - free,
                           int(_number("MAX_IMAGES_MONTH", 200)), "imagini", _month_end(now),
-                          "Limita proprie pe lună (variabila MAX_IMAGES_MONTH)."))
+                          f"Limita proprie pe lună (variabila MAX_IMAGES_MONTH). În total, {total} imagini luna aceasta, "
+                          f"dintre care {free} gratuite (nu intră în limită)."))
     return found
 
 

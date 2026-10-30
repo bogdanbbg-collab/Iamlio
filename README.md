@@ -125,7 +125,7 @@ Dacă AI-ul folosit nu poate genera imagini, proiectul le poate genera singur cu
 **Settings → Secrets and variables → Actions → New repository secret** → `OPENAI_API_KEY` (o cheie de la
 platform.openai.com; se plătește separat de abonamentul ChatGPT). Opțional, la **Variables**: `IMAGE_MODEL`
 (implicit `gpt-image-2`), `IMAGE_QUALITY` (`low` / `medium` / `high`, implicit `medium`), `MAX_IMAGES`
-(maximum de imagini pe publicare, implicit 40), `MAX_IMAGES_MONTH` (maximum pe lună calendaristică, implicit 200)
+(maximum de imagini pe publicare, implicit 40), `MAX_IMAGES_MONTH` (maximum de imagini cu plată pe lună calendaristică, implicit 200; cele gratuite nu intră)
 și `MAX_LEI_MONTH` (cât se poate cheltui pe lună, în lei, implicit 100). Costul fiecărei imagini se calculează din
 tokenii raportați de OpenAI și prețurile din `scripts/imagini.py` (modificabile cu variabilele `IMAGE_PRICE_TEXT_IN`,
 `IMAGE_PRICE_IMAGE_IN`, `IMAGE_PRICE_OUT` — dolari pe 1 milion de tokeni — și `USD_LEI`; verifică-le pe pagina de
