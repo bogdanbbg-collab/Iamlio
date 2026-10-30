@@ -1,13 +1,20 @@
 # Pufi, norul care nu voia să plouă
 
-**Stare: ❌ NEPUBLICATĂ** · verificată la 2026-10-30 04:37 UTC
+**Stare: ❌ NEPUBLICATĂ** · verificată la 2026-10-30 06:08 UTC
 
 Poveste: `public/stories/pufi-norul-care-nu-voia-sa-ploua/story.json`
 
 ## De corectat (de aceea nu este publicată)
 
-- întrebarea 1, varianta 1: imaginea images/pagina-01.png nu există
-- întrebarea 1, varianta 2: imaginea images/pagina-03.png nu există
+- pagina 6: imaginea images/pagina-06.png nu există
+- pagina 7: imaginea images/pagina-07.png nu există
+- pagina 8: imaginea images/pagina-08.png nu există
+- pagina 9: imaginea images/pagina-09.png nu există
+- pagina 10: imaginea images/pagina-10.png nu există
+
+## Note de la publicare
+
+- pagina 6: limita de imagini sau de cost (pe publicare sau pe lună) a fost atinsă; restul se generează la o publicare următoare sau luna viitoare (vezi rapoarte/buget-imagini.md)
 
 ## Reparat automat
 
@@ -19,11 +26,12 @@ Aceste lucruri au fost corectate automat în `story.json` (preia versiunea din r
 - pagina 3: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 - pagina 4: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 - pagina 5: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 6: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 7: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 8: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 9: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 10: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
+
+## Avertismente (merită verificate, dar nu blochează publicarea)
+
+- personaje/lio.png: fișier necunoscut, nu se publică (într-o poveste intră doar story.json, images/ și audio/)
+- personaje/margarica.png: fișier necunoscut, nu se publică (într-o poveste intră doar story.json, images/ și audio/)
+- personaje/pufi.png: fișier necunoscut, nu se publică (într-o poveste intră doar story.json, images/ și audio/)
 
 ## Ce faci mai departe
 

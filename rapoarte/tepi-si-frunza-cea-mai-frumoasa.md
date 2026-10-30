@@ -1,22 +1,27 @@
 # Țepi și frunza cea mai frumoasă
 
-**Stare: ⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)** · verificată la 2026-10-30 04:37 UTC
+**Stare: ❌ NEPUBLICATĂ** · verificată la 2026-10-30 06:08 UTC
 
 Poveste: `public/stories/tepi-si-frunza-cea-mai-frumoasa/story.json`
 
-## Reparat automat
+## De corectat (de aceea nu este publicată)
 
-Aceste lucruri au fost corectate automat în `story.json` (preia versiunea din repository înainte de a modifica din nou povestea):
+- pagina 1: imaginea images/pagina-01.png nu există
+- pagina 2: imaginea images/pagina-02.png nu există
+- pagina 4: imaginea images/pagina-04.png nu există
+- pagina 6: imaginea images/pagina-06.png nu există
+- pagina 7: imaginea images/pagina-07.png nu există
+- pagina 8: imaginea images/pagina-08.png nu există
+- pagina 10: imaginea images/pagina-10.png nu există
 
-- coperta: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 4: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 5: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 6: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 8: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 10: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
+## Note de la publicare
+
+- pagina 1: limita de imagini sau de cost (pe publicare sau pe lună) a fost atinsă; restul se generează la o publicare următoare sau luna viitoare (vezi rapoarte/buget-imagini.md)
+- pe site rămâne versiunea publicată anterior (commit 83903e2) până când corectezi problemele de mai sus
 
 ## Ce faci mai departe
 
-1. Privește coperta și fiecare pagină din `images/` și compar-o cu textul (REGULI_POVESTI.md, secțiunea 10, „Autocorectarea imaginilor”); refă imaginile greșite.
-2. Abia când fiecare imagine arată pagina ei, pune `"verified": true` în story.json și fă commit: atunci povestea apare în bibliotecă.
-3. Până atunci se poate vedea doar cu parola de administrator: https://iamlio.ro/poveste.html?previzualizare=tepi-si-frunza-cea-mai-frumoasa
+1. Corectează în `story.json` (și în `images/`) fiecare punct de la „De corectat”, respectând `REGULI_POVESTI.md`.
+2. Rulează `python3 scripts/stories.py validate` dacă poți; trebuie să afișeze `[OK]`.
+3. Fă commit pe `master`. După câteva minute, citește din nou acest raport.
+4. Repetă până când starea este „PUBLICATĂ”.
