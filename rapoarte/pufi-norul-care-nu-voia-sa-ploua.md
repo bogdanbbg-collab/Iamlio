@@ -1,6 +1,6 @@
 # Pufi, norul care nu voia să plouă
 
-**Stare: ❌ NEPUBLICATĂ** · verificată la 2026-10-30 06:08 UTC
+**Stare: ❌ NEPUBLICATĂ** · verificată la 2026-10-30 06:33 UTC
 
 Poveste: `public/stories/pufi-norul-care-nu-voia-sa-ploua/story.json`
 
@@ -15,17 +15,6 @@ Poveste: `public/stories/pufi-norul-care-nu-voia-sa-ploua/story.json`
 ## Note de la publicare
 
 - pagina 6: limita de imagini sau de cost (pe publicare sau pe lună) a fost atinsă; restul se generează la o publicare următoare sau luna viitoare (vezi rapoarte/buget-imagini.md)
-
-## Reparat automat
-
-Aceste lucruri au fost corectate automat în `story.json` (preia versiunea din repository înainte de a modifica din nou povestea):
-
-- coperta: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 1: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 2: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 3: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 4: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 5: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 
 ## Avertismente (merită verificate, dar nu blochează publicarea)
 
