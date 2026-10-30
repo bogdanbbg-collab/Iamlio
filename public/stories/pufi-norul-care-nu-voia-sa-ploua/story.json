@@ -1,0 +1,481 @@
+{
+  "id": "pufi-norul-care-nu-voia-sa-ploua",
+  "title": "Pufi, norul care nu voia să plouă",
+  "summary": "Pufi e un nor mic care s-a făcut mare și greu de atâta apă. Florile au sete, dar Pufi se teme că, dacă plouă, o să dispară. Lio îl ajută să afle unde merge, de fapt, ploaia.",
+  "age": "3-7",
+  "moral": "Când știi ce se întâmplă, frica se face mică, iar curajul se face mare.",
+  "learning": [
+    "drumul apei: din lac în nor, din nor în ploaie, apoi înapoi în lac",
+    "plantele au nevoie de apă ca să trăiască",
+    "curajul: putem face un lucru de care ne temem, cu un prieten alături"
+  ],
+  "created": "2026-10-30",
+  "tags": [
+    "nor",
+    "ploaie",
+    "apă",
+    "curaj",
+    "flori",
+    "curcubeu"
+  ],
+  "illustrationStyle": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered.",
+  "characters": [
+    {
+      "name": "Lio",
+      "description": "a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression",
+      "voice": {
+        "pitch": 12,
+        "rate": 3
+      }
+    },
+    {
+      "name": "Pufi",
+      "description": "a small soft fluffy cloud with a cute round friendly face: big round sky-blue eyes, rosy cheeks and a small smile; his cotton-like puffs are pure white when he is light and turn soft grey when he is full of rain",
+      "voice": {
+        "type": "masculin",
+        "pitch": 18,
+        "rate": 0
+      }
+    },
+    {
+      "name": "Mărgărica",
+      "description": "a little white daisy flower with a sunny yellow center, a tiny friendly face in the yellow center with two dark dot eyes and a small smile, a thin green stem and two green leaves like little arms",
+      "voice": {
+        "type": "feminin",
+        "pitch": 26,
+        "rate": -2
+      }
+    }
+  ],
+  "cover": {
+    "image": "images/coperta.png",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Pufi: a small soft fluffy cloud with a cute round friendly face: big round sky-blue eyes, rosy cheeks and a small smile; his cotton-like puffs are pure white when he is light and turn soft grey when he is full of rain; Mărgărica: a little white daisy flower with a sunny yellow center, a tiny friendly face in the yellow center with two dark dot eyes and a small smile, a thin green stem and two green leaves like little arms. Setting: a sunny green meadow full of small flowers, a shining blue lake and a little stream in the distance, soft rounded green hills, a bright blue sky, warm morning light. Action: Lio the little lion cub with a turquoise starry scarf stands in the meadow, smiling and waving up at Pufi the fluffy cloud with a cute face, medium-sized and pure white, who floats low above him and smiles back; beside Lio, Mărgărica the little white daisy with a tiny smiling face looks up happily. Emotions: joyful, friendly, a little magical. Important details: the shining lake behind them, a few tiny glittering droplets in the air. Camera: wide cinematic cover shot, all three faces clearly visible from the front.",
+    "animation": {
+      "camera": "zoom-in",
+      "effect": "sparkles"
+    }
+  },
+  "pages": [
+    {
+      "text": "Deasupra unei pajiști verzi plutea un nor mic și pufos, pe nume Pufi. În fiecare dimineață, soarele încălzea lacul de sub el. Din lac urcau spre cer picături de apă atât de mici, încât nu le vedea nimeni. Ele se adunau în Pufi, iar Pufi creștea, ca un balon care se umflă.",
+      "narration": [
+        {
+          "text": "Deasupra unei pajiști verzi plutea un nor mic și pufos, pe nume Pufi.",
+          "mood": "calm"
+        },
+        {
+          "text": "În fiecare dimineață, soarele încălzea lacul de sub el.",
+          "mood": "calm"
+        },
+        {
+          "text": "Din lac urcau spre cer picături de apă atât de mici, încât nu le vedea nimeni.",
+          "mood": "misterios"
+        },
+        {
+          "text": "Ele se adunau în Pufi, iar Pufi creștea, ca un balon care se umflă.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-01.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Pufi: a small soft fluffy cloud with a cute round friendly face: big round sky-blue eyes, rosy cheeks and a small smile; his cotton-like puffs are pure white when he is light and turn soft grey when he is full of rain. Setting: a sunny green meadow full of small flowers, a shining blue lake and a little stream in the distance, soft rounded green hills, a bright blue sky, warm morning light. Action: Pufi the fluffy cloud with a cute face, small and pure white, floats happily low above the shining blue lake, while hundreds of faint shimmering wisps of sparkly mist rise up from the warm lake toward him. Emotions: happy, curious. Important details: the warm sun, the shining lake, tiny glittering droplets rising into the cloud. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "sparkles"
+      }
+    },
+    {
+      "text": "Într-o zi, Pufi s-a uitat la burta lui și s-a mirat. — Vai, sunt gri! Și sunt greu ca după trei porții de clătite! Pufi știa ce înseamnă asta: un nor plin de apă trebuie să plouă. — Dar dacă plouă, o să dispar, a șoptit el. Nu vreau să plouă!",
+      "narration": [
+        {
+          "text": "Într-o zi, Pufi s-a uitat la burta lui și s-a mirat.",
+          "mood": "mirat"
+        },
+        {
+          "text": "— Vai, sunt gri! Și sunt greu ca după trei porții de clătite!",
+          "mood": "mirat",
+          "speaker": "Pufi"
+        },
+        {
+          "text": "Pufi știa ce înseamnă asta: un nor plin de apă trebuie să plouă.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Dar dacă plouă, o să dispar,",
+          "mood": "speriat",
+          "speaker": "Pufi"
+        },
+        {
+          "text": "a șoptit el.",
+          "mood": "șoptit"
+        },
+        {
+          "text": "Nu vreau să plouă!",
+          "mood": "hotărât",
+          "speaker": "Pufi"
+        }
+      ],
+      "image": "images/pagina-02.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Pufi: a small soft fluffy cloud with a cute round friendly face: big round sky-blue eyes, rosy cheeks and a small smile; his cotton-like puffs are pure white when he is light and turn soft grey when he is full of rain. Setting: high in the bright blue sky above the green meadow and the lake. Action: Pufi the fluffy cloud with a cute face is now very big, round and soft grey, looking down at his own huge puffy belly with wide surprised eyes and puffed cheeks. Emotions: surprised and a little worried, but cute and funny. Important details: a big plump soft grey cloud belly. Camera: close-up.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Jos, pe pajiște, Lio ieșise cu stropitoarea lui verde. Dar pajiștea era mare, iar stropitoarea lui era mică. Florile stăteau cu capul plecat. — Ce sete mi-e… a oftat Mărgărica, o margaretă mică. Lio a ridicat ochii spre cer: — Pufi! Nu vrei să plouă puțin?",
+      "narration": [
+        {
+          "text": "Jos, pe pajiște, Lio ieșise cu stropitoarea lui verde.",
+          "mood": "calm"
+        },
+        {
+          "text": "Dar pajiștea era mare, iar stropitoarea lui era mică.",
+          "mood": "calm"
+        },
+        {
+          "text": "Florile stăteau cu capul plecat.",
+          "mood": "trist"
+        },
+        {
+          "text": "— Ce sete mi-e…",
+          "mood": "trist",
+          "speaker": "Mărgărica"
+        },
+        {
+          "text": "a oftat Mărgărica, o margaretă mică.",
+          "mood": "trist"
+        },
+        {
+          "text": "Lio a ridicat ochii spre cer:",
+          "mood": "calm"
+        },
+        {
+          "text": "— Pufi! Nu vrei să plouă puțin?",
+          "mood": "vesel",
+          "speaker": "Lio"
+        }
+      ],
+      "image": "images/pagina-03.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Mărgărica: a little white daisy flower with a sunny yellow center, a tiny friendly face in the yellow center with two dark dot eyes and a small smile, a thin green stem and two green leaves like little arms; Pufi: a small soft fluffy cloud with a cute round friendly face: big round sky-blue eyes, rosy cheeks and a small smile; his cotton-like puffs are pure white when he is light and turn soft grey when he is full of rain. Setting: a dry green meadow on a warm day, the flowers drooping. Action: Lio the little lion cub with a turquoise starry scarf holds a small green watering can and looks up at the sky; next to him Mărgărica the little white daisy with a tiny smiling face droops her head and petals, her little face tired and sad, thirsty; high above them floats Pufi the fluffy cloud with a cute face, big and soft grey. Emotions: Lio hopeful, the daisy tired and thirsty. Important details: small green watering can, many drooping flowers, big grey cloud. Camera: medium shot from a low angle.",
+      "animation": {
+        "camera": "pan-up",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "— Nu pot! Dacă plouă, dispar! a strigat Pufi și a fugit să se ascundă după un munte. Numai că Pufi era acum atât de mare, încât burta lui ieșea și pe dreapta, și pe stânga muntelui. Lio a zâmbit, ca la de-a v-ați ascunselea: — Cucu! Te văd, Pufi! Se vede burta ta!",
+      "narration": [
+        {
+          "text": "— Nu pot! Dacă plouă, dispar!",
+          "mood": "speriat",
+          "speaker": "Pufi"
+        },
+        {
+          "text": "a strigat Pufi și a fugit să se ascundă după un munte.",
+          "mood": "calm"
+        },
+        {
+          "text": "Numai că Pufi era acum atât de mare, încât burta lui ieșea și pe dreapta, și pe stânga muntelui.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Lio a zâmbit, ca la de-a v-ați ascunselea:",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Cucu! Te văd, Pufi! Se vede burta ta!",
+          "mood": "entuziasmat",
+          "speaker": "Lio"
+        }
+      ],
+      "image": "images/pagina-04.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Pufi: a small soft fluffy cloud with a cute round friendly face: big round sky-blue eyes, rosy cheeks and a small smile; his cotton-like puffs are pure white when he is light and turn soft grey when he is full of rain; Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: a small rounded green mountain at the edge of the meadow, bright blue sky. Action: Pufi the fluffy cloud with a cute face, big and soft grey, tries to hide behind the small green mountain, but his huge puffy body sticks out on both the left and the right side of the mountain and he peeks over the top with a sheepish, funny smile; in the meadow in front, Lio the little lion cub with a turquoise starry scarf smiles warmly and points playfully, like in a game of hide-and-seek. Emotions: playful and funny, like a game of hide-and-seek. Important details: the cloud much wider than the mountain. Camera: wide shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Apoi Pufi a avut o idee. — Las să cadă doar o picătură. Una singură, mică de tot. Pic! Picătura a căzut drept pe nasul lui Lio. — Mulțumesc pentru… o picătură, a râs Lio, ștergându-și nasul. Dar Mărgărica avea tot sete.",
+      "narration": [
+        {
+          "text": "Apoi Pufi a avut o idee.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Las să cadă doar o picătură. Una singură, mică de tot.",
+          "mood": "hotărât",
+          "speaker": "Pufi"
+        },
+        {
+          "text": "Pic!",
+          "mood": "vesel",
+          "pause": 0.5
+        },
+        {
+          "text": "Picătura a căzut drept pe nasul lui Lio.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Mulțumesc pentru… o picătură,",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a râs Lio, ștergându-și nasul.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Dar Mărgărica avea tot sete.",
+          "mood": "trist"
+        }
+      ],
+      "image": "images/pagina-05.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Mărgărica: a little white daisy flower with a sunny yellow center, a tiny friendly face in the yellow center with two dark dot eyes and a small smile, a thin green stem and two green leaves like little arms; Pufi: a small soft fluffy cloud with a cute round friendly face: big round sky-blue eyes, rosy cheeks and a small smile; his cotton-like puffs are pure white when he is light and turn soft grey when he is full of rain. Setting: the sunny dry meadow. Action: Lio the little lion cub with a turquoise starry scarf looks cross-eyed at one single big shiny water drop sitting right on the tip of his nose and laughs; beside him Mărgărica the little white daisy with a tiny smiling face still droops her head, her little face tired and thirsty; above them, Pufi the fluffy cloud with a cute face, big and soft grey, squeezes his eyes shut and lets go of one single drop. Emotions: funny and surprised. Important details: one single shiny water drop on Lio's nose. Camera: medium shot from a low angle.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Lio s-a urcat pe o colină, cât mai aproape de Pufi. — Știi de unde vin picăturile tale? Din lac! Soarele a încălzit apa din lac, iar ea a urcat la tine în picături mici-mici. — Și după ploaie? — După ploaie, apa curge în pârâu, apoi înapoi în lac. Și urcă iar la cer!",
+      "narration": [
+        {
+          "text": "Lio s-a urcat pe o colină, cât mai aproape de Pufi.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Știi de unde vin picăturile tale? Din lac! Soarele a încălzit apa din lac, iar ea a urcat la tine în picături mici-mici.",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "— Și după ploaie?",
+          "mood": "mirat",
+          "speaker": "Pufi"
+        },
+        {
+          "text": "— După ploaie, apa curge în pârâu, apoi înapoi în lac. Și urcă iar la cer!",
+          "mood": "vesel",
+          "speaker": "Lio"
+        }
+      ],
+      "image": "images/pagina-06.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Pufi: a small soft fluffy cloud with a cute round friendly face: big round sky-blue eyes, rosy cheeks and a small smile; his cotton-like puffs are pure white when he is light and turn soft grey when he is full of rain. Setting: the top of a grassy green hill, the shining lake and a little stream far below. Action: Lio the little lion cub with a turquoise starry scarf stands on the hilltop and points down at the lake and the stream, explaining; Pufi the fluffy cloud with a cute face, big and soft grey, floats very close above him and listens with curious eyes. Emotions: Lio kind and patient, Pufi curious. Important details: the stream flowing into the lake below. Camera: medium wide shot.",
+      "animation": {
+        "camera": "pan-left",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Pufi s-a gândit. — Deci nu dispar… Apa mea face un drum și vine înapoi! Dar tot îi tremura burta de emoție. — Și mie mi-e teamă uneori, a spus Lio. Hai să numărăm împreună până la trei. Și au numărat amândoi: — Unu… doi… trei!",
+      "narration": [
+        {
+          "text": "Pufi s-a gândit.",
+          "mood": "calm",
+          "pause": 0.6
+        },
+        {
+          "text": "— Deci nu dispar… Apa mea face un drum și vine înapoi!",
+          "mood": "vesel",
+          "speaker": "Pufi"
+        },
+        {
+          "text": "Dar tot îi tremura burta de emoție.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Și mie mi-e teamă uneori,",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a spus Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "Hai să numărăm împreună până la trei.",
+          "mood": "hotărât",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Și au numărat amândoi:",
+          "mood": "calm"
+        },
+        {
+          "text": "— Unu… doi… trei!",
+          "mood": "hotărât",
+          "speaker": "Pufi",
+          "pause": 0.6
+        }
+      ],
+      "image": "images/pagina-07.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Pufi: a small soft fluffy cloud with a cute round friendly face: big round sky-blue eyes, rosy cheeks and a small smile; his cotton-like puffs are pure white when he is light and turn soft grey when he is full of rain. Setting: the top of the grassy green hill, bright blue sky. Action: Lio the little lion cub with a turquoise starry scarf smiles encouragingly and raises one paw toward the sky; Pufi the fluffy cloud with a cute face, big and soft grey, takes a deep brave breath with puffed cheeks and tightly closed eyes, his grey belly trembling a little. Emotions: brave, encouraging, a little nervous. Important details: Lio's raised paw, the brave cloud. Camera: medium shot.",
+      "animation": {
+        "camera": "still",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Pic! Pic-pic-pic! Ploaia a căzut blând peste toată pajiștea. Mărgărica și-a ridicat capul și a băut, bucuroasă. Lio a dansat prin ploaie cu limba scoasă, să prindă picături. — Hi-hi! Mă gâdilă! a râs Pufi, care se făcea tot mai mic și mai ușor.",
+      "narration": [
+        {
+          "text": "Pic! Pic-pic-pic!",
+          "mood": "entuziasmat",
+          "pause": 0.5
+        },
+        {
+          "text": "Ploaia a căzut blând peste toată pajiștea.",
+          "mood": "calm"
+        },
+        {
+          "text": "Mărgărica și-a ridicat capul și a băut, bucuroasă.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Lio a dansat prin ploaie cu limba scoasă, să prindă picături.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Hi-hi! Mă gâdilă!",
+          "mood": "vesel",
+          "speaker": "Pufi"
+        },
+        {
+          "text": "a râs Pufi, care se făcea tot mai mic și mai ușor.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-08.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Mărgărica: a little white daisy flower with a sunny yellow center, a tiny friendly face in the yellow center with two dark dot eyes and a small smile, a thin green stem and two green leaves like little arms; Pufi: a small soft fluffy cloud with a cute round friendly face: big round sky-blue eyes, rosy cheeks and a small smile; his cotton-like puffs are pure white when he is light and turn soft grey when he is full of rain. Setting: the green meadow in a gentle sunny rain. Action: gentle rain falls from Pufi the fluffy cloud with a cute face, now smaller and light grey and laughing; below, Lio the little lion cub with a turquoise starry scarf dances happily in the rain with his tongue out to catch the drops; Mărgărica the little white daisy with a tiny smiling face lifts her head up and smiles, drinking the rain. Emotions: joyful, playful. Important details: soft rain drops, fresh shiny grass. Camera: wide shot.",
+      "animation": {
+        "camera": "pan-down",
+        "effect": "drops"
+      }
+    },
+    {
+      "text": "Când ploaia s-a oprit, pe cer a apărut un curcubeu. Pufi era iar mic, alb și pufos. Jos, apa de ploaie curgea în pârâu, iar pârâul o ducea înapoi în lac. Și chiar atunci, soarele a încălzit lacul, iar primele picături mici au pornit din nou spre cer. — Uite, apa mea vine înapoi!",
+      "narration": [
+        {
+          "text": "Când ploaia s-a oprit, pe cer a apărut un curcubeu.",
+          "mood": "mirat"
+        },
+        {
+          "text": "Pufi era iar mic, alb și pufos.",
+          "mood": "calm"
+        },
+        {
+          "text": "Jos, apa de ploaie curgea în pârâu, iar pârâul o ducea înapoi în lac.",
+          "mood": "calm"
+        },
+        {
+          "text": "Și chiar atunci, soarele a încălzit lacul, iar primele picături mici au pornit din nou spre cer.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Uite, apa mea vine înapoi!",
+          "mood": "entuziasmat",
+          "speaker": "Pufi"
+        }
+      ],
+      "image": "images/pagina-09.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Pufi: a small soft fluffy cloud with a cute round friendly face: big round sky-blue eyes, rosy cheeks and a small smile; his cotton-like puffs are pure white when he is light and turn soft grey when he is full of rain. Setting: a sunny green meadow full of small flowers, a shining blue lake and a little stream in the distance, soft rounded green hills, a bright blue sky, warm morning light. Action: Pufi the fluffy cloud with a cute face, small and pure white again, smiles happily under a big colorful rainbow; below, the little stream flows into the shining lake, and faint shimmering wisps of sparkly mist rise from the lake toward him. Emotions: happy and relieved. Important details: a big rainbow, the stream, the lake, glittering droplets rising. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "sparkles"
+      }
+    },
+    {
+      "text": "Seara, pajiștea mirosea a ploaie și a flori. Mărgărica stătea dreaptă și proaspătă. Lio i-a făcut cu lăbuța lui Pufi: — Noapte bună, Pufi! Ai fost tare curajos. — Noapte bună! Mâine, dacă florile au sete, vin iar cu ploaie, a șoptit Pufi. Apoi a plutit încet peste pajiște.",
+      "narration": [
+        {
+          "text": "Seara, pajiștea mirosea a ploaie și a flori.",
+          "mood": "calm"
+        },
+        {
+          "text": "Mărgărica stătea dreaptă și proaspătă.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lio i-a făcut cu lăbuța lui Pufi:",
+          "mood": "calm"
+        },
+        {
+          "text": "— Noapte bună, Pufi! Ai fost tare curajos.",
+          "mood": "somnoros",
+          "speaker": "Lio"
+        },
+        {
+          "text": "— Noapte bună! Mâine, dacă florile au sete, vin iar cu ploaie,",
+          "mood": "somnoros",
+          "speaker": "Pufi"
+        },
+        {
+          "text": "a șoptit Pufi.",
+          "mood": "șoptit"
+        },
+        {
+          "text": "Apoi a plutit încet peste pajiște.",
+          "mood": "somnoros"
+        }
+      ],
+      "image": "images/pagina-10.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Mărgărica: a little white daisy flower with a sunny yellow center, a tiny friendly face in the yellow center with two dark dot eyes and a small smile, a thin green stem and two green leaves like little arms; Pufi: a small soft fluffy cloud with a cute round friendly face: big round sky-blue eyes, rosy cheeks and a small smile; his cotton-like puffs are pure white when he is light and turn soft grey when he is full of rain. Setting: the green meadow at sunset, a warm pink and golden sky, the first little stars appearing. Action: Lio the little lion cub with a turquoise starry scarf waves goodbye up at Pufi the fluffy cloud with a cute face, small and white, glowing softly pink in the sunset; beside Lio, Mărgărica the little white daisy with a tiny smiling face stands up straight and fresh. Emotions: calm, warm, sleepy and happy. Important details: sunset colors, fresh flowers, first stars. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "stars"
+      }
+    }
+  ],
+  "categories": [
+    "invatam",
+    "prietenie"
+  ],
+  "review": {
+    "imaginatie": "Un nor mic, cu față, care crește din picăturile urcate din lac (pagina 1), se face gri și greu (pagina 2) și încearcă să se ascundă după un munte mai mic decât el (pagina 4); ploaia îl gâdilă (pagina 8), iar sub curcubeu apa lui pornește din nou spre el (pagina 9).",
+    "invatare": "Drumul apei e spus pe înțelesul copiilor, în acțiune: soarele încălzește lacul și picăturile urcă în nor (pagina 1), norul plin se face gri și trebuie să plouă (pagina 2), Lio explică unde merge ploaia: în pârâu, în lac și iar la cer (pagina 6), iar copilul vede tot drumul pe pagina 9. Plantele au nevoie de apă: florile însetate (pagina 3), margareta care bea ploaia (pagina 8) și stă dreaptă seara (pagina 10). Curajul: numărătoarea împreună până la trei (pagina 7).",
+    "umor": [
+      "pagina 2: Pufi se simte greu ca după trei porții de clătite",
+      "pagina 4: Pufi se ascunde după un munte, dar burta îi iese pe ambele părți, iar Lio îl găsește ca la de-a v-ați ascunselea: „Cucu!”",
+      "pagina 5: singura picătură cade drept pe nasul lui Lio, care mulțumește „pentru o picătură”",
+      "pagina 8: Lio dansează cu limba scoasă după picături, iar pe Pufi îl gâdilă ploaia"
+    ],
+    "emotie": "Problema e pe înțelesul copiilor: Pufi se teme că, dacă plouă, dispare, iar florile au sete. Încercări: se ascunde (pagina 4), lasă să cadă o singură picătură (pagina 5), apoi ascultă și înțelege că nu dispare, iar apa lui se întoarce (paginile 6–7). Pufi alege singur să plouă, cu Lio alături, numărând până la trei (pagina 7). Finalul e cald și liniștit: florile au băut, Pufi e iar mic și alb, iar seara își iau rămas-bun (pagina 10).",
+    "siguranta": "Nimic nu sperie: ploaia e blândă, fără tunete sau fulgere; frica lui Pufi e numită și rezolvată prin explicație și prietenie; nu există pericole, personaje rele sau pedepse. Florile însetate se înviorează imediat ce plouă.",
+    "imagini": "Cel mult trei personaje pe imagine, fiecare numit cu ce este în acțiune (puiul de leu cu eșarfă turcoaz, norul pufos cu față, margareta cu fețișoară). Pufi e alb pe copertă și pe paginile 1, 9 și 10, gri și mare pe paginile 2–7 și mai mic, gri-deschis, pe pagina 8, cum spune textul. Coperta arată fețele lui Lio și Pufi din față, pentru că paginile pornesc de la ea. Fiecare prompt arată momentul paginii: picăturile care urcă (1), burta gri (2), stropitoarea goală (3), muntele prea mic (4), picătura pe nas (5), lecția de pe colină (6), numărătoarea (7), ploaia (8), curcubeul și drumul apei (9), seara (10). Fără text și fără cifre. Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
+    "voce": "Narațiune calmă, cu misterios la picăturile nevăzute, mirat și speriat când Pufi se descoperă gri, trist la florile însetate, vesel la momentele amuzante, hotărât la numărătoare și somnoros la final. Pauze după „Pic!”, după „Pic! Pic-pic-pic!”, după „Pufi s-a gândit.” și după numărătoare. Pufi are o voce tânără și blândă, Mărgărica una subțire și mai rară, iar Lio vocea lui obișnuită."
+  },
+  "verified": false,
+  "questions": [
+    {
+      "text": "De unde au venit picăturile din Pufi?",
+      "options": [
+        {
+          "text": "Din lac",
+          "image": "images/pagina-01.png"
+        },
+        {
+          "text": "Dintr-o stropitoare",
+          "image": "images/pagina-03.png"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Corect! Soarele a încălzit lacul, iar picăturile mici au urcat la cer, în nor."
+    },
+    {
+      "text": "Ce s-a întâmplat cu Pufi după ploaie?",
+      "options": [
+        {
+          "text": "A dispărut pentru totdeauna",
+          "emoji": "💨"
+        },
+        {
+          "text": "S-a făcut iar mic și alb",
+          "emoji": "☁️"
+        }
+      ],
+      "answer": 1,
+      "explanation": "Bravo! Pufi nu a dispărut. Apa de ploaie a mers în lac și urcă iar spre el."
+    }
+  ]
+}
