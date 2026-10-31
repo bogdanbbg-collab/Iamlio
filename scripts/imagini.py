@@ -70,7 +70,7 @@ class Budget:
         current = self.history.get(self.month) or {}
         self.used_images = int(current.get("imagini", 0))
         self.used_lei = float(current.get("lei", 0))
-        # pe furnizor: în luna aceasta și pe zile (Cloudflare are cotă pe zi, reînnoită la 00:00 UTC)
+        # pe furnizor: în luna aceasta și pe zile (Cloudflare are cotă pe zi, reînnoită pe la 04:00 UTC)
         self.by_provider = dict(current.get("furnizori") or {})
         self.by_day = {day: dict(v) for day, v in (current.get("zile") or {}).items() if isinstance(v, dict)}
         self.run_left = int(_number("MAX_IMAGES", DEFAULT_MAX_IMAGES)) if images is None else images

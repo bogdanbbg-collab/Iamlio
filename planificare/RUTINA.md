@@ -1,6 +1,6 @@
 # Povestea zilei — procedura rutinei de dimineață
 
-Rutina „Povestea zilei” pornește în fiecare dimineață (~05:40, ora României) o sesiune nouă de Claude, fără
+Rutina „Povestea zilei” pornește în fiecare dimineață (~06:05, ora României: după ce se reînnoiește cota gratuită de imagini, pe la 04:00 UTC) o sesiune nouă de Claude, fără
 nimeni de față. Proprietarul site-ului a cerut: **o poveste nouă pe zi, timp de 100 de zile, făcută după reguli,
 verificată și publicată, fără să fie întrebat**. Nu pui întrebări; decizi singur după regulile de mai jos și la
 final scrii un rezumat scurt.

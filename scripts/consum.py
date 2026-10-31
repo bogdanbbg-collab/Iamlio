@@ -97,7 +97,7 @@ def images(reports, now):
     if os.environ.get("CLOUDFLARE_ACCOUNT_ID") and os.environ.get("CLOUDFLARE_API_TOKEN"):
         found.append(resource("cloudflare", "Imagini Cloudflare (azi)", int(today.get("cloudflare", 0)),
                               int(_number("CLOUDFLARE_IMAGES_DAY", CLOUDFLARE_IMAGES_DAY)), "imagini", _day_end(now),
-                              f"Cotă gratuită pe zi, reînnoită la 00:00 UTC. Luna aceasta: {by_provider.get('cloudflare', 0)} imagini.",
+                              f"Cotă gratuită pe zi, reînnoită pe la 04:00 UTC. Luna aceasta: {by_provider.get('cloudflare', 0)} imagini.",
                               estimated=True))
     if os.environ.get("POLLINATIONS_API_KEY"):
         found.append(pollinations(int(by_provider.get("pollinations", 0))))

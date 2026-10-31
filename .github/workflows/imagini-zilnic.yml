@@ -1,13 +1,14 @@
 name: Imagini și voci rămase (zilnic)
 
-# Varianta gratuită de imagini (Cloudflare) are o cotă pe zi, reînnoită la 00:00 UTC. Dacă o poveste a rămas
+# Varianta gratuită de imagini (Cloudflare) are o cotă pe zi; în practică se reînnoiește pe la 04:00 UTC (la 03:55 încă
+# refuză, la 04:05 merge), deci rularea de dimineață e după 04:00 UTC. Dacă o poveste a rămas
 # nepublicată pentru că s-a terminat cota, a doua zi dimineață pornește singură publicarea, care generează
 # imaginile rămase. Dacă nu lipsește nicio imagine, nu face nimic.
 # La fel pentru voci: Gemini („povestitorul”) are câteva cereri gratuite pe zi, reînnoite la miezul nopții în
 # California (~08:00 UTC); după aceea, cât timp mai sunt fișiere audio fără vocea Gemini, pornește publicarea.
 on:
   schedule:
-    - cron: "23 0 * * *"
+    - cron: "17 4 * * *"
     - cron: "41 8 * * *"
   workflow_dispatch:
 
@@ -51,7 +52,7 @@ jobs:
           PY
       - name: Pornește publicarea
         # vocile doar la rularea de după reînnoirea cotei Gemini (sau pornită de mână)
-        if: steps.lipsa.outputs.povesti != '' || (steps.lipsa.outputs.voci != '0' && github.event.schedule != '23 0 * * *')
+        if: steps.lipsa.outputs.povesti != '' || (steps.lipsa.outputs.voci != '0' && github.event.schedule != '17 4 * * *')
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
