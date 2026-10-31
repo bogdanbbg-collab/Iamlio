@@ -1,18 +1,11 @@
 # Tudor și mașinuța Fulger
 
-**Stare: ❌ NEPUBLICATĂ** · verificată la 2026-10-30 09:51 UTC
+**Stare: ❌ NEPUBLICATĂ** · verificată la 2026-10-31 05:00 UTC
 
 Poveste: `public/stories/tudor-si-masinuta-fulger/story.json`
 
 ## De corectat (de aceea nu este publicată)
 
-- copertă: imaginea images/coperta.png nu există
-- pagina 1: imaginea images/pagina-01.png nu există
-- pagina 2: imaginea images/pagina-02.png nu există
-- pagina 4: imaginea images/pagina-04.png nu există
-- pagina 5: imaginea images/pagina-05.png nu există
-- pagina 7: imaginea images/pagina-07.png nu există
-- pagina 8: imaginea images/pagina-08.png nu există
 - pagina 9: imaginea images/pagina-09.png nu există
 - pagina 10: imaginea images/pagina-10.png nu există
 - pagina 11: imaginea images/pagina-11.png nu există
@@ -20,18 +13,28 @@ Poveste: `public/stories/tudor-si-masinuta-fulger/story.json`
 
 ## Note de la publicare
 
-- coperta: imaginea nu a putut fi generată (RuntimeError: nicio variantă nu a mers — gemini-2.5-flash-image: Gemini: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your cur | @cf/black-forest-labs/flux-2-klein-4b: Cloudflare: {"errors":[{"message":"AiError: AiError: you have used up your daily free allocation of 10,000 neurons, please upgrade to Cloudflare's Workers Paid plan if you would like to continue usage | tongyi-mai/z-image-turbo: Pollinations: {"success":false,"error":{"message":"Insufficient balance. This request costs ~0.0040 pollen, but your available balance is 0.0020. Top up at https://enter.pollinations.ai/top-up?ref=age)
-- pagina 1: imaginea nu a putut fi generată (RuntimeError: nicio variantă nu a mers — gemini-2.5-flash-image: Gemini: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your cur | @cf/black-forest-labs/flux-2-klein-4b: Cloudflare: {"errors":[{"message":"AiError: AiError: you have used up your daily free allocation of 10,000 neurons, please upgrade to Cloudflare's Workers Paid plan if you would like to continue usage | tongyi-mai/z-image-turbo: Pollinations: {"success":false,"error":{"message":"Insufficient balance. This request costs ~0.0040 pollen, but your available balance is 0.0020. Top up at https://enter.pollinations.ai/top-up?ref=age)
-- pagina 2: imaginea nu a putut fi generată (RuntimeError: nicio variantă nu a mers — gemini-2.5-flash-image: Gemini: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your cur | @cf/black-forest-labs/flux-2-klein-4b: Cloudflare: {"errors":[{"message":"AiError: AiError: you have used up your daily free allocation of 10,000 neurons, please upgrade to Cloudflare's Workers Paid plan if you would like to continue usage | tongyi-mai/z-image-turbo: Pollinations: {"success":false,"error":{"message":"Insufficient balance. This request costs ~0.0040 pollen, but your available balance is 0.0020. Top up at https://enter.pollinations.ai/top-up?ref=age)
-- pagina 4: imaginea nu a putut fi generată (RuntimeError: nicio variantă nu a mers — gemini-2.5-flash-image: Gemini: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your cur | @cf/black-forest-labs/flux-2-klein-4b: Cloudflare: {"errors":[{"message":"AiError: AiError: you have used up your daily free allocation of 10,000 neurons, please upgrade to Cloudflare's Workers Paid plan if you would like to continue usage | tongyi-mai/z-image-turbo: Pollinations: {"success":false,"error":{"message":"Insufficient balance. This request costs ~0.0040 pollen, but your available balance is 0.0020. Top up at https://enter.pollinations.ai/top-up?ref=age)
-- pagina 5: imaginea nu a putut fi generată (RuntimeError: nicio variantă nu a mers — gemini-2.5-flash-image: Gemini: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your cur | @cf/black-forest-labs/flux-2-klein-4b: Cloudflare: {"errors":[{"message":"AiError: AiError: you have used up your daily free allocation of 10,000 neurons, please upgrade to Cloudflare's Workers Paid plan if you would like to continue usage | tongyi-mai/z-image-turbo: Pollinations: {"success":false,"error":{"message":"Insufficient balance. This request costs ~0.0040 pollen, but your available balance is 0.0020. Top up at https://enter.pollinations.ai/top-up?ref=age)
-- pagina 7: imaginea nu a putut fi generată (RuntimeError: nicio variantă nu a mers — gemini-2.5-flash-image: Gemini: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your cur | @cf/black-forest-labs/flux-2-klein-4b: Cloudflare: {"errors":[{"message":"AiError: AiError: you have used up your daily free allocation of 10,000 neurons, please upgrade to Cloudflare's Workers Paid plan if you would like to continue usage | tongyi-mai/z-image-turbo: Pollinations: {"success":false,"error":{"message":"Insufficient balance. This request costs ~0.0040 pollen, but your available balance is 0.0020. Top up at https://enter.pollinations.ai/top-up?ref=age)
-- pagina 8: imaginea nu a putut fi generată (RuntimeError: nicio variantă nu a mers — gemini-2.5-flash-image: Gemini: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your cur | @cf/black-forest-labs/flux-2-klein-4b: Cloudflare: {"errors":[{"message":"AiError: AiError: you have used up your daily free allocation of 10,000 neurons, please upgrade to Cloudflare's Workers Paid plan if you would like to continue usage | tongyi-mai/z-image-turbo: Pollinations: {"success":false,"error":{"message":"Insufficient balance. This request costs ~0.0040 pollen, but your available balance is 0.0020. Top up at https://enter.pollinations.ai/top-up?ref=age)
-- pagina 9: imaginea nu a putut fi generată (RuntimeError: nicio variantă nu a mers — gemini-2.5-flash-image: Gemini: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your cur | @cf/black-forest-labs/flux-2-klein-4b: Cloudflare: {"errors":[{"message":"AiError: AiError: you have used up your daily free allocation of 10,000 neurons, please upgrade to Cloudflare's Workers Paid plan if you would like to continue usage | tongyi-mai/z-image-turbo: Pollinations: {"success":false,"error":{"message":"Insufficient balance. This request costs ~0.0040 pollen, but your available balance is 0.0020. Top up at https://enter.pollinations.ai/top-up?ref=age)
-- pagina 10: imaginea nu a putut fi generată (RuntimeError: nicio variantă nu a mers — gemini-2.5-flash-image: Gemini: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your cur | @cf/black-forest-labs/flux-2-klein-4b: Cloudflare: {"errors":[{"message":"AiError: AiError: you have used up your daily free allocation of 10,000 neurons, please upgrade to Cloudflare's Workers Paid plan if you would like to continue usage | tongyi-mai/z-image-turbo: Pollinations: {"success":false,"error":{"message":"Insufficient balance. This request costs ~0.0040 pollen, but your available balance is 0.0020. Top up at https://enter.pollinations.ai/top-up?ref=age)
-- pagina 11: imaginea nu a putut fi generată (RuntimeError: nicio variantă nu a mers — gemini-2.5-flash-image: Gemini: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your cur | @cf/black-forest-labs/flux-2-klein-4b: Cloudflare: {"errors":[{"message":"AiError: AiError: you have used up your daily free allocation of 10,000 neurons, please upgrade to Cloudflare's Workers Paid plan if you would like to continue usage | tongyi-mai/z-image-turbo: Pollinations: {"success":false,"error":{"message":"Insufficient balance. This request costs ~0.0040 pollen, but your available balance is 0.0020. Top up at https://enter.pollinations.ai/top-up?ref=age)
-- pagina 12: imaginea nu a putut fi generată (RuntimeError: nicio variantă nu a mers — gemini-2.5-flash-image: Gemini: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your cur | @cf/black-forest-labs/flux-2-klein-4b: Cloudflare: {"errors":[{"message":"AiError: AiError: you have used up your daily free allocation of 10,000 neurons, please upgrade to Cloudflare's Workers Paid plan if you would like to continue usage | tongyi-mai/z-image-turbo: Pollinations: {"success":false,"error":{"message":"Insufficient balance. This request costs ~0.0040 pollen, but your available balance is 0.0020. Top up at https://enter.pollinations.ai/top-up?ref=age)
+- pagina 9: limita de imagini sau de cost (pe publicare sau pe lună) a fost atinsă; restul se generează la o publicare următoare sau luna viitoare (vezi rapoarte/buget-imagini.md)
 - pe site rămâne versiunea publicată anterior (commit 83903e2) până când corectezi problemele de mai sus
+
+## Reparat automat
+
+Aceste lucruri au fost corectate automat în `story.json` (preia versiunea din repository înainte de a modifica din nou povestea):
+
+- coperta: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
+- pagina 1: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
+- pagina 2: imaginea a fost generată automat (@cf/black-forest-labs/flux-1-schnell)
+- pagina 4: imaginea a fost generată automat (@cf/black-forest-labs/flux-1-schnell)
+- pagina 5: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
+- pagina 7: imaginea a fost generată automat (@cf/black-forest-labs/flux-1-schnell)
+- pagina 8: imaginea a fost generată automat (@cf/black-forest-labs/flux-1-schnell)
+
+## Avertismente (merită verificate, dar nu blochează publicarea)
+
+- personaje/ana.png: fișier necunoscut, nu se publică (într-o poveste intră doar story.json, images/ și audio/)
+- personaje/bulina.png: fișier necunoscut, nu se publică (într-o poveste intră doar story.json, images/ și audio/)
+- personaje/fulger.png: fișier necunoscut, nu se publică (într-o poveste intră doar story.json, images/ și audio/)
+- personaje/lio.png: fișier necunoscut, nu se publică (într-o poveste intră doar story.json, images/ și audio/)
+- personaje/tudor.png: fișier necunoscut, nu se publică (într-o poveste intră doar story.json, images/ și audio/)
 
 ## Ce faci mai departe
 
