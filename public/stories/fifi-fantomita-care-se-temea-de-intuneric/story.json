@@ -1,0 +1,461 @@
+{
+  "id": "fifi-fantomita-care-se-temea-de-intuneric",
+  "title": "Fifi, fantomița care se temea de întuneric",
+  "summary": "Fifi e o fantomiță din pod căreia, culmea, îi e frică de întuneric! Cu o lanternă, un cuier caraghios și o fereastră plină de stele, Lio o ajută să vadă întunericul altfel.",
+  "age": "3-7",
+  "moral": "Când înțelegi ce vezi în întuneric, frica se face mică, iar noaptea se umple de stele.",
+  "learning": [
+    "umbra apare acolo unde un lucru oprește lumina",
+    "prin unele lucruri, ca geamul, lumina trece aproape toată, iar umbra lor e foarte slabă",
+    "stelele se văd doar când e întuneric; frica de întuneric se poate îmblânzi"
+  ],
+  "created": "2026-10-31",
+  "tags": [
+    "fantomă",
+    "întuneric",
+    "umbre",
+    "lanternă",
+    "stele",
+    "curaj",
+    "seară"
+  ],
+  "illustrationStyle": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered.",
+  "characters": [
+    {
+      "name": "Lio",
+      "description": "a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression",
+      "voice": {
+        "pitch": 12,
+        "rate": 3
+      }
+    },
+    {
+      "name": "Fifi",
+      "description": "a tiny round friendly little ghost girl shaped like a soft floating white sheet with a rounded top and a wavy bottom edge, two tiny rounded stubby arms made of the same soft sheet, no legs, two big round shiny black eyes, rosy cheeks, a small happy mouth and a little pink bow on top of her head, softly glowing and slightly see-through, cute and not scary at all",
+      "voice": {
+        "type": "feminin",
+        "pitch": 24,
+        "rate": 4
+      }
+    }
+  ],
+  "cover": {
+    "image": "images/coperta.png",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Fifi: a tiny round friendly little ghost girl shaped like a soft floating white sheet with a rounded top and a wavy bottom edge, two tiny rounded stubby arms made of the same soft sheet, no legs, two big round shiny black eyes, rosy cheeks, a small happy mouth and a little pink bow on top of her head, softly glowing and slightly see-through, cute and not scary at all. Setting: a cozy wooden attic with a slanted roof, old boxes, a rocking chair, an old coat rack with a round hat, and a small round window, evening, lit by the warm yellow beam of a small flashlight, cozy and not scary. Action: Lio, the one and only lion cub in the picture, with a turquoise scarf with little yellow stars, holds a small yellow flashlight and smiles; next to him Fifi, the tiny cute white ghost with a pink bow, floats happily, wearing an old fringed lampshade on her head like a hat; behind them, on the wall, the shadow of a bunny made by Lio's paw. Emotions: friendly, funny, cozy. Important details: the warm flashlight beam, the lampshade hat, the bunny shadow. Camera: wide cinematic cover shot, both faces clearly visible from the front.",
+    "animation": {
+      "camera": "zoom-in",
+      "effect": "glow"
+    }
+  },
+  "pages": [
+    {
+      "text": "În podul casei lui Lio locuia Fifi, o fantomiță mică și albă, cu o fundiță roz. Ziua, Fifi se juca printre cutii vechi. Își punea pe cap un abajur, ca pe o pălărie. Apoi se învârtea prin pod. — Sunt cea mai elegantă fantomă din lume!",
+      "narration": [
+        {
+          "text": "În podul casei lui Lio locuia Fifi, o fantomiță mică și albă, cu o fundiță roz.",
+          "mood": "calm"
+        },
+        {
+          "text": "Ziua, Fifi se juca printre cutii vechi.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Își punea pe cap un abajur, ca pe o pălărie.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Apoi se învârtea prin pod.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Sunt cea mai elegantă fantomă din lume!",
+          "mood": "entuziasmat",
+          "speaker": "Fifi"
+        }
+      ],
+      "image": "images/pagina-01.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Fifi: a tiny round friendly little ghost girl shaped like a soft floating white sheet with a rounded top and a wavy bottom edge, two tiny rounded stubby arms made of the same soft sheet, no legs, two big round shiny black eyes, rosy cheeks, a small happy mouth and a little pink bow on top of her head, softly glowing and slightly see-through, cute and not scary at all. Setting: a cozy wooden attic with a slanted roof, old boxes, a rocking chair, an old coat rack with a round hat, and a small round window, warm golden afternoon sunlight. Action: Fifi, the tiny cute white ghost with a pink bow, twirls happily in the air among old boxes, wearing an old fringed lampshade on her head like a fancy hat. Emotions: joyful, playful, funny. Important details: the lampshade worn as a hat, old boxes, dust sparkling in the sunlight. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "sparkles"
+      }
+    },
+    {
+      "text": "Dar seara, când soarele apunea, Fifi se ascundea sub o pătură veche și tremura. — Bu-hu-hu! E întuneric! Lio a auzit-o din camera lui. — Cine plânge în pod? a întrebat el și a urcat scara cu lanterna lui galbenă.",
+      "narration": [
+        {
+          "text": "Dar seara, când soarele apunea, Fifi se ascundea sub o pătură veche și tremura.",
+          "mood": "trist"
+        },
+        {
+          "text": "— Bu-hu-hu! E întuneric!",
+          "mood": "speriat",
+          "speaker": "Fifi"
+        },
+        {
+          "text": "Lio a auzit-o din camera lui.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Cine plânge în pod?",
+          "mood": "mirat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a întrebat el și a urcat scara cu lanterna lui galbenă.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-02.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Fifi: a tiny round friendly little ghost girl shaped like a soft floating white sheet with a rounded top and a wavy bottom edge, two tiny rounded stubby arms made of the same soft sheet, no legs, two big round shiny black eyes, rosy cheeks, a small happy mouth and a little pink bow on top of her head, softly glowing and slightly see-through, cute and not scary at all. Setting: a cozy wooden attic with a slanted roof, old boxes, a rocking chair, an old coat rack with a round hat, and a small round window, evening, lit by the warm yellow beam of a small flashlight, cozy and not scary. Action: Lio, the one and only lion cub in the picture, with a turquoise scarf with little yellow stars, climbs the last steps of the attic ladder holding a small yellow flashlight; in the warm beam, Fifi, the tiny cute white ghost with a pink bow, peeks out from under an old patchwork blanket, only her big eyes and pink bow visible. Emotions: Lio curious and kind, Fifi shy and a little afraid. Important details: the yellow flashlight beam, the patchwork blanket. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-up",
+        "effect": "glow"
+      }
+    },
+    {
+      "text": "— Eu sunt Fifi, a șoptit fantomița. Mi-e frică de întuneric. Uite, pe perete e o umbră uriașă cu mâini lungi, ca un monstru! — O fantomă căreia îi e frică de întuneric? a întrebat Lio blând. Și mie mi-a fost frică când eram mai mic.",
+      "narration": [
+        {
+          "text": "— Eu sunt Fifi,",
+          "mood": "șoptit",
+          "speaker": "Fifi"
+        },
+        {
+          "text": "a șoptit fantomița.",
+          "mood": "șoptit"
+        },
+        {
+          "text": "Mi-e frică de întuneric. Uite, pe perete e o umbră uriașă cu mâini lungi, ca un monstru!",
+          "mood": "speriat",
+          "speaker": "Fifi"
+        },
+        {
+          "text": "— O fantomă căreia îi e frică de întuneric?",
+          "mood": "mirat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a întrebat Lio blând.",
+          "mood": "calm"
+        },
+        {
+          "text": "Și mie mi-a fost frică când eram mai mic.",
+          "mood": "calm",
+          "speaker": "Lio"
+        }
+      ],
+      "image": "images/pagina-03.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Fifi: a tiny round friendly little ghost girl shaped like a soft floating white sheet with a rounded top and a wavy bottom edge, two tiny rounded stubby arms made of the same soft sheet, no legs, two big round shiny black eyes, rosy cheeks, a small happy mouth and a little pink bow on top of her head, softly glowing and slightly see-through, cute and not scary at all. Setting: a cozy wooden attic with a slanted roof, old boxes, a rocking chair, an old coat rack with a round hat, and a small round window, evening, lit by the warm yellow beam of a small flashlight, cozy and not scary. Action: Fifi, the tiny cute white ghost with a pink bow, hides behind Lio, the one and only lion cub in the picture, with a turquoise scarf with little yellow stars, and points at the wall, where there is a tall funny shadow with long thin arms and a round hat; Lio looks at the shadow calmly, holding his small yellow flashlight. Emotions: Fifi worried, Lio calm and reassuring; the shadow looks silly, not scary. Important details: a tall silly shadow with long arms and a round hat on the wooden wall. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Fifi a luat lanterna și, tremurând, a îndreptat-o spre „monstru”. Era doar cuierul cel vechi, cu o pălărie rotundă în vârf! — Vezi? Lumina nu poate trece prin cuier. În spatele lui rămâne un loc întunecat. Asta e o umbră. — Eu m-am speriat de un cuier? a chicotit Fifi.",
+      "narration": [
+        {
+          "text": "Fifi a luat lanterna și, tremurând, a îndreptat-o spre „monstru”.",
+          "mood": "misterios",
+          "pause": 0.6
+        },
+        {
+          "text": "Era doar cuierul cel vechi, cu o pălărie rotundă în vârf!",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Vezi? Lumina nu poate trece prin cuier. În spatele lui rămâne un loc întunecat. Asta e o umbră.",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "— Eu m-am speriat de un cuier?",
+          "mood": "vesel",
+          "speaker": "Fifi"
+        },
+        {
+          "text": "a chicotit Fifi.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-04.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Fifi: a tiny round friendly little ghost girl shaped like a soft floating white sheet with a rounded top and a wavy bottom edge, two tiny rounded stubby arms made of the same soft sheet, no legs, two big round shiny black eyes, rosy cheeks, a small happy mouth and a little pink bow on top of her head, softly glowing and slightly see-through, cute and not scary at all. Setting: a cozy wooden attic with a slanted roof, old boxes, a rocking chair, an old coat rack with a round hat, and a small round window, evening, lit by the warm yellow beam of a small flashlight, cozy and not scary. Action: Fifi, the tiny cute white ghost with a pink bow, holds the small yellow flashlight with both tiny arms and shines it on an old wooden coat rack with a round hat on top; its long shadow stretches on the wall behind it; Fifi giggles, and Lio, the one and only lion cub in the picture, with a turquoise scarf with little yellow stars, beside her smiles proudly. Emotions: relieved and amused. Important details: the old coat rack with a round hat and its shadow on the wall. Camera: medium wide shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "glow"
+      }
+    },
+    {
+      "text": "Apoi Lio a pus lanterna pe o cutie și și-a pus lăbuțele în fața ei. Pe perete a apărut un iepuraș cu urechi lungi, apoi o păsărică ce dădea din aripi. — Acum eu! a strigat Fifi. Dar pe perete nu se vedea nimic. — Lumina trece prin tine, ca prin geamul ferestrei. De aceea nu ai umbră, a explicat Lio.",
+      "narration": [
+        {
+          "text": "Apoi Lio a pus lanterna pe o cutie și și-a pus lăbuțele în fața ei.",
+          "mood": "calm"
+        },
+        {
+          "text": "Pe perete a apărut un iepuraș cu urechi lungi, apoi o păsărică ce dădea din aripi.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Acum eu!",
+          "mood": "entuziasmat",
+          "speaker": "Fifi"
+        },
+        {
+          "text": "a strigat Fifi.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Dar pe perete nu se vedea nimic.",
+          "mood": "mirat"
+        },
+        {
+          "text": "— Lumina trece prin tine, ca prin geamul ferestrei. De aceea nu ai umbră,",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a explicat Lio.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-05.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Fifi: a tiny round friendly little ghost girl shaped like a soft floating white sheet with a rounded top and a wavy bottom edge, two tiny rounded stubby arms made of the same soft sheet, no legs, two big round shiny black eyes, rosy cheeks, a small happy mouth and a little pink bow on top of her head, softly glowing and slightly see-through, cute and not scary at all. Setting: a cozy wooden attic with a slanted roof, old boxes, a rocking chair, an old coat rack with a round hat, and a small round window, evening, lit by the warm yellow beam of a small flashlight, cozy and not scary. Action: the small yellow flashlight rests on an old box, shining at the wall; Lio, the one and only lion cub in the picture, with a turquoise scarf with little yellow stars, holds his paws in front of the beam and the bright round spot of light on the wall shows only one shadow, shaped like a bunny with long ears; Fifi, the tiny cute white ghost with a pink bow, floats in the beam with her tiny arms spread, glowing, the light shining through her like through glass; she looks surprised. Emotions: playful, surprised, funny. Important details: the bunny-shaped hand shadow on the wall, the light passing through Fifi. Camera: wide shot.",
+      "animation": {
+        "camera": "pan-left",
+        "effect": "glow"
+      }
+    },
+    {
+      "text": "Fifi s-a gândit puțin, apoi și-a pus abajurul pe cap. Și hop! Pe perete a apărut umbra unei pălării care parcă plutea singură. — Am umbră! Adică… pălăria mea are umbră! Lio a râs atât de tare, încât s-a rostogolit pe o pernă.",
+      "narration": [
+        {
+          "text": "Fifi s-a gândit puțin, apoi și-a pus abajurul pe cap.",
+          "mood": "calm"
+        },
+        {
+          "text": "Și hop! Pe perete a apărut umbra unei pălării care parcă plutea singură.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Am umbră! Adică… pălăria mea are umbră!",
+          "mood": "entuziasmat",
+          "speaker": "Fifi"
+        },
+        {
+          "text": "Lio a râs atât de tare, încât s-a rostogolit pe o pernă.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-06.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Fifi: a tiny round friendly little ghost girl shaped like a soft floating white sheet with a rounded top and a wavy bottom edge, two tiny rounded stubby arms made of the same soft sheet, no legs, two big round shiny black eyes, rosy cheeks, a small happy mouth and a little pink bow on top of her head, softly glowing and slightly see-through, cute and not scary at all. Setting: a cozy wooden attic with a slanted roof, old boxes, a rocking chair, an old coat rack with a round hat, and a small round window, evening, lit by the warm yellow beam of a small flashlight, cozy and not scary. Action: Fifi, the tiny cute white ghost with a pink bow, wears the old fringed lampshade on her head; on the wall behind her the only shadow is the dark shape of the lampshade hat, as if floating alone; the small yellow flashlight rests on an old box, shining at the wall; Lio, the one and only lion cub in the picture, with a turquoise scarf with little yellow stars, laughs so hard that he rolls back onto a big cushion. Emotions: very funny, joyful. Important details: the shadow of the lampshade hat alone on the wall. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "— Acum hai să-ți arăt ceva ce se vede doar pe întuneric, a spus Lio. Fifi a tremurat puțin. Apoi a tras aer în piept și a stins ea lanterna. — Numărăm împreună? Unu… doi… trei! Și amândoi s-au uitat pe fereastra rotundă a podului.",
+      "narration": [
+        {
+          "text": "— Acum hai să-ți arăt ceva ce se vede doar pe întuneric,",
+          "mood": "misterios",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a spus Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "Fifi a tremurat puțin. Apoi a tras aer în piept și a stins ea lanterna.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Numărăm împreună? Unu… doi… trei!",
+          "mood": "hotărât",
+          "speaker": "Fifi",
+          "pause": 0.6
+        },
+        {
+          "text": "Și amândoi s-au uitat pe fereastra rotundă a podului.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-07.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Fifi: a tiny round friendly little ghost girl shaped like a soft floating white sheet with a rounded top and a wavy bottom edge, two tiny rounded stubby arms made of the same soft sheet, no legs, two big round shiny black eyes, rosy cheeks, a small happy mouth and a little pink bow on top of her head, softly glowing and slightly see-through, cute and not scary at all. Setting: a cozy wooden attic with a slanted roof, old boxes, a rocking chair, an old coat rack with a round hat, and a small round window, night, soft silver moonlight through the round window, cozy and calm. Action: Lio, the one and only lion cub in the picture, with a turquoise scarf with little yellow stars, and Fifi, the tiny cute white ghost with a pink bow, sit side by side on an old trunk in front of the small round attic window, seen from behind, looking out; Fifi switches off the small yellow flashlight with her tiny arm, and Lio holds her other tiny arm. Emotions: calm, a little nervous, brave together. Important details: the round window, soft moonlight. Camera: medium shot from behind.",
+      "animation": {
+        "camera": "still",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Pe cer străluceau o mulțime de stele, ca niște beculețe mici. — Stelele sunt mereu acolo, dar se văd doar când e întuneric, a spus Lio. Fifi a făcut ochii mari. — Deci întunericul are stele în el! — Și luna ne trimite o lumină argintie, blândă, a adăugat Lio.",
+      "narration": [
+        {
+          "text": "Pe cer străluceau o mulțime de stele, ca niște beculețe mici.",
+          "mood": "mirat"
+        },
+        {
+          "text": "— Stelele sunt mereu acolo, dar se văd doar când e întuneric,",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a spus Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "Fifi a făcut ochii mari.",
+          "mood": "mirat"
+        },
+        {
+          "text": "— Deci întunericul are stele în el!",
+          "mood": "entuziasmat",
+          "speaker": "Fifi"
+        },
+        {
+          "text": "— Și luna ne trimite o lumină argintie, blândă,",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a adăugat Lio.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-08.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Fifi: a tiny round friendly little ghost girl shaped like a soft floating white sheet with a rounded top and a wavy bottom edge, two tiny rounded stubby arms made of the same soft sheet, no legs, two big round shiny black eyes, rosy cheeks, a small happy mouth and a little pink bow on top of her head, softly glowing and slightly see-through, cute and not scary at all. Setting: a cozy wooden attic with a slanted roof, old boxes, a rocking chair, an old coat rack with a round hat, and a small round window, night, soft silver moonlight through the round window, cozy and calm. Action: view through the small round attic window of a deep blue night sky full of twinkling stars and a big soft glowing round full moon; in the foreground, Lio, the one and only lion cub in the picture, with a turquoise scarf with little yellow stars, and Fifi, the tiny cute white ghost with a pink bow, look up at the sky in wonder, their faces lit by soft silver moonlight. Emotions: wonder, delight. Important details: many twinkling stars, the round moon. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-up",
+        "effect": "stars"
+      }
+    },
+    {
+      "text": "Înainte de culcare, Lio i-a adus lui Fifi un cadou. Era o lampă de veghe în formă de stea. Lampa făcea o lumină caldă și mică, cât să nu fie întuneric de tot. — Acum am și eu o stea a mea! a strigat Fifi și a făcut o tumbă de bucurie.",
+      "narration": [
+        {
+          "text": "Înainte de culcare, Lio i-a adus lui Fifi un cadou.",
+          "mood": "calm"
+        },
+        {
+          "text": "Era o lampă de veghe în formă de stea.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lampa făcea o lumină caldă și mică, cât să nu fie întuneric de tot.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Acum am și eu o stea a mea!",
+          "mood": "entuziasmat",
+          "speaker": "Fifi"
+        },
+        {
+          "text": "a strigat Fifi și a făcut o tumbă de bucurie.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-09.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Fifi: a tiny round friendly little ghost girl shaped like a soft floating white sheet with a rounded top and a wavy bottom edge, two tiny rounded stubby arms made of the same soft sheet, no legs, two big round shiny black eyes, rosy cheeks, a small happy mouth and a little pink bow on top of her head, softly glowing and slightly see-through, cute and not scary at all. Setting: a cozy wooden attic with a slanted roof, old boxes, a rocking chair, an old coat rack with a round hat, and a small round window, night, soft silver moonlight through the round window, cozy and calm. Action: a small star-shaped night-light glowing warm yellow stands on an old box between Lio, the one and only lion cub in the picture, with a turquoise scarf with little yellow stars, and Fifi, the tiny cute white ghost with a pink bow,; Fifi does a happy somersault in the air above it while Lio claps. Emotions: joyful, grateful. Important details: the star-shaped night-light glowing warm yellow. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "glow"
+      }
+    },
+    {
+      "text": "Lio a coborât în camera lui și s-a cuibărit sub pătură. Sus, în pod, steluța de veghe lumina blând, iar pe cer licăreau stelele. Fifi s-a aplecat pe scară și a șoptit: — Buuu… noapte bună, Lio! — Noapte bună, Fifi, a zâmbit Lio și a adormit. Iar Fifi s-a ghemuit lângă steluța ei și a adormit și ea, zâmbind.",
+      "narration": [
+        {
+          "text": "Lio a coborât în camera lui și s-a cuibărit sub pătură.",
+          "mood": "somnoros"
+        },
+        {
+          "text": "Sus, în pod, steluța de veghe lumina blând, iar pe cer licăreau stelele.",
+          "mood": "somnoros"
+        },
+        {
+          "text": "Fifi s-a aplecat pe scară și a șoptit:",
+          "mood": "șoptit"
+        },
+        {
+          "text": "— Buuu… noapte bună, Lio!",
+          "mood": "șoptit",
+          "speaker": "Fifi"
+        },
+        {
+          "text": "— Noapte bună, Fifi,",
+          "mood": "somnoros",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a zâmbit Lio și a adormit.",
+          "mood": "somnoros"
+        },
+        {
+          "text": "Iar Fifi s-a ghemuit lângă steluța ei și a adormit și ea, zâmbind.",
+          "mood": "somnoros"
+        }
+      ],
+      "image": "images/pagina-10.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Fifi: a tiny round friendly little ghost girl shaped like a soft floating white sheet with a rounded top and a wavy bottom edge, two tiny rounded stubby arms made of the same soft sheet, no legs, two big round shiny black eyes, rosy cheeks, a small happy mouth and a little pink bow on top of her head, softly glowing and slightly see-through, cute and not scary at all. Setting: Lio's cozy bedroom at night, a soft blanket, the open attic hatch in the ceiling with a warm yellow glow from the star-shaped night-light above, stars twinkling outside the window. Action: Lio, the one and only lion cub in the picture, with a turquoise scarf with little yellow stars, lies tucked under a soft blanket in bed, smiling sleepily; Fifi, the tiny cute white ghost with a pink bow, leans over the top of the attic ladder below the open hatch in the ceiling, waving goodnight with one tiny arm. Emotions: sleepy, warm, peaceful. Important details: the warm glow of the star-shaped night-light, stars in the window. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "stars"
+      }
+    }
+  ],
+  "categories": [
+    "de-culcare",
+    "amuzante",
+    "invatam"
+  ],
+  "review": {
+    "imaginatie": "O fantomiță din pod căreia, pe dos, îi e frică de întuneric (pagina 2); prin ea trece lumina, așa că nu are umbră (pagina 5), dar abajurul pe care îl poartă ca pălărie are, și plutește singur pe perete (pagina 6).",
+    "invatare": "Lumina și umbra, arătate în joacă: umbra cuierului, explicată simplu (pagina 4), umbrele făcute cu lăbuțele (pagina 5), Fifi fără umbră pentru că lumina trece prin ea ca prin geam (pagina 5) și umbra abajurului (pagina 6). Stelele se văd doar pe întuneric (pagina 8). Frica de întuneric se îmblânzește când înțelegi ce vezi, cu un prieten alături și o lumină mică de veghe (paginile 4, 7 și 9).",
+    "umor": [
+      "pagina 1: Fifi poartă un abajur ca pălărie și se crede cea mai elegantă fantomă din lume",
+      "pagina 4: „monstrul” e un cuier, iar Fifi chicotește că s-a speriat de un cuier",
+      "pagina 5: Fifi vrea să facă umbre, dar pe perete nu apare nimic",
+      "pagina 6: pe perete parcă plutește singură umbra pălăriei-abajur, iar Lio se rostogolește de râs pe o pernă",
+      "pagina 10: fantoma spune „Buuu…” doar ca să-i ureze noapte bună"
+    ],
+    "emotie": "Problema e pe înțelesul copiilor: lui Fifi îi e frică de întuneric. Pas cu pas, cu Lio alături, Fifi își învinge singură frica: Lio îi spune că și lui i-a fost frică (pagina 3), Fifi ia lanterna și, tremurând, luminează ea „monstrul”, care e doar o umbră (pagina 4), umbrele devin joacă (paginile 5–6), apoi Fifi trage aer în piept, stinge ea lanterna și numără până la trei (pagina 7) și descoperă stelele (pagina 8). Finalul e cald și liniștit: Fifi are o stea de veghe a ei, iar amândoi adorm, Fifi zâmbind, singură în pod, fără frică (paginile 9–10).",
+    "siguranta": "Fantomița e mică, drăguță și caraghioasă, nu sperie pe nimeni; umbra „monstrului” e descrisă și desenată ca fiind caraghioasă și e lămurită imediat, pe pagina următoare. Nu există pericole: lanterna și lampa de veghe sunt obiecte sigure, fără foc. Frica e numită, înțeleasă și rezolvată înainte de final, iar povestea se termină liniștit, la culcare.",
+    "imagini": "Doar două personaje: puiul de leu cu eșarfă turcoaz și fantomița albă cu fundiță roz, numiți cu ce sunt în fiecare acțiune; „the one and only lion cub in the picture” în prompturi, ca Lio să nu apară de două ori. Podul e același pe toate paginile (cutii, balansoar, cuier cu pălărie, fereastră rotundă), cu lumina potrivită: soare (1), lanternă (2–6), lună (7–9), dormitorul lui Lio la final (10). Umbra cuierului e cerută „caraghioasă, nu înfricoșătoare”. Fiecare prompt arată momentul paginii: abajurul-pălărie (1), pătura (2), umbra cu mâini lungi (3), cuierul (4), iepurașul din umbre și Fifi fără umbră (5), umbra pălăriei (6), fereastra (7), stelele (8), steaua de veghe (9), noapte bună (10). Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
+    "voce": "Narațiune calmă, misterioasă când vine seara și când se stinge lanterna, veselă la momentele amuzante, mirată la stele și somnoroasă la final. Fifi are o voce subțire și vioaie, speriată la început și entuziasmată pe măsură ce descoperă; Lio vorbește calm și blând. Pauze după ce Fifi îndreaptă lanterna spre „monstru” și după numărătoare. Seara începe trist, nu misterios, ca suspansul să nu crească înainte de culcare."
+  },
+  "verified": false,
+  "questions": [
+    {
+      "text": "Ce era, de fapt, „monstrul” de pe perete?",
+      "options": [
+        {
+          "text": "Umbra unui cuier",
+          "image": "images/pagina-04.png"
+        },
+        {
+          "text": "O pisică",
+          "emoji": "🐱"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Corect! Era umbra cuierului cel vechi. Lumina nu putea trece prin el."
+    },
+    {
+      "text": "Când se văd stelele pe cer?",
+      "options": [
+        {
+          "text": "Ziua, la prânz",
+          "emoji": "☀️"
+        },
+        {
+          "text": "Noaptea, pe întuneric",
+          "emoji": "🌙"
+        }
+      ],
+      "answer": 1,
+      "explanation": "Bravo! Stelele sunt mereu acolo, dar le vedem doar când e întuneric."
+    }
+  ]
+}
