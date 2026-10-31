@@ -230,6 +230,8 @@ class ChainClient:
                 call.pop("variant", None)  # OpenAI nu cunoaște varianta (alege singur alt desen la fiecare cerere)
             try:
                 result = getattr(client.images, method)(**call)
+            except ImageSkipped:
+                raise
             except Exception as exc:
                 problems.append(f"{getattr(client, 'model', '?')}: {str(exc)[:200]}")
                 self.clients.remove(client)
@@ -417,6 +419,11 @@ def multipart(fields, files):
     return b"".join(parts), f"multipart/form-data; boundary={boundary}"
 
 
+class ImageSkipped(RuntimeError):
+    """Imaginea aceasta nu s-a putut face cum trebuie acum; varianta rămâne bună pentru celelalte imagini, iar
+    imaginea se încearcă la publicarea următoare (nu cu o variantă care ar desena personajele altfel)."""
+
+
 class CloudflareClient:
     supports_references = True
     reference_dir = None  # folderul cu fișele personajelor (îl pune generate_missing)
@@ -439,6 +446,15 @@ class CloudflareClient:
             except RuntimeError as exc:
                 if "4006" in str(exc) or "daily free allocation" in str(exc):
                     raise  # cota zilnică: și modelul vechi ar fi refuzat
+                if self.reference_dir is not None:
+                    # într-o poveste: încă o dată cu mai puține fișe; o imagine fără fișe (modelul vechi) ar arăta
+                    # personajele altfel decât restul cărții, deci mai bine rămâne lipsă și se face la publicarea următoare
+                    try:
+                        return self._run_klein(scene, prompt, variant, references, max_cast=2)
+                    except RuntimeError as again:
+                        if "4006" in str(again) or "daily free allocation" in str(again):
+                            raise
+                        raise ImageSkipped(f"FLUX.2 klein a refuzat imaginea: {str(again)[:300]}") from again
                 print(f"  [imagini] {self.model} nu a mers ({str(exc)[:160]}); încerc {CLOUDFLARE_FALLBACK_MODEL}")
             self.last_model = CLOUDFLARE_FALLBACK_MODEL
             return self._run_json(scene, variant, CLOUDFLARE_FALLBACK_MODEL)
@@ -460,9 +476,12 @@ class CloudflareClient:
         return self._answer(request)
 
     def scene_cast(self, original):
-        """Personajele din scenă: cele a căror descriere completă e în prompt (cum cere validarea), cel mult patru."""
+        """Personajele din scenă: cele a căror descriere completă e în lista „Characters in this scene” de la începutul
+        promptului (sau în tot promptul, dacă nu are listă), cel mult patru."""
+        listed = original.split("Characters in this scene:", 1)
+        part = listed[1].split("Setting:", 1)[0] if len(listed) == 2 and "Setting:" in listed[1] else original
         return [c for c in self.characters if isinstance(c, dict) and c.get("name") and c.get("description")
-                and c["description"] in original][:4]
+                and c["description"] in part][:4]
 
     def character_sheet(self, character):
         """Fișa personajului (PNG): din folderul poveștii sau, dacă lipsește, desenată acum și salvată acolo."""
@@ -479,12 +498,12 @@ class CloudflareClient:
         print(f"  [imagini] fișa personajului {character['name']}: {path}")
         return raw
 
-    def _run_klein(self, scene, original, variant, references):
+    def _run_klein(self, scene, original, variant, references, max_cast=4):
         """FLUX.2 klein cu imagini de referință: fișele personajelor din scenă (dacă povestea are folder de fișe);
         altfel coperta (dacă există) și Lio (dacă e în scenă)."""
         seed = variant_seed(self.seed, variant)
         if self.reference_dir is not None:
-            cast = self.scene_cast(original)
+            cast = self.scene_cast(original)[:max_cast]
             images = [reference_png(self.character_sheet(c)) for c in cast]
             names = ", ".join(f"image {n} is {c['name']}" for n, c in enumerate(cast, 1))
             intro = CAST_INTRO.format(cast=names) if cast else ""

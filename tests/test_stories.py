@@ -790,6 +790,33 @@ class CloudflareTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "4006"):
             client.images.generate(prompt="A hedgehog")
 
+    def test_in_a_story_klein_retries_with_fewer_sheets_and_never_draws_without_them(self):
+        import io
+        import tempfile
+        from urllib.error import HTTPError
+
+        sent = []
+
+        class Response(io.BytesIO):
+            headers = {"Content-Type": "image/png"}
+
+        def opener(request, timeout):
+            sent.append(request.data.count(b'filename="input_image_'))
+            if b"Character reference sheet" not in request.data:
+                raise HTTPError(request.full_url, 400, "x", {}, io.BytesIO(b"bad input"))
+            return Response(self._image((1024, 1024), "PNG"))
+
+        cast = [{"name": n, "description": f"the {n} character"} for n in ("Ana", "Bob", "Cip")]
+        client = imagini.CloudflareClient("cont", "jeton", imagini.CLOUDFLARE_MODEL, "x", opener=opener, characters=cast)
+        prompt = "Characters in this scene: " + "; ".join(f"{c['name']}: {c['description']}" for c in cast) + ". Setting: a room."
+        with tempfile.TemporaryDirectory() as folder:
+            client.reference_dir = Path(folder)
+            chain = imagini.ChainClient([client, object()])
+            with self.assertRaises(imagini.ImageSkipped):
+                chain.images.generate(prompt=prompt)
+        self.assertEqual(sent[-2:], [3, 2], "întâi cu toate fișele, apoi cu două")
+        self.assertEqual(len(chain.clients), 2, "Cloudflare rămâne pentru imaginile următoare")
+
     def test_scene_goes_first_and_character_descriptions_last(self):
         characters = [{"name": "Aricel", "description": "a tiny round hedgehog with a teal scarf"},
                       {"name": "Piu", "description": "a small sky-blue songbird"},

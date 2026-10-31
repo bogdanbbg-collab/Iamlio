@@ -208,9 +208,12 @@ class Preparer:
         if canon.STYLE not in prompt:
             prompt = f"{canon.STYLE} {prompt.replace(canon.STYLE, '').strip()}"
             changed = True
+        # doar personajele numite în prompt (sau toate din text, dacă promptul a fost făcut acum din text): un
+        # personaj doar pomenit în text („casa lui Lio”) nu trebuie adăugat în imagine
+        source = scene_text if prompt.startswith("Scene, show ") else ""
         missing = [c for c in self.data.get("characters") or []
                    if c.get("description") and c["description"] not in prompt
-                   and (mentioned(c.get("name"), prompt) or mentioned(c.get("name"), scene_text))]
+                   and (mentioned(c.get("name"), prompt) or mentioned(c.get("name"), source))]
         if missing:
             people = "; ".join(f"{c['name']}: {c['description']}" for c in missing)
             prompt = f"{prompt} Characters in this scene (draw them exactly like this): {people}."
