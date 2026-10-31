@@ -320,9 +320,10 @@ KLEIN_INTRO = ("Keep every character exactly as in the reference images (same fa
 # din scena ei. Fișele stau în public/stories/<id>/personaje/ (nu se publică pe site); una ștearsă se face din nou.
 CHARACTER_DIR = "personaje"
 SHEET_SIZE = 1024
-SHEET_PROMPT = ("{style} Character reference sheet: one single full-body view of {name}, {description}. Standing alone "
-                "in the center, facing the viewer, friendly expression, the whole body visible from head to feet, plain "
-                "soft light-blue-grey studio background, no other characters, no scenery, no text.")
+# „whole character”, nu „standing… head to feet”: altfel un nor sau o fantomă primesc picioare
+SHEET_PROMPT = ("{style} Character reference sheet: one single view of {name}, {description}. Alone in the center, "
+                "facing the viewer, friendly expression, the whole character visible, exactly as described, plain soft "
+                "light-blue-grey studio background, no other characters, no scenery, no text.")
 CAST_INTRO = ("The reference images only show what the characters look like: {cast}. Draw a completely new scene with "
               "its own background, composition, poses and camera angle (do not copy the reference backgrounds or "
               "poses), in the same 3D animated film style; draw each of these characters exactly once and no other "
