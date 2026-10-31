@@ -1,7 +1,7 @@
 {
   "feminin": {
-    "coperta.mp3": "4e4db59e7ca875edebea695d798130630e2d2bf6",
-    "pagina-01.mp3": "d741204b26f0cd2c4f1f61d4fde4296df8eca68b",
+    "coperta.mp3": "24d4f310a458055e22585d3f600fd6411ca5b5c8",
+    "pagina-01.mp3": "5cbd89093ad733d08cf0d0b8a275b5b1a95f2240",
     "pagina-02.mp3": "813181abc17b0adbd4d464b4149072bcab3ad53a",
     "pagina-03.mp3": "4b7524155bb7f02048b27d8811d75c55d4bc5918",
     "pagina-04.mp3": "2dc306fa1ed7bd1313c81f59a22f7f3f576b7e0f",
@@ -44,33 +44,33 @@
       "coperta.mp3": [
         [
           0.6,
-          5.77
+          5.58
         ],
         [
-          6.37,
-          8.45
+          5.58,
+          8.25
         ]
       ],
       "pagina-01.mp3": [
         [
           0.6,
-          3.43
+          3.9
         ],
         [
-          3.73,
-          8.26
+          3.9,
+          8.67
         ],
         [
-          8.56,
-          14.32
+          8.67,
+          14.08
         ],
         [
-          14.62,
-          18.09
+          14.08,
+          17.84
         ],
         [
-          18.39,
-          22.42
+          17.84,
+          21.69
         ]
       ],
       "pagina-02.mp3": [
@@ -719,8 +719,8 @@
   },
   "motor": {
     "feminin": {
-      "coperta.mp3": "chirp",
-      "pagina-01.mp3": "chirp",
+      "coperta.mp3": "gemini",
+      "pagina-01.mp3": "gemini",
       "pagina-02.mp3": "chirp",
       "pagina-03.mp3": "chirp",
       "pagina-04.mp3": "chirp",

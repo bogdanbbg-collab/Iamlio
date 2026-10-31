@@ -2,12 +2,12 @@
 
 Generate automat la fiecare publicare. Un AI care a adăugat sau a modificat o poveste citește raportul ei și corectează tot ce scrie la „De corectat”, până când raportul spune „publicată”.
 
-Ultima verificare: 2026-10-31 03:55 UTC
+Ultima verificare: 2026-10-31 04:10 UTC
 
 | Poveste | Stare | De corectat | Reparate automat |
 | --- | --- | --- | --- |
 | [Aricel și visul de a zbura](aricel-si-visul-de-a-zbura.md) | ✅ publicată | 0 | 0 |
-| [Fifi, fantomița care se temea de întuneric](fifi-fantomita-care-se-temea-de-intuneric.md) | ❌ nepublicată | 12 | 1 |
+| [Fifi, fantomița care se temea de întuneric](fifi-fantomita-care-se-temea-de-intuneric.md) | ❌ nepublicată | 12 | 0 |
 | [Lio și ceasul care a uitat ora](lio-si-ceasul-care-a-uitat-ora.md) | ❌ nepublicată | 4 | 0 |
 | [Lio și omul de zăpadă](lio-si-omul-de-zapada.md) | ✅ publicată | 0 | 0 |
 | [Lio și pensula toamnei](lio-si-pensula-toamnei.md) | ✅ publicată | 0 | 0 |
