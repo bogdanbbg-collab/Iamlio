@@ -1,24 +1,23 @@
 # Fifi, fantomița care se temea de întuneric
 
-**Stare: ⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)** · verificată la 2026-10-31 05:00 UTC
+**Stare: ❌ NEPUBLICATĂ** · verificată la 2026-10-31 05:14 UTC
 
 Poveste: `public/stories/fifi-fantomita-care-se-temea-de-intuneric/story.json`
 
-## Reparat automat
+## De corectat (de aceea nu este publicată)
 
-Aceste lucruri au fost corectate automat în `story.json` (preia versiunea din repository înainte de a modifica din nou povestea):
+- pagina 1: imaginea images/pagina-01.png nu există
+- pagina 3: imaginea images/pagina-03.png nu există
+- pagina 5: imaginea images/pagina-05.png nu există
+- pagina 6: imaginea images/pagina-06.png nu există
 
-- coperta: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 1: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 2: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 3: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 4: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 5: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 6: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 7: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 8: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 9: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 10: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
+## Note de la publicare
+
+- pagina 1: imaginea nu a putut fi generată (RuntimeError: nicio variantă nu a mers — gemini-2.5-flash-image: Gemini: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your cur | @cf/black-forest-labs/flux-2-klein-4b: Cloudflare: {"errors":[{"message":"AiError: AiError: you have used up your daily free allocation of 10,000 neurons, please upgrade to Cloudflare's Workers Paid plan if you would like to continue usage | tongyi-mai/z-image-turbo: Pollinations: {"success":false,"error":{"message":"Insufficient balance. This request costs ~0.0040 pollen, but your available balance is 0.0020. Top up at https://enter.pollinations.ai/top-up?ref=age)
+- pagina 3: imaginea nu a putut fi generată (RuntimeError: nicio variantă nu a mers — gemini-2.5-flash-image: Gemini: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your cur | @cf/black-forest-labs/flux-2-klein-4b: Cloudflare: {"errors":[{"message":"AiError: AiError: you have used up your daily free allocation of 10,000 neurons, please upgrade to Cloudflare's Workers Paid plan if you would like to continue usage | tongyi-mai/z-image-turbo: Pollinations: {"success":false,"error":{"message":"Insufficient balance. This request costs ~0.0040 pollen, but your available balance is 0.0020. Top up at https://enter.pollinations.ai/top-up?ref=age)
+- pagina 5: imaginea nu a putut fi generată (RuntimeError: nicio variantă nu a mers — gemini-2.5-flash-image: Gemini: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your cur | @cf/black-forest-labs/flux-2-klein-4b: Cloudflare: {"errors":[{"message":"AiError: AiError: you have used up your daily free allocation of 10,000 neurons, please upgrade to Cloudflare's Workers Paid plan if you would like to continue usage | tongyi-mai/z-image-turbo: Pollinations: {"success":false,"error":{"message":"Insufficient balance. This request costs ~0.0040 pollen, but your available balance is 0.0020. Top up at https://enter.pollinations.ai/top-up?ref=age)
+- pagina 6: imaginea nu a putut fi generată (RuntimeError: nicio variantă nu a mers — gemini-2.5-flash-image: Gemini: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your cur | @cf/black-forest-labs/flux-2-klein-4b: Cloudflare: {"errors":[{"message":"AiError: AiError: you have used up your daily free allocation of 10,000 neurons, please upgrade to Cloudflare's Workers Paid plan if you would like to continue usage | tongyi-mai/z-image-turbo: Pollinations: {"success":false,"error":{"message":"Insufficient balance. This request costs ~0.0040 pollen, but your available balance is 0.0020. Top up at https://enter.pollinations.ai/top-up?ref=age)
+- pe site rămâne versiunea publicată anterior (commit b9add68) până când corectezi problemele de mai sus
 
 ## Avertismente (merită verificate, dar nu blochează publicarea)
 
@@ -27,6 +26,7 @@ Aceste lucruri au fost corectate automat în `story.json` (preia versiunea din r
 
 ## Ce faci mai departe
 
-1. Privește coperta și fiecare pagină din `images/` și compar-o cu textul (REGULI_POVESTI.md, secțiunea 10, „Autocorectarea imaginilor”); refă imaginile greșite.
-2. Abia când fiecare imagine arată pagina ei, pune `"verified": true` în story.json și fă commit: atunci povestea apare în bibliotecă.
-3. Până atunci se poate vedea doar cu parola de administrator: https://iamlio.ro/poveste.html?previzualizare=fifi-fantomita-care-se-temea-de-intuneric
+1. Corectează în `story.json` (și în `images/`) fiecare punct de la „De corectat”, respectând `REGULI_POVESTI.md`.
+2. Rulează `python3 scripts/stories.py validate` dacă poți; trebuie să afișeze `[OK]`.
+3. Fă commit pe `master`. După câteva minute, citește din nou acest raport.
+4. Repetă până când starea este „PUBLICATĂ”.
