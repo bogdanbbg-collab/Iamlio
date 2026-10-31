@@ -1,6 +1,6 @@
 # Povestea zilei — procedura rutinei de dimineață
 
-Rutina „Povestea zilei” pornește în fiecare dimineață (~06:05, ora României: după ce se reînnoiește cota gratuită de imagini, pe la 04:00 UTC) o sesiune nouă de Claude, fără
+Rutina „Povestea zilei” pornește în fiecare dimineață (~06:05, ora României) o sesiune nouă de Claude, fără
 nimeni de față. Proprietarul site-ului a cerut: **o poveste nouă pe zi, timp de 100 de zile, făcută după reguli,
 verificată și publicată, fără să fie întrebat**. Nu pui întrebări; decizi singur după regulile de mai jos și la
 final scrii un rezumat scurt.
@@ -67,7 +67,10 @@ Aștepți commit-ul robotului („Povești pregătite automat…”, ~10 minute)
 - abia când **fiecare** imagine arată pagina ei pui `"verified": true` și faci commit; după următoarea publicare,
   povestea apare în bibliotecă. Verifică în `public/stories/index.json` că apare.
 
-Dacă imaginile nu s-au generat (cota), lași `"verified": false`: povestea se termină la rularea de mâine (pasul 1).
+Dacă imaginile nu s-au generat din cauza cotei (în raport: Cloudflare „4006 … daily free allocation”), cota se
+eliberează treptat, la ~24 de ore după ce a fost folosită: programează-ți cu `send_later` o revenire peste o oră, pornește
+atunci din nou publicarea (workflow-ul `publica-site.yml`, „Run workflow”) și repetă de cel mult trei ori. Ce nu s-a
+generat nici așa rămâne cu `"verified": false` și se termină la rularea de mâine (pasul 1).
 Dacă după trei încercări o imagine tot contrazice ceva esențial, povestea rămâne ascunsă și spui asta în rezumat.
 
 ## 6. Rezumatul pentru proprietar

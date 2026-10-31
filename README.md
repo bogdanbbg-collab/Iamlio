@@ -113,8 +113,8 @@ Modelul implicit e FLUX.2 klein 4B (se poate schimba cu variabila `CLOUDFLARE_IM
 fișă (desenat singur, pe fundal simplu, în `public/stories/<id>/personaje/`; Lio pornește de la
 `scripts/referinte/lio.png`), iar fiecare imagine primește ca referință doar fișele personajelor din scena ei;
 dacă modelul refuză o cerere, imaginea se face cu FLUX.1 schnell, fără referințe. Merită privită povestea după
-publicare. Cota zilei (cam 50 de imagini) se reînnoiește pe la
-04:00 UTC; în fiecare noapte, workflow-ul „Imagini rămase (zilnic)” pornește singur publicarea dacă lipsesc imagini.
+publicare. Cota zilei (cam 50 de imagini) se eliberează treptat, la
+~24 de ore după folosire; în fiecare noapte, workflow-ul „Imagini rămase (zilnic)” pornește singur publicarea dacă lipsesc imagini.
 
 **Gratuit, rezervă — Pollinations:** se folosește când cota Cloudflare s-a terminat (nu primește coperta ca referință). Cont gratuit
 pe enter.pollinations.ai (te conectezi cu GitHub), creezi o cheie **secretă** („sk_…”) și o pui în GitHub ca

@@ -1,7 +1,7 @@
 name: Imagini și voci rămase (zilnic)
 
-# Varianta gratuită de imagini (Cloudflare) are o cotă pe zi; în practică se reînnoiește pe la 04:00 UTC (la 03:55 încă
-# refuză, la 04:05 merge), deci rularea de dimineață e după 04:00 UTC. Dacă o poveste a rămas
+# Varianta gratuită de imagini (Cloudflare) are o cotă pe zi; în practică se eliberează treptat, la ~24 de ore după
+# ce a fost folosită (nu la miezul nopții), deci se mai încearcă o dată și la prânz (rularea de la 08:41 UTC). Dacă o poveste a rămas
 # nepublicată pentru că s-a terminat cota, a doua zi dimineață pornește singură publicarea, care generează
 # imaginile rămase. Dacă nu lipsește nicio imagine, nu face nimic.
 # La fel pentru voci: Gemini („povestitorul”) are câteva cereri gratuite pe zi, reînnoite la miezul nopții în
