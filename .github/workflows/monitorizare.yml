@@ -4,9 +4,8 @@ name: Monitorizare site
 # live, iar minutele gratuite GitHub Actions ajung așa și pentru povestea zilnică). Dacă ceva nu merge, deschide (sau actualizează) un issue în GitHub,
 # iar proprietarul repository-ului primește notificare pe email. Când site-ul își revine, issue-ul se închide.
 on:
-  # pornirea automată e oprită la cererea proprietarului (limita de minute GitHub Actions); pentru a o reporni:
-  # schedule:
-  #   - cron: "17 */3 * * *"
+  schedule:
+    - cron: "17 */3 * * *"
   workflow_dispatch:
 
 permissions:

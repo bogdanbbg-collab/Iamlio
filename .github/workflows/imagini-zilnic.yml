@@ -7,10 +7,9 @@ name: Imagini și voci rămase (zilnic)
 # La fel pentru voci: Gemini („povestitorul”) are câteva cereri gratuite pe zi, reînnoite la miezul nopții în
 # California (~08:00 UTC); după aceea, cât timp mai sunt fișiere audio fără vocea Gemini, pornește publicarea.
 on:
-  # pornirea automată e oprită la cererea proprietarului (limita de minute GitHub Actions); pentru a o reporni:
-  # schedule:
-  #   - cron: "17 4 * * *"
-  #   - cron: "41 8 * * *"
+  schedule:
+    - cron: "17 4 * * *"
+    - cron: "41 8 * * *"
   workflow_dispatch:
 
 permissions:
