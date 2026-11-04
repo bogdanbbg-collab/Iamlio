@@ -81,6 +81,30 @@
       "published": "2026-11-04"
     },
     {
+      "id": "tepi-si-frunza-cea-mai-frumoasa",
+      "title": "Țepi și frunza cea mai frumoasă",
+      "summary": "Țepi, un arici mic, caută cea mai frumoasă frunză pentru culcușul de iarnă. O frunză roșie care vorbește și o veveriță veselă îl ajută să afle ce înseamnă cu adevărat „cea mai frumoasă”.",
+      "age": "3-7",
+      "tags": [
+        "arici",
+        "toamnă",
+        "frunze",
+        "culori",
+        "hibernare",
+        "veveriță"
+      ],
+      "categories": [
+        "animale",
+        "invatam",
+        "de-culcare"
+      ],
+      "created": "2026-10-29",
+      "cover": "stories/tepi-si-frunza-cea-mai-frumoasa/images/coperta.webp",
+      "pages": 10,
+      "minutes": 5,
+      "published": "2026-11-04"
+    },
+    {
       "id": "lio-si-pensula-toamnei",
       "title": "Lio și pensula toamnei",
       "summary": "E toamnă, dar pădurea a rămas verde: Zâna Toamnei și-a pierdut pensula fermecată! Lio și puiul de veveriță Ronțăilă o caută prin scorburi, pe lac și pe deal.",
