@@ -33,6 +33,54 @@
   ],
   "stories": [
     {
+      "id": "fifi-fantomita-care-se-temea-de-intuneric",
+      "title": "Fifi, fantomița care se temea de întuneric",
+      "summary": "Fifi e o fantomiță din pod căreia, culmea, îi e frică de întuneric! Cu o lanternă, un cuier caraghios și o fereastră plină de stele, Lio o ajută să vadă întunericul altfel.",
+      "age": "3-7",
+      "tags": [
+        "fantomă",
+        "întuneric",
+        "umbre",
+        "lanternă",
+        "stele",
+        "curaj",
+        "seară"
+      ],
+      "categories": [
+        "de-culcare",
+        "amuzante",
+        "invatam"
+      ],
+      "created": "2026-10-31",
+      "cover": "stories/fifi-fantomita-care-se-temea-de-intuneric/images/coperta.webp",
+      "pages": 10,
+      "minutes": 5,
+      "published": "2026-11-04"
+    },
+    {
+      "id": "pufi-norul-care-nu-voia-sa-ploua",
+      "title": "Pufi, norul care nu voia să plouă",
+      "summary": "Pufi e un nor mic care s-a făcut mare și greu de atâta apă. Florile au sete, dar Pufi se teme că, dacă plouă, o să dispară. Lio îl ajută să afle unde merge, de fapt, ploaia.",
+      "age": "3-7",
+      "tags": [
+        "nor",
+        "ploaie",
+        "apă",
+        "curaj",
+        "flori",
+        "curcubeu"
+      ],
+      "categories": [
+        "invatam",
+        "prietenie"
+      ],
+      "created": "2026-10-30",
+      "cover": "stories/pufi-norul-care-nu-voia-sa-ploua/images/coperta.webp",
+      "pages": 10,
+      "minutes": 5,
+      "published": "2026-11-04"
+    },
+    {
       "id": "lio-si-pensula-toamnei",
       "title": "Lio și pensula toamnei",
       "summary": "E toamnă, dar pădurea a rămas verde: Zâna Toamnei și-a pierdut pensula fermecată! Lio și puiul de veveriță Ronțăilă o caută prin scorburi, pe lac și pe deal.",
