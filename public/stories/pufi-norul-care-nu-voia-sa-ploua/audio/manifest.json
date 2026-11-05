@@ -1,8 +1,8 @@
 {
   "feminin": {
-    "coperta.mp3": "1cad847d737c508183978324567a70af7a06101c",
-    "pagina-01.mp3": "90ebab65fbc676e3b88fbc0a059eed31428724d6",
-    "pagina-02.mp3": "4992f72b04d58d27907a8db4a9c0c566ce0e8953",
+    "coperta.mp3": "3d569967156cbd3b72e9afd0688880f92eadd10d",
+    "pagina-01.mp3": "06e2ea637ad10945d9048ffe9042b98539f867e4",
+    "pagina-02.mp3": "cec17550891d83fc7eca2826250dfc7d2c855274",
     "pagina-03.mp3": "33828dfdb1bd4715b62d102066e3dcb0a1c0f56f",
     "pagina-04.mp3": "904819341961a55ae66c819e4436be9dfd20edf9",
     "pagina-05.mp3": "9405c90b6b6f68a247d068b53a275499966caeaa",
@@ -40,55 +40,55 @@
       "coperta.mp3": [
         [
           0.6,
-          5.04
+          5.16
         ],
         [
-          5.64,
-          8.15
+          5.16,
+          8.77
         ]
       ],
       "pagina-01.mp3": [
         [
           0.6,
-          6.34
+          7.38
         ],
         [
-          6.64,
-          11.15
+          7.38,
+          12.79
         ],
         [
-          11.45,
-          17.05
+          12.79,
+          20.46
         ],
         [
-          17.35,
-          22.82
+          20.46,
+          27.05
         ]
       ],
       "pagina-02.mp3": [
         [
           0.6,
-          5.2
+          5.49
         ],
         [
-          5.5,
-          10.19
+          5.49,
+          11.23
         ],
         [
-          10.49,
-          15.89
+          11.23,
+          17.25
         ],
         [
-          16.19,
-          18.6
-        ],
-        [
-          18.9,
+          17.25,
           20.07
         ],
         [
-          20.37,
-          21.8
+          20.07,
+          21.19
+        ],
+        [
+          21.19,
+          22.89
         ]
       ],
       "pagina-03.mp3": [
@@ -667,9 +667,9 @@
   },
   "motor": {
     "feminin": {
-      "coperta.mp3": "chirp",
-      "pagina-01.mp3": "chirp",
-      "pagina-02.mp3": "chirp",
+      "coperta.mp3": "gemini",
+      "pagina-01.mp3": "gemini",
+      "pagina-02.mp3": "gemini",
       "pagina-03.mp3": "chirp",
       "pagina-04.mp3": "chirp",
       "pagina-05.mp3": "chirp",

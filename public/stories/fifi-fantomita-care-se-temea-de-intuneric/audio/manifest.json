@@ -9,13 +9,13 @@
     "pagina-06.mp3": "424ef89a4b0e0e969728c5de44f1439ee33c7b77",
     "pagina-07.mp3": "adbfd5e7e79239a2a7ca6b3d6e70ec87cef5bc9e",
     "pagina-08.mp3": "3c685cff62c1da947c591f50444c47e50fab8a3f",
-    "pagina-09.mp3": "a405b8f9923b36baa39acff4d0adef2f496b3fc3",
-    "pagina-10.mp3": "5d94a26d6525e803974e497893cce98a09aa6dfb",
-    "final.mp3": "0f7e0ea36da26f54a15d5a224752ffd40b2d3825",
-    "intrebare-1.mp3": "fd7fb0b2799ed7983c5a12a3f8c18c254e0c1b18",
-    "raspuns-1.mp3": "60aa4dd4810536c06a64babc5417394e5816a7f7",
-    "intrebare-2.mp3": "bb83ecb8991dc0246b59ed94c2d539abbb324c82",
-    "raspuns-2.mp3": "9dcf3a56f81ac4a05e55c43ccd83aa0495e50b3e"
+    "pagina-09.mp3": "83ba23760649d072d41b9252928cbd0415892533",
+    "pagina-10.mp3": "058cc8b8f2d761df3b897b7e9c96dd265eac3880",
+    "final.mp3": "1b5ee130f965dbb21ae912f59bb73ad80f512178",
+    "intrebare-1.mp3": "a9f095109ad4572c5bb4f63dd20c1f2ebe4c9899",
+    "raspuns-1.mp3": "e088bba3d8be9df19aa54667a17f669aea5b5aad",
+    "intrebare-2.mp3": "3aa1b0d71b592abd307cfbd8c3ef0884712c3702",
+    "raspuns-2.mp3": "861addd6e70704109ab71ec7468888d2352391f1"
   },
   "masculin": {
     "coperta.mp3": "93446bf5f1a6e939e29e872140461b7aca422eeb",
@@ -242,99 +242,99 @@
       "pagina-09.mp3": [
         [
           0.6,
-          5.14
+          5.06
         ],
         [
-          5.44,
-          8.03
+          5.06,
+          8.39
         ],
         [
-          8.33,
-          13.54
+          8.39,
+          14.25
         ],
         [
-          13.84,
-          15.66
+          14.25,
+          16.79
         ],
         [
-          15.96,
-          19.67
+          16.79,
+          20.73
         ]
       ],
       "pagina-10.mp3": [
         [
           0.6,
-          4.59
+          5.64
         ],
         [
-          4.89,
-          11.61
+          5.64,
+          12.24
         ],
         [
-          11.91,
-          14.81
+          12.24,
+          15.73
         ],
         [
-          15.11,
-          16.98
+          15.73,
+          18.02
         ],
         [
-          17.28,
-          19.06
+          18.02,
+          19.85
         ],
         [
-          19.36,
-          22.18
+          19.85,
+          22.24
         ],
         [
-          22.48,
-          28.58
+          22.24,
+          28.29
         ]
       ],
       "final.mp3": [
         [
           0.6,
-          2.06
+          1.5
         ],
         [
-          2.66,
-          9.06
+          1.5,
+          11.13
         ],
         [
-          9.86,
-          15.34
+          11.13,
+          16.85
         ]
       ],
       "intrebare-1.mp3": [
         [
           0.6,
-          3.52
+          4.51
         ],
         [
-          4.02,
-          6.07
+          4.51,
+          7.37
         ]
       ],
       "raspuns-1.mp3": [
         [
           0.6,
-          6.21
+          6.89
         ]
       ],
       "intrebare-2.mp3": [
         [
           0.6,
-          2.45
+          3.05
         ],
         [
-          2.95,
-          6.53
+          3.05,
+          6.77
         ]
       ],
       "raspuns-2.mp3": [
         [
           0.6,
-          5.35
+          6.21
         ]
       ]
     },
@@ -652,13 +652,13 @@
       "pagina-06.mp3": "gemini",
       "pagina-07.mp3": "gemini",
       "pagina-08.mp3": "gemini",
-      "pagina-09.mp3": "chirp",
-      "pagina-10.mp3": "chirp",
-      "final.mp3": "chirp",
-      "intrebare-1.mp3": "chirp",
-      "raspuns-1.mp3": "chirp",
-      "intrebare-2.mp3": "chirp",
-      "raspuns-2.mp3": "chirp"
+      "pagina-09.mp3": "gemini",
+      "pagina-10.mp3": "gemini",
+      "final.mp3": "gemini",
+      "intrebare-1.mp3": "gemini",
+      "raspuns-1.mp3": "gemini",
+      "intrebare-2.mp3": "gemini",
+      "raspuns-2.mp3": "gemini"
     },
     "masculin": {
       "coperta.mp3": "chirp",
