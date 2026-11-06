@@ -1,6 +1,6 @@
 # Tudor și mașinuța Fulger
 
-**Stare: ❌ NEPUBLICATĂ** · verificată la 2026-11-06 12:09 UTC
+**Stare: ❌ NEPUBLICATĂ** · verificată la 2026-11-06 16:17 UTC
 
 Poveste: `public/stories/tudor-si-masinuta-fulger/story.json`
 
@@ -14,11 +14,11 @@ Poveste: `public/stories/tudor-si-masinuta-fulger/story.json`
 
 ## Note de la publicare
 
-- pagina 2: imaginea nu a putut fi generată (ImageSkipped: FLUX.2 klein a refuzat imaginea: Cloudflare: {"errors":[{"message":"AiError: AiError: Your output has been flagged. Please choose another prompt / input image combination (9ebbf541-5b04-4da0-8c36-a8871fc86402)","code":3030}],"success":false,"result":{},"messages":[]})
-- pagina 3: imaginea nu a putut fi generată (ImageSkipped: FLUX.2 klein a refuzat imaginea: Cloudflare: {"errors":[{"message":"AiError: AiError: Your output has been flagged. Please choose another prompt / input image combination (de807a2f-7a69-4d6e-a946-20b6af2401e5)","code":3030}],"success":false,"result":{},"messages":[]})
-- pagina 4: imaginea nu a putut fi generată (ImageSkipped: FLUX.2 klein a refuzat imaginea: Cloudflare: {"errors":[{"message":"AiError: AiError: Your output has been flagged. Please choose another prompt / input image combination (5e8bbc50-5da7-46d0-be13-ccc5c9958820)","code":3030}],"success":false,"result":{},"messages":[]})
-- pagina 5: imaginea nu a putut fi generată (ImageSkipped: FLUX.2 klein a refuzat imaginea: Cloudflare: {"errors":[{"message":"AiError: AiError: Your output has been flagged. Please choose another prompt / input image combination (80cf037d-ec51-4ded-8795-5a23f016a7ab)","code":3030}],"success":false,"result":{},"messages":[]})
-- pagina 8: imaginea nu a putut fi generată (ImageSkipped: FLUX.2 klein a refuzat imaginea: Cloudflare: {"errors":[{"message":"AiError: AiError: Your output has been flagged. Please choose another prompt / input image combination (4b562537-8660-49ec-9499-d93f8b6b2e5b)","code":3030}],"success":false,"result":{},"messages":[]})
+- pagina 2: imaginea nu a putut fi generată (ImageSkipped: FLUX.2 klein a refuzat imaginea: Cloudflare: {"errors":[{"message":"AiError: AiError: Your output has been flagged. Please choose another prompt / input image combination (923c2c39-3197-418b-84e3-d3fb494efc5f)","code":3030}],"success":false,"result":{},"messages":[]})
+- pagina 3: imaginea nu a putut fi generată (ImageSkipped: FLUX.2 klein a refuzat imaginea: Cloudflare: {"errors":[{"message":"AiError: AiError: Your output has been flagged. Please choose another prompt / input image combination (d09032fd-62eb-4c30-ac06-4252bb265b05)","code":3030}],"success":false,"result":{},"messages":[]})
+- pagina 4: imaginea nu a putut fi generată (ImageSkipped: FLUX.2 klein a refuzat imaginea: Cloudflare: {"errors":[{"message":"AiError: AiError: Your output has been flagged. Please choose another prompt / input image combination (d0340aba-7631-4d53-80b8-e3066434a6f3)","code":3030}],"success":false,"result":{},"messages":[]})
+- pagina 5: imaginea nu a putut fi generată (ImageSkipped: FLUX.2 klein a refuzat imaginea: Cloudflare: {"errors":[{"message":"AiError: AiError: Your output has been flagged. Please choose another prompt / input image combination (d5eb2234-334a-43a7-b95e-d4ea29d34ac8)","code":3030}],"success":false,"result":{},"messages":[]})
+- pagina 8: imaginea nu a putut fi generată (ImageSkipped: FLUX.2 klein a refuzat imaginea: Cloudflare: {"errors":[{"message":"AiError: AiError: Your output has been flagged. Please choose another prompt / input image combination (44daa54a-9f28-4e00-ae2e-5bd16c1ae06d)","code":3030}],"success":false,"result":{},"messages":[]})
 - pe site rămâne versiunea publicată anterior (commit c0ad59e) până când corectezi problemele de mai sus
 
 ## Avertismente (merită verificate, dar nu blochează publicarea)
