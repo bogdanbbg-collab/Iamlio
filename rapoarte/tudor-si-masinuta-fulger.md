@@ -1,6 +1,6 @@
 # Tudor și mașinuța Fulger
 
-**Stare: ❌ NEPUBLICATĂ** · verificată la 2026-11-06 16:17 UTC
+**Stare: ❌ NEPUBLICATĂ** · verificată la 2026-11-06 19:19 UTC
 
 Poveste: `public/stories/tudor-si-masinuta-fulger/story.json`
 
@@ -14,11 +14,6 @@ Poveste: `public/stories/tudor-si-masinuta-fulger/story.json`
 
 ## Note de la publicare
 
-- pagina 2: imaginea nu a putut fi generată (ImageSkipped: FLUX.2 klein a refuzat imaginea: Cloudflare: {"errors":[{"message":"AiError: AiError: Your output has been flagged. Please choose another prompt / input image combination (923c2c39-3197-418b-84e3-d3fb494efc5f)","code":3030}],"success":false,"result":{},"messages":[]})
-- pagina 3: imaginea nu a putut fi generată (ImageSkipped: FLUX.2 klein a refuzat imaginea: Cloudflare: {"errors":[{"message":"AiError: AiError: Your output has been flagged. Please choose another prompt / input image combination (d09032fd-62eb-4c30-ac06-4252bb265b05)","code":3030}],"success":false,"result":{},"messages":[]})
-- pagina 4: imaginea nu a putut fi generată (ImageSkipped: FLUX.2 klein a refuzat imaginea: Cloudflare: {"errors":[{"message":"AiError: AiError: Your output has been flagged. Please choose another prompt / input image combination (d0340aba-7631-4d53-80b8-e3066434a6f3)","code":3030}],"success":false,"result":{},"messages":[]})
-- pagina 5: imaginea nu a putut fi generată (ImageSkipped: FLUX.2 klein a refuzat imaginea: Cloudflare: {"errors":[{"message":"AiError: AiError: Your output has been flagged. Please choose another prompt / input image combination (d5eb2234-334a-43a7-b95e-d4ea29d34ac8)","code":3030}],"success":false,"result":{},"messages":[]})
-- pagina 8: imaginea nu a putut fi generată (ImageSkipped: FLUX.2 klein a refuzat imaginea: Cloudflare: {"errors":[{"message":"AiError: AiError: Your output has been flagged. Please choose another prompt / input image combination (44daa54a-9f28-4e00-ae2e-5bd16c1ae06d)","code":3030}],"success":false,"result":{},"messages":[]})
 - pe site rămâne versiunea publicată anterior (commit c0ad59e) până când corectezi problemele de mai sus
 
 ## Avertismente (merită verificate, dar nu blochează publicarea)
