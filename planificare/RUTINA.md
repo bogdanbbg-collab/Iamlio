@@ -27,7 +27,15 @@ regulile, o adaptezi.
 
 `python3 scripts/stories.py new "Titlu"`, apoi completezi tot, după `REGULI_POVESTI.md` (secțiunea 10). În plus,
 ca imaginile gratuite (Cloudflare FLUX.2 klein, ~50 pe zi, cu coperta și Lio ca imagini de referință) să iasă bine:
-- **9–12 pagini** (~4 minute): rămâne loc în cotă pentru refacerea câtorva imagini și a celor rămase din zilele trecute;
+- **8–9 pagini** (~3–4 minute): rămâne loc în cotă pentru refacerea imaginilor (de obicei 3–4 runde pe poveste);
+- **doar Lio și 1–2 personaje animale, plante sau obiecte magice, fără oameni și fără copii**: filtrul de siguranță
+  al generatorului refuză imaginile cu copii. Dacă tema are un copil (ex. „Pantofii lui Matei”), îl înlocuiești cu
+  un animal (un ursuleț, un iepuraș) și spui asta în rezumat;
+- **fără detalii pe care generatorul nu le poate desena exact**: ora pe un ceas, un număr anume de obiecte în
+  imagine („patru grămezi”), litere; numărarea și orele rămân în text, nu în imagine;
+- în prompturi, fără cuvintele care aduc alte obiecte decât cele dorite: „blanket” (desenează pături de lână),
+  „nest” (coșuri de nuiele), „basket”; descrie ce se vede („a round mound of leaves”, „the leaf lies across his
+  back”);
 - fiecare personaj primește automat o **fișă** (desenat singur, în `public/stories/<id>/personaje/`), iar fiecare
   imagine pornește doar de la fișele personajelor din scena ei; în `Action` scrie „exactly one lion cub, Lio” și
   „only …” când trebuie să apară doar anumite personaje;
@@ -64,7 +72,10 @@ Aștepți commit-ul robotului („Povești pregătite automat…”, ~10 minute)
 - uită-te și tu la o planșă cu toate imaginile; pentru fiecare imagine greșită aplici „Autocorectarea imaginilor”
   (secțiunea 10): `imagePrompt` mai concret, `imageVariant` următor, ștergi imaginea, commit; cel mult trei
   încercări pe imagine;
-- abia când **fiecare** imagine arată pagina ei pui `"verified": true` și faci commit; după următoarea publicare,
+- după **trei încercări** pe aceeași imagine păstrezi varianta cea mai bună, dacă nu contrazice esențialul
+  poveștii, și scrii cinstit în `review.imagini` ce a rămas imperfect;
+- abia când **fiecare** imagine arată pagina ei (sau e cea mai bună după trei încercări) pui `"verified": true`,
+  după ce te-ai uitat și tu la planșa cu toate imaginile, și faci commit; după următoarea publicare,
   povestea apare în bibliotecă. Verifică în `public/stories/index.json` că apare.
 
 Dacă imaginile nu s-au generat din cauza cotei (în raport: Cloudflare „4006 … daily free allocation”), cota se

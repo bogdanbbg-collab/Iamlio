@@ -69,6 +69,15 @@ class FreeImagesBudgetTests(unittest.TestCase):
                 self.assertFalse(budget.allows(), "200 de imagini cu plată ating limita")
 
 
+class PausedImagesTests(StoryCase):
+    def test_a_story_with_paused_images_asks_for_no_new_images(self):
+        (self.folder / "images" / "pagina-02.webp").unlink()
+        self.data["pages"][1]["image"] = "images/pagina-02.webp"
+        self.assertEqual(len(imagini.missing(self.folder, self.data)), 1)
+        self.data["imaginiInPauza"] = True
+        self.assertEqual(imagini.missing(self.folder, self.data), [], "nu se consumă cota pe o poveste pusă pe pauză")
+
+
 class ValidationTests(StoryCase):
     def test_demo_story_is_valid(self):
         self.assertEqual(self.errors(), [])

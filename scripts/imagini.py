@@ -652,7 +652,11 @@ def safe_image(folder, rel):
 
 
 def missing(folder, data):
-    """Lista (etichetă, intrare din story.json) pentru imaginile care nu există încă (doar căi sigure)."""
+    """Lista (etichetă, intrare din story.json) pentru imaginile care nu există încă (doar căi sigure). O poveste cu
+    „imaginiInPauza”: true nu primește imagini noi (de ex. când generatorul gratuit nu o poate desena corect), ca să nu
+    consume cota zilnică degeaba."""
+    if data.get("imaginiInPauza") is True:
+        return []
     entries = [("coperta", data.get("cover") or {})]
     entries += [(f"pagina {n}", p) for n, p in enumerate(data.get("pages") or [], start=1)]
     return [(label, entry) for label, entry in entries

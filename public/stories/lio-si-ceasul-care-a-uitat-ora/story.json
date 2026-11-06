@@ -465,5 +465,6 @@
       "explanation": "Bravo! Când limba mare e sus, e oră fixă: te uiți unde arată limba mică și afli ora."
     }
   ],
-  "verified": false
+  "verified": false,
+  "imaginiInPauza": true
 }
