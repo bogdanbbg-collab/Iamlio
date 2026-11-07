@@ -2,7 +2,7 @@
 
 Generate automat la fiecare publicare. Un AI care a adăugat sau a modificat o poveste citește raportul ei și corectează tot ce scrie la „De corectat”, până când raportul spune „publicată”.
 
-Ultima verificare: 2026-11-05 12:23 UTC
+Ultima verificare: 2026-11-07 04:12 UTC
 
 | Poveste | Stare | De corectat | Reparate automat |
 | --- | --- | --- | --- |
@@ -16,4 +16,5 @@ Ultima verificare: 2026-11-05 12:23 UTC
 | [Pufi, norul care nu voia să plouă](pufi-norul-care-nu-voia-sa-ploua.md) | ✅ publicată | 0 | 0 |
 | [Țepi și frunza cea mai frumoasă](tepi-si-frunza-cea-mai-frumoasa.md) | ✅ publicată | 0 | 0 |
 | [Tudor și mașinuța Fulger](tudor-si-masinuta-fulger.md) | ❌ nepublicată | 5 | 0 |
+| [Țup, iepurașul care număra morcovi](tup-iepurasul-care-numara-morcovi.md) | ⏳ în verificare | 0 | 10 |
 | [Victor și dovleacul luminos](victor-si-dovleacul-luminos.md) | ✅ publicată | 0 | 0 |

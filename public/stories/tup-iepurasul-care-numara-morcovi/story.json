@@ -39,7 +39,7 @@
     }
   ],
   "cover": {
-    "image": "images/coperta.png",
+    "image": "images/coperta.webp",
     "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Țup: a small fluffy light-grey baby bunny with one long ear standing up and one ear flopped down, big shiny black eyes, a pink twitching nose, a white round cotton tail and a tiny orange knitted vest. Setting: a sunny autumn vegetable garden at the edge of a forest, rows of carrots with feathery green tops, a small wooden fence, orange and yellow leaves, warm golden afternoon light. Action: Țup, the small light-grey bunny with one floppy ear and a tiny orange vest, holds up a big orange carrot with both paws and smiles, standing next to a small wooden crate of carrots; beside him Lio, the one and only lion cub in the picture, with a turquoise scarf with little yellow stars, smiles and holds up one paw with fingers spread. Emotions: joyful, friendly. Important details: the carrot rows, the wooden crate of carrots, falling autumn leaves. Camera: wide cinematic cover shot, both faces clearly visible from the front.",
     "animation": {
       "camera": "zoom-in",
@@ -64,7 +64,7 @@
           "speaker": "Țup"
         }
       ],
-      "image": "images/pagina-01.png",
+      "image": "images/pagina-01.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țup: a small fluffy light-grey baby bunny with one long ear standing up and one ear flopped down, big shiny black eyes, a pink twitching nose, a white round cotton tail and a tiny orange knitted vest. Setting: a sunny autumn vegetable garden at the edge of a forest, rows of carrots with feathery green tops, a small wooden fence, orange and yellow leaves, warm golden afternoon light. Action: Țup, the small light-grey bunny with one floppy ear and a tiny orange vest, stands proudly between the rows of carrots, holding one big orange carrot with both paws and looking up at the falling autumn leaves. Emotions: determined, cheerful. Important details: carrot rows with green tops, falling leaves. Camera: wide shot.",
       "animation": {
         "camera": "zoom-out",
@@ -98,7 +98,7 @@
           "mood": "calm"
         }
       ],
-      "image": "images/pagina-02.png",
+      "image": "images/pagina-02.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țup: a small fluffy light-grey baby bunny with one long ear standing up and one ear flopped down, big shiny black eyes, a pink twitching nose, a white round cotton tail and a tiny orange knitted vest. Setting: a sunny autumn vegetable garden at the edge of a forest, rows of carrots with feathery green tops, a small wooden fence, orange and yellow leaves, warm golden afternoon light. Action: Țup, the small light-grey bunny with one floppy ear and a tiny orange vest, sits on the soil next to a small pile of freshly pulled carrots, scratching behind his floppy ear with one paw, looking puzzled with his head tilted. Emotions: puzzled and funny. Important details: a small pile of orange carrots with green tops, soil on the carrots. Camera: medium shot.",
       "animation": {
         "camera": "zoom-in",
@@ -142,7 +142,7 @@
           "speaker": "Lio"
         }
       ],
-      "image": "images/pagina-03.png",
+      "image": "images/pagina-03.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Țup: a small fluffy light-grey baby bunny with one long ear standing up and one ear flopped down, big shiny black eyes, a pink twitching nose, a white round cotton tail and a tiny orange knitted vest. Setting: a sunny autumn vegetable garden at the edge of a forest, rows of carrots with feathery green tops, a small wooden fence, orange and yellow leaves, warm golden afternoon light. Action: Lio, the one and only lion cub in the picture, with a turquoise scarf with little yellow stars, walks along the garden path and smiles at Țup, the small light-grey bunny with one floppy ear and a tiny orange vest, who proudly spreads both paws wide over his small pile of carrots. Emotions: Lio amused and kind, Țup proud. Important details: the garden path, the small pile of carrots. Camera: medium wide shot.",
       "animation": {
         "camera": "pan-right",
@@ -175,7 +175,7 @@
           "mood": "calm"
         }
       ],
-      "image": "images/pagina-04.png",
+      "image": "images/pagina-04.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Țup: a small fluffy light-grey baby bunny with one long ear standing up and one ear flopped down, big shiny black eyes, a pink twitching nose, a white round cotton tail and a tiny orange knitted vest. Setting: a sunny autumn vegetable garden at the edge of a forest, rows of carrots with feathery green tops, a small wooden fence, orange and yellow leaves, warm golden afternoon light. Action: Lio, the one and only lion cub in the picture, with a turquoise scarf with little yellow stars, and Țup, the small light-grey bunny with one floppy ear and a tiny orange vest, stand face to face, each holding up both front paws with the little toes spread wide, counting; Țup copies Lio carefully, his tongue sticking out in concentration. Emotions: focused, happy. Important details: both of them holding up both paws, fingers spread. Camera: medium shot.",
       "animation": {
         "camera": "zoom-in",
@@ -208,7 +208,7 @@
           "mood": "vesel"
         }
       ],
-      "image": "images/pagina-05.png",
+      "image": "images/pagina-05.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Țup: a small fluffy light-grey baby bunny with one long ear standing up and one ear flopped down, big shiny black eyes, a pink twitching nose, a white round cotton tail and a tiny orange knitted vest. Setting: a sunny autumn vegetable garden at the edge of a forest, rows of carrots with feathery green tops, a small wooden fence, orange and yellow leaves, warm golden afternoon light. Action: Țup, the small light-grey bunny with one floppy ear and a tiny orange vest, jumps high in the air with joy, both ears standing straight up for a moment, next to a small wooden crate full of carrots; Lio, the one and only lion cub in the picture, with a turquoise scarf with little yellow stars, claps his paws and laughs. Emotions: joyful, proud. Important details: a small wooden crate filled with orange carrots. Camera: medium wide shot.",
       "animation": {
         "camera": "pan-up",
@@ -255,7 +255,7 @@
           "mood": "vesel"
         }
       ],
-      "image": "images/pagina-06.png",
+      "image": "images/pagina-06.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Țup: a small fluffy light-grey baby bunny with one long ear standing up and one ear flopped down, big shiny black eyes, a pink twitching nose, a white round cotton tail and a tiny orange knitted vest. Setting: a sunny autumn vegetable garden at the edge of a forest, rows of carrots with feathery green tops, a small wooden fence, orange and yellow leaves, warm golden afternoon light. Action: Țup, the small light-grey bunny with one floppy ear and a tiny orange vest, sits beside the wooden crate of carrots, his cheeks puffed out, munching a half-eaten carrot with a guilty little grin; Lio, the one and only lion cub in the picture, with a turquoise scarf with little yellow stars, looks at him with raised eyebrows and a warm smile. Emotions: funny, a little guilty. Important details: the half-eaten carrot, the wooden crate of carrots. Camera: close-up.",
       "animation": {
         "camera": "zoom-in",
@@ -289,7 +289,7 @@
           "mood": "calm"
         }
       ],
-      "image": "images/pagina-07.png",
+      "image": "images/pagina-07.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Țup: a small fluffy light-grey baby bunny with one long ear standing up and one ear flopped down, big shiny black eyes, a pink twitching nose, a white round cotton tail and a tiny orange knitted vest. Setting: a cozy round burrow under a big tree root, earthy walls, a small round wooden door, soft warm light from a little lantern. Action: Lio, the one and only lion cub in the picture, with a turquoise scarf with little yellow stars, and Țup, the small light-grey bunny with one floppy ear and a tiny orange vest, carry the small wooden crate of carrots together through the small round wooden door into the cozy burrow, both smiling. Emotions: teamwork, warm. Important details: the small round wooden door, the wooden crate of carrots, the little lantern. Camera: medium shot.",
       "animation": {
         "camera": "pan-left",
@@ -321,7 +321,7 @@
           "mood": "vesel"
         }
       ],
-      "image": "images/pagina-08.png",
+      "image": "images/pagina-08.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Țup: a small fluffy light-grey baby bunny with one long ear standing up and one ear flopped down, big shiny black eyes, a pink twitching nose, a white round cotton tail and a tiny orange knitted vest. Setting: a cozy round burrow under a big tree root, earthy walls, a small round wooden door, soft warm light from a little lantern, winter: through a tiny round window snow is falling outside. Action: Țup, the small light-grey bunny with one floppy ear and a tiny orange vest, sits happily in his warm burrow, holding one carrot, smiling at the wooden crate of carrots next to him, while snow falls outside the tiny round window. Emotions: cozy, content. Important details: snow outside the tiny round window, the wooden crate of carrots. Camera: medium shot.",
       "animation": {
         "camera": "still",
@@ -358,7 +358,7 @@
           "mood": "somnoros"
         }
       ],
-      "image": "images/pagina-09.png",
+      "image": "images/pagina-09.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Țup: a small fluffy light-grey baby bunny with one long ear standing up and one ear flopped down, big shiny black eyes, a pink twitching nose, a white round cotton tail and a tiny orange knitted vest. Setting: a cozy round burrow under a big tree root, earthy walls, a small round wooden door, soft warm light from a little lantern, winter evening, stars twinkling through the tiny round window. Action: Țup, the small light-grey bunny with one floppy ear and a tiny orange vest, happily hands a carrot to Lio, the one and only lion cub in the picture, with a turquoise scarf with little yellow stars, who has just come in from the snow with a little snow on his mane; they sit together by the little lantern, warm and cozy. Emotions: warm, friendly, sleepy. Important details: the carrot, the lantern, stars in the tiny round window, snowflakes on Lio's mane. Camera: medium shot.",
       "animation": {
         "camera": "zoom-out",

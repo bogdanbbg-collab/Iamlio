@@ -5,3 +5,4 @@ Gratuit: 1.000.000 de caractere pe lună. Limita pusă aici: 800.000 (variabila 
 | Luna | Caractere |
 | --- | --- |
 | 2026-10 | 106.956 |
+| 2026-11 | 5.452 |
