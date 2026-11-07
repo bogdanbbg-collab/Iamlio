@@ -33,6 +33,30 @@
   ],
   "stories": [
     {
+      "id": "tup-iepurasul-care-numara-morcovi",
+      "title": "Țup, iepurașul care număra morcovi",
+      "summary": "Țup, un iepuraș cu urechi lungi, strânge morcovi pentru iarnă, dar nu știe să numere mai departe de trei. Cu Lio învață să numere pe degete până la zece, apoi hotărăște singur ce pune deoparte.",
+      "age": "3-7",
+      "tags": [
+        "iepuraș",
+        "morcovi",
+        "numere",
+        "toamnă",
+        "iarnă",
+        "a pune deoparte"
+      ],
+      "categories": [
+        "invatam",
+        "animale",
+        "de-culcare"
+      ],
+      "created": "2026-11-07",
+      "cover": "stories/tup-iepurasul-care-numara-morcovi/images/coperta.webp",
+      "pages": 9,
+      "minutes": 4,
+      "published": "2026-11-07"
+    },
+    {
       "id": "fifi-fantomita-care-se-temea-de-intuneric",
       "title": "Fifi, fantomița care se temea de întuneric",
       "summary": "Fifi e o fantomiță din pod căreia, culmea, îi e frică de întuneric! Cu o lanternă, un cuier caraghios și o fereastră plină de stele, Lio o ajută să vadă întunericul altfel.",
