@@ -1283,6 +1283,37 @@ class VoiceTests(unittest.TestCase):
         b = voce.fingerprint([voce.Segment("Bună.", "vesel")], "feminin", [])
         self.assertNotEqual(a, b)
 
+    @unittest.skipUnless(shutil.which("ffmpeg"), "ffmpeg lipsește")
+    def test_each_line_fades_out_so_its_end_does_not_crackle(self):
+        import array
+
+        with tempfile.TemporaryDirectory() as tmp:
+            tone, trimmed = Path(tmp) / "ton.wav", Path(tmp) / "taiat.wav"
+            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i",
+                            "sine=frequency=440:sample_rate=24000:duration=1", "-ac", "1", str(tone)], check=True)
+            voce.trim_silence(tone, trimmed)
+            raw = subprocess.run(["ffmpeg", "-loglevel", "error", "-i", str(trimmed), "-f", "s16le", "-ac", "1", "-"],
+                                 capture_output=True, check=True).stdout
+            samples = array.array("h", raw)
+            middle = max(abs(x) for x in samples[len(samples) // 2 - 240:len(samples) // 2 + 240])
+            end = max(abs(x) for x in samples[-48:])
+            self.assertLess(end, middle * 0.1, "sfârșitul frazei se stinge, nu se taie brusc")
+
+    def test_chirp_asks_for_uncompressed_audio(self):
+        from unittest import mock
+
+        budget = voce.ChirpBudget()
+        budget.limit = 10_000
+        chirp = voce.Chirp("cheie", budget)
+        sent = []
+        wav = b"RIFF" + b"\0" * 40
+        import base64 as b64
+        with mock.patch.object(chirp, "_call", side_effect=lambda body: sent.append(body) or {"audioContent": b64.b64encode(wav).decode()}), \
+                tempfile.TemporaryDirectory() as tmp:
+            params = voce.Params("Sulafat", 0, 0, 0)
+            asyncio.run(chirp.synthesize("Era odată.", params, Path(tmp) / "bucata.mp3"))
+        self.assertEqual(sent[0]["audioConfig"]["audioEncoding"], "LINEAR16", "comprimat o singură dată, la final")
+
     def test_chirp_gives_each_character_its_own_voice(self):
         characters = [{"name": "Cucu", "voice": {"type": "masculin", "pitch": 24}},
                       {"name": "Bunicul", "voice": {"type": "masculin", "pitch": -14}},

@@ -80,7 +80,7 @@ TAIL = 0.35
 RETRIES = 3
 
 SAMPLE_RATE = 24000
-BITRATE = "48k"
+BITRATE = "64k"  # 48k lăsa un „gâjâit” la capetele frazelor (artefacte de compresie)
 
 
 @dataclass
@@ -356,7 +356,10 @@ class Chirp:
             body = {
                 "input": {"text": spoken},
                 "voice": {"languageCode": CHIRP_LANGUAGE, "name": f"{CHIRP_LANGUAGE}-Chirp3-HD-{params.voice}"},
-                "audioConfig": {"audioEncoding": "MP3", "speakingRate": round(CHIRP_RATE * (1 + params.rate / 100), 3)},
+                # sunet necomprimat (WAV): comprimat o singură dată, la final; MP3 decodat și recomprimat
+                # se auzea ca un „gâjâit” de stație radio la capătul frazelor
+                "audioConfig": {"audioEncoding": "LINEAR16", "sampleRateHertz": SAMPLE_RATE,
+                                "speakingRate": round(CHIRP_RATE * (1 + params.rate / 100), 3)},
             }
             data = await asyncio.to_thread(self._call, body)
         except ChirpUnavailable as exc:
@@ -368,7 +371,7 @@ class Chirp:
         target.write_bytes(audio)
         if params.volume:
             gain = 20 * math.log10(max(0.05, 1 + params.volume / 100))
-            louder = target.with_name(target.stem + "-vol.mp3")
+            louder = target.with_name(target.stem + "-vol.wav")
             await asyncio.to_thread(subprocess.run, [ffmpeg_binary(), "-y", "-loglevel", "error", "-i", str(target),
                                                      "-af", f"volume={gain:.1f}dB", str(louder)], check=True)
             os.replace(louder, target)
@@ -402,9 +405,12 @@ def ffmpeg_binary():
 
 def trim_silence(source, target):
     """Taie liniștea de la începutul și sfârșitul unei bucăți (serviciile de voce lasă ~0,3 s la fiecare capăt),
-    ca pauzele dintre replici să fie exact cele din regie. Păstrează puțin aer, ca să nu taie sfârșitul cuvintelor."""
+    ca pauzele dintre replici să fie exact cele din regie. Păstrează puțin aer, ca să nu taie sfârșitul cuvintelor,
+    și stinge ușor capetele (0,01 s la început, 0,08 s la sfârșit): fără ele, tăietura și lipirea de liniștea
+    curată se aud ca un pocnet sau un fâșâit la finalul frazei."""
     edge = "silenceremove=start_periods=1:start_duration=0:start_threshold=-50dB:start_silence={}"
-    graph = f"{edge.format(0.04)},areverse,{edge.format(0.12)},areverse"
+    graph = (f"{edge.format(0.04)},areverse,{edge.format(0.12)},afade=t=in:d=0.08,areverse,"
+             "afade=t=in:d=0.01")
     subprocess.run([ffmpeg_binary(), "-y", "-loglevel", "error", "-i", str(source), "-af", graph,
                     "-ac", "1", "-ar", str(SAMPLE_RATE), str(target)], check=True)
 
