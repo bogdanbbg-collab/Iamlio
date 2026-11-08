@@ -33,6 +33,29 @@
   ],
   "stories": [
     {
+      "id": "pantofii-lui-bruno-au-fugit",
+      "title": "Pantofii lui Bruno au fugit",
+      "summary": "Bruno, un ursuleț grăbit, își aruncă pantofii prin toată casa. Într-o noapte, pantofii fermecați Tropi și Topi pleacă să-și caute singuri locul, iar dimineața Bruno și Lio pornesc după urmele lor ude.",
+      "age": "3-7",
+      "tags": [
+        "ordine",
+        "pantofi",
+        "ursuleț",
+        "casă",
+        "joacă"
+      ],
+      "categories": [
+        "amuzante",
+        "invatam",
+        "animale"
+      ],
+      "created": "2026-11-08",
+      "cover": "stories/pantofii-lui-bruno-au-fugit/images/coperta.webp",
+      "pages": 9,
+      "minutes": 4,
+      "published": "2026-11-08"
+    },
+    {
       "id": "tup-iepurasul-care-numara-morcovi",
       "title": "Țup, iepurașul care număra morcovi",
       "summary": "Țup, un iepuraș cu urechi lungi, strânge morcovi pentru iarnă, dar nu știe să numere mai departe de trei. Cu Lio învață să numere pe degete până la zece, apoi hotărăște singur ce pune deoparte.",
