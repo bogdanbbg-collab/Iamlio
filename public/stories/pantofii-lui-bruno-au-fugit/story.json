@@ -47,7 +47,7 @@
     }
   ],
   "cover": {
-    "image": "images/coperta.png",
+    "image": "images/coperta.webp",
     "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Bruno: a small chubby brown bear cub with round ears, a cream-colored muzzle, a black button nose, big friendly dark eyes and a bright yellow t-shirt; Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Tropi și Topi: a pair of small red sneakers with white laces and white soles, each with a tiny friendly face on its toe: two dot eyes and a small smile; they walk on their own by hopping. Setting: the small entrance hall of a cozy little bear house: a front door, an empty coat hook, and a small wooden shoe shelf next to the door, warm morning light. Action: Bruno, the small brown bear cub in a yellow t-shirt, and exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, smile and look down in surprise at Tropi și Topi, the pair of small red sneakers with tiny smiling faces, who hop happily toward them across the wooden floor. Emotions: joyful, funny, a little magical. Important details: the small wooden shoe shelf by the door, soft sparkles around the sneakers. Camera: wide cinematic cover shot, all faces clearly visible from the front.",
     "animation": {
       "camera": "zoom-in",
@@ -94,7 +94,7 @@
           "mood": "vesel"
         }
       ],
-      "image": "images/pagina-01.png",
+      "image": "images/pagina-01.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Bruno: a small chubby brown bear cub with round ears, a cream-colored muzzle, a black button nose, big friendly dark eyes and a bright yellow t-shirt; Tropi și Topi: a pair of small red sneakers with white laces and white soles, each with a tiny friendly face on its toe: two dot eyes and a small smile; they walk on their own by hopping. Setting: a cozy little bear house: a living room with a soft green sofa, a round rug, a wooden shelf with plain colored books and toys, a small lamp, a window, afternoon. Action: only Bruno, the small brown bear cub in a yellow t-shirt, and his two red sneakers: Bruno happily kicks his red sneakers off into the air, one red sneaker flies toward the space under the green sofa, the other red sneaker sails up toward the top of the wooden shelf; the sneakers' tiny faces have their eyes closed; motion lines behind them. Emotions: playful, careless, funny. Important details: the two red sneakers flying through the air, the sofa, the shelf. Camera: wide shot.",
       "animation": {
         "camera": "pan-right",
@@ -127,7 +127,7 @@
           "speaker": "Tropi și Topi"
         }
       ],
-      "image": "images/pagina-02.png",
+      "image": "images/pagina-02.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Tropi și Topi: a pair of small red sneakers with white laces and white soles, each with a tiny friendly face on its toe: two dot eyes and a small smile; they walk on their own by hopping. Setting: a cozy little bear house: a living room with a soft green sofa, a round rug, a wooden shelf with plain colored books and toys, a small lamp, a window, at night, lit softly by moonlight through the window. Action: only Tropi și Topi, the pair of small red sneakers with tiny smiling faces, in the moonlit living room: one sneaker peeks out from under the green sofa, the other one hops down from the wooden shelf, both looking at each other with sad little faces. Emotions: a little sad, then determined. Important details: moonlight, the sofa, the shelf. Camera: medium shot.",
       "animation": {
         "camera": "zoom-in",
@@ -165,7 +165,7 @@
           "speaker": "Tropi și Topi"
         }
       ],
-      "image": "images/pagina-03.png",
+      "image": "images/pagina-03.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Tropi și Topi: a pair of small red sneakers with white laces and white soles, each with a tiny friendly face on its toe: two dot eyes and a small smile; they walk on their own by hopping. Setting: a small cozy kitchen at night, lit by soft moonlight. Action: only Tropi și Topi, the pair of small red sneakers with tiny smiling faces,: they hop out of an open wooden bread box, their white laces covered with bread crumbs, looking funny and puzzled, next to a small heap of potatoes on the kitchen floor. Emotions: funny, puzzled. Important details: the wooden bread box, bread crumbs on the laces, the heap of potatoes. Camera: medium shot.",
       "animation": {
         "camera": "pan-left",
@@ -202,7 +202,7 @@
           "mood": "calm"
         }
       ],
-      "image": "images/pagina-04.png",
+      "image": "images/pagina-04.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Tropi și Topi: a pair of small red sneakers with white laces and white soles, each with a tiny friendly face on its toe: two dot eyes and a small smile; they walk on their own by hopping. Setting: a small cozy bathroom at night, a towel hook on the wall, moonlight through a small window. Action: only Tropi și Topi, the pair of small red sneakers with tiny smiling faces,: they hop out from under a dripping wet towel hanging on a hook, water drops falling on them, one soap bubble on their toes, leaving a trail of small wet footprints on the floor. Emotions: funny, a little sad. Important details: the dripping towel, water drops, the soap bubble, wet footprints on the floor. Camera: medium shot.",
       "animation": {
         "camera": "zoom-in",
@@ -239,7 +239,7 @@
           "speaker": "Bruno"
         }
       ],
-      "image": "images/pagina-05.png",
+      "image": "images/pagina-05.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Bruno: a small chubby brown bear cub with round ears, a cream-colored muzzle, a black button nose, big friendly dark eyes and a bright yellow t-shirt; Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: a small cozy bear bedroom with a little wooden bed, a round rug and a window, bright morning sunlight. Action: Bruno, the small brown bear cub in a yellow t-shirt, lies on his tummy next to his small bed and pulls out one lost striped sock with a surprised face; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands beside him laughing. Emotions: surprised, funny. Important details: the lost striped sock, the little bed. Camera: wide shot.",
       "animation": {
         "camera": "pan-right",
@@ -267,7 +267,7 @@
           "mood": "trist"
         }
       ],
-      "image": "images/pagina-06.png",
+      "image": "images/pagina-06.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Bruno: a small chubby brown bear cub with round ears, a cream-colored muzzle, a black button nose, big friendly dark eyes and a bright yellow t-shirt; Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Tropi și Topi: a pair of small red sneakers with white laces and white soles, each with a tiny friendly face on its toe: two dot eyes and a small smile; they walk on their own by hopping. Setting: the small entrance hall of a cozy little bear house: a front door, an empty coat hook, and a small wooden shoe shelf next to the door, warm morning light. Action: Bruno, the small brown bear cub in a yellow t-shirt, and exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, tiptoe along a trail of small wet footprints on the wooden floor toward the front door, where Tropi și Topi, the pair of small red sneakers with tiny smiling faces, sit sadly next to a small empty wooden shoe shelf. Emotions: curious, then relieved. Important details: the trail of wet footprints, the small empty shoe shelf. Camera: wide shot.",
       "animation": {
         "camera": "pan-left",
@@ -306,7 +306,7 @@
           "speaker": "Bruno"
         }
       ],
-      "image": "images/pagina-07.png",
+      "image": "images/pagina-07.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Bruno: a small chubby brown bear cub with round ears, a cream-colored muzzle, a black button nose, big friendly dark eyes and a bright yellow t-shirt; Tropi și Topi: a pair of small red sneakers with white laces and white soles, each with a tiny friendly face on its toe: two dot eyes and a small smile; they walk on their own by hopping. Setting: the small entrance hall of a cozy little bear house: a front door, an empty coat hook, and a small wooden shoe shelf next to the door, warm morning light. Action: Bruno, the small brown bear cub in a yellow t-shirt, kneels down and points happily at the small empty wooden shoe shelf by the door; Tropi și Topi, the pair of small red sneakers with tiny smiling faces, look up at the shelf with wide hopeful eyes. Emotions: understanding, hopeful. Important details: the small empty wooden shoe shelf by the door. Camera: medium shot.",
       "animation": {
         "camera": "zoom-in",
@@ -343,7 +343,7 @@
           "mood": "vesel"
         }
       ],
-      "image": "images/pagina-08.png",
+      "image": "images/pagina-08.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Bruno: a small chubby brown bear cub with round ears, a cream-colored muzzle, a black button nose, big friendly dark eyes and a bright yellow t-shirt; Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Tropi și Topi: a pair of small red sneakers with white laces and white soles, each with a tiny friendly face on its toe: two dot eyes and a small smile; they walk on their own by hopping. Setting: the small entrance hall of a cozy little bear house: a front door, an empty coat hook, and a small wooden shoe shelf next to the door, warm morning light. Action: Bruno, the small brown bear cub in a yellow t-shirt, places Tropi și Topi, the pair of small red sneakers with tiny smiling faces, side by side on the small wooden shoe shelf, both sneakers smiling happily; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, laughs and hangs Bruno's yellow jacket on the coat hook. Emotions: joyful, playful. Important details: the sneakers side by side on the shelf, the yellow jacket on the hook. Camera: medium shot.",
       "animation": {
         "camera": "pan-right",
@@ -376,7 +376,7 @@
           "speaker": "Bruno"
         }
       ],
-      "image": "images/pagina-09.png",
+      "image": "images/pagina-09.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Bruno: a small chubby brown bear cub with round ears, a cream-colored muzzle, a black button nose, big friendly dark eyes and a bright yellow t-shirt; Tropi și Topi: a pair of small red sneakers with white laces and white soles, each with a tiny friendly face on its toe: two dot eyes and a small smile; they walk on their own by hopping. Setting: the small entrance hall of a cozy little bear house in the evening, lit by a warm lamp: a front door, a yellow jacket on the coat hook, and a small wooden shoe shelf next to the door. Action: Bruno, the small brown bear cub in a yellow t-shirt, yawns sleepily and waves goodnight to Tropi și Topi, the pair of small red sneakers with tiny smiling faces, who sit side by side on the small wooden shoe shelf, smiling with their eyes half closed. Emotions: calm, sleepy, happy. Important details: the sneakers neatly on the shelf, the warm lamp light. Camera: medium shot.",
       "animation": {
         "camera": "zoom-out",

@@ -2,7 +2,7 @@
 
 Generate automat la fiecare publicare. Un AI care a adăugat sau a modificat o poveste citește raportul ei și corectează tot ce scrie la „De corectat”, până când raportul spune „publicată”.
 
-Ultima verificare: 2026-11-07 04:49 UTC
+Ultima verificare: 2026-11-08 04:14 UTC
 
 | Poveste | Stare | De corectat | Reparate automat |
 | --- | --- | --- | --- |
@@ -13,6 +13,7 @@ Ultima verificare: 2026-11-07 04:49 UTC
 | [Lio și pensula toamnei](lio-si-pensula-toamnei.md) | ✅ publicată | 0 | 0 |
 | [Lio și steluța căzătoare](lio-si-steluta-cazatoare.md) | ✅ publicată | 0 | 0 |
 | [Matei și limonada fermecată](matei-si-limonada-fermecata.md) | ✅ publicată | 0 | 0 |
+| [Pantofii lui Bruno au fugit](pantofii-lui-bruno-au-fugit.md) | ⏳ în verificare | 0 | 10 |
 | [Pufi, norul care nu voia să plouă](pufi-norul-care-nu-voia-sa-ploua.md) | ✅ publicată | 0 | 0 |
 | [Țepi și frunza cea mai frumoasă](tepi-si-frunza-cea-mai-frumoasa.md) | ✅ publicată | 0 | 0 |
 | [Tudor și mașinuța Fulger](tudor-si-masinuta-fulger.md) | ❌ nepublicată | 5 | 0 |
