@@ -36,6 +36,20 @@ ca imaginile gratuite (Cloudflare FLUX.2 klein, ~50 pe zi, cu coperta și Lio ca
 - în prompturi, fără cuvintele care aduc alte obiecte decât cele dorite: „blanket” (desenează pături de lână),
   „nest” (coșuri de nuiele), „basket”; descrie ce se vede („a round mound of leaves”, „the leaf lies across his
   back”);
+- **fără oglinzi în scenă**: generatorul desenează reflexia ca pe un al doilea personaj (doi Lio); dacă textul spune
+  că Lio se uită în oglindă, arată-l din față, zâmbind;
+- **fără guri de aproape** (dinți, buze): ies guri omenești, care pot speria; mută acțiunea pe un obiect (de ex. un
+  dinte mare de desen animat, ca o scenă);
+- **un obiect cu față se descrie ca obiectul obișnuit** („an ordinary toothbrush … a tiny face printed on the handle,
+  no arms, no legs, no body”), altfel devine o creatură; dacă tot iese creatură lângă alt personaj, descrie obiectul
+  în cuvinte, fără să-l pui în lista personajelor scenei;
+- **o singură trăsătură neobișnuită pe personaj** (o ureche pleoștită ieșea mereu ca a treia ureche): alege
+  trăsături pe care generatorul le face sigur (culori, haine, urechi în sus);
+- **fără perechi sau grupuri numărate lângă obiecte asemănătoare** (o pereche de pantofi lângă un raft cu pantofi
+  iese cu trei pantofi): scenele simple, cu fundal liber, ies cel mai bine;
+- verifică întâi **fișele personajelor** (`personaje/*.png`): o fișă greșită (trei urechi, picioare la un nor, o
+  periuță cu corp) strică toate paginile; corectezi descrierea din `characters` (și din prompturi), ștergi fișa și
+  refaci paginile;
 - fiecare personaj primește automat o **fișă** (desenat singur, în `public/stories/<id>/personaje/`), iar fiecare
   imagine pornește doar de la fișele personajelor din scena ei; în `Action` scrie „exactly one lion cub, Lio” și
   „only …” când trebuie să apară doar anumite personaje;
@@ -50,7 +64,8 @@ ca imaginile gratuite (Cloudflare FLUX.2 klein, ~50 pe zi, cu coperta și Lio ca
 
 ## 4. Verificarea textului — agent separat
 
-Înainte de commit, pornește un **agent separat** (Agent tool) care nu a scris povestea. Dă-i calea fișierului
+Înainte de commit, pornește un **agent separat** (Agent tool; dacă unealta ta nu are agenți, o conversație nouă,
+separată, care nu a văzut cum ai scris povestea) care nu a scris povestea. Dă-i calea fișierului
 `story.json` și `REGULI_POVESTI.md` și cere-i să verifice, punct cu punct, lista „Lista de verificare” din
 secțiunea 10 și secțiunea 3 (imaginație, învățătură împletită în acțiune, umor, emoție, siguranță, interzise),
 româna (diacritice, ș/ț cu virgulă, numere în litere), dacă fiecare `imagePrompt` arată exact momentul paginii și
