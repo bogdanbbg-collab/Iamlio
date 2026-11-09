@@ -99,6 +99,7 @@ codul site-ului (`public/*.html`, `public/assets/`, `scripts/`, `.github/`) — 
 - `.github/workflows/monitorizare.yml` — verificarea site-ului live o dată la 3 ore
 - `planificare/teme.json` + `planificare/RUTINA.md` — cele 100 de teme și procedura rutinei „Povestea zilei”
   (o poveste nouă în fiecare dimineață, verificată de agenți separați)
+- `planificare/PREDARE.md` — pașii pentru un alt asistent AI care preia rutina (verificări, programare, rutina zilnică)
 - `public/confidentialitate.html` — informarea pentru părinți despre date
 - `requirements.lock`, `package-lock.json` — versiunile exacte ale tuturor dependențelor (`.github/dependabot.yml`
   propune lunar actualizări, ca pull request-uri verificate de teste)
