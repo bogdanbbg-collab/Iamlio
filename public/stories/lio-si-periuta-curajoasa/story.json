@@ -1,12 +1,12 @@
 {
   "id": "lio-si-periuta-curajoasa",
   "title": "Lio și periuța curajoasă",
-  "summary": "Lio vrea să se culce fără să se spele pe dinți, dar periuța Peri sare din pahar: pe dinții lui fac petrecere zahărașii! Cu spumă, un cântecel și mult curaj, cei doi îi trimit acasă.",
+  "summary": "Lio vrea să se culce fără să se spele pe dinți, dar periuța Peri sare din pahar: pe dinții lui fac petrecere zahărașii! Cu spumă, un cântecel și o periuță curajoasă, cei doi îi trimit acasă.",
   "age": "3-7",
-  "moral": "Dimineața și seara, dinții curați zâmbesc frumos.",
+  "moral": "Când ne spălăm pe dinți dimineața și seara, zâmbetul nostru rămâne sănătos.",
   "learning": [
     "ne spălăm pe dinți dimineața și seara",
-    "pastă cât un bob de mazăre, cam două minute, pe toți dinții, și cei din spate",
+    "pastă cât un bob de mazăre, cam două minute, pe toți dinții, și pe cei din spate; scuipăm spuma, nu o înghițim",
     "zahărul rămas pe dinți îi poate strica"
   ],
   "created": "2026-11-09",
@@ -38,7 +38,7 @@
     },
     {
       "name": "Zahărașii",
-      "description": "a few tiny round sugar crumbs, pale pink and white, each the size of a pea, with tiny giggly faces and sparkles, cute and silly, not scary",
+      "description": "a few tiny round sugar crumbs, pale pink and white, each the size of a pea, with tiny giggly faces, tiny stick arms and sparkles, cute and silly",
       "voice": {
         "type": "masculin",
         "pitch": 30,
@@ -48,7 +48,7 @@
   ],
   "cover": {
     "image": "images/coperta.png",
-    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Peri: a small light-blue toothbrush with a cheerful little face on its handle (two dot eyes and a big smile) and soft white bristles on top like a funny hairdo; it hops and moves on its own. Setting: a cozy small bathroom in the evening, a round mirror above a white sink, a cup for toothbrushes and a tube of toothpaste on the sink, soft warm light, little tiles in pastel colors. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, smiles in front of the round mirror, holding up Peri, the small light-blue toothbrush with a cheerful little face and white bristles, like a little hero; Peri smiles bravely with a small dab of white toothpaste on its bristles; white foam bubbles float around them. Emotions: joyful, brave, funny. Important details: the round mirror, foam bubbles, sparkles. Camera: wide cinematic cover shot, both faces clearly visible from the front.",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Peri: a small light-blue toothbrush with a cheerful little face on its handle (two dot eyes and a big smile) and soft white bristles on top like a funny hairdo; it hops and moves on its own. Setting: a cozy small bathroom in the evening, a round mirror above a white sink, a small plain yellow cup and a smooth plain white toothpaste tube with a mint-green cap, completely blank, on the sink, soft warm light, little tiles in pastel colors. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, smiles in front of the round mirror, holding up Peri, the small light-blue toothbrush with a cheerful little face on its handle and white bristles, like a little hero; Peri smiles bravely with a small dab of white toothpaste on its bristles; white foam bubbles float around them. Emotions: joyful, brave, funny. Important details: the round mirror, foam bubbles, sparkles. Camera: wide cinematic cover shot, both faces clearly visible from the front.",
     "animation": {
       "camera": "zoom-in",
       "effect": "bubbles"
@@ -64,7 +64,7 @@
         },
         {
           "text": "Apoi a căscat atât de tare, încât i-a fluturat coama.",
-          "mood": "vesel"
+          "mood": "somnoros"
         },
         {
           "text": "— Mă duc direct la culcare,",
@@ -82,7 +82,7 @@
         }
       ],
       "image": "images/pagina-01.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: Lio's cozy kitchen in the evening, warm lamp light, a plate with honey cake crumbs on the table. Action: only exactly one lion cub, Lio, with a turquoise scarf with little yellow stars,: he sits at the table next to an empty plate with a few crumbs, yawning hugely with his mouth wide open and his mane fluttering. Emotions: sleepy, funny. Important details: the empty plate with honey cake crumbs, the warm lamp. Camera: medium shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: Lio's cozy kitchen in the evening, warm lamp light, a plate with honey cake crumbs on the table. Action: only exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, he sits at the table next to an empty plate with a few crumbs, yawning hugely with his mouth wide open and his mane fluttering. Emotions: sleepy, funny. Important details: the empty plate with honey cake crumbs, the warm lamp. Camera: medium shot.",
       "animation": {
         "camera": "zoom-in",
         "effect": "none"
@@ -115,7 +115,7 @@
         }
       ],
       "image": "images/pagina-02.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Peri: a small light-blue toothbrush with a cheerful little face on its handle (two dot eyes and a big smile) and soft white bristles on top like a funny hairdo; it hops and moves on its own; Zahărașii: a few tiny round sugar crumbs, pale pink and white, each the size of a pea, with tiny giggly faces and sparkles, cute and silly, not scary. Setting: a cozy small bathroom in the evening, a round mirror above a white sink, a cup for toothbrushes and a tube of toothpaste on the sink, soft warm light, little tiles in pastel colors. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, smiles widely in front of the round mirror; in the reflection, a few tiny pink-and-white sugar crumbs with giggly faces, the Zahărașii, dance on his front teeth; Peri, the small light-blue toothbrush with a cheerful little face and white bristles, has just hopped out of the cup on the sink and points at the mirror. Emotions: surprised, funny. Important details: the round mirror, the cup on the sink, the tiny dancing sugar crumbs. Camera: medium shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Peri: a small light-blue toothbrush with a cheerful little face on its handle (two dot eyes and a big smile) and soft white bristles on top like a funny hairdo; it hops and moves on its own. Setting: a cozy small bathroom in the evening, a round mirror above a white sink, a small plain yellow cup and a smooth plain white toothpaste tube with a mint-green cap, completely blank, on the sink, soft warm light, little tiles in pastel colors. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands in front of the round mirror, smiling widely and leaning toward it with curious eyes; Peri, the small light-blue toothbrush with a cheerful little face on its handle and white bristles, has just hopped out of the small plain yellow cup on the sink and points at the mirror. Emotions: surprised, curious. Important details: the round mirror, the small plain yellow cup, little sparkles. Camera: medium shot.",
       "animation": {
         "camera": "zoom-in",
         "effect": "sparkles"
@@ -163,64 +163,65 @@
         }
       ],
       "image": "images/pagina-03.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Peri: a small light-blue toothbrush with a cheerful little face on its handle (two dot eyes and a big smile) and soft white bristles on top like a funny hairdo; it hops and moves on its own; Zahărașii: a few tiny round sugar crumbs, pale pink and white, each the size of a pea, with tiny giggly faces and sparkles, cute and silly, not scary. Setting: a cozy small bathroom in the evening, a round mirror above a white sink, a cup for toothbrushes and a tube of toothpaste on the sink, soft warm light, little tiles in pastel colors. Action: close-up of the round mirror: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, looks at his reflection with wide surprised eyes, his mouth open; a few tiny pink-and-white sugar crumbs with giggly faces, the Zahărașii, giggle and wave on his front teeth like at a party; Peri, the small light-blue toothbrush with a cheerful little face and white bristles, stands on the sink with a brave, determined face. Emotions: surprised, then determined. Important details: the mirror reflection, the giggling sugar crumbs. Camera: close-up.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Peri: a small light-blue toothbrush with a cheerful little face on its handle (two dot eyes and a big smile) and soft white bristles on top like a funny hairdo; it hops and moves on its own; Zahărașii: a few tiny round sugar crumbs, pale pink and white, each the size of a pea, with tiny giggly faces, tiny stick arms and sparkles, cute and silly. Setting: a giant smile seen very close, like a shiny stage. Action: extreme close-up of big shiny white teeth like a stage; a few tiny pink-and-white sugar crumbs with giggly faces and tiny stick arms, the Zahărașii, dance on the teeth like at a party; Peri, the small light-blue toothbrush with a cheerful little face on its handle and white bristles, peeks in from the side with a determined face. Emotions: silly party, then determined. Important details: the shiny white teeth like a stage, the dancing sugar crumbs. Camera: macro close-up.",
       "animation": {
         "camera": "zoom-in",
         "effect": "none"
       }
     },
     {
-      "text": "— Pune pe mine pastă, cât un bob de mazăre, a zis Peri. Lio a apăsat tubul. Fâs! Pasta a ieșit și i s-a așezat lui Peri pe cap, ca o căciulă albă. — Acum sunt gata de luptă! a strigat periuța, cu căciula de pastă pe o ureche.",
+      "text": "— Atunci la treabă! a zis Lio și a luat-o pe Peri. — Pune pe mine pastă, cât un bob de mazăre, a zis periuța. Lio a apăsat tubul. Fâs! Pasta i s-a așezat lui Peri pe cap, ca o căciulă strâmbă. — Acum sunt gata de treabă!",
       "narration": [
+        {
+          "text": "— Atunci la treabă!",
+          "mood": "hotărât",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a zis Lio și a luat-o pe Peri.",
+          "mood": "calm"
+        },
         {
           "text": "— Pune pe mine pastă, cât un bob de mazăre,",
           "mood": "calm",
           "speaker": "Peri"
         },
         {
-          "text": "a zis Peri.",
+          "text": "a zis periuța.",
           "mood": "calm"
         },
         {
           "text": "Lio a apăsat tubul. Fâs!",
           "mood": "vesel",
-          "pause": 0.3
+          "pause": 0.6
         },
         {
-          "text": "Pasta a ieșit și i s-a așezat lui Peri pe cap, ca o căciulă albă.",
+          "text": "Pasta i s-a așezat lui Peri pe cap, ca o căciulă strâmbă.",
           "mood": "vesel"
         },
         {
-          "text": "— Acum sunt gata de luptă!",
+          "text": "— Acum sunt gata de treabă!",
           "mood": "entuziasmat",
           "speaker": "Peri"
-        },
-        {
-          "text": "a strigat periuța, cu căciula de pastă pe o ureche.",
-          "mood": "vesel"
         }
       ],
       "image": "images/pagina-04.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Peri: a small light-blue toothbrush with a cheerful little face on its handle (two dot eyes and a big smile) and soft white bristles on top like a funny hairdo; it hops and moves on its own. Setting: a cozy small bathroom in the evening, a round mirror above a white sink, a cup for toothbrushes and a tube of toothpaste on the sink, soft warm light, little tiles in pastel colors. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, squeezes a small tube of toothpaste over Peri, the small light-blue toothbrush with a cheerful little face and white bristles,; a small white dab of toothpaste sits on top of the white bristles like a funny little hat, a bit crooked; Peri salutes proudly. Emotions: funny, playful. Important details: the small dab of toothpaste like a hat, the toothpaste tube. Camera: close-up.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Peri: a small light-blue toothbrush with a cheerful little face on its handle (two dot eyes and a big smile) and soft white bristles on top like a funny hairdo; it hops and moves on its own. Setting: a cozy small bathroom in the evening, a round mirror above a white sink, a small plain yellow cup and a smooth plain white toothpaste tube with a mint-green cap, completely blank, on the sink, soft warm light, little tiles in pastel colors. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, squeezes a smooth plain white toothpaste tube over Peri, the small light-blue toothbrush with a cheerful little face on its handle and white bristles,; a small white dab of toothpaste sits on top of the white bristles like a funny little hat, a bit crooked; Peri leans proudly to one side. Emotions: funny, playful. Important details: the small dab of toothpaste like a crooked hat, the plain white tube. Camera: close-up.",
       "animation": {
         "camera": "zoom-in",
         "effect": "none"
       }
     },
     {
-      "text": "Lio a început să se spele pe dinți. Peri mătura sus-jos, ca o mătură mică, apoi făcea cercuri mici. Pe dinții din față, pe cei din spate, peste tot. Zahărașii alunecau pe bulele de spumă, ca pe un tobogan: — Uiiii!",
+      "text": "Lio a început să se spele pe dinți. Peri freca sus-jos, ca o mătură mică, apoi făcea cercuri mici. Zahărașii alunecau pe bulele de spumă, ca pe un tobogan: — Uiiii! — Unii s-au ascuns în spate! a zis Lio. Și Peri, curajoasă, s-a dus până la dinții din spate, după ei.",
       "narration": [
         {
           "text": "Lio a început să se spele pe dinți.",
           "mood": "calm"
         },
         {
-          "text": "Peri mătura sus-jos, ca o mătură mică, apoi făcea cercuri mici.",
+          "text": "Peri freca sus-jos, ca o mătură mică, apoi făcea cercuri mici.",
           "mood": "vesel"
-        },
-        {
-          "text": "Pe dinții din față, pe cei din spate, peste tot.",
-          "mood": "calm"
         },
         {
           "text": "Zahărașii alunecau pe bulele de spumă, ca pe un tobogan:",
@@ -230,17 +231,30 @@
           "text": "— Uiiii!",
           "mood": "entuziasmat",
           "speaker": "Zahărașii"
+        },
+        {
+          "text": "— Unii s-au ascuns în spate!",
+          "mood": "mirat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a zis Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "Și Peri, curajoasă, s-a dus până la dinții din spate, după ei.",
+          "mood": "hotărât"
         }
       ],
       "image": "images/pagina-05.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Peri: a small light-blue toothbrush with a cheerful little face on its handle (two dot eyes and a big smile) and soft white bristles on top like a funny hairdo; it hops and moves on its own; Zahărașii: a few tiny round sugar crumbs, pale pink and white, each the size of a pea, with tiny giggly faces and sparkles, cute and silly, not scary. Setting: a cozy small bathroom in the evening, a round mirror above a white sink, a cup for toothbrushes and a tube of toothpaste on the sink, soft warm light, little tiles in pastel colors. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, brushes his teeth in front of the mirror with Peri, the small light-blue toothbrush with a cheerful little face and white bristles,, white foam bubbles around his mouth; a few tiny pink-and-white sugar crumbs with giggly faces, the Zahărașii, slide down on the big foam bubbles like on a playground slide, laughing with their arms up. Emotions: joyful, silly. Important details: white foam bubbles, the sugar crumbs sliding on the bubbles. Camera: medium shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Peri: a small light-blue toothbrush with a cheerful little face on its handle (two dot eyes and a big smile) and soft white bristles on top like a funny hairdo; it hops and moves on its own; Zahărașii: a few tiny round sugar crumbs, pale pink and white, each the size of a pea, with tiny giggly faces, tiny stick arms and sparkles, cute and silly. Setting: a cozy small bathroom in the evening, a round mirror above a white sink, a small plain yellow cup and a smooth plain white toothpaste tube with a mint-green cap, completely blank, on the sink, soft warm light, little tiles in pastel colors. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, brushes his teeth in front of the mirror, holding Peri, the small light-blue toothbrush with a cheerful little face on its handle and white bristles, in his paw, Peri's face on the handle visible and smiling, a little white foam around his mouth; a few tiny pink-and-white sugar crumbs with giggly faces and tiny stick arms, the Zahărașii, slide down on big foam bubbles in the air like on a playground slide, laughing with their tiny arms up. Emotions: joyful, silly. Important details: foam bubbles, the sugar crumbs sliding on the bubbles. Camera: medium shot.",
       "animation": {
         "camera": "pan-down",
         "effect": "bubbles"
       }
     },
     {
-      "text": "— Cât timp ne spălăm? a întrebat Lio, cu gura plină de spumă. — Cam două minute, cât ține cântecelul nostru! a spus Peri. Și au cântat împreună: Sus și jos, roată-roată, dinți curați pentru-o noapte toată! Dar din gura lui Lio se auzea doar: Bul-bul-bul!",
+      "text": "— Cât timp ne spălăm? a întrebat Lio, cu gura plină de spumă. — Cam două minute, cât cântăm cântecelul nostru de trei ori! a spus Peri. Și au cântat împreună, iar și iar: „Sus și jos, roată-roată, dinți curați pentru-o noapte toată!” Dar din gura lui Lio se auzea doar: „Bul-bul-bul!”",
       "narration": [
         {
           "text": "— Cât timp ne spălăm?",
@@ -252,7 +266,7 @@
           "mood": "vesel"
         },
         {
-          "text": "— Cam două minute, cât ține cântecelul nostru!",
+          "text": "— Cam două minute, cât cântăm cântecelul nostru de trei ori!",
           "mood": "vesel",
           "speaker": "Peri"
         },
@@ -261,28 +275,32 @@
           "mood": "calm"
         },
         {
-          "text": "Și au cântat împreună: Sus și jos, roată-roată, dinți curați pentru-o noapte toată!",
+          "text": "Și au cântat împreună, iar și iar: „Sus și jos, roată-roată, dinți curați pentru-o noapte toată!”",
           "mood": "entuziasmat"
         },
         {
-          "text": "Dar din gura lui Lio se auzea doar: Bul-bul-bul!",
+          "text": "Dar din gura lui Lio se auzea doar: „Bul-bul-bul!”",
           "mood": "vesel"
         }
       ],
       "image": "images/pagina-06.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Peri: a small light-blue toothbrush with a cheerful little face on its handle (two dot eyes and a big smile) and soft white bristles on top like a funny hairdo; it hops and moves on its own. Setting: a cozy small bathroom in the evening, a round mirror above a white sink, a cup for toothbrushes and a tube of toothpaste on the sink, soft warm light, little tiles in pastel colors. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sings happily while brushing, his cheeks puffed and a big white foam beard around his mouth, little music notes floating in the air; Peri, the small light-blue toothbrush with a cheerful little face and white bristles, moves in rhythm like a dancer. Emotions: joyful, very funny. Important details: the white foam beard, little music notes. Camera: medium shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Peri: a small light-blue toothbrush with a cheerful little face on its handle (two dot eyes and a big smile) and soft white bristles on top like a funny hairdo; it hops and moves on its own. Setting: a cozy small bathroom in the evening, a round mirror above a white sink, a small plain yellow cup and a smooth plain white toothpaste tube with a mint-green cap, completely blank, on the sink, soft warm light, little tiles in pastel colors. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, holds Peri, the small light-blue toothbrush with a cheerful little face on its handle and white bristles, in his paw and brushes his teeth, Peri's face on the handle wiggling to the rhythm; Lio's cheeks are puffed, a little white foam around his mouth, small music notes float in the air. Emotions: joyful, very funny. Important details: a little white foam around his mouth, small music notes. Camera: medium shot.",
       "animation": {
         "camera": "pan-right",
         "effect": "bubbles"
       }
     },
     {
-      "text": "La final, Lio a clătit gura cu apă și a scuipat în chiuvetă. Pfff! Zahărașii s-au dus la vale, pe apă, făcând cu mâna: — Pa-pa! Ne vedem după următoarea prăjitură! — Iar ne vedem și noi! a râs Peri.",
+      "text": "La final, Lio a scuipat spuma în chiuvetă. Ptiu! Apoi a clătit-o pe Peri sub robinet. Zahărașii s-au dus la vale, pe apă, făcând cu mâna: — Pa-pa! Ne vedem după următoarea prăjitură! — Și noi vă așteptăm, cu spumă! a râs Peri.",
       "narration": [
         {
-          "text": "La final, Lio a clătit gura cu apă și a scuipat în chiuvetă. Pfff!",
+          "text": "La final, Lio a scuipat spuma în chiuvetă. Ptiu!",
           "mood": "vesel",
-          "pause": 0.3
+          "pause": 0.6
+        },
+        {
+          "text": "Apoi a clătit-o pe Peri sub robinet.",
+          "mood": "calm"
         },
         {
           "text": "Zahărașii s-au dus la vale, pe apă, făcând cu mâna:",
@@ -294,8 +312,8 @@
           "speaker": "Zahărașii"
         },
         {
-          "text": "— Iar ne vedem și noi!",
-          "mood": "hotărât",
+          "text": "— Și noi vă așteptăm, cu spumă!",
+          "mood": "vesel",
           "speaker": "Peri"
         },
         {
@@ -304,17 +322,17 @@
         }
       ],
       "image": "images/pagina-07.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Peri: a small light-blue toothbrush with a cheerful little face on its handle (two dot eyes and a big smile) and soft white bristles on top like a funny hairdo; it hops and moves on its own; Zahărașii: a few tiny round sugar crumbs, pale pink and white, each the size of a pea, with tiny giggly faces and sparkles, cute and silly, not scary. Setting: a cozy small bathroom in the evening, a round mirror above a white sink, a cup for toothbrushes and a tube of toothpaste on the sink, soft warm light, little tiles in pastel colors. Action: view of the white sink from above: a few tiny pink-and-white sugar crumbs with giggly faces, the Zahărașii, ride a little swirl of water toward the drain, waving goodbye cheerfully; Peri, the small light-blue toothbrush with a cheerful little face and white bristles, stands on the edge of the sink, waving back and laughing. Emotions: funny, cheerful. Important details: the little swirl of water in the sink, the waving sugar crumbs. Camera: top-down shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Peri: a small light-blue toothbrush with a cheerful little face on its handle (two dot eyes and a big smile) and soft white bristles on top like a funny hairdo; it hops and moves on its own; Zahărașii: a few tiny round sugar crumbs, pale pink and white, each the size of a pea, with tiny giggly faces, tiny stick arms and sparkles, cute and silly. Setting: a cozy small bathroom in the evening, a round mirror above a white sink, a small plain yellow cup and a smooth plain white toothpaste tube with a mint-green cap, completely blank, on the sink, soft warm light, little tiles in pastel colors. Action: view of the white sink from above: a few tiny pink-and-white sugar crumbs with giggly faces and tiny stick arms, the Zahărașii, ride a little swirl of water toward the drain, waving goodbye with their tiny arms; Peri, the small light-blue toothbrush with a cheerful little face on its handle and white bristles, stands on the edge of the sink, freshly rinsed and shiny with water drops, laughing; a small golden furry paw is visible at the edge of the sink. Emotions: funny, cheerful. Important details: the little swirl of water, the waving sugar crumbs, water drops on Peri. Camera: top-down shot.",
       "animation": {
         "camera": "pan-down",
         "effect": "drops"
       }
     },
     {
-      "text": "Lio s-a uitat în oglindă. Dinții îi străluceau ca niște perle. — Și dimineața la fel, i-a amintit Peri. Dimineața și seara, ca să nu aibă zahărașii timp de petrecere. — Dimineața și seara! a promis Lio.",
+      "text": "Lio s-a uitat în oglindă. Dinții îi străluceau ca zăpada. — Și dimineața la fel, i-a amintit Peri. Dimineața și seara, ca să nu aibă zahărașii timp de petrecere. — Dimineața și seara! a promis Lio.",
       "narration": [
         {
-          "text": "Lio s-a uitat în oglindă. Dinții îi străluceau ca niște perle.",
+          "text": "Lio s-a uitat în oglindă. Dinții îi străluceau ca zăpada.",
           "mood": "mirat"
         },
         {
@@ -342,40 +360,40 @@
         }
       ],
       "image": "images/pagina-08.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Peri: a small light-blue toothbrush with a cheerful little face on its handle (two dot eyes and a big smile) and soft white bristles on top like a funny hairdo; it hops and moves on its own. Setting: a cozy small bathroom in the evening, a round mirror above a white sink, a cup for toothbrushes and a tube of toothpaste on the sink, soft warm light, little tiles in pastel colors. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, smiles proudly at his reflection in the round mirror, his clean white teeth sparkling; Peri, the small light-blue toothbrush with a cheerful little face and white bristles, stands on the sink and gives him a cheerful high-five with its handle. Emotions: proud, happy. Important details: the clean sparkling teeth in the mirror, little sparkles. Camera: medium shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Peri: a small light-blue toothbrush with a cheerful little face on its handle (two dot eyes and a big smile) and soft white bristles on top like a funny hairdo; it hops and moves on its own. Setting: a cozy small bathroom in the evening, a round mirror above a white sink, a small plain yellow cup and a smooth plain white toothpaste tube with a mint-green cap, completely blank, on the sink, soft warm light, little tiles in pastel colors. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, smiles proudly at his reflection in the round mirror, his clean white teeth sparkling; Peri, the small light-blue toothbrush with a cheerful little face on its handle and white bristles, stands in the small plain yellow cup on the sink, beaming at him. Emotions: proud, happy. Important details: the clean sparkling teeth in the mirror, little sparkles. Camera: medium shot.",
       "animation": {
         "camera": "zoom-in",
         "effect": "sparkles"
       }
     },
     {
-      "text": "Peri a sărit înapoi în pahar și a căscat și ea. Lio s-a cuibărit în pat, cu dinții curați și zâmbetul strălucitor. — Noapte bună, Peri, a șoptit el. — Noapte bună, Lio. Ne vedem dimineață, la treabă!",
+      "text": "— Noapte bună, Peri, a șoptit Lio din ușa băii. — Noapte bună, Lio. Ne vedem dimineață, la treabă! Peri a căscat în paharul ei. Iar Lio s-a cuibărit în pat, cu dinții curați și zâmbetul strălucitor.",
       "narration": [
-        {
-          "text": "Peri a sărit înapoi în pahar și a căscat și ea.",
-          "mood": "somnoros"
-        },
-        {
-          "text": "Lio s-a cuibărit în pat, cu dinții curați și zâmbetul strălucitor.",
-          "mood": "somnoros"
-        },
         {
           "text": "— Noapte bună, Peri,",
           "mood": "somnoros",
           "speaker": "Lio"
         },
         {
-          "text": "a șoptit el.",
+          "text": "a șoptit Lio din ușa băii.",
           "mood": "șoptit"
         },
         {
           "text": "— Noapte bună, Lio. Ne vedem dimineață, la treabă!",
           "mood": "șoptit",
           "speaker": "Peri"
+        },
+        {
+          "text": "Peri a căscat în paharul ei.",
+          "mood": "somnoros"
+        },
+        {
+          "text": "Iar Lio s-a cuibărit în pat, cu dinții curați și zâmbetul strălucitor.",
+          "mood": "somnoros"
         }
       ],
       "image": "images/pagina-09.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: Lio's cozy bedroom at night, a soft bed, moonlight and stars through the window, warm small lamp. Action: only exactly one lion cub, Lio, with a turquoise scarf with little yellow stars,: he lies tucked in bed, smiling sleepily with a bright clean smile, eyes almost closed. Emotions: calm, sleepy, happy. Important details: moonlight, stars in the window, the warm small lamp. Camera: wide shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: Lio's cozy bedroom at night, a soft bed, moonlight and stars through the window, warm small lamp. Action: only exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, he lies tucked in bed, smiling sleepily with a bright clean smile, eyes almost closed. Emotions: calm, sleepy, happy. Important details: moonlight, stars in the window, the warm small lamp. Camera: wide shot.",
       "animation": {
         "camera": "zoom-out",
         "effect": "stars"
@@ -389,7 +407,7 @@
   ],
   "review": {
     "imaginatie": "O periuță care prinde viață și sare din pahar, Peri (pagina 2), și zahărașii, firimituri mici de zahăr cu fețe caraghioase care fac petrecere pe dinți și alunecă pe spumă ca pe un tobogan (paginile 3 și 5).",
-    "invatare": "Spălatul pe dinți e arătat pas cu pas, în joacă: pastă cât un bob de mazăre (pagina 4), sus-jos și cercuri mici, pe toți dinții, și pe cei din spate (pagina 5), cam două minute, cât un cântecel (pagina 6), clătit la final (pagina 7), dimineața și seara (pagina 8). De ce: zahărul rămas pe dinți îi poate strica, spus blând (pagina 3).",
+    "invatare": "Spălatul pe dinți e arătat pas cu pas, în joacă: pastă cât un bob de mazăre (pagina 4), sus-jos și cercuri mici, pe toți dinții, și pe cei din spate (pagina 5), cam două minute, cât cântecelul cântat de trei ori (pagina 6), scuipăm spuma și clătim periuța (pagina 7), dimineața și seara (pagina 8). De ce: zahărul rămas pe dinți îi poate strica, spus blând (pagina 3).",
     "umor": [
       "pagina 1: Lio cască atât de tare, încât îi flutură coama",
       "pagina 4: pasta i se așază lui Peri pe cap, ca o căciulă strâmbă",
@@ -397,10 +415,10 @@
       "pagina 6: Lio cântă cu gura plină de spumă și se aude doar „Bul-bul-bul!”",
       "pagina 7: zahărașii pleacă pe apă: „Ne vedem după următoarea prăjitură!”"
     ],
-    "emotie": "Problema e pe înțelesul copiilor: lui Lio îi e somn și vrea să sară peste spălatul pe dinți. Peri îi arată zahărașii (paginile 2–3), iar Lio alege singur să se spele, cu periuța alături (paginile 4–6). Zahărașii pleacă veseli pe apă (pagina 7), Lio promite „dimineața și seara” (pagina 8), iar finalul e liniștit, la culcare, cu dinții curați (pagina 9).",
-    "siguranta": "Nimic nu sperie: zahărașii sunt caraghioși și pleacă veseli; durerea de dinți e doar pomenită, blând, ca motiv, fără descrieri; nu apar doctori sau pedepse. Cantitatea de pastă (cât un bob de mazăre) și clătitul sunt corecte pentru copii.",
-    "imagini": "Doar Lio, periuța cu față și firimiturile de zahăr cu fețe (fără oameni sau copii), cel mult trei personaje pe imagine, „exactly one lion cub, Lio” și „only …” pe paginile cu un singur personaj. Zahărașii sunt „a few”, fără un număr exact; nimic cu text sau cifre (tubul de pastă fără etichetă scrisă). Fiecare prompt arată momentul paginii: căscatul după prăjitură (1), periuța care sare din pahar și zahărașii în oglindă (2), petrecerea pe dinți (3), pasta-căciulă (4), toboganul de spumă (5), barba de spumă și notele muzicale (6), zahărașii pe apă (7), dinții strălucitori (8), somnul (9). Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
-    "voce": "Narațiune calmă, misterioasă când sare periuța, veselă la momentele amuzante și somnoroasă la început și la final. Peri are o voce vioaie și hotărâtă, zahărașii o voce foarte subțire și grăbită, chicotită, iar Lio vocea lui obișnuită, somnoroasă la început. Pauze după „Fâs!” și „Pfff!”."
+    "emotie": "Problema e pe înțelesul copiilor: lui Lio îi e somn și vrea să sară peste spălatul pe dinți. Peri îi arată zahărașii (paginile 2–3), iar Lio hotărăște singur: „Atunci la treabă!” (pagina 4); tot el îi descoperă pe cei ascunși în spate, iar Peri, curajoasă, merge după ei (pagina 5). Zahărașii pleacă veseli pe apă (pagina 7), Lio promite „dimineața și seara” (pagina 8), iar finalul e liniștit, la culcare, cu dinții curați (pagina 9).",
+    "siguranta": "Nimic nu sperie: zahărașii sunt caraghioși și pleacă veseli; durerea de dinți e doar pomenită, blând, ca motiv, fără descrieri; nu apar doctori sau pedepse. Sfaturile sunt cele potrivite pentru copii: pastă cât un bob de mazăre, spuma se scuipă (nu se înghite, iar gura nu se clătește mult), periuța se clătește la final.",
+    "imagini": "Doar Lio, periuța cu față și firimiturile de zahăr cu fețe (fără oameni sau copii), cel mult trei personaje pe imagine, „exactly one lion cub, Lio” și „only …” pe paginile cu un singur personaj. Zahărașii sunt „a few”, fără un număr exact; tubul de pastă e „plain, completely blank” și paharul are o singură periuță, ca să nu apară text sau alte periuțe. Fiecare prompt arată momentul paginii: căscatul după prăjitură (1), periuța care sare din pahar (2), petrecerea pe dinți, de foarte aproape (3), pasta-căciulă (4), toboganul de spumă (5), cântecul cu spumă și note muzicale (6), zahărașii pe apă și periuța clătită (7), dinții strălucitori (8), somnul (9). Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
+    "voce": "Narațiune calmă, misterioasă când sare periuța, veselă la momentele amuzante și somnoroasă la început și la final. Peri are o voce vioaie și hotărâtă, zahărașii o voce foarte subțire și grăbită, chicotită, iar Lio vocea lui obișnuită, somnoroasă la început. Pauze după „Fâs!” și „Ptiu!”."
   },
   "verified": false,
   "questions": [
@@ -409,7 +427,7 @@
       "options": [
         {
           "text": "Dimineața și seara",
-          "emoji": "🌞"
+          "emoji": "🌗"
         },
         {
           "text": "Doar de ziua noastră",
