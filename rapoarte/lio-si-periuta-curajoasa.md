@@ -1,6 +1,6 @@
 # Lio și periuța curajoasă
 
-**Stare: ⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)** · verificată la 2026-11-09 04:23 UTC
+**Stare: ⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)** · verificată la 2026-11-09 04:31 UTC
 
 Poveste: `public/stories/lio-si-periuta-curajoasa/story.json`
 
@@ -14,7 +14,6 @@ Aceste lucruri au fost corectate automat în `story.json` (preia versiunea din r
 - pagina 4: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 - pagina 5: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 - pagina 6: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 7: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 - pagina 8: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 
 ## Avertismente (merită verificate, dar nu blochează publicarea)
