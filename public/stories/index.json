@@ -33,6 +33,29 @@
   ],
   "stories": [
     {
+      "id": "lio-si-periuta-curajoasa",
+      "title": "Lio și periuța curajoasă",
+      "summary": "Lio vrea să se culce fără să se spele pe dinți, dar periuța Peri sare din pahar: pe dinții lui fac petrecere zahărașii! Cu spumă, un cântecel și o periuță curajoasă, cei doi îi trimit acasă.",
+      "age": "3-7",
+      "tags": [
+        "dinți",
+        "periuță",
+        "spălat pe dinți",
+        "seară",
+        "igienă"
+      ],
+      "categories": [
+        "invatam",
+        "amuzante",
+        "de-culcare"
+      ],
+      "created": "2026-11-09",
+      "cover": "stories/lio-si-periuta-curajoasa/images/coperta.webp",
+      "pages": 9,
+      "minutes": 5,
+      "published": "2026-11-09"
+    },
+    {
       "id": "pantofii-lui-bruno-au-fugit",
       "title": "Pantofii lui Bruno au fugit",
       "summary": "Bruno, un ursuleț grăbit, își aruncă pantofii prin toată casa. Într-o noapte, pantofii fermecați Tropi și Topi pleacă să-și caute singuri locul, iar dimineața Bruno și Lio pornesc după urmele lor ude.",
