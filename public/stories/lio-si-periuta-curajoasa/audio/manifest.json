@@ -1,15 +1,15 @@
 {
   "feminin": {
     "coperta.mp3": "1b4e0e972f5049961205b58cdb467c90b7ffacf4",
-    "pagina-01.mp3": "28df092785ed533bd0dc954720deb8ab8af26b68",
-    "pagina-02.mp3": "20711ce4be1b651e9ecda04727a9f62ae1ced6f1",
-    "pagina-03.mp3": "19d68b4b2d858fc295bff7b88576835f8f2404a0",
-    "pagina-04.mp3": "4b0e4895593dc1628248df269bba6d218915fba8",
-    "pagina-05.mp3": "eda977e91558bcf10f21fad9c99f59ec7e62fa54",
-    "pagina-06.mp3": "dda253dbe734f2dbcb815b15ad53ba56dfc785ce",
-    "pagina-07.mp3": "de5de45165270dffcf579bd9452a52d77122d569",
-    "pagina-08.mp3": "ae0c2a652338a306ba6b13e357bd11862a0aed85",
-    "pagina-09.mp3": "bfd26a99f7ca791b535e4e9963f05a8e24b0e8d8",
+    "pagina-01.mp3": "746ae6db06604e410335a70efbfa4c0f14b9a252",
+    "pagina-02.mp3": "70cb54b54f2c36d420f23276bd53763c8ff92a71",
+    "pagina-03.mp3": "921bfbca9fcfa085320da3f1d16e083efafb44f7",
+    "pagina-04.mp3": "77b8340f90a30ed30c410b814b30e60a43152b8a",
+    "pagina-05.mp3": "fc6fe59128863454f8acaea080159ea1e77fa8cd",
+    "pagina-06.mp3": "75abf0485b252c3c9d1fc1fd038f744ebc8b1ea3",
+    "pagina-07.mp3": "689d57fde32bad446251f030c5c83e48b29e7475",
+    "pagina-08.mp3": "98a246623979d8beb15a12a1294eebb4b8251ea1",
+    "pagina-09.mp3": "4492036081ce800870a6cd750be8678cb454b3ae",
     "final.mp3": "0a0db5fffa0dddcd5f469c4203a3258c41f07670",
     "intrebare-1.mp3": "89deb378af27cb6bc84be2145a61e0c4aea6012c",
     "raspuns-1.mp3": "015f6821a3be1611b1a18741e01b608ebbca9a48",
@@ -38,11 +38,11 @@
       "coperta.mp3": [
         [
           0.6,
-          5.53
+          6.94
         ],
         [
-          5.53,
-          7.73
+          6.94,
+          9.77
         ]
       ],
       "pagina-01.mp3": [
@@ -630,15 +630,15 @@
   "motor": {
     "feminin": {
       "coperta.mp3": "gemini",
-      "pagina-01.mp3": "gemini",
-      "pagina-02.mp3": "gemini",
-      "pagina-03.mp3": "gemini",
-      "pagina-04.mp3": "gemini",
-      "pagina-05.mp3": "gemini",
-      "pagina-06.mp3": "gemini",
-      "pagina-07.mp3": "gemini",
-      "pagina-08.mp3": "gemini",
-      "pagina-09.mp3": "gemini",
+      "pagina-01.mp3": "chirp",
+      "pagina-02.mp3": "chirp",
+      "pagina-03.mp3": "chirp",
+      "pagina-04.mp3": "chirp",
+      "pagina-05.mp3": "chirp",
+      "pagina-06.mp3": "chirp",
+      "pagina-07.mp3": "chirp",
+      "pagina-08.mp3": "chirp",
+      "pagina-09.mp3": "chirp",
       "final.mp3": "chirp",
       "intrebare-1.mp3": "chirp",
       "raspuns-1.mp3": "chirp",
