@@ -33,6 +33,30 @@
   ],
   "stories": [
     {
+      "id": "mormaila-ursuletul-care-nu-putea-adormi",
+      "title": "Mormăilă, ursulețul care nu putea adormi",
+      "summary": "Vine iarna, iar ursulețul Mormăilă trebuie să hiberneze, dar nu poate adormi. Lio îl învață un ritual de seară, pas cu pas, până când somnul vine singur.",
+      "age": "3-7",
+      "tags": [
+        "urs",
+        "hibernare",
+        "iarnă",
+        "somn",
+        "ritual de seară",
+        "respirație"
+      ],
+      "categories": [
+        "de-culcare",
+        "animale",
+        "invatam"
+      ],
+      "created": "2026-11-10",
+      "cover": "stories/mormaila-ursuletul-care-nu-putea-adormi/images/coperta.webp",
+      "pages": 9,
+      "minutes": 6,
+      "published": "2026-11-10"
+    },
+    {
       "id": "lio-si-periuta-curajoasa",
       "title": "Lio și periuța curajoasă",
       "summary": "Lio vrea să se culce fără să se spele pe dinți, dar periuța Peri sare din pahar: pe dinții lui fac petrecere zahărașii! Cu spumă, un cântecel și o periuță curajoasă, cei doi îi trimit acasă.",
