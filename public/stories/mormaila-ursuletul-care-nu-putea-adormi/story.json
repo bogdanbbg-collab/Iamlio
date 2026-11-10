@@ -1,0 +1,399 @@
+{
+  "id": "mormaila-ursuletul-care-nu-putea-adormi",
+  "title": "Mormăilă, ursulețul care nu putea adormi",
+  "summary": "Vine iarna, iar ursulețul Mormăilă trebuie să hiberneze, dar nu poate adormi. Lio îl învață un ritual de seară, pas cu pas, până când somnul vine singur.",
+  "age": "3-7",
+  "moral": "Când faci în fiecare seară aceiași pași liniștiți, somnul te găsește mai ușor.",
+  "learning": [
+    "ritualul de seară: aceiași pași, în aceeași ordine, în fiecare seară",
+    "hibernarea: urșii mănâncă mult toamna și dorm toată iarna",
+    "respirația liniștită ne ajută să ne calmăm"
+  ],
+  "created": "2026-11-10",
+  "tags": [
+    "urs",
+    "hibernare",
+    "iarnă",
+    "somn",
+    "ritual de seară",
+    "respirație"
+  ],
+  "illustrationStyle": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered.",
+  "characters": [
+    {
+      "name": "Lio",
+      "description": "a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression",
+      "voice": {
+        "pitch": 12,
+        "rate": 3
+      }
+    },
+    {
+      "name": "Mormăilă",
+      "description": "a small round fluffy honey-brown bear cub with round ears, a cream-colored muzzle, a little black nose, sleepy kind dark eyes and a green knitted hat with a white pompom",
+      "voice": {
+        "type": "masculin",
+        "pitch": 4,
+        "rate": -6
+      }
+    }
+  ],
+  "cover": {
+    "image": "images/coperta.png",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Mormăilă: a small round fluffy honey-brown bear cub with round ears, a cream-colored muzzle, a little black nose, sleepy kind dark eyes and a green knitted hat with a white pompom. Setting: a quiet pine forest at the end of autumn, the first gentle snowflakes falling, the round entrance of a cozy bear den under the roots of a big old tree, soft blue evening light. Action: Mormăilă, the small honey-brown bear cub in a green knitted hat with a white pompom, yawns sleepily at the round entrance of his den while exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands beside him smiling and holding a small glowing lantern; gentle snowflakes fall around them. Emotions: cozy, sleepy, friendly. Important details: the lantern glow, falling snowflakes, the den entrance. Camera: wide cinematic cover shot, both faces clearly visible from the front.",
+    "animation": {
+      "camera": "zoom-in",
+      "effect": "snow"
+    }
+  },
+  "pages": [
+    {
+      "text": "În pădure venea iarna. Cădeau primii fulgi de zăpadă. Pentru ursuleți, asta înseamnă un singur lucru: hibernarea. Adică un somn lung, lung, care ține toată iarna, până la primăvară. Mormăilă, un ursuleț mic cu o căciuliță verde, intrase în bârlogul lui. Dar somnul nu venea deloc.",
+      "narration": [
+        {
+          "text": "În pădure venea iarna. Cădeau primii fulgi de zăpadă.",
+          "mood": "calm"
+        },
+        {
+          "text": "Pentru ursuleți, asta înseamnă un singur lucru: hibernarea.",
+          "mood": "calm"
+        },
+        {
+          "text": "Adică un somn lung, lung, care ține toată iarna, până la primăvară.",
+          "mood": "somnoros"
+        },
+        {
+          "text": "Mormăilă, un ursuleț mic cu o căciuliță verde, intrase în bârlogul lui. Dar somnul nu venea deloc.",
+          "mood": "mirat"
+        }
+      ],
+      "image": "images/pagina-01.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Mormăilă: a small round fluffy honey-brown bear cub with round ears, a cream-colored muzzle, a little black nose, sleepy kind dark eyes and a green knitted hat with a white pompom. Setting: a quiet pine forest at the end of autumn, the first gentle snowflakes falling, the round entrance of a cozy bear den under the roots of a big old tree, soft blue evening light. Action: only Mormăilă, the small honey-brown bear cub in a green knitted hat with a white pompom, stands at the round entrance of his den, looking out at the first falling snowflakes with wide-awake eyes. Emotions: calm, a little puzzled. Important details: the first snowflakes, the round den entrance under the tree roots. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "snow"
+      }
+    },
+    {
+      "text": "S-a întors pe o parte. S-a întors pe cealaltă. A închis ochii și a sforăit de probă: — Hrrr… hrrr… Apoi a deschis un ochi. — Nu merge! Și eu am de dormit toată iarna!",
+      "narration": [
+        {
+          "text": "S-a întors pe o parte. S-a întors pe cealaltă.",
+          "mood": "calm"
+        },
+        {
+          "text": "A închis ochii și a sforăit de probă:",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Hrrr… hrrr…",
+          "mood": "vesel",
+          "speaker": "Mormăilă",
+          "pause": 0.5
+        },
+        {
+          "text": "Apoi a deschis un ochi.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Nu merge! Și eu am de dormit toată iarna!",
+          "mood": "trist",
+          "speaker": "Mormăilă"
+        }
+      ],
+      "image": "images/pagina-02.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Mormăilă: a small round fluffy honey-brown bear cub with round ears, a cream-colored muzzle, a little black nose, sleepy kind dark eyes and a green knitted hat with a white pompom. Setting: inside a cozy bear den under the roots of a big tree: earthy walls, soft green moss on the floor, pinecones, warm golden light from a small lantern. Action: only Mormăilă, the small honey-brown bear cub in a green knitted hat with a white pompom, lies on the soft green moss, one eye closed and one eye peeking open, pretending to snore, with a funny frustrated little face. Emotions: funny, frustrated. Important details: the soft moss, the small lantern, pinecones. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "glow"
+      }
+    },
+    {
+      "text": "Atunci, la intrarea bârlogului, s-a auzit o voce prietenoasă. — Mormăilă? Am venit să-ți spun noapte bună! Era Lio. — Nu pot adormi, a mormăit ursulețul. — Atunci ai nevoie de un ritual de seară, a zâmbit Lio. Aceleași lucruri, în aceeași ordine, în fiecare seară. Așa știe corpul că vine somnul.",
+      "narration": [
+        {
+          "text": "Atunci, la intrarea bârlogului, s-a auzit o voce prietenoasă.",
+          "mood": "misterios"
+        },
+        {
+          "text": "— Mormăilă? Am venit să-ți spun noapte bună!",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Era Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Nu pot adormi,",
+          "mood": "trist",
+          "speaker": "Mormăilă"
+        },
+        {
+          "text": "a mormăit ursulețul.",
+          "mood": "trist"
+        },
+        {
+          "text": "— Atunci ai nevoie de un ritual de seară,",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a zâmbit Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "Aceleași lucruri, în aceeași ordine, în fiecare seară. Așa știe corpul că vine somnul.",
+          "mood": "calm",
+          "speaker": "Lio"
+        }
+      ],
+      "image": "images/pagina-03.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Mormăilă: a small round fluffy honey-brown bear cub with round ears, a cream-colored muzzle, a little black nose, sleepy kind dark eyes and a green knitted hat with a white pompom. Setting: inside a cozy bear den under the roots of a big tree: earthy walls, soft green moss on the floor, pinecones, warm golden light from a small lantern. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, peeks in through the round den entrance with a friendly smile, a few snowflakes on his mane; Mormăilă, the small honey-brown bear cub in a green knitted hat with a white pompom, sits on the moss, looking up at him sadly. Emotions: friendly, a little sad, hopeful. Important details: snowflakes on Lio's mane, the round den entrance, the lantern. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Primul pas: burtica plină. Urșii mănâncă mult toamna, ca să aibă putere pentru somnul lung de iarnă. Mormăilă a mâncat mure, ghinde și o lingură mare de miere. Burtica i s-a făcut rotundă ca o minge. Poc! I-a sărit căciulița de pe cap.",
+      "narration": [
+        {
+          "text": "Primul pas: burtica plină.",
+          "mood": "calm"
+        },
+        {
+          "text": "Urșii mănâncă mult toamna, ca să aibă putere pentru somnul lung de iarnă.",
+          "mood": "calm"
+        },
+        {
+          "text": "Mormăilă a mâncat mure, ghinde și o lingură mare de miere.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Burtica i s-a făcut rotundă ca o minge.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Poc! I-a sărit căciulița de pe cap.",
+          "mood": "entuziasmat",
+          "pause": 0.5
+        }
+      ],
+      "image": "images/pagina-04.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Mormăilă: a small round fluffy honey-brown bear cub with round ears, a cream-colored muzzle, a little black nose, sleepy kind dark eyes and a green knitted hat with a white pompom. Setting: inside a cozy bear den under the roots of a big tree: earthy walls, soft green moss on the floor, pinecones, warm golden light from a small lantern. Action: Mormăilă, the small honey-brown bear cub in a green knitted hat with a white pompom, sits with a very round full tummy next to a wooden bowl of blackberries and acorns, his green knitted hat popping up in the air above his head; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, laughs. Emotions: very funny, content. Important details: the wooden bowl of blackberries and acorns, the hat flying up. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-up",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Al doilea pas: lăbuțele curate. Au ieșit la pârâul de lângă bârlog. Mormăilă și-a băgat lăbuțele în apă. — Brrr! E rece ca o înghețată! Și-a spălat repede lăbuțele și botul, apoi le-a șters bine.",
+      "narration": [
+        {
+          "text": "Al doilea pas: lăbuțele curate.",
+          "mood": "calm"
+        },
+        {
+          "text": "Au ieșit la pârâul de lângă bârlog.",
+          "mood": "calm"
+        },
+        {
+          "text": "Mormăilă și-a băgat lăbuțele în apă.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Brrr! E rece ca o înghețată!",
+          "mood": "vesel",
+          "speaker": "Mormăilă"
+        },
+        {
+          "text": "Și-a spălat repede lăbuțele și botul, apoi le-a șters bine.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-05.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Mormăilă: a small round fluffy honey-brown bear cub with round ears, a cream-colored muzzle, a little black nose, sleepy kind dark eyes and a green knitted hat with a white pompom. Setting: a quiet pine forest at the end of autumn, the first gentle snowflakes falling, a small clear stream beside the bear den, soft blue evening light. Action: Mormăilă, the small honey-brown bear cub in a green knitted hat with a white pompom, dips his front paws into the small clear stream and shivers with a funny face, his fur standing up; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands beside him on the bank, smiling. Emotions: funny, chilly, cheerful. Important details: the clear stream, falling snowflakes. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-left",
+        "effect": "drops"
+      }
+    },
+    {
+      "text": "Al treilea pas: bârlogul în ordine. Mormăilă a pus conurile de brad într-un colț. Apoi au adunat mușchi moale și frunze uscate pentru un pat pufos. — Ce moale e! Parcă dorm pe un nor, a zis ursulețul și s-a întins pe patul de mușchi.",
+      "narration": [
+        {
+          "text": "Al treilea pas: bârlogul în ordine.",
+          "mood": "calm"
+        },
+        {
+          "text": "Mormăilă a pus conurile de brad într-un colț.",
+          "mood": "calm"
+        },
+        {
+          "text": "Apoi au adunat mușchi moale și frunze uscate pentru un pat pufos.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Ce moale e! Parcă dorm pe un nor,",
+          "mood": "vesel",
+          "speaker": "Mormăilă"
+        },
+        {
+          "text": "a zis ursulețul și s-a întins pe patul de mușchi.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-06.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Mormăilă: a small round fluffy honey-brown bear cub with round ears, a cream-colored muzzle, a little black nose, sleepy kind dark eyes and a green knitted hat with a white pompom. Setting: inside a cozy bear den under the roots of a big tree: earthy walls, soft green moss on the floor, pinecones, warm golden light from a small lantern. Action: Mormăilă, the small honey-brown bear cub in a green knitted hat with a white pompom, stretches out happily on a thick soft bed of green moss and dry leaves; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, places the last pinecones neatly in a corner of the den. Emotions: cozy, happy. Important details: the thick soft bed of moss and dry leaves, pinecones in the corner. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "glow"
+      }
+    },
+    {
+      "text": "Al patrulea pas: o poveste spusă încet. Lio a micșorat lumina felinarului și a povestit cu voce domoală despre luna care se culcă pe nori. Mormăilă asculta, iar pleoapele i se făceau tot mai grele.",
+      "narration": [
+        {
+          "text": "Al patrulea pas: o poveste spusă încet.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lio a micșorat lumina felinarului și a povestit cu voce domoală despre luna care se culcă pe nori.",
+          "mood": "șoptit"
+        },
+        {
+          "text": "Mormăilă asculta, iar pleoapele i se făceau tot mai grele.",
+          "mood": "somnoros"
+        }
+      ],
+      "image": "images/pagina-07.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Mormăilă: a small round fluffy honey-brown bear cub with round ears, a cream-colored muzzle, a little black nose, sleepy kind dark eyes and a green knitted hat with a white pompom. Setting: inside a cozy bear den under the roots of a big tree: earthy walls, soft green moss on the floor, pinecones, a small lantern turned very low, a soft dim golden glow. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits beside the moss bed and tells a story in a soft voice; Mormăilă, the small honey-brown bear cub in a green knitted hat with a white pompom, lies on the moss with heavy sleepy eyes, listening. Emotions: calm, sleepy, warm. Important details: the dim lantern glow, the soft moss bed. Camera: medium shot.",
+      "animation": {
+        "camera": "still",
+        "effect": "glow"
+      }
+    },
+    {
+      "text": "Al cincilea pas: respirația liniștită. — Miroși o floare, a șoptit Lio, și Mormăilă a tras aer încet pe nas. — Acum sufli într-o lumânare. Și ursulețul a suflat încet, fffff. Apoi a căscat atât de mare, încât un fulg de zăpadă i-a intrat drept în gură!",
+      "narration": [
+        {
+          "text": "Al cincilea pas: respirația liniștită.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Miroși o floare,",
+          "mood": "șoptit",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a șoptit Lio, și Mormăilă a tras aer încet pe nas.",
+          "mood": "șoptit"
+        },
+        {
+          "text": "— Acum sufli într-o lumânare.",
+          "mood": "șoptit",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Și ursulețul a suflat încet, fffff.",
+          "mood": "somnoros"
+        },
+        {
+          "text": "Apoi a căscat atât de mare, încât un fulg de zăpadă i-a intrat drept în gură!",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-08.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Mormăilă: a small round fluffy honey-brown bear cub with round ears, a cream-colored muzzle, a little black nose, sleepy kind dark eyes and a green knitted hat with a white pompom. Setting: inside a cozy bear den under the roots of a big tree: earthy walls, soft green moss on the floor, pinecones, warm golden light from a small lantern. Action: Mormăilă, the small honey-brown bear cub in a green knitted hat with a white pompom, lies on the moss bed with his eyes half closed and gives a huge sleepy yawn while one big snowflake drifts toward him from the den entrance; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits beside him, smiling softly. Emotions: sleepy, funny, calm. Important details: the snowflake drifting in, the moss bed, the dim lantern. Camera: close-up.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "snow"
+      }
+    },
+    {
+      "text": "Mormăilă a adormit cu un zâmbet mare. Afară, zăpada acoperea încet pădurea. Lio a ieșit pe vârfuri și a șoptit: — Noapte bună, Mormăilă. Ne vedem la primăvară! Iar din bârlog s-a auzit, de data asta adevărat: Hrrr… hrrr…",
+      "narration": [
+        {
+          "text": "Mormăilă a adormit cu un zâmbet mare.",
+          "mood": "somnoros"
+        },
+        {
+          "text": "Afară, zăpada acoperea încet pădurea.",
+          "mood": "somnoros"
+        },
+        {
+          "text": "Lio a ieșit pe vârfuri și a șoptit:",
+          "mood": "șoptit"
+        },
+        {
+          "text": "— Noapte bună, Mormăilă. Ne vedem la primăvară!",
+          "mood": "șoptit",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Iar din bârlog s-a auzit, de data asta adevărat: Hrrr… hrrr…",
+          "mood": "somnoros"
+        }
+      ],
+      "image": "images/pagina-09.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Mormăilă: a small round fluffy honey-brown bear cub with round ears, a cream-colored muzzle, a little black nose, sleepy kind dark eyes and a green knitted hat with a white pompom. Setting: a quiet pine forest at the end of autumn, snow gently falling and covering the ground, a calm starry night sky, the round entrance of a cozy bear den under the roots of a big old tree, soft blue evening light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, tiptoes away from the round den entrance, waving goodnight; inside the den, Mormăilă, the small honey-brown bear cub in a green knitted hat with a white pompom, sleeps peacefully, curled up with a big smile, his green hat on. Emotions: peaceful, sleepy, happy. Important details: falling snow, the starry sky, the den entrance glowing softly. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "snow"
+      }
+    }
+  ],
+  "categories": [
+    "de-culcare",
+    "animale"
+  ],
+  "review": {
+    "imaginatie": "Un ursuleț care trebuie să doarmă toată iarna, dar nu poate adormi, și un prieten care vine să-i spună noapte bună chiar la intrarea bârlogului (paginile 1–3); un pat de mușchi „ca un nor” (pagina 6) și un fulg de zăpadă care îi intră în gură când cască (pagina 8).",
+    "invatare": "Ritualul de seară e chiar firul poveștii, pas cu pas: burtica plină (pagina 4), lăbuțele curate (pagina 5), bârlogul în ordine (pagina 6), o poveste spusă încet (pagina 7), respirația liniștită, „miroși o floare, sufli într-o lumânare” (pagina 8). Hibernarea e explicată simplu (paginile 1 și 4): urșii mănâncă mult toamna și dorm toată iarna.",
+    "umor": [
+      "pagina 2: Mormăilă sforăie „de probă” și deschide un ochi: „Nu merge!”",
+      "pagina 4: burtica i se face rotundă ca o minge și îi sare căciulița: poc!",
+      "pagina 5: „Brrr! E rece ca o înghețată!”",
+      "pagina 8: cască atât de mare, încât îi intră un fulg de zăpadă în gură",
+      "pagina 9: la final sforăie de-adevăratelea: „Hrrr… hrrr…”"
+    ],
+    "emotie": "Problema e pe înțelesul copiilor: lui Mormăilă nu-i vine somnul și se frământă. Lio îi propune un ritual, iar ursulețul face singur fiecare pas (paginile 4–8). Finalul e cald și liniștit: adoarme zâmbind, iar Lio pleacă pe vârfuri, cu „ne vedem la primăvară” (pagina 9).",
+    "siguranta": "Nimic nu sperie: pădurea e liniștită, zăpada cade blând, iar apa pârâului e doar rece, la mal, pentru spălat lăbuțele. Nu există pericole sau personaje rele; tonul e de poveste de culcare de la început până la sfârșit.",
+    "imagini": "Doar Lio și ursulețul cu căciuliță verde (fără oameni), cel mult două personaje pe imagine, „exactly one lion cub, Lio” și „only …” pe paginile cu un singur personaj. Fără oglinzi, fără guri de aproape, fără numere de obiecte, fără cuvintele „blanket”, „nest” sau „basket” (patul e „a thick soft bed of green moss”). Fiecare prompt arată momentul paginii: primii fulgi (1), sforăitul de probă (2), Lio la intrare (3), căciulița care sare (4), pârâul rece (5), patul de mușchi (6), povestea la lumină slabă (7), căscatul cu fulgul (8), somnul și noapte bună (9). Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
+    "voce": "Narațiune calmă, care devine tot mai somnoroasă spre final; șoptit la poveste și la respirație; vesel la momentele amuzante, mirat la început. Mormăilă are o voce joasă și domoală de ursuleț, Lio vocea lui obișnuită, blândă. Pauze după sforăitul de probă și după „Poc!”."
+  },
+  "verified": false,
+  "questions": [
+    {
+      "text": "Ce fac urșii iarna?",
+      "options": [
+        {
+          "text": "Dorm toată iarna",
+          "emoji": "😴"
+        },
+        {
+          "text": "Merg la mare",
+          "emoji": "🏖️"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Corect! Somnul lung de iarnă al urșilor se numește hibernare."
+    },
+    {
+      "text": "Ce l-a ajutat pe Mormăilă să adoarmă?",
+      "options": [
+        {
+          "text": "Un ritual de seară liniștit",
+          "emoji": "🌙"
+        },
+        {
+          "text": "O joacă zgomotoasă",
+          "emoji": "🥁"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Bravo! Aceiași pași liniștiți, în fiecare seară, cheamă somnul."
+    }
+  ]
+}
