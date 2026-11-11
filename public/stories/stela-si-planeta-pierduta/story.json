@@ -1,0 +1,401 @@
+{
+  "id": "stela-si-planeta-pierduta",
+  "title": "Stela și planeta pierdută",
+  "summary": "Șoricica Stela și Lio își fac o rachetă din cutii de carton și zboară printre planete, ca să găsească planeta pierdută despre care vorbește bunica.",
+  "age": "3-7",
+  "moral": "Când cauți cu răbdare și cu un prieten alături, afli lucruri minunate.",
+  "learning": [
+    "cele opt planete ale sistemului solar, pe scurt: Mercur, Venus, Pământ, Marte, Jupiter, Saturn, Uranus, Neptun",
+    "Pluto se numește acum planetă pitică",
+    "nu ne uităm niciodată direct la Soare: ne poate strica ochii"
+  ],
+  "created": "2026-11-11",
+  "tags": [
+    "planete",
+    "spațiu",
+    "rachetă",
+    "Soare",
+    "Pluto",
+    "șoricică"
+  ],
+  "illustrationStyle": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered.",
+  "characters": [
+    {
+      "name": "Lio",
+      "description": "a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression",
+      "voice": {
+        "pitch": 12,
+        "rate": 3
+      }
+    },
+    {
+      "name": "Stela",
+      "description": "a small grey mouse with big round pink ears, a pink nose, bright black eyes, a long thin tail and a cozy yellow knitted sweater",
+      "voice": {
+        "type": "feminin",
+        "pitch": 22,
+        "rate": 3
+      }
+    }
+  ],
+  "cover": {
+    "image": "images/coperta.png",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Stela: a small grey mouse with big round pink ears, a pink nose, bright black eyes, a long thin tail and a cozy yellow knitted sweater. Setting: deep blue outer space full of soft twinkling stars, a beautiful golden planet with wide shining rings in the background. Action: a small homemade rocket made of brown cardboard boxes stacked on top of each other, with a pointy cardboard cone on top and a round window painted on its side, open at the top; the whole cardboard rocket floats inside a big transparent shimmering soap bubble and flies happily through space; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, and Stela, the small grey mouse with big round pink ears and a yellow knitted sweater, sit side by side in the open top of the rocket, their heads and shoulders visible, waving and smiling. Emotions: adventurous, joyful. Important details: the cardboard rocket in the shimmering bubble, the ringed planet. Camera: wide cinematic cover shot, both faces clearly visible from the front.",
+    "animation": {
+      "camera": "zoom-in",
+      "effect": "stars"
+    }
+  },
+  "pages": [
+    {
+      "text": "Într-o seară senină, șoricica Stela a adus în curte niște cutii mari de carton. Împreună cu Lio, a construit o rachetă cu un geam rotund. — Bunica spune că una dintre planete s-a pierdut, a zis Stela. Hai s-o căutăm! Lio a apăsat un buton desenat cu creta. Racheta a tremurat și… Hapciu! A strănutat și a zburat spre stele!",
+      "narration": [
+        {
+          "text": "Într-o seară senină, șoricica Stela a adus în curte niște cutii mari de carton.",
+          "mood": "calm"
+        },
+        {
+          "text": "Împreună cu Lio, a construit o rachetă cu un geam rotund.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Bunica spune că una dintre planete s-a pierdut, a zis Stela. Hai s-o căutăm!",
+          "mood": "entuziasmat",
+          "speaker": "Stela"
+        },
+        {
+          "text": "Lio a apăsat un buton desenat cu creta. Racheta a tremurat și…",
+          "mood": "misterios",
+          "pause": 0.4
+        },
+        {
+          "text": "Hapciu! A strănutat și a zburat spre stele!",
+          "mood": "entuziasmat"
+        }
+      ],
+      "image": "images/pagina-01.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Stela: a small grey mouse with big round pink ears, a pink nose, bright black eyes, a long thin tail and a cozy yellow knitted sweater. Setting: a cozy grassy backyard on a clear evening, a soft dark-blue sky with the first twinkling stars, a small wooden fence. Action: a small homemade rocket made of brown cardboard boxes stacked on top of each other, with a pointy cardboard cone on top and a round window painted on its side, open at the top lifts off from the grass with a big funny puff of dust under it, like a sneeze; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, and Stela, the small grey mouse with big round pink ears and a yellow knitted sweater, sit side by side in the open top of the rocket, their heads and shoulders visible, holding on and laughing with surprise. Emotions: funny, excited. Important details: the cardboard rocket, the puff of dust, the first stars. Camera: low angle, wide shot.",
+      "animation": {
+        "camera": "pan-up",
+        "effect": "sparkles"
+      }
+    },
+    {
+      "text": "Un balon de lumină, ca un balon de săpun, a învelit racheta. Departe strălucea Soarele, mare și fierbinte. — Nu ne uităm niciodată direct la Soare, nici de acasă, a zis Lio. Ne poate strica ochii. Pe lângă ei a trecut o planetă mică și cenușie, cu gropițe. — E Mercur, cea mai mică planetă și cea mai apropiată de Soare. Nu e pierdută!",
+      "narration": [
+        {
+          "text": "Un balon de lumină, ca un balon de săpun, a învelit racheta.",
+          "mood": "calm"
+        },
+        {
+          "text": "Departe strălucea Soarele, mare și fierbinte.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Nu ne uităm niciodată direct la Soare, nici de acasă, a zis Lio. Ne poate strica ochii.",
+          "mood": "hotărât",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Pe lângă ei a trecut o planetă mică și cenușie, cu gropițe.",
+          "mood": "mirat"
+        },
+        {
+          "text": "— E Mercur, cea mai mică planetă și cea mai apropiată de Soare. Nu e pierdută!",
+          "mood": "vesel",
+          "speaker": "Lio"
+        }
+      ],
+      "image": "images/pagina-02.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Stela: a small grey mouse with big round pink ears, a pink nose, bright black eyes, a long thin tail and a cozy yellow knitted sweater. Setting: deep blue outer space full of soft twinkling stars, a bright warm glow of the sun far away at the left edge. Action: the whole cardboard rocket floats inside a big transparent shimmering soap bubble; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, and Stela, the small grey mouse with big round pink ears and a yellow knitted sweater, sit side by side in the open top of the rocket, their heads and shoulders visible, looking at a small grey planet covered with little craters floating next to them, both shading their eyes with one paw and looking away from the bright glow. Emotions: calm, curious. Important details: the soap bubble around the rocket, the small grey cratered planet. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "glow"
+      }
+    },
+    {
+      "text": "Următoarea planetă era învelită în nori gălbui și groși. — E Venus, cea mai fierbinte planetă, a spus Lio. Chiar atunci, coama lui s-a umflat de căldură, ca o păpădie. — Arăți ca un ghem pufos! a chicotit Stela. Au râs amândoi. Nici Venus nu se pierduse. Mai departe!",
+      "narration": [
+        {
+          "text": "Următoarea planetă era învelită în nori gălbui și groși.",
+          "mood": "calm"
+        },
+        {
+          "text": "— E Venus, cea mai fierbinte planetă, a spus Lio.",
+          "mood": "mirat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Chiar atunci, coama lui s-a umflat de căldură, ca o păpădie.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Arăți ca un ghem pufos! a chicotit Stela.",
+          "mood": "vesel",
+          "speaker": "Stela"
+        },
+        {
+          "text": "Au râs amândoi. Nici Venus nu se pierduse. Mai departe!",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-03.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Stela: a small grey mouse with big round pink ears, a pink nose, bright black eyes, a long thin tail and a cozy yellow knitted sweater. Setting: deep blue outer space full of soft twinkling stars, a big planet wrapped in thick swirling pale-yellow clouds. Action: the whole cardboard rocket floats inside a big transparent shimmering soap bubble; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, and Stela, the small grey mouse with big round pink ears and a yellow knitted sweater, sit side by side in the open top of the rocket, their heads and shoulders visible; Lio's caramel-orange mane is puffed up huge and round like a fluffy dandelion, and Stela giggles with a paw over her mouth. Emotions: very funny, cheerful. Important details: the puffed-up mane, the yellow cloudy planet. Camera: medium close-up.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "S-au uitat înapoi. Pământul strălucea albastru, cu apă și nori albi. — Acolo e casa noastră, a șoptit Stela. Apoi au trecut pe lângă o planetă roșie. — Marte! Are praf roșu, ca rugina, și munți uriași, a spus Lio. — Nici Marte nu s-a pierdut, a oftat Stela. Unde poate fi?",
+      "narration": [
+        {
+          "text": "S-au uitat înapoi. Pământul strălucea albastru, cu apă și nori albi.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Acolo e casa noastră, a șoptit Stela.",
+          "mood": "șoptit",
+          "speaker": "Stela"
+        },
+        {
+          "text": "Apoi au trecut pe lângă o planetă roșie.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Marte! Are praf roșu, ca rugina, și munți uriași, a spus Lio.",
+          "mood": "entuziasmat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "— Nici Marte nu s-a pierdut, a oftat Stela. Unde poate fi?",
+          "mood": "mirat",
+          "speaker": "Stela"
+        }
+      ],
+      "image": "images/pagina-04.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Stela: a small grey mouse with big round pink ears, a pink nose, bright black eyes, a long thin tail and a cozy yellow knitted sweater. Setting: deep blue outer space full of soft twinkling stars, a big rusty-red dusty planet with tall mountains in front, and far behind it a small shining blue-and-white planet with oceans and clouds. Action: the whole cardboard rocket floats inside a big transparent shimmering soap bubble as it flies past the red planet; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, and Stela, the small grey mouse with big round pink ears and a yellow knitted sweater, sit side by side in the open top of the rocket, their heads and shoulders visible, looking back over their shoulders at the small blue planet far away, Stela pointing at it fondly. Emotions: warm, wondering. Important details: the red planet close, the small blue planet far away. Camera: wide shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "stars"
+      }
+    },
+    {
+      "text": "Apoi a apărut o planetă uriașă, cu dungi, ca o prăjitură cu straturi. — Jupiter, cea mai mare planetă! a strigat Lio. — Pata aceea roșie e o furtună mai mare decât Pământul. Atunci, racheta a făcut: hic! hic! — A sughițat de emoție! a râs Stela. Racheta a sărit puțin, apoi și-a văzut de drum.",
+      "narration": [
+        {
+          "text": "Apoi a apărut o planetă uriașă, cu dungi, ca o prăjitură cu straturi.",
+          "mood": "mirat"
+        },
+        {
+          "text": "— Jupiter, cea mai mare planetă! a strigat Lio.",
+          "mood": "entuziasmat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "— Pata aceea roșie e o furtună mai mare decât Pământul.",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Atunci, racheta a făcut: hic! hic!",
+          "mood": "vesel",
+          "pause": 0.4
+        },
+        {
+          "text": "— A sughițat de emoție! a râs Stela. Racheta a sărit puțin, apoi și-a văzut de drum.",
+          "mood": "vesel",
+          "speaker": "Stela"
+        }
+      ],
+      "image": "images/pagina-05.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Stela: a small grey mouse with big round pink ears, a pink nose, bright black eyes, a long thin tail and a cozy yellow knitted sweater. Setting: deep blue outer space full of soft twinkling stars, a gigantic planet with creamy orange and brown stripes like a layered cake and one big oval red spot, filling half of the picture. Action: the whole cardboard rocket floats inside a big transparent shimmering soap bubble and makes a funny little hop with small puffs of smoke, as if it had the hiccups; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, and Stela, the small grey mouse with big round pink ears and a yellow knitted sweater, sit side by side in the open top of the rocket, their heads and shoulders visible, bouncing up in their seats and laughing. Emotions: funny, amazed. Important details: the giant striped planet with the red spot, the hopping rocket. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Saturn avea în jur inele strălucitoare, din bucăți de gheață și de piatră. — Vreau să mă învârt cu ele, ca într-un cerc de joacă! a zis Stela. Și-a mișcat șoldurile, iar racheta s-a învârtit cu ei, ca un titirez. — Uuuh! Ne-am amețit! a râs Lio. Au râs până s-a oprit racheta din învârtit.",
+      "narration": [
+        {
+          "text": "Saturn avea în jur inele strălucitoare, din bucăți de gheață și de piatră.",
+          "mood": "mirat"
+        },
+        {
+          "text": "— Vreau să mă învârt cu ele, ca într-un cerc de joacă! a zis Stela.",
+          "mood": "entuziasmat",
+          "speaker": "Stela"
+        },
+        {
+          "text": "Și-a mișcat șoldurile, iar racheta s-a învârtit cu ei, ca un titirez.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Uuuh! Ne-am amețit! a râs Lio.",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Au râs până s-a oprit racheta din învârtit.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-06.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Stela: a small grey mouse with big round pink ears, a pink nose, bright black eyes, a long thin tail and a cozy yellow knitted sweater. Setting: deep blue outer space full of soft twinkling stars, a beautiful golden planet with wide shining rings made of sparkling bits of ice and rock. Action: the whole cardboard rocket floats inside a big transparent shimmering soap bubble and spins like a spinning top next to the rings, with swirly motion lines; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, and Stela, the small grey mouse with big round pink ears and a yellow knitted sweater, sit side by side in the open top of the rocket, their heads and shoulders visible; Stela wiggles her hips as if spinning a hoop, and Lio laughs, dizzy, with swirly eyes. Emotions: very funny, joyful. Important details: the shining rings, the spinning rocket. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-left",
+        "effect": "sparkles"
+      }
+    },
+    {
+      "text": "Mai departe, o planetă albastru-verzuie se rostogolea culcată pe o parte, ca o minge. — E Uranus, a spus Lio. Iar ultima e Neptun, albastră, rece și cu cele mai puternice vânturi. — Opt planete, și niciuna pierdută, a zis Stela, puțin tristă. Atunci, mult mai departe, ceva mic a sclipit.",
+      "narration": [
+        {
+          "text": "Mai departe, o planetă albastru-verzuie se rostogolea culcată pe o parte, ca o minge.",
+          "mood": "mirat"
+        },
+        {
+          "text": "— E Uranus, a spus Lio. Iar ultima e Neptun, albastră, rece și cu cele mai puternice vânturi.",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "— Opt planete, și niciuna pierdută, a zis Stela, puțin tristă.",
+          "mood": "trist",
+          "speaker": "Stela"
+        },
+        {
+          "text": "Atunci, mult mai departe, ceva mic a sclipit.",
+          "mood": "misterios",
+          "pause": 0.5
+        }
+      ],
+      "image": "images/pagina-07.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Stela: a small grey mouse with big round pink ears, a pink nose, bright black eyes, a long thin tail and a cozy yellow knitted sweater. Setting: deep blue outer space full of soft twinkling stars, a pale blue-green planet lying tilted on its side like a rolling ball, and further away a deep-blue planet. Action: the whole cardboard rocket floats inside a big transparent shimmering soap bubble; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, and Stela, the small grey mouse with big round pink ears and a yellow knitted sweater, sit side by side in the open top of the rocket, their heads and shoulders visible; Stela rests her chin on her paw, a little sad, while Lio points far ahead at a tiny twinkling light in the distance. Emotions: quiet, a little sad, then hopeful. Important details: the tilted blue-green planet, the tiny twinkling light far ahead. Camera: wide shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "stars"
+      }
+    },
+    {
+      "text": "Era o lume mică și înghețată, cu o pată albă în formă de inimă. — Pluto! a strigat Stela. Planeta pierdută a bunicii! — Nu s-a pierdut, a zâmbit Lio. — Oamenii de știință i-au dat un nume nou: planetă pitică. E tot acolo, cu inima ei de gheață. Stela i-a făcut cu lăbuța: — Noapte bună, Pluto!",
+      "narration": [
+        {
+          "text": "Era o lume mică și înghețată, cu o pată albă în formă de inimă.",
+          "mood": "mirat"
+        },
+        {
+          "text": "— Pluto! a strigat Stela. Planeta pierdută a bunicii!",
+          "mood": "entuziasmat",
+          "speaker": "Stela"
+        },
+        {
+          "text": "— Nu s-a pierdut, a zâmbit Lio.",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "— Oamenii de știință i-au dat un nume nou: planetă pitică. E tot acolo, cu inima ei de gheață.",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Stela i-a făcut cu lăbuța: — Noapte bună, Pluto!",
+          "mood": "vesel",
+          "speaker": "Stela"
+        }
+      ],
+      "image": "images/pagina-08.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Stela: a small grey mouse with big round pink ears, a pink nose, bright black eyes, a long thin tail and a cozy yellow knitted sweater. Setting: deep blue outer space full of soft twinkling stars, a small round icy beige planet with a big bright white heart-shaped patch on its front. Action: the whole cardboard rocket floats inside a big transparent shimmering soap bubble close to the small icy planet; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, and Stela, the small grey mouse with big round pink ears and a yellow knitted sweater, sit side by side in the open top of the rocket, their heads and shoulders visible; Stela waves happily at the little planet, and Lio smiles warmly. Emotions: happy, tender, amazed. Important details: the white heart-shaped patch on the small icy planet. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "sparkles"
+      }
+    },
+    {
+      "text": "Racheta s-a întors încet în curte și a devenit iar un teanc de cutii. Stela a căscat și a spus pe degete: — Mercur, Venus, Pământ, Marte, Jupiter, Saturn, Uranus, Neptun. Și micuțul Pluto! Lio s-a uitat la cer. — Toate sunt la locul lor. Ca și noi. Noapte bună, stele!",
+      "narration": [
+        {
+          "text": "Racheta s-a întors încet în curte și a devenit iar un teanc de cutii.",
+          "mood": "calm"
+        },
+        {
+          "text": "Stela a căscat și a spus pe degete:",
+          "mood": "somnoros"
+        },
+        {
+          "text": "— Mercur, Venus, Pământ, Marte, Jupiter, Saturn, Uranus, Neptun. Și micuțul Pluto!",
+          "mood": "somnoros",
+          "speaker": "Stela"
+        },
+        {
+          "text": "Lio s-a uitat la cer.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Toate sunt la locul lor. Ca și noi. Noapte bună, stele!",
+          "mood": "somnoros",
+          "speaker": "Lio"
+        }
+      ],
+      "image": "images/pagina-09.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Stela: a small grey mouse with big round pink ears, a pink nose, bright black eyes, a long thin tail and a cozy yellow knitted sweater. Setting: a cozy grassy backyard at night, a soft dark-blue sky with many twinkling stars, a small wooden fence. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, and Stela, the small grey mouse with big round pink ears and a yellow knitted sweater, lie side by side on their backs in the soft grass, sleepy and smiling, looking up at the starry sky; behind them stands a simple stack of brown cardboard boxes. Emotions: peaceful, sleepy, happy. Important details: the starry sky, the stack of cardboard boxes. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "stars"
+      }
+    }
+  ],
+  "categories": [
+    "aventuri",
+    "invatam"
+  ],
+  "review": {
+    "imaginatie": "O rachetă din cutii de carton care pornește cu un strănut (pagina 1), învelită într-un balon de lumină ca un balon de săpun (pagina 2), o călătorie printre planete și căutarea unei „planete pierdute”, care se dovedește a fi Pluto, cu inima lui de gheață (pagina 8).",
+    "invatare": "Toate cele opt planete apar pe rând, fiecare cu un singur lucru ușor de ținut minte: Mercur, cea mai mică și cea mai apropiată de Soare (2); Venus, cea mai fierbinte (3); Pământul, casa noastră albastră, și Marte, cu praf roșu ca rugina (4); Jupiter, cea mai mare, cu o furtună mai mare decât Pământul (5); Saturn, cu inele de gheață și piatră (6); Uranus, culcat pe o parte, și Neptun, cu cele mai puternice vânturi (7). Pluto se numește acum planetă pitică (8). La final, Stela spune singură toate planetele, în ordine (9). Sfat de siguranță: nu ne uităm direct la Soare (2).",
+    "umor": [
+      "pagina 1: racheta pornește cu un strănut: „Hapciu!”",
+      "pagina 3: coama lui Lio se umflă de căldură ca o păpădie: „Arăți ca un ghem pufos!”",
+      "pagina 5: racheta sughite de emoție: „hic! hic!”",
+      "pagina 6: Stela se învârte ca într-un cerc de joacă, iar racheta se învârte ca un titirez: „Ne-am amețit!”"
+    ],
+    "emotie": "Stela vrea să găsească planeta pierdută a bunicii; tot găsește planete care nu s-au pierdut și devine puțin tristă (pagina 7), apoi bucuria de la Pluto, care „nu s-a pierdut”, ci are un nume nou (pagina 8). Finalul e liniștit: întoarcerea acasă, privitul stelelor, „Toate sunt la locul lor. Ca și noi” (pagina 9).",
+    "siguranta": "Racheta e o joacă din cutii de carton, pe iarbă, fără foc și fără înălțimi; zborul e magic, într-un balon de lumină. Sfatul despre Soare e corect și spus limpede. Nimic înfricoșător: spațiul e senin și plin de stele, furtuna lui Jupiter se vede doar de departe.",
+    "imagini": "Doar Lio și șoricica cu pulover galben (fără oameni), „exactly one lion cub, Lio”; câte o planetă mare în fiecare imagine, descrisă prin culoare și formă, fără numere de obiecte, fără litere și fără oglinzi. Racheta e un obiect simplu din cutii, fără față. Fiecare prompt arată momentul paginii: strănutul de la pornire (1), Mercur și Soarele de departe (2), coama ca o păpădie la Venus (3), Marte și Pământul în spate (4), sughițul lângă Jupiter (5), învârtitul lângă inelele lui Saturn (6), Uranus culcat și luminița din depărtare (7), inima albă a lui Pluto (8), stelele din curte (9). Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
+    "voce": "Narațiune caldă, de aventură, cu mirare la fiecare planetă nouă; tonul se liniștește și devine somnoros la final. Stela are o voce subțire, vioaie, de șoricică; Lio vocea lui obișnuită, hotărât la sfatul despre Soare. Pauze înaintea strănutului, înaintea sughițului și înaintea luminiței din depărtare."
+  },
+  "verified": false,
+  "questions": [
+    {
+      "text": "Care e casa noastră, planeta albastră?",
+      "options": [
+        {
+          "text": "Pământul",
+          "emoji": "🌍"
+        },
+        {
+          "text": "Marte",
+          "emoji": "🔴"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Corect! Pământul e planeta albastră, cu apă și nori, unde trăim noi."
+    },
+    {
+      "text": "Ne uităm direct la Soare?",
+      "options": [
+        {
+          "text": "Nu, ne strică ochii",
+          "emoji": "🙈"
+        },
+        {
+          "text": "Da, cât vrem",
+          "emoji": "☀️"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Bravo! Soarele e prea puternic pentru ochii noștri; nu ne uităm direct la el."
+    }
+  ]
+}
