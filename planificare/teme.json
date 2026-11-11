@@ -1,1188 +1,1188 @@
 {
-  "descriere": "Planul celor 100 de povești zilnice (rutina „Povestea zilei”). Fiecare zi: tema, ideea, ce învață copilul și categoriile. „poveste” = id-ul poveștii după ce a fost făcută. Tema e un punct de plecare: povestea respectă întotdeauna REGULI_POVESTI.md.",
-  "teme": [
-    {
-      "nr": 1,
-      "zi": "2026-10-29",
-      "tema": "Arici și frunza cea mai frumoasă",
-      "idee": "Un arici strânge frunze pentru culcușul de iarnă și le alege după culori.",
-      "invatam": "culorile toamnei; animalele se pregătesc de iarnă",
-      "categorii": [
-        "animale",
-        "invatam"
-      ],
-      "poveste": "tepi-si-frunza-cea-mai-frumoasa"
-    },
-    {
-      "nr": 2,
-      "zi": "2026-10-30",
-      "tema": "Norul care nu voia să plouă",
-      "idee": "Un nor mic se teme să plouă, până află cât de mult îl așteaptă florile.",
-      "invatam": "ciclul apei pe înțelesul copiilor; curaj",
-      "categorii": [
-        "aventuri",
-        "invatam"
-      ],
-      "poveste": "pufi-norul-care-nu-voia-sa-ploua"
-    },
-    {
-      "nr": 3,
-      "zi": "2026-10-31",
-      "tema": "Fantoma Fifi se teme de întuneric",
-      "idee": "O fantomă caraghioasă din pod se teme de întuneric, iar Lio îi arată o lanternă și stelele.",
-      "invatam": "frica de întuneric se poate îmblânzi; lumina și umbra",
-      "categorii": [
-        "amuzante",
-        "de-culcare"
-      ],
-      "poveste": "fifi-fantomita-care-se-temea-de-intuneric"
-    },
-    {
-      "nr": 4,
-      "zi": "2026-11-01",
-      "tema": "Iepurașul care număra morcovi",
-      "idee": "Un iepuraș pune deoparte morcovi pentru iarnă și învață să numere până la zece.",
-      "invatam": "numărat până la zece; a pune deoparte",
-      "categorii": [
-        "animale",
-        "invatam"
-      ],
-      "poveste": "tup-iepurasul-care-numara-morcovi"
-    },
-    {
-      "nr": 5,
-      "zi": "2026-11-02",
-      "tema": "Pantofii lui Matei au fugit",
-      "idee": "Pantofii aruncați prin casă pleacă în aventură să-și caute locul.",
-      "invatam": "ordinea: fiecare lucru la locul lui",
-      "categorii": [
-        "amuzante",
-        "invatam"
-      ],
-      "poveste": "pantofii-lui-bruno-au-fugit"
-    },
-    {
-      "nr": 6,
-      "zi": "2026-11-03",
-      "tema": "Lio și periuța curajoasă",
-      "idee": "O periuță de dinți luptă în joacă cu micii „zahărași” de pe dinții lui Lio.",
-      "invatam": "spălatul pe dinți, dimineața și seara",
-      "categorii": [
-        "invatam",
-        "amuzante"
-      ],
-      "poveste": "lio-si-periuta-curajoasa"
-    },
-    {
-      "nr": 7,
-      "zi": "2026-11-04",
-      "tema": "Ursulețul care nu putea adormi",
-      "idee": "Un ursuleț se pregătește de hibernare, dar nu-i vine somnul până nu află ritualul de seară.",
-      "invatam": "rutina de seară; ce înseamnă hibernarea",
-      "categorii": [
-        "de-culcare",
-        "animale"
-      ],
-      "poveste": "mormaila-ursuletul-care-nu-putea-adormi"
-    },
-    {
-      "nr": 8,
-      "zi": "2026-11-05",
-      "tema": "Stela și planeta pierdută",
-      "idee": "O fetiță își face o rachetă din cutii și vizitează planetele, căutând-o pe cea mai mică.",
-      "invatam": "planetele sistemului solar, pe scurt",
-      "categorii": [
-        "aventuri",
-        "invatam"
-      ],
-      "poveste": "stela-si-planeta-pierduta"
-    },
-    {
-      "nr": 9,
-      "zi": "2026-11-06",
-      "tema": "Broscuța care sărea prea tare",
-      "idee": "O broscuță sare atât de tare încât ajunge peste tot, apoi învață să asculte și să aștepte.",
-      "invatam": "răbdarea și ascultatul",
-      "categorii": [
-        "amuzante",
-        "animale"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 10,
-      "zi": "2026-11-07",
-      "tema": "Grădina de legume a bunicii",
-      "idee": "Un băiețel descoperă că legumele cresc din semințe mici și le gustă pe toate.",
-      "invatam": "de unde vin legumele; mâncare sănătoasă",
-      "categorii": [
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 11,
-      "zi": "2026-11-08",
-      "tema": "Ploaia de nasturi colorați",
-      "idee": "Din cutia bunicii se revarsă nasturi pe care doi frați îi sortează după formă și culoare.",
-      "invatam": "forme și culori; sortat",
-      "categorii": [
-        "invatam",
-        "amuzante"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 12,
-      "zi": "2026-11-09",
-      "tema": "Pisicuța care voia să zboare",
-      "idee": "O pisicuță invidiază păsările, până descoperă ce lucruri minunate poate face ea.",
-      "invatam": "fiecare are darurile lui",
-      "categorii": [
-        "animale",
-        "prietenie"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 13,
-      "zi": "2026-11-10",
-      "tema": "Lio la semafor",
-      "idee": "Lio și prietenul lui învață culorile semaforului într-un drum spre parc.",
-      "invatam": "traversatul străzii: semaforul și trecerea de pietoni, cu un adult",
-      "categorii": [
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 14,
-      "zi": "2026-11-11",
-      "tema": "Dragonul care strănuta bule",
-      "idee": "Un dragon mic nu scoate foc, ci bule de săpun, și se rușinează, până devine eroul serbării.",
-      "invatam": "a fi diferit e frumos",
-      "categorii": [
-        "amuzante",
-        "prietenie"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 15,
-      "zi": "2026-11-12",
-      "tema": "Furnicuța și cel mai greu bob",
-      "idee": "O furnicuță nu poate duce singură un bob uriaș, până cere ajutorul celorlalte.",
-      "invatam": "lucrul în echipă; a cere ajutor",
-      "categorii": [
-        "animale",
-        "prietenie"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 16,
-      "zi": "2026-11-13",
-      "tema": "Luna care și-a pierdut strălucirea",
-      "idee": "Luna se simte tristă când se micșorează pe cer, iar Lio îi explică fazele ei.",
-      "invatam": "fazele lunii; luna nu dispare",
-      "categorii": [
-        "de-culcare",
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 17,
-      "zi": "2026-11-14",
-      "tema": "Ana și buclele încâlcite",
-      "idee": "O fetiță se supără pe pieptene, dar află un mod blând de a-și descâlci părul.",
-      "invatam": "a numi emoția (supărarea) și a ne calma",
-      "categorii": [
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 18,
-      "zi": "2026-11-15",
-      "tema": "Trenulețul cu vagoane de litere",
-      "idee": "Un trenuleț duce vagoane cu litere și adună cuvinte simple prin oraș.",
-      "invatam": "literele și primele cuvinte",
-      "categorii": [
-        "invatam",
-        "aventuri"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 19,
-      "zi": "2026-11-16",
-      "tema": "Bufnița care dormea ziua",
-      "idee": "Un copil își face prietenă o bufniță și află de ce unele animale trăiesc noaptea.",
-      "invatam": "animalele de noapte; ziua și noaptea",
-      "categorii": [
-        "animale",
-        "de-culcare"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 20,
-      "zi": "2026-11-17",
-      "tema": "Supa de pietre a lui Lio",
-      "idee": "Lio pune o piatră într-o oală și, cu ajutorul prietenilor, iese o supă pentru toți.",
-      "invatam": "a împărți; fiecare aduce ceva",
-      "categorii": [
-        "prietenie"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 21,
-      "zi": "2026-11-18",
-      "tema": "Puiul de pinguin și primul înot",
-      "idee": "Un pui de pinguin se teme de apă, dar învață să înoate pas cu pas.",
-      "invatam": "curaj în pași mici; viața pinguinilor",
-      "categorii": [
-        "animale",
-        "aventuri"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 22,
-      "zi": "2026-11-19",
-      "tema": "Robotul care nu știa să zâmbească",
-      "idee": "Un robot construit de un copil învață ce înseamnă emoțiile, privind fețele oamenilor.",
-      "invatam": "emoțiile de bază: bucurie, tristețe, frică, furie",
-      "categorii": [
-        "prietenie",
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 23,
-      "zi": "2026-11-20",
-      "tema": "Șosetele fără pereche",
-      "idee": "Șosetele singure din sertar pleacă să-și caute perechea.",
-      "invatam": "perechi și potriviri; ordinea",
-      "categorii": [
-        "amuzante",
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 24,
-      "zi": "2026-11-21",
-      "tema": "Albinuța care a uitat drumul",
-      "idee": "O albinuță se pierde și află cum își arată albinele drumul prin dans.",
-      "invatam": "albinele și florile; cum ne orientăm",
-      "categorii": [
-        "animale",
-        "aventuri"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 25,
-      "zi": "2026-11-22",
-      "tema": "Lio și ziua cu ochelari noi",
-      "idee": "Un copil primește ochelari și se teme că râd ceilalți, dar descoperă cât de clar vede lumea.",
-      "invatam": "a accepta schimbările; empatie",
-      "categorii": [
-        "prietenie"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 26,
-      "zi": "2026-11-23",
-      "tema": "Ursul polar și ghețarul",
-      "idee": "Un pui de urs polar își caută mama pe un ghețar și află cum trăiesc animalele polare.",
-      "invatam": "animalele de la Polul Nord",
-      "categorii": [
-        "animale",
-        "aventuri"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 27,
-      "zi": "2026-11-24",
-      "tema": "Ceaiul de seară al bunicului",
-      "idee": "Bunicul face un ceai cald și îi povestește nepotului ce plante pune în el.",
-      "invatam": "plante de ceai; rutina liniștită de seară",
-      "categorii": [
-        "de-culcare",
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 28,
-      "zi": "2026-11-25",
-      "tema": "Pinguinul care voia la cald",
-      "idee": "Un pinguin pleacă în vacanță la mare și descoperă că îi e dor de casă.",
-      "invatam": "climă caldă și rece; dorul de casă",
-      "categorii": [
-        "amuzante",
-        "animale"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 29,
-      "zi": "2026-11-26",
-      "tema": "Lio și scaunul cu rotile al lui Radu",
-      "idee": "Un prieten nou în scaun cu rotile îi arată lui Lio jocuri la care pot participa toți.",
-      "invatam": "incluziune; joaca pe care o pot face toți",
-      "categorii": [
-        "prietenie"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 30,
-      "zi": "2026-11-27",
-      "tema": "Dinozaurul din debara",
-      "idee": "Un copil găsește un dinozaur mic, prietenos, și află cum trăiau dinozaurii demult.",
-      "invatam": "dinozaurii; demult și acum",
-      "categorii": [
-        "aventuri",
-        "amuzante"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 31,
-      "zi": "2026-11-28",
-      "tema": "Cutia cu emoții",
-      "idee": "O cutie cu borcănașe colorate îi ajută pe copii să-și pună emoțiile în cuvinte.",
-      "invatam": "a recunoaște și a numi emoțiile",
-      "categorii": [
-        "invatam",
-        "prietenie"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 32,
-      "zi": "2026-11-29",
-      "tema": "Melcul care a câștigat cursa",
-      "idee": "Un melc încet câștigă cursa pentru că nu se oprește niciodată.",
-      "invatam": "perseverența",
-      "categorii": [
-        "animale",
-        "amuzante"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 33,
-      "zi": "2026-11-30",
-      "tema": "Pâinea cea caldă",
-      "idee": "Un copil merge la brutărie și vede cum se face pâinea, de la bob la franzelă.",
-      "invatam": "de unde vine pâinea; meseria de brutar",
-      "categorii": [
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 34,
-      "zi": "2026-12-01",
-      "tema": "Brăduțul cel mic din pădure",
-      "idee": "Un brăduț mic se simte neînsemnat, până când animalele îl aleg ca adăpost de iarnă.",
-      "invatam": "fiecare e important; animalele iarna",
-      "categorii": [
-        "animale",
-        "de-culcare"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 35,
-      "zi": "2026-12-02",
-      "tema": "Balena care cânta",
-      "idee": "O balenă cântă atât de frumos încât toată marea se oprește s-o asculte.",
-      "invatam": "animalele mării; sunetele",
-      "categorii": [
-        "animale",
-        "de-culcare"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 36,
-      "zi": "2026-12-03",
-      "tema": "Fulgul de nea care voia să fie unic",
-      "idee": "Un fulg de nea află că fiecare fulg are o formă a lui.",
-      "invatam": "fulgii de zăpadă; fiecare e unic",
-      "categorii": [
-        "de-culcare",
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 37,
-      "zi": "2026-12-04",
-      "tema": "Lio și jocul de-a ascunselea",
-      "idee": "Lio se ascunde prea bine și toată lumea îl caută prin casă.",
-      "invatam": "numărat până la douăzeci; reguli de joc",
-      "categorii": [
-        "amuzante",
-        "prietenie"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 38,
-      "zi": "2026-12-05",
-      "tema": "Ghetuțele lustruite",
-      "idee": "În seara de Moș Nicolae, doi frați își lustruiesc ghetuțele și fac o faptă bună în secret.",
-      "invatam": "tradiția ghetuțelor; bunătatea",
-      "categorii": [
-        "invatam",
-        "prietenie"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 39,
-      "zi": "2026-12-06",
-      "tema": "Doctorul de jucării",
-      "idee": "Un copil se joacă de-a doctorul și îi îngrijește pe ursuleți, apoi merge el însuși la control fără teamă.",
-      "invatam": "vizita la doctor fără frică; corpul omenesc",
-      "categorii": [
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 40,
-      "zi": "2026-12-07",
-      "tema": "Curcubeul care și-a pierdut o culoare",
-      "idee": "Curcubeul nu mai are culoarea verde, iar copiii o caută prin natură.",
-      "invatam": "culorile curcubeului; amestecul culorilor",
-      "categorii": [
-        "aventuri",
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 41,
-      "zi": "2026-12-08",
-      "tema": "Omul de zăpadă și fularul fermecat",
-      "idee": "Un fular fermecat îi face pe toți să spună „mulțumesc”.",
-      "invatam": "cuvintele magice: te rog, mulțumesc",
-      "categorii": [
-        "amuzante",
-        "prietenie"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 42,
-      "zi": "2026-12-09",
-      "tema": "Pomul cu fructe de toate felurile",
-      "idee": "Un pom fermecat crește mere, pere și prune, iar copiii învață să le împartă.",
-      "invatam": "fructele; mâncare sănătoasă; a împărți",
-      "categorii": [
-        "invatam",
-        "prietenie"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 43,
-      "zi": "2026-12-10",
-      "tema": "Vulpița care spunea mereu „nu”",
-      "idee": "O vulpiță răspunde „nu” la orice, până când rămâne singură și învață să încerce lucruri noi.",
-      "invatam": "a încerca lucruri noi",
-      "categorii": [
-        "animale",
-        "amuzante"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 44,
-      "zi": "2026-12-11",
-      "tema": "Căsuța din cutia de carton",
-      "idee": "Doi frați construiesc dintr-o cutie un castel, o rachetă și un vapor.",
-      "invatam": "imaginație; refolosirea lucrurilor",
-      "categorii": [
-        "aventuri",
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 45,
-      "zi": "2026-12-12",
-      "tema": "Scrisoarea către Moș Crăciun",
-      "idee": "Un copil scrie (desenând) o scrisoare și învață să ceară și pentru alții, nu doar pentru el.",
-      "invatam": "a ne gândi și la ceilalți; recunoștința",
-      "categorii": [
-        "prietenie"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 46,
-      "zi": "2026-12-13",
-      "tema": "Lio și bătaia inimii",
-      "idee": "Lio aleargă și își simte inima bătând repede, apoi încet, când se odihnește.",
-      "invatam": "inima și mișcarea; odihna",
-      "categorii": [
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 47,
-      "zi": "2026-12-14",
-      "tema": "Picătura de apă călătoare",
-      "idee": "O picătură pleacă din robinet și ajunge în nor, în râu și înapoi.",
-      "invatam": "ciclul apei; să nu risipim apa",
-      "categorii": [
-        "aventuri",
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 48,
-      "zi": "2026-12-15",
-      "tema": "Turtița fugărită",
-      "idee": "O turtă dulce scapă din cuptor, iar copiii o urmăresc prin casă (fără s-o mănânce).",
-      "invatam": "rețetă simplă de turtă dulce; numărat ingrediente",
-      "categorii": [
-        "amuzante",
-        "aventuri"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 49,
-      "zi": "2026-12-16",
-      "tema": "Elefantul care uita tot",
-      "idee": "Un elefant uituc își face semne ca să-și amintească ce are de făcut.",
-      "invatam": "trucuri de memorie; listele",
-      "categorii": [
-        "amuzante",
-        "animale"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 50,
-      "zi": "2026-12-17",
-      "tema": "Renul care nu avea clopoței",
-      "idee": "Un ren tânăr se simte altfel fără clopoței, până găsește un sunet doar al lui.",
-      "invatam": "a fi tu însuți",
-      "categorii": [
-        "animale",
-        "prietenie"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 51,
-      "zi": "2026-12-18",
-      "tema": "Gărgărița cu șapte buline",
-      "idee": "O gărgăriță își pierde o bulină și o caută numărând.",
-      "invatam": "numărat până la șapte; insectele bune",
-      "categorii": [
-        "animale",
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 52,
-      "zi": "2026-12-19",
-      "tema": "Cântecul vântului",
-      "idee": "Vântul face muzică prin frunze, clopoței și sticle, iar copiii încearcă și ei.",
-      "invatam": "sunete și instrumente simple",
-      "categorii": [
-        "aventuri",
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 53,
-      "zi": "2026-12-20",
-      "tema": "Lio și prima zi la grădiniță",
-      "idee": "Un copil se teme de prima zi la grădiniță, iar Lio îl însoțește în buzunar.",
-      "invatam": "despărțirea de părinți; prieteni noi",
-      "categorii": [
-        "prietenie",
-        "de-culcare"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 54,
-      "zi": "2026-12-21",
-      "tema": "Noaptea cu cele mai multe stele",
-      "idee": "În noaptea cea mai lungă a anului, Lio și un copil numără stelele și găsesc constelații.",
-      "invatam": "solstițiul de iarnă pe scurt; constelații",
-      "categorii": [
-        "de-culcare",
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 55,
-      "zi": "2026-12-22",
-      "tema": "Globulețul care s-a rostogolit",
-      "idee": "Un globuleț de brad se rostogolește prin casă și întâlnește toate decorațiunile.",
-      "invatam": "forme și culori; grija cu lucrurile fragile",
-      "categorii": [
-        "amuzante",
-        "aventuri"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 56,
-      "zi": "2026-12-23",
-      "tema": "Colindul pisicilor",
-      "idee": "Pisicile din bloc vor să colinde, dar fiecare mieună altfel, până cântă împreună.",
-      "invatam": "tradiția colindatului; armonia în grup",
-      "categorii": [
-        "amuzante",
-        "animale"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 57,
-      "zi": "2026-12-24",
-      "tema": "Ziua în care am spus „iartă-mă”",
-      "idee": "Doi prieteni se ceartă pe o jucărie și află cât de bine e să ceri iertare.",
-      "invatam": "a cere iertare; a ierta",
-      "categorii": [
-        "prietenie"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 58,
-      "zi": "2026-12-25",
-      "tema": "Țestoasa care purta casa în spate",
-      "idee": "O țestoasă îi arată unui copil că acasă e oriunde sunt cei dragi.",
-      "invatam": "animalele și casele lor",
-      "categorii": [
-        "animale",
-        "de-culcare"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 59,
-      "zi": "2026-12-26",
-      "tema": "Oglinda care râdea",
-      "idee": "O oglindă fermecată râde de fiecare dată când copilul face o față nouă.",
-      "invatam": "expresiile feței; emoțiile",
-      "categorii": [
-        "amuzante",
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 60,
-      "zi": "2026-12-27",
-      "tema": "Avionul de hârtie al lui Tudor",
-      "idee": "Un avion de hârtie zboară prin oraș și vede de sus case, râuri și oameni.",
-      "invatam": "privit de sus: harta; formele",
-      "categorii": [
-        "aventuri"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 61,
-      "zi": "2026-12-28",
-      "tema": "Vrăjitorul care a încurcat culorile",
-      "idee": "Un vrăjitor stângaci vopsește iarba mov și cerul galben, iar copiii îl ajută să le pună la loc.",
-      "invatam": "culorile din natură",
-      "categorii": [
-        "amuzante",
-        "aventuri"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 62,
-      "zi": "2026-12-29",
-      "tema": "Somnul florilor",
-      "idee": "Florile se închid seara și se deschid dimineața, iar Lio le urmărește o zi întreagă.",
-      "invatam": "plantele au nevoie de soare și odihnă",
-      "categorii": [
-        "de-culcare",
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 63,
-      "zi": "2026-12-30",
-      "tema": "Ursulețul de pluș spălat la mașină",
-      "idee": "Ursulețul preferat trebuie spălat, iar copilul așteaptă cu emoție să-l primească înapoi.",
-      "invatam": "igiena; răbdarea",
-      "categorii": [
-        "amuzante"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 64,
-      "zi": "2026-12-31",
-      "tema": "Sorcova lui Ilie",
-      "idee": "Un băiețel își face o sorcovă colorată și urează vecinilor „La anul și la mulți ani!”.",
-      "invatam": "tradiția sorcovei; urările de Anul Nou",
-      "categorii": [
-        "invatam",
-        "prietenie"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 65,
-      "zi": "2027-01-01",
-      "tema": "Artificiile prea zgomotoase",
-      "idee": "Un cățel se sperie de artificii, iar copilul îl liniștește și îi face un colțișor sigur.",
-      "invatam": "grija pentru animale; liniștea după frică",
-      "categorii": [
-        "animale",
-        "prietenie"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 66,
-      "zi": "2027-01-02",
-      "tema": "Calendarul cu douăsprezece luni",
-      "idee": "Lio primește un calendar cu douăsprezece surori-luni care îi arată fiecare câte ceva.",
-      "invatam": "lunile anului și anotimpurile",
-      "categorii": [
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 67,
-      "zi": "2027-01-03",
-      "tema": "Pescărușul și sticla cu mesaj",
-      "idee": "Un pescăruș găsește o sticlă cu un mesaj și ajută la curățenia plajei.",
-      "invatam": "grija pentru mare; reciclarea",
-      "categorii": [
-        "animale",
-        "aventuri"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 68,
-      "zi": "2027-01-04",
-      "tema": "Lio la piață",
-      "idee": "Lio merge la piață cu mama unui prieten și învață să plătească și să numere banii.",
-      "invatam": "numărat; banii pe înțelesul copiilor",
-      "categorii": [
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 69,
-      "zi": "2027-01-05",
-      "tema": "Sania care mergea în sus",
-      "idee": "O sanie fermecată urcă dealul singură și învață doi frați să-și aștepte rândul.",
-      "invatam": "rândul la joacă; siguranța la săniuș",
-      "categorii": [
-        "amuzante",
-        "aventuri"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 70,
-      "zi": "2027-01-06",
-      "tema": "Bunica cea mică",
-      "idee": "Un copil și bunica lui schimbă rolurile pentru o zi: el are grijă de ea.",
-      "invatam": "a avea grijă de cei dragi; empatie",
-      "categorii": [
-        "prietenie",
-        "amuzante"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 71,
-      "zi": "2027-01-07",
-      "tema": "Cârtița care nu vedea bine",
-      "idee": "O cârtiță se descurcă în întuneric cu nasul și urechile.",
-      "invatam": "simțurile: auzul, mirosul, pipăitul",
-      "categorii": [
-        "animale",
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 72,
-      "zi": "2027-01-08",
-      "tema": "Mănușa pierdută",
-      "idee": "O mănușă pierdută în zăpadă devine căsuță pentru tot mai multe animăluțe.",
-      "invatam": "numărat; a face loc și altora",
-      "categorii": [
-        "animale",
-        "amuzante"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 73,
-      "zi": "2027-01-09",
-      "tema": "Zmeul care se temea de înălțime",
-      "idee": "Un zmeu de hârtie se teme să zboare, dar prinde curaj cu ajutorul vântului și al copiilor.",
-      "invatam": "curajul; vântul",
-      "categorii": [
-        "aventuri",
-        "amuzante"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 74,
-      "zi": "2027-01-10",
-      "tema": "Biblioteca de noapte",
-      "idee": "Noaptea, cărțile din bibliotecă își spun una alteia povești.",
-      "invatam": "dragul de cărți; cum se îngrijesc cărțile",
-      "categorii": [
-        "de-culcare",
-        "aventuri"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 75,
-      "zi": "2027-01-11",
-      "tema": "Gheața de pe lac",
-      "idee": "Doi prieteni vor să alerge pe lacul înghețat, iar un adult le explică de ce nu e sigur.",
-      "invatam": "siguranța pe gheață, cu un adult",
-      "categorii": [
-        "invatam",
-        "aventuri"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 76,
-      "zi": "2027-01-12",
-      "tema": "Puiul de cuc care nu-și știa mama",
-      "idee": "Un pui crescut de alte păsări află că familia e cine te iubește.",
-      "invatam": "familii diferite; iubirea",
-      "categorii": [
-        "animale",
-        "prietenie"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 77,
-      "zi": "2027-01-13",
-      "tema": "Pompierul Mihai și pisica din copac",
-      "idee": "Un pompier prietenos coboară o pisică dintr-un copac și le arată copiilor mașina de pompieri.",
-      "invatam": "meseria de pompier; numărul de urgență 112",
-      "categorii": [
-        "invatam",
-        "aventuri"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 78,
-      "zi": "2027-01-14",
-      "tema": "Formele din nori",
-      "idee": "Lio și prietenii stau în iarbă și văd în nori un iepure, un vapor și un dragon.",
-      "invatam": "formele; imaginația",
-      "categorii": [
-        "de-culcare",
-        "amuzante"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 79,
-      "zi": "2027-01-15",
-      "tema": "Covrigul cu sare și prietenia",
-      "idee": "Doi copii au un singur covrig și găsesc un fel corect de a-l împărți.",
-      "invatam": "jumătate; împărțitul corect",
-      "categorii": [
-        "prietenie",
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 80,
-      "zi": "2027-01-16",
-      "tema": "Leul care și-a pierdut răgetul",
-      "idee": "Un pui de leu nu mai poate rage, iar prietenii îl ajută să-și găsească vocea.",
-      "invatam": "vocea și sunetele; a nu renunța",
-      "categorii": [
-        "animale",
-        "amuzante"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 81,
-      "zi": "2027-01-17",
-      "tema": "Cămila care nu bea apă",
-      "idee": "O cămilă îi explică unui copil cum trăiește în deșert.",
-      "invatam": "deșertul; cum se adaptează animalele",
-      "categorii": [
-        "animale",
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 82,
-      "zi": "2027-01-18",
-      "tema": "Fluturele care a fost omidă",
-      "idee": "O omidă flămândă se face fluture și își amintește drumul.",
-      "invatam": "metamorfoza: ou, omidă, cocon, fluture",
-      "categorii": [
-        "animale",
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 83,
-      "zi": "2027-01-19",
-      "tema": "Lio și jucăria stricată",
-      "idee": "Lio strică din greșeală jucăria unui prieten și află cum să repare și cu ce cuvinte.",
-      "invatam": "a spune adevărul; a repara greșeala",
-      "categorii": [
-        "prietenie"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 84,
-      "zi": "2027-01-20",
-      "tema": "Prăjitura cu unsprezece straturi",
-      "idee": "Doi frați fac o prăjitură și numără straturile, cu o grămadă de încurcături.",
-      "invatam": "numărat; măsurat în bucătărie, cu un adult",
-      "categorii": [
-        "amuzante",
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 85,
-      "zi": "2027-01-21",
-      "tema": "Vaporul din cadă",
-      "idee": "La baie, un vapor de jucărie pornește într-o mare aventură printre bule.",
-      "invatam": "plutește sau se scufundă?; igiena",
-      "categorii": [
-        "amuzante",
-        "aventuri"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 86,
-      "zi": "2027-01-22",
-      "tema": "Căluțul de lemn care alerga noaptea",
-      "idee": "Un căluț de lemn îl duce pe copil, în vis, pe o pajiște cu stele.",
-      "invatam": "visele; somnul liniștit",
-      "categorii": [
-        "de-culcare",
-        "aventuri"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 87,
-      "zi": "2027-01-23",
-      "tema": "Arborele cu păsări",
-      "idee": "Un copil pune o căsuță pentru păsări și învață să le recunoască.",
-      "invatam": "păsările de iarnă; grija pentru ele",
-      "categorii": [
-        "animale",
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 88,
-      "zi": "2027-01-24",
-      "tema": "Monstrul de sub pat era de fapt un ciorap",
-      "idee": "Un copil se teme de „monstrul” de sub pat și descoperă că e un ciorap cu o umbră mare.",
-      "invatam": "umbrele; frica se micșorează când te uiți",
-      "categorii": [
-        "amuzante",
-        "de-culcare"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 89,
-      "zi": "2027-01-25",
-      "tema": "Lio și ceasul cu nisip",
-      "idee": "O clepsidră îi ajută pe copii să-și aștepte rândul la joacă.",
-      "invatam": "cât durează un minut; răbdarea",
-      "categorii": [
-        "invatam",
-        "prietenie"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 90,
-      "zi": "2027-01-26",
-      "tema": "Vulturul și puiul de găină",
-      "idee": "Un pui de găină visează să zboare sus și află cât de frumos e să fii tu.",
-      "invatam": "a-ți prețui darurile",
-      "categorii": [
-        "animale",
-        "prietenie"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 91,
-      "zi": "2027-01-27",
-      "tema": "Pădurea care vorbea în șoaptă",
-      "idee": "Copacii din pădure își spun secrete prin rădăcini, iar un copil îi ascultă.",
-      "invatam": "copacii și pădurea; liniștea",
-      "categorii": [
-        "de-culcare",
-        "aventuri"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 92,
-      "zi": "2027-01-28",
-      "tema": "Marea curățenie din camera lui Ilinca",
-      "idee": "O cameră încurcată prinde viață, iar jucăriile o ajută pe Ilinca să facă ordine.",
-      "invatam": "ordinea; sortat după categorii",
-      "categorii": [
-        "amuzante",
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 93,
-      "zi": "2027-01-29",
-      "tema": "Delfinul care a găsit o prietenă",
-      "idee": "Un delfin se împrietenește cu o fetiță pe o plajă și se joacă de departe, cu grijă.",
-      "invatam": "animalele sălbatice se privesc de la distanță",
-      "categorii": [
-        "animale",
-        "prietenie"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 94,
-      "zi": "2027-01-30",
-      "tema": "Steluța de mare și numerele",
-      "idee": "O steluță de mare numără brațele prietenilor din ocean.",
-      "invatam": "numărat; animalele oceanului",
-      "categorii": [
-        "animale",
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 95,
-      "zi": "2027-01-31",
-      "tema": "Lio și rochia cu buzunare",
-      "idee": "O fetiță are o rochie cu buzunare fermecate în care încap lucruri mici din fiecare aventură.",
-      "invatam": "colecții; amintiri; a observa",
-      "categorii": [
-        "aventuri"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 96,
-      "zi": "2027-02-01",
-      "tema": "Cartoful care voia să fie cartof prăjit",
-      "idee": "Un cartof de grădină pornește în aventură prin bucătărie și descoperă mâncarea gătită acasă.",
-      "invatam": "legumele; mâncarea sănătoasă",
-      "categorii": [
-        "amuzante",
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 97,
-      "zi": "2027-02-02",
-      "tema": "Ziua Ursului",
-      "idee": "Pe 2 februarie, ursul iese din bârlog să-și vadă umbra și să ghicească cât mai ține iarna.",
-      "invatam": "tradiția Zilei Ursului; umbra și soarele",
-      "categorii": [
-        "animale",
-        "invatam"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 98,
-      "zi": "2027-02-03",
-      "tema": "Lanterna lui Victor",
-      "idee": "Victor are o lanternă cu care face umbre-animale pe perete înainte de culcare.",
-      "invatam": "umbrele; jocuri liniștite de seară",
-      "categorii": [
-        "de-culcare",
-        "amuzante"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 99,
-      "zi": "2027-02-04",
-      "tema": "Petrecerea fără bomboane",
-      "idee": "Copiii fac o petrecere cu fructe, jocuri și muzică și descoperă că e cea mai veselă.",
-      "invatam": "gustări sănătoase; distracție fără dulciuri",
-      "categorii": [
-        "amuzante",
-        "prietenie"
-      ],
-      "poveste": null
-    },
-    {
-      "nr": 100,
-      "zi": "2027-02-05",
-      "tema": "Mulțumesc, Lio!",
-      "idee": "Pentru a suta poveste, prietenii lui Lio îi pregătesc o surpriză și îi mulțumesc pentru toate poveștile.",
-      "invatam": "recunoștința; a spune mulțumesc",
-      "categorii": [
-        "prietenie",
-        "de-culcare"
-      ],
-      "poveste": null
-    }
-  ]
+ "descriere": "Planul celor 100 de povești zilnice (rutina „Povestea zilei”). Fiecare zi: tema, ideea, ce învață copilul și categoriile. „poveste” = id-ul poveștii după ce a fost făcută. Tema e un punct de plecare: povestea respectă întotdeauna REGULI_POVESTI.md.",
+ "teme": [
+  {
+   "nr": 1,
+   "zi": "2026-10-29",
+   "tema": "Arici și frunza cea mai frumoasă",
+   "idee": "Un arici strânge frunze pentru culcușul de iarnă și le alege după culori.",
+   "invatam": "culorile toamnei; animalele se pregătesc de iarnă",
+   "categorii": [
+    "animale",
+    "invatam"
+   ],
+   "poveste": "tepi-si-frunza-cea-mai-frumoasa"
+  },
+  {
+   "nr": 2,
+   "zi": "2026-10-30",
+   "tema": "Norul care nu voia să plouă",
+   "idee": "Un nor mic se teme să plouă, până află cât de mult îl așteaptă florile.",
+   "invatam": "ciclul apei pe înțelesul copiilor; curaj",
+   "categorii": [
+    "aventuri",
+    "invatam"
+   ],
+   "poveste": "pufi-norul-care-nu-voia-sa-ploua"
+  },
+  {
+   "nr": 3,
+   "zi": "2026-10-31",
+   "tema": "Fantoma Fifi se teme de întuneric",
+   "idee": "O fantomă caraghioasă din pod se teme de întuneric, iar Lio îi arată o lanternă și stelele.",
+   "invatam": "frica de întuneric se poate îmblânzi; lumina și umbra",
+   "categorii": [
+    "amuzante",
+    "de-culcare"
+   ],
+   "poveste": "fifi-fantomita-care-se-temea-de-intuneric"
+  },
+  {
+   "nr": 4,
+   "zi": "2026-11-01",
+   "tema": "Iepurașul care număra morcovi",
+   "idee": "Un iepuraș pune deoparte morcovi pentru iarnă și învață să numere până la zece.",
+   "invatam": "numărat până la zece; a pune deoparte",
+   "categorii": [
+    "animale",
+    "invatam"
+   ],
+   "poveste": "tup-iepurasul-care-numara-morcovi"
+  },
+  {
+   "nr": 5,
+   "zi": "2026-11-02",
+   "tema": "Pantofii lui Matei au fugit",
+   "idee": "Pantofii aruncați prin casă pleacă în aventură să-și caute locul.",
+   "invatam": "ordinea: fiecare lucru la locul lui",
+   "categorii": [
+    "amuzante",
+    "invatam"
+   ],
+   "poveste": "pantofii-lui-bruno-au-fugit"
+  },
+  {
+   "nr": 6,
+   "zi": "2026-11-03",
+   "tema": "Lio și periuța curajoasă",
+   "idee": "O periuță de dinți luptă în joacă cu micii „zahărași” de pe dinții lui Lio.",
+   "invatam": "spălatul pe dinți, dimineața și seara",
+   "categorii": [
+    "invatam",
+    "amuzante"
+   ],
+   "poveste": "lio-si-periuta-curajoasa"
+  },
+  {
+   "nr": 7,
+   "zi": "2026-11-04",
+   "tema": "Ursulețul care nu putea adormi",
+   "idee": "Un ursuleț se pregătește de hibernare, dar nu-i vine somnul până nu află ritualul de seară.",
+   "invatam": "rutina de seară; ce înseamnă hibernarea",
+   "categorii": [
+    "de-culcare",
+    "animale"
+   ],
+   "poveste": "mormaila-ursuletul-care-nu-putea-adormi"
+  },
+  {
+   "nr": 8,
+   "zi": "2026-11-05",
+   "tema": "Stela și planeta pierdută",
+   "idee": "O fetiță își face o rachetă din cutii și vizitează planetele, căutând-o pe cea mai mică.",
+   "invatam": "planetele sistemului solar, pe scurt",
+   "categorii": [
+    "aventuri",
+    "invatam"
+   ],
+   "poveste": "stela-si-planeta-pierduta"
+  },
+  {
+   "nr": 9,
+   "zi": "2026-11-06",
+   "tema": "Broscuța care sărea prea tare",
+   "idee": "O broscuță sare atât de tare încât ajunge peste tot, apoi învață să asculte și să aștepte.",
+   "invatam": "răbdarea și ascultatul",
+   "categorii": [
+    "amuzante",
+    "animale"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 10,
+   "zi": "2026-11-07",
+   "tema": "Grădina de legume a bunicii",
+   "idee": "Un băiețel descoperă că legumele cresc din semințe mici și le gustă pe toate.",
+   "invatam": "de unde vin legumele; mâncare sănătoasă",
+   "categorii": [
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 11,
+   "zi": "2026-11-08",
+   "tema": "Ploaia de nasturi colorați",
+   "idee": "Din cutia bunicii se revarsă nasturi pe care doi frați îi sortează după formă și culoare.",
+   "invatam": "forme și culori; sortat",
+   "categorii": [
+    "invatam",
+    "amuzante"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 12,
+   "zi": "2026-11-09",
+   "tema": "Pisicuța care voia să zboare",
+   "idee": "O pisicuță invidiază păsările, până descoperă ce lucruri minunate poate face ea.",
+   "invatam": "fiecare are darurile lui",
+   "categorii": [
+    "animale",
+    "prietenie"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 13,
+   "zi": "2026-11-10",
+   "tema": "Lio la semafor",
+   "idee": "Lio și prietenul lui învață culorile semaforului într-un drum spre parc.",
+   "invatam": "traversatul străzii: semaforul și trecerea de pietoni, cu un adult",
+   "categorii": [
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 14,
+   "zi": "2026-11-11",
+   "tema": "Dragonul care strănuta bule",
+   "idee": "Un dragon mic nu scoate foc, ci bule de săpun, și se rușinează, până devine eroul serbării.",
+   "invatam": "a fi diferit e frumos",
+   "categorii": [
+    "amuzante",
+    "prietenie"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 15,
+   "zi": "2026-11-12",
+   "tema": "Furnicuța și cel mai greu bob",
+   "idee": "O furnicuță nu poate duce singură un bob uriaș, până cere ajutorul celorlalte.",
+   "invatam": "lucrul în echipă; a cere ajutor",
+   "categorii": [
+    "animale",
+    "prietenie"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 16,
+   "zi": "2026-11-13",
+   "tema": "Luna care și-a pierdut strălucirea",
+   "idee": "Luna se simte tristă când se micșorează pe cer, iar Lio îi explică fazele ei.",
+   "invatam": "fazele lunii; luna nu dispare",
+   "categorii": [
+    "de-culcare",
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 17,
+   "zi": "2026-11-14",
+   "tema": "Ana și buclele încâlcite",
+   "idee": "O fetiță se supără pe pieptene, dar află un mod blând de a-și descâlci părul.",
+   "invatam": "a numi emoția (supărarea) și a ne calma",
+   "categorii": [
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 18,
+   "zi": "2026-11-15",
+   "tema": "Trenulețul cu vagoane de litere",
+   "idee": "Un trenuleț duce vagoane cu litere și adună cuvinte simple prin oraș.",
+   "invatam": "literele și primele cuvinte",
+   "categorii": [
+    "invatam",
+    "aventuri"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 19,
+   "zi": "2026-11-16",
+   "tema": "Bufnița care dormea ziua",
+   "idee": "Un copil își face prietenă o bufniță și află de ce unele animale trăiesc noaptea.",
+   "invatam": "animalele de noapte; ziua și noaptea",
+   "categorii": [
+    "animale",
+    "de-culcare"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 20,
+   "zi": "2026-11-17",
+   "tema": "Supa de pietre a lui Lio",
+   "idee": "Lio pune o piatră într-o oală și, cu ajutorul prietenilor, iese o supă pentru toți.",
+   "invatam": "a împărți; fiecare aduce ceva",
+   "categorii": [
+    "prietenie"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 21,
+   "zi": "2026-11-18",
+   "tema": "Puiul de pinguin și primul înot",
+   "idee": "Un pui de pinguin se teme de apă, dar învață să înoate pas cu pas.",
+   "invatam": "curaj în pași mici; viața pinguinilor",
+   "categorii": [
+    "animale",
+    "aventuri"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 22,
+   "zi": "2026-11-19",
+   "tema": "Robotul care nu știa să zâmbească",
+   "idee": "Un robot construit de un copil învață ce înseamnă emoțiile, privind fețele oamenilor.",
+   "invatam": "emoțiile de bază: bucurie, tristețe, frică, furie",
+   "categorii": [
+    "prietenie",
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 23,
+   "zi": "2026-11-20",
+   "tema": "Șosetele fără pereche",
+   "idee": "Șosetele singure din sertar pleacă să-și caute perechea.",
+   "invatam": "perechi și potriviri; ordinea",
+   "categorii": [
+    "amuzante",
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 24,
+   "zi": "2026-11-21",
+   "tema": "Albinuța care a uitat drumul",
+   "idee": "O albinuță se pierde și află cum își arată albinele drumul prin dans.",
+   "invatam": "albinele și florile; cum ne orientăm",
+   "categorii": [
+    "animale",
+    "aventuri"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 25,
+   "zi": "2026-11-22",
+   "tema": "Lio și ziua cu ochelari noi",
+   "idee": "Un copil primește ochelari și se teme că râd ceilalți, dar descoperă cât de clar vede lumea.",
+   "invatam": "a accepta schimbările; empatie",
+   "categorii": [
+    "prietenie"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 26,
+   "zi": "2026-11-23",
+   "tema": "Ursul polar și ghețarul",
+   "idee": "Un pui de urs polar își caută mama pe un ghețar și află cum trăiesc animalele polare.",
+   "invatam": "animalele de la Polul Nord",
+   "categorii": [
+    "animale",
+    "aventuri"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 27,
+   "zi": "2026-11-24",
+   "tema": "Ceaiul de seară al bunicului",
+   "idee": "Bunicul face un ceai cald și îi povestește nepotului ce plante pune în el.",
+   "invatam": "plante de ceai; rutina liniștită de seară",
+   "categorii": [
+    "de-culcare",
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 28,
+   "zi": "2026-11-25",
+   "tema": "Pinguinul care voia la cald",
+   "idee": "Un pinguin pleacă în vacanță la mare și descoperă că îi e dor de casă.",
+   "invatam": "climă caldă și rece; dorul de casă",
+   "categorii": [
+    "amuzante",
+    "animale"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 29,
+   "zi": "2026-11-26",
+   "tema": "Lio și scaunul cu rotile al lui Radu",
+   "idee": "Un prieten nou în scaun cu rotile îi arată lui Lio jocuri la care pot participa toți.",
+   "invatam": "incluziune; joaca pe care o pot face toți",
+   "categorii": [
+    "prietenie"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 30,
+   "zi": "2026-11-27",
+   "tema": "Dinozaurul din debara",
+   "idee": "Un copil găsește un dinozaur mic, prietenos, și află cum trăiau dinozaurii demult.",
+   "invatam": "dinozaurii; demult și acum",
+   "categorii": [
+    "aventuri",
+    "amuzante"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 31,
+   "zi": "2026-11-28",
+   "tema": "Cutia cu emoții",
+   "idee": "O cutie cu borcănașe colorate îi ajută pe copii să-și pună emoțiile în cuvinte.",
+   "invatam": "a recunoaște și a numi emoțiile",
+   "categorii": [
+    "invatam",
+    "prietenie"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 32,
+   "zi": "2026-11-29",
+   "tema": "Melcul care a câștigat cursa",
+   "idee": "Un melc încet câștigă cursa pentru că nu se oprește niciodată.",
+   "invatam": "perseverența",
+   "categorii": [
+    "animale",
+    "amuzante"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 33,
+   "zi": "2026-11-30",
+   "tema": "Pâinea cea caldă",
+   "idee": "Un copil merge la brutărie și vede cum se face pâinea, de la bob la franzelă.",
+   "invatam": "de unde vine pâinea; meseria de brutar",
+   "categorii": [
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 34,
+   "zi": "2026-12-01",
+   "tema": "Brăduțul cel mic din pădure",
+   "idee": "Un brăduț mic se simte neînsemnat, până când animalele îl aleg ca adăpost de iarnă.",
+   "invatam": "fiecare e important; animalele iarna",
+   "categorii": [
+    "animale",
+    "de-culcare"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 35,
+   "zi": "2026-12-02",
+   "tema": "Balena care cânta",
+   "idee": "O balenă cântă atât de frumos încât toată marea se oprește s-o asculte.",
+   "invatam": "animalele mării; sunetele",
+   "categorii": [
+    "animale",
+    "de-culcare"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 36,
+   "zi": "2026-12-03",
+   "tema": "Fulgul de nea care voia să fie unic",
+   "idee": "Un fulg de nea află că fiecare fulg are o formă a lui.",
+   "invatam": "fulgii de zăpadă; fiecare e unic",
+   "categorii": [
+    "de-culcare",
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 37,
+   "zi": "2026-12-04",
+   "tema": "Lio și jocul de-a ascunselea",
+   "idee": "Lio se ascunde prea bine și toată lumea îl caută prin casă.",
+   "invatam": "numărat până la douăzeci; reguli de joc",
+   "categorii": [
+    "amuzante",
+    "prietenie"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 38,
+   "zi": "2026-12-05",
+   "tema": "Ghetuțele lustruite",
+   "idee": "În seara de Moș Nicolae, doi frați își lustruiesc ghetuțele și fac o faptă bună în secret.",
+   "invatam": "tradiția ghetuțelor; bunătatea",
+   "categorii": [
+    "invatam",
+    "prietenie"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 39,
+   "zi": "2026-12-06",
+   "tema": "Doctorul de jucării",
+   "idee": "Un copil se joacă de-a doctorul și îi îngrijește pe ursuleți, apoi merge el însuși la control fără teamă.",
+   "invatam": "vizita la doctor fără frică; corpul omenesc",
+   "categorii": [
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 40,
+   "zi": "2026-12-07",
+   "tema": "Curcubeul care și-a pierdut o culoare",
+   "idee": "Curcubeul nu mai are culoarea verde, iar copiii o caută prin natură.",
+   "invatam": "culorile curcubeului; amestecul culorilor",
+   "categorii": [
+    "aventuri",
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 41,
+   "zi": "2026-12-08",
+   "tema": "Omul de zăpadă și fularul fermecat",
+   "idee": "Un fular fermecat îi face pe toți să spună „mulțumesc”.",
+   "invatam": "cuvintele magice: te rog, mulțumesc",
+   "categorii": [
+    "amuzante",
+    "prietenie"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 42,
+   "zi": "2026-12-09",
+   "tema": "Pomul cu fructe de toate felurile",
+   "idee": "Un pom fermecat crește mere, pere și prune, iar copiii învață să le împartă.",
+   "invatam": "fructele; mâncare sănătoasă; a împărți",
+   "categorii": [
+    "invatam",
+    "prietenie"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 43,
+   "zi": "2026-12-10",
+   "tema": "Vulpița care spunea mereu „nu”",
+   "idee": "O vulpiță răspunde „nu” la orice, până când rămâne singură și învață să încerce lucruri noi.",
+   "invatam": "a încerca lucruri noi",
+   "categorii": [
+    "animale",
+    "amuzante"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 44,
+   "zi": "2026-12-11",
+   "tema": "Căsuța din cutia de carton",
+   "idee": "Doi frați construiesc dintr-o cutie un castel, o rachetă și un vapor.",
+   "invatam": "imaginație; refolosirea lucrurilor",
+   "categorii": [
+    "aventuri",
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 45,
+   "zi": "2026-12-12",
+   "tema": "Scrisoarea către Moș Crăciun",
+   "idee": "Un copil scrie (desenând) o scrisoare și învață să ceară și pentru alții, nu doar pentru el.",
+   "invatam": "a ne gândi și la ceilalți; recunoștința",
+   "categorii": [
+    "prietenie"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 46,
+   "zi": "2026-12-13",
+   "tema": "Lio și bătaia inimii",
+   "idee": "Lio aleargă și își simte inima bătând repede, apoi încet, când se odihnește.",
+   "invatam": "inima și mișcarea; odihna",
+   "categorii": [
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 47,
+   "zi": "2026-12-14",
+   "tema": "Picătura de apă călătoare",
+   "idee": "O picătură pleacă din robinet și ajunge în nor, în râu și înapoi.",
+   "invatam": "ciclul apei; să nu risipim apa",
+   "categorii": [
+    "aventuri",
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 48,
+   "zi": "2026-12-15",
+   "tema": "Turtița fugărită",
+   "idee": "O turtă dulce scapă din cuptor, iar copiii o urmăresc prin casă (fără s-o mănânce).",
+   "invatam": "rețetă simplă de turtă dulce; numărat ingrediente",
+   "categorii": [
+    "amuzante",
+    "aventuri"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 49,
+   "zi": "2026-12-16",
+   "tema": "Elefantul care uita tot",
+   "idee": "Un elefant uituc își face semne ca să-și amintească ce are de făcut.",
+   "invatam": "trucuri de memorie; listele",
+   "categorii": [
+    "amuzante",
+    "animale"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 50,
+   "zi": "2026-12-17",
+   "tema": "Renul care nu avea clopoței",
+   "idee": "Un ren tânăr se simte altfel fără clopoței, până găsește un sunet doar al lui.",
+   "invatam": "a fi tu însuți",
+   "categorii": [
+    "animale",
+    "prietenie"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 51,
+   "zi": "2026-12-18",
+   "tema": "Gărgărița cu șapte buline",
+   "idee": "O gărgăriță își pierde o bulină și o caută numărând.",
+   "invatam": "numărat până la șapte; insectele bune",
+   "categorii": [
+    "animale",
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 52,
+   "zi": "2026-12-19",
+   "tema": "Cântecul vântului",
+   "idee": "Vântul face muzică prin frunze, clopoței și sticle, iar copiii încearcă și ei.",
+   "invatam": "sunete și instrumente simple",
+   "categorii": [
+    "aventuri",
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 53,
+   "zi": "2026-12-20",
+   "tema": "Lio și prima zi la grădiniță",
+   "idee": "Un copil se teme de prima zi la grădiniță, iar Lio îl însoțește în buzunar.",
+   "invatam": "despărțirea de părinți; prieteni noi",
+   "categorii": [
+    "prietenie",
+    "de-culcare"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 54,
+   "zi": "2026-12-21",
+   "tema": "Noaptea cu cele mai multe stele",
+   "idee": "În noaptea cea mai lungă a anului, Lio și un copil numără stelele și găsesc constelații.",
+   "invatam": "solstițiul de iarnă pe scurt; constelații",
+   "categorii": [
+    "de-culcare",
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 55,
+   "zi": "2026-12-22",
+   "tema": "Globulețul care s-a rostogolit",
+   "idee": "Un globuleț de brad se rostogolește prin casă și întâlnește toate decorațiunile.",
+   "invatam": "forme și culori; grija cu lucrurile fragile",
+   "categorii": [
+    "amuzante",
+    "aventuri"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 56,
+   "zi": "2026-12-23",
+   "tema": "Colindul pisicilor",
+   "idee": "Pisicile din bloc vor să colinde, dar fiecare mieună altfel, până cântă împreună.",
+   "invatam": "tradiția colindatului; armonia în grup",
+   "categorii": [
+    "amuzante",
+    "animale"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 57,
+   "zi": "2026-12-24",
+   "tema": "Ziua în care am spus „iartă-mă”",
+   "idee": "Doi prieteni se ceartă pe o jucărie și află cât de bine e să ceri iertare.",
+   "invatam": "a cere iertare; a ierta",
+   "categorii": [
+    "prietenie"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 58,
+   "zi": "2026-12-25",
+   "tema": "Țestoasa care purta casa în spate",
+   "idee": "O țestoasă îi arată unui copil că acasă e oriunde sunt cei dragi.",
+   "invatam": "animalele și casele lor",
+   "categorii": [
+    "animale",
+    "de-culcare"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 59,
+   "zi": "2026-12-26",
+   "tema": "Oglinda care râdea",
+   "idee": "O oglindă fermecată râde de fiecare dată când copilul face o față nouă.",
+   "invatam": "expresiile feței; emoțiile",
+   "categorii": [
+    "amuzante",
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 60,
+   "zi": "2026-12-27",
+   "tema": "Avionul de hârtie al lui Tudor",
+   "idee": "Un avion de hârtie zboară prin oraș și vede de sus case, râuri și oameni.",
+   "invatam": "privit de sus: harta; formele",
+   "categorii": [
+    "aventuri"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 61,
+   "zi": "2026-12-28",
+   "tema": "Vrăjitorul care a încurcat culorile",
+   "idee": "Un vrăjitor stângaci vopsește iarba mov și cerul galben, iar copiii îl ajută să le pună la loc.",
+   "invatam": "culorile din natură",
+   "categorii": [
+    "amuzante",
+    "aventuri"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 62,
+   "zi": "2026-12-29",
+   "tema": "Somnul florilor",
+   "idee": "Florile se închid seara și se deschid dimineața, iar Lio le urmărește o zi întreagă.",
+   "invatam": "plantele au nevoie de soare și odihnă",
+   "categorii": [
+    "de-culcare",
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 63,
+   "zi": "2026-12-30",
+   "tema": "Ursulețul de pluș spălat la mașină",
+   "idee": "Ursulețul preferat trebuie spălat, iar copilul așteaptă cu emoție să-l primească înapoi.",
+   "invatam": "igiena; răbdarea",
+   "categorii": [
+    "amuzante"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 64,
+   "zi": "2026-12-31",
+   "tema": "Sorcova lui Ilie",
+   "idee": "Un băiețel își face o sorcovă colorată și urează vecinilor „La anul și la mulți ani!”.",
+   "invatam": "tradiția sorcovei; urările de Anul Nou",
+   "categorii": [
+    "invatam",
+    "prietenie"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 65,
+   "zi": "2027-01-01",
+   "tema": "Artificiile prea zgomotoase",
+   "idee": "Un cățel se sperie de artificii, iar copilul îl liniștește și îi face un colțișor sigur.",
+   "invatam": "grija pentru animale; liniștea după frică",
+   "categorii": [
+    "animale",
+    "prietenie"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 66,
+   "zi": "2027-01-02",
+   "tema": "Calendarul cu douăsprezece luni",
+   "idee": "Lio primește un calendar cu douăsprezece surori-luni care îi arată fiecare câte ceva.",
+   "invatam": "lunile anului și anotimpurile",
+   "categorii": [
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 67,
+   "zi": "2027-01-03",
+   "tema": "Pescărușul și sticla cu mesaj",
+   "idee": "Un pescăruș găsește o sticlă cu un mesaj și ajută la curățenia plajei.",
+   "invatam": "grija pentru mare; reciclarea",
+   "categorii": [
+    "animale",
+    "aventuri"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 68,
+   "zi": "2027-01-04",
+   "tema": "Lio la piață",
+   "idee": "Lio merge la piață cu mama unui prieten și învață să plătească și să numere banii.",
+   "invatam": "numărat; banii pe înțelesul copiilor",
+   "categorii": [
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 69,
+   "zi": "2027-01-05",
+   "tema": "Sania care mergea în sus",
+   "idee": "O sanie fermecată urcă dealul singură și învață doi frați să-și aștepte rândul.",
+   "invatam": "rândul la joacă; siguranța la săniuș",
+   "categorii": [
+    "amuzante",
+    "aventuri"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 70,
+   "zi": "2027-01-06",
+   "tema": "Bunica cea mică",
+   "idee": "Un copil și bunica lui schimbă rolurile pentru o zi: el are grijă de ea.",
+   "invatam": "a avea grijă de cei dragi; empatie",
+   "categorii": [
+    "prietenie",
+    "amuzante"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 71,
+   "zi": "2027-01-07",
+   "tema": "Cârtița care nu vedea bine",
+   "idee": "O cârtiță se descurcă în întuneric cu nasul și urechile.",
+   "invatam": "simțurile: auzul, mirosul, pipăitul",
+   "categorii": [
+    "animale",
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 72,
+   "zi": "2027-01-08",
+   "tema": "Mănușa pierdută",
+   "idee": "O mănușă pierdută în zăpadă devine căsuță pentru tot mai multe animăluțe.",
+   "invatam": "numărat; a face loc și altora",
+   "categorii": [
+    "animale",
+    "amuzante"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 73,
+   "zi": "2027-01-09",
+   "tema": "Zmeul care se temea de înălțime",
+   "idee": "Un zmeu de hârtie se teme să zboare, dar prinde curaj cu ajutorul vântului și al copiilor.",
+   "invatam": "curajul; vântul",
+   "categorii": [
+    "aventuri",
+    "amuzante"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 74,
+   "zi": "2027-01-10",
+   "tema": "Biblioteca de noapte",
+   "idee": "Noaptea, cărțile din bibliotecă își spun una alteia povești.",
+   "invatam": "dragul de cărți; cum se îngrijesc cărțile",
+   "categorii": [
+    "de-culcare",
+    "aventuri"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 75,
+   "zi": "2027-01-11",
+   "tema": "Gheața de pe lac",
+   "idee": "Doi prieteni vor să alerge pe lacul înghețat, iar un adult le explică de ce nu e sigur.",
+   "invatam": "siguranța pe gheață, cu un adult",
+   "categorii": [
+    "invatam",
+    "aventuri"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 76,
+   "zi": "2027-01-12",
+   "tema": "Puiul de cuc care nu-și știa mama",
+   "idee": "Un pui crescut de alte păsări află că familia e cine te iubește.",
+   "invatam": "familii diferite; iubirea",
+   "categorii": [
+    "animale",
+    "prietenie"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 77,
+   "zi": "2027-01-13",
+   "tema": "Pompierul Mihai și pisica din copac",
+   "idee": "Un pompier prietenos coboară o pisică dintr-un copac și le arată copiilor mașina de pompieri.",
+   "invatam": "meseria de pompier; numărul de urgență 112",
+   "categorii": [
+    "invatam",
+    "aventuri"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 78,
+   "zi": "2027-01-14",
+   "tema": "Formele din nori",
+   "idee": "Lio și prietenii stau în iarbă și văd în nori un iepure, un vapor și un dragon.",
+   "invatam": "formele; imaginația",
+   "categorii": [
+    "de-culcare",
+    "amuzante"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 79,
+   "zi": "2027-01-15",
+   "tema": "Covrigul cu sare și prietenia",
+   "idee": "Doi copii au un singur covrig și găsesc un fel corect de a-l împărți.",
+   "invatam": "jumătate; împărțitul corect",
+   "categorii": [
+    "prietenie",
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 80,
+   "zi": "2027-01-16",
+   "tema": "Leul care și-a pierdut răgetul",
+   "idee": "Un pui de leu nu mai poate rage, iar prietenii îl ajută să-și găsească vocea.",
+   "invatam": "vocea și sunetele; a nu renunța",
+   "categorii": [
+    "animale",
+    "amuzante"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 81,
+   "zi": "2027-01-17",
+   "tema": "Cămila care nu bea apă",
+   "idee": "O cămilă îi explică unui copil cum trăiește în deșert.",
+   "invatam": "deșertul; cum se adaptează animalele",
+   "categorii": [
+    "animale",
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 82,
+   "zi": "2027-01-18",
+   "tema": "Fluturele care a fost omidă",
+   "idee": "O omidă flămândă se face fluture și își amintește drumul.",
+   "invatam": "metamorfoza: ou, omidă, cocon, fluture",
+   "categorii": [
+    "animale",
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 83,
+   "zi": "2027-01-19",
+   "tema": "Lio și jucăria stricată",
+   "idee": "Lio strică din greșeală jucăria unui prieten și află cum să repare și cu ce cuvinte.",
+   "invatam": "a spune adevărul; a repara greșeala",
+   "categorii": [
+    "prietenie"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 84,
+   "zi": "2027-01-20",
+   "tema": "Prăjitura cu unsprezece straturi",
+   "idee": "Doi frați fac o prăjitură și numără straturile, cu o grămadă de încurcături.",
+   "invatam": "numărat; măsurat în bucătărie, cu un adult",
+   "categorii": [
+    "amuzante",
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 85,
+   "zi": "2027-01-21",
+   "tema": "Vaporul din cadă",
+   "idee": "La baie, un vapor de jucărie pornește într-o mare aventură printre bule.",
+   "invatam": "plutește sau se scufundă?; igiena",
+   "categorii": [
+    "amuzante",
+    "aventuri"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 86,
+   "zi": "2027-01-22",
+   "tema": "Căluțul de lemn care alerga noaptea",
+   "idee": "Un căluț de lemn îl duce pe copil, în vis, pe o pajiște cu stele.",
+   "invatam": "visele; somnul liniștit",
+   "categorii": [
+    "de-culcare",
+    "aventuri"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 87,
+   "zi": "2027-01-23",
+   "tema": "Arborele cu păsări",
+   "idee": "Un copil pune o căsuță pentru păsări și învață să le recunoască.",
+   "invatam": "păsările de iarnă; grija pentru ele",
+   "categorii": [
+    "animale",
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 88,
+   "zi": "2027-01-24",
+   "tema": "Monstrul de sub pat era de fapt un ciorap",
+   "idee": "Un copil se teme de „monstrul” de sub pat și descoperă că e un ciorap cu o umbră mare.",
+   "invatam": "umbrele; frica se micșorează când te uiți",
+   "categorii": [
+    "amuzante",
+    "de-culcare"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 89,
+   "zi": "2027-01-25",
+   "tema": "Lio și ceasul cu nisip",
+   "idee": "O clepsidră îi ajută pe copii să-și aștepte rândul la joacă.",
+   "invatam": "cât durează un minut; răbdarea",
+   "categorii": [
+    "invatam",
+    "prietenie"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 90,
+   "zi": "2027-01-26",
+   "tema": "Vulturul și puiul de găină",
+   "idee": "Un pui de găină visează să zboare sus și află cât de frumos e să fii tu.",
+   "invatam": "a-ți prețui darurile",
+   "categorii": [
+    "animale",
+    "prietenie"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 91,
+   "zi": "2027-01-27",
+   "tema": "Pădurea care vorbea în șoaptă",
+   "idee": "Copacii din pădure își spun secrete prin rădăcini, iar un copil îi ascultă.",
+   "invatam": "copacii și pădurea; liniștea",
+   "categorii": [
+    "de-culcare",
+    "aventuri"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 92,
+   "zi": "2027-01-28",
+   "tema": "Marea curățenie din camera lui Ilinca",
+   "idee": "O cameră încurcată prinde viață, iar jucăriile o ajută pe Ilinca să facă ordine.",
+   "invatam": "ordinea; sortat după categorii",
+   "categorii": [
+    "amuzante",
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 93,
+   "zi": "2027-01-29",
+   "tema": "Delfinul care a găsit o prietenă",
+   "idee": "Un delfin se împrietenește cu o fetiță pe o plajă și se joacă de departe, cu grijă.",
+   "invatam": "animalele sălbatice se privesc de la distanță",
+   "categorii": [
+    "animale",
+    "prietenie"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 94,
+   "zi": "2027-01-30",
+   "tema": "Steluța de mare și numerele",
+   "idee": "O steluță de mare numără brațele prietenilor din ocean.",
+   "invatam": "numărat; animalele oceanului",
+   "categorii": [
+    "animale",
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 95,
+   "zi": "2027-01-31",
+   "tema": "Lio și rochia cu buzunare",
+   "idee": "O fetiță are o rochie cu buzunare fermecate în care încap lucruri mici din fiecare aventură.",
+   "invatam": "colecții; amintiri; a observa",
+   "categorii": [
+    "aventuri"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 96,
+   "zi": "2027-02-01",
+   "tema": "Cartoful care voia să fie cartof prăjit",
+   "idee": "Un cartof de grădină pornește în aventură prin bucătărie și descoperă mâncarea gătită acasă.",
+   "invatam": "legumele; mâncarea sănătoasă",
+   "categorii": [
+    "amuzante",
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 97,
+   "zi": "2027-02-02",
+   "tema": "Ziua Ursului",
+   "idee": "Pe 2 februarie, ursul iese din bârlog să-și vadă umbra și să ghicească cât mai ține iarna.",
+   "invatam": "tradiția Zilei Ursului; umbra și soarele",
+   "categorii": [
+    "animale",
+    "invatam"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 98,
+   "zi": "2027-02-03",
+   "tema": "Lanterna lui Victor",
+   "idee": "Victor are o lanternă cu care face umbre-animale pe perete înainte de culcare.",
+   "invatam": "umbrele; jocuri liniștite de seară",
+   "categorii": [
+    "de-culcare",
+    "amuzante"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 99,
+   "zi": "2027-02-04",
+   "tema": "Petrecerea fără bomboane",
+   "idee": "Copiii fac o petrecere cu fructe, jocuri și muzică și descoperă că e cea mai veselă.",
+   "invatam": "gustări sănătoase; distracție fără dulciuri",
+   "categorii": [
+    "amuzante",
+    "prietenie"
+   ],
+   "poveste": null
+  },
+  {
+   "nr": 100,
+   "zi": "2027-02-05",
+   "tema": "Mulțumesc, Lio!",
+   "idee": "Pentru a suta poveste, prietenii lui Lio îi pregătesc o surpriză și îi mulțumesc pentru toate poveștile.",
+   "invatam": "recunoștința; a spune mulțumesc",
+   "categorii": [
+    "prietenie",
+    "de-culcare"
+   ],
+   "poveste": null
+  }
+ ]
 }
