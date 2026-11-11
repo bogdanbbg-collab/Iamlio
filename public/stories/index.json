@@ -33,6 +33,30 @@
   ],
   "stories": [
     {
+      "id": "stela-si-planeta-pierduta",
+      "title": "Stela și planeta pierdută",
+      "summary": "Șoricica Stela și Lio își fac o rachetă din cutii de carton și zboară printre planete, ca să găsească planeta pierdută despre care vorbește bunica ei.",
+      "age": "3-7",
+      "tags": [
+        "planete",
+        "spațiu",
+        "rachetă",
+        "Soare",
+        "Pluto",
+        "șoricică"
+      ],
+      "categories": [
+        "aventuri",
+        "invatam",
+        "de-culcare"
+      ],
+      "created": "2026-11-11",
+      "cover": "stories/stela-si-planeta-pierduta/images/coperta.webp",
+      "pages": 9,
+      "minutes": 7,
+      "published": "2026-11-11"
+    },
+    {
       "id": "mormaila-ursuletul-care-nu-putea-adormi",
       "title": "Mormăilă, ursulețul care nu putea adormi",
       "summary": "Vine iarna, iar ursulețul Mormăilă trebuie să hiberneze, dar nu poate adormi. Lio îl învață un ritual de seară, pas cu pas, până când somnul vine singur.",
