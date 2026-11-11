@@ -1,6 +1,6 @@
 # Stela și planeta pierdută
 
-**Stare: ⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)** · verificată la 2026-11-11 04:13 UTC
+**Stare: ⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)** · verificată la 2026-11-11 04:23 UTC
 
 Poveste: `public/stories/stela-si-planeta-pierduta/story.json`
 
@@ -8,16 +8,12 @@ Poveste: `public/stories/stela-si-planeta-pierduta/story.json`
 
 Aceste lucruri au fost corectate automat în `story.json` (preia versiunea din repository înainte de a modifica din nou povestea):
 
-- coperta: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 1: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 - pagina 2: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 - pagina 3: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 - pagina 4: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 5: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 - pagina 6: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 - pagina 7: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 - pagina 8: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 9: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 
 ## Avertismente (merită verificate, dar nu blochează publicarea)
 
