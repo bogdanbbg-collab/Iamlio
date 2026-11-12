@@ -1,6 +1,6 @@
 # Hopi, broscuța care sărea prea tare
 
-**Stare: ⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)** · verificată la 2026-11-12 04:28 UTC
+**Stare: ⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)** · verificată la 2026-11-12 04:37 UTC
 
 Poveste: `public/stories/hopi-broscuta-care-sarea-prea-tare/story.json`
 
@@ -9,10 +9,6 @@ Poveste: `public/stories/hopi-broscuta-care-sarea-prea-tare/story.json`
 Aceste lucruri au fost corectate automat în `story.json` (preia versiunea din repository înainte de a modifica din nou povestea):
 
 - coperta: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 1: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 5: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 6: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 7: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 
 ## Avertismente (merită verificate, dar nu blochează publicarea)
 

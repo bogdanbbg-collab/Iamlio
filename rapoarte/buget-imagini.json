@@ -22,9 +22,9 @@
   },
   "2026-11": {
     "furnizori": {
-      "cloudflare": 161
+      "cloudflare": 162
     },
-    "imagini": 161,
+    "imagini": 162,
     "lei": 0.0,
     "zile": {
       "2026-11-04": {
@@ -46,7 +46,7 @@
         "cloudflare": 20
       },
       "2026-11-12": {
-        "cloudflare": 15
+        "cloudflare": 16
       }
     }
   }
