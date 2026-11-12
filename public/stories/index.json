@@ -33,6 +33,30 @@
   ],
   "stories": [
     {
+      "id": "hopi-broscuta-care-sarea-prea-tare",
+      "title": "Hopi, broscuța care sărea prea tare",
+      "summary": "Broscuța Hopi sare atât de tare și de repede, încât aterizează peste tot: în coama lui Lio, într-o băltoacă. Cu un joc de ascultat și un șotron, învață să asculte, să se uite și abia apoi să sară.",
+      "age": "3-7",
+      "tags": [
+        "broscuță",
+        "răbdare",
+        "ascultare",
+        "șotron",
+        "joc",
+        "lac"
+      ],
+      "categories": [
+        "amuzante",
+        "animale",
+        "prietenie"
+      ],
+      "created": "2026-11-12",
+      "cover": "stories/hopi-broscuta-care-sarea-prea-tare/images/coperta.webp",
+      "pages": 9,
+      "minutes": 6,
+      "published": "2026-11-12"
+    },
+    {
       "id": "stela-si-planeta-pierduta",
       "title": "Stela și planeta pierdută",
       "summary": "Șoricica Stela și Lio își fac o rachetă din cutii de carton și zboară printre planete, ca să găsească planeta pierdută despre care vorbește bunica ei.",
