@@ -1,0 +1,464 @@
+{
+  "id": "hopi-broscuta-care-sarea-prea-tare",
+  "title": "Hopi, broscuța care sărea prea tare",
+  "summary": "Broscuța Hopi sare atât de tare și de repede, încât aterizează peste tot: în coama lui Lio, într-o băltoacă. Cu un joc de ascultat și un șotron, învață să asculte, să se uite și abia apoi să sară.",
+  "age": "3-7",
+  "moral": "Întâi asculți până la capăt, te uiți și abia apoi sari.",
+  "learning": [
+    "ascultăm până la capăt înainte să facem ceva",
+    "ne așteptăm rândul la joacă",
+    "ne uităm unde sărim"
+  ],
+  "created": "2026-11-12",
+  "tags": [
+    "broscuță",
+    "răbdare",
+    "ascultare",
+    "șotron",
+    "joc",
+    "lac"
+  ],
+  "illustrationStyle": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered.",
+  "characters": [
+    {
+      "name": "Lio",
+      "description": "a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression",
+      "voice": {
+        "pitch": 12,
+        "rate": 3
+      }
+    },
+    {
+      "name": "Hopi",
+      "description": "a small bright-green frog with big round golden eyes, a cream-colored belly, long springy back legs and a little red bow on top of her head",
+      "voice": {
+        "type": "feminin",
+        "pitch": 25,
+        "rate": 6
+      }
+    }
+  ],
+  "cover": {
+    "image": "images/coperta.png",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Hopi: a small bright-green frog with big round golden eyes, a cream-colored belly, long springy back legs and a little red bow on top of her head. Setting: a sunny green meadow next to a small calm pond with reeds and big round lily pads, a few wildflowers, soft morning light. Action: Hopi, the small bright-green frog with a little red bow on her head, leaps happily through the air over the pond with her legs stretched out, while exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands on the shore laughing and pointing at her. Emotions: joyful, funny. Important details: the big happy leap over the pond, the lily pads. Camera: wide cinematic cover shot, both faces clearly visible.",
+    "animation": {
+      "camera": "zoom-in",
+      "effect": "sparkles"
+    }
+  },
+  "pages": [
+    {
+      "text": "Lângă un lac mic trăia Hopi, cea mai săltăreață broscuță din lume. Hop! peste trestii. Hop! peste o buturugă. Hop! peste un nor de păpădii. Sărea atât de tare, încât nici ea nu știa unde aterizează. Lio, care tocmai venise la lac, se uita după ea cu gura căscată.",
+      "narration": [
+        {
+          "text": "Lângă un lac mic trăia Hopi, cea mai săltăreață broscuță din lume.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Hop! peste trestii. Hop! peste o buturugă. Hop! peste un nor de păpădii.",
+          "mood": "entuziasmat"
+        },
+        {
+          "text": "Sărea atât de tare, încât nici ea nu știa unde aterizează.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Lio, care tocmai venise la lac, se uita după ea cu gura căscată.",
+          "mood": "mirat"
+        }
+      ],
+      "image": "images/pagina-01.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Hopi: a small bright-green frog with big round golden eyes, a cream-colored belly, long springy back legs and a little red bow on top of her head. Setting: a sunny green meadow next to a small calm pond with reeds and big round lily pads, a few wildflowers, soft morning light. Action: Hopi, the small bright-green frog with a little red bow on her head, flies high in the air above the reeds in a huge happy jump, legs stretched out; on the grassy shore below, exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, looks up at her, amazed. Emotions: joyful, amazed. Important details: the huge jump high above the reeds. Camera: low angle, wide shot.",
+      "animation": {
+        "camera": "pan-up",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "— Bună, Hopi! Vrei să… a început Lio. Dar Hopi a sărit înainte să audă tot. Hop! Și a aterizat fix în coama lui Lio. — Ups! Ce pernă moale! a chicotit ea. Lio s-a uitat în sus, cu ochii încrucișați.",
+      "narration": [
+        {
+          "text": "— Bună, Hopi! Vrei să…",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a început Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "Dar Hopi a sărit înainte să audă tot. Hop!",
+          "mood": "vesel",
+          "pause": 0.4
+        },
+        {
+          "text": "Și a aterizat fix în coama lui Lio.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Ups! Ce pernă moale!",
+          "mood": "vesel",
+          "speaker": "Hopi"
+        },
+        {
+          "text": "a chicotit ea.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Lio s-a uitat în sus, cu ochii încrucișați.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-02.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Hopi: a small bright-green frog with big round golden eyes, a cream-colored belly, long springy back legs and a little red bow on top of her head. Setting: a sunny green meadow next to a small calm pond with reeds and big round lily pads, a few wildflowers, soft morning light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands on the grass looking up with funny crossed eyes; Hopi, the small bright-green frog with a little red bow on her head, sits right on top of his fluffy caramel-orange mane, like on a soft pillow, giggling. Emotions: very funny, surprised. Important details: the frog sitting on top of the lion cub's mane. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "— Vrei să ne jucăm? a întrebat Lio. — Da! Ce joc? a strigat Hopi. Și, până să-i răspundă Lio, a sărit iar. Pleosc! Drept într-o băltoacă! Stropii de noroi au zburat peste tot. Unul i-a rămas lui Lio pe nas, ca un nasture.",
+      "narration": [
+        {
+          "text": "— Vrei să ne jucăm?",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a întrebat Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Da! Ce joc?",
+          "mood": "entuziasmat",
+          "speaker": "Hopi"
+        },
+        {
+          "text": "a strigat Hopi. Și, până să-i răspundă Lio, a sărit iar.",
+          "mood": "vesel",
+          "pause": 0.4
+        },
+        {
+          "text": "Pleosc! Drept într-o băltoacă!",
+          "mood": "vesel",
+          "pause": 0.3
+        },
+        {
+          "text": "Stropii de noroi au zburat peste tot. Unul i-a rămas lui Lio pe nas, ca un nasture.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-03.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Hopi: a small bright-green frog with big round golden eyes, a cream-colored belly, long springy back legs and a little red bow on top of her head. Setting: a sunny green meadow next to a small calm pond with reeds and big round lily pads, a few wildflowers, soft morning light. Action: Hopi, the small bright-green frog with a little red bow on her head, lands in a small muddy puddle with a big funny splash of brown water drops; next to it, exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, laughs with one round little dot of mud on the tip of his nose. Emotions: funny, playful. Important details: the big splash, the dot of mud on Lio's nose. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "drops"
+      }
+    },
+    {
+      "text": "Hopi a ieșit din băltoacă și s-a așezat pe o frunză de nufăr, rușinată. — Picioarele mele sar singure, a oftat ea. Nici nu apuc să ascult. Lio s-a ghemuit lângă ea, pe mal. — Când sari înainte să asculți, nu știi unde ajungi. Hai să le învățăm pe picioarele tale să aștepte!",
+      "narration": [
+        {
+          "text": "Hopi a ieșit din băltoacă și s-a așezat pe o frunză de nufăr, rușinată.",
+          "mood": "trist"
+        },
+        {
+          "text": "— Picioarele mele sar singure,",
+          "mood": "trist",
+          "speaker": "Hopi"
+        },
+        {
+          "text": "a oftat ea.",
+          "mood": "trist"
+        },
+        {
+          "text": "Nici nu apuc să ascult.",
+          "mood": "trist",
+          "speaker": "Hopi"
+        },
+        {
+          "text": "Lio s-a ghemuit lângă ea, pe mal.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Când sari înainte să asculți, nu știi unde ajungi.",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Hai să le învățăm pe picioarele tale să aștepte!",
+          "mood": "hotărât",
+          "speaker": "Lio"
+        }
+      ],
+      "image": "images/pagina-04.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Hopi: a small bright-green frog with big round golden eyes, a cream-colored belly, long springy back legs and a little red bow on top of her head. Setting: a sunny green meadow next to a small calm pond with reeds and big round lily pads, a few wildflowers, soft morning light. Action: Hopi, the small bright-green frog with a little red bow on her head, sits on a big round lily pad close to the shore, a little ashamed, head down; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, crouches on the shore next to her and smiles kindly at her. Emotions: gentle, a little sad, kind. Important details: the lily pad, the kind smile. Camera: medium close-up.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Lio a inventat un joc: „Broscuța ascultă”. — Eu spun cuvinte. Tu sari doar când auzi „hop”. Gata? Morcov! Hopi a sărit. Ups! — Nor! Hopi a sărit iar. — Nu se sare la nor! a râs Lio. Încă o dată!",
+      "narration": [
+        {
+          "text": "Lio a inventat un joc: „Broscuța ascultă”.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Eu spun cuvinte. Tu sari doar când auzi „hop”.",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Gata? Morcov!",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Hopi a sărit. Ups!",
+          "mood": "vesel",
+          "pause": 0.3
+        },
+        {
+          "text": "— Nor!",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Hopi a sărit iar.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Nu se sare la nor!",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a râs Lio.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Încă o dată!",
+          "mood": "vesel",
+          "speaker": "Lio"
+        }
+      ],
+      "image": "images/pagina-05.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Hopi: a small bright-green frog with big round golden eyes, a cream-colored belly, long springy back legs and a little red bow on top of her head. Setting: a sunny green meadow near a small calm pond with reeds and big round lily pads, a few wildflowers, soft morning light. Action: Hopi, the small bright-green frog with a little red bow on her head, jumps up in the air too early with a surprised, oops face; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands nearby laughing, holding his tummy. Emotions: very funny, playful. Important details: the surprised frog in the air, the laughing lion cub. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "De data asta, Hopi și-a lipit lăbuțele de pământ. A tras aer în piept și a ascultat cu toată atenția. — Mere… pere… prune… Hopi tremura de nerăbdare, dar a așteptat. — HOP! Și Hopi a sărit exact atunci! Lio a bătut din palme.",
+      "narration": [
+        {
+          "text": "De data asta, Hopi și-a lipit lăbuțele de pământ.",
+          "mood": "calm"
+        },
+        {
+          "text": "A tras aer în piept și a ascultat cu toată atenția.",
+          "mood": "șoptit"
+        },
+        {
+          "text": "— Mere… pere… prune…",
+          "mood": "misterios",
+          "speaker": "Lio",
+          "pause": 0.4
+        },
+        {
+          "text": "Hopi tremura de nerăbdare, dar a așteptat.",
+          "mood": "șoptit",
+          "pause": 0.5
+        },
+        {
+          "text": "— HOP!",
+          "mood": "entuziasmat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Și Hopi a sărit exact atunci! Lio a bătut din palme.",
+          "mood": "entuziasmat"
+        }
+      ],
+      "image": "images/pagina-06.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Hopi: a small bright-green frog with big round golden eyes, a cream-colored belly, long springy back legs and a little red bow on top of her head. Setting: a sunny green meadow near a small calm pond with reeds and big round lily pads, a few wildflowers, soft morning light. Action: Hopi, the small bright-green frog with a little red bow on her head, crouches very still on the grass, her front feet pressed to the ground, eyes wide and focused, listening with all her attention; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands in front of her, saying a word slowly, one paw raised. Emotions: focused, calm, a little excited. Important details: the still, focused frog. Camera: close-up.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Apoi Lio a desenat cu un bețișor un șotron în nisip. — La șotron, fiecare sare când îi vine rândul, a spus el. Lio a sărit primul, într-un picior. S-a clătinat, a dat din brațe și… a rămas în picioare! Hopi a așteptat pe margine, cuminte. Și nu a sărit deloc înainte de vreme.",
+      "narration": [
+        {
+          "text": "Apoi Lio a desenat cu un bețișor un șotron în nisip.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— La șotron, fiecare sare când îi vine rândul,",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a spus el.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lio a sărit primul, într-un picior. S-a clătinat, a dat din brațe și… a rămas în picioare!",
+          "mood": "vesel"
+        },
+        {
+          "text": "Hopi a așteptat pe margine, cuminte. Și nu a sărit deloc înainte de vreme.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-07.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Hopi: a small bright-green frog with big round golden eyes, a cream-colored belly, long springy back legs and a little red bow on top of her head. Setting: a sunny patch of smooth light sand at the edge of a green meadow near a small pond, a straight row of plain empty squares drawn in the sand with a stick, nothing written inside them. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, hops on one foot along the squares, wobbling funnily with his arms out for balance; Hopi, the small bright-green frog with a little red bow on her head, sits patiently at the side of the squares, watching and waiting her turn with a proud smile. Emotions: funny, patient, cheerful. Important details: the plain squares drawn in the sand, Lio wobbling on one foot. Camera: wide shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "— Acum e rândul tău, Hopi! Hopi a sărit cu sărituri mici și atente, pătrat cu pătrat. Hop, hop, hop! La capăt s-a întors, mândră. — Am ascultat, m-am uitat și abia apoi am sărit! — Și n-ai aterizat pe capul nimănui! a râs Lio.",
+      "narration": [
+        {
+          "text": "— Acum e rândul tău, Hopi!",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Hopi a sărit cu sărituri mici și atente, pătrat cu pătrat. Hop, hop, hop!",
+          "mood": "vesel"
+        },
+        {
+          "text": "La capăt s-a întors, mândră.",
+          "mood": "entuziasmat"
+        },
+        {
+          "text": "— Am ascultat, m-am uitat și abia apoi am sărit!",
+          "mood": "entuziasmat",
+          "speaker": "Hopi"
+        },
+        {
+          "text": "— Și n-ai aterizat pe capul nimănui!",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a râs Lio.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-08.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Hopi: a small bright-green frog with big round golden eyes, a cream-colored belly, long springy back legs and a little red bow on top of her head. Setting: a sunny patch of smooth light sand at the edge of a green meadow near a small pond, a straight row of plain empty squares drawn in the sand with a stick, nothing written inside them. Action: Hopi, the small bright-green frog with a little red bow on her head, makes a small careful hop from one plain square to the next, looking where she lands; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, cheers for her at the side with both arms up. Emotions: proud, happy, cheerful. Important details: the small careful hop inside the squares. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-left",
+        "effect": "sparkles"
+      }
+    },
+    {
+      "text": "Seara, lacul s-a făcut roz și auriu. Hopi s-a așezat pe frunza ei de nufăr. — Încă îmi plac săriturile mari, i-a spus ea lui Lio. Dar acum întâi ascult, mă uit și abia apoi sar. — Așa fac broscuțele istețe, a zâmbit Lio. Noapte bună, Hopi!",
+      "narration": [
+        {
+          "text": "Seara, lacul s-a făcut roz și auriu.",
+          "mood": "calm"
+        },
+        {
+          "text": "Hopi s-a așezat pe frunza ei de nufăr.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Încă îmi plac săriturile mari,",
+          "mood": "vesel",
+          "speaker": "Hopi"
+        },
+        {
+          "text": "i-a spus ea lui Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "Dar acum întâi ascult, mă uit și abia apoi sar.",
+          "mood": "calm",
+          "speaker": "Hopi"
+        },
+        {
+          "text": "— Așa fac broscuțele istețe,",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a zâmbit Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "Noapte bună, Hopi!",
+          "mood": "calm",
+          "speaker": "Lio"
+        }
+      ],
+      "image": "images/pagina-09.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Hopi: a small bright-green frog with big round golden eyes, a cream-colored belly, long springy back legs and a little red bow on top of her head. Setting: a small calm pond with reeds and big round lily pads at sunset, warm orange and pink sky reflected in the water. Action: Hopi, the small bright-green frog with a little red bow on her head, sits on a big round lily pad on the calm water and waves goodbye; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands on the grassy shore and waves back, smiling. Emotions: peaceful, warm, happy. Important details: the sunset colors reflected in the water, the waving. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "glow"
+      }
+    }
+  ],
+  "categories": [
+    "amuzante",
+    "animale",
+    "prietenie"
+  ],
+  "review": {
+    "imaginatie": "O broscuță atât de săltăreață, încât sare peste un nor de păpădii și aterizează în coama lui Lio „ca pe o pernă moale” (paginile 1–2); jocul inventat „Broscuța ascultă” (paginile 5–6) și un șotron desenat în nisip (paginile 7–8).",
+    "invatare": "Răbdarea și ascultatul sunt chiar firul poveștii: Hopi sare înainte să audă tot și ajunge în locuri nepotrivite (2–3); Lio îi explică „când sari înainte să asculți, nu știi unde ajungi” (4); jocul de ascultat o învață să aștepte cuvântul (5–6); la șotron își așteaptă rândul (7) și sare cu grijă, uitându-se unde aterizează (8). Regula de ținut minte: „ascult, mă uit și abia apoi sar” (8–9).",
+    "umor": [
+      "pagina 2: Hopi aterizează în coama lui Lio: „Ce pernă moale!”, iar Lio se uită în sus cu ochii încrucișați",
+      "pagina 3: „Pleosc!” în băltoacă; un strop de noroi îi rămâne lui Lio pe nas, ca un nasture",
+      "pagina 5: Hopi sare la „morcov” și la „nor”: „Nu se sare la nor!”",
+      "pagina 7: Lio se clătinează într-un picior la șotron",
+      "pagina 8: „Și n-ai aterizat pe capul nimănui!”"
+    ],
+    "emotie": "Hopi nu e certată: e puțin rușinată (pagina 4), iar Lio o încurajează cu blândețe și o ajută cu un joc. Reușita e a ei: așteaptă cuvântul (6), își așteaptă rândul (7) și e mândră de ea (8). Finalul e cald: la apus, își păstrează bucuria săriturilor, dar acum ascultă întâi (9).",
+    "siguranta": "Nimic periculos de imitat: săriturile sunt pe iarbă și în nisip, șotronul e un joc obișnuit, iar mesajul e chiar „uită-te unde sari”. Băltoaca e doar noroi, ca o glumă. Nimic înfricoșător.",
+    "imagini": "Doar Lio și broscuța cu fundiță roșie (fără oameni), „exactly one lion cub, Lio”; un singur semn distinctiv la Hopi (fundița roșie). Fără ceasuri, fără numere: șotronul e „a row of plain empty squares … nothing written inside them”, iar numărul de sărituri rămâne în text. Fără oglinzi, fără guri de aproape, fără „blanket/nest/basket”. Fiecare prompt arată momentul paginii: săritura uriașă (1), Hopi în coama lui Lio (2), stropul de noroi (3), pe frunza de nufăr (4), săritura prea devreme (5), ascultatul atent (6), Lio clătinându-se la șotron (7), săritura atentă a lui Hopi (8), apusul (9). Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
+    "voce": "Narațiune veselă și jucăușă, cu onomatopee („Hop!”, „Pleosc!”) urmate de pauze scurte; liniștită și șoptită la pagina 6, când Hopi ascultă cu atenție, cu pauze înaintea lui „HOP!”; calmă la apus. Hopi are o voce subțire și grăbită, de broscuță săltăreață; Lio vocea lui obișnuită, blândă. Replicile sunt separate de vorbele naratorului."
+  },
+  "verified": false,
+  "questions": [
+    {
+      "text": "Ce face Hopi acum, înainte să sară?",
+      "options": [
+        {
+          "text": "Ascultă și se uită",
+          "emoji": "👂"
+        },
+        {
+          "text": "Sare imediat",
+          "emoji": "💨"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Corect! Întâi ascultă, se uită și abia apoi sare."
+    },
+    {
+      "text": "La șotron, ce facem când e rândul prietenului?",
+      "options": [
+        {
+          "text": "Așteptăm",
+          "image": "images/pagina-07.png"
+        },
+        {
+          "text": "Sărim și noi",
+          "emoji": "🐸"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Bravo! Fiecare sare când îi vine rândul."
+    }
+  ]
+}
