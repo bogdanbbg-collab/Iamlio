@@ -33,6 +33,30 @@
   ],
   "stories": [
     {
+      "id": "lio-si-cartita-din-gradina-bunicii",
+      "title": "Lio și cârtița din grădina bunicii",
+      "summary": "Lio crede că legumele sunt plictisitoare, până când, în grădina bunicii, o cârtiță cu ochelari îi arată cum cresc din semințe mici: unele sub pământ, altele pe tulpini.",
+      "age": "3-7",
+      "tags": [
+        "grădină",
+        "legume",
+        "semințe",
+        "cârtiță",
+        "mâncare sănătoasă",
+        "bunica"
+      ],
+      "categories": [
+        "invatam",
+        "animale",
+        "amuzante"
+      ],
+      "created": "2026-11-13",
+      "cover": "stories/lio-si-cartita-din-gradina-bunicii/images/coperta.webp",
+      "pages": 9,
+      "minutes": 6,
+      "published": "2026-11-13"
+    },
+    {
       "id": "hopi-broscuta-care-sarea-prea-tare",
       "title": "Hopi, broscuța care sărea prea tare",
       "summary": "Broscuța Hopi sare atât de tare și de repede, încât aterizează peste tot: în coama lui Lio, într-o băltoacă. Cu un joc de ascultat și un șotron, învață să asculte, să se uite și abia apoi să sară.",
