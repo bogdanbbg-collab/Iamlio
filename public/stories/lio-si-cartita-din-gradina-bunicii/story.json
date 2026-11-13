@@ -1,0 +1,435 @@
+{
+  "id": "lio-si-cartita-din-gradina-bunicii",
+  "title": "Lio și cârtița din grădina bunicii",
+  "summary": "Lio crede că legumele sunt plictisitoare, până când, în grădina bunicii, o cârtiță cu ochelari îi arată cum cresc din semințe mici: unele sub pământ, altele pe tulpini.",
+  "age": "3-7",
+  "moral": "Fiecare legumă are povestea ei; merită să le gustăm pe toate.",
+  "learning": [
+    "legumele cresc din semințe mici, cu apă, soare și răbdare",
+    "unele legume cresc sub pământ (morcovul, cartoful), altele pe tulpini (roșia, mazărea)",
+    "spălăm legumele înainte să le mâncăm; cartofii nu se mănâncă cruzi"
+  ],
+  "created": "2026-11-13",
+  "tags": [
+    "grădină",
+    "legume",
+    "semințe",
+    "cârtiță",
+    "mâncare sănătoasă",
+    "bunica"
+  ],
+  "illustrationStyle": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered.",
+  "characters": [
+    {
+      "name": "Lio",
+      "description": "a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression",
+      "voice": {
+        "pitch": 12,
+        "rate": 3
+      }
+    },
+    {
+      "name": "Mira",
+      "description": "a small round dark-grey velvety mole with a pink pointy nose, wide pink digging paws and small round glasses on her nose",
+      "voice": {
+        "type": "feminin",
+        "pitch": 10,
+        "rate": -2
+      }
+    }
+  ],
+  "cover": {
+    "image": "images/coperta.png",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Mira: a small round dark-grey velvety mole with a pink pointy nose, wide pink digging paws and small round glasses on her nose. Setting: a sunny vegetable garden behind a little cottage, neat rows of dark brown soil with green leafy plants, tomato plants tied to wooden sticks, a small wooden fence, soft morning light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands in the garden holding up a big orange carrot with green leaves, smiling proudly; Mira, the small dark-grey mole with a pink pointy nose and small round glasses, peeks out of a small soil mound next to him, smiling. Emotions: cheerful, curious. Important details: the big carrot, the soil mound, the garden rows. Camera: wide cinematic cover shot, both faces clearly visible from the front.",
+    "animation": {
+      "camera": "zoom-in",
+      "effect": "none"
+    }
+  },
+  "pages": [
+    {
+      "text": "Lio a venit în vizită la bunica lui, care are o grădină mare cu legume. Bunica i-a dat o pungă mică de hârtie, cu semințe. — Legumele sunt verzi și plictisitoare, a mormăit Lio. Chiar atunci, pământul de lângă el s-a umflat ca o pernuță. S-a umflat… și iar s-a umflat…",
+      "narration": [
+        {
+          "text": "Lio a venit în vizită la bunica lui, care are o grădină mare cu legume.",
+          "mood": "calm"
+        },
+        {
+          "text": "Bunica i-a dat o pungă mică de hârtie, cu semințe.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Legumele sunt verzi și plictisitoare,",
+          "mood": "trist",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a mormăit Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "Chiar atunci, pământul de lângă el s-a umflat ca o pernuță.",
+          "mood": "mirat",
+          "pause": 0.4
+        },
+        {
+          "text": "S-a umflat… și iar s-a umflat…",
+          "mood": "misterios"
+        }
+      ],
+      "image": "images/pagina-01.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: a sunny vegetable garden behind a little cottage, neat rows of dark brown soil with green leafy plants, tomato plants tied to wooden sticks, a small wooden fence, soft morning light. Action: only exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands between the garden rows holding a small plain brown paper bag, looking bored, while right next to his feet a small round mound of brown soil bulges up from the ground. Emotions: bored, then curious. Important details: the small paper bag, the soil mound bulging up next to him. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Pof! Din movilă a ieșit o cârtiță cu ochelari rotunzi și cu pământ pe nas. — Bună dimineața! Eu sunt Mira, a zis ea. Apoi a adulmecat ciucurele de la coada lui Lio. — Ce morcov ciudat! Are puf! — Ăsta e coada mea! a râs Lio.",
+      "narration": [
+        {
+          "text": "Pof! Din movilă a ieșit o cârtiță cu ochelari rotunzi și cu pământ pe nas.",
+          "mood": "vesel",
+          "pause": 0.3
+        },
+        {
+          "text": "— Bună dimineața! Eu sunt Mira,",
+          "mood": "vesel",
+          "speaker": "Mira"
+        },
+        {
+          "text": "a zis ea.",
+          "mood": "calm"
+        },
+        {
+          "text": "Apoi a adulmecat ciucurele de la coada lui Lio.",
+          "mood": "mirat"
+        },
+        {
+          "text": "— Ce morcov ciudat! Are puf!",
+          "mood": "mirat",
+          "speaker": "Mira"
+        },
+        {
+          "text": "— Ăsta e coada mea!",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a râs Lio.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-02.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Mira: a small round dark-grey velvety mole with a pink pointy nose, wide pink digging paws and small round glasses on her nose. Setting: a sunny vegetable garden behind a little cottage, neat rows of dark brown soil with green leafy plants, tomato plants tied to wooden sticks, a small wooden fence, soft morning light. Action: Mira, the small dark-grey mole with a pink pointy nose and small round glasses, pokes her head and front paws out of a small mound of soil, with a little bit of dirt on her nose, and sniffs curiously at the fluffy caramel tuft at the tip of the tail of exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, who looks back over his shoulder, laughing. Emotions: very funny, surprised. Important details: the soil mound, the mole sniffing the tail tuft. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Lio i-a arătat semințele din pungă: niște boabe mici, cât niște firimituri. — Din astea cresc legume? Nu se poate! — Ba se poate, a zis Mira. Sămânța doarme în pământ. Când primește apă și soare, se trezește și scoate o rădăcină în jos și un firicel verde în sus.",
+      "narration": [
+        {
+          "text": "Lio i-a arătat semințele din pungă: niște boabe mici, cât niște firimituri.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Din astea cresc legume? Nu se poate!",
+          "mood": "mirat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "— Ba se poate,",
+          "mood": "calm",
+          "speaker": "Mira"
+        },
+        {
+          "text": "a zis Mira.",
+          "mood": "calm"
+        },
+        {
+          "text": "Sămânța doarme în pământ. Când primește apă și soare, se trezește și scoate o rădăcină în jos și un firicel verde în sus.",
+          "mood": "calm",
+          "speaker": "Mira"
+        }
+      ],
+      "image": "images/pagina-03.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Mira: a small round dark-grey velvety mole with a pink pointy nose, wide pink digging paws and small round glasses on her nose. Setting: a sunny vegetable garden behind a little cottage, neat rows of dark brown soil with green leafy plants, tomato plants tied to wooden sticks, a small wooden fence, soft morning light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, crouches down and shows a few tiny seeds on his open paw; Mira, the small dark-grey mole with a pink pointy nose and small round glasses, sits on the soil next to him and points at a tiny green sprout with two little leaves coming out of the dark soil. Emotions: curious, gentle. Important details: the tiny seeds on his paw, the tiny green sprout. Camera: close-up.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "sparkles"
+      }
+    },
+    {
+      "text": "— Unele legume cresc sub pământ, unde stau eu, a spus Mira. Trage de frunzele astea! Lio a tras. A tras tare. Și… pac! A căzut pe fund, cu un morcov mare și portocaliu în lăbuțe. — Morcovul crește în pământ. Noi vedem doar frunzele lui!",
+      "narration": [
+        {
+          "text": "— Unele legume cresc sub pământ, unde stau eu,",
+          "mood": "vesel",
+          "speaker": "Mira"
+        },
+        {
+          "text": "a spus Mira.",
+          "mood": "calm"
+        },
+        {
+          "text": "Trage de frunzele astea!",
+          "mood": "vesel",
+          "speaker": "Mira"
+        },
+        {
+          "text": "Lio a tras. A tras tare. Și… pac! A căzut pe fund, cu un morcov mare și portocaliu în lăbuțe.",
+          "mood": "vesel",
+          "pause": 0.4
+        },
+        {
+          "text": "— Morcovul crește în pământ. Noi vedem doar frunzele lui!",
+          "mood": "vesel",
+          "speaker": "Mira"
+        }
+      ],
+      "image": "images/pagina-04.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Mira: a small round dark-grey velvety mole with a pink pointy nose, wide pink digging paws and small round glasses on her nose. Setting: a sunny vegetable garden behind a little cottage, neat rows of dark brown soil with green leafy plants, tomato plants tied to wooden sticks, a small wooden fence, soft morning light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits on his bottom on the soil after falling backward, holding up a big orange carrot with green leaves, little clumps of soil flying, surprised and laughing; Mira, the small dark-grey mole with a pink pointy nose and small round glasses, claps her paws next to him. Emotions: very funny, surprised. Important details: the big orange carrot with leaves, flying bits of soil. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-down",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Bunica le-a lăsat lângă straturi un lighean cu apă curată. — Legumele le spălăm înainte să le gustăm, a zis Mira. Lio a spălat o roșie mică și rotundă și a mușcat din ea. Pfff! L-a stropit pe nas! — E dulce! a strigat el. Și m-a pupat pe nas!",
+      "narration": [
+        {
+          "text": "Bunica le-a lăsat lângă straturi un lighean cu apă curată.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Legumele le spălăm înainte să le gustăm,",
+          "mood": "hotărât",
+          "speaker": "Mira"
+        },
+        {
+          "text": "a zis Mira.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lio a spălat o roșie mică și rotundă și a mușcat din ea. Pfff! L-a stropit pe nas!",
+          "mood": "vesel",
+          "pause": 0.4
+        },
+        {
+          "text": "— E dulce!",
+          "mood": "entuziasmat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a strigat el.",
+          "mood": "calm"
+        },
+        {
+          "text": "Și m-a pupat pe nas!",
+          "mood": "vesel",
+          "speaker": "Lio"
+        }
+      ],
+      "image": "images/pagina-05.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Mira: a small round dark-grey velvety mole with a pink pointy nose, wide pink digging paws and small round glasses on her nose. Setting: a sunny vegetable garden behind a little cottage, neat rows of dark brown soil with green leafy plants, tomato plants tied to wooden sticks, a small wooden fence, soft morning light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands next to a tomato plant tied to a wooden stick, holding one small round red cherry tomato in his paw, with a tiny funny splash of tomato juice on the tip of his nose, laughing with surprise; Mira, the small dark-grey mole with a pink pointy nose and small round glasses, stands next to a small plain bowl of clear water on the ground, smiling. Emotions: funny, happy. Important details: the red cherry tomato, the tiny juice splash on his nose, the bowl of water. Camera: medium close-up.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "drops"
+      }
+    },
+    {
+      "text": "Apoi au găsit niște păstăi verzi, agățate de o tulpină subțire. Lio a deschis una. Înăuntru stăteau boabe de mazăre în rând, ca niște mărgele verzi într-o bărcuță. O boabă a sărit și s-a rostogolit drept la Mira. — Prinsă! a chicotit ea. Mazărea crudă era dulce și crocantă.",
+      "narration": [
+        {
+          "text": "Apoi au găsit niște păstăi verzi, agățate de o tulpină subțire.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lio a deschis una. Înăuntru stăteau boabe de mazăre în rând, ca niște mărgele verzi într-o bărcuță.",
+          "mood": "mirat"
+        },
+        {
+          "text": "O boabă a sărit și s-a rostogolit drept la Mira.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Prinsă!",
+          "mood": "vesel",
+          "speaker": "Mira"
+        },
+        {
+          "text": "a chicotit ea. Mazărea crudă era dulce și crocantă.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-06.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Mira: a small round dark-grey velvety mole with a pink pointy nose, wide pink digging paws and small round glasses on her nose. Setting: a sunny vegetable garden behind a little cottage, neat rows of dark brown soil with green leafy plants, tomato plants tied to wooden sticks, a small wooden fence, soft morning light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, holds an open green pea pod with a row of round green peas inside, like green beads in a little boat; one pea bounces through the air toward Mira, the small dark-grey mole with a pink pointy nose and small round glasses, who catches it happily in her pink paws. Emotions: playful, delighted. Important details: the open pea pod with peas inside, the bouncing pea. Camera: close-up.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Mira a săpat repede, repede, și a scos niște cartofi rotunzi și maronii. — Și cartofii cresc sub pământ! Lio a vrut să muște din unul. — Stai! a zis Mira. Cartofii nu se mănâncă cruzi. Bunica îi fierbe și se fac moi și buni.",
+      "narration": [
+        {
+          "text": "Mira a săpat repede, repede, și a scos niște cartofi rotunzi și maronii.",
+          "mood": "entuziasmat"
+        },
+        {
+          "text": "— Și cartofii cresc sub pământ!",
+          "mood": "vesel",
+          "speaker": "Mira"
+        },
+        {
+          "text": "Lio a vrut să muște din unul.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Stai!",
+          "mood": "hotărât",
+          "speaker": "Mira"
+        },
+        {
+          "text": "a zis Mira.",
+          "mood": "calm"
+        },
+        {
+          "text": "Cartofii nu se mănâncă cruzi. Bunica îi fierbe și se fac moi și buni.",
+          "mood": "calm",
+          "speaker": "Mira"
+        }
+      ],
+      "image": "images/pagina-07.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Mira: a small round dark-grey velvety mole with a pink pointy nose, wide pink digging paws and small round glasses on her nose. Setting: a sunny vegetable garden behind a little cottage, neat rows of dark brown soil with green leafy plants, tomato plants tied to wooden sticks, a small wooden fence, soft morning light. Action: Mira, the small dark-grey mole with a pink pointy nose and small round glasses, digs happily in the soil with her wide pink paws, soil flying behind her, next to a few round brown potatoes she has just dug up; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, crouches next to her and looks at the potatoes with wide curious eyes. Emotions: excited, curious. Important details: the round brown potatoes, the flying soil. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Acum Lio voia să aibă și el legumele lui. A făcut cu degetul o gropiță în pământ, a pus o sămânță și a acoperit-o ușor. Apoi a udat-o cu o stropitoare mică. — Și acum? — Acum, apă, soare și răbdare, a zâmbit Mira, ștergându-și ochelarii.",
+      "narration": [
+        {
+          "text": "Acum Lio voia să aibă și el legumele lui.",
+          "mood": "hotărât"
+        },
+        {
+          "text": "A făcut cu degetul o gropiță în pământ, a pus o sămânță și a acoperit-o ușor.",
+          "mood": "calm"
+        },
+        {
+          "text": "Apoi a udat-o cu o stropitoare mică.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Și acum?",
+          "mood": "mirat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "— Acum, apă, soare și răbdare,",
+          "mood": "calm",
+          "speaker": "Mira"
+        },
+        {
+          "text": "a zâmbit Mira, ștergându-și ochelarii.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-08.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Mira: a small round dark-grey velvety mole with a pink pointy nose, wide pink digging paws and small round glasses on her nose. Setting: a sunny vegetable garden behind a little cottage, neat rows of dark brown soil with green leafy plants, tomato plants tied to wooden sticks, a small wooden fence, soft morning light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, gently waters a small patch of freshly planted soil with a small green watering can, drops of water falling; Mira, the small dark-grey mole with a pink pointy nose and small round glasses, sits next to the patch, smiling and wiping her round glasses. Emotions: calm, proud, hopeful. Important details: the small watering can, the water drops on the soil. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-left",
+        "effect": "drops"
+      }
+    },
+    {
+      "text": "Seara, bunica a făcut o supă cu legume din grădină: morcovi, cartofi și mazăre. Lio a gustat din toate și a cerut încă un pic. — Legumele nu sunt deloc plictisitoare. Fiecare are povestea ei! Mira i-a făcut cu lăbuța din movila ei. — Ne vedem mâine, la sămânța ta!",
+      "narration": [
+        {
+          "text": "Seara, bunica a făcut o supă cu legume din grădină: morcovi, cartofi și mazăre.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lio a gustat din toate și a cerut încă un pic.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Legumele nu sunt deloc plictisitoare. Fiecare are povestea ei!",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Mira i-a făcut cu lăbuța din movila ei.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Ne vedem mâine, la sămânța ta!",
+          "mood": "somnoros",
+          "speaker": "Mira"
+        }
+      ],
+      "image": "images/pagina-09.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Mira: a small round dark-grey velvety mole with a pink pointy nose, wide pink digging paws and small round glasses on her nose. Setting: a sunny vegetable garden behind a little cottage, neat rows of dark brown soil with green leafy plants, tomato plants tied to wooden sticks, a small wooden fence, warm golden sunset light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits on a small wooden bench at the edge of the garden holding a small bowl of warm vegetable soup with a spoon, smiling contentedly; Mira, the small dark-grey mole with a pink pointy nose and small round glasses, waves goodbye from her small soil mound nearby. Emotions: warm, content, happy. Important details: the bowl of warm soup, the sunset light, the waving mole. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "glow"
+      }
+    }
+  ],
+  "categories": [
+    "invatam",
+    "animale",
+    "amuzante"
+  ],
+  "review": {
+    "imaginatie": "O cârtiță cu ochelari care iese din pământ chiar lângă Lio și îi confundă ciucurele cozii cu un morcov (paginile 1–2); semințe care „dorm” în pământ și „se trezesc” (pagina 3); o roșie care îl „pupă” pe nas (pagina 5) și mazărea ca niște mărgele verzi într-o bărcuță (pagina 6).",
+    "invatare": "De unde vin legumele, arătat pas cu pas: din semințe mici, cu apă, soare și răbdare (3 și 8); unele cresc sub pământ, morcovul (4) și cartoful (7), altele pe tulpini, roșia (5) și mazărea (6). Mâncare sănătoasă: Lio gustă din toate și ajunge să-i placă (5, 6, 9). Obiceiuri bune: spălăm legumele înainte să le gustăm (5); cartofii nu se mănâncă cruzi (7). Lio plantează singur o sămânță (8).",
+    "umor": [
+      "pagina 2: Mira îi adulmecă ciucurele cozii: „Ce morcov ciudat! Are puf!”",
+      "pagina 4: Lio trage de morcov și cade pe fund: pac!",
+      "pagina 5: roșia îl stropește pe nas: „Și m-a pupat pe nas!”",
+      "pagina 6: o boabă de mazăre sare drept la Mira: „Prinsă!”"
+    ],
+    "emotie": "La început Lio e plictisit și sigur că legumele nu-i plac (1); curiozitatea crește cu fiecare legumă descoperită, iar la final cere încă un pic de supă și spune singur că „fiecare are povestea ei” (9). Prietenia cu Mira e caldă; finalul e liniștit, cu promisiunea de a-și vedea sămânța a doua zi.",
+    "siguranta": "Legumele se spală înainte de gustat (5), iar Mira îl oprește pe Lio să muște dintr-un cartof crud (7). Mazărea și roșiile crude sunt bune de mâncat. Nu există unelte periculoase: Lio face gropița cu degetul și udă cu o stropitoare mică. Nimic înfricoșător.",
+    "imagini": "Doar Lio și cârtița cu ochelari (fără oameni: bunica apare doar în text), „exactly one lion cub, Lio”, cel mult două personaje pe imagine, pagina 1 doar cu Lio. Fără numere de obiecte, fără litere (punga de semințe e „a small plain brown paper bag”), fără oglinzi, fără guri de aproape, fără „basket” (castronul de apă e „a small plain bowl”). Fiecare prompt arată momentul paginii: movila care se umflă (1), Mira adulmecând coada (2), semințele și firicelul verde (3), căzătura cu morcovul (4), roșia care stropește (5), păstaia de mazăre (6), cartofii scoși (7), udatul (8), supa la apus (9). Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
+    "voce": "Narațiune caldă și jucăușă, cu pauze după „Pof!”, „pac!” și „Pfff!”; misterioasă când se umflă pământul; liniștită și puțin somnoroasă la final. Mira are o voce blândă, ceva mai așezată, de cârtiță înțeleaptă; Lio vocea lui obișnuită, plictisit la început și entuziasmat apoi. Replicile sunt separate de vorbele naratorului."
+  },
+  "verified": false,
+  "questions": [
+    {
+      "text": "Unde crește morcovul?",
+      "options": [
+        {
+          "text": "Sub pământ",
+          "image": "images/pagina-04.png"
+        },
+        {
+          "text": "Într-un copac",
+          "emoji": "🌳"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Corect! Morcovul crește în pământ; noi vedem doar frunzele lui."
+    },
+    {
+      "text": "Ce facem cu legumele înainte să le gustăm?",
+      "options": [
+        {
+          "text": "Le spălăm",
+          "emoji": "💧"
+        },
+        {
+          "text": "Le aruncăm în sus",
+          "emoji": "🤹"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Bravo! Legumele se spală întâi cu apă curată."
+    }
+  ]
+}
