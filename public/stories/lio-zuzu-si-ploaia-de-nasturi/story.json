@@ -40,7 +40,7 @@
     }
   ],
   "cover": {
-    "image": "images/coperta.png",
+    "image": "images/coperta.webp",
     "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Zuzu: a small round magpie bird with a black head, a white belly, black wings with a blue-green shine, a long shiny blue-green tail and bright curious black eyes. Setting: a cozy wooden room in grandma's house on a rainy day, a soft rug on the floor, a low wooden table, a window with raindrops on the glass, warm lamp light. Action: colorful round buttons rain down through the air around exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, who laughs with his paws up, and Zuzu, the small black-and-white magpie with a long shiny blue-green tail, who flaps her wings happily; an open round plain metal tin box lies on the rug. Emotions: joyful, funny. Important details: the falling colorful buttons. Camera: wide cinematic cover shot, both faces clearly visible.",
     "animation": {
       "camera": "zoom-in",
@@ -69,7 +69,7 @@
           "mood": "mirat"
         }
       ],
-      "image": "images/pagina-01.png",
+      "image": "images/pagina-01.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Zuzu: a small round magpie bird with a black head, a white belly, black wings with a blue-green shine, a long shiny blue-green tail and bright curious black eyes. Setting: a cozy wooden room in grandma's house on a rainy day, a soft rug on the floor, a low wooden table, a window with raindrops on the glass, warm lamp light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands by the window holding a big round plain metal tin box in his paws, looking surprised; outside, on the window sill in the rain, Zuzu, the small black-and-white magpie with a long shiny blue-green tail, wet and ruffled, taps on the glass with her beak. Emotions: bored, then curious. Important details: the round plain metal tin box, the rain, the wet magpie at the window. Camera: medium shot.",
       "animation": {
         "camera": "zoom-in",
@@ -120,7 +120,7 @@
           "speaker": "Zuzu"
         }
       ],
-      "image": "images/pagina-02.png",
+      "image": "images/pagina-02.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Zuzu: a small round magpie bird with a black head, a white belly, black wings with a blue-green shine, a long shiny blue-green tail and bright curious black eyes. Setting: a cozy wooden room in grandma's house on a rainy day, a soft rug on the floor, a low wooden table, a window with raindrops on the glass, warm lamp light. Action: Zuzu, the small black-and-white magpie with a long shiny blue-green tail, stands on the inside window sill and shakes off the rain, water drops flying all over exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, who stands right in front of her, eyes squeezed shut, laughing, his mane dripping. Emotions: very funny, playful. Important details: the flying water drops, the dripping mane. Camera: medium shot.",
       "animation": {
         "camera": "pan-right",
@@ -149,7 +149,7 @@
           "mood": "vesel"
         }
       ],
-      "image": "images/pagina-03.png",
+      "image": "images/pagina-03.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Zuzu: a small round magpie bird with a black head, a white belly, black wings with a blue-green shine, a long shiny blue-green tail and bright curious black eyes. Setting: a cozy wooden room in grandma's house on a rainy day, a soft rug on the floor, a low wooden table, a window with raindrops on the glass, warm lamp light. Action: colorful round buttons fly through the air and rain down everywhere from an open round plain metal tin box; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits on the rug laughing, with buttons caught in his fluffy mane and one button on his nose; Zuzu, the small black-and-white magpie with a long shiny blue-green tail, stands next to him with one red button sitting on her head like a tiny hat. Emotions: very funny, joyful, surprised. Important details: the flying colorful buttons, the button on the magpie's head. Camera: wide shot.",
       "animation": {
         "camera": "pan-down",
@@ -201,7 +201,7 @@
           "speaker": "Lio"
         }
       ],
-      "image": "images/pagina-04.png",
+      "image": "images/pagina-04.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Zuzu: a small round magpie bird with a black head, a white belly, black wings with a blue-green shine, a long shiny blue-green tail and bright curious black eyes. Setting: a cozy wooden room in grandma's house on a rainy day, a soft rug on the floor, a low wooden table, a window with raindrops on the glass, warm lamp light. Action: Zuzu, the small black-and-white magpie with a long shiny blue-green tail, leans down toward a shiny button lying on the rug, about to pick it up; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, kneels on the rug next to her and raises one paw, saying stop, kind but serious; many colorful buttons are scattered on the rug around them. Emotions: caring, serious, then curious. Important details: the shiny button on the rug, Lio's raised paw. Camera: medium shot.",
       "animation": {
         "camera": "zoom-in",
@@ -238,7 +238,7 @@
           "mood": "vesel"
         }
       ],
-      "image": "images/pagina-05.png",
+      "image": "images/pagina-05.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Zuzu: a small round magpie bird with a black head, a white belly, black wings with a blue-green shine, a long shiny blue-green tail and bright curious black eyes. Setting: a cozy wooden room in grandma's house on a rainy day, a soft rug on the floor, a low wooden table, a window with raindrops on the glass, warm lamp light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, and Zuzu, the small black-and-white magpie with a long shiny blue-green tail, sit on the rug sorting buttons by color into several small plain white bowls on the rug, each bowl holding colorful buttons of only one color, bowls of red, yellow and blue buttons in front; Zuzu pushes a pink button with the tip of her wing toward the bowl of red buttons, looking puzzled, and Lio laughs. Emotions: playful, focused, funny. Important details: the bowls, each with buttons of one color. Camera: medium shot.",
       "animation": {
         "camera": "pan-left",
@@ -279,7 +279,7 @@
           "mood": "vesel"
         }
       ],
-      "image": "images/pagina-06.png",
+      "image": "images/pagina-06.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Zuzu: a small round magpie bird with a black head, a white belly, black wings with a blue-green shine, a long shiny blue-green tail and bright curious black eyes. Setting: a cozy wooden room in grandma's house on a rainy day, a soft rug on the floor, a low wooden table, a window with raindrops on the glass, warm lamp light. Action: on the low wooden table, buttons are arranged in separate little groups by shape: round buttons, square buttons, triangle buttons, heart-shaped buttons and star-shaped buttons; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, points at the groups, giggling, and Zuzu, the small black-and-white magpie with a long shiny blue-green tail, turns her head sideways, curious. Emotions: playful, curious, funny. Important details: the groups of buttons, each group a different shape. Camera: medium shot.",
       "animation": {
         "camera": "zoom-out",
@@ -322,7 +322,7 @@
           "mood": "calm"
         }
       ],
-      "image": "images/pagina-07.png",
+      "image": "images/pagina-07.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Zuzu: a small round magpie bird with a black head, a white belly, black wings with a blue-green shine, a long shiny blue-green tail and bright curious black eyes. Setting: a cozy wooden room in grandma's house on a rainy day, a soft rug on the floor, a low wooden table, a window with raindrops on the glass, warm lamp light. Action: Zuzu, the small black-and-white magpie with a long shiny blue-green tail, sits on the rug looking a little embarrassed and sweet, slowly taking a shiny golden star-shaped button out from under her wing; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits in front of her and smiles kindly. Emotions: gentle, honest, a little shy. Important details: the shiny golden star-shaped button. Camera: close-up.",
       "animation": {
         "camera": "zoom-in",
@@ -350,7 +350,7 @@
           "mood": "calm"
         }
       ],
-      "image": "images/pagina-08.png",
+      "image": "images/pagina-08.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Zuzu: a small round magpie bird with a black head, a white belly, black wings with a blue-green shine, a long shiny blue-green tail and bright curious black eyes. Setting: a cozy wooden room in grandma's house on a rainy day, a soft rug on the floor, a low wooden table, a window with raindrops on the glass, warm lamp light. Action: Zuzu, the small black-and-white magpie with a long shiny blue-green tail, dances happily on the rug with her wings open, the shiny golden star-shaped button sitting proudly on her head like a tiny crown; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, laughs and claps his paws next to the closed round plain metal tin box. Emotions: joyful, proud. Important details: the golden star button, the happy dance. Camera: medium shot.",
       "animation": {
         "camera": "pan-right",
@@ -396,7 +396,7 @@
           "mood": "calm"
         }
       ],
-      "image": "images/pagina-09.png",
+      "image": "images/pagina-09.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Zuzu: a small round magpie bird with a black head, a white belly, black wings with a blue-green shine, a long shiny blue-green tail and bright curious black eyes. Setting: a cozy wooden room in grandma's house after the rain, a soft rug on the floor, a low wooden table, a window with raindrops on the glass, warm lamp light. Action: Zuzu, the small black-and-white magpie with a long shiny blue-green tail, flies out of the open window toward the big bright rainbow, a tiny golden star-shaped button sitting on her head like a little hat; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands in the middle of the room on the rug and waves goodbye toward the window, smiling. Emotions: happy, warm, peaceful. Important details: the big rainbow, the flying magpie. Camera: wide shot.",
       "animation": {
         "camera": "pan-up",
@@ -430,7 +430,7 @@
       "options": [
         {
           "text": "Îi punem împreună pe cei care se aseamănă",
-          "image": "images/pagina-05.png"
+          "image": "images/pagina-05.webp"
         },
         {
           "text": "Îi aruncăm în sus",
