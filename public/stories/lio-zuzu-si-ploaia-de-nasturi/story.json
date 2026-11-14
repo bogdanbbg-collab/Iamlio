@@ -1,0 +1,436 @@
+{
+  "id": "lio-zuzu-si-ploaia-de-nasturi",
+  "title": "Lio, Zuzu și ploaia de nasturi",
+  "summary": "Într-o zi ploioasă, Lio și coțofana Zuzu răstoarnă o cutie de nasturi a bunicii. Ce faci cu o ploaie de nasturi colorați? Îi sortezi: după culoare și după formă!",
+  "age": "3-7",
+  "moral": "Când punem împreună lucrurile care se aseamănă, ordinea devine o joacă.",
+  "learning": [
+    "culorile (roșu, galben, verde, albastru, roz) și formele (rotund, pătrat, triunghi, inimă, stea)",
+    "a sorta înseamnă a pune împreună lucrurile care se aseamănă",
+    "nasturii nu se pun în gură: sunt mici și te poți îneca"
+  ],
+  "created": "2026-11-14",
+  "tags": [
+    "nasturi",
+    "culori",
+    "forme",
+    "sortat",
+    "coțofană",
+    "ploaie",
+    "curcubeu"
+  ],
+  "illustrationStyle": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered.",
+  "characters": [
+    {
+      "name": "Lio",
+      "description": "a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression",
+      "voice": {
+        "pitch": 12,
+        "rate": 3
+      }
+    },
+    {
+      "name": "Zuzu",
+      "description": "a small round magpie bird with a black head, a white belly, black wings with a blue-green shine, a long shiny blue-green tail and bright curious black eyes",
+      "voice": {
+        "type": "feminin",
+        "pitch": 20,
+        "rate": 5
+      }
+    }
+  ],
+  "cover": {
+    "image": "images/coperta.png",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Zuzu: a small round magpie bird with a black head, a white belly, black wings with a blue-green shine, a long shiny blue-green tail and bright curious black eyes. Setting: a cozy wooden room in grandma's house on a rainy day, a soft rug on the floor, a low wooden table, a wide window with raindrops on the glass, warm lamp light. Action: colorful round buttons rain down through the air around exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, who laughs with his paws up, and Zuzu, the small black-and-white magpie with a long shiny blue-green tail, who flaps her wings happily; an open round plain metal tin box lies on the rug. Emotions: joyful, funny. Important details: the falling colorful buttons. Camera: wide cinematic cover shot, both faces clearly visible.",
+    "animation": {
+      "camera": "zoom-in",
+      "effect": "sparkles"
+    }
+  },
+  "pages": [
+    {
+      "text": "Afară ploua de dimineață, iar Lio se plictisea la bunica lui. Pe un raft a găsit o cutie rotundă de tablă, grea și zornăitoare. Atunci, cineva a bătut în geam: cioc, cioc! Afară, pe pervaz, stătea o coțofană udă leoarcă.",
+      "narration": [
+        {
+          "text": "Afară ploua de dimineață, iar Lio se plictisea la bunica lui.",
+          "mood": "trist"
+        },
+        {
+          "text": "Pe un raft a găsit o cutie rotundă de tablă, grea și zornăitoare.",
+          "mood": "mirat"
+        },
+        {
+          "text": "Atunci, cineva a bătut în geam: cioc, cioc!",
+          "mood": "misterios",
+          "pause": 0.4
+        },
+        {
+          "text": "Afară, pe pervaz, stătea o coțofană udă leoarcă.",
+          "mood": "mirat"
+        }
+      ],
+      "image": "images/pagina-01.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Zuzu: a small round magpie bird with a black head, a white belly, black wings with a blue-green shine, a long shiny blue-green tail and bright curious black eyes. Setting: a cozy wooden room in grandma's house on a rainy day, a soft rug on the floor, a low wooden table, a wide window with raindrops on the glass, warm lamp light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands by the window holding a big round plain metal tin box in his paws, looking surprised; outside, on the window sill in the rain, Zuzu, the small black-and-white magpie with a long shiny blue-green tail, wet and ruffled, taps on the glass with her beak. Emotions: bored, then curious. Important details: the round plain metal tin box, the rain, the wet magpie at the window. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "drops"
+      }
+    },
+    {
+      "text": "Lio a deschis fereastra. — Mulțumesc! Eu sunt Zuzu, a ciripit coțofana. Apoi s-a scuturat de apă: frrr! Toți stropii au zburat drept pe Lio. — Mersi, acum suntem amândoi uzi! a râs el. Zuzu se uita deja la cutie. — Ce zornăie acolo?",
+      "narration": [
+        {
+          "text": "Lio a deschis fereastra.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Mulțumesc! Eu sunt Zuzu,",
+          "mood": "vesel",
+          "speaker": "Zuzu"
+        },
+        {
+          "text": "a ciripit coțofana.",
+          "mood": "calm"
+        },
+        {
+          "text": "Apoi s-a scuturat de apă: frrr!",
+          "mood": "vesel",
+          "pause": 0.3
+        },
+        {
+          "text": "Toți stropii au zburat drept pe Lio.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Mersi, acum suntem amândoi uzi!",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a râs el.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Zuzu se uita deja la cutie.",
+          "mood": "mirat"
+        },
+        {
+          "text": "— Ce zornăie acolo?",
+          "mood": "mirat",
+          "speaker": "Zuzu"
+        }
+      ],
+      "image": "images/pagina-02.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Zuzu: a small round magpie bird with a black head, a white belly, black wings with a blue-green shine, a long shiny blue-green tail and bright curious black eyes. Setting: a cozy wooden room in grandma's house on a rainy day, a soft rug on the floor, a low wooden table, a wide window with raindrops on the glass, warm lamp light. Action: Zuzu, the small black-and-white magpie with a long shiny blue-green tail, stands on the inside window sill and shakes off the rain, water drops flying all over exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, who stands right in front of her, eyes squeezed shut, laughing, his mane dripping. Emotions: very funny, playful. Important details: the flying water drops, the dripping mane. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "drops"
+      }
+    },
+    {
+      "text": "Lio a tras de capac. A tras tare. Și… Pac! Capacul a sărit, iar din cutie a pornit o ploaie de nasturi colorați! Nasturi roșii, galbeni, verzi și albaștri au plouat peste tot. Unul i-a rămas lui Lio în coamă, altul pe nas, iar unul a aterizat pe capul lui Zuzu, ca o pălărie.",
+      "narration": [
+        {
+          "text": "Lio a tras de capac. A tras tare. Și…",
+          "mood": "calm",
+          "pause": 0.5
+        },
+        {
+          "text": "Pac! Capacul a sărit, iar din cutie a pornit o ploaie de nasturi colorați!",
+          "mood": "entuziasmat",
+          "pause": 0.4
+        },
+        {
+          "text": "Nasturi roșii, galbeni, verzi și albaștri au plouat peste tot.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Unul i-a rămas lui Lio în coamă, altul pe nas, iar unul a aterizat pe capul lui Zuzu, ca o pălărie.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-03.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Zuzu: a small round magpie bird with a black head, a white belly, black wings with a blue-green shine, a long shiny blue-green tail and bright curious black eyes. Setting: a cozy wooden room in grandma's house on a rainy day, a soft rug on the floor, a low wooden table, a wide window with raindrops on the glass, warm lamp light. Action: colorful round buttons fly through the air and rain down everywhere from an open round plain metal tin box; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits on the rug laughing, with buttons caught in his fluffy mane and one button on his nose; Zuzu, the small black-and-white magpie with a long shiny blue-green tail, stands next to him with one red button sitting on her head like a tiny hat. Emotions: very funny, joyful, surprised. Important details: the flying colorful buttons, the button on the magpie's head. Camera: wide shot.",
+      "animation": {
+        "camera": "pan-down",
+        "effect": "sparkles"
+      }
+    },
+    {
+      "text": "Zuzu a văzut un nasture strălucitor și s-a aplecat să-l ia în cioc. — Stai! a strigat Lio. Nasturii nu se pun în gură. Nici în cioc! Sunt mici și te poți îneca. Zuzu a ridicat repede capul. — Atunci ce facem cu ei? — Îi sortăm! Adică punem împreună nasturii care se aseamănă.",
+      "narration": [
+        {
+          "text": "Zuzu a văzut un nasture strălucitor și s-a aplecat să-l ia în cioc.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Stai!",
+          "mood": "hotărât",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a strigat Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "Nasturii nu se pun în gură. Nici în cioc! Sunt mici și te poți îneca.",
+          "mood": "hotărât",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Zuzu a ridicat repede capul.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Atunci ce facem cu ei?",
+          "mood": "mirat",
+          "speaker": "Zuzu"
+        },
+        {
+          "text": "— Îi sortăm! Adică punem împreună nasturii care se aseamănă.",
+          "mood": "vesel",
+          "speaker": "Lio"
+        }
+      ],
+      "image": "images/pagina-04.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Zuzu: a small round magpie bird with a black head, a white belly, black wings with a blue-green shine, a long shiny blue-green tail and bright curious black eyes. Setting: a cozy wooden room in grandma's house on a rainy day, a soft rug on the floor, a low wooden table, a wide window with raindrops on the glass, warm lamp light. Action: Zuzu, the small black-and-white magpie with a long shiny blue-green tail, leans down toward a shiny button lying on the rug, about to pick it up; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, kneels on the rug next to her and raises one paw, saying stop, kind but serious; many colorful buttons are scattered on the rug around them. Emotions: caring, serious, then curious. Important details: the shiny button on the rug, Lio's raised paw. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Întâi i-au sortat după culoare. Roșii, ca fragii. Galbeni, ca soarele. Verzi, ca frunzele. Albaștri, ca cerul. Zuzu a pus un nasture roz la cei roșii. — E un roșu mic? — E roz! a râs Lio. Și i-au făcut un bol numai al lui.",
+      "narration": [
+        {
+          "text": "Întâi i-au sortat după culoare.",
+          "mood": "calm"
+        },
+        {
+          "text": "Roșii, ca fragii. Galbeni, ca soarele. Verzi, ca frunzele. Albaștri, ca cerul.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Zuzu a pus un nasture roz la cei roșii.",
+          "mood": "calm"
+        },
+        {
+          "text": "— E un roșu mic?",
+          "mood": "mirat",
+          "speaker": "Zuzu"
+        },
+        {
+          "text": "— E roz!",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a râs Lio. Și i-au făcut un bol numai al lui.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-05.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Zuzu: a small round magpie bird with a black head, a white belly, black wings with a blue-green shine, a long shiny blue-green tail and bright curious black eyes. Setting: a cozy wooden room in grandma's house on a rainy day, a soft rug on the floor, a low wooden table, a wide window with raindrops on the glass, warm lamp light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, and Zuzu, the small black-and-white magpie with a long shiny blue-green tail, sit on the rug sorting buttons by color into several small plain white bowls on the rug, each bowl holding colorful buttons of only one color: red buttons, yellow buttons, green buttons, blue buttons and pink buttons; Zuzu holds a pink button in her beak tip, looking puzzled, and Lio laughs. Emotions: playful, focused, funny. Important details: the bowls, each with buttons of one color. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-left",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Apoi i-au sortat după formă. Nasturi rotunzi, ca luna plină. Pătrați, ca o fereastră. Triunghiulari, ca un acoperiș. Și câțiva în formă de inimă și de stea. — Dar eu ce formă am? a întrebat Zuzu. — Tu ai formă de coțofană curioasă! a chicotit Lio.",
+      "narration": [
+        {
+          "text": "Apoi i-au sortat după formă.",
+          "mood": "calm"
+        },
+        {
+          "text": "Nasturi rotunzi, ca luna plină. Pătrați, ca o fereastră. Triunghiulari, ca un acoperiș.",
+          "mood": "calm"
+        },
+        {
+          "text": "Și câțiva în formă de inimă și de stea.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Dar eu ce formă am?",
+          "mood": "mirat",
+          "speaker": "Zuzu"
+        },
+        {
+          "text": "a întrebat Zuzu.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Tu ai formă de coțofană curioasă!",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a chicotit Lio.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-06.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Zuzu: a small round magpie bird with a black head, a white belly, black wings with a blue-green shine, a long shiny blue-green tail and bright curious black eyes. Setting: a cozy wooden room in grandma's house on a rainy day, a soft rug on the floor, a low wooden table, a wide window with raindrops on the glass, warm lamp light. Action: on the low wooden table, buttons are arranged in separate little groups by shape: round buttons, square buttons, triangle buttons, heart-shaped buttons and star-shaped buttons; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, points at the groups, giggling, and Zuzu, the small black-and-white magpie with a long shiny blue-green tail, turns her head sideways, curious. Emotions: playful, curious, funny. Important details: the groups of buttons, each group a different shape. Camera: close-up.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Lio a observat ceva: sub aripa lui Zuzu era un cocoloș mic. Din el sclipea un colț auriu. — Zuzu, ce ai acolo? Zuzu s-a făcut mică-mică și a scos un nasture auriu în formă de stea. — Mi-a plăcut atât de mult… Îmi pare rău, nu era al meu. Și l-a pus înapoi, la stele.",
+      "narration": [
+        {
+          "text": "Lio a observat ceva: sub aripa lui Zuzu era un cocoloș mic.",
+          "mood": "mirat"
+        },
+        {
+          "text": "Din el sclipea un colț auriu.",
+          "mood": "misterios",
+          "pause": 0.4
+        },
+        {
+          "text": "— Zuzu, ce ai acolo?",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Zuzu s-a făcut mică-mică și a scos un nasture auriu în formă de stea.",
+          "mood": "trist"
+        },
+        {
+          "text": "— Mi-a plăcut atât de mult… Îmi pare rău, nu era al meu.",
+          "mood": "trist",
+          "speaker": "Zuzu"
+        },
+        {
+          "text": "Și l-a pus înapoi, la stele.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-07.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Zuzu: a small round magpie bird with a black head, a white belly, black wings with a blue-green shine, a long shiny blue-green tail and bright curious black eyes. Setting: a cozy wooden room in grandma's house on a rainy day, a soft rug on the floor, a low wooden table, a wide window with raindrops on the glass, warm lamp light. Action: Zuzu, the small black-and-white magpie with a long shiny blue-green tail, sits on the rug looking a little embarrassed and sweet, slowly taking a shiny golden star-shaped button out from under her wing; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits in front of her and smiles kindly. Emotions: gentle, honest, a little shy. Important details: the shiny golden star-shaped button. Camera: close-up.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "sparkles"
+      }
+    },
+    {
+      "text": "Bunica a strigat din bucătărie că steluța aurie poate fi a lui Zuzu, pentru ajutorul la sortat. — A mea? De-adevăratelea? Zuzu a făcut un dans de bucurie: un pas, o săritură, o învârtire. Apoi au pus toți nasturii înapoi în cutie, fiecare cu ai lui.",
+      "narration": [
+        {
+          "text": "Bunica a strigat din bucătărie că steluța aurie poate fi a lui Zuzu, pentru ajutorul la sortat.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— A mea? De-adevăratelea?",
+          "mood": "entuziasmat",
+          "speaker": "Zuzu"
+        },
+        {
+          "text": "Zuzu a făcut un dans de bucurie: un pas, o săritură, o învârtire.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Apoi au pus toți nasturii înapoi în cutie, fiecare cu ai lui.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-08.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Zuzu: a small round magpie bird with a black head, a white belly, black wings with a blue-green shine, a long shiny blue-green tail and bright curious black eyes. Setting: a cozy wooden room in grandma's house on a rainy day, a soft rug on the floor, a low wooden table, a wide window with raindrops on the glass, warm lamp light. Action: Zuzu, the small black-and-white magpie with a long shiny blue-green tail, dances happily on the rug with her wings open, holding the shiny golden star-shaped button proudly in her beak; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, laughs and claps his paws next to the round plain metal tin box, now full of neatly sorted colorful buttons. Emotions: joyful, proud. Important details: the golden star button, the happy dance. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "hearts"
+      }
+    },
+    {
+      "text": "Între timp, ploaia s-a oprit, iar pe cer a apărut un curcubeu. — Uite! Roșu, galben, verde, albastru… Ca nasturii noștri! Zuzu și-a luat zborul spre curcubeu, cu steluța aurie sclipind. — Ne vedem la următoarea ploaie! a strigat ea. Lio i-a făcut cu lăbuța, zâmbind.",
+      "narration": [
+        {
+          "text": "Între timp, ploaia s-a oprit, iar pe cer a apărut un curcubeu.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Uite! Roșu, galben, verde, albastru… Ca nasturii noștri!",
+          "mood": "entuziasmat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Zuzu și-a luat zborul spre curcubeu, cu steluța aurie sclipind.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Ne vedem la următoarea ploaie!",
+          "mood": "vesel",
+          "speaker": "Zuzu"
+        },
+        {
+          "text": "a strigat ea.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lio i-a făcut cu lăbuța, zâmbind.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-09.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Zuzu: a small round magpie bird with a black head, a white belly, black wings with a blue-green shine, a long shiny blue-green tail and bright curious black eyes. Setting: a cozy wooden room in grandma's house after the rain, a soft rug on the floor, a low wooden table, a wide open window with a big bright rainbow in the blue sky outside, warm lamp light. Action: Zuzu, the small black-and-white magpie with a long shiny blue-green tail, flies out of the open window toward the big bright rainbow, a tiny golden star-shaped button shining in her beak; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands at the window and waves goodbye, smiling. Emotions: happy, warm, peaceful. Important details: the big rainbow, the flying magpie. Camera: wide shot.",
+      "animation": {
+        "camera": "pan-up",
+        "effect": "none"
+      }
+    }
+  ],
+  "categories": [
+    "invatam",
+    "amuzante"
+  ],
+  "review": {
+    "imaginatie": "O ploaie de nasturi colorați care pornește dintr-o cutie de tablă (pagina 3), o coțofană care bate în geam și vine în vizită (paginile 1–2), un nasture care îi stă lui Zuzu pe cap ca o pălărie (3) și curcubeul „ca nasturii noștri” (9).",
+    "invatare": "Sortatul e chiar jocul poveștii: Lio explică simplu ce înseamnă (4); întâi după culoare, cu comparații ușoare, roșu ca fragii, galben ca soarele, verde ca frunzele, albastru ca cerul, plus un roz care primește bolul lui (5); apoi după formă: rotund ca luna, pătrat ca o fereastră, triunghi ca un acoperiș, inimă, stea (6); la final, nasturii se pun înapoi în cutie, fiecare cu ai lui (8). Siguranță: nasturii nu se pun în gură (4). Onestitate: Zuzu dă înapoi steluța pe care o ascunsese (7).",
+    "umor": [
+      "pagina 2: Zuzu se scutură de ploaie drept pe Lio: „Mersi, acum suntem amândoi uzi!”",
+      "pagina 3: un nasture pe nasul lui Lio și unul pe capul lui Zuzu, ca o pălărie",
+      "pagina 5: „E un roșu mic?” „E roz!”",
+      "pagina 6: „Dar eu ce formă am?” „Tu ai formă de coțofană curioasă!”",
+      "pagina 8: dansul de bucurie al lui Zuzu"
+    ],
+    "emotie": "De la plictiseala unei zile ploioase la bucuria jocului împreună. Momentul delicat de la pagina 7 e blând: Zuzu își dă seama singură că steluța nu era a ei, își cere iertare și o pune înapoi; apoi primește steluța în dar, pentru ajutor (8). Final cald, cu curcubeu și „ne vedem la următoarea ploaie” (9).",
+    "siguranta": "Sfatul important e spus limpede: nasturii nu se pun în gură, sunt mici și te poți îneca (4), iar Zuzu ascultă imediat. Nu există ace sau foarfeci. Nimic înfricoșător.",
+    "imagini": "Doar Lio și coțofana (fără oameni: bunica apare doar în text), „exactly one lion cub, Lio”, cel mult două personaje pe imagine. Fără numere de obiecte: nasturii sunt „colorful buttons”, bolurile „several small plain white bowls”, grupurile de forme fără număr. Cutia e „a round plain metal tin box”, fără scris. Fără oglinzi, fără guri de aproape, fără „basket”. Fiecare prompt arată momentul paginii: coțofana la geam (1), scuturatul de apă (2), ploaia de nasturi (3), „stai!” (4), bolurile pe culori (5), grupurile pe forme (6), steluța de sub aripă (7), dansul (8), curcubeul (9). Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
+    "voce": "Narațiune veselă, cu pauze după „cioc, cioc!”, „frrr!” și înaintea lui „Pac!”; hotărâtă la sfatul de siguranță (4); blândă și mai rară la pagina 7. Zuzu are o voce subțire și vorbăreață, de pasăre curioasă; Lio vocea lui obișnuită. Replicile sunt separate de vorbele naratorului."
+  },
+  "verified": false,
+  "questions": [
+    {
+      "text": "Ce înseamnă să sortăm nasturii?",
+      "options": [
+        {
+          "text": "Îi punem împreună pe cei care se aseamănă",
+          "image": "images/pagina-05.png"
+        },
+        {
+          "text": "Îi aruncăm în sus",
+          "emoji": "🙃"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Corect! Sortăm când punem împreună lucrurile care se aseamănă: după culoare sau după formă."
+    },
+    {
+      "text": "Unde nu punem niciodată nasturii?",
+      "options": [
+        {
+          "text": "În cutie",
+          "emoji": "📦"
+        },
+        {
+          "text": "În gură",
+          "emoji": "👄"
+        }
+      ],
+      "answer": 1,
+      "explanation": "Bravo! Nasturii nu se pun în gură; sunt mici și ne putem îneca."
+    }
+  ]
+}
