@@ -2,7 +2,7 @@
 
 Generate automat la fiecare publicare. Un AI care a adăugat sau a modificat o poveste citește raportul ei și corectează tot ce scrie la „De corectat”, până când raportul spune „publicată”.
 
-Ultima verificare: 2026-11-14 04:13 UTC
+Ultima verificare: 2026-11-14 04:24 UTC
 
 | Poveste | Stare | De corectat | Reparate automat |
 | --- | --- | --- | --- |
@@ -15,7 +15,7 @@ Ultima verificare: 2026-11-14 04:13 UTC
 | [Lio și pensula toamnei](lio-si-pensula-toamnei.md) | ✅ publicată | 0 | 0 |
 | [Lio și periuța curajoasă](lio-si-periuta-curajoasa.md) | ✅ publicată | 0 | 0 |
 | [Lio și steluța căzătoare](lio-si-steluta-cazatoare.md) | ✅ publicată | 0 | 0 |
-| [Lio, Zuzu și ploaia de nasturi](lio-zuzu-si-ploaia-de-nasturi.md) | ⏳ în verificare | 0 | 10 |
+| [Lio, Zuzu și ploaia de nasturi](lio-zuzu-si-ploaia-de-nasturi.md) | ⏳ în verificare | 0 | 8 |
 | [Matei și limonada fermecată](matei-si-limonada-fermecata.md) | ✅ publicată | 0 | 0 |
 | [Mormăilă, ursulețul care nu putea adormi](mormaila-ursuletul-care-nu-putea-adormi.md) | ✅ publicată | 0 | 0 |
 | [Pantofii lui Bruno au fugit](pantofii-lui-bruno-au-fugit.md) | ✅ publicată | 0 | 0 |
