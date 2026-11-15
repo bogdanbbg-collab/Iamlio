@@ -33,6 +33,29 @@
   ],
   "stories": [
     {
+      "id": "miti-pisicuta-care-voia-sa-zboare",
+      "title": "Miți, pisicuța care voia să zboare",
+      "summary": "Pisicuța Miți vrea să zboare ca vrăbiuța Cirip. Încercările ei sunt de râs, dar, când se lasă seara și Cirip nu-și mai găsește copacul, Miți descoperă ce poate face doar ea.",
+      "age": "3-7",
+      "tags": [
+        "pisicuță",
+        "vrabie",
+        "daruri",
+        "seară",
+        "prietenie",
+        "torc"
+      ],
+      "categories": [
+        "animale",
+        "prietenie"
+      ],
+      "created": "2026-11-15",
+      "cover": "stories/miti-pisicuta-care-voia-sa-zboare/images/coperta.webp",
+      "pages": 9,
+      "minutes": 6,
+      "published": "2026-11-15"
+    },
+    {
       "id": "lio-zuzu-si-ploaia-de-nasturi",
       "title": "Lio, Zuzu și ploaia de nasturi",
       "summary": "Într-o zi ploioasă, Lio și coțofana Zuzu răstoarnă o cutie de nasturi a bunicii. Ce faci cu o ploaie de nasturi colorați? Îi sortezi: după culoare și după formă!",
