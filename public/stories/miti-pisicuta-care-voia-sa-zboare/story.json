@@ -1,0 +1,462 @@
+{
+  "id": "miti-pisicuta-care-voia-sa-zboare",
+  "title": "Miți, pisicuța care voia să zboare",
+  "summary": "Pisicuța Miți vrea să zboare ca vrăbiuța Cirip. Încercările ei sunt de râs, dar, când se lasă seara și Cirip nu-și mai găsește copacul, Miți descoperă ce poate face doar ea.",
+  "age": "3-7",
+  "moral": "Fiecare are darurile lui; nu trebuie să fii altcineva ca să fii minunat.",
+  "learning": [
+    "fiecare are darurile lui: unii zboară, alții văd pe lumină puțină sau aud greierii",
+    "pisicile văd bine pe lumină puțină, au auz fin și mustăți care le ajută să simtă drumul",
+    "păsările mici văd greu pe întuneric, de aceea se grăbesc seara spre casă"
+  ],
+  "created": "2026-11-15",
+  "tags": [
+    "pisicuță",
+    "vrabie",
+    "daruri",
+    "seară",
+    "prietenie",
+    "torc"
+  ],
+  "illustrationStyle": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered.",
+  "characters": [
+    {
+      "name": "Lio",
+      "description": "a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression",
+      "voice": {
+        "pitch": 12,
+        "rate": 3
+      }
+    },
+    {
+      "name": "Miți",
+      "description": "a small fluffy ginger kitten with orange stripes, a white chest, big round green eyes, pointy ears and a long striped tail",
+      "voice": {
+        "type": "feminin",
+        "pitch": 22,
+        "rate": 2
+      }
+    },
+    {
+      "name": "Cirip",
+      "description": "a small round brown sparrow with a cream belly, a short tail and a tiny dark beak",
+      "voice": {
+        "type": "masculin",
+        "pitch": 18,
+        "rate": 6
+      }
+    }
+  ],
+  "cover": {
+    "image": "images/coperta.png",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Miți: a small fluffy ginger kitten with orange stripes, a white chest, big round green eyes, pointy ears and a long striped tail; Cirip: a small round brown sparrow with a cream belly, a short tail and a tiny dark beak. Setting: a sunny green meadow with soft grass, wildflowers and a big old oak tree at the edge, soft afternoon light. Action: Miți, the small fluffy ginger kitten with a white chest and big green eyes, stands on her hind legs in the grass reaching up with both front paws toward Cirip, the small round brown sparrow, who flutters just above her; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits next to them, laughing. Emotions: playful, joyful. Important details: the kitten reaching up, the fluttering sparrow. Camera: wide cinematic cover shot, all faces clearly visible.",
+    "animation": {
+      "camera": "zoom-in",
+      "effect": "none"
+    }
+  },
+  "pages": [
+    {
+      "text": "Pe pajiște, vrăbiuța Cirip făcea tumbe prin aer: sus, jos, rotocol! Pisicuța Miți se uita după el și ofta. — Ce n-aș da să zbor și eu! Lio s-a așezat lângă ea, în iarbă. — Și ce-ai face acolo, sus? — Tot ce face Cirip!",
+      "narration": [
+        {
+          "text": "Pe pajiște, vrăbiuța Cirip făcea tumbe prin aer: sus, jos, rotocol!",
+          "mood": "vesel"
+        },
+        {
+          "text": "Pisicuța Miți se uita după el și ofta.",
+          "mood": "trist"
+        },
+        {
+          "text": "— Ce n-aș da să zbor și eu!",
+          "mood": "trist",
+          "speaker": "Miți"
+        },
+        {
+          "text": "Lio s-a așezat lângă ea, în iarbă.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Și ce-ai face acolo, sus?",
+          "mood": "mirat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "— Tot ce face Cirip!",
+          "mood": "hotărât",
+          "speaker": "Miți"
+        }
+      ],
+      "image": "images/pagina-01.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Miți: a small fluffy ginger kitten with orange stripes, a white chest, big round green eyes, pointy ears and a long striped tail; Cirip: a small round brown sparrow with a cream belly, a short tail and a tiny dark beak. Setting: a sunny green meadow with soft grass, wildflowers and a big old oak tree at the edge, soft afternoon light. Action: Miți, the small fluffy ginger kitten with a white chest and big green eyes, sits in the grass looking up with a dreamy sigh at Cirip, the small round brown sparrow, who flies a happy loop in the blue sky above; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits in the grass next to her. Emotions: dreamy, a little wistful. Important details: the sparrow flying a loop in the sky. Camera: wide shot.",
+      "animation": {
+        "camera": "pan-up",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Miți a început să dea din lăbuțele din față, repede-repede, ca din aripi. Hop! A sărit puțin… și a aterizat cu nasul în iarbă. — Mrrr! Pfui! Avea o păpădie lipită de nas, ca o mustață galbenă. Lio a râs atât de tare, încât s-a rostogolit pe spate.",
+      "narration": [
+        {
+          "text": "Miți a început să dea din lăbuțele din față, repede-repede, ca din aripi.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Hop! A sărit puțin…",
+          "mood": "vesel",
+          "pause": 0.4
+        },
+        {
+          "text": "și a aterizat cu nasul în iarbă.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Mrrr! Pfui!",
+          "mood": "vesel",
+          "speaker": "Miți"
+        },
+        {
+          "text": "Avea o păpădie lipită de nas, ca o mustață galbenă.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Lio a râs atât de tare, încât s-a rostogolit pe spate.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-02.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Miți: a small fluffy ginger kitten with orange stripes, a white chest, big round green eyes, pointy ears and a long striped tail. Setting: a sunny green meadow with soft grass, wildflowers and a big old oak tree at the edge, soft afternoon light. Action: Miți, the small fluffy ginger kitten with a white chest and big green eyes, lands on her tummy in the soft grass after a tiny hop, a yellow dandelion stuck on her nose like a funny yellow moustache; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, rolls on his back in the grass, laughing. Emotions: very funny, playful. Important details: the dandelion stuck on the kitten's nose. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Apoi Miți și-a luat două frunze mari, câte una în fiecare lăbuță, ca niște aripi. — Fără sărituri de sus, da? a zis Lio. Doar aici, pe iarbă. Miți a alergat, a fluturat frunzele și… frunzele au zburat singure! Miți s-a rostogolit într-o grămadă de fân moale. — Măcar frunzele știu să zboare, a mormăit ea.",
+      "narration": [
+        {
+          "text": "Apoi Miți și-a luat două frunze mari, câte una în fiecare lăbuță, ca niște aripi.",
+          "mood": "hotărât"
+        },
+        {
+          "text": "— Fără sărituri de sus, da?",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a zis Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "Doar aici, pe iarbă.",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Miți a alergat, a fluturat frunzele și… frunzele au zburat singure!",
+          "mood": "vesel",
+          "pause": 0.4
+        },
+        {
+          "text": "Miți s-a rostogolit într-o grămadă de fân moale.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Măcar frunzele știu să zboare,",
+          "mood": "trist",
+          "speaker": "Miți"
+        },
+        {
+          "text": "a mormăit ea.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-03.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Miți: a small fluffy ginger kitten with orange stripes, a white chest, big round green eyes, pointy ears and a long striped tail. Setting: a sunny green meadow with soft grass, wildflowers and a big old oak tree at the edge, soft afternoon light. Action: Miți, the small fluffy ginger kitten with a white chest and big green eyes, rolls into a small soft pile of hay on the flat grass, while two big green leaves fly away in the air above her; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands nearby with a kind smile, paws on his knees. Emotions: funny, a little grumpy. Important details: the two leaves flying away, the soft pile of hay. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "leaves"
+      }
+    },
+    {
+      "text": "Miți s-a așezat, tristă. — Cirip zboară. Eu nu știu să fac nimic special. — Ești sigură? a întrebat Lio. Deodată, urechile lui Miți s-au ridicat. — Auzi? Sub frunza aceea cântă un greiere mic! Lio n-auzea nimic. Dar greierele era chiar acolo.",
+      "narration": [
+        {
+          "text": "Miți s-a așezat, tristă.",
+          "mood": "trist"
+        },
+        {
+          "text": "— Cirip zboară. Eu nu știu să fac nimic special.",
+          "mood": "trist",
+          "speaker": "Miți"
+        },
+        {
+          "text": "— Ești sigură?",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a întrebat Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "Deodată, urechile lui Miți s-au ridicat.",
+          "mood": "mirat"
+        },
+        {
+          "text": "— Auzi? Sub frunza aceea cântă un greiere mic!",
+          "mood": "șoptit",
+          "speaker": "Miți"
+        },
+        {
+          "text": "Lio n-auzea nimic. Dar greierele era chiar acolo.",
+          "mood": "mirat"
+        }
+      ],
+      "image": "images/pagina-04.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Miți: a small fluffy ginger kitten with orange stripes, a white chest, big round green eyes, pointy ears and a long striped tail. Setting: a sunny green meadow with soft grass, wildflowers and a big old oak tree at the edge, warm late-afternoon light. Action: Miți, the small fluffy ginger kitten with a white chest and big green eyes, sits very still with her pointy ears perked up, listening carefully and looking at a big leaf on the ground with a tiny green cricket peeking out from under it; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, cups one paw behind his ear, trying to hear, surprised. Emotions: curious, surprised. Important details: the perked-up ears, the tiny cricket under the leaf. Camera: close-up.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Seara a venit încet peste pajiște. Atunci, Cirip a coborât pe o creangă joasă, speriat. — S-a făcut întuneric și nu-mi mai găsesc copacul! Păsările mici văd greu pe întuneric. De aceea, seara, se grăbesc spre casă.",
+      "narration": [
+        {
+          "text": "Seara a venit încet peste pajiște.",
+          "mood": "calm"
+        },
+        {
+          "text": "Atunci, Cirip a coborât pe o creangă joasă, speriat.",
+          "mood": "trist"
+        },
+        {
+          "text": "— S-a făcut întuneric și nu-mi mai găsesc copacul!",
+          "mood": "trist",
+          "speaker": "Cirip"
+        },
+        {
+          "text": "Păsările mici văd greu pe întuneric.",
+          "mood": "calm"
+        },
+        {
+          "text": "De aceea, seara, se grăbesc spre casă.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-05.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Miți: a small fluffy ginger kitten with orange stripes, a white chest, big round green eyes, pointy ears and a long striped tail; Cirip: a small round brown sparrow with a cream belly, a short tail and a tiny dark beak. Setting: the edge of a quiet little forest at dusk, a soft violet-blue sky, a narrow grassy path between round bushes, the first fireflies, gentle moonlight. Action: Cirip, the small round brown sparrow, sits on a low branch of a round bush, looking worried and confused; Miți, the small fluffy ginger kitten with a white chest and big green eyes, and exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stand on the path below and look up at him kindly. Emotions: worried, gentle. Important details: the sparrow on the low branch, the soft dusk light. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-left",
+        "effect": "fireflies"
+      }
+    },
+    {
+      "text": "Miți s-a uitat în jur. Ochii ei verzi prindeau și cea mai mică rază de lumină. — Eu văd bine pe lumină puțină! a zis ea. Și mustățile mele simt pe unde e loc de trecut. Haideți după mine! Miți a pornit în față, încet și sigur. Cirip țopăia după ea, iar Lio venea la urmă.",
+      "narration": [
+        {
+          "text": "Miți s-a uitat în jur. Ochii ei verzi prindeau și cea mai mică rază de lumină.",
+          "mood": "mirat"
+        },
+        {
+          "text": "— Eu văd bine pe lumină puțină!",
+          "mood": "hotărât",
+          "speaker": "Miți"
+        },
+        {
+          "text": "a zis ea.",
+          "mood": "calm"
+        },
+        {
+          "text": "Și mustățile mele simt pe unde e loc de trecut.",
+          "mood": "hotărât",
+          "speaker": "Miți"
+        },
+        {
+          "text": "Haideți după mine!",
+          "mood": "entuziasmat",
+          "speaker": "Miți"
+        },
+        {
+          "text": "Miți a pornit în față, încet și sigur.",
+          "mood": "calm"
+        },
+        {
+          "text": "Cirip țopăia după ea, iar Lio venea la urmă.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-06.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Miți: a small fluffy ginger kitten with orange stripes, a white chest, big round green eyes, pointy ears and a long striped tail; Cirip: a small round brown sparrow with a cream belly, a short tail and a tiny dark beak. Setting: the edge of a quiet little forest at dusk, a soft violet-blue sky, a narrow grassy path between round bushes, the first fireflies, gentle moonlight. Action: Miți, the small fluffy ginger kitten with a white chest and big green eyes, walks confidently in front along the narrow path, her big green eyes sparkling in the moonlight, her whiskers forward; Cirip, the small round brown sparrow, hops right behind her, and exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, follows at the end, smiling. Emotions: brave, calm, cozy. Important details: the kitten leading on the path, the sparkle in her green eyes. Camera: wide shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "fireflies"
+      }
+    },
+    {
+      "text": "Curând au ajuns la stejarul cel bătrân, cu scorbura rotundă. — Copacul meu! a ciripit Cirip și a zburat drept în scorbură. Apoi a scos căpșorul afară: — Miți, tu ai făcut ce eu nu pot! Ai văzut drumul pe întuneric. Ăsta e darul tău!",
+      "narration": [
+        {
+          "text": "Curând au ajuns la stejarul cel bătrân, cu scorbura rotundă.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Copacul meu!",
+          "mood": "entuziasmat",
+          "speaker": "Cirip"
+        },
+        {
+          "text": "a ciripit Cirip și a zburat drept în scorbură.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Apoi a scos căpșorul afară:",
+          "mood": "calm"
+        },
+        {
+          "text": "— Miți, tu ai făcut ce eu nu pot! Ai văzut drumul pe întuneric. Ăsta e darul tău!",
+          "mood": "vesel",
+          "speaker": "Cirip"
+        }
+      ],
+      "image": "images/pagina-07.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Miți: a small fluffy ginger kitten with orange stripes, a white chest, big round green eyes, pointy ears and a long striped tail; Cirip: a small round brown sparrow with a cream belly, a short tail and a tiny dark beak. Setting: a big old oak tree with a round hole in its trunk at the edge of a meadow at dusk, soft moonlight, fireflies. Action: Cirip, the small round brown sparrow, peeks his head out of the round hole in the oak trunk, smiling gratefully; Miți, the small fluffy ginger kitten with a white chest and big green eyes, sits at the foot of the tree, looking up at him, surprised and proud. Emotions: grateful, warm, proud. Important details: the round hole in the trunk, the sparrow peeking out. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-up",
+        "effect": "fireflies"
+      }
+    },
+    {
+      "text": "— Și n-ai doar un dar, a zis Lio. Auzi greierii de sub frunze, mergi fără zgomot, ca o pană, și vezi pe lumină puțină. Miți s-a ghemuit lângă el și a început să toarcă: rrr, rrr. — Și torsul tău îi liniștește pe toți, a șoptit Cirip din scorbură.",
+      "narration": [
+        {
+          "text": "— Și n-ai doar un dar,",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a zis Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "Auzi greierii de sub frunze, mergi fără zgomot, ca o pană, și vezi pe lumină puțină.",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Miți s-a ghemuit lângă el și a început să toarcă: rrr, rrr.",
+          "mood": "calm",
+          "pause": 0.4
+        },
+        {
+          "text": "— Și torsul tău îi liniștește pe toți,",
+          "mood": "șoptit",
+          "speaker": "Cirip"
+        },
+        {
+          "text": "a șoptit Cirip din scorbură.",
+          "mood": "șoptit"
+        }
+      ],
+      "image": "images/pagina-08.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Miți: a small fluffy ginger kitten with orange stripes, a white chest, big round green eyes, pointy ears and a long striped tail; Cirip: a small round brown sparrow with a cream belly, a short tail and a tiny dark beak. Setting: a big old oak tree with a round hole in its trunk at the edge of a meadow at dusk, soft moonlight, fireflies. Action: Miți, the small fluffy ginger kitten with a white chest and big green eyes, is curled up purring happily, eyes half closed, next to exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, who sits at the foot of the oak tree and smiles; Cirip, the small round brown sparrow, peeks sleepily out of the round hole in the trunk above. Emotions: cozy, content, loving. Important details: the curled-up purring kitten, the sparrow in the tree hole. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "hearts"
+      }
+    },
+    {
+      "text": "Cirip a cântat un cântec de noapte bună. Miți și Lio au pornit spre casă, prin iarba argintie. — Lio, nu mai vreau să zbor, a zis Miți. Vreau doar să fiu cea mai bună pisicuță care pot fi. — Asta ești deja, a zâmbit Lio.",
+      "narration": [
+        {
+          "text": "Cirip a cântat un cântec de noapte bună.",
+          "mood": "somnoros"
+        },
+        {
+          "text": "Miți și Lio au pornit spre casă, prin iarba argintie.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Lio, nu mai vreau să zbor,",
+          "mood": "somnoros",
+          "speaker": "Miți"
+        },
+        {
+          "text": "a zis Miți.",
+          "mood": "calm"
+        },
+        {
+          "text": "Vreau doar să fiu cea mai bună pisicuță care pot fi.",
+          "mood": "somnoros",
+          "speaker": "Miți"
+        },
+        {
+          "text": "— Asta ești deja,",
+          "mood": "somnoros",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a zâmbit Lio.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-09.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Miți: a small fluffy ginger kitten with orange stripes, a white chest, big round green eyes, pointy ears and a long striped tail; Cirip: a small round brown sparrow with a cream belly, a short tail and a tiny dark beak. Setting: a calm moonlit meadow at night with a big old oak tree, soft silver light, a few fireflies, a dark-blue starry sky. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, and Miți, the small fluffy ginger kitten with a white chest and big green eyes, walk side by side through the silvery grass toward home, seen from behind and a little from the side; far behind them, Cirip, the small round brown sparrow, sits at the round hole of the oak tree, singing softly. Emotions: peaceful, sleepy, happy. Important details: the moonlit meadow, the oak tree far behind. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "stars"
+      }
+    }
+  ],
+  "categories": [
+    "animale",
+    "prietenie"
+  ],
+  "review": {
+    "imaginatie": "O pisicuță care încearcă să zboare dând din lăbuțe și cu frunze în loc de aripi (paginile 2–3) și o plimbare la amurg, în care ochii ei verzi „prind și cea mai mică rază de lumină” și o duc pe vrăbiuță acasă (paginile 6–7).",
+    "invatare": "„Fiecare are darurile lui” e chiar firul poveștii: Miți descoperă că aude greierii de sub frunze (4), că vede bine pe lumină puțină și că mustățile o ajută să simtă drumul (6), că merge fără zgomot și că torsul ei îi liniștește pe ceilalți (8). Află și că păsările mici văd greu pe întuneric și se grăbesc seara spre casă (5). Cirip, la rândul lui, zboară și cântă (1, 9).",
+    "umor": [
+      "pagina 2: Miți aterizează cu nasul în iarbă, cu o păpădie lipită ca o mustață galbenă, iar Lio se rostogolește de râs",
+      "pagina 3: frunzele-aripi zboară singure, iar Miți se rostogolește în fân: „Măcar frunzele știu să zboare!”",
+      "pagina 4: Lio pune lăbuța la ureche și tot nu aude greierele"
+    ],
+    "emotie": "Dorința lui Miți e pe înțelesul copiilor: vrea să fie ca prietenul ei. Tristețea de la pagina 4 e blândă; Lio nu-i spune ce să creadă, ci o întreabă „Ești sigură?”. Miți rezolvă singură problema serii, când Cirip se pierde (6–7), iar finalul e cald și liniștit: „Vreau doar să fiu cea mai bună pisicuță care pot fi.” „Asta ești deja.” (9).",
+    "siguranta": "Încercările de zbor sunt doar pe iarbă, iar Lio spune limpede „Fără sărituri de sus” (3). Nimeni nu urcă în copaci sau pe garduri. Seara e liniștită, cu licurici și lună; Cirip e doar puțin speriat și e ajutat imediat. Nimic înfricoșător.",
+    "imagini": "Doar Lio, pisicuța roșcată și vrăbiuța (fără oameni), „exactly one lion cub, Lio”, cel mult trei personaje pe imagine; pe pagina 7 doar Miți și Cirip. Fără numere de obiecte, fără litere, fără oglinzi, fără guri de aproape, fără „nest” (vrăbiuța stă într-o scorbură, „a round hole in the trunk”). Ochii lui Miți „sparkle in the moonlight”, nu strălucesc ca niște faruri, ca să nu sperie. Fiecare prompt arată momentul paginii. Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
+    "voce": "Narațiune veselă în prima parte, cu pauze după „Hop!” și înaintea frunzelor care zboară; liniștită și tot mai somnoroasă spre final, cu tors („rrr, rrr”) și șoaptă. Miți are o voce subțire, de pisicuță; Cirip o voce vioaie și grăbită, de vrăbiuță; Lio vocea lui obișnuită. Replicile sunt separate de vorbele naratorului."
+  },
+  "verified": false,
+  "questions": [
+    {
+      "text": "Cum l-a ajutat Miți pe Cirip?",
+      "options": [
+        {
+          "text": "A văzut drumul pe întuneric",
+          "image": "images/pagina-06.png"
+        },
+        {
+          "text": "A zburat cu el",
+          "emoji": "🪽"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Corect! Miți vede bine pe lumină puțină și l-a dus pe Cirip acasă."
+    },
+    {
+      "text": "Ce dar are Cirip?",
+      "options": [
+        {
+          "text": "Toarce",
+          "emoji": "😺"
+        },
+        {
+          "text": "Zboară și cântă",
+          "emoji": "🐦"
+        }
+      ],
+      "answer": 1,
+      "explanation": "Bravo! Cirip zboară și cântă; Miți vede pe lumină puțină și toarce. Fiecare are darurile lui."
+    }
+  ]
+}
