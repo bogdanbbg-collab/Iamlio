@@ -1,0 +1,458 @@
+{
+  "id": "lio-si-tobi-la-semafor",
+  "title": "Lio și Tobi la semafor",
+  "summary": "Lio și cățelușul Tobi merg spre parc cu Bunicul Urs și învață cum se traversează strada: semaforul, omulețul verde, trecerea de pietoni și privitul în stânga și în dreapta.",
+  "age": "3-7",
+  "moral": "Pe stradă nu ne grăbim: așteptăm, ne uităm și traversăm de mână cu un adult.",
+  "learning": [
+    "culorile semaforului: roșu stai, galben pregătește-te, verde pornește; pietonii se uită la omulețul roșu sau verde",
+    "traversăm doar pe trecerea de pietoni, de mână cu un adult, și ne uităm la stânga, la dreapta și iar la stânga",
+    "lângă stradă nu alergăm după minge; o aduce un adult"
+  ],
+  "created": "2026-11-16",
+  "tags": [
+    "semafor",
+    "trecere de pietoni",
+    "stradă",
+    "siguranță",
+    "cățeluș",
+    "bunic"
+  ],
+  "illustrationStyle": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered.",
+  "characters": [
+    {
+      "name": "Lio",
+      "description": "a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression",
+      "voice": {
+        "pitch": 12,
+        "rate": 3
+      }
+    },
+    {
+      "name": "Tobi",
+      "description": "a small white puppy with a big brown patch around one eye, soft floppy ears and a short wagging tail",
+      "voice": {
+        "type": "masculin",
+        "pitch": 20,
+        "rate": 5
+      }
+    },
+    {
+      "name": "Bunicul Urs",
+      "description": "a big kind old brown bear with a grey muzzle, gentle eyes and a green knitted vest, walking upright slowly",
+      "voice": {
+        "type": "masculin",
+        "pitch": -8,
+        "rate": -4
+      }
+    }
+  ],
+  "cover": {
+    "image": "images/coperta.png",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Tobi: a small white puppy with a big brown patch around one eye, soft floppy ears and a short wagging tail; Bunicul Urs: a big kind old brown bear with a grey muzzle, gentle eyes and a green knitted vest, walking upright slowly. Setting: a quiet, clean little town street on a sunny morning, a wide sidewalk with a curb, low colorful houses with no signs, a few trees, the street empty, a pedestrian crossing with wide white stripes painted across the street, and a pedestrian traffic light on a pole at the edge of the sidewalk, the pedestrian light glowing green. Action: Bunicul Urs, the big kind old brown bear with a grey muzzle and a green knitted vest, holds the paws of exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, and Tobi, the small white puppy with a brown patch around one eye,; all three stand on the sidewalk at the edge of the crossing, smiling, ready to cross. Emotions: cheerful, safe. Important details: the green pedestrian light, the white stripes. Camera: wide cinematic cover shot, all faces clearly visible from the front.",
+    "animation": {
+      "camera": "zoom-in",
+      "effect": "none"
+    }
+  },
+  "pages": [
+    {
+      "text": "Într-o dimineață, Lio și cățelușul Tobi mergeau spre parc, cu Bunicul Urs. Tobi voia să alerge înainte, dar Bunicul l-a prins blând de lăbuță. — Pe stradă mergem pe trotuar și ne ținem de mână, a zis el. — Și de lăbuță! a chicotit Tobi.",
+      "narration": [
+        {
+          "text": "Într-o dimineață, Lio și cățelușul Tobi mergeau spre parc, cu Bunicul Urs.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Tobi voia să alerge înainte, dar Bunicul l-a prins blând de lăbuță.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Pe stradă mergem pe trotuar și ne ținem de mână,",
+          "mood": "calm",
+          "speaker": "Bunicul Urs"
+        },
+        {
+          "text": "a zis el.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Și de lăbuță!",
+          "mood": "vesel",
+          "speaker": "Tobi"
+        },
+        {
+          "text": "a chicotit Tobi.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-01.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Tobi: a small white puppy with a big brown patch around one eye, soft floppy ears and a short wagging tail; Bunicul Urs: a big kind old brown bear with a grey muzzle, gentle eyes and a green knitted vest, walking upright slowly. Setting: a quiet, clean little town street on a sunny morning, a wide sidewalk with a curb, low colorful houses with no signs, a few trees, the street empty. Action: Bunicul Urs, the big kind old brown bear with a grey muzzle and a green knitted vest, walks slowly on the sidewalk in the middle, holding the paw of exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, on one side and the paw of Tobi, the small white puppy with a brown patch around one eye, on the other side; Tobi giggles, his tail wagging. Emotions: cheerful, safe, warm. Important details: the three walking hand in paw on the sidewalk. Camera: wide shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "La colțul străzii, Bunicul s-a oprit la marginea trotuarului. Lângă ei, pe un stâlp, stătea un semafor pentru mașini. — Uite, un robot cu trei ochi! a strigat Tobi. — Ăsta e semaforul, a râs Bunicul. Roșu înseamnă stai, galben înseamnă pregătește-te, iar verde înseamnă pornește.",
+      "narration": [
+        {
+          "text": "La colțul străzii, Bunicul s-a oprit la marginea trotuarului.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lângă ei, pe un stâlp, stătea un semafor pentru mașini.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Uite, un robot cu trei ochi!",
+          "mood": "entuziasmat",
+          "speaker": "Tobi"
+        },
+        {
+          "text": "a strigat Tobi.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Ăsta e semaforul,",
+          "mood": "calm",
+          "speaker": "Bunicul Urs"
+        },
+        {
+          "text": "a râs Bunicul.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Roșu înseamnă stai, galben înseamnă pregătește-te, iar verde înseamnă pornește.",
+          "mood": "calm",
+          "speaker": "Bunicul Urs"
+        }
+      ],
+      "image": "images/pagina-02.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Tobi: a small white puppy with a big brown patch around one eye, soft floppy ears and a short wagging tail; Bunicul Urs: a big kind old brown bear with a grey muzzle, gentle eyes and a green knitted vest, walking upright slowly. Setting: a quiet, clean little town street on a sunny morning, a wide sidewalk with a curb, low colorful houses with no signs, a few trees, the street empty, a tall traffic light on a pole with a red light, a yellow light and a green light, the red light glowing. Action: Tobi, the small white puppy with a brown patch around one eye, points up at the traffic light with wide amazed eyes; Bunicul Urs, the big kind old brown bear with a grey muzzle and a green knitted vest, laughs kindly; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, looks up curiously; all three stand on the sidewalk, behind the edge of the curb. Emotions: funny, curious. Important details: the traffic light with its red, yellow and green lights. Camera: low angle, medium shot.",
+      "animation": {
+        "camera": "pan-up",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "— Dar noi ne uităm la semaforul nostru, cel pentru pietoni, a spus Bunicul. Are doar două culori: omulețul roșu și omulețul verde. Acum ardea omulețul roșu. Tobi țopăia pe loc de nerăbdare: țop, țop, țop! — Pe roșu așteptăm, chiar dacă ne mănâncă lăbuțele, a râs Lio.",
+      "narration": [
+        {
+          "text": "— Dar noi ne uităm la semaforul nostru, cel pentru pietoni,",
+          "mood": "calm",
+          "speaker": "Bunicul Urs"
+        },
+        {
+          "text": "a spus Bunicul.",
+          "mood": "calm"
+        },
+        {
+          "text": "Are doar două culori: omulețul roșu și omulețul verde.",
+          "mood": "calm",
+          "speaker": "Bunicul Urs"
+        },
+        {
+          "text": "Acum ardea omulețul roșu.",
+          "mood": "calm"
+        },
+        {
+          "text": "Tobi țopăia pe loc de nerăbdare: țop, țop, țop!",
+          "mood": "vesel",
+          "pause": 0.3
+        },
+        {
+          "text": "— Pe roșu așteptăm, chiar dacă ne mănâncă lăbuțele,",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a râs Lio.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-03.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Tobi: a small white puppy with a big brown patch around one eye, soft floppy ears and a short wagging tail; Bunicul Urs: a big kind old brown bear with a grey muzzle, gentle eyes and a green knitted vest, walking upright slowly. Setting: a quiet, clean little town street on a sunny morning, a wide sidewalk with a curb, low colorful houses with no signs, a few trees, the street empty, a pedestrian crossing with wide white stripes painted across the street, and a pedestrian traffic light on a pole at the edge of the sidewalk, the pedestrian light glowing red. Action: Tobi, the small white puppy with a brown patch around one eye, hops up and down on the spot on the sidewalk, impatient and funny, still holding the paw of Bunicul Urs, the big kind old brown bear with a grey muzzle and a green knitted vest,; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands next to them, waiting calmly and laughing; all three stay behind the curb. Emotions: funny, patient. Important details: the red pedestrian light, the hopping puppy. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Pe stradă erau vopsite dungi albe, late. — O zebră culcată pe asfalt! s-a mirat Tobi. — Aproape! a zis Lio. Se numește trecere de pietoni. Pe aici traversăm strada, nu pe oriunde. Bunicul a dat din cap, mândru de Lio.",
+      "narration": [
+        {
+          "text": "Pe stradă erau vopsite dungi albe, late.",
+          "mood": "calm"
+        },
+        {
+          "text": "— O zebră culcată pe asfalt!",
+          "mood": "mirat",
+          "speaker": "Tobi"
+        },
+        {
+          "text": "s-a mirat Tobi.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Aproape!",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a zis Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "Se numește trecere de pietoni. Pe aici traversăm strada, nu pe oriunde.",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Bunicul a dat din cap, mândru de Lio.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-04.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Tobi: a small white puppy with a big brown patch around one eye, soft floppy ears and a short wagging tail; Bunicul Urs: a big kind old brown bear with a grey muzzle, gentle eyes and a green knitted vest, walking upright slowly. Setting: a quiet, clean little town street on a sunny morning, a wide sidewalk with a curb, low colorful houses with no signs, a few trees, the street empty, a pedestrian crossing with wide white stripes painted across the street, and a pedestrian traffic light on a pole at the edge of the sidewalk, the pedestrian light glowing red. Action: Tobi, the small white puppy with a brown patch around one eye, looks down in surprise at the wide white stripes of the pedestrian crossing, head tilted; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, explains, pointing at the stripes; Bunicul Urs, the big kind old brown bear with a grey muzzle and a green knitted vest, nods proudly; all three stand on the sidewalk. Emotions: curious, proud. Important details: the wide white stripes of the pedestrian crossing. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Deodată, omulețul s-a făcut verde! Tobi a vrut să pornească, dar Bunicul a zis: — Încă o clipă! Și pe verde ne uităm întâi: la stânga, la dreapta, apoi iar la stânga. S-au uitat toți trei. O mașină venea încet și s-a oprit frumos înainte de dungi. — Acum putem merge.",
+      "narration": [
+        {
+          "text": "Deodată, omulețul s-a făcut verde!",
+          "mood": "entuziasmat"
+        },
+        {
+          "text": "Tobi a vrut să pornească, dar Bunicul a zis:",
+          "mood": "calm"
+        },
+        {
+          "text": "— Încă o clipă! Și pe verde ne uităm întâi:",
+          "mood": "hotărât",
+          "speaker": "Bunicul Urs"
+        },
+        {
+          "text": "la stânga, la dreapta, apoi iar la stânga.",
+          "mood": "calm",
+          "speaker": "Bunicul Urs"
+        },
+        {
+          "text": "S-au uitat toți trei. O mașină venea încet și s-a oprit frumos înainte de dungi.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Acum putem merge.",
+          "mood": "calm",
+          "speaker": "Bunicul Urs"
+        }
+      ],
+      "image": "images/pagina-05.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Tobi: a small white puppy with a big brown patch around one eye, soft floppy ears and a short wagging tail; Bunicul Urs: a big kind old brown bear with a grey muzzle, gentle eyes and a green knitted vest, walking upright slowly. Setting: a quiet, clean little town street on a sunny morning, a wide sidewalk with a curb, low colorful houses with no signs, a few trees, the street empty, a pedestrian crossing with wide white stripes painted across the street, and a pedestrian traffic light on a pole at the edge of the sidewalk, the pedestrian light glowing green. Action: Bunicul Urs, the big kind old brown bear with a grey muzzle and a green knitted vest,, exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, and Tobi, the small white puppy with a brown patch around one eye, stand together at the edge of the curb, holding paws, all three turning their heads to look to the left along the empty street. Emotions: careful, calm. Important details: the green pedestrian light, all three looking to the left. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-left",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Au traversat pe dungi, de mână, fără să alerge. Tobi călca numai pe dungile albe, ca pe clapele unui pian: pa, pa, pam! — Mergem, nu alergăm, i-a amintit Bunicul. Și au ajuns cu bine pe trotuarul de partea cealaltă.",
+      "narration": [
+        {
+          "text": "Au traversat pe dungi, de mână, fără să alerge.",
+          "mood": "calm"
+        },
+        {
+          "text": "Tobi călca numai pe dungile albe, ca pe clapele unui pian:",
+          "mood": "vesel"
+        },
+        {
+          "text": "pa, pa, pam!",
+          "mood": "vesel",
+          "pause": 0.3
+        },
+        {
+          "text": "— Mergem, nu alergăm,",
+          "mood": "calm",
+          "speaker": "Bunicul Urs"
+        },
+        {
+          "text": "i-a amintit Bunicul.",
+          "mood": "calm"
+        },
+        {
+          "text": "Și au ajuns cu bine pe trotuarul de partea cealaltă.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-06.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Tobi: a small white puppy with a big brown patch around one eye, soft floppy ears and a short wagging tail; Bunicul Urs: a big kind old brown bear with a grey muzzle, gentle eyes and a green knitted vest, walking upright slowly. Setting: a quiet, clean little town street on a sunny morning, a wide sidewalk with a curb, low colorful houses with no signs, a few trees, the street empty, a pedestrian crossing with wide white stripes painted across the street, and a pedestrian traffic light on a pole at the edge of the sidewalk, the pedestrian light glowing green. Action: Bunicul Urs, the big kind old brown bear with a grey muzzle and a green knitted vest, walks calmly across the pedestrian crossing, holding the paws of exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, and Tobi, the small white puppy with a brown patch around one eye,; Tobi steps carefully only on the white stripes, smiling, as if playing on piano keys. Emotions: happy, careful, calm. Important details: the white stripes, the three holding paws while crossing. Camera: wide shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "În parc, mingea lui Tobi s-a rostogolit spre gardul viu, chiar lângă stradă. Tobi a vrut să fugă după ea. — Stop! a strigat Lio și l-a ținut de lăbuță. Lângă stradă, mingea o aduce un adult! Bunicul s-a uitat în jur și a luat mingea de lângă bordură. — Bravo, Lio!",
+      "narration": [
+        {
+          "text": "În parc, mingea lui Tobi s-a rostogolit spre gardul viu, chiar lângă stradă.",
+          "mood": "calm"
+        },
+        {
+          "text": "Tobi a vrut să fugă după ea.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Stop!",
+          "mood": "hotărât",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a strigat Lio și l-a ținut de lăbuță.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lângă stradă, mingea o aduce un adult!",
+          "mood": "hotărât",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Bunicul s-a uitat în jur și a luat mingea de lângă bordură.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Bravo, Lio!",
+          "mood": "vesel",
+          "speaker": "Bunicul Urs"
+        }
+      ],
+      "image": "images/pagina-07.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Tobi: a small white puppy with a big brown patch around one eye, soft floppy ears and a short wagging tail; Bunicul Urs: a big kind old brown bear with a grey muzzle, gentle eyes and a green knitted vest, walking upright slowly. Setting: a sunny green park with trees, soft grass and autumn leaves on the ground, a low hedge along the street. Action: a red ball has rolled next to the low hedge at the edge of the park; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, holds the paw of Tobi, the small white puppy with a brown patch around one eye, on the grass, keeping him back; Bunicul Urs, the big kind old brown bear with a grey muzzle and a green knitted vest, bends down calmly to pick up the red ball by the hedge. Emotions: careful, caring. Important details: the red ball by the hedge, Lio holding Tobi's paw. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Apoi Bunicul a inventat un joc: „Semaforul”. Când ridica o frunză roșie, toți încremeneau ca statuile. Când ridica o frunză verde, alergau prin iarbă. Tobi a încremenit cu o lăbuță în aer și cu limba scoasă. Lio a râs atât de tare, încât s-a mișcat și el! A pierdut, dar tot râdea.",
+      "narration": [
+        {
+          "text": "Apoi Bunicul a inventat un joc: „Semaforul”.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Când ridica o frunză roșie, toți încremeneau ca statuile.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Când ridica o frunză verde, alergau prin iarbă.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Tobi a încremenit cu o lăbuță în aer și cu limba scoasă.",
+          "mood": "vesel",
+          "pause": 0.3
+        },
+        {
+          "text": "Lio a râs atât de tare, încât s-a mișcat și el! A pierdut, dar tot râdea.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-08.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Tobi: a small white puppy with a big brown patch around one eye, soft floppy ears and a short wagging tail; Bunicul Urs: a big kind old brown bear with a grey muzzle, gentle eyes and a green knitted vest, walking upright slowly. Setting: a sunny green park with trees, soft grass and autumn leaves on the ground, a low hedge along the street. Action: Bunicul Urs, the big kind old brown bear with a grey muzzle and a green knitted vest, holds up a big red autumn leaf high like a stop sign; Tobi, the small white puppy with a brown patch around one eye, is frozen like a statue with one paw in the air, very funny; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, is frozen too, but bursting with laughter. Emotions: very funny, playful. Important details: the big red leaf held up high, the frozen puppy. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "leaves"
+      }
+    },
+    {
+      "text": "Seara, la întoarcere, Lio a spus regulile ca un mic învățător: — Ne oprim la marginea trotuarului. Așteptăm omulețul verde. Ne uităm la stânga, la dreapta și iar la stânga. Traversăm pe dungi, de mână cu un adult. — Ești cel mai bun semafor din oraș, a zâmbit Bunicul.",
+      "narration": [
+        {
+          "text": "Seara, la întoarcere, Lio a spus regulile ca un mic învățător:",
+          "mood": "calm"
+        },
+        {
+          "text": "— Ne oprim la marginea trotuarului. Așteptăm omulețul verde.",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Ne uităm la stânga, la dreapta și iar la stânga. Traversăm pe dungi, de mână cu un adult.",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "— Ești cel mai bun semafor din oraș,",
+          "mood": "vesel",
+          "speaker": "Bunicul Urs"
+        },
+        {
+          "text": "a zâmbit Bunicul.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-09.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Tobi: a small white puppy with a big brown patch around one eye, soft floppy ears and a short wagging tail; Bunicul Urs: a big kind old brown bear with a grey muzzle, gentle eyes and a green knitted vest, walking upright slowly. Setting: a quiet, clean little town street at sunset, with warm orange light, a wide sidewalk with a curb, low colorful houses with no signs, a few trees, the street empty, a pedestrian crossing with wide white stripes painted across the street, and a pedestrian traffic light on a pole at the edge of the sidewalk, the pedestrian light glowing green. Action: Bunicul Urs, the big kind old brown bear with a grey muzzle and a green knitted vest,, exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, and Tobi, the small white puppy with a brown patch around one eye, walk home across the pedestrian crossing, holding paws; Lio talks happily, counting the rules on his paw; Bunicul Urs smiles. Emotions: warm, proud, happy. Important details: the sunset light, the three holding paws on the crossing. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "glow"
+      }
+    }
+  ],
+  "categories": [
+    "invatam",
+    "amuzante"
+  ],
+  "review": {
+    "imaginatie": "Un semafor văzut ca „un robot cu trei ochi” (pagina 2), trecerea de pietoni ca „o zebră culcată pe asfalt” (4), dungile albe ca niște clape de pian (6) și jocul „Semaforul”, cu frunze roșii și verzi (8).",
+    "invatare": "Regulile traversării sunt arătate pas cu pas, în acțiune: mergem pe trotuar, de mână cu un adult (1); culorile semaforului pentru mașini (2) și omulețul roșu și verde pentru pietoni (3); trecerea de pietoni (4); și pe verde ne uităm la stânga, la dreapta și iar la stânga (5); traversăm de mână, fără să alergăm (6); lângă stradă nu fugim după minge (7). La final, Lio spune singur toate regulile (9).",
+    "umor": [
+      "pagina 2: „Uite, un robot cu trei ochi!”",
+      "pagina 3: Tobi țopăie pe loc de nerăbdare: „chiar dacă ne mănâncă lăbuțele”",
+      "pagina 4: „O zebră culcată pe asfalt!”",
+      "pagina 8: Tobi încremenește cu o lăbuță în aer și cu limba scoasă, iar Lio râde atât de tare, încât pierde"
+    ],
+    "emotie": "Nerăbdarea lui Tobi e pe înțelesul copiilor; nimeni nu-l ceartă, Bunicul îl ține blând de lăbuță. Lio crește pe parcurs: explică trecerea de pietoni (4), îl oprește pe Tobi la minge (7) și spune singur regulile (9), iar Bunicul e mândru de el. Final cald, la apus.",
+    "siguranta": "Toate regulile sunt corecte pentru copiii din România: copiii traversează doar cu un adult, de mână; pe trecerea de pietoni; la omulețul verde; după ce se uită la stânga, la dreapta și iar la stânga (în România mașinile vin întâi din stânga); fără să alerge. Lângă stradă, mingea o ia adultul (7). Nimeni nu traversează pe roșu și nimic nu e periculos sau înfricoșător.",
+    "imagini": "Lio, cățelușul Tobi și Bunicul Urs, un urs bătrân și blând (fără oameni), „exactly one lion cub, Lio”, cel mult trei personaje pe imagine. Fără mașini în imagini (ca să nu apară șoferi), fără inscripții (căsuțe „with no signs”), fără numere, fără oglinzi, fără guri de aproape. Semaforul pentru pietoni e descris doar prin culoarea luminii. Fiecare prompt arată momentul paginii, iar personajele stau pe trotuar, în spatele bordurii, cât e roșu. Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
+    "voce": "Narațiune veselă și liniștită; Bunicul Urs are o voce gravă, rară și caldă; Tobi o voce subțire și grăbită, de cățeluș; Lio vocea lui obișnuită, hotărât la „Stop!”. Pauze după „țop, țop, țop!”, „pa, pa, pam!” și când încremenește Tobi. Replicile sunt separate de vorbele naratorului."
+  },
+  "verified": false,
+  "questions": [
+    {
+      "text": "Când traversăm strada?",
+      "options": [
+        {
+          "text": "La omulețul roșu",
+          "emoji": "🔴"
+        },
+        {
+          "text": "La omulețul verde",
+          "emoji": "🟢"
+        }
+      ],
+      "answer": 1,
+      "explanation": "Corect! Pe verde, după ce ne uităm la stânga, la dreapta și iar la stânga."
+    },
+    {
+      "text": "Cu cine traversăm strada?",
+      "options": [
+        {
+          "text": "De mână cu un adult",
+          "image": "images/pagina-06.png"
+        },
+        {
+          "text": "Singuri, în fugă",
+          "emoji": "🏃"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Bravo! Copiii traversează de mână cu un adult, pe trecerea de pietoni, fără să alerge."
+    }
+  ]
+}
