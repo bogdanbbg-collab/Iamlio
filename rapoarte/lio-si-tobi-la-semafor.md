@@ -1,18 +1,8 @@
 # Lio și Tobi la semafor
 
-**Stare: ⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)** · verificată la 2026-11-16 04:34 UTC
+**Stare: ⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)** · verificată la 2026-11-16 04:45 UTC
 
 Poveste: `public/stories/lio-si-tobi-la-semafor/story.json`
-
-## Reparat automat
-
-Aceste lucruri au fost corectate automat în `story.json` (preia versiunea din repository înainte de a modifica din nou povestea):
-
-- pagina 2: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 3: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 4: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 5: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 9: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 
 ## Avertismente (merită verificate, dar nu blochează publicarea)
 
