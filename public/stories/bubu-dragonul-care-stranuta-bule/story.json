@@ -1,0 +1,438 @@
+{
+  "id": "bubu-dragonul-care-stranuta-bule",
+  "title": "Bubu, dragonul care strănuta bule",
+  "summary": "Dragonașul Bubu nu scoate foc, ci strănută bule de săpun, și se rușinează. Dar la serbarea pădurii, unde focul e periculos, bulele lui devin cele mai frumoase lumini.",
+  "age": "3-7",
+  "moral": "A fi diferit e frumos: ce te face altfel poate fi chiar darul tău.",
+  "learning": [
+    "a fi diferit e frumos; nu trebuie să fii ca ceilalți ca să fii special",
+    "focul arde și e periculos, mai ales în pădure"
+  ],
+  "created": "2026-11-17",
+  "tags": [
+    "dragon",
+    "bule de săpun",
+    "serbare",
+    "a fi diferit",
+    "pădure",
+    "prietenie"
+  ],
+  "illustrationStyle": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered.",
+  "characters": [
+    {
+      "name": "Lio",
+      "description": "a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression",
+      "voice": {
+        "pitch": 12,
+        "rate": 3
+      }
+    },
+    {
+      "name": "Bubu",
+      "description": "a small round mint-green baby dragon with a cream belly, tiny soft wings on his back, two small rounded horns, big friendly dark eyes and a short chubby tail, walking upright like a small child",
+      "voice": {
+        "type": "masculin",
+        "pitch": 16,
+        "rate": 2
+      }
+    }
+  ],
+  "cover": {
+    "image": "images/coperta.png",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bubu: a small round mint-green baby dragon with a cream belly, tiny soft wings on his back, two small rounded horns, big friendly dark eyes and a short chubby tail, walking upright like a small child. Setting: a sunny green forest with tall trees, soft moss, ferns and a big grey mossy rock, soft afternoon light. Action: Bubu, the small round mint-green baby dragon with tiny wings, sneezes a cloud of shiny soap bubbles while exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, laughs and reaches up to touch the bubbles. Emotions: joyful, funny. Important details: the shiny soap bubbles. Camera: wide cinematic cover shot, both faces clearly visible from the front.",
+    "animation": {
+      "camera": "zoom-in",
+      "effect": "bubbles"
+    }
+  },
+  "pages": [
+    {
+      "text": "În pădure trăia un dragonaș mic și verde, pe nume Bubu. În povești, dragonii scot foc pe nări. Bubu a încercat și el: a tras aer în piept și… Hapciu! Din nasul lui au zburat bule de săpun, mari și strălucitoare. Bubu s-a ascuns repede după o piatră, roșu de rușine.",
+      "narration": [
+        {
+          "text": "În pădure trăia un dragonaș mic și verde, pe nume Bubu.",
+          "mood": "calm"
+        },
+        {
+          "text": "În povești, dragonii scot foc pe nări. Bubu a încercat și el: a tras aer în piept și…",
+          "mood": "misterios",
+          "pause": 0.6
+        },
+        {
+          "text": "Hapciu!",
+          "mood": "vesel",
+          "pause": 0.4
+        },
+        {
+          "text": "Din nasul lui au zburat bule de săpun, mari și strălucitoare.",
+          "mood": "mirat"
+        },
+        {
+          "text": "Bubu s-a ascuns repede după o piatră, roșu de rușine.",
+          "mood": "trist"
+        }
+      ],
+      "image": "images/pagina-01.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Bubu: a small round mint-green baby dragon with a cream belly, tiny soft wings on his back, two small rounded horns, big friendly dark eyes and a short chubby tail, walking upright like a small child. Setting: a sunny green forest with tall trees, soft moss, ferns and a big grey mossy rock, soft afternoon light. Action: only Bubu, the small round mint-green baby dragon with tiny wings, sneezes and a cloud of big shiny soap bubbles flies out of his nose; he looks surprised and a little embarrassed, half hiding behind the big grey mossy rock. Emotions: surprised, shy, funny. Important details: the shiny soap bubbles flying from his nose, the mossy rock. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "bubbles"
+      }
+    },
+    {
+      "text": "Lio trecea pe acolo și a văzut o bulă plutind. A întins nasul spre ea și… pop! I s-a spart chiar pe nas. — Cine face bule atât de frumoase? a întrebat el. Bubu a scos capul de după piatră. — Eu. Dar un dragon adevărat scoate foc, nu bule, a oftat el.",
+      "narration": [
+        {
+          "text": "Lio trecea pe acolo și a văzut o bulă plutind.",
+          "mood": "calm"
+        },
+        {
+          "text": "A întins nasul spre ea și… pop! I s-a spart chiar pe nas.",
+          "mood": "vesel",
+          "pause": 0.4
+        },
+        {
+          "text": "— Cine face bule atât de frumoase?",
+          "mood": "mirat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a întrebat el.",
+          "mood": "calm"
+        },
+        {
+          "text": "Bubu a scos capul de după piatră.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Eu. Dar un dragon adevărat scoate foc, nu bule,",
+          "mood": "trist",
+          "speaker": "Bubu"
+        },
+        {
+          "text": "a oftat el.",
+          "mood": "trist"
+        }
+      ],
+      "image": "images/pagina-02.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bubu: a small round mint-green baby dragon with a cream belly, tiny soft wings on his back, two small rounded horns, big friendly dark eyes and a short chubby tail, walking upright like a small child. Setting: a sunny green forest with tall trees, soft moss, ferns and a big grey mossy rock, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands in the forest with a soap bubble popping right on the tip of his nose, tiny sparkly droplets around it, eyes crossed, laughing; Bubu, the small round mint-green baby dragon with tiny wings, peeks shyly from behind the big mossy rock. Emotions: funny, curious, shy. Important details: the bubble popping on Lio's nose, the dragon peeking. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "bubbles"
+      }
+    },
+    {
+      "text": "— Mâine e serbarea pădurii și toți vor să vadă un dragon. Hai să exersez focul! Bubu și-a umflat obrajii, s-a făcut roșu la față și a suflat cât a putut. A ieșit o bulă uriașă, care l-a învelit pe Lio de la urechi până la bărbie. — Arăt ca un astronaut! a râs Lio, din bula lui.",
+      "narration": [
+        {
+          "text": "— Mâine e serbarea pădurii și toți vor să vadă un dragon. Hai să exersez focul!",
+          "mood": "hotărât",
+          "speaker": "Bubu"
+        },
+        {
+          "text": "Bubu și-a umflat obrajii, s-a făcut roșu la față și a suflat cât a putut.",
+          "mood": "calm",
+          "pause": 0.4
+        },
+        {
+          "text": "A ieșit o bulă uriașă, care l-a învelit pe Lio de la urechi până la bărbie.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Arăt ca un astronaut!",
+          "mood": "entuziasmat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a râs Lio, din bula lui.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-03.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bubu: a small round mint-green baby dragon with a cream belly, tiny soft wings on his back, two small rounded horns, big friendly dark eyes and a short chubby tail, walking upright like a small child. Setting: a sunny green forest with tall trees, soft moss, ferns and a big grey mossy rock, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, laughs with a big round shiny soap bubble around his whole head, like an astronaut helmet; next to him, Bubu, the small round mint-green baby dragon with tiny wings, with puffed cheeks looks embarrassed, a paw over his mouth. Emotions: very funny, playful, a little embarrassed. Important details: the big bubble around Lio's head like a helmet. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "bubbles"
+      }
+    },
+    {
+      "text": "Bula s-a spart, iar Lio s-a așezat lângă Bubu. — Focul arde și poate face rău. Bulele tale nu fac rău nimănui, a spus el. Și știi ce? La serbare nu vor fi artificii, pentru că focul e periculos în pădure. Toți sunt triști că nu vor avea lumini. Bubu a ridicat capul. Lio zâmbea, de parcă avea o idee.",
+      "narration": [
+        {
+          "text": "Bula s-a spart, iar Lio s-a așezat lângă Bubu.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Focul arde și poate face rău. Bulele tale nu fac rău nimănui,",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a spus el.",
+          "mood": "calm"
+        },
+        {
+          "text": "Și știi ce? La serbare nu vor fi artificii, pentru că focul e periculos în pădure.",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Toți sunt triști că nu vor avea lumini.",
+          "mood": "trist",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Bubu a ridicat capul. Lio zâmbea, de parcă avea o idee.",
+          "mood": "mirat"
+        }
+      ],
+      "image": "images/pagina-04.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bubu: a small round mint-green baby dragon with a cream belly, tiny soft wings on his back, two small rounded horns, big friendly dark eyes and a short chubby tail, walking upright like a small child. Setting: a sunny green forest with tall trees, soft moss, ferns and a big grey mossy rock, soft late-afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits on the soft moss next to Bubu, the small round mint-green baby dragon with tiny wings, and talks to him kindly, one paw on his shoulder; Bubu slowly lifts his head, curious. Emotions: gentle, hopeful. Important details: Lio's kind paw on Bubu's shoulder. Camera: close-up.",
+      "animation": {
+        "camera": "pan-left",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "A doua zi, la apus, toate animalele pădurii s-au adunat în poiană. Erau ghirlande de flori și felinare, dar nimeni nu avea voie să le aprindă cu foc. Bubu tremura din toate solzișorii. — Dacă râd de mine? a șoptit el. — Vor râde de bucurie, i-a șoptit Lio. Respiră adânc și strănută din toată inima!",
+      "narration": [
+        {
+          "text": "A doua zi, la apus, toate animalele pădurii s-au adunat în poiană.",
+          "mood": "calm"
+        },
+        {
+          "text": "Erau ghirlande de flori și felinare, dar nimeni nu avea voie să le aprindă cu foc.",
+          "mood": "calm"
+        },
+        {
+          "text": "Bubu tremura din toate solzișorii.",
+          "mood": "trist"
+        },
+        {
+          "text": "— Dacă râd de mine?",
+          "mood": "trist",
+          "speaker": "Bubu"
+        },
+        {
+          "text": "a șoptit el.",
+          "mood": "șoptit"
+        },
+        {
+          "text": "— Vor râde de bucurie,",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "i-a șoptit Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "Respiră adânc și strănută din toată inima!",
+          "mood": "calm",
+          "speaker": "Lio"
+        }
+      ],
+      "image": "images/pagina-05.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bubu: a small round mint-green baby dragon with a cream belly, tiny soft wings on his back, two small rounded horns, big friendly dark eyes and a short chubby tail, walking upright like a small child. Setting: a forest clearing decorated for a celebration, with garlands of wildflowers hanging between the trees, wooden benches and paper lanterns that are not lit, warm golden sunset light. Action: at the edge of the decorated clearing, Bubu, the small round mint-green baby dragon with tiny wings, stands nervously, holding his tail; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands next to him and whispers encouragingly in his ear, smiling. Emotions: nervous, encouraging, warm. Important details: the flower garlands, the unlit paper lanterns, the sunset light. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Bubu a tras aer în piept… Ha… ha… HAPCIU! Sute de bule au zburat peste poiană. În lumina apusului, fiecare bulă sclipea în toate culorile curcubeului, ca niște artificii care nu ard. Toată pădurea a strigat: „Uaaau!”",
+      "narration": [
+        {
+          "text": "Bubu a tras aer în piept…",
+          "mood": "misterios",
+          "pause": 0.6
+        },
+        {
+          "text": "Ha… ha… HAPCIU!",
+          "mood": "entuziasmat",
+          "pause": 0.5
+        },
+        {
+          "text": "Sute de bule au zburat peste poiană.",
+          "mood": "entuziasmat"
+        },
+        {
+          "text": "În lumina apusului, fiecare bulă sclipea în toate culorile curcubeului, ca niște artificii care nu ard.",
+          "mood": "mirat"
+        },
+        {
+          "text": "Toată pădurea a strigat: „Uaaau!”",
+          "mood": "entuziasmat"
+        }
+      ],
+      "image": "images/pagina-06.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bubu: a small round mint-green baby dragon with a cream belly, tiny soft wings on his back, two small rounded horns, big friendly dark eyes and a short chubby tail, walking upright like a small child. Setting: a forest clearing decorated for a celebration, with garlands of wildflowers hanging between the trees, wooden benches and paper lanterns that are not lit, warm golden sunset light. Action: Bubu, the small round mint-green baby dragon with tiny wings, sneezes happily and a huge cloud of shimmering soap bubbles floats over the decorated clearing, each bubble glowing with rainbow colors in the sunset light like fireworks that do not burn; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, cheers next to him with both paws up. Emotions: joyful, amazed, magical. Important details: the many shimmering rainbow bubbles over the clearing. Camera: wide shot.",
+      "animation": {
+        "camera": "pan-up",
+        "effect": "bubbles"
+      }
+    },
+    {
+      "text": "Bulele pluteau printre felinare și le făceau să strălucească. Lio a început să danseze printre ele. Pop! una pe nas. Pop! una pe coadă. Pop! una pe ureche. Bubu râdea atât de tare, încât mai strănuta câte o bulă: hapciu, hapciu! De data asta, nu se mai ascundea deloc.",
+      "narration": [
+        {
+          "text": "Bulele pluteau printre felinare și le făceau să strălucească.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lio a început să danseze printre ele. Pop! una pe nas. Pop! una pe coadă. Pop! una pe ureche.",
+          "mood": "vesel",
+          "pause": 0.3
+        },
+        {
+          "text": "Bubu râdea atât de tare, încât mai strănuta câte o bulă: hapciu, hapciu!",
+          "mood": "vesel"
+        },
+        {
+          "text": "De data asta, nu se mai ascundea deloc.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-07.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bubu: a small round mint-green baby dragon with a cream belly, tiny soft wings on his back, two small rounded horns, big friendly dark eyes and a short chubby tail, walking upright like a small child. Setting: a forest clearing decorated for a celebration, with garlands of wildflowers hanging between the trees, wooden benches and paper lanterns that are not lit, warm golden sunset light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, dances happily among floating rainbow soap bubbles, one bubble popping on his tail tuft; Bubu, the small round mint-green baby dragon with tiny wings, laughs out loud next to him, a few small bubbles coming from his nose. Emotions: joyful, playful. Important details: the dancing among the bubbles. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "bubbles"
+      }
+    },
+    {
+      "text": "Când s-a terminat serbarea, Bubu s-a așezat lângă Lio. — Credeam că trebuie să fiu ca toți ceilalți dragoni, a spus el. — Dacă erai ca ceilalți, azi nu aveam bulele tale, a zâmbit Lio. Ești diferit, și asta e frumos. Bubu a simțit cum i se încălzește inimioara.",
+      "narration": [
+        {
+          "text": "Când s-a terminat serbarea, Bubu s-a așezat lângă Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Credeam că trebuie să fiu ca toți ceilalți dragoni,",
+          "mood": "calm",
+          "speaker": "Bubu"
+        },
+        {
+          "text": "a spus el.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Dacă erai ca ceilalți, azi nu aveam bulele tale,",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a zâmbit Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "Ești diferit, și asta e frumos.",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Bubu a simțit cum i se încălzește inimioara.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-08.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bubu: a small round mint-green baby dragon with a cream belly, tiny soft wings on his back, two small rounded horns, big friendly dark eyes and a short chubby tail, walking upright like a small child. Setting: a forest clearing decorated for a celebration, with garlands of wildflowers hanging between the trees, wooden benches and paper lanterns that are not lit, the last soft pink light of the evening. Action: Bubu, the small round mint-green baby dragon with tiny wings, and exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sit side by side on a wooden bench in the decorated clearing, smiling at each other, a few last bubbles floating around them. Emotions: warm, proud, tender. Important details: the two friends on the bench. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "hearts"
+      }
+    },
+    {
+      "text": "Noaptea, luna s-a ridicat deasupra pădurii. Bubu a căscat și a mai strănutat încet o bulă mică, mică. Bula a plutit spre lună și a strălucit ca o stea nouă. — Noapte bună, Lio, a șoptit Bubu. — Noapte bună, cel mai special dragon, a șoptit Lio.",
+      "narration": [
+        {
+          "text": "Noaptea, luna s-a ridicat deasupra pădurii.",
+          "mood": "somnoros"
+        },
+        {
+          "text": "Bubu a căscat și a mai strănutat încet o bulă mică, mică.",
+          "mood": "somnoros"
+        },
+        {
+          "text": "Bula a plutit spre lună și a strălucit ca o stea nouă.",
+          "mood": "somnoros"
+        },
+        {
+          "text": "— Noapte bună, Lio,",
+          "mood": "somnoros",
+          "speaker": "Bubu"
+        },
+        {
+          "text": "a șoptit Bubu.",
+          "mood": "șoptit"
+        },
+        {
+          "text": "— Noapte bună, cel mai special dragon,",
+          "mood": "somnoros",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a șoptit Lio.",
+          "mood": "șoptit"
+        }
+      ],
+      "image": "images/pagina-09.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bubu: a small round mint-green baby dragon with a cream belly, tiny soft wings on his back, two small rounded horns, big friendly dark eyes and a short chubby tail, walking upright like a small child. Setting: a quiet forest clearing at night under a big round moon, soft silver light, a dark-blue starry sky. Action: Bubu, the small round mint-green baby dragon with tiny wings, lies sleepily on the soft grass, yawning, as one tiny shiny bubble floats up toward the big round moon; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, lies next to him, smiling with sleepy eyes. Emotions: peaceful, sleepy, warm. Important details: the tiny bubble floating toward the moon. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "stars"
+      }
+    }
+  ],
+  "categories": [
+    "amuzante",
+    "prietenie"
+  ],
+  "review": {
+    "imaginatie": "Un dragonaș care, în loc de foc, strănută bule de săpun (pagina 1), o bulă uriașă care îl face pe Lio „astronaut” (3) și bule care sclipesc în lumina apusului „ca niște artificii care nu ard” (6); la final, o bulă mică plutește spre lună ca o stea nouă (9).",
+    "invatare": "„A fi diferit e frumos” e chiar firul poveștii: Bubu se rușinează că nu e ca dragonii din povești (1–3), dar tocmai darul lui diferit salvează serbarea (6), iar la final spune singur ce a înțeles (8). Siguranță: focul arde și poate face rău, iar în pădure e periculos; de aceea la serbare nu sunt artificii (4).",
+    "umor": [
+      "pagina 1: „Hapciu!” și în loc de foc ies bule",
+      "pagina 2: o bulă se sparge chiar pe nasul lui Lio: pop!",
+      "pagina 3: bula uriașă îl învelește pe Lio: „Arăt ca un astronaut!”",
+      "pagina 7: pop pe nas, pop pe coadă, pop pe ureche, iar Bubu râde și strănută bule"
+    ],
+    "emotie": "Rușinea lui Bubu e blândă și pe înțelesul copiilor (1–2); nimeni nu râde de el: Lio râde cu el. Emoția dinaintea serbării (5) e reală, iar Lio îl încurajează. Bucuria de la pagina 6 e meritată, iar finalul e cald și somnoros, cu „cel mai special dragon” (9).",
+    "siguranta": "Nimic periculos: nu e foc nicăieri, iar povestea spune limpede că focul arde și e periculos în pădure (4). Bulele de săpun sunt o joacă obișnuită. Nimeni nu râde de Bubu; nimic înfricoșător.",
+    "imagini": "Doar Lio și dragonașul verde (fără oameni); celelalte animale de la serbare apar doar în text, ca imaginile să rămână simple. „exactly one lion cub, Lio”, iar pe pagina 1 „only Bubu”. Fără numere de obiecte (bulele sunt „a cloud of soap bubbles”), fără litere, fără oglinzi, fără guri de aproape, fără „nest/basket/blanket”. Felinarele sunt „not lit”, ca să nu apară foc. Fiecare prompt arată momentul paginii. Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
+    "voce": "Narațiune veselă, cu pauze înaintea strănuturilor („Hapciu!”, „Ha… ha… HAPCIU!”) și după „pop!”; șoptită când Bubu are emoții (5) și somnoroasă la final (9). Bubu are o voce de dragonaș mic, caldă și puțin timidă; Lio vocea lui obișnuită. Replicile sunt separate de vorbele naratorului."
+  },
+  "verified": false,
+  "questions": [
+    {
+      "text": "Ce scotea Bubu când strănuta?",
+      "options": [
+        {
+          "text": "Foc",
+          "emoji": "🔥"
+        },
+        {
+          "text": "Bule de săpun",
+          "image": "images/pagina-01.png"
+        }
+      ],
+      "answer": 1,
+      "explanation": "Corect! Bubu strănuta bule de săpun, nu foc."
+    },
+    {
+      "text": "De ce nu au fost artificii la serbarea din pădure?",
+      "options": [
+        {
+          "text": "Focul e periculos în pădure",
+          "emoji": "🌲"
+        },
+        {
+          "text": "Nu le plăceau luminile",
+          "emoji": "🙈"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Bravo! În pădure focul e periculos. Bulele lui Bubu au fost lumini care nu ard."
+    }
+  ]
+}
