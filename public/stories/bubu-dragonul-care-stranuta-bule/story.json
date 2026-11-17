@@ -38,7 +38,7 @@
     }
   ],
   "cover": {
-    "image": "images/coperta.png",
+    "image": "images/coperta.webp",
     "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bubu: a small round mint-green baby dragon with a cream belly, tiny folded mint-green wings on his back, two small rounded cream horns, a soft rounded snout, big friendly dark eyes, short chubby arms and legs and a short chubby tail, walking upright like a small child. Setting: a sunny green forest with tall trees, soft moss, ferns and a big grey mossy rock, soft afternoon light. Action: Bubu, the small round mint-green baby dragon with tiny wings, sneezes a cloud of shiny soap bubbles while exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, laughs and reaches up to touch the bubbles. Emotions: joyful, funny. Important details: the shiny soap bubbles. Camera: wide cinematic cover shot, both faces clearly visible from the front.",
     "animation": {
       "camera": "zoom-in",
@@ -72,7 +72,7 @@
           "mood": "trist"
         }
       ],
-      "image": "images/pagina-01.png",
+      "image": "images/pagina-01.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Bubu: a small round mint-green baby dragon with a cream belly, tiny folded mint-green wings on his back, two small rounded cream horns, a soft rounded snout, big friendly dark eyes, short chubby arms and legs and a short chubby tail, walking upright like a small child. Setting: a sunny green forest with tall trees, soft moss, ferns and a big grey mossy rock, soft afternoon light. Action: only Bubu, the small round mint-green baby dragon with tiny wings, sneezes and a cloud of big shiny soap bubbles flies out of his nose; he looks surprised and a little embarrassed, a rosy blush on his mint-green cheeks, half hiding behind the big grey mossy rock. Emotions: surprised, shy, funny. Important details: the shiny soap bubbles flying from his nose, the mossy rock. Camera: medium shot.",
       "animation": {
         "camera": "zoom-in",
@@ -122,7 +122,7 @@
           "mood": "trist"
         }
       ],
-      "image": "images/pagina-02.png",
+      "image": "images/pagina-02.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bubu: a small round mint-green baby dragon with a cream belly, tiny folded mint-green wings on his back, two small rounded cream horns, a soft rounded snout, big friendly dark eyes, short chubby arms and legs and a short chubby tail, walking upright like a small child. Setting: a sunny green forest with tall trees, soft moss, ferns and a big grey mossy rock, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands in the forest with a soap bubble popping right on the tip of his nose, tiny sparkly droplets around it, eyes crossed, laughing; Bubu, the small round mint-green baby dragon with tiny wings, peeks shyly from behind the big mossy rock. Emotions: funny, curious, shy. Important details: the bubble popping on Lio's nose, the dragon peeking. Camera: medium shot.",
       "animation": {
         "camera": "pan-right",
@@ -160,7 +160,7 @@
           "mood": "vesel"
         }
       ],
-      "image": "images/pagina-03.png",
+      "image": "images/pagina-03.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bubu: a small round mint-green baby dragon with a cream belly, tiny folded mint-green wings on his back, two small rounded cream horns, a soft rounded snout, big friendly dark eyes, short chubby arms and legs and a short chubby tail, walking upright like a small child. Setting: a sunny green forest with tall trees, soft moss, ferns and a big grey mossy rock, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, laughs with a big round shiny soap bubble around his whole head, like an astronaut helmet; next to him, Bubu, the small round mint-green baby dragon with tiny wings, with cheeks still puffed looks amazed at the giant bubble. Emotions: very funny, playful, a little embarrassed. Important details: the big bubble around Lio's head like a helmet. Camera: medium shot.",
       "animation": {
         "camera": "zoom-in",
@@ -203,7 +203,7 @@
           "speaker": "Bubu"
         }
       ],
-      "image": "images/pagina-04.png",
+      "image": "images/pagina-04.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bubu: a small round mint-green baby dragon with a cream belly, tiny folded mint-green wings on his back, two small rounded cream horns, a soft rounded snout, big friendly dark eyes, short chubby arms and legs and a short chubby tail, walking upright like a small child. Setting: a sunny green forest with tall trees, soft moss, ferns and a big grey mossy rock, soft late-afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits on the soft moss next to Bubu, the small round mint-green baby dragon with tiny wings, and talks to him kindly, one paw on his shoulder; Bubu lifts his head with bright, excited sparkling eyes, and Lio smiles at him. Emotions: gentle, hopeful, excited. Important details: Bubu's excited sparkling eyes. Camera: close-up.",
       "animation": {
         "camera": "pan-left",
@@ -249,7 +249,7 @@
           "speaker": "Lio"
         }
       ],
-      "image": "images/pagina-05.png",
+      "image": "images/pagina-05.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bubu: a small round mint-green baby dragon with a cream belly, tiny folded mint-green wings on his back, two small rounded cream horns, a soft rounded snout, big friendly dark eyes, short chubby arms and legs and a short chubby tail, walking upright like a small child. Setting: a forest clearing decorated for a celebration, softly blurred in the background like bokeh: garlands of wildflowers hanging between the trees and pastel paper lanterns of plain matte paper, warm golden sunset light. Action: in the foreground, Bubu, the small round mint-green baby dragon with tiny wings, stands nervously, holding his tail; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands next to him, leans close and whispers to him, smiling. Emotions: nervous, encouraging, warm. Important details: the blurred flower garlands and paper lanterns behind them, the sunset light. Camera: medium shot.",
       "animation": {
         "camera": "zoom-out",
@@ -282,7 +282,7 @@
           "mood": "entuziasmat"
         }
       ],
-      "image": "images/pagina-06.png",
+      "image": "images/pagina-06.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bubu: a small round mint-green baby dragon with a cream belly, tiny folded mint-green wings on his back, two small rounded cream horns, a soft rounded snout, big friendly dark eyes, short chubby arms and legs and a short chubby tail, walking upright like a small child. Setting: a forest clearing decorated for a celebration, softly blurred in the background like bokeh: garlands of wildflowers hanging between the trees and pastel paper lanterns of plain matte paper, warm golden sunset light. Action: low angle looking up: Bubu, the small round mint-green baby dragon with tiny wings, sneezes happily and a huge cloud of soap bubbles rises into the sky, each bubble shimmering with rainbow colors in the sunset light, sparkling like floating jewels; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, cheers next to him with both paws up. Emotions: joyful, amazed, magical. Important details: the many shimmering rainbow bubbles rising into the sky. Camera: low angle, wide shot.",
       "animation": {
         "camera": "pan-up",
@@ -324,7 +324,7 @@
           "mood": "vesel"
         }
       ],
-      "image": "images/pagina-07.png",
+      "image": "images/pagina-07.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bubu: a small round mint-green baby dragon with a cream belly, tiny folded mint-green wings on his back, two small rounded cream horns, a soft rounded snout, big friendly dark eyes, short chubby arms and legs and a short chubby tail, walking upright like a small child. Setting: a forest clearing decorated for a celebration, softly blurred in the background like bokeh: garlands of wildflowers hanging between the trees and pastel paper lanterns of plain matte paper, warm golden sunset light. Action: in the foreground, exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, dances happily among floating rainbow soap bubbles, one bubble popping on his tail tuft, rainbow reflections from the bubbles making the blurred pastel paper lanterns behind them shimmer; Bubu, the small round mint-green baby dragon with tiny wings, laughs out loud next to him, a few small bubbles coming from his nose. Emotions: joyful, playful. Important details: the dancing among the bubbles. Camera: medium shot.",
       "animation": {
         "camera": "pan-right",
@@ -366,7 +366,7 @@
           "mood": "calm"
         }
       ],
-      "image": "images/pagina-08.png",
+      "image": "images/pagina-08.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bubu: a small round mint-green baby dragon with a cream belly, tiny folded mint-green wings on his back, two small rounded cream horns, a soft rounded snout, big friendly dark eyes, short chubby arms and legs and a short chubby tail, walking upright like a small child. Setting: a forest clearing decorated for a celebration, softly blurred in the background like bokeh: garlands of wildflowers hanging between the trees and pastel paper lanterns of plain matte paper, the last soft pink light of the evening, a single wooden bench in front. Action: Bubu, the small round mint-green baby dragon with tiny wings, and exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sit side by side on a wooden bench in the decorated clearing, smiling at each other, a few last bubbles floating around them. Emotions: warm, proud, tender. Important details: the two friends on the bench. Camera: medium shot.",
       "animation": {
         "camera": "zoom-in",
@@ -407,7 +407,7 @@
           "mood": "șoptit"
         }
       ],
-      "image": "images/pagina-09.png",
+      "image": "images/pagina-09.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Bubu: a small round mint-green baby dragon with a cream belly, tiny folded mint-green wings on his back, two small rounded cream horns, a soft rounded snout, big friendly dark eyes, short chubby arms and legs and a short chubby tail, walking upright like a small child. Setting: a quiet forest clearing at night under a big round moon, soft silver light, a dark-blue starry sky. Action: Bubu, the small round mint-green baby dragon with tiny wings, lies sleepily on the soft grass, yawning, as one tiny shiny bubble floats up toward the big round moon; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, lies next to him, smiling with sleepy eyes. Emotions: peaceful, sleepy, warm. Important details: the tiny bubble floating toward the moon. Camera: wide shot.",
       "animation": {
         "camera": "zoom-out",
@@ -444,7 +444,7 @@
         },
         {
           "text": "Bule de săpun",
-          "image": "images/pagina-01.png"
+          "image": "images/pagina-01.webp"
         }
       ],
       "answer": 1,
