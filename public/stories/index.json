@@ -33,6 +33,29 @@
   ],
   "stories": [
     {
+      "id": "bubu-dragonul-care-stranuta-bule",
+      "title": "Bubu, dragonul care strănuta bule",
+      "summary": "Dragonașul Bubu nu scoate foc, ci strănută bule de săpun, și se rușinează. Dar la serbarea pădurii, unde focul e periculos, bulele lui devin cele mai frumoase lumini.",
+      "age": "3-7",
+      "tags": [
+        "dragon",
+        "bule de săpun",
+        "serbare",
+        "a fi diferit",
+        "pădure",
+        "prietenie"
+      ],
+      "categories": [
+        "amuzante",
+        "prietenie"
+      ],
+      "created": "2026-11-17",
+      "cover": "stories/bubu-dragonul-care-stranuta-bule/images/coperta.webp",
+      "pages": 9,
+      "minutes": 6,
+      "published": "2026-11-17"
+    },
+    {
       "id": "miti-pisicuta-care-voia-sa-zboare",
       "title": "Miți, pisicuța care voia să zboare",
       "summary": "Pisicuța Miți vrea să zboare ca vrăbiuța Cirip. Încercările ei sunt de râs, dar, când se lasă seara și Cirip nu-și mai găsește copacul, Miți descoperă ce poate face doar ea.",
