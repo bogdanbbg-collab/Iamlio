@@ -33,6 +33,30 @@
   ],
   "stories": [
     {
+      "id": "pici-furnicuta-si-cel-mai-greu-bob",
+      "title": "Furnicuța Pici și cel mai greu bob",
+      "summary": "Furnicuța Pici găsește un bob de grâu uriaș și vrea să-l ducă singură. După ce cade pe spate și rostogolește bobul în partea greșită, învață că e bine să ceri ajutor.",
+      "age": "3-7",
+      "tags": [
+        "furnică",
+        "echipă",
+        "ajutor",
+        "grâu",
+        "mușuroi",
+        "vară"
+      ],
+      "categories": [
+        "animale",
+        "prietenie",
+        "invatam"
+      ],
+      "created": "2026-11-18",
+      "cover": "stories/pici-furnicuta-si-cel-mai-greu-bob/images/coperta.webp",
+      "pages": 9,
+      "minutes": 6,
+      "published": "2026-11-18"
+    },
+    {
       "id": "bubu-dragonul-care-stranuta-bule",
       "title": "Bubu, dragonul care strănuta bule",
       "summary": "Dragonașul Bubu nu scoate foc, ci strănută bule de săpun, și se rușinează. Dar la serbarea pădurii, unde focul e periculos, bulele lui devin cele mai frumoase lumini.",
