@@ -1,13 +1,13 @@
 {
   "id": "pici-furnicuta-si-cel-mai-greu-bob",
-  "title": "Pici, furnicuța și cel mai greu bob",
+  "title": "Furnicuța Pici și cel mai greu bob",
   "summary": "Furnicuța Pici găsește un bob de grâu uriaș și vrea să-l ducă singură. După ce cade pe spate și rostogolește bobul în partea greșită, învață că e bine să ceri ajutor.",
   "age": "3-7",
   "moral": "Să ceri ajutor nu e o rușine; împreună, lucrurile grele devin ușoare.",
   "learning": [
     "lucrul în echipă: împreună putem duce ce singuri nu putem",
     "a cere ajutor e un lucru bun, chiar și pentru cei puternici",
-    "furnicile sunt foarte puternice, vorbesc atingându-și antenele și strâng mâncare pentru iarnă"
+    "furnicile sunt foarte puternice, vorbesc atingându-și antenele și își păstrează semințele pentru iarnă"
   ],
   "created": "2026-11-18",
   "tags": [
@@ -40,7 +40,7 @@
   ],
   "cover": {
     "image": "images/coperta.png",
-    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Pici: a tiny cute red ant with a round head, big shiny dark eyes, two bendy antennae, six thin legs and a little green leaf worn like a hat. Setting: a sunny late-summer meadow seen from very close to the ground, tall green grass blades like a forest, small pebbles and clover leaves, warm golden light. Action: many plain red ants carry one big golden grain of wheat, much bigger than the tiny ant together through the grass, led by Pici, the tiny red ant with a little green leaf hat,; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, lies on his tummy in the grass behind them, smiling. Emotions: joyful, together. Important details: the grain carried by many ants, Lio's smiling face. Camera: wide cinematic cover shot, low angle.",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Pici: a tiny cute red ant with a round head, big shiny dark eyes, two bendy antennae, six thin legs and a little green leaf worn like a hat. Setting: a sunny late-summer meadow seen from very close to the ground, tall green grass blades like a forest, small pebbles and clover leaves, warm golden light. Action: a small group of smaller plain red ants with bare round heads; only Pici wears a leaf hat carry one big golden wheat grain (a single smooth oval golden kernel with a crease down the middle, much bigger than a single ant) together through the grass, led by Pici, the tiny red ant with a little green leaf hat in the foreground; behind them, the big smiling face of exactly one lion cub, Lio, with a turquoise scarf with little yellow stars lying on his tummy in the grass, slightly blurred. Emotions: joyful, together. Important details: the grain carried by many ants, Lio's smiling face. Camera: wide cinematic cover shot, low angle.",
     "animation": {
       "camera": "zoom-in",
       "effect": "none"
@@ -73,9 +73,9 @@
         }
       ],
       "image": "images/pagina-01.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Pici: a tiny cute red ant with a round head, big shiny dark eyes, two bendy antennae, six thin legs and a little green leaf worn like a hat. Setting: a sunny late-summer meadow seen from very close to the ground, tall green grass blades like a forest, small pebbles and clover leaves, warm golden light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, lies on his tummy in the grass with his chin on his paws, looking closely and curiously at Pici, the tiny red ant with a little green leaf hat, who stands proudly next to one big golden grain of wheat, much bigger than the tiny ant. Emotions: curious, cheerful. Important details: the tiny ant next to the big golden grain, Lio's big curious face. Camera: low angle close-up.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Pici: a tiny cute red ant with a round head, big shiny dark eyes, two bendy antennae, six thin legs and a little green leaf worn like a hat. Setting: a sunny late-summer meadow seen from very close to the ground, tall green grass blades like a forest, small pebbles and clover leaves, warm golden light. Action: ground-level macro shot: Pici in sharp focus in the foreground; Lio's big face, slightly blurred, fills the background. Pici, the tiny red ant with a little green leaf hat stands proudly next to one big golden wheat grain (a single smooth oval golden kernel with a crease down the middle, much bigger than a single ant); exactly one lion cub, Lio, with a turquoise scarf with little yellow stars lies on his tummy in the grass with his chin on his paws, looking at her curiously. Emotions: curious, cheerful. Important details: the tiny ant next to the big golden grain, Lio's big curious face behind. Camera: low angle close-up.",
       "animation": {
-        "camera": "zoom-in",
+        "camera": "zoom-out",
         "effect": "none"
       }
     },
@@ -92,9 +92,13 @@
           "pause": 0.4
         },
         {
-          "text": "A tras mai tare și… buf! A căzut pe spate, cu toate cele șase piciorușe în aer.",
+          "text": "A tras mai tare și… buf!",
           "mood": "vesel",
-          "pause": 0.4
+          "pause": 0.5
+        },
+        {
+          "text": "A căzut pe spate, cu toate cele șase piciorușe în aer.",
+          "mood": "vesel"
         },
         {
           "text": "— Vrei ajutor?",
@@ -116,17 +120,17 @@
         }
       ],
       "image": "images/pagina-02.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Pici: a tiny cute red ant with a round head, big shiny dark eyes, two bendy antennae, six thin legs and a little green leaf worn like a hat. Setting: a sunny late-summer meadow seen from very close to the ground, tall green grass blades like a forest, small pebbles and clover leaves, warm golden light. Action: Pici, the tiny red ant with a little green leaf hat, has fallen on her back next to one big golden grain of wheat, much bigger than the tiny ant, her little legs up in the air, funny; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, lies in the grass behind, watching with a kind, amused smile. Emotions: funny, stubborn. Important details: the ant on her back with legs in the air, the big grain. Camera: close-up.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Pici: a tiny cute red ant with a round head, big shiny dark eyes, two bendy antennae, six thin legs and a little green leaf worn like a hat. Setting: a sunny late-summer meadow seen from very close to the ground, tall green grass blades like a forest, small pebbles and clover leaves, warm golden light. Action: ground-level macro shot: Pici in sharp focus in the foreground; Lio's big face, slightly blurred, fills the background. Pici, the tiny red ant with a little green leaf hat has fallen on her back next to one big golden wheat grain (a single smooth oval golden kernel with a crease down the middle, much bigger than a single ant), her little legs up in the air, funny; Lio watches with a kind smile. Emotions: funny, stubborn. Important details: the ant on her back with legs in the air, the big grain. Camera: close-up.",
       "animation": {
         "camera": "zoom-in",
         "effect": "none"
       }
     },
     {
-      "text": "Atunci Pici a avut o idee: să rostogolească bobul la vale. Bobul s-a rostogolit… dar în partea cealaltă! S-a oprit drept într-o păpădie pufoasă. Pfff! Toate semințele de păpădie au zburat prin aer, ca niște umbreluțe. Lio a strănutat de râs.",
+      "text": "Atunci Pici a avut o idee: să rostogolească bobul spre mușuroi. Bobul s-a rostogolit… dar în partea cealaltă! S-a oprit drept într-o păpădie pufoasă. Pfff! Semințele de păpădie au zburat prin aer, ca niște parașute mici. Puful i-a intrat lui Lio în nas: hapciu! Pici a chicotit și ea.",
       "narration": [
         {
-          "text": "Atunci Pici a avut o idee: să rostogolească bobul la vale.",
+          "text": "Atunci Pici a avut o idee: să rostogolească bobul spre mușuroi.",
           "mood": "hotărât"
         },
         {
@@ -140,23 +144,28 @@
           "pause": 0.4
         },
         {
-          "text": "Toate semințele de păpădie au zburat prin aer, ca niște umbreluțe.",
+          "text": "Semințele de păpădie au zburat prin aer, ca niște parașute mici.",
           "mood": "mirat"
         },
         {
-          "text": "Lio a strănutat de râs.",
+          "text": "Puful i-a intrat lui Lio în nas: hapciu!",
+          "mood": "vesel",
+          "pause": 0.5
+        },
+        {
+          "text": "Pici a chicotit și ea.",
           "mood": "vesel"
         }
       ],
       "image": "images/pagina-03.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Pici: a tiny cute red ant with a round head, big shiny dark eyes, two bendy antennae, six thin legs and a little green leaf worn like a hat. Setting: a sunny late-summer meadow seen from very close to the ground, tall green grass blades like a forest, small pebbles and clover leaves, warm golden light. Action: one big golden grain of wheat, much bigger than the tiny ant has rolled into a round white dandelion puff, and the fluffy dandelion seeds fly away through the air like tiny umbrellas; Pici, the tiny red ant with a little green leaf hat, stands nearby with her antennae drooping, surprised; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, laughs in the background. Emotions: funny, surprised. Important details: the flying dandelion seeds, the grain in the dandelion. Camera: medium shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Pici: a tiny cute red ant with a round head, big shiny dark eyes, two bendy antennae, six thin legs and a little green leaf worn like a hat. Setting: a sunny late-summer meadow seen from very close to the ground, tall green grass blades like a forest, small pebbles and clover leaves, warm golden light. Action: one big golden wheat grain (a single smooth oval golden kernel with a crease down the middle, much bigger than a single ant) lies in a round white dandelion puff, and tiny white fluffy parachute-shaped dandelion seeds float up into the air; Pici, the tiny red ant with a little green leaf hat giggles in the foreground; in the background exactly one lion cub, Lio, with a turquoise scarf with little yellow stars sneezes, his eyes squeezed shut, a little fluff around his nose. Emotions: funny, surprised. Important details: the floating dandelion seeds, the grain in the dandelion. Camera: medium shot.",
       "animation": {
         "camera": "pan-up",
         "effect": "none"
       }
     },
     {
-      "text": "Pici s-a așezat pe o pietricică, tristă. — Eu sunt prea mică, a oftat ea. — Furnicile sunt foarte puternice, a spus Lio. Pot duce lucruri mult mai grele decât ele. Dar și cei puternici cer ajutor. Și eu cer, când ceva e prea greu pentru mine. Pici și-a mișcat antenele, gânditoare.",
+      "text": "Pici s-a așezat pe o pietricică, tristă. — Eu sunt prea mică, a oftat ea. — Furnicile sunt foarte puternice, a spus Lio. Pot duce lucruri mult mai grele decât ele. Dar și cei puternici cer ajutor. Și eu cer ajutor când ceva e prea greu pentru mine. Pici și-a mișcat antenele, gânditoare.",
       "narration": [
         {
           "text": "Pici s-a așezat pe o pietricică, tristă.",
@@ -181,29 +190,24 @@
           "mood": "calm"
         },
         {
-          "text": "Pot duce lucruri mult mai grele decât ele.",
-          "mood": "calm",
-          "speaker": "Lio"
-        },
-        {
-          "text": "Dar și cei puternici cer ajutor. Și eu cer, când ceva e prea greu pentru mine.",
+          "text": "Pot duce lucruri mult mai grele decât ele. Dar și cei puternici cer ajutor. Și eu cer ajutor când ceva e prea greu pentru mine.",
           "mood": "calm",
           "speaker": "Lio"
         },
         {
           "text": "Pici și-a mișcat antenele, gânditoare.",
-          "mood": "mirat"
+          "mood": "calm"
         }
       ],
       "image": "images/pagina-04.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Pici: a tiny cute red ant with a round head, big shiny dark eyes, two bendy antennae, six thin legs and a little green leaf worn like a hat. Setting: a sunny late-summer meadow seen from very close to the ground, tall green grass blades like a forest, small pebbles and clover leaves, warm golden light. Action: Pici, the tiny red ant with a little green leaf hat, sits sadly on a small pebble, antennae drooping; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, lies in the grass close to her, his big face gentle and kind, talking softly to her. Emotions: gentle, a little sad, thoughtful. Important details: the tiny ant on the pebble, Lio's kind face close to her. Camera: close-up.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Pici: a tiny cute red ant with a round head, big shiny dark eyes, two bendy antennae, six thin legs and a little green leaf worn like a hat. Setting: a sunny late-summer meadow seen from very close to the ground, tall green grass blades like a forest, small pebbles and clover leaves, warm golden light. Action: ground-level macro shot: Pici in sharp focus in the foreground; Lio's big face, slightly blurred, fills the background. Pici, the tiny red ant with a little green leaf hat sits sadly on a small pebble, antennae drooping; Lio lies close to her, smiling gently. Emotions: gentle, a little sad, thoughtful. Important details: the tiny ant on the pebble, Lio's kind face behind. Camera: close-up.",
       "animation": {
         "camera": "pan-left",
         "effect": "none"
       }
     },
     {
-      "text": "Apoi a alergat la șirul de furnici care mergea spre mușuroi. Și-a atins antenele de antenele surioarelor ei. Așa vorbesc furnicile. — Mă ajutați? Am găsit un bob mare pentru iarnă! Și, una după alta, furnicile au venit în fugă.",
+      "text": "Apoi a alergat la șirul de furnici care mergea spre mușuroi. Și-a atins antenele de antenele surioarelor ei. Așa vorbesc furnicile. Și le-a spus: — Mă ajutați? Am găsit un bob mare pentru iarnă! Și, una după alta, furnicile au venit în fugă.",
       "narration": [
         {
           "text": "Apoi a alergat la șirul de furnici care mergea spre mușuroi.",
@@ -211,6 +215,10 @@
         },
         {
           "text": "Și-a atins antenele de antenele surioarelor ei. Așa vorbesc furnicile.",
+          "mood": "calm"
+        },
+        {
+          "text": "Și le-a spus:",
           "mood": "calm"
         },
         {
@@ -224,47 +232,56 @@
         }
       ],
       "image": "images/pagina-05.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Pici: a tiny cute red ant with a round head, big shiny dark eyes, two bendy antennae, six thin legs and a little green leaf worn like a hat. Setting: a sunny late-summer meadow seen from very close to the ground, tall green grass blades like a forest, small pebbles and clover leaves, warm golden light, a small earthen anthill with a round opening in the background. Action: Pici, the tiny red ant with a little green leaf hat, touches antennae with the first ant of a line of small plain red ants without hats that walks toward the anthill; more plain red ants turn around and come running; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, watches from the grass, smiling. Emotions: hopeful, friendly, excited. Important details: the touching antennae, the line of ants. Camera: close-up.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Pici: a tiny cute red ant with a round head, big shiny dark eyes, two bendy antennae, six thin legs and a little green leaf worn like a hat. Setting: a sunny late-summer meadow seen from very close to the ground, tall green grass blades like a forest, small pebbles and clover leaves, warm golden light, a small earthen anthill with a round opening in the background. Action: Pici, the tiny red ant with a little green leaf hat, large in the foreground, touches antennae with one of a small group of smaller plain red ants with bare round heads; only Pici wears a leaf hat, who walk in a line toward the anthill; more plain ants turn around and come running. Emotions: hopeful, friendly, excited. Important details: the touching antennae, the line of plain ants. Camera: close-up.",
       "animation": {
         "camera": "pan-right",
         "effect": "none"
       }
     },
     {
-      "text": "Furnicile s-au așezat în jurul bobului. — La trei ridicăm! Unu, doi, trei! Hop! Bobul s-a ridicat ușor, ca o bărcuță aurie pe multe piciorușe. Și au pornit, cântând: hai-hop, hai-hop! Pici mergea în față, cu pălăria ei de frunză.",
+      "text": "Furnicile s-au așezat în jurul bobului. — La trei ridicăm! a strigat Pici. Unu, doi, trei! Hop! Bobul s-a ridicat ușor, ca o bărcuță aurie pe multe piciorușe. Și au pornit, cântând: hai-hop, hai-hop! Pici mergea în față, cu pălăria ei de frunză.",
       "narration": [
         {
           "text": "Furnicile s-au așezat în jurul bobului.",
           "mood": "calm"
         },
         {
-          "text": "— La trei ridicăm! Unu, doi, trei!",
+          "text": "— La trei ridicăm!",
           "mood": "hotărât",
           "speaker": "Pici"
         },
         {
-          "text": "Hop! Bobul s-a ridicat ușor, ca o bărcuță aurie pe multe piciorușe.",
+          "text": "a strigat Pici.",
+          "mood": "calm"
+        },
+        {
+          "text": "Unu, doi, trei!",
+          "mood": "hotărât",
+          "speaker": "Pici"
+        },
+        {
+          "text": "Hop!",
           "mood": "entuziasmat",
-          "pause": 0.3
+          "pause": 0.4
         },
         {
-          "text": "Și au pornit, cântând: hai-hop, hai-hop!",
-          "mood": "vesel"
+          "text": "Bobul s-a ridicat ușor, ca o bărcuță aurie pe multe piciorușe.",
+          "mood": "entuziasmat"
         },
         {
-          "text": "Pici mergea în față, cu pălăria ei de frunză.",
+          "text": "Și au pornit, cântând: hai-hop, hai-hop! Pici mergea în față, cu pălăria ei de frunză.",
           "mood": "vesel"
         }
       ],
       "image": "images/pagina-06.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Pici: a tiny cute red ant with a round head, big shiny dark eyes, two bendy antennae, six thin legs and a little green leaf worn like a hat. Setting: a sunny late-summer meadow seen from very close to the ground, tall green grass blades like a forest, small pebbles and clover leaves, warm golden light. Action: many plain red ants carry one big golden grain of wheat, much bigger than the tiny ant together on their backs, like a little golden boat on many tiny legs, marching happily through the grass; Pici, the tiny red ant with a little green leaf hat, walks proudly in front, leading them. Emotions: joyful, proud, together. Important details: the grain carried together by many ants. Camera: low angle, medium shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Pici: a tiny cute red ant with a round head, big shiny dark eyes, two bendy antennae, six thin legs and a little green leaf worn like a hat. Setting: a sunny late-summer meadow seen from very close to the ground, tall green grass blades like a forest, small pebbles and clover leaves, warm golden light. Action: a small group of smaller plain red ants with bare round heads; only Pici wears a leaf hat carry one big golden wheat grain (a single smooth oval golden kernel with a crease down the middle, much bigger than a single ant) together on their backs, like a little golden boat on many tiny legs, marching happily through the grass; Pici, the tiny red ant with a little green leaf hat walks proudly in front, leading them. Emotions: joyful, proud, together. Important details: the grain carried together by the plain ants. Camera: low angle, medium shot.",
       "animation": {
         "camera": "pan-right",
-        "effect": "sparkles"
+        "effect": "none"
       }
     },
     {
-      "text": "Dar pe drum stătea o crenguță căzută, ca un zid uriaș. Furnicile s-au oprit. — Lio, ne ajuți și tu? a strigat Pici. — Cu plăcere! Lio a ridicat crenguța cu un singur deget, încet, și a pus-o deoparte. — Mulțumim! au strigat furnicile, toate deodată.",
+      "text": "Dar pe drum stătea o crenguță căzută, ca un zid uriaș. Furnicile s-au oprit. — Lio, ne ajuți și tu? a strigat Pici. — Cu plăcere! a spus Lio. Apoi a ridicat crenguța cu vârful lăbuței, încet, și a pus-o deoparte. — Mulțumim! au strigat furnicile, toate deodată.",
       "narration": [
         {
           "text": "Dar pe drum stătea o crenguță căzută, ca un zid uriaș.",
@@ -290,26 +307,30 @@
           "speaker": "Lio"
         },
         {
-          "text": "Lio a ridicat crenguța cu un singur deget, încet, și a pus-o deoparte.",
+          "text": "a spus Lio. Apoi a ridicat crenguța cu vârful lăbuței, încet, și a pus-o deoparte.",
           "mood": "calm"
         },
         {
-          "text": "— Mulțumim! au strigat furnicile, toate deodată.",
+          "text": "— Mulțumim!",
+          "mood": "entuziasmat"
+        },
+        {
+          "text": "au strigat furnicile, toate deodată.",
           "mood": "vesel"
         }
       ],
       "image": "images/pagina-07.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Pici: a tiny cute red ant with a round head, big shiny dark eyes, two bendy antennae, six thin legs and a little green leaf worn like a hat. Setting: a sunny late-summer meadow seen from very close to the ground, tall green grass blades like a forest, small pebbles and clover leaves, warm golden light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, gently lifts a fallen twig out of the way with one paw; in front of the twig, Pici, the tiny red ant with a little green leaf hat, and many plain red ants carrying one big golden grain of wheat, much bigger than the tiny ant wait and look up at him gratefully. Emotions: helpful, grateful, warm. Important details: Lio's paw gently lifting the twig, the ants with the grain. Camera: medium shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Pici: a tiny cute red ant with a round head, big shiny dark eyes, two bendy antennae, six thin legs and a little green leaf worn like a hat. Setting: a sunny late-summer meadow seen from very close to the ground, tall green grass blades like a forest, small pebbles and clover leaves, warm golden light. Action: low view from behind the ants: Pici, the tiny red ant with a little green leaf hat and a small group of smaller plain red ants with bare round heads; only Pici wears a leaf hat carrying one big golden wheat grain (a single smooth oval golden kernel with a crease down the middle, much bigger than a single ant) wait in front of a fallen twig; above them, only the big paw and part of the smiling face of exactly one lion cub, Lio, with a turquoise scarf with little yellow stars are visible, gently lifting the twig out of the way. Emotions: helpful, grateful, warm. Important details: Lio's paw gently lifting the twig, the ants with the grain. Camera: low angle, medium shot.",
       "animation": {
         "camera": "pan-up",
         "effect": "none"
       }
     },
     {
-      "text": "Bobul a ajuns în cămara mușuroiului, unde furnicile strâng mâncare pentru iarnă. Toate furnicile au dansat de bucurie. — Singură n-aș fi putut, a zis Pici. Împreună a fost ușor. Și mult mai vesel!",
+      "text": "Bobul a ajuns în cămara mușuroiului, unde furnicile își păstrează semințele pentru iarnă. Toate furnicile au dansat de bucurie. — Singură n-aș fi putut, a zis Pici. Împreună a fost ușor. Și mult mai vesel!",
       "narration": [
         {
-          "text": "Bobul a ajuns în cămara mușuroiului, unde furnicile strâng mâncare pentru iarnă.",
+          "text": "Bobul a ajuns în cămara mușuroiului, unde furnicile își păstrează semințele pentru iarnă.",
           "mood": "calm"
         },
         {
@@ -332,17 +353,17 @@
         }
       ],
       "image": "images/pagina-08.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Pici: a tiny cute red ant with a round head, big shiny dark eyes, two bendy antennae, six thin legs and a little green leaf worn like a hat. Setting: a sunny late-summer meadow seen from very close to the ground, tall green grass blades like a forest, small pebbles and clover leaves, warm golden light, a small earthen anthill with a round opening in the background. Action: at the round opening of the small earthen anthill, plain red ants dance happily around Pici, the tiny red ant with a little green leaf hat,, who waves her leaf hat in joy; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, lies in the grass nearby, smiling. Emotions: joyful, proud. Important details: the anthill opening, the dancing ants. Camera: medium shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Pici: a tiny cute red ant with a round head, big shiny dark eyes, two bendy antennae, six thin legs and a little green leaf worn like a hat. Setting: a sunny late-summer meadow seen from very close to the ground, tall green grass blades like a forest, small pebbles and clover leaves, warm golden light, a small earthen anthill with a round opening in the background. Action: at the round opening of the small earthen anthill, a small group of smaller plain red ants with bare round heads; only Pici wears a leaf hat dance happily around Pici, the tiny red ant with a little green leaf hat, who raises her two front legs in joy, the leaf hat on her head. Emotions: joyful, proud. Important details: the anthill opening, the dancing plain ants. Camera: medium shot.",
       "animation": {
         "camera": "zoom-out",
         "effect": "hearts"
       }
     },
     {
-      "text": "Seara, Pici s-a cățărat pe nasul lui Lio, ca pe un deal. — Mulțumesc, Lio! Mâine ne ajuți la alt bob? Lio s-a uitat cruciș la ea și a râs. — Doar dacă îmi spuneți și mie, când am nevoie de ajutor! — Promis! a chicotit Pici.",
+      "text": "Seara, Pici s-a cățărat pe un fir de iarbă înalt, chiar în fața nasului lui Lio. — Mulțumesc, Lio! Mâine ne ajuți la alt bob? Lio s-a uitat cruciș la ea și a râs. — Sigur că da! Și când am eu nevoie de ajutor, vă chem și eu pe voi! — Promis! a chicotit Pici.",
       "narration": [
         {
-          "text": "Seara, Pici s-a cățărat pe nasul lui Lio, ca pe un deal.",
+          "text": "Seara, Pici s-a cățărat pe un fir de iarbă înalt, chiar în fața nasului lui Lio.",
           "mood": "vesel"
         },
         {
@@ -355,7 +376,7 @@
           "mood": "vesel"
         },
         {
-          "text": "— Doar dacă îmi spuneți și mie, când am nevoie de ajutor!",
+          "text": "— Sigur că da! Și când am eu nevoie de ajutor, vă chem și eu pe voi!",
           "mood": "vesel",
           "speaker": "Lio"
         },
@@ -370,10 +391,10 @@
         }
       ],
       "image": "images/pagina-09.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Pici: a tiny cute red ant with a round head, big shiny dark eyes, two bendy antennae, six thin legs and a little green leaf worn like a hat. Setting: a sunny late-summer meadow seen from very close to the ground, tall green grass blades like a forest, small pebbles and clover leaves, warm orange sunset light, a small earthen anthill nearby. Action: Pici, the tiny red ant with a little green leaf hat, stands on the tip of the nose of exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, who lies in the grass and looks at her with funny crossed eyes, laughing; Pici waves her tiny leg. Emotions: funny, warm, happy. Important details: the tiny ant on the tip of Lio's nose. Camera: close-up.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Pici: a tiny cute red ant with a round head, big shiny dark eyes, two bendy antennae, six thin legs and a little green leaf worn like a hat. Setting: a late-summer meadow at sunset seen from very close to the ground, tall grass blades, warm orange light, a few fireflies. Action: Pici, the tiny red ant with a little green leaf hat stands on the tip of a tall grass blade right in front of the nose of exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, who lies in the grass and looks at her with funny crossed eyes, laughing; Pici waves one tiny leg. Emotions: funny, warm, happy. Important details: the tiny ant on the grass blade in front of Lio's nose. Camera: close-up.",
       "animation": {
         "camera": "zoom-in",
-        "effect": "glow"
+        "effect": "fireflies"
       }
     }
   ],
@@ -383,17 +404,17 @@
     "invatam"
   ],
   "review": {
-    "imaginatie": "O furnicuță cu pălărie de frunză, un bob de grâu „ca o bărcuță aurie pe multe piciorușe” (pagina 6), o păpădie care se scutură „ca niște umbreluțe” (3), o crenguță „ca un zid uriaș” (7) și nasul lui Lio, urcat ca un deal (9).",
-    "invatare": "Lucrul în echipă și cererea de ajutor sunt chiar firul poveștii: Pici refuză întâi ajutorul (2), încearcă singură și nu reușește (2–3); Lio îi spune că și cei puternici cer ajutor (4); Pici își cheamă singură surioarele (5) și, împreună, duc bobul ușor (6); apoi cere ajutor și lui Lio (7) și spune singură ce a învățat (8). Fapte despre furnici: sunt foarte puternice (4), vorbesc atingându-și antenele (5) și strâng mâncare pentru iarnă (8).",
+    "imaginatie": "O furnicuță cu pălărie de frunză, un bob de grâu „ca o bărcuță aurie pe multe piciorușe” (pagina 6), o păpădie care se scutură „ca niște parașute mici” (3), o crenguță „ca un zid uriaș” (7) și firul de iarbă din fața nasului lui Lio (9).",
+    "invatare": "Lucrul în echipă și cererea de ajutor sunt chiar firul poveștii: Pici refuză întâi ajutorul (2), încearcă singură și nu reușește (2–3); Lio îi spune că și cei puternici cer ajutor (4); Pici își cheamă singură surioarele (5) și, împreună, duc bobul ușor (6); apoi cere ajutor și lui Lio (7) și spune singură ce a învățat (8). Fapte despre furnici: sunt foarte puternice (4), vorbesc atingându-și antenele (5) și își păstrează semințele pentru iarnă (8).",
     "umor": [
       "pagina 2: „buf!”, Pici cade pe spate cu toate cele șase piciorușe în aer",
-      "pagina 3: bobul se rostogolește în partea cealaltă, drept într-o păpădie: „Pfff!”, iar Lio strănută de râs",
-      "pagina 9: Pici urcă pe nasul lui Lio, iar el se uită cruciș la ea"
+      "pagina 3: bobul se rostogolește în partea cealaltă, drept într-o păpădie: „Pfff!”, iar puful îi intră lui Lio în nas: „hapciu!”",
+      "pagina 9: Pici urcă pe un fir de iarbă chiar în fața nasului lui Lio, iar el se uită cruciș la ea"
     ],
     "emotie": "Încăpățânarea lui Pici („Eu pot singură!”) e pe înțelesul copiilor; nimeni nu râde de ea, iar Lio o încurajează blând (4). Bucuria reușitei e a ei (5–8), iar finalul e cald și jucăuș, cu promisiunea că se vor ajuta mereu (9).",
-    "siguranta": "Nimic periculos sau înfricoșător: o pajiște, o păpădie, o crenguță ridicată cu grijă. Lio se uită la furnici fără să le strivească sau să le deranjeze mușuroiul.",
-    "imagini": "Lio și furnicuța cu pălărie de frunză (fără oameni); celelalte furnici sunt „plain red ants without hats”, ca să nu fie confundate cu Pici, fără număr. „exactly one lion cub, Lio”. Fără numere de obiecte în imagini, fără litere, fără oglinzi, fără guri de aproape, fără „nest/basket/blanket” (cămara e „the round opening of the small earthen anthill”). Fiecare prompt arată momentul paginii. Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
-    "voce": "Narațiune veselă, cu pauze după „Nimic.”, „buf!”, „Pfff!” și „Hop!”; blândă la pagina 4. Pici are o voce subțire și grăbită, de furnicuță; Lio vocea lui obișnuită. Replicile sunt separate de vorbele naratorului."
+    "siguranta": "Nimic periculos sau înfricoșător: o pajiște, o păpădie, o crenguță ridicată cu grijă. Lio se uită la furnici fără să le atingă, să le strivească sau să le deranjeze mușuroiul; nicio furnică nu se urcă pe el.",
+    "imagini": "Lio și furnicuța cu pălărie de frunză (fără oameni); în fiecare scenă cu grup, celelalte furnici sunt „smaller plain red ants with bare round heads; only Pici wears a leaf hat”, fără număr. Lio apare doar unde e în text (nu pe paginile 5, 6 și 8), iar scara e păstrată prin cadre „ground-level macro”: Pici clară în față, fața lui Lio estompată în spate. „exactly one lion cub, Lio”. Fără numere de obiecte în imagini, fără litere, fără oglinzi, fără guri de aproape, fără „nest/basket/blanket” (cămara e „the round opening of the small earthen anthill”). Fiecare prompt arată momentul paginii. Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
+    "voce": "Narațiune veselă, cu pauze după „Nimic.”, „buf!”, „Pfff!”, „hapciu!” și „Hop!”; blândă la pagina 4. Pici are o voce subțire și grăbită, de furnicuță; Lio vocea lui obișnuită. Replicile sunt separate de vorbele naratorului."
   },
   "verified": false,
   "questions": [
