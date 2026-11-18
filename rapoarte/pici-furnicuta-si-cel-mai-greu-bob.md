@@ -1,8 +1,17 @@
 # Furnicuța Pici și cel mai greu bob
 
-**Stare: ⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)** · verificată la 2026-11-18 04:13 UTC
+**Stare: ❌ NEPUBLICATĂ** · verificată la 2026-11-18 04:26 UTC
 
 Poveste: `public/stories/pici-furnicuta-si-cel-mai-greu-bob/story.json`
+
+## De corectat (de aceea nu este publicată)
+
+- pagina 7: imaginea images/pagina-07.png nu există
+
+## Note de la publicare
+
+- pagina 7: imaginea nu a putut fi generată (ImageSkipped: FLUX.2 klein a refuzat imaginea: Cloudflare: {"errors":[{"message":"AiError: AiError: Your output has been flagged. Please choose another prompt / input image combination (a580d80b-8b41-445b-890d-e56c40440a7e)","code":3030}],"success":false,"result":{},"messages":[]})
+- pe site rămâne versiunea publicată anterior (commit fcb5606) până când corectezi problemele de mai sus
 
 ## Reparat automat
 
@@ -12,11 +21,8 @@ Aceste lucruri au fost corectate automat în `story.json` (preia versiunea din r
 - pagina 1: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 - pagina 2: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 - pagina 3: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 4: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 - pagina 5: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 - pagina 6: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 7: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 8: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 - pagina 9: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 
 ## Avertismente (merită verificate, dar nu blochează publicarea)
@@ -26,6 +32,7 @@ Aceste lucruri au fost corectate automat în `story.json` (preia versiunea din r
 
 ## Ce faci mai departe
 
-1. Privește coperta și fiecare pagină din `images/` și compar-o cu textul (REGULI_POVESTI.md, secțiunea 10, „Autocorectarea imaginilor”); refă imaginile greșite.
-2. Abia când fiecare imagine arată pagina ei, pune `"verified": true` în story.json și fă commit: atunci povestea apare în bibliotecă.
-3. Până atunci se poate vedea doar cu parola de administrator: https://iamlio.ro/poveste.html?previzualizare=pici-furnicuta-si-cel-mai-greu-bob
+1. Corectează în `story.json` (și în `images/`) fiecare punct de la „De corectat”, respectând `REGULI_POVESTI.md`.
+2. Rulează `python3 scripts/stories.py validate` dacă poți; trebuie să afișeze `[OK]`.
+3. Fă commit pe `master`. După câteva minute, citește din nou acest raport.
+4. Repetă până când starea este „PUBLICATĂ”.
