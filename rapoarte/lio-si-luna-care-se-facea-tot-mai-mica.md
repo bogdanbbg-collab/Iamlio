@@ -1,6 +1,6 @@
 # Lio și Luna care se făcea tot mai mică
 
-**Stare: ⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)** · verificată la 2026-11-19 04:26 UTC
+**Stare: ⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)** · verificată la 2026-11-19 04:37 UTC
 
 Poveste: `public/stories/lio-si-luna-care-se-facea-tot-mai-mica/story.json`
 
@@ -11,13 +11,13 @@ Aceste lucruri au fost corectate automat în `story.json` (preia versiunea din r
 - pagina 3: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 - pagina 4: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 - pagina 5: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 8: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 9: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 
 ## Avertismente (merită verificate, dar nu blochează publicarea)
 
 - personaje/lio.png: fișier necunoscut, nu se publică (într-o poveste intră doar story.json, images/ și audio/)
-- personaje/luna.png: fișier necunoscut, nu se publică (într-o poveste intră doar story.json, images/ și audio/)
+- pagina 3: Luna apare în text, dar nu și în imagePrompt
+- pagina 4: Luna apare în text, dar nu și în imagePrompt
+- pagina 5: Luna apare în text, dar nu și în imagePrompt
 - pagina 6: Luna apare în text, dar nu și în imagePrompt
 
 ## Ce faci mai departe
