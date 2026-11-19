@@ -30,7 +30,7 @@
     },
     {
       "name": "Luna",
-      "description": "the Moon high in the night sky, a glowing pale-yellow moon with a gentle sleepy face (soft eyes and a small smile) drawn on it; just the moon itself, no arms, no legs, no body",
+      "description": "the Moon high in the sky, softly glowing pale-yellow, with a gentle face (soft eyes and a small smile) drawn on its bright part; just the moon itself, no arms, no legs, no body",
       "voice": {
         "type": "feminin",
         "pitch": 0,
@@ -40,7 +40,7 @@
   ],
   "cover": {
     "image": "images/coperta.png",
-    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Luna: the Moon high in the night sky, a glowing pale-yellow moon with a gentle sleepy face (soft eyes and a small smile) drawn on it; just the moon itself, no arms, no legs, no body. Setting: a soft grassy hill at night near a small cozy cottage with warm lit windows, a dark-blue starry sky, gentle silver light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits on the grassy hill holding a white ball and smiling up at the sky; in the sky, the Moon is a beautiful crescent, smiling down at him, with a gentle face on it. Emotions: magical, calm, curious. Important details: the crescent moon with a gentle face, the white ball. Camera: wide cinematic cover shot.",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Luna: the Moon high in the sky, softly glowing pale-yellow, with a gentle face (soft eyes and a small smile) drawn on its bright part; just the moon itself, no arms, no legs, no body. Setting: a soft grassy hill in the evening near a small cozy cottage, a deep-blue sky just after sunset, first stars. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits on the grassy hill holding a plain smooth white ball with no face and smiling up at the sky; exactly one moon in the sky: a beautiful thin crescent moon lit on the right side, with a gentle face in profile, smiling down at him. Emotions: magical, calm, curious. Important details: the crescent moon with a gentle face, the white ball. Camera: wide cinematic cover shot.",
     "animation": {
       "camera": "zoom-in",
       "effect": "stars"
@@ -48,7 +48,7 @@
   },
   "pages": [
     {
-      "text": "În fiecare seară, înainte de culcare, Lio urca pe dealul de lângă casă. Acolo îi spunea noapte bună Lunii. În seara aceea, Luna era rotundă și strălucitoare, ca o farfurie de lumină. — Noapte bună, Lună! — Noapte bună, Lio, i-a zâmbit Luna.",
+      "text": "În fiecare seară, înainte de culcare, Lio urca pe dealul de lângă casă. Acolo îi spunea noapte bună Lunii. În seara aceea, Luna era rotundă și strălucitoare, ca o farfurie de lumină. — Noapte bună, Lună! a strigat Lio. — Noapte bună, Lio, i-a zâmbit Luna.",
       "narration": [
         {
           "text": "În fiecare seară, înainte de culcare, Lio urca pe dealul de lângă casă.",
@@ -68,6 +68,10 @@
           "speaker": "Lio"
         },
         {
+          "text": "a strigat Lio.",
+          "mood": "calm"
+        },
+        {
           "text": "— Noapte bună, Lio,",
           "mood": "somnoros",
           "speaker": "Luna"
@@ -78,21 +82,21 @@
         }
       ],
       "image": "images/pagina-01.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Luna: the Moon high in the night sky, a glowing pale-yellow moon with a gentle sleepy face (soft eyes and a small smile) drawn on it; just the moon itself, no arms, no legs, no body. Setting: a soft grassy hill at night near a small cozy cottage with warm lit windows, a dark-blue starry sky, gentle silver light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits on the grassy hill and waves up at the sky; in the sky, the Moon is big, round and full, glowing brightly, with a gentle face on it, smiling down at him. Emotions: calm, warm, magical. Important details: the big round full moon, Lio waving. Camera: wide shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Luna: the Moon high in the sky, softly glowing pale-yellow, with a gentle face (soft eyes and a small smile) drawn on its bright part; just the moon itself, no arms, no legs, no body. Setting: a soft grassy hill at night near a small cozy cottage with warm lit windows, a dark-blue starry sky, gentle silver light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits on the grassy hill and waves up at the sky; exactly one moon in the sky: a big round full moon, glowing brightly, with a gentle smiling face. Emotions: calm, warm, magical. Important details: the big round full moon, Lio waving. Camera: wide shot.",
       "animation": {
         "camera": "pan-up",
         "effect": "stars"
       }
     },
     {
-      "text": "Dar în serile următoare, Luna s-a făcut tot mai subțire. Într-o seară, Lio a auzit un oftat de sus. — Vai, îmi pierd strălucirea! Mă fac tot mai mică! a suspinat Luna. — Poate o să dispar de tot…",
+      "text": "Dar în nopțile următoare, Luna răsărea tot mai târziu și se făcea tot mai subțire: întâi o jumătate, apoi doar un corn. Într-o dimineață devreme, când Lio s-a trezit, a auzit un oftat de sus. — Vai, îmi pierd strălucirea! Mă fac tot mai mică! a suspinat Luna. Poate o să dispar de tot…",
       "narration": [
         {
-          "text": "Dar în serile următoare, Luna s-a făcut tot mai subțire.",
+          "text": "Dar în nopțile următoare, Luna răsărea tot mai târziu și se făcea tot mai subțire: întâi o jumătate, apoi doar un corn.",
           "mood": "calm"
         },
         {
-          "text": "Într-o seară, Lio a auzit un oftat de sus.",
+          "text": "Într-o dimineață devreme, când Lio s-a trezit, a auzit un oftat de sus.",
           "mood": "misterios",
           "pause": 0.5
         },
@@ -106,31 +110,31 @@
           "mood": "trist"
         },
         {
-          "text": "— Poate o să dispar de tot…",
+          "text": "Poate o să dispar de tot…",
           "mood": "trist",
           "speaker": "Luna"
         }
       ],
       "image": "images/pagina-02.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Luna: the Moon high in the night sky, a glowing pale-yellow moon with a gentle sleepy face (soft eyes and a small smile) drawn on it; just the moon itself, no arms, no legs, no body. Setting: a soft grassy hill at night near a small cozy cottage with warm lit windows, a dark-blue starry sky, gentle silver light. Action: in the sky, the Moon is a half moon, only one side lit, looking sad and worried, with a gentle face on it; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands on the grassy hill and looks up at her with concern. Emotions: a little sad, worried, gentle. Important details: the half moon with a sad face. Camera: wide shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Luna: the Moon high in the sky, softly glowing pale-yellow, with a gentle face (soft eyes and a small smile) drawn on its bright part; just the moon itself, no arms, no legs, no body. Setting: a soft grassy hill in the early morning before sunrise, near a small cozy cottage, a pale blue and pink dawn sky with a few fading stars. Action: exactly one moon in the sky: a thin crescent moon lit on the left side, with a gentle face in profile along its inner curve, like a classic storybook crescent moon, looking sad and worried; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands on the grassy hill in the dawn light and looks up at her with concern. Emotions: a little sad, worried, gentle. Important details: the thin crescent moon with a sad face. Camera: wide shot.",
       "animation": {
         "camera": "zoom-in",
-        "effect": "stars"
+        "effect": "none"
       }
     },
     {
-      "text": "Lio s-a gândit. Apoi a fugit în casă și s-a întors cu o minge albă și o lanternă. A pus lanterna pe un butuc, aprinsă. — Lanterna e Soarele, mingea ești tu, Luna, iar capul meu e Pământul, a explicat el. Și a început să învârtă mingea încet în jurul capului.",
+      "text": "Lio s-a gândit. Apoi a fugit în casă și s-a întors cu o minge albă și o lanternă. A aprins lanterna și a pus-o pe un butuc, cu lumina spre el. — Lanterna e Soarele, mingea ești tu, Lună, iar capul meu e Pământul, a explicat el. Apoi s-a întors încet pe loc, cu mingea ținută sus, în fața lui.",
       "narration": [
         {
           "text": "Lio s-a gândit. Apoi a fugit în casă și s-a întors cu o minge albă și o lanternă.",
           "mood": "hotărât"
         },
         {
-          "text": "A pus lanterna pe un butuc, aprinsă.",
+          "text": "A aprins lanterna și a pus-o pe un butuc, cu lumina spre el.",
           "mood": "calm"
         },
         {
-          "text": "— Lanterna e Soarele, mingea ești tu, Luna, iar capul meu e Pământul,",
+          "text": "— Lanterna e Soarele, mingea ești tu, Lună, iar capul meu e Pământul,",
           "mood": "calm",
           "speaker": "Lio"
         },
@@ -139,12 +143,12 @@
           "mood": "calm"
         },
         {
-          "text": "Și a început să învârtă mingea încet în jurul capului.",
+          "text": "Apoi s-a întors încet pe loc, cu mingea ținută sus, în fața lui.",
           "mood": "calm"
         }
       ],
       "image": "images/pagina-03.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Luna: the Moon high in the night sky, a glowing pale-yellow moon with a gentle sleepy face (soft eyes and a small smile) drawn on it; just the moon itself, no arms, no legs, no body. Setting: a soft grassy hill at night near a small cozy cottage with warm lit windows, a dark-blue starry sky, gentle silver light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands on the grassy hill holding up a white ball in one paw at arm's length; a small flashlight stands on a tree stump and shines a beam of light on the ball, so one half of the ball is bright and the other half is in shadow; in the sky, the Moon is a half moon, with a gentle face on it, watching curiously. Emotions: curious, playful, clever. Important details: the white ball half lit by the flashlight beam. Camera: medium shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Luna: the Moon high in the sky, softly glowing pale-yellow, with a gentle face (soft eyes and a small smile) drawn on its bright part; just the moon itself, no arms, no legs, no body. Setting: a soft grassy hill in the early morning before sunrise, near a small cozy cottage, a pale blue and pink dawn sky with a few fading stars. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands on the grassy hill holding up a plain smooth white ball with no face at arm's length in front of him; a small flashlight stands on a tree stump, its soft light falling on the ball, so one half of the ball is bright and the other half is in shadow; exactly one moon in the sky: a thin crescent moon lit on the left side, with a gentle face in profile along its inner curve, like a classic storybook crescent moon, watching curiously. Emotions: curious, playful, clever. Important details: the white ball half lit by the flashlight, the flashlight on the stump. Camera: medium shot.",
       "animation": {
         "camera": "zoom-in",
         "effect": "glow"
@@ -183,7 +187,7 @@
         }
       ],
       "image": "images/pagina-04.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Luna: the Moon high in the night sky, a glowing pale-yellow moon with a gentle sleepy face (soft eyes and a small smile) drawn on it; just the moon itself, no arms, no legs, no body. Setting: a soft grassy hill at night near a small cozy cottage with warm lit windows, a dark-blue starry sky, gentle silver light. Action: close view: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, holds the white ball up next to his face; the flashlight beam lights only a thin crescent-shaped sliver on the ball, the rest in shadow; Lio smiles excitedly; in the sky, the Moon is a half moon, curious, with a gentle face on it. Emotions: excited, curious. Important details: the thin lit sliver on the white ball. Camera: close-up.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Luna: the Moon high in the sky, softly glowing pale-yellow, with a gentle face (soft eyes and a small smile) drawn on its bright part; just the moon itself, no arms, no legs, no body. Setting: a soft grassy hill in the early morning before sunrise, near a small cozy cottage, a pale blue and pink dawn sky with a few fading stars. Action: close view: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, holds a plain smooth white ball with no face up next to his face; the flashlight on the stump is behind the ball, so only a thin sliver at the edge of the ball is lit, the rest in shadow; Lio smiles excitedly; exactly one moon in the sky: a thin crescent moon lit on the left side, with a gentle face in profile along its inner curve, like a classic storybook crescent moon, curious. Emotions: excited, curious. Important details: the thin lit sliver on the white ball, the flashlight behind it. Camera: close-up.",
       "animation": {
         "camera": "pan-right",
         "effect": "none"
@@ -226,21 +230,21 @@
         }
       ],
       "image": "images/pagina-05.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Luna: the Moon high in the night sky, a glowing pale-yellow moon with a gentle sleepy face (soft eyes and a small smile) drawn on it; just the moon itself, no arms, no legs, no body. Setting: a soft grassy hill at night near a small cozy cottage with warm lit windows, a dark-blue starry sky, gentle silver light. Action: in the sky, the Moon is a thin crescent shaped like a croissant, with a surprised, amused face, with a gentle face on it; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits on the grassy hill, giggling and pointing up at the crescent moon. Emotions: funny, warm, amazed. Important details: the thin crescent moon like a croissant. Camera: wide shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Luna: the Moon high in the sky, softly glowing pale-yellow, with a gentle face (soft eyes and a small smile) drawn on its bright part; just the moon itself, no arms, no legs, no body. Setting: a soft grassy hill in the early morning before sunrise, near a small cozy cottage, a pale blue and pink dawn sky with a few fading stars. Action: exactly one moon in the sky: a thin, smooth, glowing pale-yellow crescent moon lit on the left side, with a surprised, amused gentle face in profile; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits on the grassy hill, giggling and pointing up at the crescent. Emotions: funny, warm, amazed. Important details: the thin crescent moon. Camera: wide shot.",
       "animation": {
         "camera": "zoom-out",
-        "effect": "stars"
+        "effect": "none"
       }
     },
     {
-      "text": "Într-o seară, Luna nu s-a mai văzut deloc pe cer. Era doar întuneric și stele. Dar Lio nu s-a speriat. Știa: asta se numește lună nouă. Luna e tot acolo, doar că partea ei luminată nu se vede dinspre noi. Lio a făcut cu lăbuța spre cerul întunecat: — Noapte bună, Lună! Știu că mă auzi!",
+      "text": "Într-o seară, Luna nu s-a mai văzut deloc pe cer. Erau doar întuneric și stele. Dar Lio nu s-a speriat. Știa: asta se numește lună nouă. Luna e tot acolo, doar că partea ei luminată nu se vede dinspre noi. Lio a făcut cu lăbuța spre cer: — Noapte bună, Lună! Știu că mă auzi!",
       "narration": [
         {
           "text": "Într-o seară, Luna nu s-a mai văzut deloc pe cer.",
           "mood": "calm"
         },
         {
-          "text": "Era doar întuneric și stele.",
+          "text": "Erau doar întuneric și stele.",
           "mood": "calm",
           "pause": 0.5
         },
@@ -253,7 +257,7 @@
           "mood": "calm"
         },
         {
-          "text": "Lio a făcut cu lăbuța spre cerul întunecat:",
+          "text": "Lio a făcut cu lăbuța spre cer:",
           "mood": "vesel"
         },
         {
@@ -263,17 +267,17 @@
         }
       ],
       "image": "images/pagina-06.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: a soft grassy hill at night near a small cozy cottage with warm lit windows, a dark-blue starry sky, only starlight, many twinkling stars. Action: only exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands on the grassy hill and waves up at a dark starry sky with no moon in it, smiling calmly. Emotions: calm, trusting, a little funny. Important details: the dark starry sky without a moon. Camera: wide shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: a soft grassy hill at night near a small cozy cottage with warm lit windows, a dark-blue starry sky, only starlight. Action: only exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands on the grassy hill and waves up at a wide dark-blue night sky filled only with many small twinkling stars, smiling calmly. Emotions: calm, trusting, a little funny. Important details: the dark-blue sky full of tiny stars. Camera: wide shot.",
       "animation": {
         "camera": "pan-up",
         "effect": "stars"
       }
     },
     {
-      "text": "După câteva seri, pe cer a apărut o felie subțire de lumină. — Bună, Lio! M-am întors! a strigat Luna. — N-ai plecat niciodată, a zâmbit Lio. Erai doar ascunsă în umbră, ca mingea mea.",
+      "text": "După câteva seri, la apus, pe cer a apărut o felie subțire de lumină. — Bună, Lio! M-am întors! a strigat Luna. — N-ai plecat niciodată, a zâmbit Lio. Doar că partea ta luminată nu era întoarsă spre noi, ca la mingea mea.",
       "narration": [
         {
-          "text": "După câteva seri, pe cer a apărut o felie subțire de lumină.",
+          "text": "După câteva seri, la apus, pe cer a apărut o felie subțire de lumină.",
           "mood": "mirat"
         },
         {
@@ -295,20 +299,20 @@
           "mood": "calm"
         },
         {
-          "text": "Erai doar ascunsă în umbră, ca mingea mea.",
+          "text": "Doar că partea ta luminată nu era întoarsă spre noi, ca la mingea mea.",
           "mood": "calm",
           "speaker": "Lio"
         }
       ],
       "image": "images/pagina-07.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Luna: the Moon high in the night sky, a glowing pale-yellow moon with a gentle sleepy face (soft eyes and a small smile) drawn on it; just the moon itself, no arms, no legs, no body. Setting: a soft grassy hill at night near a small cozy cottage with warm lit windows, a dark-blue starry sky, gentle silver light. Action: in the sky, the Moon is a very thin new crescent, smiling happily, with a gentle face on it; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands on the grassy hill holding the white ball under one arm and waves up at her happily. Emotions: happy, warm. Important details: the very thin new crescent moon. Camera: wide shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Luna: the Moon high in the sky, softly glowing pale-yellow, with a gentle face (soft eyes and a small smile) drawn on its bright part; just the moon itself, no arms, no legs, no body. Setting: a soft grassy hill in the evening near a small cozy cottage, a deep-blue sky just after sunset, first stars. Action: exactly one moon in the sky: a very thin crescent moon low in the sky, lit on the right side, with a gentle happy face in profile along its inner curve; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands on the grassy hill holding a plain smooth white ball with no face under one arm and waves up at her happily. Emotions: happy, warm. Important details: the very thin crescent moon lit on the right. Camera: wide shot.",
       "animation": {
         "camera": "zoom-in",
         "effect": "stars"
       }
     },
     {
-      "text": "În fiecare seară, Luna creștea câte puțin. Mai întâi a fost ca un corn, apoi ca o jumătate de clătită. — Mmm, de la atâtea forme de prăjituri mi s-a făcut foame, a râs Lio. — Mai ai răbdare, a râs și Luna. În curând sunt din nou rotundă!",
+      "text": "În fiecare seară, Luna creștea câte puțin. Mai întâi a fost ca un corn, apoi ca o jumătate de clătită. — Mmm, de la atâtea cornuri și clătite mi s-a făcut foame, a râs Lio. — Mai ai răbdare, a râs și Luna. În curând sunt din nou rotundă!",
       "narration": [
         {
           "text": "În fiecare seară, Luna creștea câte puțin.",
@@ -319,7 +323,7 @@
           "mood": "vesel"
         },
         {
-          "text": "— Mmm, de la atâtea forme de prăjituri mi s-a făcut foame,",
+          "text": "— Mmm, de la atâtea cornuri și clătite mi s-a făcut foame,",
           "mood": "vesel",
           "speaker": "Lio"
         },
@@ -343,27 +347,27 @@
         }
       ],
       "image": "images/pagina-08.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Luna: the Moon high in the night sky, a glowing pale-yellow moon with a gentle sleepy face (soft eyes and a small smile) drawn on it; just the moon itself, no arms, no legs, no body. Setting: a soft grassy hill at night near a small cozy cottage with warm lit windows, a dark-blue starry sky, gentle silver light. Action: in the sky, the Moon is a half moon like half of a pancake, laughing, with a gentle face on it; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits on the grassy hill holding his tummy and laughing. Emotions: funny, cheerful. Important details: the half moon, both laughing. Camera: wide shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Luna: the Moon high in the sky, softly glowing pale-yellow, with a gentle face (soft eyes and a small smile) drawn on its bright part; just the moon itself, no arms, no legs, no body. Setting: a soft grassy hill at night near a small cozy cottage with warm lit windows, a dark-blue starry sky, gentle silver light. Action: exactly one moon in the sky: a glowing half moon, the right half bright pale-yellow with a laughing gentle face on it, the left half dark blue like the sky; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits on the grassy hill holding his tummy and laughing. Emotions: funny, cheerful. Important details: the half moon lit on the right, both laughing. Camera: wide shot.",
       "animation": {
         "camera": "pan-left",
         "effect": "stars"
       }
     },
     {
-      "text": "Și, după cam o lună, Luna a fost din nou plină, rotundă și strălucitoare. — Oricât de mică aș părea, sunt tot eu, a șoptit ea. — Și eu o să-ți spun noapte bună în fiecare seară, a căscat Lio. Și a adormit sub lumina ei caldă.",
+      "text": "Și, la cam o lună după seara cu farfuria de lumină, Luna a fost din nou plină, rotundă și strălucitoare. — Oricât de mică aș părea, sunt tot eu, a șoptit ea. — Și eu o să-ți spun noapte bună în fiecare seară, a căscat Lio. Apoi a intrat în căsuță și a adormit, cu lumina ei caldă pe pernă.",
       "narration": [
         {
-          "text": "Și, după cam o lună, Luna a fost din nou plină, rotundă și strălucitoare.",
+          "text": "Și, la cam o lună după seara cu farfuria de lumină, Luna a fost din nou plină, rotundă și strălucitoare.",
           "mood": "calm"
         },
         {
           "text": "— Oricât de mică aș părea, sunt tot eu,",
-          "mood": "somnoros",
+          "mood": "șoptit",
           "speaker": "Luna"
         },
         {
           "text": "a șoptit ea.",
-          "mood": "șoptit"
+          "mood": "calm"
         },
         {
           "text": "— Și eu o să-ți spun noapte bună în fiecare seară,",
@@ -375,12 +379,12 @@
           "mood": "somnoros"
         },
         {
-          "text": "Și a adormit sub lumina ei caldă.",
+          "text": "Apoi a intrat în căsuță și a adormit, cu lumina ei caldă pe pernă.",
           "mood": "somnoros"
         }
       ],
       "image": "images/pagina-09.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Luna: the Moon high in the night sky, a glowing pale-yellow moon with a gentle sleepy face (soft eyes and a small smile) drawn on it; just the moon itself, no arms, no legs, no body. Setting: a soft grassy hill at night near a small cozy cottage with warm lit windows, a dark-blue starry sky, gentle silver light. Action: in the sky, the Moon is big, round and full again, glowing warmly, with a tender sleepy smile, with a gentle face on it; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, lies curled up asleep on the soft grass of the hill, bathed in soft moonlight, smiling. Emotions: peaceful, sleepy, tender. Important details: the full moon, Lio asleep in the moonlight. Camera: wide shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Luna: the Moon high in the sky, softly glowing pale-yellow, with a gentle face (soft eyes and a small smile) drawn on its bright part; just the moon itself, no arms, no legs, no body. Setting: a cozy small bedroom at night with a wide-open window without glass, soft silver moonlight coming in. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sleeps curled up in a small cozy bed, smiling, moonlight on his pillow; through the wide-open window, exactly one moon in the sky: big, round and full, glowing warmly, with a tender sleepy smile. Emotions: peaceful, sleepy, tender. Important details: the full moon through the open window, moonlight on the pillow. Camera: medium shot.",
       "animation": {
         "camera": "zoom-out",
         "effect": "stars"
@@ -393,16 +397,16 @@
   ],
   "review": {
     "imaginatie": "O Lună care vorbește și se sperie că „își pierde strălucirea” (pagina 2), un experiment de seară cu o minge și o lanternă (3–4) și o Lună care se vede pe rând ca un corn de la brutărie și ca o jumătate de clătită (5, 8).",
-    "invatare": "Fazele Lunii, pe înțelesul copiilor, prin experiment: lanterna e Soarele, mingea e Luna, capul lui Lio e Pământul (3); Soarele luminează mereu doar o jumătate, iar noi vedem când mai mult, când mai puțin din ea (4–5); la lună nouă, Luna e tot acolo, doar că nu se vede (6); apoi crește din nou (7–8) și, după cam o lună, e iar plină (9). Copiii pot repeta experimentul acasă.",
+    "invatare": "Fazele Lunii, pe înțelesul copiilor, prin experiment: lanterna e Soarele, mingea e Luna, capul lui Lio e Pământul (3); Soarele luminează mereu doar o jumătate, iar noi vedem când mai mult, când mai puțin din ea (4–5); Luna în descreștere se vede dimineața devreme (2–5), cea în creștere seara (7–8); la lună nouă, Luna e tot acolo, doar că nu se vede (6); apoi crește din nou (7–8) și, la cam o lună după prima seară, e iar plină (9). Nicăieri nu se spune că fazele ar fi umbra Pământului (o confuzie des întâlnită): „partea ta luminată nu era întoarsă spre noi” (7). Copiii pot repeta experimentul acasă.",
     "umor": [
       "pagina 5: „Atunci acum arăt ca un corn de la brutărie!” „Un corn foarte frumos.”",
       "pagina 6: Lio îi face cu lăbuța unui cer fără Lună: „Știu că mă auzi!”",
-      "pagina 8: „De la atâtea forme de prăjituri mi s-a făcut foame!”"
+      "pagina 8: „De la atâtea cornuri și clătite mi s-a făcut foame!”"
     ],
-    "emotie": "Teama Lunii că va dispărea e blândă (2); Lio o liniștește cu răbdare și cu o explicație pe care o poate vedea (3–5). La lună nouă, Lio nu se sperie, pentru că a înțeles (6). Finalul e o poveste de culcare caldă: „Oricât de mică aș părea, sunt tot eu”, iar Lio adoarme sub lumina Lunii (9).",
-    "siguranta": "Nimic periculos: experimentul cu mingea și lanterna e sigur, iar dealul e chiar lângă casă, cu ferestre luminate. Nimic înfricoșător: întunericul de la lună nouă e liniștit, plin de stele.",
-    "imagini": "Lio și Luna (o lună cu o față blândă, „just the moon itself, no arms, no legs, no body”, ca să nu devină o creatură); fără oameni, fără oglinzi (Lio stă afară, pe deal, nu la fereastră), fără litere, fără numere. Fiecare pagină arată faza potrivită: plină (1), jumătate (2–4), corn subțire (5), fără lună (6), corn foarte subțire (7), jumătate (8), plină (9); pe paginile 3–4, mingea e luminată pe jumătate de lanternă. Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
-    "voce": "Narațiune liniștită, de seară, tot mai somnoroasă spre final; o pauză înaintea oftatului Lunii (2) și în întunericul de la lună nouă (6). Luna are o voce caldă, blândă și rară; Lio vocea lui obișnuită, entuziasmat la experiment. Replicile sunt separate de vorbele naratorului."
+    "emotie": "Teama Lunii că va dispărea e blândă (2); Lio o liniștește cu răbdare și cu o explicație pe care o poate vedea (3–5). La lună nouă, Lio nu se sperie, pentru că a înțeles (6). Finalul e o poveste de culcare caldă: „Oricât de mică aș părea, sunt tot eu”, iar Lio adoarme în pătuțul lui, cu lumina Lunii pe pernă (9).",
+    "siguranta": "Nimic periculos: experimentul cu mingea și lanterna e sigur, iar dealul e chiar lângă casă; la final, Lio intră și adoarme în pat. Nimic înfricoșător: întunericul de la lună nouă e liniștit, plin de stele.",
+    "imagini": "Lio și Luna (o lună cu o față blândă, „just the moon itself, no arms, no legs, no body”, ca să nu devină o creatură), „exactly one moon in the sky”; mingea e „a plain smooth white ball with no face”; fără oameni, fără oglinzi (fereastra de la final e deschisă, fără geam), fără litere, fără numere. Fiecare pagină arată faza potrivită, cu partea luminată corectă pentru România: plină (1), corn subțire luminat în stânga, în zori (2–5), cer doar cu stele (6), corn foarte subțire luminat în dreapta, seara (7), jumătate luminată în dreapta (8), plină (9). Pe paginile 3–4, mingea e luminată de lanternă: pe jumătate (3), doar o felie (4). Prompturile descriu doar Luna, fără „croissant” sau „pancake”. Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
+    "voce": "Narațiune liniștită, de seară, tot mai somnoroasă spre final; o pauză înaintea oftatului Lunii, în zori (2), și în întunericul de la lună nouă (6). Luna are o voce caldă, blândă și rară; Lio vocea lui obișnuită, entuziasmat la experiment. Replicile sunt separate de vorbele naratorului."
   },
   "verified": false,
   "questions": [
