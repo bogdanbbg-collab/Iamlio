@@ -33,6 +33,29 @@
   ],
   "stories": [
     {
+      "id": "lio-si-luna-care-se-facea-tot-mai-mica",
+      "title": "Lio și Luna care se făcea tot mai mică",
+      "summary": "Luna se sperie că se face tot mai mică și că o să dispară. Lio îi arată, cu o minge și o lanternă, că ea rămâne mereu rotundă: noi vedem doar partea luminată de Soare.",
+      "age": "3-7",
+      "tags": [
+        "luna",
+        "fazele lunii",
+        "noapte",
+        "experiment",
+        "soare",
+        "de culcare"
+      ],
+      "categories": [
+        "de-culcare",
+        "invatam"
+      ],
+      "created": "2026-11-19",
+      "cover": "stories/lio-si-luna-care-se-facea-tot-mai-mica/images/coperta.webp",
+      "pages": 9,
+      "minutes": 6,
+      "published": "2026-11-19"
+    },
+    {
       "id": "pici-furnicuta-si-cel-mai-greu-bob",
       "title": "Furnicuța Pici și cel mai greu bob",
       "summary": "Furnicuța Pici găsește un bob de grâu uriaș și vrea să-l ducă singură. După ce cade pe spate și rostogolește bobul în partea greșită, învață că e bine să ceri ajutor.",
