@@ -1,0 +1,460 @@
+{
+  "id": "lio-si-coama-incalcita",
+  "title": "Lio și coama încâlcită",
+  "summary": "După o zi de joacă, coama lui Lio e plină de noduri, iar pieptenele trage. Lio se supără, dar mielușica Lânuța îl învață să spună ce simte, să respire ca un balon și să-și descâlcească blând coama.",
+  "age": "3-7",
+  "moral": "Când te superi, spune ce simți, respiră liniștit și cere ajutor dacă e greu.",
+  "learning": [
+    "să numim emoția: „Sunt supărat.”",
+    "ne calmăm respirând încet, „ca un balon”",
+    "părul se descâlcește blând: puțină apă, de la vârfuri, câte o șuviță, ținând părul deasupra nodului"
+  ],
+  "created": "2026-11-20",
+  "tags": [
+    "emoții",
+    "supărare",
+    "calm",
+    "respirație",
+    "păr încâlcit",
+    "pieptene",
+    "mielușică"
+  ],
+  "illustrationStyle": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered.",
+  "characters": [
+    {
+      "name": "Lio",
+      "description": "a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression",
+      "voice": {
+        "pitch": 12,
+        "rate": 3
+      }
+    },
+    {
+      "name": "Lânuța",
+      "description": "a small fluffy lamb with soft curly cream-white wool, a pink face, small pink ears, gentle dark eyes and a little yellow flower tucked behind one ear",
+      "voice": {
+        "type": "feminin",
+        "pitch": 14,
+        "rate": -1
+      }
+    }
+  ],
+  "cover": {
+    "image": "images/coperta.png",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lânuța: a small fluffy lamb with soft curly cream-white wool, a pink face, small pink ears, gentle dark eyes and a little yellow flower tucked behind one ear. Setting: a sunny green meadow at the edge of a small forest, soft grass, a few bushes and wildflowers, a big flat stone, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, his caramel-orange mane wildly tangled and messy, full of little leaves and twigs holds a plain wide-toothed wooden comb and makes a funny surprised face; Lânuța, the small fluffy lamb with curly cream-white wool and a little yellow flower behind her ear, stands next to him smiling kindly. Emotions: funny, warm. Important details: the wildly tangled mane, the wooden comb, the kind lamb. Camera: wide cinematic cover shot, both faces clearly visible from the front.",
+    "animation": {
+      "camera": "zoom-in",
+      "effect": "none"
+    }
+  },
+  "pages": [
+    {
+      "text": "Lio s-a jucat toată ziua prin tufișuri, s-a rostogolit prin iarbă și a alergat în vânt. Când s-a oprit, coama lui arăta ca o tufă zbârlită, plină de frunzulițe și bețișoare. A luat pieptenele de lemn și l-a tras prin coamă. — Au! Au, au!",
+      "narration": [
+        {
+          "text": "Lio s-a jucat toată ziua prin tufișuri, s-a rostogolit prin iarbă și a alergat în vânt.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Când s-a oprit, coama lui arăta ca o tufă zbârlită, plină de frunzulițe și bețișoare.",
+          "mood": "vesel"
+        },
+        {
+          "text": "A luat pieptenele de lemn și l-a tras prin coamă.",
+          "mood": "calm",
+          "pause": 0.4
+        },
+        {
+          "text": "— Au! Au, au!",
+          "mood": "trist",
+          "speaker": "Lio"
+        }
+      ],
+      "image": "images/pagina-01.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: a sunny green meadow at the edge of a small forest, soft grass, a few bushes and wildflowers, a big flat stone, soft afternoon light. Action: only exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands in the meadow, his caramel-orange mane wildly tangled and messy, full of little leaves and twigs, pulling a plain wide-toothed wooden comb through his mane with a pained, grumpy face. Emotions: funny, grumpy, a little hurt. Important details: the wildly tangled mane full of leaves, the wooden comb. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Lio s-a încruntat. A bătut din picior și a pus pieptenele jos, bufnind. — Pieptene rău! Nu mai vreau! Grrr! Coada i se zbătea încoace și încolo. Atunci, de după o tufă, a ieșit o mielușică pufoasă, cu o floare galbenă după ureche. — Bună, Lio. Ce s-a întâmplat?",
+      "narration": [
+        {
+          "text": "Lio s-a încruntat. A bătut din picior și a pus pieptenele jos, bufnind.",
+          "mood": "trist"
+        },
+        {
+          "text": "— Pieptene rău! Nu mai vreau! Grrr!",
+          "mood": "trist",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Coada i se zbătea încoace și încolo.",
+          "mood": "calm"
+        },
+        {
+          "text": "Atunci, de după o tufă, a ieșit o mielușică pufoasă, cu o floare galbenă după ureche.",
+          "mood": "mirat"
+        },
+        {
+          "text": "— Bună, Lio. Ce s-a întâmplat?",
+          "mood": "calm",
+          "speaker": "Lânuța"
+        }
+      ],
+      "image": "images/pagina-02.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lânuța: a small fluffy lamb with soft curly cream-white wool, a pink face, small pink ears, gentle dark eyes and a little yellow flower tucked behind one ear. Setting: a sunny green meadow at the edge of a small forest, soft grass, a few bushes and wildflowers, a big flat stone, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, his caramel-orange mane wildly tangled and messy, full of little leaves and twigs, stomps his foot with his arms crossed and a grumpy frown, a plain wide-toothed wooden comb lying on the grass next to him; Lânuța, the small fluffy lamb with curly cream-white wool and a little yellow flower behind her ear, steps out from behind a bush and looks at him kindly. Emotions: grumpy, then curious. Important details: the comb on the grass, the grumpy face, the gentle lamb. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "— Eu sunt Lânuța, a zis mielușica. Cum te simți acum? — Nu știu… Îmi vine să mârâi! — Cred că ești supărat, a spus Lânuța încet. Spune cu voce tare: „Sunt supărat.” — Sunt… supărat, a zis Lio. Și, ciudat, parcă i-a fost un pic mai ușor.",
+      "narration": [
+        {
+          "text": "— Eu sunt Lânuța,",
+          "mood": "calm",
+          "speaker": "Lânuța"
+        },
+        {
+          "text": "a zis mielușica.",
+          "mood": "calm"
+        },
+        {
+          "text": "Cum te simți acum?",
+          "mood": "calm",
+          "speaker": "Lânuța"
+        },
+        {
+          "text": "— Nu știu… Îmi vine să mârâi!",
+          "mood": "trist",
+          "speaker": "Lio"
+        },
+        {
+          "text": "— Cred că ești supărat,",
+          "mood": "calm",
+          "speaker": "Lânuța"
+        },
+        {
+          "text": "a spus Lânuța încet.",
+          "mood": "calm"
+        },
+        {
+          "text": "Spune cu voce tare: „Sunt supărat.”",
+          "mood": "calm",
+          "speaker": "Lânuța"
+        },
+        {
+          "text": "— Sunt… supărat,",
+          "mood": "trist",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a zis Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "Și, ciudat, parcă i-a fost un pic mai ușor.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-03.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lânuța: a small fluffy lamb with soft curly cream-white wool, a pink face, small pink ears, gentle dark eyes and a little yellow flower tucked behind one ear. Setting: a sunny green meadow at the edge of a small forest, soft grass, a few bushes and wildflowers, a big flat stone, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, his caramel-orange mane wildly tangled and messy, full of little leaves and twigs, sits on the grass, his frown softening, one paw on his chest; Lânuța, the small fluffy lamb with curly cream-white wool and a little yellow flower behind her ear, sits in front of him and listens gently. Emotions: gentle, calming. Important details: the softening frown, the kind lamb. Camera: close-up.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "— Acum hai să respirăm ca un balon, a zis Lânuța. Tragi aer încet și burtica se umflă. Apoi lași aerul să iasă, încet: fsss. Lio a tras aer atât de tare, încât i s-a umflat și coama! Arăta ca o păpădie uriașă. Lânuța a chicotit, iar Lio a chicotit și el. Fsss… Au mai respirat o dată. Și încă o dată.",
+      "narration": [
+        {
+          "text": "— Acum hai să respirăm ca un balon,",
+          "mood": "calm",
+          "speaker": "Lânuța"
+        },
+        {
+          "text": "a zis Lânuța.",
+          "mood": "calm"
+        },
+        {
+          "text": "Tragi aer încet și burtica se umflă. Apoi lași aerul să iasă, încet: fsss.",
+          "mood": "șoptit",
+          "speaker": "Lânuța"
+        },
+        {
+          "text": "Lio a tras aer atât de tare, încât i s-a umflat și coama! Arăta ca o păpădie uriașă.",
+          "mood": "vesel",
+          "pause": 0.4
+        },
+        {
+          "text": "Lânuța a chicotit, iar Lio a chicotit și el. Fsss…",
+          "mood": "vesel"
+        },
+        {
+          "text": "Au mai respirat o dată. Și încă o dată.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-04.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lânuța: a small fluffy lamb with soft curly cream-white wool, a pink face, small pink ears, gentle dark eyes and a little yellow flower tucked behind one ear. Setting: a sunny green meadow at the edge of a small forest, soft grass, a few bushes and wildflowers, a big flat stone, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits on the grass with his tummy puffed up like a balloon and his tangled mane puffed up even bigger, like a giant fluffy dandelion, cheeks round, eyes closed; Lânuța, the small fluffy lamb with curly cream-white wool and a little yellow flower behind her ear, sits next to him, giggling. Emotions: funny, calming. Important details: the puffed-up tummy and the giant puffed-up mane. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "— Și eu am buclele mereu încâlcite, a zis Lânuța. Dar am un secret. Puțină apă, ca să se înmoaie. Apoi începi de la vârfuri, câte o șuviță mică. Și ții părul strâns deasupra nodului, ca să nu te tragă. Lio a ascultat cu toată atenția.",
+      "narration": [
+        {
+          "text": "— Și eu am buclele mereu încâlcite,",
+          "mood": "calm",
+          "speaker": "Lânuța"
+        },
+        {
+          "text": "a zis Lânuța.",
+          "mood": "calm"
+        },
+        {
+          "text": "Dar am un secret. Puțină apă, ca să se înmoaie. Apoi începi de la vârfuri, câte o șuviță mică.",
+          "mood": "calm",
+          "speaker": "Lânuța"
+        },
+        {
+          "text": "Și ții părul strâns deasupra nodului, ca să nu te tragă.",
+          "mood": "calm",
+          "speaker": "Lânuța"
+        },
+        {
+          "text": "Lio a ascultat cu toată atenția.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-05.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lânuța: a small fluffy lamb with soft curly cream-white wool, a pink face, small pink ears, gentle dark eyes and a little yellow flower tucked behind one ear. Setting: a sunny green meadow at the edge of a small forest, soft grass, a few bushes and wildflowers, a big flat stone, soft afternoon light. Action: Lânuța, the small fluffy lamb with curly cream-white wool and a little yellow flower behind her ear, shows exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, how to comb: she holds a small lock of her own curly wool firmly with one hoof and gently combs just its tip with a plain wide-toothed wooden comb, next to a small plain bowl of clean water on the flat stone; Lio, still messy, watches attentively. Emotions: calm, curious. Important details: the small lock of wool, the comb at the tip, the bowl of water. Camera: close-up.",
+      "animation": {
+        "camera": "pan-left",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Lio și-a udat puțin coama cu lăbuța. Apoi a ținut o șuviță strâns și a pieptănat încet doar vârful. Un nod s-a desfăcut. Apoi încă unul. Din coamă au ieșit o frunză, un bețișor și o păpădie întreagă! — Ai avut o grădină în cap! a râs Lânuța.",
+      "narration": [
+        {
+          "text": "Lio și-a udat puțin coama cu lăbuța.",
+          "mood": "calm"
+        },
+        {
+          "text": "Apoi a ținut o șuviță strâns și a pieptănat încet doar vârful.",
+          "mood": "calm"
+        },
+        {
+          "text": "Un nod s-a desfăcut. Apoi încă unul.",
+          "mood": "mirat"
+        },
+        {
+          "text": "Din coamă au ieșit o frunză, un bețișor și o păpădie întreagă!",
+          "mood": "vesel",
+          "pause": 0.4
+        },
+        {
+          "text": "— Ai avut o grădină în cap!",
+          "mood": "vesel",
+          "speaker": "Lânuța"
+        },
+        {
+          "text": "a râs Lânuța.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-06.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lânuța: a small fluffy lamb with soft curly cream-white wool, a pink face, small pink ears, gentle dark eyes and a little yellow flower tucked behind one ear. Setting: a sunny green meadow at the edge of a small forest, soft grass, a few bushes and wildflowers, a big flat stone, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, holds one small lock of his mane firmly and gently combs only its tip with a plain wide-toothed wooden comb; a leaf, a small twig and a whole dandelion fall out of his mane; Lânuța, the small fluffy lamb with curly cream-white wool and a little yellow flower behind her ear, laughs next to him. Emotions: funny, proud, calm. Important details: the leaf, twig and dandelion falling out of the mane. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "leaves"
+      }
+    },
+    {
+      "text": "La un nod mare, a tras din nou. Au! Lio a simțit iar supărarea venind. Dar de data asta s-a oprit. A respirat ca un balon: fsss. Apoi a spus: — Lânuța, nodul ăsta e prea mare. Mă ajuți, te rog? — Sigur că da!",
+      "narration": [
+        {
+          "text": "La un nod mare, a tras din nou. Au!",
+          "mood": "calm",
+          "pause": 0.4
+        },
+        {
+          "text": "Lio a simțit iar supărarea venind. Dar de data asta s-a oprit.",
+          "mood": "calm"
+        },
+        {
+          "text": "A respirat ca un balon: fsss.",
+          "mood": "șoptit",
+          "pause": 0.5
+        },
+        {
+          "text": "Apoi a spus:",
+          "mood": "calm"
+        },
+        {
+          "text": "— Lânuța, nodul ăsta e prea mare. Mă ajuți, te rog?",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "— Sigur că da!",
+          "mood": "vesel",
+          "speaker": "Lânuța"
+        }
+      ],
+      "image": "images/pagina-07.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lânuța: a small fluffy lamb with soft curly cream-white wool, a pink face, small pink ears, gentle dark eyes and a little yellow flower tucked behind one ear. Setting: a sunny green meadow at the edge of a small forest, soft grass, a few bushes and wildflowers, a big flat stone, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits calmly with his eyes closed, breathing out slowly, then politely asks for help; Lânuța, the small fluffy lamb with curly cream-white wool and a little yellow flower behind her ear, gently holds the big tangled lock at the back of his mane above the knot while Lio carefully combs its tip. Emotions: calm, proud, cooperative. Important details: the lamb holding the lock above the knot, the calm breath. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "În curând, coama lui Lio era moale și strălucitoare. Lio a scuturat-o mândru, ca un leu adevărat. Dar atunci a bătut vântul și buclele Lânuței s-au încâlcit toate! — Stai liniștită, a zâmbit Lio și a luat pieptenele. Acum știu secretul: încet, de la vârfuri, câte puțin.",
+      "narration": [
+        {
+          "text": "În curând, coama lui Lio era moale și strălucitoare.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Lio a scuturat-o mândru, ca un leu adevărat.",
+          "mood": "entuziasmat"
+        },
+        {
+          "text": "Dar atunci a bătut vântul și buclele Lânuței s-au încâlcit toate!",
+          "mood": "mirat",
+          "pause": 0.4
+        },
+        {
+          "text": "— Stai liniștită,",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a zâmbit Lio și a luat pieptenele.",
+          "mood": "calm"
+        },
+        {
+          "text": "Acum știu secretul: încet, de la vârfuri, câte puțin.",
+          "mood": "calm",
+          "speaker": "Lio"
+        }
+      ],
+      "image": "images/pagina-08.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lânuța: a small fluffy lamb with soft curly cream-white wool, a pink face, small pink ears, gentle dark eyes and a little yellow flower tucked behind one ear. Setting: a sunny green meadow at the edge of a small forest, soft grass, a few bushes and wildflowers, a big flat stone, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, with a soft, smooth, shiny caramel-orange mane gently combs the tip of a small curly lock of the wool of Lânuța, the small fluffy lamb with curly cream-white wool and a little yellow flower behind her ear, with a plain wide-toothed wooden comb; her wool is a little windblown and messy; both smile. Emotions: warm, kind, proud. Important details: Lio's smooth shiny mane, the gentle combing. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-left",
+        "effect": "hearts"
+      }
+    },
+    {
+      "text": "Seara, Lio și Lânuța stăteau pe o piatră caldă. — Când mă supăr, spun ce simt, a zis Lio. Apoi respir ca un balon. Și, dacă e prea greu, cer ajutor. — Și pieptenele? a întrebat Lânuța, zâmbind. — E prietenul meu, a râs Lio. Doar că trebuie să-l folosesc cu blândețe.",
+      "narration": [
+        {
+          "text": "Seara, Lio și Lânuța stăteau pe o piatră caldă.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Când mă supăr, spun ce simt,",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a zis Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "Apoi respir ca un balon. Și, dacă e prea greu, cer ajutor.",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "— Și pieptenele?",
+          "mood": "vesel",
+          "speaker": "Lânuța"
+        },
+        {
+          "text": "a întrebat Lânuța, zâmbind.",
+          "mood": "calm"
+        },
+        {
+          "text": "— E prietenul meu,",
+          "mood": "somnoros",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a râs Lio.",
+          "mood": "somnoros"
+        },
+        {
+          "text": "Doar că trebuie să-l folosesc cu blândețe.",
+          "mood": "somnoros",
+          "speaker": "Lio"
+        }
+      ],
+      "image": "images/pagina-09.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lânuța: a small fluffy lamb with soft curly cream-white wool, a pink face, small pink ears, gentle dark eyes and a little yellow flower tucked behind one ear. Setting: a sunny green meadow at the edge of a small forest, soft grass, a few bushes and wildflowers, a big flat stone, warm golden sunset light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, with a smooth shiny mane and Lânuța, the small fluffy lamb with curly cream-white wool and a little yellow flower behind her ear, sit side by side on a big flat warm stone at sunset, smiling; a plain wide-toothed wooden comb lies between them on the stone. Emotions: peaceful, warm, content. Important details: the two friends on the stone, the comb between them, the sunset light. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "glow"
+      }
+    }
+  ],
+  "categories": [
+    "invatam",
+    "prietenie"
+  ],
+  "review": {
+    "imaginatie": "O coamă „ca o tufă zbârlită”, din care ies o frunză, un bețișor și o păpădie întreagă (paginile 1, 6), o respirație „ca un balon” care umflă și coama ca o păpădie uriașă (4) și o mielușică ce știe secretul buclelor (5).",
+    "invatare": "Pașii sunt arătați în acțiune: Lio își numește emoția („Sunt supărat”, 3), se calmează respirând ca un balon (4) și învață cum se descâlcește blând părul: puțină apă, de la vârfuri, câte o șuviță, ținând părul deasupra nodului (5–6). La nodul mare, Lio aplică singur ce a învățat: se oprește, respiră și cere ajutor (7); apoi o ajută el pe Lânuța (8) și spune singur regula (9).",
+    "umor": [
+      "pagina 1: coama ca o tufă zbârlită și „Au! Au, au!”",
+      "pagina 4: Lio trage aer atât de tare, încât i se umflă și coama, ca o păpădie uriașă",
+      "pagina 6: „Ai avut o grădină în cap!”",
+      "pagina 9: „E prietenul meu. Doar că trebuie să-l folosesc cu blândețe.”"
+    ],
+    "emotie": "Supărarea lui Lio e reală și pe înțelesul copiilor (1–2); nimeni nu-l ceartă: Lânuța îl întreabă ce simte și îl ajută să-și dea seama singur (3). Reușita e a lui (7), iar la final o ajută el pe prietena lui (8). Final cald, la apus.",
+    "siguranta": "Lio nu aruncă pieptenele și nu lovește pe nimeni: îl pune jos, bufnind, apoi se liniștește. Sfaturile de descâlcit sunt blânde și corecte. Nimic înfricoșător.",
+    "imagini": "Doar Lio și mielușica (fără oameni), „exactly one lion cub, Lio”, cel mult două personaje pe imagine; pagina 1 doar cu Lio. Pieptenele e „a plain wide-toothed wooden comb”, fără față; castronul de apă e „a small plain bowl”. Fără oglinzi sau reflexii (Lio nu se uită în apă, ci își scutură coama), fără guri de aproape, fără numere, fără litere, fără „nest/basket/blanket”. Fiecare prompt arată momentul paginii. Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
+    "voce": "Narațiune caldă; supărată, cu „Grrr!”, la început (2), apoi tot mai liniștită; șoptită la respirația „fsss” (4, 7), cu pauze. Lânuța are o voce blândă și calmă; Lio vocea lui obișnuită, bosumflat la început. Replicile sunt separate de vorbele naratorului."
+  },
+  "verified": false,
+  "questions": [
+    {
+      "text": "Ce a spus Lio ca să se simtă mai bine?",
+      "options": [
+        {
+          "text": "„Sunt supărat.”",
+          "emoji": "🗣️"
+        },
+        {
+          "text": "Nimic, a mârâit",
+          "emoji": "😾"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Corect! Când spunem cu voce tare ce simțim, ne e mai ușor."
+    },
+    {
+      "text": "De unde începem să descâlcim părul?",
+      "options": [
+        {
+          "text": "De la vârfuri, încet",
+          "image": "images/pagina-06.png"
+        },
+        {
+          "text": "Tragem tare de sus",
+          "emoji": "💥"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Bravo! De la vârfuri, câte o șuviță mică, ținând părul deasupra nodului."
+    }
+  ]
+}
