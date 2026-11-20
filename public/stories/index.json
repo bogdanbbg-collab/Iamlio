@@ -33,6 +33,30 @@
   ],
   "stories": [
     {
+      "id": "lio-si-coama-incalcita",
+      "title": "Lio și coama încâlcită",
+      "summary": "După o zi de joacă, coama lui Lio e plină de noduri, iar pieptenele trage. Lio se supără, dar mielușica Lânuța îl învață să spună ce simte, să respire ca un balon și să-și descâlcească blând coama.",
+      "age": "3-7",
+      "tags": [
+        "emoții",
+        "supărare",
+        "calm",
+        "respirație",
+        "păr încâlcit",
+        "pieptene",
+        "mielușică"
+      ],
+      "categories": [
+        "invatam",
+        "prietenie"
+      ],
+      "created": "2026-11-20",
+      "cover": "stories/lio-si-coama-incalcita/images/coperta.webp",
+      "pages": 9,
+      "minutes": 6,
+      "published": "2026-11-20"
+    },
+    {
       "id": "lio-si-luna-care-se-facea-tot-mai-mica",
       "title": "Lio și Luna care se făcea tot mai mică",
       "summary": "Luna se sperie că se face tot mai mică și că o să dispară. Lio îi arată, cu o minge și o lanternă, că ea rămâne mereu rotundă: noi vedem doar partea luminată de Soare.",

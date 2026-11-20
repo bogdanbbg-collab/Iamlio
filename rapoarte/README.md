@@ -2,7 +2,7 @@
 
 Generate automat la fiecare publicare. Un AI care a adăugat sau a modificat o poveste citește raportul ei și corectează tot ce scrie la „De corectat”, până când raportul spune „publicată”.
 
-Ultima verificare: 2026-11-20 04:35 UTC
+Ultima verificare: 2026-11-20 04:43 UTC
 
 | Poveste | Stare | De corectat | Reparate automat |
 | --- | --- | --- | --- |
@@ -12,7 +12,7 @@ Ultima verificare: 2026-11-20 04:35 UTC
 | [Hopi, broscuța care sărea prea tare](hopi-broscuta-care-sarea-prea-tare.md) | ✅ publicată | 0 | 0 |
 | [Lio și cârtița din grădina bunicii](lio-si-cartita-din-gradina-bunicii.md) | ✅ publicată | 0 | 0 |
 | [Lio și ceasul care a uitat ora](lio-si-ceasul-care-a-uitat-ora.md) | ⏳ în verificare | 0 | 0 |
-| [Lio și coama încâlcită](lio-si-coama-incalcita.md) | ⏳ în verificare | 0 | 1 |
+| [Lio și coama încâlcită](lio-si-coama-incalcita.md) | ✅ publicată | 0 | 0 |
 | [Lio și Luna care se făcea tot mai mică](lio-si-luna-care-se-facea-tot-mai-mica.md) | ✅ publicată | 0 | 0 |
 | [Lio și omul de zăpadă](lio-si-omul-de-zapada.md) | ✅ publicată | 0 | 0 |
 | [Lio și pensula toamnei](lio-si-pensula-toamnei.md) | ✅ publicată | 0 | 0 |
