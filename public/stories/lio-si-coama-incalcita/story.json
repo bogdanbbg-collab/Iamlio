@@ -40,7 +40,7 @@
     }
   ],
   "cover": {
-    "image": "images/coperta.png",
+    "image": "images/coperta.webp",
     "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lânuța: a small fluffy lamb with soft curly cream-white wool, a pink face, small pink ears, gentle dark eyes and a little yellow flower tucked behind one ear. Setting: a sunny green meadow at the edge of a small forest, soft grass, a few bushes and wildflowers, a big flat stone, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, his caramel-orange mane funny, cute and puffy, wildly tangled and messy, full of little leaves and twigs holds a plain wide-toothed wooden comb and makes a funny surprised face; Lânuța, the small fluffy lamb with curly cream-white wool and a little yellow flower behind her ear, standing on her four legs, stands next to him smiling kindly. Emotions: funny, warm. Important details: the wildly tangled mane, the wooden comb, the kind lamb. Camera: wide cinematic cover shot, both faces clearly visible from the front.",
     "animation": {
       "camera": "zoom-in",
@@ -70,7 +70,7 @@
           "speaker": "Lio"
         }
       ],
-      "image": "images/pagina-01.png",
+      "image": "images/pagina-01.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: a sunny green meadow at the edge of a small forest, soft grass, a few bushes and wildflowers, a big flat stone, soft afternoon light. Action: only exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands in the meadow, his caramel-orange mane funny, cute and puffy, wildly tangled and messy, full of little leaves and twigs, pulling a plain wide-toothed wooden comb through his mane with a pained, grumpy face. Emotions: funny, grumpy, a little hurt. Important details: the wildly tangled mane full of leaves, the wooden comb. Camera: medium shot.",
       "animation": {
         "camera": "zoom-in",
@@ -103,7 +103,7 @@
           "speaker": "Lânuța"
         }
       ],
-      "image": "images/pagina-02.png",
+      "image": "images/pagina-02.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lânuța: a small fluffy lamb with soft curly cream-white wool, a pink face, small pink ears, gentle dark eyes and a little yellow flower tucked behind one ear. Setting: a sunny green meadow at the edge of a small forest, soft grass, a few bushes and wildflowers, a big flat stone, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, his caramel-orange mane funny, cute and puffy, wildly tangled and messy, full of little leaves and twigs, stomps his foot with his arms crossed and a grumpy frown, a plain wide-toothed wooden comb lying on the grass next to him; Lânuța, the small fluffy lamb with curly cream-white wool and a little yellow flower behind her ear, standing on her four legs, steps out from behind a bush and looks at him kindly. Emotions: grumpy, then curious. Important details: the comb on the grass, the grumpy face, the gentle lamb. Camera: medium shot.",
       "animation": {
         "camera": "pan-right",
@@ -165,7 +165,7 @@
           "mood": "calm"
         }
       ],
-      "image": "images/pagina-03.png",
+      "image": "images/pagina-03.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lânuța: a small fluffy lamb with soft curly cream-white wool, a pink face, small pink ears, gentle dark eyes and a little yellow flower tucked behind one ear. Setting: a sunny green meadow at the edge of a small forest, soft grass, a few bushes and wildflowers, a big flat stone, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, his caramel-orange mane funny, cute and puffy, wildly tangled and messy, full of little leaves and twigs, sits on the grass, his frown softening, one paw on his chest; Lânuța, the small fluffy lamb with curly cream-white wool and a little yellow flower behind her ear, standing on her four legs, sits in front of him and listens gently. Emotions: gentle, calming. Important details: the softening frown, the kind lamb. Camera: close-up.",
       "animation": {
         "camera": "zoom-in",
@@ -208,7 +208,7 @@
           "mood": "calm"
         }
       ],
-      "image": "images/pagina-04.png",
+      "image": "images/pagina-04.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lânuța: a small fluffy lamb with soft curly cream-white wool, a pink face, small pink ears, gentle dark eyes and a little yellow flower tucked behind one ear. Setting: a sunny green meadow at the edge of a small forest, soft grass, a few bushes and wildflowers, a big flat stone, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits on the grass, his round tummy puffed out big, cheeks round, eyes closed, his whole mane fluffed out into a huge round fluffy puffball around his head; Lânuța, the small fluffy lamb with curly cream-white wool and a little yellow flower behind her ear, standing on her four legs, sits next to him, giggling. Emotions: funny, calming. Important details: the puffed-out tummy and the huge puffball mane. Camera: medium shot.",
       "animation": {
         "camera": "zoom-out",
@@ -242,7 +242,7 @@
           "mood": "calm"
         }
       ],
-      "image": "images/pagina-05.png",
+      "image": "images/pagina-05.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lânuța: a small fluffy lamb with soft curly cream-white wool, a pink face, small pink ears, gentle dark eyes and a little yellow flower tucked behind one ear. Setting: a sunny green meadow at the edge of a small forest, soft grass, a few bushes and wildflowers, a big flat stone, soft afternoon light. Action: Lânuța, the small fluffy lamb with curly cream-white wool and a little yellow flower behind her ear, standing on her four legs, touches the tip of one curly lock of her own wool with her front hoof, explaining; a plain wide-toothed wooden comb lies on the flat stone next to a small plain bowl of water seen from the side; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, his caramel-orange mane funny, cute and puffy, wildly tangled and messy, full of little leaves and twigs, watches attentively. Emotions: calm, curious. Important details: the curly lock of wool, the comb and the bowl on the stone. Camera: close-up.",
       "animation": {
         "camera": "pan-left",
@@ -279,7 +279,7 @@
           "mood": "vesel"
         }
       ],
-      "image": "images/pagina-06.png",
+      "image": "images/pagina-06.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lânuța: a small fluffy lamb with soft curly cream-white wool, a pink face, small pink ears, gentle dark eyes and a little yellow flower tucked behind one ear. Setting: a sunny green meadow at the edge of a small forest, soft grass, a few bushes and wildflowers, a big flat stone, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, holds one small lock of his mane firmly and gently combs only its tip with a plain wide-toothed wooden comb; a leaf, a small twig and a whole dandelion fall out of his mane; Lânuța, the small fluffy lamb with curly cream-white wool and a little yellow flower behind her ear, standing on her four legs, laughs next to him. Emotions: funny, proud, calm. Important details: the leaf, twig and dandelion falling out of the mane. Camera: medium shot.",
       "animation": {
         "camera": "zoom-in",
@@ -326,7 +326,7 @@
           "speaker": "Lânuța"
         }
       ],
-      "image": "images/pagina-07.png",
+      "image": "images/pagina-07.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lânuța: a small fluffy lamb with soft curly cream-white wool, a pink face, small pink ears, gentle dark eyes and a little yellow flower tucked behind one ear. Setting: a sunny green meadow at the edge of a small forest, soft grass, a few bushes and wildflowers, a big flat stone, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, calm, eyes open, his mane half smooth and half tangled with one big tangled lock at the side, holds a plain wide-toothed wooden comb and looks hopefully at Lânuța, asking for help; Lânuța, the small fluffy lamb with curly cream-white wool and a little yellow flower behind her ear, standing on her four legs, steps closer, smiling and nodding. Emotions: calm, proud, hopeful. Important details: the one big tangled lock, the hopeful look. Camera: medium shot.",
       "animation": {
         "camera": "pan-right",
@@ -364,7 +364,7 @@
           "speaker": "Lio"
         }
       ],
-      "image": "images/pagina-08.png",
+      "image": "images/pagina-08.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lânuța: a small fluffy lamb with soft curly cream-white wool, a pink face, small pink ears, gentle dark eyes and a little yellow flower tucked behind one ear. Setting: a sunny green meadow at the edge of a small forest, soft grass, a few bushes and wildflowers, a big flat stone, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, with a soft, smooth, shiny caramel-orange mane gently combs the tip of a small curly lock of the wool of Lânuța, the small fluffy lamb with curly cream-white wool and a little yellow flower behind her ear, standing on her four legs, with a plain wide-toothed wooden comb; her curly wool is all tangled and windblown; both smile. Emotions: warm, kind, proud. Important details: Lio's smooth shiny mane, the gentle combing. Camera: medium shot.",
       "animation": {
         "camera": "pan-left",
@@ -416,7 +416,7 @@
           "speaker": "Lio"
         }
       ],
-      "image": "images/pagina-09.png",
+      "image": "images/pagina-09.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lânuța: a small fluffy lamb with soft curly cream-white wool, a pink face, small pink ears, gentle dark eyes and a little yellow flower tucked behind one ear. Setting: a green meadow at the edge of a small forest, soft grass, a few bushes and wildflowers, a big flat stone, warm golden sunset light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, with a smooth shiny mane and Lânuța, the small fluffy lamb with curly cream-white wool and a little yellow flower behind her ear, standing on her four legs, sit side by side on a big flat warm stone at sunset, smiling; a plain wide-toothed wooden comb lies between them on the stone. Emotions: peaceful, warm, content. Important details: the two friends on the stone, the comb between them, the sunset light. Camera: wide shot.",
       "animation": {
         "camera": "zoom-out",
@@ -449,7 +449,7 @@
       "options": [
         {
           "text": "„Sunt supărat.”",
-          "image": "images/pagina-03.png"
+          "image": "images/pagina-03.webp"
         },
         {
           "text": "A mârâit și n-a spus nimic",
@@ -464,7 +464,7 @@
       "options": [
         {
           "text": "De la vârfuri, încet",
-          "image": "images/pagina-06.png"
+          "image": "images/pagina-06.webp"
         },
         {
           "text": "Tragem tare de sus",
