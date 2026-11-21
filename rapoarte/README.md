@@ -2,7 +2,7 @@
 
 Generate automat la fiecare publicare. Un AI care a adăugat sau a modificat o poveste citește raportul ei și corectează tot ce scrie la „De corectat”, până când raportul spune „publicată”.
 
-Ultima verificare: 2026-11-21 04:39 UTC
+Ultima verificare: 2026-11-21 04:49 UTC
 
 | Poveste | Stare | De corectat | Reparate automat |
 | --- | --- | --- | --- |
@@ -19,7 +19,7 @@ Ultima verificare: 2026-11-21 04:39 UTC
 | [Lio și periuța curajoasă](lio-si-periuta-curajoasa.md) | ✅ publicată | 0 | 0 |
 | [Lio și steluța căzătoare](lio-si-steluta-cazatoare.md) | ✅ publicată | 0 | 0 |
 | [Lio și Tobi la semafor](lio-si-tobi-la-semafor.md) | ⏳ în verificare | 0 | 0 |
-| [Lio și trenulețul cuvintelor](lio-si-trenuletul-cuvintelor.md) | ⏳ în verificare | 0 | 4 |
+| [Lio și trenulețul cuvintelor](lio-si-trenuletul-cuvintelor.md) | ✅ publicată | 0 | 0 |
 | [Lio, Zuzu și ploaia de nasturi](lio-zuzu-si-ploaia-de-nasturi.md) | ✅ publicată | 0 | 0 |
 | [Matei și limonada fermecată](matei-si-limonada-fermecata.md) | ✅ publicată | 0 | 0 |
 | [Miți, pisicuța care voia să zboare](miti-pisicuta-care-voia-sa-zboare.md) | ✅ publicată | 0 | 0 |

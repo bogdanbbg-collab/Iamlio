@@ -33,6 +33,29 @@
   ],
   "stories": [
     {
+      "id": "lio-si-trenuletul-cuvintelor",
+      "title": "Lio și trenulețul cuvintelor",
+      "summary": "Un trenuleț de lemn fermecat, Tu-Tu, îl învață pe Lio un joc: în fiecare vagon pune un lucru, ascultă primul sunet din numele lui, iar din sunete face cuvinte. Așa citește Lio primul lui cuvânt și propriul nume!",
+      "age": "3-7",
+      "tags": [
+        "litere",
+        "sunete",
+        "cuvinte",
+        "citit",
+        "tren",
+        "joc"
+      ],
+      "categories": [
+        "invatam",
+        "aventuri"
+      ],
+      "created": "2026-11-21",
+      "cover": "stories/lio-si-trenuletul-cuvintelor/images/coperta.webp",
+      "pages": 9,
+      "minutes": 5,
+      "published": "2026-11-21"
+    },
+    {
       "id": "lio-si-coama-incalcita",
       "title": "Lio și coama încâlcită",
       "summary": "După o zi de joacă, coama lui Lio e plină de noduri, iar pieptenele trage. Lio se supără, dar mielușica Lânuța îl învață să spună ce simte, să respire ca un balon și să-și descâlcească blând coama.",
