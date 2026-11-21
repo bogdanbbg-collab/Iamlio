@@ -1,0 +1,418 @@
+{
+  "id": "lio-si-trenuletul-cuvintelor",
+  "title": "Lio și trenulețul cuvintelor",
+  "summary": "Un trenuleț de lemn fermecat, Tu-Tu, îl învață pe Lio un joc: în fiecare vagon pune un lucru, ascultă primul sunet din numele lui, iar din sunete face cuvinte. Așa citește Lio primul lui cuvânt și propriul nume!",
+  "age": "3-7",
+  "moral": "Sunetele puse unul după altul fac cuvinte.",
+  "learning": [
+    "fiecare cuvânt începe cu un sunet (lămâie începe cu L, umbrelă cu U)",
+    "sunetele puse unul după altul fac un cuvânt: L, U, N, A înseamnă Luna",
+    "putem găsi sunetele din propriul nume: L, I, O înseamnă Lio"
+  ],
+  "created": "2026-11-21",
+  "tags": [
+    "litere",
+    "sunete",
+    "cuvinte",
+    "citit",
+    "tren",
+    "joc"
+  ],
+  "illustrationStyle": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered.",
+  "characters": [
+    {
+      "name": "Lio",
+      "description": "a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression",
+      "voice": {
+        "pitch": 12,
+        "rate": 3
+      }
+    },
+    {
+      "name": "Tu-Tu",
+      "description": "a small wooden toy train: a shiny red engine with a little round chimney and plain wooden wagons painted in solid bright colors (yellow, blue, green), with no letters and no numbers on it; an ordinary toy, no face",
+      "voice": {
+        "type": "masculin",
+        "pitch": 4,
+        "rate": 3
+      }
+    }
+  ],
+  "cover": {
+    "image": "images/coperta.png",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Tu-Tu: a small wooden toy train: a shiny red engine with a little round chimney and plain wooden wagons painted in solid bright colors (yellow, blue, green), with no letters and no numbers on it; an ordinary toy, no face. Setting: a sunny garden with soft grass, a little gravel path, flower beds, a lemon tree and a walnut tree, a wooden bench, soft morning light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, rides happily in the red engine of the wooden toy train, now big enough to ride: a shiny red engine with a little round chimney puffing small white cloud puffs, pulling a few plain open wooden wagons painted yellow, blue and green, with no letters on them, waving, as it rolls along the garden path with a lemon, a red umbrella and a pineapple in the wagons. Emotions: joyful, adventurous. Important details: the red engine, the colorful plain wagons. Camera: wide cinematic cover shot.",
+    "animation": {
+      "camera": "zoom-in",
+      "effect": "none"
+    }
+  },
+  "pages": [
+    {
+      "text": "Într-o dimineață, Lio a găsit în grădină un trenuleț de lemn. Deodată, trenulețul a fluierat: — Tu-tuuu! Și a crescut, a crescut, până s-a făcut destul de mare cât să urce Lio în el! — Eu sunt Tu-Tu, trenulețul cuvintelor. Hai să adunăm un cuvânt!",
+      "narration": [
+        {
+          "text": "Într-o dimineață, Lio a găsit în grădină un trenuleț de lemn.",
+          "mood": "calm"
+        },
+        {
+          "text": "Deodată, trenulețul a fluierat:",
+          "mood": "misterios",
+          "pause": 0.3
+        },
+        {
+          "text": "— Tu-tuuu!",
+          "mood": "vesel",
+          "speaker": "Tu-Tu"
+        },
+        {
+          "text": "Și a crescut, a crescut, până s-a făcut destul de mare cât să urce Lio în el!",
+          "mood": "entuziasmat"
+        },
+        {
+          "text": "— Eu sunt Tu-Tu, trenulețul cuvintelor. Hai să adunăm un cuvânt!",
+          "mood": "vesel",
+          "speaker": "Tu-Tu"
+        }
+      ],
+      "image": "images/pagina-01.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Tu-Tu: a small wooden toy train: a shiny red engine with a little round chimney and plain wooden wagons painted in solid bright colors (yellow, blue, green), with no letters and no numbers on it; an ordinary toy, no face. Setting: a sunny garden with soft grass, a little gravel path, flower beds, a lemon tree and a walnut tree, a wooden bench, soft morning light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands on the grass with wide amazed eyes as the wooden toy train, now big enough to ride: a shiny red engine with a little round chimney puffing small white cloud puffs, pulling a few plain open wooden wagons painted yellow, blue and green, with no letters on them sits on the gravel path in front of him, sparkles around it as if it has just grown big. Emotions: amazed, magical, joyful. Important details: the red engine with its little chimney puffing white cloud puffs. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "sparkles"
+      }
+    },
+    {
+      "text": "— Fiecare vagon duce un lucru, a explicat Tu-Tu. Ascultă primul sunet din numele lui. Din sunete facem cuvântul! Prima oprire a fost la lămâiul din colț. Lio a cules o lămâie galbenă și a pus-o în primul vagon. — Lă-mâ-ie… Începe cu L!",
+      "narration": [
+        {
+          "text": "— Fiecare vagon duce un lucru,",
+          "mood": "calm",
+          "speaker": "Tu-Tu"
+        },
+        {
+          "text": "a explicat Tu-Tu.",
+          "mood": "calm"
+        },
+        {
+          "text": "Ascultă primul sunet din numele lui. Din sunete facem cuvântul!",
+          "mood": "calm",
+          "speaker": "Tu-Tu"
+        },
+        {
+          "text": "Prima oprire a fost la lămâiul din colț.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lio a cules o lămâie galbenă și a pus-o în primul vagon.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Lă-mâ-ie… Începe cu L!",
+          "mood": "entuziasmat",
+          "speaker": "Lio"
+        }
+      ],
+      "image": "images/pagina-02.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Tu-Tu: a small wooden toy train: a shiny red engine with a little round chimney and plain wooden wagons painted in solid bright colors (yellow, blue, green), with no letters and no numbers on it; an ordinary toy, no face. Setting: a sunny garden with soft grass, a little gravel path, flower beds, a lemon tree and a walnut tree, a wooden bench, soft morning light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, reaches up and picks a yellow lemon from the lemon tree and puts it into the first open yellow wagon of the wooden toy train, now big enough to ride: a shiny red engine with a little round chimney puffing small white cloud puffs, pulling a few plain open wooden wagons painted yellow, blue and green, with no letters on them. Emotions: curious, happy. Important details: the yellow lemon in the yellow wagon. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "A doua oprire a fost lângă bancă. Acolo stătea o umbrelă roșie, închisă. Lio a pus-o în al doilea vagon și… poc! Umbrela s-a deschis singură! — Um-bre-lă… Începe cu U! a râs Lio, de sub umbrelă.",
+      "narration": [
+        {
+          "text": "A doua oprire a fost lângă bancă.",
+          "mood": "calm"
+        },
+        {
+          "text": "Acolo stătea o umbrelă roșie, închisă.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lio a pus-o în al doilea vagon și… poc! Umbrela s-a deschis singură!",
+          "mood": "vesel",
+          "pause": 0.4
+        },
+        {
+          "text": "— Um-bre-lă… Începe cu U!",
+          "mood": "entuziasmat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a râs Lio, de sub umbrelă.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-03.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Tu-Tu: a small wooden toy train: a shiny red engine with a little round chimney and plain wooden wagons painted in solid bright colors (yellow, blue, green), with no letters and no numbers on it; an ordinary toy, no face. Setting: a sunny garden with soft grass, a little gravel path, flower beds, a lemon tree and a walnut tree, a wooden bench, soft morning light. Action: a red umbrella has popped open by itself in the blue wagon of the wooden toy train, now big enough to ride: a shiny red engine with a little round chimney puffing small white cloud puffs, pulling a few plain open wooden wagons painted yellow, blue and green, with no letters on them; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands under it, laughing with surprise. Emotions: funny, surprised. Important details: the red umbrella popping open in the blue wagon. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "A treia oprire a fost sub nucul cel mare. Lio s-a uitat în sus și… poc! O nucă i-a căzut fix pe cap. — Au! Ei bine, mulțumesc, nucule! a râs el, frecându-și coama. Nu-că… Începe cu N!",
+      "narration": [
+        {
+          "text": "A treia oprire a fost sub nucul cel mare.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lio s-a uitat în sus și… poc! O nucă i-a căzut fix pe cap.",
+          "mood": "vesel",
+          "pause": 0.4
+        },
+        {
+          "text": "— Au! Ei bine, mulțumesc, nucule!",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a râs el, frecându-și coama.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Nu-că… Începe cu N!",
+          "mood": "entuziasmat",
+          "speaker": "Lio"
+        }
+      ],
+      "image": "images/pagina-04.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Tu-Tu: a small wooden toy train: a shiny red engine with a little round chimney and plain wooden wagons painted in solid bright colors (yellow, blue, green), with no letters and no numbers on it; an ordinary toy, no face. Setting: a sunny garden with soft grass, a little gravel path, flower beds, a lemon tree and a walnut tree, a wooden bench, soft morning light. Action: under the walnut tree, a single walnut bounces off the fluffy mane of exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, who rubs his head and laughs, holding the walnut; the green wagon of the wooden toy train, now big enough to ride: a shiny red engine with a little round chimney puffing small white cloud puffs, pulling a few plain open wooden wagons painted yellow, blue and green, with no letters on them waits next to him. Emotions: funny, cheerful. Important details: the walnut bouncing off Lio's mane. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-down",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "A patra oprire a fost la o tarabă cu fructe. Acolo stătea un ananas țepos, cu un moț verde, ca o coroniță. Lio l-a pus în ultimul vagon. — A-na-nas… Începe cu A! — Tu-tuuu! Acum spune toate sunetele, unul după altul!",
+      "narration": [
+        {
+          "text": "A patra oprire a fost la o tarabă cu fructe.",
+          "mood": "calm"
+        },
+        {
+          "text": "Acolo stătea un ananas țepos, cu un moț verde, ca o coroniță.",
+          "mood": "mirat"
+        },
+        {
+          "text": "Lio l-a pus în ultimul vagon.",
+          "mood": "calm"
+        },
+        {
+          "text": "— A-na-nas… Începe cu A!",
+          "mood": "entuziasmat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "— Tu-tuuu! Acum spune toate sunetele, unul după altul!",
+          "mood": "vesel",
+          "speaker": "Tu-Tu"
+        }
+      ],
+      "image": "images/pagina-05.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Tu-Tu: a small wooden toy train: a shiny red engine with a little round chimney and plain wooden wagons painted in solid bright colors (yellow, blue, green), with no letters and no numbers on it; an ordinary toy, no face. Setting: a sunny garden with soft grass, a little gravel path, flower beds, a lemon tree and a walnut tree, a small wooden fruit stand with plain fruit and no signs, soft morning light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, carefully puts a spiky pineapple with a green crown into the last wagon of the wooden toy train, now big enough to ride: a shiny red engine with a little round chimney puffing small white cloud puffs, pulling a few plain open wooden wagons painted yellow, blue and green, with no letters on them, next to the small fruit stand. Emotions: curious, happy. Important details: the pineapple with its green crown. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Lio s-a uitat la vagoane: lămâie, umbrelă, nucă, ananas. — L… U… N… A… Luna! Am citit primul meu cuvânt! Tu-Tu a fluierat atât de tare, încât din coș i-au ieșit nori mici în formă de inimioare.",
+      "narration": [
+        {
+          "text": "Lio s-a uitat la vagoane: lămâie, umbrelă, nucă, ananas.",
+          "mood": "calm"
+        },
+        {
+          "text": "— L… U… N… A…",
+          "mood": "misterios",
+          "speaker": "Lio",
+          "pause": 0.6
+        },
+        {
+          "text": "Luna!",
+          "mood": "entuziasmat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Am citit primul meu cuvânt!",
+          "mood": "entuziasmat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Tu-Tu a fluierat atât de tare, încât din coș i-au ieșit nori mici în formă de inimioare.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-06.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Tu-Tu: a small wooden toy train: a shiny red engine with a little round chimney and plain wooden wagons painted in solid bright colors (yellow, blue, green), with no letters and no numbers on it; an ordinary toy, no face. Setting: a sunny garden with soft grass, a little gravel path, flower beds, a lemon tree and a walnut tree, a wooden bench, soft morning light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands proudly next to the wooden toy train, now big enough to ride: a shiny red engine with a little round chimney puffing small white cloud puffs, pulling a few plain open wooden wagons painted yellow, blue and green, with no letters on them, whose wagons carry a yellow lemon, an open red umbrella, a walnut and a spiky pineapple; little white heart-shaped cloud puffs rise from the chimney; Lio raises his paws in joy. Emotions: proud, joyful. Important details: the four objects in the wagons, the heart-shaped puffs. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "hearts"
+      }
+    },
+    {
+      "text": "— Acum un cuvânt special, a zis Tu-Tu. Lio a pus în vagoane o lămâie, un inel strălucitor găsit în iarbă și un ou dintr-o cutiuță de ouă din bucătărie. — Lă-mâ-ie… L. I-nel… I. Ou… O. Lio s-a gândit. Apoi ochii i-au strălucit.",
+      "narration": [
+        {
+          "text": "— Acum un cuvânt special,",
+          "mood": "misterios",
+          "speaker": "Tu-Tu"
+        },
+        {
+          "text": "a zis Tu-Tu.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lio a pus în vagoane o lămâie, un inel strălucitor găsit în iarbă și un ou dintr-o cutiuță de ouă din bucătărie.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Lă-mâ-ie… L. I-nel… I. Ou… O.",
+          "mood": "calm",
+          "speaker": "Lio",
+          "pause": 0.5
+        },
+        {
+          "text": "Lio s-a gândit. Apoi ochii i-au strălucit.",
+          "mood": "mirat"
+        }
+      ],
+      "image": "images/pagina-07.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Tu-Tu: a small wooden toy train: a shiny red engine with a little round chimney and plain wooden wagons painted in solid bright colors (yellow, blue, green), with no letters and no numbers on it; an ordinary toy, no face. Setting: a sunny garden with soft grass, a little gravel path, flower beds, a lemon tree and a walnut tree, a wooden bench, soft morning light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, carefully puts a white egg into a wagon of the wooden toy train, now big enough to ride: a shiny red engine with a little round chimney puffing small white cloud puffs, pulling a few plain open wooden wagons painted yellow, blue and green, with no letters on them; the wagons now carry a yellow lemon, a small shiny golden ring and the white egg; Lio looks thoughtful, a paw on his chin. Emotions: curious, thoughtful. Important details: the lemon, the shiny ring and the egg in the wagons. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "sparkles"
+      }
+    },
+    {
+      "text": "— L… I… O… Lio! E numele meu! Lio a sărit de bucurie, iar Tu-Tu a fluierat: tu-tuuu! Oul s-a clătinat în vagon… dar n-a căzut. — Uf! au râs amândoi.",
+      "narration": [
+        {
+          "text": "— L… I… O… Lio! E numele meu!",
+          "mood": "entuziasmat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Lio a sărit de bucurie, iar Tu-Tu a fluierat: tu-tuuu!",
+          "mood": "entuziasmat",
+          "pause": 0.4
+        },
+        {
+          "text": "Oul s-a clătinat în vagon… dar n-a căzut.",
+          "mood": "mirat",
+          "pause": 0.4
+        },
+        {
+          "text": "— Uf!",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "au râs amândoi.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-08.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Tu-Tu: a small wooden toy train: a shiny red engine with a little round chimney and plain wooden wagons painted in solid bright colors (yellow, blue, green), with no letters and no numbers on it; an ordinary toy, no face. Setting: a sunny garden with soft grass, a little gravel path, flower beds, a lemon tree and a walnut tree, a wooden bench, soft morning light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, jumps for joy next to the wooden toy train, now big enough to ride: a shiny red engine with a little round chimney puffing small white cloud puffs, pulling a few plain open wooden wagons painted yellow, blue and green, with no letters on them, whose engine whistles with a big white cloud puff; the white egg wobbles in its wagon. Emotions: joyful, funny. Important details: the jumping lion cub, the wobbling egg. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-up",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Seara, Tu-Tu s-a făcut iar mic, un trenuleț de lemn. Lio l-a luat cu el în pat. — Mâine adunăm alt cuvânt? a întrebat el, căscând. — Tu-tu… sigur că da, a șoptit trenulețul. Și Lio a adormit, gândindu-se cu ce sunet începe cuvântul „somn”.",
+      "narration": [
+        {
+          "text": "Seara, Tu-Tu s-a făcut iar mic, un trenuleț de lemn.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lio l-a luat cu el în pat.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Mâine adunăm alt cuvânt?",
+          "mood": "somnoros",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a întrebat el, căscând.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Tu-tu… sigur că da,",
+          "mood": "somnoros",
+          "speaker": "Tu-Tu"
+        },
+        {
+          "text": "a șoptit trenulețul.",
+          "mood": "șoptit"
+        },
+        {
+          "text": "Și Lio a adormit, gândindu-se cu ce sunet începe cuvântul „somn”.",
+          "mood": "somnoros"
+        }
+      ],
+      "image": "images/pagina-09.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: a cozy child's bedroom at night, warm lamp light, a small bed with a soft pillow, plain walls. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sleeps peacefully in the small bed, smiling, hugging a small red wooden toy train with plain colorful wagons and no letters. Emotions: peaceful, sleepy, tender. Important details: the small toy train in Lio's arms. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "stars"
+      }
+    }
+  ],
+  "categories": [
+    "invatam",
+    "aventuri"
+  ],
+  "review": {
+    "imaginatie": "Un trenuleț de lemn care crește cât să încapă Lio în el (pagina 1), o umbrelă care se deschide singură în vagon (3) și nori în formă de inimioare din coșul trenului (6).",
+    "invatare": "Primele cuvinte, prin sunete: fiecare lucru din vagon are un prim sunet (lămâie L, umbrelă U, nucă N, ananas A, 2–5), iar sunetele puse unul după altul fac cuvântul Luna (6). Apoi, cu lămâie, inel și ou, Lio își găsește singur propriul nume, Lio (7–8). Literele rămân doar în text și în voce, nu în imagini.",
+    "umor": [
+      "pagina 3: umbrela se deschide singură în vagon: poc!",
+      "pagina 4: o nucă îi cade lui Lio fix pe cap: „Ei bine, mulțumesc, nucule!”",
+      "pagina 8: oul se clatină în vagon… dar nu cade: „Uf!”"
+    ],
+    "emotie": "Mirarea de la început (1), bucuria primului cuvânt citit (6) și mândria de a-și citi singur numele (8). Final liniștit, de culcare, cu trenulețul în brațe și o întrebare de joacă pentru copil: cu ce sunet începe „somn” (9).",
+    "siguranta": "Nimic periculos: lucrurile sunt adunate în grădină și din bucătărie; nuca e mică și nu-l lovește tare; oul nu se sparge. Nimic înfricoșător.",
+    "imagini": "Lio și trenulețul de lemn (un obiect obișnuit, fără față), fără oameni; „exactly one lion cub, Lio”. Fără litere sau numere în imagini (vagoane vopsite „in solid colors, with no letters”, taraba fără inscripții), fără oglinzi, fără guri de aproape, fără „basket” (oul e pus direct în vagon). Fiecare prompt arată obiectul paginii: lămâia (2), umbrela (3), nuca (4), ananasul (5), toate patru (6), inelul și oul (7), săritura de bucurie (8), trenulețul în pat (9). Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
+    "voce": "Narațiune veselă, cu cuvintele despărțite pe silabe („lă-mâ-ie”, „um-bre-lă”) și pauze între sunete la pagina 6 („L… U… N… A…”); somnoroasă la final. Tu-Tu are o voce caldă și veselă de trenuleț; Lio vocea lui obișnuită, entuziasmat la fiecare cuvânt. Replicile sunt separate de vorbele naratorului."
+  },
+  "verified": false,
+  "questions": [
+    {
+      "text": "Cu ce sunet începe cuvântul lămâie?",
+      "options": [
+        {
+          "text": "Cu L",
+          "emoji": "🍋"
+        },
+        {
+          "text": "Cu U",
+          "emoji": "☂️"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Corect! Lă-mâ-ie începe cu L."
+    },
+    {
+      "text": "Ce cuvânt au făcut lămâia, umbrela, nuca și ananasul?",
+      "options": [
+        {
+          "text": "Luna",
+          "emoji": "🌙"
+        },
+        {
+          "text": "Soare",
+          "emoji": "☀️"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Bravo! L, U, N, A: Luna!"
+    }
+  ]
+}
