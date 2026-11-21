@@ -1,6 +1,6 @@
 # Lio și trenulețul cuvintelor
 
-**Stare: ⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)** · verificată la 2026-11-21 04:28 UTC
+**Stare: ⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)** · verificată la 2026-11-21 04:39 UTC
 
 Poveste: `public/stories/lio-si-trenuletul-cuvintelor/story.json`
 
@@ -8,16 +8,10 @@ Poveste: `public/stories/lio-si-trenuletul-cuvintelor/story.json`
 
 Aceste lucruri au fost corectate automat în `story.json` (preia versiunea din repository înainte de a modifica din nou povestea):
 
-- prompturile de imagine au primit stilul oficial și descrierile complete ale personajelor
-- coperta: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 - pagina 1: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 2: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 3: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 - pagina 4: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 - pagina 5: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 6: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 - pagina 7: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 8: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 
 ## Avertismente (merită verificate, dar nu blochează publicarea)
 
