@@ -5,7 +5,7 @@
   "age": "3-7",
   "moral": "Fiecare are timpul lui: unii se joacă ziua, alții noaptea, și toți au nevoie de somn liniștit.",
   "learning": [
-    "animalele de noapte: bufnițele, liliecii, aricii, molii și licuricii sunt treji noaptea",
+    "bufnița și alte animale de noapte, ca liliecii, aricii și licuricii, sunt treze noaptea",
     "bufnița are ochi mari, auz foarte fin și pene moi, cu care zboară fără zgomot",
     "respectăm somnul celorlalți: vorbim încet și mergem pe vârfuri"
   ],
@@ -30,7 +30,7 @@
     },
     {
       "name": "Huhu",
-      "description": "a small round fluffy brown owl with soft speckled feathers, a cream belly, big round golden eyes, a tiny curved beak and two little feather tufts on her head",
+      "description": "a kind, sleepy little owl: small, round and fluffy, with soft speckled brown feathers, a cream belly, big round friendly golden eyes, a tiny curved beak, two tiny soft rounded feather tufts on her head and a warm, gentle, friendly expression",
       "voice": {
         "type": "feminin",
         "pitch": -2,
@@ -40,7 +40,7 @@
   ],
   "cover": {
     "image": "images/coperta.png",
-    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Huhu: a small round fluffy brown owl with soft speckled feathers, a cream belly, big round golden eyes, a tiny curved beak and two little feather tufts on her head. Setting: the same forest clearing at dusk with the big old oak tree with a round hole in its trunk, a soft violet sky, the first stars, gentle light. Action: Huhu, the small round fluffy brown owl with big golden eyes, sits on a low branch of the oak tree with big shining golden eyes, smiling; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands below looking up at her with a happy, curious smile; the first stars appear. Emotions: magical, warm, curious. Important details: the owl on the branch at dusk, the first stars. Camera: wide cinematic cover shot, both faces clearly visible.",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Huhu: a kind, sleepy little owl: small, round and fluffy, with soft speckled brown feathers, a cream belly, big round friendly golden eyes, a tiny curved beak, two tiny soft rounded feather tufts on her head and a warm, gentle, friendly expression. Setting: the same clearing at dusk with the big old oak tree with a round hole in its trunk, a cozy little cottage with warm lit windows nearby, a soft violet sky, the first stars, gentle light. Action: Huhu, the small round fluffy brown owl with big friendly golden eyes and a soft smile, sits on a low branch of the oak tree, smiling; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands below looking up at her with a happy, curious smile; the first stars appear. Emotions: magical, warm, curious. Important details: the owl on the branch at dusk, the first stars. Camera: wide cinematic cover shot, both faces clearly visible.",
     "animation": {
       "camera": "zoom-in",
       "effect": "stars"
@@ -48,49 +48,45 @@
   },
   "pages": [
     {
-      "text": "Într-o dimineață însorită, Lio s-a oprit sub stejarul cel bătrân. În scorbura copacului dormea o bufniță mică și pufoasă, cu ochii închiși. — Bună dimineața! a strigat Lio, cât a putut de tare. Bufnița a deschis un singur ochi. — Pentru mine e noapte bună… a mormăit ea.",
+      "text": "Într-o dimineață însorită, Lio s-a oprit sub stejarul cel bătrân din fața casei. — Bună dimineața, copacule! a strigat el vesel, cât a putut de tare. Din scorbură a ieșit un căpșor pufos, cu un singur ochi deschis. — Pentru mine e încă noapte… Noapte bună! a mormăit o bufniță mică.",
       "narration": [
         {
-          "text": "Într-o dimineață însorită, Lio s-a oprit sub stejarul cel bătrân.",
+          "text": "Într-o dimineață însorită, Lio s-a oprit sub stejarul cel bătrân din fața casei.",
           "mood": "calm"
         },
         {
-          "text": "În scorbura copacului dormea o bufniță mică și pufoasă, cu ochii închiși.",
-          "mood": "mirat"
-        },
-        {
-          "text": "— Bună dimineața!",
+          "text": "— Bună dimineața, copacule!",
           "mood": "entuziasmat",
           "speaker": "Lio"
         },
         {
-          "text": "a strigat Lio, cât a putut de tare.",
+          "text": "a strigat el vesel, cât a putut de tare.",
           "mood": "calm"
         },
         {
-          "text": "Bufnița a deschis un singur ochi.",
-          "mood": "calm",
+          "text": "Din scorbură a ieșit un căpșor pufos, cu un singur ochi deschis.",
+          "mood": "mirat",
           "pause": 0.4
         },
         {
-          "text": "— Pentru mine e noapte bună…",
+          "text": "— Pentru mine e încă noapte… Noapte bună!",
           "mood": "somnoros",
           "speaker": "Huhu"
         },
         {
-          "text": "a mormăit ea.",
+          "text": "a mormăit o bufniță mică.",
           "mood": "somnoros"
         }
       ],
       "image": "images/pagina-01.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Huhu: a small round fluffy brown owl with soft speckled feathers, a cream belly, big round golden eyes, a tiny curved beak and two little feather tufts on her head. Setting: a sunny forest clearing in the morning with a big old oak tree that has a round hole in its trunk, soft green grass, bright daylight. Action: Huhu, the small round fluffy brown owl with big golden eyes, sits sleepily in the round hole of the oak trunk with one eye open and one eye closed, grumpy and funny; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands below waving up at her with a big cheerful smile. Emotions: funny, cheerful, sleepy. Important details: the owl peeking with one eye from the tree hole. Camera: low angle, medium shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Huhu: a kind, sleepy little owl: small, round and fluffy, with soft speckled brown feathers, a cream belly, big round friendly golden eyes, a tiny curved beak, two tiny soft rounded feather tufts on her head and a warm, gentle, friendly expression. Setting: a sunny clearing in the morning with a big old oak tree that has a round hole in its trunk, soft green grass, a cozy little cottage with a wooden door nearby, bright daylight. Action: Huhu, the small round fluffy brown owl with big friendly golden eyes and a soft smile, sits sleepily in the round hole of the oak trunk with one eye open and one eye closed, grumpy and funny; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands below waving up at her with a big cheerful smile. Emotions: funny, cheerful, sleepy. Important details: the owl peeking with one eye from the tree hole. Camera: low angle, medium shot.",
       "animation": {
         "camera": "zoom-in",
         "effect": "none"
       }
     },
     {
-      "text": "— Dar e zi! s-a mirat Lio. — Eu sunt Huhu și sunt o bufniță, a căscat ea. Noi, bufnițele, dormim ziua și ne trezim noaptea. Suntem animale de noapte. Lio și-a pus lăbuța la gură. — Scuze! Atunci vin diseară, a șoptit el. Și a plecat pe vârfuri.",
+      "text": "— Dar e zi! s-a mirat Lio. — Eu sunt Huhu, o bufniță, a căscat ea. Noi, bufnițele, dormim ziua și ne trezim seara. Suntem animale de noapte. Lio și-a pus lăbuța la gură. — Iartă-mă! Atunci vin diseară, a șoptit el. Și a plecat pe vârfuri.",
       "narration": [
         {
           "text": "— Dar e zi!",
@@ -102,7 +98,7 @@
           "mood": "calm"
         },
         {
-          "text": "— Eu sunt Huhu și sunt o bufniță,",
+          "text": "— Eu sunt Huhu, o bufniță,",
           "mood": "somnoros",
           "speaker": "Huhu"
         },
@@ -111,7 +107,7 @@
           "mood": "calm"
         },
         {
-          "text": "Noi, bufnițele, dormim ziua și ne trezim noaptea. Suntem animale de noapte.",
+          "text": "Noi, bufnițele, dormim ziua și ne trezim seara. Suntem animale de noapte.",
           "mood": "somnoros",
           "speaker": "Huhu"
         },
@@ -120,7 +116,7 @@
           "mood": "calm"
         },
         {
-          "text": "— Scuze! Atunci vin diseară,",
+          "text": "— Iartă-mă! Atunci vin diseară,",
           "mood": "șoptit",
           "speaker": "Lio"
         },
@@ -134,21 +130,21 @@
         }
       ],
       "image": "images/pagina-02.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Huhu: a small round fluffy brown owl with soft speckled feathers, a cream belly, big round golden eyes, a tiny curved beak and two little feather tufts on her head. Setting: a sunny forest clearing in the morning with a big old oak tree that has a round hole in its trunk, soft green grass, bright daylight. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, tiptoes away from the big oak tree with one paw raised to his muzzle in a shushing gesture, smiling apologetically; Huhu, the small round fluffy brown owl with big golden eyes, yawns sleepily in the round hole of the trunk, eyes half closed. Emotions: gentle, funny, respectful. Important details: Lio tiptoeing away, the yawning owl. Camera: medium shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Huhu: a kind, sleepy little owl: small, round and fluffy, with soft speckled brown feathers, a cream belly, big round friendly golden eyes, a tiny curved beak, two tiny soft rounded feather tufts on her head and a warm, gentle, friendly expression. Setting: a sunny clearing in the morning with a big old oak tree that has a round hole in its trunk, soft green grass, a cozy little cottage with a wooden door nearby, bright daylight. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, tiptoes away from the big oak tree with one paw raised to his muzzle in a shushing gesture, smiling apologetically; Huhu, the small round fluffy brown owl with big friendly golden eyes and a soft smile, yawns sleepily in the round hole of the trunk, eyes half closed. Emotions: gentle, funny, respectful. Important details: Lio tiptoeing away, the yawning owl. Camera: medium shot.",
       "animation": {
         "camera": "pan-left",
         "effect": "none"
       }
     },
     {
-      "text": "Seara, când soarele a apus, Lio s-a întors la stejar. Huhu tocmai se trezea. Și-a întins aripile mari și a scuturat penele. — Bună dimineața, Lio! a spus ea, voioasă. — Dimineața? Dar e seară! a râs Lio. — Pentru mine, asta e dimineața!",
+      "text": "Seara, după cină, Lio a ieșit la stejarul din fața casei. Huhu tocmai se trezea. Și-a întins aripile mari și și-a scuturat penele. — Bună dimineața, Lio! a spus ea, voioasă. — Dimineața? Dar e seară! a râs Lio. — Pentru mine, asta e dimineața!",
       "narration": [
         {
-          "text": "Seara, când soarele a apus, Lio s-a întors la stejar.",
+          "text": "Seara, după cină, Lio a ieșit la stejarul din fața casei.",
           "mood": "calm"
         },
         {
-          "text": "Huhu tocmai se trezea. Și-a întins aripile mari și a scuturat penele.",
+          "text": "Huhu tocmai se trezea. Și-a întins aripile mari și și-a scuturat penele.",
           "mood": "calm"
         },
         {
@@ -176,14 +172,14 @@
         }
       ],
       "image": "images/pagina-03.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Huhu: a small round fluffy brown owl with soft speckled feathers, a cream belly, big round golden eyes, a tiny curved beak and two little feather tufts on her head. Setting: the same forest clearing at dusk with the big old oak tree with a round hole in its trunk, a soft violet sky, the first stars, gentle light. Action: Huhu, the small round fluffy brown owl with big golden eyes, stretches her wings wide on a low branch of the oak tree, wide awake and cheerful; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands below laughing. Emotions: funny, cheerful, magical. Important details: the owl stretching her wings at dusk. Camera: medium shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Huhu: a kind, sleepy little owl: small, round and fluffy, with soft speckled brown feathers, a cream belly, big round friendly golden eyes, a tiny curved beak, two tiny soft rounded feather tufts on her head and a warm, gentle, friendly expression. Setting: the same clearing at dusk with the big old oak tree with a round hole in its trunk, a cozy little cottage with warm lit windows nearby, a soft violet sky, the first stars, gentle light. Action: Huhu, the small round fluffy brown owl with big friendly golden eyes and a soft smile, stretches her wings wide on a low branch of the oak tree, wide awake and cheerful; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands below laughing. Emotions: funny, cheerful, magical. Important details: the owl stretching her wings at dusk. Camera: medium shot.",
       "animation": {
         "camera": "zoom-out",
         "effect": "stars"
       }
     },
     {
-      "text": "— Cum vezi pe întuneric? a întrebat Lio. — Am ochi mari, care adună și cea mai mică lumină, a spus Huhu. Și am un auz foarte fin: aud și o frunză care cade. Apoi Huhu și-a întors capul aproape de tot spre spate. Lio a încercat și el… și s-a învârtit pe loc, amețit!",
+      "text": "— Cum vezi pe întuneric? a întrebat Lio. — Am ochi mari, care adună și cea mai mică lumină, a spus Huhu. Și aud foarte, foarte bine: aud și o frunză care cade. Apoi Huhu și-a întors capul aproape de tot spre spate. Lio a încercat și el… și s-a învârtit pe loc, amețit!",
       "narration": [
         {
           "text": "— Cum vezi pe întuneric?",
@@ -204,7 +200,7 @@
           "mood": "calm"
         },
         {
-          "text": "Și am un auz foarte fin: aud și o frunză care cade.",
+          "text": "Și aud foarte, foarte bine: aud și o frunză care cade.",
           "mood": "calm",
           "speaker": "Huhu"
         },
@@ -218,7 +214,7 @@
         }
       ],
       "image": "images/pagina-04.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Huhu: a small round fluffy brown owl with soft speckled feathers, a cream belly, big round golden eyes, a tiny curved beak and two little feather tufts on her head. Setting: the same forest clearing at dusk with the big old oak tree with a round hole in its trunk, a soft violet sky, the first stars, gentle light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, tries to look behind himself over his shoulder, turning around on the spot, dizzy, with swirly funny eyes and a wobbly smile; Huhu, the small round fluffy brown owl with big golden eyes, watches from a low branch, laughing. Emotions: very funny, curious. Important details: Lio spinning dizzily, the laughing owl. Camera: medium shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Huhu: a kind, sleepy little owl: small, round and fluffy, with soft speckled brown feathers, a cream belly, big round friendly golden eyes, a tiny curved beak, two tiny soft rounded feather tufts on her head and a warm, gentle, friendly expression. Setting: the same clearing at dusk with the big old oak tree with a round hole in its trunk, a cozy little cottage with warm lit windows nearby, a soft violet sky, the first stars, gentle light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, tries to look behind himself over his shoulder, turning around on the spot, dizzy, eyes squeezed shut, giggling, wobbling on his feet; Huhu, the small round fluffy brown owl with big friendly golden eyes and a soft smile, watches from a low branch, laughing. Emotions: very funny, curious. Important details: Lio spinning dizzily, the laughing owl. Camera: medium shot.",
       "animation": {
         "camera": "pan-right",
         "effect": "none"
@@ -256,21 +252,21 @@
         }
       ],
       "image": "images/pagina-05.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Huhu: a small round fluffy brown owl with soft speckled feathers, a cream belly, big round golden eyes, a tiny curved beak and two little feather tufts on her head. Setting: the same forest clearing at dusk with the big old oak tree with a round hole in its trunk, a soft violet sky, the first stars, gentle light. Action: Huhu, the small round fluffy brown owl with big golden eyes, glides silently in a circle around exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, with her soft wings spread wide; Lio turns his head, amazed, ears perked, listening. Emotions: magical, amazed, calm. Important details: the owl gliding silently with soft wings. Camera: wide shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Huhu: a kind, sleepy little owl: small, round and fluffy, with soft speckled brown feathers, a cream belly, big round friendly golden eyes, a tiny curved beak, two tiny soft rounded feather tufts on her head and a warm, gentle, friendly expression. Setting: the same clearing at dusk with the big old oak tree with a round hole in its trunk, a cozy little cottage with warm lit windows nearby, a soft violet sky, the first stars, gentle light. Action: Huhu, the small round fluffy brown owl with big friendly golden eyes and a soft smile, glides silently in a circle around exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, with her soft wings spread wide; Lio turns his head, amazed, ears perked, listening. Emotions: magical, amazed, calm. Important details: the owl gliding silently with soft wings. Camera: wide shot.",
       "animation": {
         "camera": "pan-up",
         "effect": "stars"
       }
     },
     {
-      "text": "Noaptea s-a lăsat peste pădure, dar pădurea nu dormea deloc. Un arici adulmeca printre frunze, liliecii zburau după gâze, iar molii dansau în jurul florilor. Licuricii își aprindeau luminițele. — Toți aceștia sunt prietenii mei de noapte, a zis Huhu.",
+      "text": "Noaptea s-a lăsat peste poiană, dar natura nu dormea deloc. Un arici adulmeca printre frunze, liliecii zburau după gâze, iar fluturii de noapte dansau în jurul florilor. Licuricii își aprindeau luminițele. — Toți sunt prietenii mei de noapte, a zis Huhu.",
       "narration": [
         {
-          "text": "Noaptea s-a lăsat peste pădure, dar pădurea nu dormea deloc.",
+          "text": "Noaptea s-a lăsat peste poiană, dar natura nu dormea deloc.",
           "mood": "misterios"
         },
         {
-          "text": "Un arici adulmeca printre frunze, liliecii zburau după gâze, iar molii dansau în jurul florilor.",
+          "text": "Un arici adulmeca printre frunze, liliecii zburau după gâze, iar fluturii de noapte dansau în jurul florilor.",
           "mood": "calm"
         },
         {
@@ -278,7 +274,7 @@
           "mood": "mirat"
         },
         {
-          "text": "— Toți aceștia sunt prietenii mei de noapte,",
+          "text": "— Toți sunt prietenii mei de noapte,",
           "mood": "calm",
           "speaker": "Huhu"
         },
@@ -288,51 +284,69 @@
         }
       ],
       "image": "images/pagina-06.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Huhu: a small round fluffy brown owl with soft speckled feathers, a cream belly, big round golden eyes, a tiny curved beak and two little feather tufts on her head. Setting: the forest clearing at night under a deep-blue starry sky, a few fireflies glowing, soft moonlight. Action: Huhu, the small round fluffy brown owl with big golden eyes, sits on a low branch next to exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, who sits on the grass; together they watch many tiny glowing fireflies floating over the clearing and a few pale moths fluttering around white night flowers. Emotions: calm, magical, wondering. Important details: the glowing fireflies, the pale moths around white flowers. Camera: wide shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Huhu: a kind, sleepy little owl: small, round and fluffy, with soft speckled brown feathers, a cream belly, big round friendly golden eyes, a tiny curved beak, two tiny soft rounded feather tufts on her head and a warm, gentle, friendly expression. Setting: the clearing in front of a cozy little cottage with warm lit windows at night, under a deep-blue starry sky, a few fireflies glowing, soft moonlight. Action: Huhu, the small round fluffy brown owl with big friendly golden eyes and a soft smile, sits on a low branch next to exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, who sits on the grass; together they watch many tiny glowing fireflies floating over the clearing and a few small soft pale moths, like tiny white butterflies, around white night flowers. Emotions: calm, magical, wondering. Important details: the glowing fireflies, the tiny pale moths around white flowers. Camera: wide shot.",
       "animation": {
         "camera": "zoom-out",
         "effect": "fireflies"
       }
     },
     {
-      "text": "Lio a căscat. Apoi încă o dată. — Ce ciudat. Eu obosesc exact când tu te trezești. — Fiecare are timpul lui, a zâmbit Huhu. Tu te joci ziua, la lumina soarelui, și dormi noaptea. Eu fac pe dos. Și amândoi avem nevoie de somn.",
+      "text": "Lio a căscat. Apoi încă o dată. — Eu obosesc exact când tu te trezești, a oftat el. Atunci nu ne putem juca niciodată împreună? Apoi s-a gândit și ochii i-au strălucit. — Ba da! Seara, la apus, suntem treji amândoi! — Atunci ne vedem în fiecare seară, la apus, a spus Huhu, zâmbind. Tu dormi noaptea, eu ziua, și amândoi avem nevoie de somn.",
       "narration": [
         {
           "text": "Lio a căscat. Apoi încă o dată.",
           "mood": "somnoros"
         },
         {
-          "text": "— Ce ciudat. Eu obosesc exact când tu te trezești.",
-          "mood": "somnoros",
+          "text": "— Eu obosesc exact când tu te trezești,",
+          "mood": "trist",
           "speaker": "Lio"
         },
         {
-          "text": "— Fiecare are timpul lui,",
-          "mood": "calm",
-          "speaker": "Huhu"
-        },
-        {
-          "text": "a zâmbit Huhu.",
+          "text": "a oftat el.",
           "mood": "calm"
         },
         {
-          "text": "Tu te joci ziua, la lumina soarelui, și dormi noaptea. Eu fac pe dos. Și amândoi avem nevoie de somn.",
+          "text": "Atunci nu ne putem juca niciodată împreună?",
+          "mood": "trist",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Apoi s-a gândit și ochii i-au strălucit.",
+          "mood": "mirat"
+        },
+        {
+          "text": "— Ba da! Seara, la apus, suntem treji amândoi!",
+          "mood": "entuziasmat",
+          "speaker": "Lio"
+        },
+        {
+          "text": "— Atunci ne vedem în fiecare seară, la apus,",
+          "mood": "vesel",
+          "speaker": "Huhu"
+        },
+        {
+          "text": "a spus Huhu, zâmbind.",
+          "mood": "calm"
+        },
+        {
+          "text": "Tu dormi noaptea, eu ziua, și amândoi avem nevoie de somn.",
           "mood": "calm",
           "speaker": "Huhu"
         }
       ],
       "image": "images/pagina-07.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Huhu: a small round fluffy brown owl with soft speckled feathers, a cream belly, big round golden eyes, a tiny curved beak and two little feather tufts on her head. Setting: the forest clearing at night under a deep-blue starry sky, a few fireflies glowing, soft moonlight. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits on the grass and yawns sleepily, rubbing one eye; Huhu, the small round fluffy brown owl with big golden eyes, sits on a low branch beside him, wide awake, smiling kindly. Emotions: sleepy, warm. Important details: Lio yawning, the wide-awake owl. Camera: medium shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Huhu: a kind, sleepy little owl: small, round and fluffy, with soft speckled brown feathers, a cream belly, big round friendly golden eyes, a tiny curved beak, two tiny soft rounded feather tufts on her head and a warm, gentle, friendly expression. Setting: the clearing in front of a cozy little cottage with warm lit windows at night, under a deep-blue starry sky, a few fireflies glowing, soft moonlight. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sits on the grass and yawns sleepily, rubbing one eye; Huhu, the small round fluffy brown owl with big friendly golden eyes and a soft smile, sits on a low branch beside him, wide awake, smiling kindly. Emotions: sleepy, warm, hopeful. Important details: Lio yawning, the wide-awake owl. Camera: medium shot.",
       "animation": {
         "camera": "zoom-in",
         "effect": "fireflies"
       }
     },
     {
-      "text": "Huhu l-a condus acasă, zburând fără zgomot deasupra lui. Lio s-a băgat în pat, iar Huhu s-a așezat pe creanga de la fereastră. — Noapte bună, Huhu! — Noapte bună, Lio. Și pentru mine, zi bună! Și au râs amândoi, încet.",
+      "text": "Huhu l-a însoțit până la ușă, zburând fără zgomot deasupra lui. Lio s-a băgat în pat, iar Huhu s-a așezat pe creanga de la fereastră. — Noapte bună, Huhu! — Noapte bună, Lio. Și pentru mine, zi bună! Și au râs amândoi, încet.",
       "narration": [
         {
-          "text": "Huhu l-a condus acasă, zburând fără zgomot deasupra lui.",
+          "text": "Huhu l-a însoțit până la ușă, zburând fără zgomot deasupra lui.",
           "mood": "calm"
         },
         {
@@ -355,14 +369,14 @@
         }
       ],
       "image": "images/pagina-08.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Huhu: a small round fluffy brown owl with soft speckled feathers, a cream belly, big round golden eyes, a tiny curved beak and two little feather tufts on her head. Setting: a cozy little bedroom at night with a small wooden bed and a wide-open window without glass, a tree branch outside the window, soft moonlight. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, lies in the small wooden bed, sleepy and smiling; outside the wide-open window, Huhu, the small round fluffy brown owl with big golden eyes, sits on the tree branch in the moonlight, waving one wing. Emotions: tender, sleepy, funny. Important details: the owl on the branch outside the open window. Camera: medium shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Huhu: a kind, sleepy little owl: small, round and fluffy, with soft speckled brown feathers, a cream belly, big round friendly golden eyes, a tiny curved beak, two tiny soft rounded feather tufts on her head and a warm, gentle, friendly expression. Setting: a cozy little bedroom at night with a small wooden bed and a round open window, just an empty wooden frame, with a tree branch right outside, soft moonlight. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, lies in the small wooden bed, sleepy and smiling; outside the wide-open window, Huhu, the small round fluffy brown owl with big friendly golden eyes and a soft smile, sits on the tree branch in the moonlight, waving one wing. Emotions: tender, sleepy, funny. Important details: the owl on the branch outside the open window. Camera: medium shot.",
       "animation": {
-        "camera": "zoom-out",
+        "camera": "still",
         "effect": "stars"
       }
     },
     {
-      "text": "A doua zi dimineață, Lio a trecut din nou pe lângă stejar. Din scorbură se auzea un sforăit mic: hu… hu… Lio a zâmbit și a mers mai departe pe vârfuri. — Somn ușor, Huhu, a șoptit el. Ne vedem diseară!",
+      "text": "A doua zi dimineață, Lio a trecut din nou pe lângă stejar. Din scorbură se auzea un sforăit mic: hu… hu… Lio a zâmbit și a mers mai departe pe vârfuri. — Somn ușor, Huhu, a șoptit el. Ne vedem diseară, la apus!",
       "narration": [
         {
           "text": "A doua zi dimineață, Lio a trecut din nou pe lângă stejar.",
@@ -384,16 +398,16 @@
         },
         {
           "text": "a șoptit el.",
-          "mood": "calm"
+          "mood": "șoptit"
         },
         {
-          "text": "Ne vedem diseară!",
+          "text": "Ne vedem diseară, la apus!",
           "mood": "șoptit",
           "speaker": "Lio"
         }
       ],
       "image": "images/pagina-09.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Huhu: a small round fluffy brown owl with soft speckled feathers, a cream belly, big round golden eyes, a tiny curved beak and two little feather tufts on her head. Setting: a sunny forest clearing in the morning with a big old oak tree that has a round hole in its trunk, soft green grass, bright daylight. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, tiptoes past the big oak tree in the morning sunshine, smiling, one paw raised to his muzzle; Huhu, the small round fluffy brown owl with big golden eyes, sleeps peacefully curled up in the round hole of the trunk, eyes closed. Emotions: peaceful, kind, warm. Important details: the sleeping owl in the tree hole, Lio tiptoeing. Camera: wide shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Huhu: a kind, sleepy little owl: small, round and fluffy, with soft speckled brown feathers, a cream belly, big round friendly golden eyes, a tiny curved beak, two tiny soft rounded feather tufts on her head and a warm, gentle, friendly expression. Setting: a sunny clearing in the morning with a big old oak tree that has a round hole in its trunk, soft green grass, a cozy little cottage with a wooden door nearby, bright daylight. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, tiptoes past the big oak tree in the morning sunshine, smiling, one paw raised to his muzzle; Huhu, the small round fluffy brown owl with big friendly golden eyes and a soft smile, sleeps peacefully curled up in the round hole of the trunk, eyes closed. Emotions: peaceful, kind, warm. Important details: the sleeping owl in the tree hole, Lio tiptoeing. Camera: wide shot.",
       "animation": {
         "camera": "pan-right",
         "effect": "none"
@@ -405,17 +419,17 @@
     "de-culcare"
   ],
   "review": {
-    "imaginatie": "O bufniță pentru care seara e „dimineața” (paginile 1, 3), un zbor în jurul lui Lio fără niciun fâlfâit (5) și o pădure care nu doarme noaptea, plină de licurici și molii (6).",
-    "invatare": "Animalele de noapte, arătate în acțiune: bufnița doarme ziua și se trezește seara (1–3); vede cu ochii ei mari pe lumină puțină și are un auz foarte fin (4); zboară fără zgomot datorită penelor moi (5); noaptea sunt treji și aricii, liliecii, molii și licuricii (6). Ziua și noaptea: Lio se joacă ziua și doarme noaptea, Huhu invers, și amândoi au nevoie de somn (7). Respectul pentru somnul celorlalți: Lio vorbește încet și pleacă pe vârfuri (2, 9).",
+    "imaginatie": "O bufniță pentru care seara e „dimineața” (paginile 1, 3), un zbor în jurul lui Lio fără niciun fâlfâit (5) și o pădure care nu doarme noaptea, plină de licurici și fluturi de noapte (6).",
+    "invatare": "Animalele de noapte, arătate în acțiune: bufnița doarme ziua și se trezește seara (1–3); vede cu ochii ei mari pe lumină puțină și are un auz foarte fin (4); zboară fără zgomot datorită penelor moi (5); noaptea sunt treji și aricii, liliecii, fluturii de noapte și licuricii (6). Ziua și noaptea: Lio se joacă ziua și doarme noaptea, Huhu invers, și amândoi au nevoie de somn (7). Respectul pentru somnul celorlalți: Lio vorbește încet și pleacă pe vârfuri (2, 9).",
     "umor": [
-      "pagina 1: „Bună dimineața!” „Pentru mine e noapte bună…”",
+      "pagina 1: „Bună dimineața, copacule!” „Pentru mine e încă noapte… Noapte bună!”",
       "pagina 3: seara, Huhu spune „Bună dimineața, Lio!”",
       "pagina 4: Lio încearcă să-și întoarcă și el capul spre spate și se învârte amețit",
       "pagina 8: „Noapte bună, Lio. Și pentru mine, zi bună!”"
     ],
-    "emotie": "Greșeala lui Lio (o trezește pe Huhu) e îndreptată imediat, cu blândețe (2); curiozitatea lui crește odată cu seara, iar prietenia cu Huhu e caldă. Finalul e liniștit, de culcare (8), iar dimineața Lio arată că a învățat să respecte somnul prietenei lui (9).",
-    "siguranta": "Nimic periculos: Lio vine la stejar seara și se întoarce acasă însoțit, apoi doarme în pat. Animalele de noapte sunt prezentate blând, fără vânătoare. Nimic înfricoșător: noaptea e plină de licurici și lună.",
-    "imagini": "Doar Lio și bufnița (fără oameni); celelalte animale de noapte apar doar în text, ca imaginile să rămână simple (în imagini doar licurici și molii mici, ca decor). „exactly one lion cub, Lio”; fără oglinzi (fereastra de la final e deschisă, fără geam), fără litere, fără numere, fără „nest” (bufnița stă într-o scorbură, „a round hole in its trunk”). Întoarcerea capului bufniței nu e desenată (ar putea speria); se vede doar Lio amețit încercând. Fiecare prompt arată momentul paginii. Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
+    "emotie": "Greșeala lui Lio (o trezește pe Huhu) e îndreptată imediat, cu un „Iartă-mă!” (2); curiozitatea lui crește odată cu seara. Problema adevărată vine la pagina 7: Lio se întristează că nu se pot juca niciodată împreună, apoi găsește singur soluția: la apus sunt treji amândoi. Finalul e liniștit, de culcare (8), iar dimineața Lio arată că a învățat să respecte somnul prietenei lui (9).",
+    "siguranta": "Nimic periculos: stejarul e chiar în fața casei; Lio iese seara după cină, rămâne lângă casă, iar Huhu îl însoțește până la ușă; apoi doarme în pat. Animalele de noapte sunt prezentate blând, fără vânătoare. Nimic înfricoșător: noaptea e plină de licurici și lună.",
+    "imagini": "Doar Lio și bufnița (fără oameni); celelalte animale de noapte apar doar în text, ca imaginile să rămână simple (în imagini doar licurici și fluturi de noapte mici, ca decor). „exactly one lion cub, Lio”; fără oglinzi (fereastra de la final e „an empty wooden frame”); ochii bufniței sunt „friendly”, nu strălucitori, fără litere, fără numere, fără „nest” (bufnița stă într-o scorbură, „a round hole in its trunk”). Întoarcerea capului bufniței nu e desenată (ar putea speria); se vede doar Lio amețit încercând. Fiecare prompt arată momentul paginii. Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
     "voce": "Narațiune caldă, de seară, tot mai somnoroasă spre final; șoptită când Lio pleacă pe vârfuri (2, 9) și la zborul fără zgomot (5). Huhu are o voce caldă, ceva mai gravă și rară, somnoroasă ziua și voioasă seara; Lio vocea lui obișnuită. Replicile sunt separate de vorbele naratorului."
   },
   "verified": false,
@@ -439,15 +453,15 @@
       "text": "Cum zboară bufnița?",
       "options": [
         {
-          "text": "Fără zgomot, cu pene moi",
-          "image": "images/pagina-05.png"
+          "text": "Cu mult zgomot",
+          "emoji": "🥁"
         },
         {
-          "text": "Cu mult zgomot",
-          "emoji": "📢"
+          "text": "Fără zgomot",
+          "image": "images/pagina-05.png"
         }
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Bravo! Penele moi o ajută pe bufniță să zboare fără zgomot."
     }
   ]
