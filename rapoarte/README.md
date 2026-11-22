@@ -2,7 +2,7 @@
 
 Generate automat la fiecare publicare. Un AI care a adăugat sau a modificat o poveste citește raportul ei și corectează tot ce scrie la „De corectat”, până când raportul spune „publicată”.
 
-Ultima verificare: 2026-11-22 04:14 UTC
+Ultima verificare: 2026-11-22 04:25 UTC
 
 | Poveste | Stare | De corectat | Reparate automat |
 | --- | --- | --- | --- |
@@ -10,7 +10,7 @@ Ultima verificare: 2026-11-22 04:14 UTC
 | [Bubu, dragonul care strănuta bule](bubu-dragonul-care-stranuta-bule.md) | ✅ publicată | 0 | 0 |
 | [Fifi, fantomița care se temea de întuneric](fifi-fantomita-care-se-temea-de-intuneric.md) | ✅ publicată | 0 | 0 |
 | [Hopi, broscuța care sărea prea tare](hopi-broscuta-care-sarea-prea-tare.md) | ✅ publicată | 0 | 0 |
-| [Lio și bufnița care dormea ziua](lio-si-bufnita-care-dormea-ziua.md) | ⏳ în verificare | 0 | 10 |
+| [Lio și bufnița care dormea ziua](lio-si-bufnita-care-dormea-ziua.md) | ⏳ în verificare | 0 | 4 |
 | [Lio și cârtița din grădina bunicii](lio-si-cartita-din-gradina-bunicii.md) | ✅ publicată | 0 | 0 |
 | [Lio și ceasul care a uitat ora](lio-si-ceasul-care-a-uitat-ora.md) | ⏳ în verificare | 0 | 0 |
 | [Lio și coama încâlcită](lio-si-coama-incalcita.md) | ✅ publicată | 0 | 0 |
