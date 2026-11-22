@@ -33,6 +33,29 @@
   ],
   "stories": [
     {
+      "id": "lio-si-bufnita-care-dormea-ziua",
+      "title": "Lio și bufnița care dormea ziua",
+      "summary": "Lio o trezește din greșeală pe bufnița Huhu, care doarme ziua. Seara, când ea se trezește, Lio află de ce unele animale trăiesc noaptea și cum văd, aud și zboară ele pe întuneric.",
+      "age": "3-7",
+      "tags": [
+        "bufniță",
+        "animale de noapte",
+        "zi și noapte",
+        "somn",
+        "licurici",
+        "pădure"
+      ],
+      "categories": [
+        "animale",
+        "de-culcare"
+      ],
+      "created": "2026-11-22",
+      "cover": "stories/lio-si-bufnita-care-dormea-ziua/images/coperta.webp",
+      "pages": 9,
+      "minutes": 6,
+      "published": "2026-11-22"
+    },
+    {
       "id": "lio-si-trenuletul-cuvintelor",
       "title": "Lio și trenulețul cuvintelor",
       "summary": "Un trenuleț de lemn fermecat, Tu-Tu, îl învață pe Lio un joc: în fiecare vagon pune un lucru, ascultă primul sunet din numele lui, iar din sunete face cuvinte. Așa citește Lio primul lui cuvânt și propriul nume!",
