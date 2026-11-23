@@ -1,6 +1,6 @@
 # Supa de piatră a lui Lio
 
-**Stare: ⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)** · verificată la 2026-11-23 04:25 UTC
+**Stare: ⏳ ÎN VERIFICARE (gata tehnic, încă nu e în bibliotecă)** · verificată la 2026-11-23 04:36 UTC
 
 Poveste: `public/stories/supa-de-piatra-a-lui-lio/story.json`
 
@@ -8,17 +8,14 @@ Poveste: `public/stories/supa-de-piatra-a-lui-lio/story.json`
 
 Aceste lucruri au fost corectate automat în `story.json` (preia versiunea din repository înainte de a modifica din nou povestea):
 
-- pagina 3: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 4: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 5: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 - pagina 8: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 9: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 
 ## Avertismente (merită verificate, dar nu blochează publicarea)
 
 - personaje/ghimpi.png: fișier necunoscut, nu se publică (într-o poveste intră doar story.json, images/ și audio/)
 - personaje/lio.png: fișier necunoscut, nu se publică (într-o poveste intră doar story.json, images/ și audio/)
 - personaje/lulu.png: fișier necunoscut, nu se publică (într-o poveste intră doar story.json, images/ și audio/)
+- pagina 8: Lio apare în text, dar nu și în imagePrompt
 
 ## Ce faci mai departe
 
