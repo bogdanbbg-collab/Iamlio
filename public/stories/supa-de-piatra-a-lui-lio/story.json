@@ -7,7 +7,7 @@
   "learning": [
     "a împărți: fiecare aduce ceva și toți au de mâncare",
     "legumele se spală înainte de gătit; pietrele nu se mănâncă",
-    "acasă, supa o fierbe un adult; ceaunul lui Lio e fermecat și se încălzește singur, fără foc"
+    "pe aragaz sau pe foc, supa o face numai un adult; ceaunul lui Lio e fermecat și se încălzește singur, fără foc"
   ],
   "created": "2026-11-23",
   "tags": [
@@ -49,7 +49,7 @@
   ],
   "cover": {
     "image": "images/coperta.png",
-    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lulu: a small fluffy white bunny with two long upright ears with pink insides, a pink nose and a little orange neckerchief; Ghimpi: a small round hedgehog with soft brown spines on his back, a cream-colored face and belly, a little black nose and tiny bright eyes. Setting: a cozy autumn meadow next to a little cottage, golden and orange leaves, a small clear stream, a wooden table with a bench, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stirs the big black magic pot of steaming vegetable soup with a long wooden spoon, while Lulu, the small fluffy white bunny with long upright ears and a little orange neckerchief, holds a carrot and Ghimpi, the small round hedgehog with soft brown spines, has a potato stuck on his spines; all three smile. Emotions: warm, joyful, together. Important details: the steaming pot, the carrot, the potato on the spines. Camera: wide cinematic cover shot, all faces visible.",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lulu: a small fluffy white bunny with two long upright ears with pink insides, a pink nose and a little orange neckerchief; Ghimpi: a small round hedgehog with soft brown spines on his back, a cream-colored face and belly, a little black nose and tiny bright eyes. Setting: a cozy autumn meadow next to a little cottage, golden and orange leaves, a wooden table with a bench, the big round black magic cooking pot standing on short stubby legs directly on the green grass, glowing softly with magic, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars stirs the big round black magic cooking pot, gently steaming, full of vegetable soup, with a long wooden spoon, while Lulu, the small fluffy white bunny with long upright ears and a little orange neckerchief, holds a carrot and Ghimpi, the small round hedgehog with soft brown spines, holds a round brown potato in his front paws; all three smile. Emotions: warm, joyful, together. Important details: the steaming magic pot on the grass, the carrot, the potato. Camera: wide cinematic cover shot, all faces visible.",
     "animation": {
       "camera": "zoom-in",
       "effect": "none"
@@ -57,22 +57,27 @@
   },
   "pages": [
     {
-      "text": "Într-o zi de toamnă, lui Lio i s-a făcut foame. În cămară nu mai era nimic, doar ceaunul fermecat al bunicului, care se încălzea singur, fără foc. Lio a găsit lângă pârâu o piatră rotundă și netedă. A spălat-o bine și a pus-o în ceaun, cu apă. (Acasă, supa o fierbe întotdeauna un adult.) — Fac supă de piatră! a zis el.",
+      "text": "Într-o zi de toamnă, lui Lio i s-a făcut foame. În cămară era doar ceaunul fermecat al bunicului, care se încălzea singur. Bunicul îi spusese: „Ceaunul fermecat îl poți folosi singur. Pe foc, supa o face numai un adult.” Lio a găsit în grădină o piatră rotundă și netedă. A spălat-o bine și a pus-o în ceaun, cu apă. — Fac supă de piatră! a zis el.",
       "narration": [
         {
           "text": "Într-o zi de toamnă, lui Lio i s-a făcut foame.",
           "mood": "calm"
         },
         {
-          "text": "În cămară nu mai era nimic, doar ceaunul fermecat al bunicului, care se încălzea singur, fără foc.",
-          "mood": "mirat"
+          "text": "În cămară era doar ceaunul fermecat al bunicului, care se încălzea singur.",
+          "mood": "misterios"
         },
         {
-          "text": "Lio a găsit lângă pârâu o piatră rotundă și netedă.",
+          "text": "Bunicul îi spusese: „Ceaunul fermecat îl poți folosi singur. Pe foc, supa o face numai un adult.”",
+          "mood": "calm",
+          "pause": 0.5
+        },
+        {
+          "text": "Lio a găsit în grădină o piatră rotundă și netedă.",
           "mood": "calm"
         },
         {
-          "text": "A spălat-o bine și a pus-o în ceaun, cu apă. (Acasă, supa o fierbe întotdeauna un adult.)",
+          "text": "A spălat-o bine și a pus-o în ceaun, cu apă.",
           "mood": "calm"
         },
         {
@@ -86,7 +91,7 @@
         }
       ],
       "image": "images/pagina-01.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: a cozy autumn meadow next to a little cottage, golden and orange leaves, a small clear stream, a wooden table with a bench, soft afternoon light. Action: only exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, kneels next to a big round black magic cooking pot standing on three short legs on the grass, gently steaming, with only grass under it and drops a smooth round clean grey stone into the water, smiling with a clever idea. Emotions: curious, playful, clever. Important details: the round grey stone, the big black pot with no fire. Camera: medium shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: a cozy autumn meadow next to a little cottage, golden and orange leaves, a wooden table with a bench, the big round black magic cooking pot standing on short stubby legs directly on the green grass, glowing softly with magic, soft afternoon light. Action: only exactly one lion cub, Lio, with a turquoise scarf with little yellow stars kneels next to the big round black magic cooking pot, gently steaming and drops a smooth round clean grey stone into the water, smiling with a clever idea. Emotions: curious, playful, clever. Important details: the round grey stone, the big black pot standing on the grass, glowing softly with magic. Camera: medium shot.",
       "animation": {
         "camera": "zoom-in",
         "effect": "none"
@@ -129,21 +134,21 @@
         }
       ],
       "image": "images/pagina-02.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lulu: a small fluffy white bunny with two long upright ears with pink insides, a pink nose and a little orange neckerchief. Setting: a cozy autumn meadow next to a little cottage, golden and orange leaves, a small clear stream, a wooden table with a bench, soft afternoon light. Action: Lulu, the small fluffy white bunny with long upright ears and a little orange neckerchief, holds an armful of orange carrots, one of them half-nibbled, with an embarrassed giggle; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands next to the steaming pot, laughing. Emotions: funny, friendly. Important details: the armful of carrots, the half-nibbled carrot. Camera: medium shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lulu: a small fluffy white bunny with two long upright ears with pink insides, a pink nose and a little orange neckerchief. Setting: a cozy autumn meadow next to a little cottage, golden and orange leaves, a wooden table with a bench, the big round black magic cooking pot standing on short stubby legs directly on the green grass, glowing softly with magic, soft afternoon light. Action: Lulu, the small fluffy white bunny with long upright ears and a little orange neckerchief, holds an armful of orange carrots, one of them half-nibbled, with an embarrassed giggle; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars stands next to the steaming pot, laughing. Emotions: funny, friendly. Important details: the armful of carrots, the half-nibbled carrot. Camera: medium shot.",
       "animation": {
         "camera": "pan-right",
         "effect": "none"
       }
     },
     {
-      "text": "Apoi a venit ariciul Ghimpi. Avea în spinare niște cartofi, înfipți în țepi, ca niște baloane pe un arici. — Am adus cartofi și o ceapă! Ceapa era deja curățată, dar mirosea atât de tare, încât toți trei au început să lăcrimeze. — Plângem de bucurie! a chicotit Lulu, ștergându-și ochii.",
+      "text": "Apoi a venit ariciul Ghimpi. Avea în spinare niște cartofi, înfipți în țepi. Arăta ca un brăduț împodobit cu globuri maro! — Am adus cartofi și o ceapă! a spus el mândru. Ceapa era deja curățată, dar mirosea atât de tare, încât toți trei au început să lăcrimeze. — Plângem de bucurie! a chicotit Lulu, ștergându-și ochii.",
       "narration": [
         {
           "text": "Apoi a venit ariciul Ghimpi.",
           "mood": "calm"
         },
         {
-          "text": "Avea în spinare niște cartofi, înfipți în țepi, ca niște baloane pe un arici.",
+          "text": "Avea în spinare niște cartofi, înfipți în țepi. Arăta ca un brăduț împodobit cu globuri maro!",
           "mood": "vesel",
           "pause": 0.4
         },
@@ -151,6 +156,10 @@
           "text": "— Am adus cartofi și o ceapă!",
           "mood": "vesel",
           "speaker": "Ghimpi"
+        },
+        {
+          "text": "a spus el mândru.",
+          "mood": "calm"
         },
         {
           "text": "Ceapa era deja curățată, dar mirosea atât de tare, încât toți trei au început să lăcrimeze.",
@@ -167,17 +176,17 @@
         }
       ],
       "image": "images/pagina-03.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lulu: a small fluffy white bunny with two long upright ears with pink insides, a pink nose and a little orange neckerchief; Ghimpi: a small round hedgehog with soft brown spines on his back, a cream-colored face and belly, a little black nose and tiny bright eyes. Setting: a cozy autumn meadow next to a little cottage, golden and orange leaves, a small clear stream, a wooden table with a bench, soft afternoon light. Action: Ghimpi, the small round hedgehog with soft brown spines, arrives with a few round brown potatoes stuck on the spines of his back, looking proud and funny; Lulu, the small fluffy white bunny with long upright ears and a little orange neckerchief, and exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, next to the pot laugh, wiping happy tears from their eyes. Emotions: very funny, warm. Important details: the potatoes stuck on the hedgehog's spines. Camera: medium shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lulu: a small fluffy white bunny with two long upright ears with pink insides, a pink nose and a little orange neckerchief; Ghimpi: a small round hedgehog with soft brown spines on his back, a cream-colored face and belly, a little black nose and tiny bright eyes. Setting: a cozy autumn meadow next to a little cottage, golden and orange leaves, a wooden table with a bench, the big round black magic cooking pot standing on short stubby legs directly on the green grass, glowing softly with magic, soft afternoon light. Action: Ghimpi, the small round hedgehog with soft brown spines, holds one peeled white onion in his front paws, a few round brown potatoes stuck on the spines of his back, looking proud and funny; Lulu, the small fluffy white bunny with long upright ears and a little orange neckerchief, and exactly one lion cub, Lio, with a turquoise scarf with little yellow stars stand next to him; all three laugh with tiny happy tears in their eyes. Emotions: very funny, warm. Important details: the potatoes stuck on the hedgehog's spines, the peeled onion. Camera: medium shot.",
       "animation": {
         "camera": "zoom-in",
         "effect": "none"
       }
     },
     {
-      "text": "Au spălat legumele în pârâu, apoi le-au pus în ceaun. Lio a adăugat câteva frunzulițe de mărar din grădină. Ceaunul fermecat a început să bolborosească: blup, blup! Piatra dansa printre cartofi, ca la petrecere. Și peste poiană s-a întins un miros minunat de supă.",
+      "text": "Au spălat bine legumele, apoi le-au pus în ceaun. Lio a adăugat câteva frunzulițe de mărar din grădină. Ceaunul fermecat a început să bolborosească: blup, blup! Piatra dansa printre cartofi, ca la petrecere. Și peste poiană s-a întins un miros minunat de supă.",
       "narration": [
         {
-          "text": "Au spălat legumele în pârâu, apoi le-au pus în ceaun.",
+          "text": "Au spălat bine legumele, apoi le-au pus în ceaun.",
           "mood": "calm"
         },
         {
@@ -199,7 +208,7 @@
         }
       ],
       "image": "images/pagina-04.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lulu: a small fluffy white bunny with two long upright ears with pink insides, a pink nose and a little orange neckerchief; Ghimpi: a small round hedgehog with soft brown spines on his back, a cream-colored face and belly, a little black nose and tiny bright eyes. Setting: a cozy autumn meadow next to a little cottage, golden and orange leaves, a small clear stream, a wooden table with a bench, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, gently stirs the big black magic pot with a long wooden spoon; inside, carrots, potatoes and the round grey stone bubble in a golden soup; Lulu, the small fluffy white bunny with long upright ears and a little orange neckerchief, and Ghimpi, the small round hedgehog with soft brown spines, sniff the wonderful smell with closed eyes and happy smiles; a few soft swirls of steam rise. Emotions: cozy, happy. Important details: the bubbling soup with vegetables and the stone, the steam swirls. Camera: medium shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lulu: a small fluffy white bunny with two long upright ears with pink insides, a pink nose and a little orange neckerchief; Ghimpi: a small round hedgehog with soft brown spines on his back, a cream-colored face and belly, a little black nose and tiny bright eyes. Setting: a cozy autumn meadow next to a little cottage, golden and orange leaves, a wooden table with a bench, the big round black magic cooking pot standing on short stubby legs directly on the green grass, glowing softly with magic, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars gently stirs the big round black magic cooking pot, gently steaming with a long wooden spoon; inside, carrots, potatoes and the round grey stone bubble in a golden soup; Lulu, the small fluffy white bunny with long upright ears and a little orange neckerchief, and Ghimpi, the small round hedgehog with soft brown spines, sniff the wonderful smell with closed eyes and happy smiles; a few soft swirls of steam rise. Emotions: cozy, happy. Important details: the bubbling soup with vegetables and the stone, the steam swirls. Camera: medium shot.",
       "animation": {
         "camera": "pan-up",
         "effect": "bubbles"
@@ -241,14 +250,14 @@
         }
       ],
       "image": "images/pagina-05.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lulu: a small fluffy white bunny with two long upright ears with pink insides, a pink nose and a little orange neckerchief; Ghimpi: a small round hedgehog with soft brown spines on his back, a cream-colored face and belly, a little black nose and tiny bright eyes. Setting: a cozy autumn meadow next to a little cottage, golden and orange leaves, a small clear stream, a wooden table with a bench, soft afternoon light. Action: around the wooden table: Lulu, the small fluffy white bunny with long upright ears and a little orange neckerchief, puts a round warm loaf of bread on the table; Ghimpi, the small round hedgehog with soft brown spines, brings a few red apples; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, sets out plain wooden bowls with spoons. Emotions: busy, joyful, together. Important details: the round loaf of bread, the red apples, the wooden bowls. Camera: medium shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lulu: a small fluffy white bunny with two long upright ears with pink insides, a pink nose and a little orange neckerchief; Ghimpi: a small round hedgehog with soft brown spines on his back, a cream-colored face and belly, a little black nose and tiny bright eyes. Setting: a cozy autumn meadow next to a little cottage, golden and orange leaves, a wooden table with a bench, the big round black magic cooking pot standing on short stubby legs directly on the green grass, glowing softly with magic, soft afternoon light. Action: around the wooden table: Lulu, the small fluffy white bunny with long upright ears and a little orange neckerchief, puts a round warm loaf of bread on the table; Ghimpi, the small round hedgehog with soft brown spines, brings a few red apples; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars sets out plain wooden bowls with spoons. Emotions: busy, joyful, together. Important details: the round loaf of bread, the red apples, the wooden bowls. Camera: medium shot.",
       "animation": {
         "camera": "pan-left",
         "effect": "none"
       }
     },
     {
-      "text": "Când supa a fost gata, Lio a scos piatra cu lingura cea mare. — Dar piatra n-o mâncăm? a întrebat Lulu. — Nu! Pietrele nu se mănâncă, a râs Lio. Piatra doar ne-a adunat pe toți. Supa am făcut-o împreună!",
+      "text": "Când supa a fost gata, Lio a scos piatra cu lingura cea mare. — Dar piatra n-o mâncăm? a întrebat Lulu. — Nu! Pietrele nu se mănâncă, a râs Lio. Piatra a fost doar invitata de onoare!",
       "narration": [
         {
           "text": "Când supa a fost gata, Lio a scos piatra cu lingura cea mare.",
@@ -273,13 +282,13 @@
           "mood": "vesel"
         },
         {
-          "text": "Piatra doar ne-a adunat pe toți. Supa am făcut-o împreună!",
-          "mood": "calm",
+          "text": "Piatra a fost doar invitata de onoare!",
+          "mood": "vesel",
           "speaker": "Lio"
         }
       ],
       "image": "images/pagina-06.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lulu: a small fluffy white bunny with two long upright ears with pink insides, a pink nose and a little orange neckerchief; Ghimpi: a small round hedgehog with soft brown spines on his back, a cream-colored face and belly, a little black nose and tiny bright eyes. Setting: a cozy autumn meadow next to a little cottage, golden and orange leaves, a small clear stream, a wooden table with a bench, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, lifts the smooth round grey stone out of the pot with a big wooden spoon, laughing; Lulu, the small fluffy white bunny with long upright ears and a little orange neckerchief, and Ghimpi, the small round hedgehog with soft brown spines, look at it with surprised, amused faces. Emotions: funny, warm, clever. Important details: the round stone lifted out on the big spoon. Camera: close-up.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lulu: a small fluffy white bunny with two long upright ears with pink insides, a pink nose and a little orange neckerchief; Ghimpi: a small round hedgehog with soft brown spines on his back, a cream-colored face and belly, a little black nose and tiny bright eyes. Setting: a cozy autumn meadow next to a little cottage, golden and orange leaves, a wooden table with a bench, the big round black magic cooking pot standing on short stubby legs directly on the green grass, glowing softly with magic, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars lifts the smooth round grey stone out of the pot with a big wooden spoon, laughing; Lulu, the small fluffy white bunny with long upright ears and a little orange neckerchief, and Ghimpi, the small round hedgehog with soft brown spines, look at it with surprised, amused faces. Emotions: funny, warm, clever. Important details: the round stone lifted out on the big spoon. Camera: medium close-up.",
       "animation": {
         "camera": "zoom-in",
         "effect": "none"
@@ -317,7 +326,7 @@
         }
       ],
       "image": "images/pagina-07.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lulu: a small fluffy white bunny with two long upright ears with pink insides, a pink nose and a little orange neckerchief; Ghimpi: a small round hedgehog with soft brown spines on his back, a cream-colored face and belly, a little black nose and tiny bright eyes. Setting: a cozy autumn meadow next to a little cottage, golden and orange leaves, a small clear stream, a wooden table with a bench, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars,, Lulu, the small fluffy white bunny with long upright ears and a little orange neckerchief, and Ghimpi, the small round hedgehog with soft brown spines, sit together at the wooden table eating warm vegetable soup from wooden bowls, happy and smiling, the round bread and the red apples on the table. Emotions: joyful, warm, grateful. Important details: the friends eating together at the table. Camera: wide shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lulu: a small fluffy white bunny with two long upright ears with pink insides, a pink nose and a little orange neckerchief; Ghimpi: a small round hedgehog with soft brown spines on his back, a cream-colored face and belly, a little black nose and tiny bright eyes. Setting: a cozy autumn meadow next to a little cottage, golden and orange leaves, a wooden table with a bench, the big round black magic cooking pot standing on short stubby legs directly on the green grass, glowing softly with magic, soft afternoon light. Action: exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, Lulu, the small fluffy white bunny with long upright ears and a little orange neckerchief, and Ghimpi, the small round hedgehog with soft brown spines, sit together at the wooden table eating warm vegetable soup from wooden bowls, happy and smiling, the round bread and the red apples on the table. Emotions: joyful, warm, grateful. Important details: the friends eating together at the table. Camera: wide shot.",
       "animation": {
         "camera": "zoom-out",
         "effect": "hearts"
@@ -355,17 +364,17 @@
         }
       ],
       "image": "images/pagina-08.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lulu: a small fluffy white bunny with two long upright ears with pink insides, a pink nose and a little orange neckerchief; Ghimpi: a small round hedgehog with soft brown spines on his back, a cream-colored face and belly, a little black nose and tiny bright eyes. Setting: a cozy autumn meadow next to a little cottage, golden and orange leaves, a small clear stream, a wooden table with a bench, soft afternoon light. Action: Ghimpi, the small round hedgehog with soft brown spines, naps with a full round tummy curled up on the bench, eyes closed; Lulu, the small fluffy white bunny with long upright ears and a little orange neckerchief, nibbles a red apple, giggling; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, laughs next to them at the table. Emotions: cozy, funny, content. Important details: the napping hedgehog, the bunny nibbling an apple. Camera: medium shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Lulu: a small fluffy white bunny with two long upright ears with pink insides, a pink nose and a little orange neckerchief; Ghimpi: a small round hedgehog with soft brown spines on his back, a cream-colored face and belly, a little black nose and tiny bright eyes. Setting: a cozy autumn meadow next to a little cottage, golden and orange leaves, a wooden table with a bench, the big round black magic cooking pot standing on short stubby legs directly on the green grass, glowing softly with magic, soft afternoon light. Action: Ghimpi, the small round hedgehog with soft brown spines, naps lying on his back on the bench, eyes closed, round full tummy up, a sleepy smile; Lulu, the small fluffy white bunny with long upright ears and a little orange neckerchief, nibbles a red apple, giggling; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars laughs next to them at the table. Emotions: cozy, funny, content. Important details: the napping hedgehog, the bunny nibbling an apple. Camera: medium shot.",
       "animation": {
         "camera": "pan-right",
         "effect": "none"
       }
     },
     {
-      "text": "La apus, Lio a spălat piatra și a pus-o pe fereastră. — De azi, ea e piatra prieteniei, a spus Lio. Și, de câte ori se uita la ea, își amintea că lucrurile cele mai bune se fac împreună.",
+      "text": "La apus, Lio a spălat piatra și a pus-o la fereastră. — De azi, ea e piatra prieteniei, a spus Lio. Și, de câte ori se uita la ea, își amintea că lucrurile cele mai bune se fac împreună.",
       "narration": [
         {
-          "text": "La apus, Lio a spălat piatra și a pus-o pe fereastră.",
+          "text": "La apus, Lio a spălat piatra și a pus-o la fereastră.",
           "mood": "calm"
         },
         {
@@ -383,10 +392,10 @@
         }
       ],
       "image": "images/pagina-09.png",
-      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: a cozy autumn meadow next to a little cottage, golden and orange leaves, a small clear stream, a wooden table with a bench, warm golden sunset light. Action: only exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands by the cottage and places the smooth round grey stone on a wooden window sill outside, smiling warmly at it. Emotions: peaceful, warm, grateful. Important details: the round stone on the window sill, the sunset. Camera: medium shot.",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression. Setting: a cozy autumn meadow next to a little cottage, golden and orange leaves, a wooden table with a bench, the big round black magic cooking pot standing on short stubby legs directly on the green grass, glowing softly with magic, warm golden sunset light. Action: only exactly one lion cub, Lio, with a turquoise scarf with little yellow stars stands by the cottage and places the smooth round grey stone on the wooden ledge of a small cottage window with closed green wooden shutters, smiling warmly at it. Emotions: peaceful, warm, grateful. Important details: the round stone on the window ledge, the closed green shutters, the sunset. Camera: medium shot.",
       "animation": {
         "camera": "zoom-out",
-        "effect": "glow"
+        "effect": "none"
       }
     }
   ],
@@ -396,17 +405,18 @@
   ],
   "review": {
     "imaginatie": "O „supă de piatră” într-un ceaun fermecat care se încălzește singur (paginile 1, 4), un arici care aduce cartofii înfipți în țepi (3) și o piatră care „dansează printre cartofi, ca la petrecere” (4), devenită apoi „piatra prieteniei” (9).",
-    "invatare": "A împărți e chiar firul poveștii: Lio pune piatra, apa și mărarul, Lulu morcovii și pâinea, Ghimpi cartofii, ceapa și merele (1–5), iar la masă Lio spune: „Singur aveam doar o piatră. Împreună avem un ospăț!” (7). Obiceiuri bune: legumele se spală (4), pietrele nu se mănâncă (6), iar acasă supa o fierbe un adult (ceaunul lui Lio e fermecat, fără foc).",
+    "invatare": "A împărți e chiar firul poveștii: Lio pune piatra, apa și mărarul, Lulu morcovii și pâinea, Ghimpi cartofii, ceapa și merele (1–5), iar la masă Lio spune: „Singur aveam doar o piatră. Împreună avem un ospăț!” (7). Obiceiuri bune: legumele se spală (4), pietrele nu se mănâncă (6), iar pe aragaz sau pe foc supa o face numai un adult, cum îi spusese bunicul lui Lio (1); ceaunul lui Lio e fermecat, fără foc.",
     "umor": [
       "pagina 2: unul dintre morcovii lui Lulu era deja ronțăit pe jumătate: „Ups!”",
       "pagina 3: ariciul vine cu cartofii înfipți în țepi, iar ceapa îi face pe toți să „plângă de bucurie”",
       "pagina 4: piatra „dansează” în supă: blup, blup!",
+      "pagina 6: „Piatra a fost doar invitata de onoare!”",
       "pagina 8: Ghimpi ațipește cu burtica plină și sforăie"
     ],
     "emotie": "Problema e simplă și pe înțelesul copiilor: Lio are foame și nimic în cămară (1). Ideea isteață e a lui, iar bucuria crește cu fiecare prieten care vine (2–5). Finalul e cald: masa împreună (7) și „piatra prieteniei” pusă la fereastră (9).",
-    "siguranta": "Nu există foc: ceaunul fermecat se încălzește singur, iar povestea nu arată copii gătind pe foc. Piatra e spălată și apoi scoasă din supă („pietrele nu se mănâncă”); legumele sunt spălate. Nimeni nu folosește cuțitul: ceapa vine deja curățată. Pe pagina 1 se spune limpede că acasă supa o fierbe întotdeauna un adult. Nimic înfricoșător.",
-    "imagini": "Lio, iepurașa cu eșarfă portocalie și ariciul (fără oameni), cel mult trei personaje pe imagine; paginile 1 și 9 doar cu Lio. Ceaunul e „magic … with only grass under it”, fără flăcări. Fără numere de obiecte, fără litere, fără oglinzi, fără guri de aproape, fără „basket” (morcovii sunt „an armful”). Fiecare prompt arată momentul paginii. Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
-    "voce": "Narațiune caldă și veselă, cu pauze după „Ups!”, la cartofii din țepi și la „blup, blup!”; liniștită la apus. Lulu are o voce subțire și vioaie; Ghimpi o voce caldă, ceva mai joasă și rară; Lio vocea lui obișnuită. Replicile sunt separate de vorbele naratorului."
+    "siguranta": "Nu există foc: ceaunul fermecat se încălzește singur, iar regula bunicului e spusă limpede: pe aragaz sau pe foc, supa o face numai un adult (1). Piatra e spălată și apoi scoasă din supă („pietrele nu se mănâncă”); legumele sunt spălate. Nimeni nu folosește cuțitul: ceapa vine deja curățată. Piatra e găsită în grădină, nu la apă. Nimic înfricoșător.",
+    "imagini": "Lio, iepurașa cu eșarfă portocalie și ariciul (fără oameni), cel mult trei personaje pe imagine; paginile 1 și 9 doar cu Lio. Ceaunul apare peste tot „standing on short stubby legs directly on the green grass, glowing softly with magic”, fără flăcări. Fără numere de obiecte, fără litere, fără oglinzi (la final, fereastra are obloanele închise), fără guri de aproape, fără „basket” (morcovii sunt „an armful”). Fiecare prompt arată momentul paginii. Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
+    "voce": "Narațiune caldă și veselă, cu o pauză după regula bunicului (1), după „Ups!”, la cartofii din țepi și la „blup, blup!”; liniștită la apus. Lulu are o voce subțire și vioaie; Ghimpi o voce caldă, ceva mai joasă și rară; Lio vocea lui obișnuită. Replicile sunt separate de vorbele naratorului."
   },
   "verified": false,
   "questions": [
@@ -415,7 +425,7 @@
       "options": [
         {
           "text": "A fiert doar piatra",
-          "emoji": "🪨"
+          "emoji": "⚪"
         },
         {
           "text": "Fiecare a adus ceva",
@@ -423,7 +433,7 @@
         }
       ],
       "answer": 1,
-      "explanation": "Corect! Lulu a adus morcovi, Ghimpi cartofi și ceapă, iar împreună a ieșit o supă pentru toți."
+      "explanation": "Corect! Lio a pus piatra și mărarul, Lulu morcovii și pâinea, Ghimpi cartofii și ceapa. Împreună a ieșit o supă pentru toți."
     },
     {
       "text": "Mâncăm piatra din supă?",
@@ -438,7 +448,7 @@
         }
       ],
       "answer": 0,
-      "explanation": "Bravo! Lio a scos piatra; ea doar i-a adunat pe toți."
+      "explanation": "Bravo! Lio a scos piatra din supă: pietrele nu se mănâncă."
     }
   ]
 }
