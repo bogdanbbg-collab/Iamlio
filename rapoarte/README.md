@@ -2,7 +2,7 @@
 
 Generate automat la fiecare publicare. Un AI care a adăugat sau a modificat o poveste citește raportul ei și corectează tot ce scrie la „De corectat”, până când raportul spune „publicată”.
 
-Ultima verificare: 2026-11-22 04:36 UTC
+Ultima verificare: 2026-11-23 04:13 UTC
 
 | Poveste | Stare | De corectat | Reparate automat |
 | --- | --- | --- | --- |
@@ -29,6 +29,7 @@ Ultima verificare: 2026-11-22 04:36 UTC
 | [Furnicuța Pici și cel mai greu bob](pici-furnicuta-si-cel-mai-greu-bob.md) | ✅ publicată | 0 | 0 |
 | [Pufi, norul care nu voia să plouă](pufi-norul-care-nu-voia-sa-ploua.md) | ✅ publicată | 0 | 0 |
 | [Stela și planeta pierdută](stela-si-planeta-pierduta.md) | ✅ publicată | 0 | 0 |
+| [Supa de piatră a lui Lio](supa-de-piatra-a-lui-lio.md) | ⏳ în verificare | 0 | 10 |
 | [Țepi și frunza cea mai frumoasă](tepi-si-frunza-cea-mai-frumoasa.md) | ✅ publicată | 0 | 0 |
 | [Tudor și mașinuța Fulger](tudor-si-masinuta-fulger.md) | ❌ nepublicată | 5 | 0 |
 | [Țup, iepurașul care număra morcovi](tup-iepurasul-care-numara-morcovi.md) | ✅ publicată | 0 | 0 |
