@@ -33,6 +33,29 @@
   ],
   "stories": [
     {
+      "id": "supa-de-piatra-a-lui-lio",
+      "title": "Supa de piatră a lui Lio",
+      "summary": "Lio nu are nimic de mâncare, doar o piatră și un ceaun fermecat. Așa că face „supă de piatră”, iar prietenii lui, iepurașa Lulu și ariciul Ghimpi, aduc fiecare câte ceva. Împreună iese o supă pentru toți.",
+      "age": "3-7",
+      "tags": [
+        "supă",
+        "împărțit",
+        "prieteni",
+        "toamnă",
+        "arici",
+        "iepuraș"
+      ],
+      "categories": [
+        "prietenie",
+        "invatam"
+      ],
+      "created": "2026-11-23",
+      "cover": "stories/supa-de-piatra-a-lui-lio/images/coperta.webp",
+      "pages": 9,
+      "minutes": 5,
+      "published": "2026-11-23"
+    },
+    {
       "id": "lio-si-bufnita-care-dormea-ziua",
       "title": "Lio și bufnița care dormea ziua",
       "summary": "Lio o trezește din greșeală pe bufnița Huhu, care doarme ziua. Seara, când ea se trezește, Lio află de ce unele animale trăiesc noaptea și cum văd, aud și zboară ele pe întuneric.",
