@@ -42,7 +42,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: "22"
 
@@ -103,7 +103,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: "22"
 
@@ -263,7 +263,7 @@ jobs:
 
       # Site-ul exact așa cum se urcă (cu vocile și imaginile generate mai sus) trece încă o dată prin testele
       # din browser, înainte de publicare; dacă pică, nu se urcă nimic și nu se salvează nimic în repository.
-      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         if: env.NORMAL == 'true'
         with:
           node-version: "22"
