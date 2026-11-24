@@ -1,34 +1,27 @@
 # Fulguța și primul înot
 
-**Stare: ❌ NEPUBLICATĂ** · verificată la 2026-11-24 04:15 UTC
+**Stare: ❌ NEPUBLICATĂ** · verificată la 2026-11-24 04:26 UTC
 
 Poveste: `public/stories/fulguta-puiul-de-pinguin-care-se-temea-de-apa/story.json`
 
 ## De corectat (de aceea nu este publicată)
 
 - pagina 2: imaginea images/pagina-02.png nu există
-- pagina 4: imaginea images/pagina-04.png nu există
 - pagina 8: imaginea images/pagina-08.png nu există
 - pagina 9: imaginea images/pagina-09.png nu există
 - întrebarea 2, varianta 1: imaginea images/pagina-08.png nu există
 
 ## Note de la publicare
 
-- pagina 2: imaginea nu a putut fi generată (ImageSkipped: FLUX.2 klein a refuzat imaginea: Cloudflare: {"errors":[{"message":"AiError: AiError: Your output has been flagged. Please choose another prompt / input image combination (f300d8cf-6ec6-40c2-8dda-259a11070f89)","code":3030}],"success":false,"result":{},"messages":[]})
-- pagina 4: imaginea nu a putut fi generată (ImageSkipped: FLUX.2 klein a refuzat imaginea: Cloudflare: {"errors":[{"message":"AiError: AiError: Your output has been flagged. Please choose another prompt / input image combination (f11944af-6c91-4b55-a4a9-b47eb0b89edc)","code":3030}],"success":false,"result":{},"messages":[]})
-- pagina 8: imaginea nu a putut fi generată (ImageSkipped: FLUX.2 klein a refuzat imaginea: Cloudflare: {"errors":[{"message":"AiError: AiError: Your output has been flagged. Please choose another prompt / input image combination (d7073a50-a421-4597-8ce0-91f84ddbda0b)","code":3030}],"success":false,"result":{},"messages":[]})
-- pagina 9: imaginea nu a putut fi generată (ImageSkipped: FLUX.2 klein a refuzat imaginea: Cloudflare: {"errors":[{"message":"AiError: AiError: Your output has been flagged. Please choose another prompt / input image combination (3c75bcb2-6803-4b3e-9442-366417a9bf79)","code":3030}],"success":false,"result":{},"messages":[]})
+- pagina 2: imaginea nu a putut fi generată (ImageSkipped: FLUX.2 klein a refuzat imaginea: Cloudflare: {"errors":[{"message":"AiError: AiError: Your output has been flagged. Please choose another prompt / input image combination (5d521628-3ab7-447a-8f40-7ea79aaf631c)","code":3030}],"success":false,"result":{},"messages":[]})
+- pagina 8: imaginea nu a putut fi generată (ImageSkipped: FLUX.2 klein a refuzat imaginea: Cloudflare: {"errors":[{"message":"AiError: AiError: Your output has been flagged. Please choose another prompt / input image combination (2dbeb55f-cc7a-44b8-a729-e28c4a9266e1)","code":3030}],"success":false,"result":{},"messages":[]})
+- pagina 9: imaginea nu a putut fi generată (ImageSkipped: FLUX.2 klein a refuzat imaginea: Cloudflare: {"errors":[{"message":"AiError: AiError: Your output has been flagged. Please choose another prompt / input image combination (bee3d00f-7a7d-4e15-898a-5f7a52b58ca8)","code":3030}],"success":false,"result":{},"messages":[]})
 
 ## Reparat automat
 
 Aceste lucruri au fost corectate automat în `story.json` (preia versiunea din repository înainte de a modifica din nou povestea):
 
-- coperta: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 1: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 3: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 5: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 6: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
-- pagina 7: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
+- pagina 4: imaginea a fost generată automat (@cf/black-forest-labs/flux-2-klein-4b)
 
 ## Avertismente (merită verificate, dar nu blochează publicarea)
 
