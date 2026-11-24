@@ -355,7 +355,7 @@
           "mood": "vesel"
         }
       ],
-      "image": "images/pagina-08.png",
+      "image": "images/pagina-08.webp",
       "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Fulguța: a small young penguin, half the size of her mother, with brand-new smooth shiny black-and-white feathers, a white belly, a small orange beak, little orange feet, short flippers, big curious eyes and a tiny tuft of leftover soft grey down on top of her head. Setting: a sunny icy shore with smooth white snow, rounded rocks, a calm blue sea and a small shallow pool with gently rippling water among the rocks, a pale blue sky. Action: A sunny icy shore with smooth white snow, rounded rocks, a calm blue sea, a pale blue sky. Near the shore, Fulguța, the small young penguin with an orange beak, orange feet and a tiny tuft of grey down on her head jumps happily above the calm water like a little dolphin, flippers spread, sparkling drops around her. Emotions: joyful, free, proud. Important details: the little leap out of the water, the sparkling drops. Camera: medium shot.",
       "animation": {
         "camera": "pan-up",
@@ -443,7 +443,7 @@
       "options": [
         {
           "text": "Sub apă",
-          "image": "images/pagina-08.png"
+          "image": "images/pagina-08.webp"
         },
         {
           "text": "Printre nori",
