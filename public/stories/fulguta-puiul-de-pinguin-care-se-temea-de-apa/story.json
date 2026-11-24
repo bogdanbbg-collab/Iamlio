@@ -1,0 +1,418 @@
+{
+  "id": "fulguta-puiul-de-pinguin-care-se-temea-de-apa",
+  "title": "Fulguța, puiul de pinguin care se temea de apă",
+  "summary": "Fulguța, un pui de pinguin cu pene noi, se teme de apă. Cu mama ei mereu aproape și cu Lio pe mal, învață să înoate pas cu pas, până când descoperă că pinguinii „zboară” sub apă.",
+  "age": "3-7",
+  "moral": "Pas cu pas, frica se face tot mai mică, iar curajul tot mai mare.",
+  "learning": [
+    "curajul în pași mici: întâi picioarele, apoi stropii, apoi bulele, apoi înotul",
+    "copiii învață să înoate doar cu un adult lângă ei, unde apa e mică",
+    "viața pinguinilor: puii primesc pene noi înainte să înoate, alunecă pe burtă și „zboară” sub apă"
+  ],
+  "created": "2026-11-24",
+  "tags": [
+    "pinguin",
+    "înot",
+    "curaj",
+    "frică",
+    "gheață",
+    "mama"
+  ],
+  "illustrationStyle": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered.",
+  "characters": [
+    {
+      "name": "Lio",
+      "description": "a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression",
+      "voice": {
+        "pitch": 12,
+        "rate": 3
+      }
+    },
+    {
+      "name": "Fulguța",
+      "description": "a small young penguin with brand-new smooth shiny black-and-white feathers, a white belly, a small orange beak, little orange feet, short flippers and big curious eyes",
+      "voice": {
+        "type": "feminin",
+        "pitch": 24,
+        "rate": 4
+      }
+    },
+    {
+      "name": "Mama Pinguin",
+      "description": "a tall kind grown-up penguin with smooth black-and-white feathers, a soft yellow patch on her neck and gentle eyes",
+      "voice": {
+        "type": "feminin",
+        "pitch": -4,
+        "rate": -3
+      }
+    }
+  ],
+  "cover": {
+    "image": "images/coperta.png",
+    "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Fulguța: a small young penguin with brand-new smooth shiny black-and-white feathers, a white belly, a small orange beak, little orange feet, short flippers and big curious eyes. Setting: a sunny icy shore with smooth white snow, rounded rocks, a calm blue sea and a small shallow clear pool among the rocks, a pale blue sky. Action: Fulguța, the small young penguin with shiny black-and-white feathers, stands at the edge of the small shallow pool, dipping one little orange foot into the water with a brave little smile; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands next to her on the snow, cheering her on. Emotions: brave, warm, hopeful. Important details: the little foot touching the water, the icy shore. Camera: wide cinematic cover shot, both faces clearly visible.",
+    "animation": {
+      "camera": "zoom-in",
+      "effect": "snow"
+    }
+  },
+  "pages": [
+    {
+      "text": "Departe, pe un țărm înghețat, Lio a întâlnit un pui de pinguin pe nume Fulguța. Până de curând avusese un puf cenușiu, moale, dar acum îi crescuseră pene noi, lucioase. Cu penele astea, pinguinii pot intra în apă fără să le fie frig. Ceilalți pinguini săreau în mare: pleosc, pleosc! Doar Fulguța stătea deoparte.",
+      "narration": [
+        {
+          "text": "Departe, pe un țărm înghețat, Lio a întâlnit un pui de pinguin pe nume Fulguța.",
+          "mood": "calm"
+        },
+        {
+          "text": "Până de curând avusese un puf cenușiu, moale, dar acum îi crescuseră pene noi, lucioase.",
+          "mood": "mirat"
+        },
+        {
+          "text": "Cu penele astea, pinguinii pot intra în apă fără să le fie frig.",
+          "mood": "calm"
+        },
+        {
+          "text": "Ceilalți pinguini săreau în mare: pleosc, pleosc! Doar Fulguța stătea deoparte.",
+          "mood": "trist"
+        }
+      ],
+      "image": "images/pagina-01.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Fulguța: a small young penguin with brand-new smooth shiny black-and-white feathers, a white belly, a small orange beak, little orange feet, short flippers and big curious eyes. Setting: a sunny icy shore with smooth white snow, rounded rocks, a calm blue sea and a small shallow clear pool among the rocks, a pale blue sky. Action: Fulguța, the small young penguin with shiny black-and-white feathers, stands alone on the snowy shore, a little apart, looking worriedly at the calm sea; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, walks up to her through the snow, curious and kind. Emotions: a little sad, curious. Important details: the shiny new feathers, the calm sea. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "snow"
+      }
+    },
+    {
+      "text": "— Mi-e frică de apă, a șoptit ea. E mare și rece. — Și mie mi-a fost frică, prima dată, a spus Lio. Am învățat să înot cu pași mici, cu mama mereu lângă mine. Mama Fulguței s-a apropiat și a zâmbit: — Sunt chiar aici. Începem încet?",
+      "narration": [
+        {
+          "text": "— Mi-e frică de apă,",
+          "mood": "trist",
+          "speaker": "Fulguța"
+        },
+        {
+          "text": "a șoptit ea.",
+          "mood": "șoptit"
+        },
+        {
+          "text": "E mare și rece.",
+          "mood": "trist",
+          "speaker": "Fulguța"
+        },
+        {
+          "text": "— Și mie mi-a fost frică, prima dată,",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a spus Lio.",
+          "mood": "calm"
+        },
+        {
+          "text": "Am învățat să înot cu pași mici, cu mama mereu lângă mine.",
+          "mood": "calm",
+          "speaker": "Lio"
+        },
+        {
+          "text": "Mama Fulguței s-a apropiat și a zâmbit:",
+          "mood": "calm"
+        },
+        {
+          "text": "— Sunt chiar aici. Începem încet?",
+          "mood": "calm",
+          "speaker": "Mama Pinguin"
+        }
+      ],
+      "image": "images/pagina-02.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Fulguța: a small young penguin with brand-new smooth shiny black-and-white feathers, a white belly, a small orange beak, little orange feet, short flippers and big curious eyes; Mama Pinguin: a tall kind grown-up penguin with smooth black-and-white feathers, a soft yellow patch on her neck and gentle eyes. Setting: a sunny icy shore with smooth white snow, rounded rocks, a calm blue sea and a small shallow clear pool among the rocks, a pale blue sky. Action: Fulguța, the small young penguin with shiny black-and-white feathers, stands on the snow looking shy; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, talks to her kindly; the tall kind grown-up penguin mother with a soft yellow patch on her neck, stands right next to her child, smiling warmly. Emotions: gentle, safe, hopeful. Important details: the mother penguin close to her chick. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Primul pas: un ochi de apă mic, între pietre, unde apa ajungea doar până la gleznă. Fulguța a pus un picioruș în apă. — Brrr! E rece! Apoi l-a pus și pe celălalt. — Hm… nu e chiar așa de rău!",
+      "narration": [
+        {
+          "text": "Primul pas: un ochi de apă mic, între pietre, unde apa ajungea doar până la gleznă.",
+          "mood": "calm"
+        },
+        {
+          "text": "Fulguța a pus un picioruș în apă.",
+          "mood": "calm",
+          "pause": 0.4
+        },
+        {
+          "text": "— Brrr! E rece!",
+          "mood": "mirat",
+          "speaker": "Fulguța"
+        },
+        {
+          "text": "Apoi l-a pus și pe celălalt.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Hm… nu e chiar așa de rău!",
+          "mood": "vesel",
+          "speaker": "Fulguța"
+        }
+      ],
+      "image": "images/pagina-03.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Fulguța: a small young penguin with brand-new smooth shiny black-and-white feathers, a white belly, a small orange beak, little orange feet, short flippers and big curious eyes; Mama Pinguin: a tall kind grown-up penguin with smooth black-and-white feathers, a soft yellow patch on her neck and gentle eyes. Setting: a sunny icy shore with smooth white snow, rounded rocks, a calm blue sea and a small shallow clear pool among the rocks, a pale blue sky. Action: Fulguța, the small young penguin with shiny black-and-white feathers, stands with both little orange feet in the small shallow clear pool among the rocks, the water only up to her ankles, shivering with a funny brrr face; the tall kind grown-up penguin mother with a soft yellow patch on her neck, stands right beside the pool; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, watches from the snow, smiling. Emotions: funny, brave, a little chilly. Important details: the shallow pool, the little orange feet in the water. Camera: medium shot.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Al doilea pas: să bată apa cu aripioarele. Fulguța a bătut din aripioare, tot mai repede: pleosc, pleosc, pleosc! Stropii au zburat drept pe Lio. — Hei, acum înot și eu! a râs el, ud din coamă până în vârful cozii.",
+      "narration": [
+        {
+          "text": "Al doilea pas: să bată apa cu aripioarele.",
+          "mood": "calm"
+        },
+        {
+          "text": "Fulguța a bătut din aripioare, tot mai repede: pleosc, pleosc, pleosc!",
+          "mood": "vesel",
+          "pause": 0.3
+        },
+        {
+          "text": "Stropii au zburat drept pe Lio.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Hei, acum înot și eu!",
+          "mood": "vesel",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a râs el, ud din coamă până în vârful cozii.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-04.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Fulguța: a small young penguin with brand-new smooth shiny black-and-white feathers, a white belly, a small orange beak, little orange feet, short flippers and big curious eyes. Setting: a sunny icy shore with smooth white snow, rounded rocks, a calm blue sea and a small shallow clear pool among the rocks, a pale blue sky. Action: Fulguța, the small young penguin with shiny black-and-white feathers, stands in the shallow pool and flaps her flippers fast, splashing water drops everywhere; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, stands next to the pool laughing, his mane dripping with water. Emotions: very funny, playful. Important details: the flying water drops, Lio's dripping mane. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-left",
+        "effect": "drops"
+      }
+    },
+    {
+      "text": "Al treilea pas era cel mai vesel: alunecatul pe burtă. Pinguinii fac asta pe zăpadă, ca pe un tobogan. Fulguța s-a întins pe burtă și… uiii! A alunecat pe zăpadă, drept în ochiul de apă mică. — Încă o dată! Încă o dată!",
+      "narration": [
+        {
+          "text": "Al treilea pas era cel mai vesel: alunecatul pe burtă.",
+          "mood": "vesel"
+        },
+        {
+          "text": "Pinguinii fac asta pe zăpadă, ca pe un tobogan.",
+          "mood": "calm"
+        },
+        {
+          "text": "Fulguța s-a întins pe burtă și… uiii!",
+          "mood": "entuziasmat",
+          "pause": 0.4
+        },
+        {
+          "text": "A alunecat pe zăpadă, drept în ochiul de apă mică.",
+          "mood": "vesel"
+        },
+        {
+          "text": "— Încă o dată! Încă o dată!",
+          "mood": "entuziasmat",
+          "speaker": "Fulguța"
+        }
+      ],
+      "image": "images/pagina-05.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Fulguța: a small young penguin with brand-new smooth shiny black-and-white feathers, a white belly, a small orange beak, little orange feet, short flippers and big curious eyes; Mama Pinguin: a tall kind grown-up penguin with smooth black-and-white feathers, a soft yellow patch on her neck and gentle eyes. Setting: a sunny icy shore with smooth white snow, rounded rocks, a calm blue sea and a small shallow clear pool among the rocks, a pale blue sky. Action: Fulguța, the small young penguin with shiny black-and-white feathers, slides happily on her tummy down a gentle snowy slope toward the small shallow pool, flippers stretched back, laughing; the tall kind grown-up penguin mother with a soft yellow patch on her neck, waits next to the pool; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, cheers. Emotions: joyful, playful, brave. Important details: the belly slide on the snow, the shallow pool. Camera: low angle, wide shot.",
+      "animation": {
+        "camera": "pan-down",
+        "effect": "snow"
+      }
+    },
+    {
+      "text": "Al patrulea pas: să-și bage ciocul sub apă și să sufle bule. Blup, blup, blup! Apoi a deschis ochii sub apă și a văzut niște crevete mici, care sclipeau ca niște steluțe roz. — Sub apă e frumos! a strigat ea, când a scos capul.",
+      "narration": [
+        {
+          "text": "Al patrulea pas: să-și bage ciocul sub apă și să sufle bule.",
+          "mood": "calm"
+        },
+        {
+          "text": "Blup, blup, blup!",
+          "mood": "vesel",
+          "pause": 0.4
+        },
+        {
+          "text": "Apoi a deschis ochii sub apă și a văzut niște crevete mici, care sclipeau ca niște steluțe roz.",
+          "mood": "mirat"
+        },
+        {
+          "text": "— Sub apă e frumos!",
+          "mood": "entuziasmat",
+          "speaker": "Fulguța"
+        },
+        {
+          "text": "a strigat ea, când a scos capul.",
+          "mood": "calm"
+        }
+      ],
+      "image": "images/pagina-06.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Fulguța: a small young penguin with brand-new smooth shiny black-and-white feathers, a white belly, a small orange beak, little orange feet, short flippers and big curious eyes; Mama Pinguin: a tall kind grown-up penguin with smooth black-and-white feathers, a soft yellow patch on her neck and gentle eyes. Setting: a sunny icy shore with smooth white snow, rounded rocks, a calm blue sea and a small shallow clear pool among the rocks, a pale blue sky. Action: Fulguța, the small young penguin with shiny black-and-white feathers, dips her beak and face into the clear shallow water, blowing little bubbles, tiny pink shrimp sparkling below like little stars; the tall kind grown-up penguin mother with a soft yellow patch on her neck, stands close beside her in the shallow water, watching gently. Emotions: curious, amazed, calm. Important details: the little bubbles, the tiny sparkling pink shrimp. Camera: close-up.",
+      "animation": {
+        "camera": "zoom-in",
+        "effect": "bubbles"
+      }
+    },
+    {
+      "text": "Al cincilea pas: Fulguța a înotat de-a lungul malului, acolo unde apa era mică. Mama ei înota chiar lângă ea, aripioară lângă aripioară. Lio alerga pe mal și striga: — Bravo, Fulguța! Înoți!",
+      "narration": [
+        {
+          "text": "Al cincilea pas: Fulguța a înotat de-a lungul malului, acolo unde apa era mică.",
+          "mood": "calm"
+        },
+        {
+          "text": "Mama ei înota chiar lângă ea, aripioară lângă aripioară.",
+          "mood": "calm"
+        },
+        {
+          "text": "Lio alerga pe mal și striga:",
+          "mood": "entuziasmat"
+        },
+        {
+          "text": "— Bravo, Fulguța! Înoți!",
+          "mood": "entuziasmat",
+          "speaker": "Lio"
+        }
+      ],
+      "image": "images/pagina-07.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Fulguța: a small young penguin with brand-new smooth shiny black-and-white feathers, a white belly, a small orange beak, little orange feet, short flippers and big curious eyes; Mama Pinguin: a tall kind grown-up penguin with smooth black-and-white feathers, a soft yellow patch on her neck and gentle eyes. Setting: a sunny icy shore with smooth white snow, rounded rocks, a calm blue sea and a small shallow clear pool among the rocks, a pale blue sky. Action: Fulguța, the small young penguin with shiny black-and-white feathers, swims along the calm shallow edge of the sea, right next to the tall kind grown-up penguin mother with a soft yellow patch on her neck, who swims beside her; on the snowy shore, exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, runs along, cheering with his paws up. Emotions: proud, joyful, safe. Important details: the chick swimming next to her mother near the shore. Camera: wide shot.",
+      "animation": {
+        "camera": "pan-right",
+        "effect": "none"
+      }
+    },
+    {
+      "text": "Și, deodată, Fulguța a simțit cum aripioarele o duc repede, repede prin apă. Pinguinii nu zboară prin aer, dar zboară sub apă! Fulguța a sărit din apă ca un delfin mic și a plescăit înapoi: plici! — Zbor! Zbor! a strigat ea, fericită.",
+      "narration": [
+        {
+          "text": "Și, deodată, Fulguța a simțit cum aripioarele o duc repede, repede prin apă.",
+          "mood": "entuziasmat"
+        },
+        {
+          "text": "Pinguinii nu zboară prin aer, dar zboară sub apă!",
+          "mood": "mirat"
+        },
+        {
+          "text": "Fulguța a sărit din apă ca un delfin mic și a plescăit înapoi: plici!",
+          "mood": "vesel",
+          "pause": 0.4
+        },
+        {
+          "text": "— Zbor! Zbor!",
+          "mood": "entuziasmat",
+          "speaker": "Fulguța"
+        },
+        {
+          "text": "a strigat ea, fericită.",
+          "mood": "vesel"
+        }
+      ],
+      "image": "images/pagina-08.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Fulguța: a small young penguin with brand-new smooth shiny black-and-white feathers, a white belly, a small orange beak, little orange feet, short flippers and big curious eyes; Mama Pinguin: a tall kind grown-up penguin with smooth black-and-white feathers, a soft yellow patch on her neck and gentle eyes. Setting: a sunny icy shore with smooth white snow, rounded rocks, a calm blue sea and a small shallow clear pool among the rocks, a pale blue sky. Action: Fulguța, the small young penguin with shiny black-and-white feathers, leaps happily out of the calm water near the shore like a little dolphin, flippers spread like wings, sparkling drops around her; the tall kind grown-up penguin mother with a soft yellow patch on her neck, swims close by, smiling proudly. Emotions: joyful, free, proud. Important details: the little leap out of the water, the sparkling drops. Camera: medium shot.",
+      "animation": {
+        "camera": "pan-up",
+        "effect": "drops"
+      }
+    },
+    {
+      "text": "Seara, Fulguța s-a ghemuit lângă mama ei, ca să se încălzească. — Pas cu pas, frica s-a făcut tot mai mică, a zis ea. — Iar curajul tot mai mare, a zâmbit Lio și le-a făcut cu lăbuța, de rămas-bun. — Noapte bună, Fulguța!",
+      "narration": [
+        {
+          "text": "Seara, Fulguța s-a ghemuit lângă mama ei, ca să se încălzească.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Pas cu pas, frica s-a făcut tot mai mică,",
+          "mood": "somnoros",
+          "speaker": "Fulguța"
+        },
+        {
+          "text": "a zis ea.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Iar curajul tot mai mare,",
+          "mood": "somnoros",
+          "speaker": "Lio"
+        },
+        {
+          "text": "a zâmbit Lio și le-a făcut cu lăbuța, de rămas-bun.",
+          "mood": "calm"
+        },
+        {
+          "text": "— Noapte bună, Fulguța!",
+          "mood": "somnoros",
+          "speaker": "Lio"
+        }
+      ],
+      "image": "images/pagina-09.png",
+      "imagePrompt": "High-quality 3D animated feature film still for young children, modern family animation movie style, adorable expressive characters with big eyes and soft rounded shapes, detailed soft textures, warm cinematic lighting, rich gentle colors, magical and cozy atmosphere, shallow depth of field, nothing scary, no text, no letters, no numbers, no logos. Landscape 3:2 composition, main subject centered. Characters in this scene: Lio: a small, chubby, adorable lion cub with baby proportions (big round head about half of his height), soft golden-yellow fur, a short fluffy caramel-orange mane with one curly tuft on top, big round dark-brown sparkling eyes, rosy cheeks, a small brown heart-shaped nose, round ears with pink inside, always wearing a turquoise scarf with little yellow stars, a caramel tuft at the tip of the tail, walks upright like a 4-year-old child, friendly and curious expression; Fulguța: a small young penguin with brand-new smooth shiny black-and-white feathers, a white belly, a small orange beak, little orange feet, short flippers and big curious eyes; Mama Pinguin: a tall kind grown-up penguin with smooth black-and-white feathers, a soft yellow patch on her neck and gentle eyes. Setting: a sunny icy shore with smooth white snow, rounded rocks, a calm blue sea and a small shallow clear pool among the rocks, a soft pink and golden evening sky. Action: Fulguța, the small young penguin with shiny black-and-white feathers, snuggles close against the side of the tall kind grown-up penguin mother with a soft yellow patch on her neck, on the snowy shore, both cozy and sleepy; exactly one lion cub, Lio, with a turquoise scarf with little yellow stars, waves goodbye with one paw, smiling. Emotions: peaceful, warm, proud. Important details: the chick snuggling against her mother at sunset. Camera: wide shot.",
+      "animation": {
+        "camera": "zoom-out",
+        "effect": "hearts"
+      }
+    }
+  ],
+  "categories": [
+    "animale",
+    "aventuri"
+  ],
+  "review": {
+    "imaginatie": "Un pui de pinguin care își pierde puful și primește pene noi (pagina 1), un tobogan pe burtă, pe zăpadă (5), crevete care sclipesc „ca niște steluțe roz” sub apă (6) și o pinguină mică ce „zboară” sub apă (8).",
+    "invatare": "Curajul în pași mici e chiar firul poveștii: picioarele în apă mică (3), stropii (4), alunecatul (5), bulele și ochii deschiși sub apă (6), înotul pe lângă mal (7), apoi „zborul” sub apă (8). Siguranță: Fulguța învață doar unde apa e mică și cu mama mereu lângă ea, iar Lio spune că și el a învățat cu mama alături (2). Fapte despre pinguini: puii primesc pene noi înainte să intre în apă (1), alunecă pe burtă (5), mănâncă și văd crevete mici (6), „zboară” sub apă (8) și se încălzesc ghemuiți unul lângă altul (9).",
+    "umor": [
+      "pagina 3: „Brrr! E rece!… Hm… nu e chiar așa de rău!”",
+      "pagina 4: stropii zboară pe Lio: „Hei, acum înot și eu!”",
+      "pagina 5: tobogan pe burtă: „Uiii! Încă o dată!”",
+      "pagina 8: sare din apă ca un delfin mic: plici!"
+    ],
+    "emotie": "Frica Fulguței e reală și blândă (1–2); nimeni nu o grăbește. Fiecare pas mic aduce puțin mai mult curaj, iar reușita e a ei (3–8). Finalul e cald, ghemuită lângă mama ei: „Pas cu pas, frica s-a făcut tot mai mică” (9).",
+    "siguranta": "Mesajul de siguranță e limpede: se învață înotul doar cu un adult lângă tine, unde apa e mică (2, 3, 7). Mama e aproape la fiecare pas în apă. Lio nu intră în mare. Nimic înfricoșător: marea e liniștită.",
+    "imagini": "Lio, Fulguța și mama ei (fără oameni), cel mult trei personaje pe imagine; „exactly one lion cub, Lio”. Fulguța e un pui cu pene noi, lucioase, mai mic decât mama, care are o pată galbenă pe gât, ca să nu se confunde. Fără numere de obiecte, fără litere, fără oglinzi, fără guri de aproape. Fiecare prompt arată pasul paginii. Voi privi fiecare imagine după publicare și o refac pe cea care nu se potrivește.",
+    "voce": "Narațiune caldă, cu pauze după „Brrr!”, „pleosc”, „uiii!”, „blup” și „plici!”; entuziasmată la reușite, somnoroasă la final. Fulguța are o voce subțire, de pui; mama ei o voce caldă și liniștită; Lio vocea lui obișnuită. Replicile sunt separate de vorbele naratorului."
+  },
+  "verified": false,
+  "questions": [
+    {
+      "text": "Cum a învățat Fulguța să înoate?",
+      "options": [
+        {
+          "text": "Dintr-odată, în larg",
+          "emoji": "🌊"
+        },
+        {
+          "text": "Pas cu pas, cu mama lângă ea",
+          "image": "images/pagina-07.png"
+        }
+      ],
+      "answer": 1,
+      "explanation": "Corect! Cu pași mici și cu mama mereu aproape."
+    },
+    {
+      "text": "Unde zboară pinguinii?",
+      "options": [
+        {
+          "text": "Sub apă",
+          "emoji": "🐧"
+        },
+        {
+          "text": "Printre nori",
+          "emoji": "☁️"
+        }
+      ],
+      "answer": 0,
+      "explanation": "Bravo! Pinguinii nu zboară prin aer, dar înoată atât de repede, de parcă ar zbura sub apă."
+    }
+  ]
+}
