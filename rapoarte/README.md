@@ -2,13 +2,14 @@
 
 Generate automat la fiecare publicare. Un AI care a adăugat sau a modificat o poveste citește raportul ei și corectează tot ce scrie la „De corectat”, până când raportul spune „publicată”.
 
-Ultima verificare: 2026-11-23 04:46 UTC
+Ultima verificare: 2026-11-24 04:15 UTC
 
 | Poveste | Stare | De corectat | Reparate automat |
 | --- | --- | --- | --- |
 | [Aricel și visul de a zbura](aricel-si-visul-de-a-zbura.md) | ✅ publicată | 0 | 0 |
 | [Bubu, dragonul care strănuta bule](bubu-dragonul-care-stranuta-bule.md) | ✅ publicată | 0 | 0 |
 | [Fifi, fantomița care se temea de întuneric](fifi-fantomita-care-se-temea-de-intuneric.md) | ✅ publicată | 0 | 0 |
+| [Fulguța și primul înot](fulguta-puiul-de-pinguin-care-se-temea-de-apa.md) | ❌ nepublicată | 5 | 6 |
 | [Hopi, broscuța care sărea prea tare](hopi-broscuta-care-sarea-prea-tare.md) | ✅ publicată | 0 | 0 |
 | [Lio și bufnița care dormea ziua](lio-si-bufnita-care-dormea-ziua.md) | ✅ publicată | 0 | 0 |
 | [Lio și cârtița din grădina bunicii](lio-si-cartita-din-gradina-bunicii.md) | ✅ publicată | 0 | 0 |
