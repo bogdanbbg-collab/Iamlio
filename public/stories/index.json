@@ -33,6 +33,29 @@
   ],
   "stories": [
     {
+      "id": "fulguta-puiul-de-pinguin-care-se-temea-de-apa",
+      "title": "Fulguța și primul înot",
+      "summary": "Fulguța, un pui de pinguin cu pene noi, se teme de apă. Cu mama ei mereu aproape și cu Lio pe mal, învață să înoate pas cu pas, până când descoperă că pinguinii „zboară” sub apă.",
+      "age": "3-7",
+      "tags": [
+        "pinguin",
+        "înot",
+        "curaj",
+        "frică",
+        "gheață",
+        "mama"
+      ],
+      "categories": [
+        "animale",
+        "aventuri"
+      ],
+      "created": "2026-11-24",
+      "cover": "stories/fulguta-puiul-de-pinguin-care-se-temea-de-apa/images/coperta.webp",
+      "pages": 9,
+      "minutes": 6,
+      "published": "2026-11-24"
+    },
+    {
       "id": "supa-de-piatra-a-lui-lio",
       "title": "Supa de piatră a lui Lio",
       "summary": "Lio nu are nimic de mâncare, doar o piatră și un ceaun fermecat. Așa că face „supă de piatră”, iar prietenii lui, iepurașa Lulu și ariciul Ghimpi, aduc fiecare câte ceva. Împreună iese o supă pentru toți.",
