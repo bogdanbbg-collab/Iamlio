@@ -10,9 +10,9 @@
     "pagina-07.mp3": "71d6690e599e990b1d14a1c409b5a65ba2531c26",
     "pagina-08.mp3": "cf55355a87b2d7845dae8d6d71bbe8f71d9047cb",
     "pagina-09.mp3": "ff6b1c2476bb0f9b61049e486f51165662f03311",
-    "final.mp3": "e73ef08034c2e9ab98cfc0c9d91439767d1d92d9",
-    "intrebare-1.mp3": "183b9ea9acb676fe841dd9e15e9d3cea267e130d",
-    "raspuns-1.mp3": "dd8bdbbd06ec945a8264ff142ae9c67d2a2a94bf",
+    "final.mp3": "84f22c6c54945bcd1916a5bd62fa64314c05c050",
+    "intrebare-1.mp3": "1856127d24b05963692c6a051650e5d7f69f98d5",
+    "raspuns-1.mp3": "c7240bdc763145f0ea2a93abb31804512d831125",
     "intrebare-2.mp3": "0f4c3bf8a0be85655c8fbaa9b635a199d2f0440a",
     "raspuns-2.mp3": "89b0aa33b2089ffa29fc3ca2815247bb0285b04b"
   },
@@ -282,31 +282,31 @@
       "final.mp3": [
         [
           0.6,
-          2.03
+          1.34
         ],
         [
-          2.63,
-          6.18
+          1.34,
+          5.23
         ],
         [
-          6.98,
-          10.75
+          5.23,
+          9.77
         ]
       ],
       "intrebare-1.mp3": [
         [
           0.6,
-          3.7
+          5.09
         ],
         [
-          4.2,
-          6.58
+          5.09,
+          7.66
         ]
       ],
       "raspuns-1.mp3": [
         [
           0.6,
-          3.77
+          6.52
         ]
       ],
       "intrebare-2.mp3": [
@@ -631,9 +631,9 @@
       "pagina-07.mp3": "gemini",
       "pagina-08.mp3": "gemini",
       "pagina-09.mp3": "gemini",
-      "final.mp3": "chirp",
-      "intrebare-1.mp3": "chirp",
-      "raspuns-1.mp3": "chirp",
+      "final.mp3": "gemini",
+      "intrebare-1.mp3": "gemini",
+      "raspuns-1.mp3": "gemini",
       "intrebare-2.mp3": "chirp",
       "raspuns-2.mp3": "chirp"
     },
