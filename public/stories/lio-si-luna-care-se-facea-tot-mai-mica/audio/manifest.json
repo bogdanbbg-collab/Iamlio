@@ -1,6 +1,6 @@
 {
   "feminin": {
-    "coperta.mp3": "7285b4d7f0248e3d6990691515c6c4fb1e4d9c01",
+    "coperta.mp3": "5dec37981c43724e84973848a4b5fd31bee6541d",
     "pagina-01.mp3": "1031352bf99e29abb8e96e8fb7f8a3979488ae88",
     "pagina-02.mp3": "69f62e1e36689ca519d4c5de3580c82e7444dd88",
     "pagina-03.mp3": "f124d2f98c8324385d6a5e4c8f94f50f78c83b9a",
@@ -9,8 +9,8 @@
     "pagina-06.mp3": "954e78d82a09db53ff751893a37ce1f9e475c0bc",
     "pagina-07.mp3": "df6cd455a0c11c13b44c380eaeadced9b88193a6",
     "pagina-08.mp3": "abe14faedf5dce64974040621ff6a3832feb1d7b",
-    "pagina-09.mp3": "6e136a436841bce28198a08ef345db3e2e5a489d",
-    "final.mp3": "5754baa78dff686637a10d0680d321b7674db42a",
+    "pagina-09.mp3": "211ee940b64454b415890d210176c92db3ec6e30",
+    "final.mp3": "1b7fa0e95649f8107fe1bd7c7a4072d97f86a895",
     "intrebare-1.mp3": "4993a23eab4e70f1a7d48db1ce4e85efbc7ddc0d",
     "raspuns-1.mp3": "5d6456024c07d3ae52fede226b1d23d3bc91071b",
     "intrebare-2.mp3": "d3ea422022eb2b0e9fcd07bc80384baa6f2d379d",
@@ -38,11 +38,11 @@
       "coperta.mp3": [
         [
           0.6,
-          5.47
+          7.06
         ],
         [
-          6.07,
-          9.25
+          7.06,
+          10.71
         ]
       ],
       "pagina-01.mp3": [
@@ -260,41 +260,41 @@
       "pagina-09.mp3": [
         [
           0.6,
-          9.89
+          10.75
         ],
         [
-          10.19,
-          13.52
+          10.75,
+          14.56
         ],
         [
-          13.82,
-          15.14
+          14.56,
+          15.73
         ],
         [
-          15.44,
-          19.49
+          15.73,
+          20.62
         ],
         [
-          19.79,
-          21.48
+          20.62,
+          21.89
         ],
         [
-          21.78,
-          26.82
+          21.89,
+          28.33
         ]
       ],
       "final.mp3": [
         [
           0.6,
-          1.58
+          1.48
         ],
         [
-          2.18,
-          5.62
+          1.48,
+          6.2
         ],
         [
-          6.42,
-          12.35
+          6.2,
+          13.23
         ]
       ],
       "intrebare-1.mp3": [
@@ -629,7 +629,7 @@
   },
   "motor": {
     "feminin": {
-      "coperta.mp3": "chirp",
+      "coperta.mp3": "gemini",
       "pagina-01.mp3": "gemini",
       "pagina-02.mp3": "gemini",
       "pagina-03.mp3": "gemini",
@@ -638,8 +638,8 @@
       "pagina-06.mp3": "gemini",
       "pagina-07.mp3": "gemini",
       "pagina-08.mp3": "gemini",
-      "pagina-09.mp3": "chirp",
-      "final.mp3": "chirp",
+      "pagina-09.mp3": "gemini",
+      "final.mp3": "gemini",
       "intrebare-1.mp3": "chirp",
       "raspuns-1.mp3": "chirp",
       "intrebare-2.mp3": "chirp",
