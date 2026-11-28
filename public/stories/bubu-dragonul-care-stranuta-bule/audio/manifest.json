@@ -5,7 +5,7 @@
     "pagina-02.mp3": "b0fa328c0d2f162333e16a578d247bd18ff7bce6",
     "pagina-03.mp3": "ada6699f54b76a533ef73ed0f920118e50889348",
     "pagina-04.mp3": "4ba6edc0dbbaf2940b004fb5822e51858b7c73e0",
-    "pagina-05.mp3": "9dfe2cae66fcc004e630feaac513efa98061f85d",
+    "pagina-05.mp3": "f8ceb5474a0076b175d64af7748b5ca840b89ef1",
     "pagina-06.mp3": "8b58d4b5b6017d2927de0e915608e553e04a69e1",
     "pagina-07.mp3": "3c0609a3baf7da6ebcb434164b22e9febe10266a",
     "pagina-08.mp3": "366d28b98235078a6b518d7f31e6717c52eb706d",
@@ -164,35 +164,35 @@
       "pagina-05.mp3": [
         [
           0.6,
-          5.99
+          6.53
         ],
         [
-          6.29,
-          12.9
+          6.53,
+          14.78
         ],
         [
-          13.2,
-          16.3
+          14.78,
+          17.75
         ],
         [
-          16.6,
-          18.09
+          17.75,
+          19.45
         ],
         [
-          18.39,
-          19.57
+          19.45,
+          20.53
         ],
         [
-          19.87,
-          21.39
+          20.53,
+          22.51
         ],
         [
-          21.69,
-          23.74
+          22.51,
+          24.48
         ],
         [
-          24.04,
-          27.05
+          24.48,
+          28.25
         ]
       ],
       "pagina-06.mp3": [
@@ -682,7 +682,7 @@
       "pagina-02.mp3": "gemini",
       "pagina-03.mp3": "gemini",
       "pagina-04.mp3": "gemini",
-      "pagina-05.mp3": "chirp",
+      "pagina-05.mp3": "gemini",
       "pagina-06.mp3": "chirp",
       "pagina-07.mp3": "chirp",
       "pagina-08.mp3": "chirp",

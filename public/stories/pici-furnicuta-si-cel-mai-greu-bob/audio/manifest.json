@@ -10,11 +10,11 @@
     "pagina-07.mp3": "0cdc5e4b52c8cc4ac5ff58bb806d6ea5e0015814",
     "pagina-08.mp3": "e5f95f1191f088f995635214c178f29760c67cf1",
     "pagina-09.mp3": "15b9f3833db2707c6dbc0717f4a4cbb6a1a8e16a",
-    "final.mp3": "55b6278d95d69d89f7fd0a52ae583a3a04ad67ba",
-    "intrebare-1.mp3": "4b034d883e5c546465f1609e08ffd4c7ff8fa693",
-    "raspuns-1.mp3": "40918d2b51510746e25f1d2ca626bf5953ba0c69",
-    "intrebare-2.mp3": "f5ec2825cfc5e1b697b3042fb21291ffbd020b17",
-    "raspuns-2.mp3": "cd6c406c90f6039e4d556681610d6e983012c9fa"
+    "final.mp3": "6f178eeb7af0f67a35294755d23d2dc6a87e2232",
+    "intrebare-1.mp3": "d503952f982fc9c91fd6fb8465202214231a828b",
+    "raspuns-1.mp3": "e4038bf4cebbd4a1abd62acf563199fb3075a848",
+    "intrebare-2.mp3": "f80c458c1f87e411345858885ebec3591fe82d29",
+    "raspuns-2.mp3": "8b7fd3e0d8f82ed41b8c205fc78b056284cb294c"
   },
   "masculin": {
     "coperta.mp3": "7caa5d6436bc9a8b9b643220be72ed642cbaa693",
@@ -294,47 +294,47 @@
       "final.mp3": [
         [
           0.6,
-          2.15
+          1.32
         ],
         [
-          2.75,
-          9.21
+          1.32,
+          7.5
         ],
         [
-          10.01,
-          15.98
+          7.5,
+          12.52
         ]
       ],
       "intrebare-1.mp3": [
         [
           0.6,
-          2.82
+          3.94
         ],
         [
-          3.32,
-          7.02
+          3.94,
+          8.95
         ]
       ],
       "raspuns-1.mp3": [
         [
           0.6,
-          6.33
+          7.12
         ]
       ],
       "intrebare-2.mp3": [
         [
           0.6,
-          2.82
+          3.15
         ],
         [
-          3.32,
-          6.37
+          3.15,
+          6.57
         ]
       ],
       "raspuns-2.mp3": [
         [
           0.6,
-          4.93
+          5.29
         ]
       ]
     },
@@ -655,11 +655,11 @@
       "pagina-07.mp3": "gemini",
       "pagina-08.mp3": "gemini",
       "pagina-09.mp3": "gemini",
-      "final.mp3": "chirp",
-      "intrebare-1.mp3": "chirp",
-      "raspuns-1.mp3": "chirp",
-      "intrebare-2.mp3": "chirp",
-      "raspuns-2.mp3": "chirp"
+      "final.mp3": "gemini",
+      "intrebare-1.mp3": "gemini",
+      "raspuns-1.mp3": "gemini",
+      "intrebare-2.mp3": "gemini",
+      "raspuns-2.mp3": "gemini"
     },
     "masculin": {
       "coperta.mp3": "chirp",
